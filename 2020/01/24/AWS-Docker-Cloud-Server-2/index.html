@@ -408,20 +408,20 @@ height:100vh;
 <p><img src="https://user-images.githubusercontent.com/26552500/73048829-07eca600-3e40-11ea-8dcb-a0fc44677f1c.png" alt="image"></p>
 <p>2 Docker 설치</p>
 <p><img src="https://user-images.githubusercontent.com/26552500/73048917-51d58c00-3e40-11ea-8dda-5ae7491f522a.png" alt="image"></p>
-<p>[Command] - 설치<br>sudo yum install docker-io   – yes</p>
-<p>[Command] - 확인<br>docker</p>
+<p>[Command] - 설치<br> <figure class="highlight plain"><figcaption><span>yum install docker-io   -- yes```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[Command] - 확인   </span><br><span class="line">&#96;&#96;&#96;docker</span><br></pre></td></tr></table></figure></p>
 <p><img src="https://user-images.githubusercontent.com/26552500/73049014-a6790700-3e40-11ea-878e-95aef988d168.png" alt="image"></p>
-<p>[Command] - 도커리스트를 실행시켜줌<br>sudo systemctl start docker</p>
-<p>[Command] - 현재 접속 유저의 계정 정보와 root 계정이 달라서 발생된 에러라 해당 부분에 권한을 주고 다시 실행<br>sudo setfacl -m user:ec2-user:rw /var/run/docker.sock</p>
-<p>[Command] - 도커리스트 확인<br>docker ps -a</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/73049146-34ed8880-3e41-11ea-828d-125cff05744b.png" alt="image"></p>
-<p>[Command] - 기존 지라 도커 컨테이너 삭제  </p>
-<figure class="highlight docker"><figcaption><span>rm --volumes --force "jira-container```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[Command] - 지라 도커 컨테이너 설치  </span><br><span class="line">```docker pull cptactionhank/atlassian-jira-software:latest</span><br></pre></td></tr></table></figure>
+<p>[Command] - 도커리스트를 실행시켜줌   </p>
+<figure class="highlight plain"><figcaption><span>systemctl start docker```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[Command] - 현재 접속 유저의 계정 정보와 root 계정이 달라서 발생된 에러라 해당 부분에 권한을 주고 다시 실행    </span><br><span class="line">&#96;&#96;&#96;sudo setfacl -m user:ec2-user:rw &#x2F;var&#x2F;run&#x2F;docker.sock</span><br></pre></td></tr></table></figure>
 
-<p>[Command] - 지라 도커 컨테이너 생성  </p>
-<figure class="highlight docker"><figcaption><span>create --restart</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[Command] - 지라 도커 컨테이너 실행  </span><br><span class="line">```docker start --attach <span class="string">"jira-container</span></span><br></pre></td></tr></table></figure>
+<p>[Command] - 도커리스트 확인   </p>
+<figure class="highlight docker"><figcaption><span>ps -a```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">![image](https://<span class="keyword">user</span>-images.githubusercontent.com/<span class="number">26552500</span>/<span class="number">73049146</span>-<span class="number">34</span>ed8880-<span class="number">3</span>e41-<span class="number">11</span>ea-<span class="number">828</span>d-<span class="number">125</span>cff05744b.png)</span><br><span class="line"></span><br><span class="line">[Command] - 기존 지라 도커 컨테이너 삭제   </span><br><span class="line">```docker rm --volumes --force <span class="string">"jira-container</span></span><br></pre></td></tr></table></figure>
 
-<p>[Command] - 지라 셋업 페이<br><code>http://ec2-34-227-142-147.compute-1.amazonaws.com:8080/</code></p>
+<p>[Command] - 지라 도커 컨테이너 설치  </p>
+<figure class="highlight docker"><figcaption><span>pull cptactionhank/atlassian-jira-software:latest```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[Command] - 지라 도커 컨테이너 생성  </span><br><span class="line">```docker create --restart=no --name <span class="string">"jira-container"</span>  --publish <span class="string">"8080:8080"</span>  --<span class="keyword">volume</span><span class="bash"> <span class="string">"hostpath:/var/atlassian/jira"</span> --env <span class="string">"CATALINA_OPTS= -Xms1024m -Xmx1024m -Datlassian.plugins.enable.wait=300"</span> cptactionhank/atlassian-jira-software:latest</span></span><br></pre></td></tr></table></figure>
+
+<p>[Command] - 지라 도커 컨테이너 실행  </p>
+<figure class="highlight docker"><figcaption><span>start --attach "jira-container```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[Command] - 지라 셋업 페이</span><br><span class="line">```http://ec2-<span class="number">34</span>-<span class="number">227</span>-<span class="number">142</span>-<span class="number">147</span>.compute-<span class="number">1</span>.amazonaws.com:<span class="number">8080</span>/</span><br></pre></td></tr></table></figure>
+
 <p><img src="https://user-images.githubusercontent.com/26552500/73049255-957cc580-3e41-11ea-92c8-7e9b701a8bff.png" alt="image"></p>
 <p><img src="https://user-images.githubusercontent.com/26552500/73049284-ae857680-3e41-11ea-8be1-e9cd62d6eae7.png" alt="image"></p>
 <p><img src="https://user-images.githubusercontent.com/26552500/73130579-e3700580-3fc8-11ea-8144-6df985c162ce.png" alt="image"></p>
@@ -563,6 +563,10 @@ top:100vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
     
     
     
