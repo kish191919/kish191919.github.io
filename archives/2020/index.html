@@ -358,10 +358,16 @@
 
 2 Docker 설치
 
-[Command] - 설치 yum install docker-io   -- yes```123[Command] - 확인   &#96;&#96;&#96;docker
+[Command] - 설치 1sudo yum install docker-io   -- yes
+[Command] - 확인   
+1docker
+
 
 [Command] - 도커리스트를 실행시켜줌   
-systemctl start docker```123[Command] - 현재 접속 유저의 계정 정보와 root 계정이 달라서 발생된 에러라 해당 부분에 권한을 주고 다시 실행    &#96;&#96;&#96;sudo setfacl -m user:ec2-user:rw &#x...
+1sudo systemctl start docker
+
+[Command] - 현재 접속 유저의 계정 정보와 root 계정이 달라서 발생된 에러라 해당 부분에 권한을 주고 다시 실행    
+1sudo setfacl -m user:ec2-user:rw &#x2F;var&#x2F;run&#x2F;d...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -536,8 +542,6 @@ Mo...
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
     
     
     
