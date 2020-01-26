@@ -401,7 +401,41 @@ height:100vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        
+        <p>1 Jira Issue 시작</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/73131945-bc71fd80-3fe1-11ea-99d3-9b0f9afc5f4f.png" alt="image"></p>
+<p>Projects -&gt; View All Projects<br><img src="https://user-images.githubusercontent.com/26552500/73131963-1b377700-3fe2-11ea-83ca-38303bbc6bc2.png" alt="image"></p>
+<p>Click “블로그 프로젝트”<br><img src="https://user-images.githubusercontent.com/26552500/73131971-618cd600-3fe2-11ea-9f05-a5c37f308090.png" alt="image"></p>
+<p>Click “Issues”<br><img src="https://user-images.githubusercontent.com/26552500/73131983-7b2e1d80-3fe2-11ea-9329-f81e35b15ffa.png" alt="image"></p>
+<p>Click “Create”<br><img src="https://user-images.githubusercontent.com/26552500/73131995-b3356080-3fe2-11ea-8f9f-7ae855c87b9e.png" alt="image"></p>
+<p>Fill out the form and then click “Create”<br><img src="https://user-images.githubusercontent.com/26552500/73132016-f2fc4800-3fe2-11ea-9294-172615d7572c.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/73132024-28089a80-3fe3-11ea-8091-8e5ee5374b8c.png" alt="image"></p>
+<p>2 Jira API  </p>
+<p><a href="https://docs.atlassian.com/software/jira/docs/api/REST/8.4.2/?_ga=2.93052573.1639889686.1571238783-647032862.1567516016" target="_blank" rel="noopener">Link : Jira API Document</a></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/73132093-5fc41200-3fe4-11ea-90d8-90ecf8ac5bd6.png" alt="image"></p>
+<p>API 를 사용하게 되면 데이터는 JSON의 형태로 데이터가 넘어오게 됩니다. Create 이슈는 이슈를 생성하는 것이고 Get 이슈는 이슈의 정보를 가져오는 것입니다.<br>그리고 DELETE 로 이슈를 삭제할 수 있고 PUT 으로 이슈를 수정할 수 있습니다. 이 API 를 실제로 사용하기 위해서 POSTMAN이라는<br>툴을 설치합니다.</p>
+<p>POSTMAN<br><a href="https://www.getpostman.com/" target="_blank" rel="noopener">https://www.getpostman.com/</a>  </p>
+<blockquote>
+<p>포스트 맨은 가입해서 ID/PWD 만 있으면 무료로 사용 가능한 다양한 API 메세징을 보낼 수 있는 유용한 툴입니다</p>
+</blockquote>
+<p><img src="https://user-images.githubusercontent.com/26552500/73132202-af570d80-3fe5-11ea-894c-7fab5e89ad9c.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/73132289-0b6e6180-3fe7-11ea-9574-3122a3cca5e1.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;&quot;amazon_address&quot;&#x2F;rest&#x2F;api&#x2F;2&#x2F;issue&#x2F;BLO-1</span><br></pre></td></tr></table></figure>
+
+
+<img width="1148" alt="Screen Shot 2020-01-26 at 2 51 06 AM" src="https://user-images.githubusercontent.com/26552500/73132270-d82bd280-3fe6-11ea-877c-69187237f6b5.png">   
+
+
+<p><img src="https://user-images.githubusercontent.com/26552500/73132323-a9fac280-3fe7-11ea-8a7f-417d931421dc.png" alt="image"></p>
+<p>[GET]<br><img src="https://user-images.githubusercontent.com/26552500/73132338-ca2a8180-3fe7-11ea-93c8-2ee6ee00e372.png" alt="image"></p>
+<img width="1569" alt="Screen Shot 2020-01-26 at 3 46 07 AM" src="https://user-images.githubusercontent.com/26552500/73132849-72434900-3fee-11ea-920a-e30ab563681c.png">
+[POST]  
+Create issue
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&quot;fields&quot;: &#123;</span><br><span class="line">                &quot;project&quot;: &#123;</span><br><span class="line">                    &quot;key&quot;: &quot;BLO&quot;</span><br><span class="line">                &#125;,</span><br><span class="line">                &quot;summary&quot;: &quot;테스트&quot;,</span><br><span class="line">                &quot;issuetype&quot;: &#123;</span><br><span class="line">                    &quot;id&quot;: &quot;10002&quot;</span><br><span class="line">                &#125;,</span><br><span class="line">                &quot;assignee&quot;: &#123;</span><br><span class="line">                    &quot;name&quot;: &quot;kish1919&quot;</span><br><span class="line">                &#125;,</span><br><span class="line">                &quot;reporter&quot;: &#123;</span><br><span class="line">                    &quot;name&quot;: &quot;kish1919&quot;</span><br><span class="line">                &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<img width="1584" alt="Screen Shot 2020-01-26 at 3 41 01 AM" src="https://user-images.githubusercontent.com/26552500/73132791-be41be00-3fed-11ea-8942-9d51638cd455.png">
+
+<p>  <img src="https://user-images.githubusercontent.com/26552500/73132811-f77a2e00-3fed-11ea-82e9-c71b30bd00fc.png" alt="image"></p>
+
     </article>
     <!-- license  -->
     
@@ -539,8 +573,6 @@ top:100vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
     
     
     
