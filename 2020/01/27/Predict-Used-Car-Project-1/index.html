@@ -410,6 +410,12 @@ height:100vh;
 
 
 
+<hr>
+<p>디스크용량 확인</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df -P | grep -v ^Filesystem | awk &#39;&#123;sum +&#x3D; $2&#125; END &#123; print sum&#x2F;1024&#x2F;1024 &quot; GB&quot; &#125;&#39;</span><br></pre></td></tr></table></figure>
+
+<p>디스크 사용량</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df -P | grep -v ^Filesystem | awk &#39;&#123;sum +&#x3D; $3&#125; END &#123; print sum&#x2F;1024&#x2F;1024 &quot; GB&quot; &#125;&#39;</span><br></pre></td></tr></table></figure>
     </article>
     <!-- license  -->
     
@@ -547,6 +553,12 @@ top:100vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
     
     
     
