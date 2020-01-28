@@ -410,6 +410,26 @@ height:100vh;
 <p>mysql 시작하기</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo mysql -u root -p</span><br></pre></td></tr></table></figure>
 <p><img src="https://user-images.githubusercontent.com/26552500/73223480-cc95f400-412b-11ea-9ea4-3fc170897756.png" alt="image"></p>
+<p>2 mysql start &amp; stop &amp; restart &amp; status</p>
+<p>mysql을 시작하고 종료하고 재시작하고 상태를 확인하는 방법입니다. </p>
+<p>systemctl : 서비스 관리하는 명령</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># mysql 시작</span><br><span class="line">$ sudo systemctl start mysql</span><br><span class="line"></span><br><span class="line"># mysql 종료</span><br><span class="line">$ sudo systemctl stop mysql</span><br><span class="line"></span><br><span class="line"># mysql 재시작</span><br><span class="line">$ sudo systemctl restart mysql.service</span><br><span class="line"></span><br><span class="line"># mysql 상태확인</span><br><span class="line">$ sudo systemctl status mysql.service</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/26552500/73223699-9d33b700-412c-11ea-85be-2b5d69e4d553.png" alt="image"></p>
+<p>3 Connection</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># mysql 설정파일 bind-address &#x3D; 0.0.0.0 으로 수정 </span><br><span class="line">$ sudo vi &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnf </span><br><span class="line"></span><br><span class="line">bind-address &#x3D; 0.0.0.0</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 외부접속이 허용되도록 mysql 설정</span><br><span class="line">sql&gt; grant all privileges on *.* to root@&#39;%&#39; identified by &#39;&lt;password&gt;&#39;;</span><br><span class="line"></span><br><span class="line"># 비밀번호가 qwer1234 인경우</span><br><span class="line">ex) grant all privileges on *.* to root@&#39;%&#39; identified by &#39;qwer1234&#39;;</span><br></pre></td></tr></table></figure>
+
+<img width="555" alt="Screen Shot 2020-01-27 at 5 47 11 PM" src="https://user-images.githubusercontent.com/26552500/73223862-221ed080-412d-11ea-80d8-7426fd9a8970.png">
+
+<p>4  포트 활성화<br>AWS 서비스에 들어가서 3306포트를 활성화 시켜 줍니다.</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/73225142-47154280-4131-11ea-9edb-be578159f1d7.png" alt="image"></p>
+<p>5 issues</p>
+<p>If you have a problem to install mysqlclient</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-pip python-dev libmysqlclient-dev</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/26552500/73225082-0ae1e200-4131-11ea-8096-6f28a6151273.png" alt="image"></p>
 
     </article>
     <!-- license  -->
@@ -548,16 +568,6 @@ top:100vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
