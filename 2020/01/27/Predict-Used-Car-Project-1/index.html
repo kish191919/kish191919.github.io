@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>AWS/Docker Cloud Server (4) · Danny&#39;s Studio</title>
+    <title>Predict Used Car Project (1) · Danny&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >Danny&#39;s Studio.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">AWS/Docker Cloud Server (4)</a>
+                <a href="#" class="post-name">Predict Used Car Project (1)</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:100vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            AWS/Docker Cloud Server (4)
+            Predict Used Car Project (1)
             <!-- 404 -->
             
         </h1>
@@ -264,20 +264,10 @@ height:100vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
-                    <div class= post-intro-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "AWS">AWS</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Docker">Docker</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JIRA">JIRA</a>
-    
-</div>
-                
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2020/01/26</span>
+                    <span class="post-intro-time">2020/01/27</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -401,7 +391,24 @@ height:100vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>1 Install Confluence</p>
+        <p>Install CMake</p>
+<p>Enter the following command to download the source code:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ wget https:&#x2F;&#x2F;github.com&#x2F;Kitware&#x2F;CMake&#x2F;releases&#x2F;download&#x2F;v3.15.2&#x2F;cmake-3.15.2.tar.gz</span><br><span class="line">$ tar -zxvf cmake-3.15.2.tar.gz</span><br><span class="line">$ cd cmake-3.15.2</span><br><span class="line">.&#x2F;bootstrap</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/26552500/73230770-f22ef780-4143-11ea-863e-4c2221ac32ee.png" alt="image"></p>
+<p>You can now make it using the following command:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make</span><br></pre></td></tr></table></figure>
+
+<p>And then install it as follows:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo make install</span><br></pre></td></tr></table></figure>
+
+<p>After the software is successfully installed, you can verify its installation and also if the correct version is<br> installed, through the following command:<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cmake --version</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>Install XGBoost</p>
+<p>Enter the following command to download the source code:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git clone --recursive https:&#x2F;&#x2F;github.com&#x2F;dmlc&#x2F;xgboost</span><br><span class="line">cd xgboost</span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ..</span><br><span class="line">make -j4</span><br></pre></td></tr></table></figure>
+
+
 
     </article>
     <!-- license  -->
@@ -410,17 +417,12 @@ height:100vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2020/01/27/MYSQL-Installation-1/" title= "MYSQL_Installation(1)">
-                    <div class="nextTitle">MYSQL_Installation(1)</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2020/01/25/AWS-Docker-Cloud-Server-3/" title= "AWS/Docker Cloud Server (3)">
-                    <div class="prevTitle">AWS/Docker Cloud Server (3)</div>
+                <a href= "/2020/01/27/MYSQL-Installation-2/" title= "MYSQL_Installation(2)">
+                    <div class="prevTitle">MYSQL_Installation(2)</div>
                 </a>
             
         </li>
