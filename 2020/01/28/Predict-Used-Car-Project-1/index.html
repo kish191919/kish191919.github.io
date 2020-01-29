@@ -449,6 +449,13 @@ height:100vh;
 <p>3 aws 서버 연결</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(1) 좌측 상단의 새연결 버튼을 누름</span><br><span class="line">(2) SFTP를 선택</span><br><span class="line">(3) 서버 IP를 작성 (AWS console 페이지에서 확인) </span><br><span class="line">(4) 사용자 이름을 ubuntu로 설정</span><br><span class="line">(5) SSH Private Key의 경로를 설정</span><br><span class="line">(6) 연결 버튼 클릭</span><br></pre></td></tr></table></figure>
 <p><img src="https://user-images.githubusercontent.com/26552500/73321090-fcfe9080-4206-11ea-9978-fe42bdfcd507.png" alt="image"></p>
+<hr>
+<h3 id="Issue"><a href="#Issue" class="headerlink" title="Issue"></a>Issue</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ModuleNotFoundError: No module named &#39;_lzma&#39;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/26552500/73321370-dee56000-4207-11ea-957a-608b4eb974ac.png" alt="image"></p>
+<p>Solution</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Removed 3.7.1 with </span><br><span class="line">pyenv uninstall 3.7.1</span><br><span class="line"></span><br><span class="line"># installed dependencies </span><br><span class="line">sudo apt install liblzma-dev </span><br><span class="line"></span><br><span class="line"># reinstalled </span><br><span class="line">pyenv install 3.7.1.</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73321767-20c2d600-4209-11ea-8350-3d8c17d7743d.png" alt="image"></p>
 
     </article>
     <!-- license  -->
@@ -574,7 +581,7 @@ top:100vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Python"><span class="toc-number">1.</span> <span class="toc-text">Python</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Jupyter-notebook"><span class="toc-number">2.</span> <span class="toc-text">Jupyter notebook</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cyberduck"><span class="toc-number">3.</span> <span class="toc-text">cyberduck</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Python"><span class="toc-number">1.</span> <span class="toc-text">Python</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Jupyter-notebook"><span class="toc-number">2.</span> <span class="toc-text">Jupyter notebook</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cyberduck"><span class="toc-number">3.</span> <span class="toc-text">cyberduck</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Issue"><span class="toc-number">4.</span> <span class="toc-text">Issue</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -587,22 +594,6 @@ top:100vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
