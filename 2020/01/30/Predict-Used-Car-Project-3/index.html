@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>MYSQL_Installation(1) · Danny&#39;s Studio</title>
+    <title>Predict Used Car Project (3) · Danny&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >Danny&#39;s Studio.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">MYSQL_Installation(1)</a>
+                <a href="#" class="post-name">Predict Used Car Project (3)</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:100vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            MYSQL_Installation(1)
+            Predict Used Car Project (3)
             <!-- 404 -->
             
         </h1>
@@ -264,16 +264,10 @@ height:100vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
-                    <div class= post-intro-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
-    
-</div>
-                
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2020/01/27</span>
+                    <span class="post-intro-time">2020/01/30</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -397,45 +391,27 @@ height:100vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>1 Install homebrew</p>
-<p><a href="https://brew.sh/index.html" target="_blank" rel="noopener">https://brew.sh/index.html</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;bin&#x2F;ruby -e &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;master&#x2F;install)&quot;</span><br></pre></td></tr></table></figure>
+        <h3 id="Flask"><a href="#Flask" class="headerlink" title="Flask"></a>Flask</h3><p>reference : <a href="https://github.com/yyuu/pyenv/wiki/Common-build-problems" target="_blank" rel="noopener">https://github.com/yyuu/pyenv/wiki/Common-build-problems</a></p>
+<p>1 install 의존성 파일</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get upgrade</span><br><span class="line">$ sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev</span><br></pre></td></tr></table></figure>
 
-<p>버전확인</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew -v</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73221682-13cdb600-4127-11ea-9394-6edd5f80ac7b.png" alt="image"></p>
-<p>패키지 설치</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install &#123;프로그램명&#125;</span><br></pre></td></tr></table></figure>
+<p>2 install pip &amp; nginx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install python-pip nginx</span><br></pre></td></tr></table></figure>
 
-<p>패키지목록 업데이트</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ brew update   # formula를 업데이트</span><br><span class="line">$ brew upgrade  # 업데이트 패키지를 다시 빌드</span><br></pre></td></tr></table></figure>
+<p>3 set nginx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># nginx를 시작하고 127.0.0.1:8000 ip를 외부 IP로 매핑 시켜줌</span><br><span class="line">$ sudo &#x2F;etc&#x2F;init.d&#x2F;nginx start</span><br><span class="line">$ sudo rm &#x2F;etc&#x2F;nginx&#x2F;sites-enabled&#x2F;default</span><br><span class="line">$ sudo touch &#x2F;etc&#x2F;nginx&#x2F;sites-available&#x2F;flask_settings</span><br><span class="line">$ sudo ln -s &#x2F;etc&#x2F;nginx&#x2F;sites-available&#x2F;flask_settings &#x2F;etc&#x2F;nginx&#x2F;sites-enabled&#x2F;flask_settings</span><br></pre></td></tr></table></figure>
 
-<p>패키지 저장소 추가</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew tap homebrew&#x2F;패키지명</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi &#x2F;etc&#x2F;nginx&#x2F;sites-enabled&#x2F;flask_settings</span><br><span class="line"></span><br><span class="line">------------------flask_settings-------------------- </span><br><span class="line">server &#123;</span><br><span class="line">    location &#x2F; &#123;</span><br><span class="line">        proxy_pass http:&#x2F;&#x2F;127.0.0.1:8000; </span><br><span class="line">        proxy_set_header Host $host; </span><br><span class="line">        proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">        &#125; </span><br><span class="line">&#125;</span><br><span class="line">------------------------------------------------------ </span><br><span class="line"></span><br><span class="line">$ sudo &#x2F;etc&#x2F;init.d&#x2F;nginx restart</span><br></pre></td></tr></table></figure>
 
-<p>설치된 목록 보기</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew list</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73221653-04e70380-4127-11ea-87ed-6d75aea1a1e0.png" alt="image"></p>
-<p>패키지 제거</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew remove &#123;프로그램명&#125;</span><br></pre></td></tr></table></figure>
 
-<p>2 Install mysql</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install mysql</span><br></pre></td></tr></table></figure>
 
-<p>brew에서 실행하고 있는 서비스 리스트 확인</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew services list</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73221760-4677ae80-4127-11ea-9780-ea3350465dc4.png" alt="image"></p>
-<p>brew를 통해서 mysql 서비스를 정지</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew services stop mysql</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73221616-f4368d80-4126-11ea-8613-cf183e4f88b0.png" alt="image"></p>
-<p>brew를 통해서 mysql 서비스를 재시작<br><img src="https://user-images.githubusercontent.com/26552500/73221818-6e671200-4127-11ea-9d39-96a8ef5abe81.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/73221952-bdad4280-4127-11ea-88c2-c0d8a12db570.png" alt="image"></p>
-<p>3 Setting Password</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mysqladmin -u root password [yourpassword]</span><br><span class="line"># ex) mysqladmin -u root password qwer1234</span><br></pre></td></tr></table></figure>
 
-<p>4 Connection</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mysql -u root -p  # User가 root 라는 의미</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73222447-e124bd00-4128-11ea-893e-9058bbd87c3c.png" alt="image"></p>
+
+<ol start="4">
+<li>install flask &amp; gunicorn<br>$ pip install flask gunicorn</li>
+<li>excute flask app<br>$ gunicorn hello:app</li>
+<li>aws open port 80</li>
+</ol>
 
     </article>
     <!-- license  -->
@@ -444,17 +420,12 @@ height:100vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2020/01/27/MYSQL-Installation-2/" title= "MYSQL_Installation(2)">
-                    <div class="nextTitle">MYSQL_Installation(2)</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2020/01/26/AWS-Docker-Cloud-Server-4/" title= "AWS/Docker Cloud Server (4)">
-                    <div class="prevTitle">AWS/Docker Cloud Server (4)</div>
+                <a href= "/2020/01/28/Predict-Used-Car-Project-1/" title= "Predict Used Car Project (1)">
+                    <div class="prevTitle">Predict Used Car Project (1)</div>
                 </a>
             
         </li>
@@ -566,7 +537,7 @@ top:100vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Flask"><span class="toc-number">1.</span> <span class="toc-text">Flask</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
