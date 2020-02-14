@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Guide for IntelliJ (1) · Danny&#39;s Studio</title>
+    <title>PostgreSQL_Basic Exam (1) · Danny&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >Danny&#39;s Studio.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Guide for IntelliJ (1)</a>
+                <a href="#" class="post-name">PostgreSQL_Basic Exam (1)</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:100vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Guide for IntelliJ (1)
+            PostgreSQL_Basic Exam (1)
             <!-- 404 -->
             
         </h1>
@@ -267,7 +267,7 @@ height:100vh;
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2020/01/30</span>
+                    <span class="post-intro-time">2020/02/13</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -391,79 +391,13 @@ height:100vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h4 id="1-Create-New-Project"><a href="#1-Create-New-Project" class="headerlink" title="1 Create New Project"></a>1 Create New Project</h4><p><img src="https://user-images.githubusercontent.com/26552500/73508374-60bcc100-43a1-11ea-8f8a-5c42340888fe.png" alt="image"></p>
-<p>Java를 사용할 경우, 보통 Maven 또는 Gradle을 사용하면 편하다.<br>이번에는 Gradle을 선택해서 진행하겠다.</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/73508446-9b265e00-43a1-11ea-8fd3-b1e6d6ad4c29.png" alt="image"></p>
-<p>GroupId: 전체 프로젝트 아이디<br>ArtifactId: 하위 프로젝트 아이디</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/73508635-2dc6fd00-43a2-11ea-8f26-e2181cc13722.png" alt="image"></p>
-<h4 id="2-유용플러그인"><a href="#2-유용플러그인" class="headerlink" title="2. 유용플러그인"></a>2. 유용플러그인</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cmd + Shift + A</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73509049-6ca98280-43a3-11ea-8be3-0f4f3a23aa1c.png" alt="image"></p>
-<p>Presentation Assistance : 맥 유저외에 다른 유저들을 위해 키를 안내해주는 플러그<br><img src="https://user-images.githubusercontent.com/26552500/73508953-2a804100-43a3-11ea-8375-a6901b465823.png" alt="image"></p>
-<h4 id="3-메인메소드-생성하고-실행하기"><a href="#3-메인메소드-생성하고-실행하기" class="headerlink" title="3. 메인메소드 생성하고 실행하기"></a>3. 메인메소드 생성하고 실행하기</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">폴더 생성   </span><br><span class="line">cmd + N : 위치에 따라 생성할 수 있는 매뉴가 다름</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73509309-52bc6f80-43a4-11ea-946f-a88d73d4a7b8.png" alt="image"></p>
-<p>src/main/java 디렉토리 생성됨<br><img src="https://user-images.githubusercontent.com/26552500/73509352-75e71f00-43a4-11ea-8143-c4bcbbb653b2.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">패키지 생성  : com.kish1919.danny.intellij  </span><br><span class="line">cmd + N</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73509474-d4140200-43a4-11ea-9a38-b06d083dc335.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">클레스 생성 : main</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73509600-45ec4b80-43a5-11ea-898a-6f50b59eecc0.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">축약어 : psvm</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73509670-8ba91400-43a5-11ea-9dc9-c83594beddd0.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># 축약어 : sout</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73509756-de82cb80-43a5-11ea-8542-9885abb3ded9.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 현재 포커스 된 상태에서 실행 : ctl + shift + R  </span><br><span class="line">이전 실행된 명령 : ctl + R</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73509902-4fc27e80-43a6-11ea-97c0-e9aee380d037.png" alt="image"></p>
-<h4 id="4-라인-수정"><a href="#4-라인-수정" class="headerlink" title="4. 라인 수정"></a>4. 라인 수정</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 라인복제</span><br><span class="line">Cmd + D : 라인에 포커스를 둔 후, 실행</span><br><span class="line"></span><br><span class="line"># 라인 삭제</span><br><span class="line">Cmd + delete : 라인에 포커스 둔 후, 실행</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 라인 연결 [ 특히, sql 구문에 많이 사용됨]</span><br><span class="line">Ctl + Shift + J</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73510748-df692c80-43a8-11ea-8d12-b4ad1ea3229c.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/73510779-00ca1880-43a9-11ea-85a6-751686b765f5.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 구문 안에서 라인 움직임</span><br><span class="line">Cmd + Shift + 방향키</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73510928-7a620680-43a9-11ea-8049-da7e11915e66.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/73510955-8cdc4000-43a9-11ea-9c06-f48d0a2c0def.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 구문에 상관없이 라인 움직이기</span><br><span class="line">Cmd + Option + 방향키</span><br><span class="line"></span><br><span class="line"># HTML 상 엘리먼트 안에서 좌우로 움직일 경우</span><br><span class="line">Option + Shift + Cmd + 좌우 방향키</span><br></pre></td></tr></table></figure>
-<h4 id="5-즉시-보기"><a href="#5-즉시-보기" class="headerlink" title="5. 즉시 보기"></a>5. 즉시 보기</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 인자값 보기</span><br><span class="line">Cmd + P</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73545483-07847a00-4401-11ea-8aee-9fd902d45282.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 선언부보기</span><br><span class="line">Option + Space</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73545653-5d592200-4401-11ea-8fae-f45de70fd844.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Docs 미리보기</span><br><span class="line">F1</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73545934-f1c38480-4401-11ea-91d1-eebc8dd2e821.png" alt="image"></p>
-<h4 id="6-포커스-에디터"><a href="#6-포커스-에디터" class="headerlink" title="6. 포커스 에디터"></a>6. 포커스 에디터</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 단어별 이동</span><br><span class="line">Option + 화살표</span><br><span class="line"></span><br><span class="line"># 단어별 선택 이동</span><br><span class="line">Option + Shift + 화살표</span><br><span class="line"></span><br><span class="line"># 맨 끝라인 이동</span><br><span class="line">Cmd (fn) + 화살표</span><br><span class="line"></span><br><span class="line"># 페이지 업다운</span><br><span class="line">fn + 화살표</span><br></pre></td></tr></table></figure>
-
-<h4 id="7-포커스-특수기능"><a href="#7-포커스-특수기능" class="headerlink" title="7. 포커스 특수기능"></a>7. 포커스 특수기능</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 범위 지정</span><br><span class="line">Option + 위아래 화살</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73546738-56cbaa00-4403-11ea-9fb0-fe888f4cf7c6.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 포커스 이전</span><br><span class="line">Cmd + [</span><br><span class="line"></span><br><span class="line"># 포커스 이후</span><br><span class="line">cmd + ]</span><br><span class="line"></span><br><span class="line"># 멀티 포커스</span><br><span class="line">Option + Option + 아래 방향키</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73547084-e3766800-4403-11ea-9fa3-03a49db4690b.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 에러 난 곳으로 이동</span><br><span class="line">F2</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73547198-14ef3380-4404-11ea-9f95-4931e2d56a9d.png" alt="image"></p>
-<h4 id="8-검색-텍스트"><a href="#8-검색-텍스트" class="headerlink" title="8. 검색 - 텍스트"></a>8. 검색 - 텍스트</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 현재파일에서 검색</span><br><span class="line">Cmd + F</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73564460-34e31f00-4425-11ea-8a0d-3b0d1fa9d0e8.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 현재 파잉레서 교체</span><br><span class="line">Cmd + R</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73567162-67901600-442b-11ea-9733-c7f7fd369964.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 전체에서 검색</span><br><span class="line">Cmd + Shift + F</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73567213-8393b780-442b-11ea-8ceb-baef688c8a73.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 전체에서 교체</span><br><span class="line">Cmd + Shift + R</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73567283-b2aa2900-442b-11ea-9ef3-ac6373434d46.png" alt="image"></p>
-<h4 id="9-검색-기타"><a href="#9-검색-기타" class="headerlink" title="9. 검색 기타"></a>9. 검색 기타</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 파일 검색</span><br><span class="line">Cmd + Shift + O</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73567598-4f6cc680-442c-11ea-814a-e46797739d27.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 메소드 검색</span><br><span class="line">Cmd + Option + O</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73567761-a83c5f00-442c-11ea-811a-3b9c99e91960.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Action 검색</span><br><span class="line">Cmd + Shift+ A</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73567905-f3ef0880-442c-11ea-97cd-daa241341f85.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 최근에 열었던 파일</span><br><span class="line">Cmd + E</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73568025-2e58a580-442d-11ea-8349-b0b118eda8e5.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 최근 수정한 파일</span><br><span class="line">Cmd + Shift + E</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73568089-4e886480-442d-11ea-8338-d82ba4ac3ead.png" alt="image"></p>
-<h4 id="10-자동-완성"><a href="#10-자동-완성" class="headerlink" title="10. 자동 완성"></a>10. 자동 완성</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 자동완성</span><br><span class="line">Ctrl + Space</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73568297-c0f94480-442d-11ea-9f14-5be655eac276.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 스마트 자동완성</span><br><span class="line">Ctrl + Shift + Space</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73568441-04ec4980-442e-11ea-978d-58f2d19a42e3.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 스태틱 메소드 자동 완성</span><br><span class="line">Ctrl + Space + Space</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73568529-3402bb00-442e-11ea-98e3-5cf35c2ea0a4.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Getter&#x2F;Setter&#x2F;생성자 자동완성</span><br><span class="line">Cmd + N</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73568656-7a581a00-442e-11ea-89d7-5995c7c7921f.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Override 메소드 자동완성</span><br><span class="line">Ctrl + I</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73568869-de7ade00-442e-11ea-8479-a9252d6efcac.png" alt="image"></p>
-<h4 id="11-Git-사용하기"><a href="#11-Git-사용하기" class="headerlink" title="11. Git 사용하기"></a>11. Git 사용하기</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># Git View On</span><br><span class="line">Cmd + 9</span><br><span class="line"></span><br><span class="line"># Local Changes : 최종번에서 어느부분이 변경되었는지 확인 가능</span><br><span class="line">  -&gt; Show Diff [Cmd + D] : 변경내용을 확인과 동시에 바로 수정가능</span><br><span class="line">&#96;&#96;&#96; </span><br><span class="line">&#96;&#96;&#96;aidl</span><br><span class="line"># Git Option Popup : git의 상세한 내역 사용</span><br><span class="line">Cnd + V</span><br><span class="line">  -&gt; Show History</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73569610-67464980-4430-11ea-9dac-75ec2c3c6a12.png" alt="image"></p>
+        <h4 id="1-PAYMENT-DATE가-2007년-2월-7일부터-2007년-2월-15일인-customer-id-first-name-Last-name"><a href="#1-PAYMENT-DATE가-2007년-2월-7일부터-2007년-2월-15일인-customer-id-first-name-Last-name" class="headerlink" title="1) PAYMENT_DATE가 2007년 2월 7일부터 2007년 2월 15일인 customer_id, first_name, Last_name"></a>1) PAYMENT_DATE가 2007년 2월 7일부터 2007년 2월 15일인 customer_id, first_name, Last_name</h4><ul>
+<li>to_char / cast</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/26552500/74495493-98e1fa80-4e9d-11ea-9802-4eaf3e30e1b5.png" alt="image"></p>
+<h4 id="2"><a href="#2" class="headerlink" title="2)"></a>2)</h4><p><img src="https://user-images.githubusercontent.com/26552500/74498354-03973400-4ea6-11ea-834a-c72cacf72f9e.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74498877-a4d2ba00-4ea7-11ea-9428-8255061fcb80.png" alt="image"></p>
+<h4 id="3"><a href="#3" class="headerlink" title="3)"></a>3)</h4><p><img src="https://user-images.githubusercontent.com/26552500/74498915-bc11a780-4ea7-11ea-8aa8-a1b2b324a4dd.png" alt="image"></p>
 
     </article>
     <!-- license  -->
@@ -472,17 +406,12 @@ height:100vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2020/02/01/PostgreSQL-Basic-1/" title= "PostgreSQL_Basic (1)">
-                    <div class="nextTitle">PostgreSQL_Basic (1)</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2020/01/30/Predict-Used-Car-Project-3/" title= "Predict Used Car Project (3)">
-                    <div class="prevTitle">Predict Used Car Project (3)</div>
+                <a href= "/2020/02/12/Python-Basic-1/" title= "Python_Basic (1)">
+                    <div class="prevTitle">Python_Basic (1)</div>
                 </a>
             
         </li>
@@ -594,7 +523,7 @@ top:100vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Create-New-Project"><span class="toc-number">1.</span> <span class="toc-text">1 Create New Project</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-유용플러그인"><span class="toc-number">2.</span> <span class="toc-text">2. 유용플러그인</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-메인메소드-생성하고-실행하기"><span class="toc-number">3.</span> <span class="toc-text">3. 메인메소드 생성하고 실행하기</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-라인-수정"><span class="toc-number">4.</span> <span class="toc-text">4. 라인 수정</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-즉시-보기"><span class="toc-number">5.</span> <span class="toc-text">5. 즉시 보기</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-포커스-에디터"><span class="toc-number">6.</span> <span class="toc-text">6. 포커스 에디터</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-포커스-특수기능"><span class="toc-number">7.</span> <span class="toc-text">7. 포커스 특수기능</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-검색-텍스트"><span class="toc-number">8.</span> <span class="toc-text">8. 검색 - 텍스트</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-검색-기타"><span class="toc-number">9.</span> <span class="toc-text">9. 검색 기타</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-자동-완성"><span class="toc-number">10.</span> <span class="toc-text">10. 자동 완성</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-Git-사용하기"><span class="toc-number">11.</span> <span class="toc-text">11. Git 사용하기</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-PAYMENT-DATE가-2007년-2월-7일부터-2007년-2월-15일인-customer-id-first-name-Last-name"><span class="toc-number">1.</span> <span class="toc-text">1) PAYMENT_DATE가 2007년 2월 7일부터 2007년 2월 15일인 customer_id, first_name, Last_name</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2"><span class="toc-number">2.</span> <span class="toc-text">2)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3"><span class="toc-number">3.</span> <span class="toc-text">3)</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
