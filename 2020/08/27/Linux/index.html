@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Predict Used Car Project (1) · Danny&#39;s Studio</title>
+    <title>Linux · Danny&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >Danny&#39;s Studio.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Predict Used Car Project (1)</a>
+                <a href="#" class="post-name">Linux</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:100vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Predict Used Car Project (1)
+            Linux
             <!-- 404 -->
             
         </h1>
@@ -267,7 +267,7 @@ height:100vh;
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2020/01/28</span>
+                    <span class="post-intro-time">2020/08/27</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -391,79 +391,38 @@ height:100vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><p>1 우분투의 패키지 관리 툴인 apt-get 을 update</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
-
-<p>2 의존성 파일 install</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev</span><br></pre></td></tr></table></figure>
-
-<p>3 git &amp; pyenv install</p>
-<p>pyenv를 사용하는 이유  </p>
-<blockquote>
-<p>디렉토리별로 python의 가상환경을 만들어 주어, 하나의 시스템 안에서 여러개 python 버전을 효율적으로 관리<br>할수 있습니다.</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install git</span><br><span class="line">$ curl -L https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;yyuu&#x2F;pyenv-installer&#x2F;master&#x2F;bin&#x2F;pyenv-installer | bash</span><br></pre></td></tr></table></figure>
-
-<p>4 .bash_profile 설정</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(1) .bash_profile 파일 생성</span><br><span class="line"></span><br><span class="line">$ vi .bash_profile</span><br><span class="line"></span><br><span class="line">(2) .bash_profile 파일에 아래 내용 추가</span><br><span class="line"></span><br><span class="line">export PATH&#x3D;&quot;&#x2F;home&#x2F;ubuntu&#x2F;.pyenv&#x2F;bin:$PATH&quot; </span><br><span class="line">eval &quot;$(pyenv init -)&quot;</span><br><span class="line">eval &quot;$(pyenv virtualenv-init -)&quot;</span><br><span class="line"></span><br><span class="line">(3) 변경된 설정 적용</span><br><span class="line">$ source .bash_profile</span><br></pre></td></tr></table></figure>
-
-<p>5 Install python versions</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyenv install 3.7.1</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 전체 버전에 대한 정보 확인 </span><br><span class="line">$ pyenv install --list</span><br><span class="line"></span><br><span class="line"># pyenv에 설치된 버전과 현재 사용하고 있는 버전 확인</span><br><span class="line">$ pyenv versions</span><br><span class="line"></span><br><span class="line"># pyenv에 설치된 버전으로 변경 </span><br><span class="line">$ pyenv shell 3.7.1</span><br><span class="line"></span><br><span class="line"># global 버전 설정하기 </span><br><span class="line">$ pyenv global 3.7.1</span><br></pre></td></tr></table></figure>
-
-<p>6 virtualenv 설치하기</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># pyenv의 가상환경을 만들어줌</span><br><span class="line">$ sudo apt-get install pyenv-virtualenv </span><br><span class="line">$ sudo apt-get install python-virtualenv</span><br></pre></td></tr></table></figure>
-
-<p>7 가상환경 만들기</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 해당 파이썬 버전으로 가상환경 만들어 주기 </span><br><span class="line">$ pyenv virtualenv 3.7.1 python3</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="Jupyter-notebook"><a href="#Jupyter-notebook" class="headerlink" title="Jupyter notebook"></a>Jupyter notebook</h3><p>1 ipython, jupyter 설치</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pip install ipython</span><br><span class="line">$ pip install jupyter</span><br></pre></td></tr></table></figure>
-
-<p>2 설정 파일 생성</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 아래와 같이 설정파일을 생성하면 (&#x2F;home&#x2F;ubuntu&#x2F;.jupyter&#x2F;jupyter_notebook_config.py) 파일이 생성됩니</span><br><span class="line">  다.</span><br><span class="line">$ jupyter notebook --generate-config</span><br></pre></td></tr></table></figure>
-
-<p>3 패스워드 생성 $ ipython</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ ipython</span><br><span class="line"></span><br><span class="line">In [1]: from notebook.auth import passwd</span><br><span class="line">In [2]: passwd()</span><br><span class="line">Enter password:</span><br><span class="line">Verify password: sha1:fd23ec200f92:fc334c2bfc10d03b464403cae253f54bdfd2c705</span><br></pre></td></tr></table></figure>
-<img width="575" alt="Screen Shot 2020-01-28 at 7 29 14 PM" src="https://user-images.githubusercontent.com/26552500/73320326-8791c080-4204-11ea-9de5-e3c4331fea4b.png">
-
-<p>4 SSL 적용을위한 키파일 생성</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 아래와 같이 입력해주면 365일 사용이 가능한 cert.pem 파일이 생성됩니다.</span><br><span class="line">$ openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout cert.pem -out cert.pem</span><br><span class="line"></span><br><span class="line">Country Name (2 letter code) [AU]:KO</span><br><span class="line">State or Province Name (full name) [Some-State]:</span><br><span class="line">Locality Name (eg, city) []:</span><br><span class="line">Organization Name (eg, company) [Internet Widgits Pty Ltd]:fastcampus Organizational Unit Name (eg, section) []:dss</span><br><span class="line">Common Name (e.g. server FQDN or YOUR name) []:rada</span><br><span class="line">Email Address []:pdd4@gmail.com</span><br><span class="line"></span><br><span class="line">파일의 경로와 파일명을 저장해 둡니다.</span><br><span class="line">&#x2F;home&#x2F;ubuntu&#x2F;cert.pem</span><br></pre></td></tr></table></figure>
-
-<p>5 설정 파일 수정</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 수정전에 ifconfig를 이용해서 inet의 ip를 확인해주세요. </span><br><span class="line">$ ifconfig -a</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-images.githubusercontent.com/26552500/73320496-1d2d5000-4205-11ea-84ea-e795266a0765.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 아래의 명령어를 입력하면 설정파일을 수정할수 있는 vi 에디터가 열립니다. </span><br><span class="line">$ sudo vi &#x2F;home&#x2F;ubuntu&#x2F;.jupyter&#x2F;jupyter_notebook_config.py</span><br><span class="line"></span><br><span class="line"># jupyter_notebook_config.py 파일에 아래 세줄을 추가해주세요. </span><br><span class="line"># password와 ip는 위에서 확인한 password 와 ip를 추가해 주시면 됩니다.</span><br><span class="line"></span><br><span class="line">c.NotebookApp.ip &#x3D; &#39;172.31.8.63&#39;</span><br><span class="line">c.NotebookApp.open_browser &#x3D; False</span><br><span class="line">c.NotebookApp.password &#x3D; &#39;sha1:fd23ec200f92:fc334c2bfc10d03b464403cae253f54bdfd2c705&#39; </span><br><span class="line">c.NotebookApp.certfile &#x3D;&#39;&#x2F;home&#x2F;ubuntu&#x2F;cert.pem&#39;</span><br><span class="line"></span><br><span class="line">port 변경은 아래와 같이 포트 설정을 추가해 주면 됩니다.</span><br><span class="line">$ sudo vi &#x2F;home&#x2F;ubuntu&#x2F;.jupyter&#x2F;jupyter_notebook_config.py </span><br><span class="line">c.NotebookApp.port &#x3D; 8889</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-images.githubusercontent.com/26552500/73320816-37b3f900-4206-11ea-8eaa-bedbae9a468e.png" alt="image"></p>
-<hr>
-<h3 id="cyberduck"><a href="#cyberduck" class="headerlink" title="cyberduck"></a>cyberduck</h3><p>1 AWS EC2 서버와 내 로컬 컴퓨터 사이에 파일을 주고 받을수 있게 해주는 프로그램</p>
-<p>2 Download &amp; Install<br>아래 링크에 가서 본인 컴퓨터 OS에 맞는 설치 프로그램을 다운 받아 인스톨 해주세요.  </p>
-<blockquote>
-<p><a href="https://cyberduck.io/" target="_blank" rel="noopener">https://cyberduck.io/</a></p>
-</blockquote>
-<p>3 aws 서버 연결</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(1) 좌측 상단의 새연결 버튼을 누름</span><br><span class="line">(2) SFTP를 선택</span><br><span class="line">(3) 서버 IP를 작성 (AWS console 페이지에서 확인) </span><br><span class="line">(4) 사용자 이름을 ubuntu로 설정</span><br><span class="line">(5) SSH Private Key의 경로를 설정</span><br><span class="line">(6) 연결 버튼 클릭</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73321090-fcfe9080-4206-11ea-9978-fe42bdfcd507.png" alt="image"></p>
-<hr>
-<h3 id="Issue"><a href="#Issue" class="headerlink" title="Issue"></a>Issue</h3><p>1 lzma</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ModuleNotFoundError: No module named &#39;_lzma&#39;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-images.githubusercontent.com/26552500/73321370-dee56000-4207-11ea-957a-608b4eb974ac.png" alt="image"></p>
-<p>Solution</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Removed 3.7.1 with </span><br><span class="line">pyenv uninstall 3.7.1</span><br><span class="line"></span><br><span class="line"># installed dependencies </span><br><span class="line">sudo apt install liblzma-dev </span><br><span class="line"></span><br><span class="line"># reinstalled </span><br><span class="line">pyenv install 3.7.1.</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73321767-20c2d600-4209-11ea-8350-3d8c17d7743d.png" alt="image"></p>
-<p>2 lxml</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bs4.FeatureNotFound: Couldn&#39;t find a tree builder with the features you requested: lxml. Do you need to install a parser library?</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-images.githubusercontent.com/26552500/73322899-4f41b080-420b-11ea-9e4b-6c73e65a11c2.png" alt="image"></p>
-<p>Solution</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python3-lxml</span><br><span class="line">pip3 install lxml</span><br></pre></td></tr></table></figure>
-
+        <h3 id="1-Command"><a href="#1-Command" class="headerlink" title="1.Command"></a>1.Command</h3><ul>
+<li><p>ls : 현재 디렉토리의 파일 목록을 출력하는 명령어.</p>
+<p>  <code>ls -l&#39; : 자세히 보기</code></p>
+<p>  <code>ls -al : 숨겨진 파일 보기 &amp; 자세히 보기</code></p>
+<p>  <code>ls -S : 큰사이즈 파일 순 으로 정렬</code></p>
+</li>
+<li><p>pwd </p>
+</li>
+<li><p>mkdir<br>  <code>mkdir -p dir1\dir2\dir3 : 여러디렉토리를 한번에 만들수 있고, 없는 디렉토리라면 추가해</code></p>
+</li>
+<li><p>cd</p>
+<p>  <code>cd .. : 현재 디렉토리의 부모 디렉토리로 이동</code></p>
+</li>
+<li><p>rm</p>
+<p>  <code>rm -r : 폴더 삭제 / r은 재귀적이란 뜻으로 폴더안에 폴더 등을 순차적으로 지운다라는 의미</code></p>
+</li>
+<li><p>–help : 명령어 뒤에 –help를 붙이면 명령의 사용설명서 출력 (간단히 출력)</p>
+<p>  <code>ls --help</code></p>
+</li>
+<li><p>man : 명령어 앞에 man을 붙이면 명령문 사용설명서 출력 (화면 빠져나와서 자세히 출력)</p>
+<p>  <code>man ls : ls 명령어를 자세히 살펴볼수 있고, /sort 는 sort를 검색</code><br>  <img src="https://user-images.githubusercontent.com/26552500/91488638-336fbd00-e875-11ea-9779-8b907643942d.png" alt="image"></p>
+<p>  <code>n 키 : 페이지 넘기</code><br>  <code>q 키 : 밖으로 빠져나가기</code></p>
+</li>
+<li><p>clear</p>
+</li>
+<li><p>touch : 파일 생성</p>
+</li>
+<li><p>cp : 파일 복사</p>
+</li>
+<li><p>mv : 파일 이동 및 이름변경</p>
+</li>
+</ul>
 
     </article>
     <!-- license  -->
@@ -472,17 +431,12 @@ height:100vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2020/01/30/Predict-Used-Car-Project-3/" title= "Predict Used Car Project (3)">
-                    <div class="nextTitle">Predict Used Car Project (3)</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2020/01/27/Predict-Used-Car-Project-2/" title= "Predict Used Car Project (2)">
-                    <div class="prevTitle">Predict Used Car Project (2)</div>
+                <a href= "/2020/08/27/Regular-Express/" title= "Regular Express">
+                    <div class="prevTitle">Regular Express</div>
                 </a>
             
         </li>
@@ -594,7 +548,7 @@ top:100vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Python"><span class="toc-number">1.</span> <span class="toc-text">Python</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Jupyter-notebook"><span class="toc-number">2.</span> <span class="toc-text">Jupyter notebook</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cyberduck"><span class="toc-number">3.</span> <span class="toc-text">cyberduck</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Issue"><span class="toc-number">4.</span> <span class="toc-text">Issue</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Command"><span class="toc-number">1.</span> <span class="toc-text">1.Command</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
