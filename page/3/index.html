@@ -359,6 +359,55 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2020/01/24/AWS-Docker-Cloud-Server-2/" >
+            
+                <span>AWS/Docker Cloud Server (2)</span>
+        </a>
+        <div class="abstract-content">
+            1 AWS 설치
+
+
+
+
+2 Docker 설치
+
+[Command] - 설치 1sudo yum install docker-io   -- yes
+[Command] - 확인   
+1docker
+
+
+[Command] - 도커리스트를 실행시켜줌   
+1sudo systemctl start docker
+
+[Command] - 현재 접속 유저의 계정 정보와 root 계정이 달라서 발생된 에러라 해당 부분에 권한을 주고 다시 실행    
+1sudo setfacl -m user:ec2-user:rw &#x2F;var&#x2F;run&#x2F;d...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/24</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "AWS">AWS</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Docker">Docker</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "JIRA">JIRA</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2020/01/23/AWS-Docker-Cloud-Server-1/" >
             
                 <span>AWS/Docker Cloud Server (1)</span>
@@ -860,9 +909,24 @@ Mo...
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 22
+        Total : 23
         </div>
         <!-- search  -->
         
@@ -875,6 +939,11 @@ Mo...
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/10</span><a class="archive-post-title" href= "/2020/09/10/DS730-1-1-Create-a-Hortonworks-Sandbox-on-Azure/" >DS730_1_1_Create_a_Hortonworks_Sandbox_on_Azure</a>
+        </li>
     
     
         <li class="archive-post-item">
