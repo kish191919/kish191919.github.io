@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>linux · Danny&#39;s Studio</title>
+    <title>Danny&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,23 +203,12 @@
 <meta name="generator" content="Hexo 4.2.0"></head>
 
     
-        <body class="post-body">
-    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/" >Danny&#39;s Studio.</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">linux</a>
-            </div>
-    </div>
     
     <a class="home-link" href=/>Danny's Studio.</a>
 </header>
@@ -231,64 +220,24 @@
 
 
 
-
-height:100vh;
 ">
     
     <!-- 主页  -->
-    
-    
-    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-            
-            linux
-            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-            <!-- 404 -->
-            
         </p>
         <!-- 文章页meta -->
-        
-            <div class="post-intros">
-                <!-- 文章页标签  -->
-                
-                
-                <div class="post-intro-meta">
-                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2020/08/29</span>
-                    
-                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
-                        <span id="busuanzi_value_page_pv"></span>
-                    </span>
-                    
-                    <span class="shareWrapper">
-                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
-                        <span class="shareText">Share</span>
-                        <ul class="shareList">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
-                                <div class="share-qrcode"></div>
-                            </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
         
     </div>
 </div>
@@ -389,132 +338,52 @@ height:100vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main post-page">
-    <article class="article-entry">
-        <h3 id="1-Command"><a href="#1-Command" class="headerlink" title="1.Command"></a>1.Command</h3><ul>
-<li><p>ls : 현재 디렉토리의 파일 목록을 출력하는 명령어.</p>
-<p>  <code>ls -l&#39; : 자세히 보기</code></p>
-<p>  <code>ls -al : 숨겨진 파일 보기 &amp; 자세히 보기</code></p>
-<p>  <code>ls -S : 큰사이즈 파일 순 으로 정렬</code></p>
-</li>
-<li><p>pwd </p>
-</li>
-<li><p>mkdir<br>  <code>mkdir -p dir1\dir2\dir3 : 여러디렉토리를 한번에 만들수 있고, 없는 디렉토리라면 추가해</code></p>
-</li>
-<li><p>cd</p>
-<p>  <code>cd .. : 현재 디렉토리의 부모 디렉토리로 이동</code></p>
-</li>
-<li><p>rm</p>
-<p>  <code>rm -r : 폴더 삭제 / r은 재귀적이란 뜻으로 폴더안에 폴더 등을 순차적으로 지운다라는 의미</code></p>
-</li>
-<li><p>–help : 명령어 뒤에 –help를 붙이면 명령의 사용설명서 출력 (간단히 출력)</p>
-<p>  <code>ls --help</code></p>
-</li>
-<li><p>man : 명령어 앞에 man을 붙이면 명령문 사용설명서 출력 (화면 빠져나와서 자세히 출력)</p>
-<p>  <code>man ls : ls 명령어를 자세히 살펴볼수 있고, /sort 는 sort를 검색</code><br>  <img src="https://user-images.githubusercontent.com/26552500/91488638-336fbd00-e875-11ea-9779-8b907643942d.png" alt="image"></p>
-<p>  <code>n 키 : 페이지 넘기</code><br>  <code>q 키 : 밖으로 빠져나가기</code></p>
-</li>
-<li><p>clear</p>
-</li>
-<li><p>touch : 파일 생성</p>
-</li>
-<li><p>cp : 파일 복사</p>
-</li>
-<li><p>mv : 파일 이동 및 이름변경</p>
-</li>
-<li><p>sudo : - super user do 의 줄임말</p>
-<pre><code>- 예전에는 하나의 컴퓨터로 여러명이 사용을 했고 누군가는 강력한 권한을 갖고 명령어를 사용</code></pre></li>
-<li><p>top : 사용중인 프로그램 목록 및 용량<br><img src="https://user-images.githubusercontent.com/26552500/91640892-743b1380-e9e6-11ea-95e9-6d83114fae3d.png" alt="image"></p>
-</li>
-<li><p>head -n1 text_file: 1줄만 출력<br><img src="https://user-images.githubusercontent.com/26552500/91643982-942a0180-e9fd-11ea-8c2a-6cef661c81b2.png" alt="image"></p>
-</li>
-<li><p>head -n1 text_file &gt; one.txt : 출력값을 one.txt에 다시 저장</p>
-</li>
-</ul>
-<p><img src="https://user-images.githubusercontent.com/26552500/91644021-eec35d80-e9fd-11ea-89d0-6ecc812d6473.png" alt="image"></p>
-<h3 id="2-유용한-command"><a href="#2-유용한-command" class="headerlink" title="2. 유용한 command"></a>2. 유용한 command</h3><ul>
-<li>명령어 횟수 : history | awk ‘{a[$2]++}END{for(i in a){print a[i] “ “ i}}’ | sort -rn | head -10<br><img src="https://user-images.githubusercontent.com/26552500/91596249-6758ea00-e92a-11ea-91cb-31f9c2182181.png" alt="image"></li>
-</ul>
-<h3 id="3-APT-Package-Manager-Mac의-경우-brew-사용"><a href="#3-APT-Package-Manager-Mac의-경우-brew-사용" class="headerlink" title="3. APT - Package Manager (Mac의 경우 brew 사용)"></a>3. APT - Package Manager (Mac의 경우 brew 사용)</h3><ul>
-<li><p>sudo apt-get update : 최신 상태의 소프트웨어 목록 다운로드</p>
-</li>
-<li><p>sudo apt-cache search 프로그램 :  현재 목록 상태에서 원하는 프로그램을 찾음</p>
-</li>
-<li><p>sudo apt-get install 프로그램 : 현재 목록에있는 프로그램 설치</p>
-</li>
-<li><p>sudo apt-get upgrade 프로그램 : 프로그램을 업그레이드 함</p>
-</li>
-<li><p>sudo apt-get upgrade : 설치된 모든 프로그램을 업그레이드 함</p>
-</li>
-<li><p>sudo apt-get remove 프로그램 : 프로그램 삭제</p>
-</li>
-</ul>
-<h3 id="4-wget-다운로드-Mac의-경우-curl-사용"><a href="#4-wget-다운로드-Mac의-경우-curl-사용" class="headerlink" title="4. wget - 다운로드 (Mac의 경우 curl 사용)"></a>4. wget - 다운로드 (Mac의 경우 curl 사용)</h3><ul>
-<li><p>wget 다운로드주소 : 다운로드 주소에 있는 파일 저장 [curl 다운로드주소]</p>
-</li>
-<li><p>wget -O cow.jpg 다운로드주소 : 다운받은 파일을 cow.jpg 파일로 저장 [curl -o cow.jpg 다운로드주소]</p>
-</li>
-</ul>
-<h3 id="5-git"><a href="#5-git" class="headerlink" title="5. git"></a>5. git</h3><ul>
-<li>git clone 다운받는주소 새디렉토리이름: 새디렉토리가 만들어지고 그 안에 git이 다운로드 됨</li>
-</ul>
-<h3 id="6-pipeline"><a href="#6-pipeline" class="headerlink" title="6 pipeline"></a>6 pipeline</h3><ul>
-<li>ps aux | grep sort : 프로세스 중 sort로 된 것을 찾음</li>
-</ul>
-<h3 id="7-IO-redirection"><a href="#7-IO-redirection" class="headerlink" title="7. IO redirection"></a>7. IO redirection</h3><ul>
-<li><p>ls -al &gt; result.log : ls -al의 결과를 result.log에 저장 (ls -al 1&gt; result.log )<br><img src="https://user-images.githubusercontent.com/26552500/91642461-2c6db980-e9f1-11ea-8163-cb34b47218dc.png" alt="image"></p>
-</li>
-<li><p>rm result.log 2&gt; error.log : error message 가 error.log에 저장. &gt; 전에 반드시 2를 붙임</p>
-</li>
-</ul>
-<p><code>1 : standard output / 2 : standard error</code> </p>
-<p><img src="https://user-images.githubusercontent.com/26552500/91642911-c08d5000-e9f4-11ea-9428-699dd5ca56a3.png" alt="image"></p>
-<p><code>rm result.log 1&gt; result.log 2&gt; error.log</code><br><img src="https://user-images.githubusercontent.com/26552500/91642960-09450900-e9f5-11ea-86a2-de7966f350a0.png" alt="image"></p>
-<h3 id="8-Shell-Script"><a href="#8-Shell-Script" class="headerlink" title="8. Shell Script"></a>8. Shell Script</h3><p>/bin : 기본 프로그램의 명령어가 위치 (명령어가 파일 형식으로 되어있)<br><img src="https://user-images.githubusercontent.com/26552500/91770956-be1f2780-eba7-11ea-86b4-013617d7afd1.png" alt="image"></p>
-<p>nano backup : backup 파일 작성</p>
-<p><code>#!/bin/bash : bash 안에 있는 명령문 사용가능</code></p>
-<p><code>if [ -d bak ]</code> : 현재 디렉토리에 bak 디렉토리가 존재한다면</p>
-<p><code>if ! [ -d bak ]</code>: 현재 디렉토리에 bak 디렉토리가 존재하지 않는다면</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/91771956-84e7b700-eba9-11ea-8b1b-882b85f981c9.png" alt="image"></p>
-<p>chmod +x backup : 파일에 실행 권한 주기<br><img src="https://user-images.githubusercontent.com/26552500/91771828-4651fc80-eba9-11ea-9997-0a8c9be3e9d7.png" alt="image"></p>
-<p>./backup :  backup 스크립트 실행<br><img src="https://user-images.githubusercontent.com/26552500/91772230-148d6580-ebaa-11ea-9832-20d71e32a69d.png" alt="image"></p>
+            <main class="main index-page">
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2020/12/12/Python-Development-Environment/" >
+            
+                <span>Python Development Environment</span>
+        </a>
+        <div class="abstract-content">
+            
+Install pyenv
+ 12$ brew install pyenv$ brew install pyenv-virtualenv
 
+Check the brew list
+ 1$ brew list
+
+brew upgrade
+ 12345678# package upgradebrew upgrade rbenv# all package upgradebrew upgrade   # brew updatebrew update
+
+Add the below to .bash_profile
+ 123export PATH&#x3D;&quot;$HOME&#x2F;.py...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/12/12</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Python">Python</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Environment">Environment</a>
+    
+</div>
+            
+        </div>
     </article>
-    <!-- license  -->
     
     <!-- paginator  -->
-    <ul class="post-paginator">
-        <li class="next">
-            
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2020/09/01/DS730-1-High-Performance-Computing-MapReduce-Introduction/" title= "DS730_1_High_Performance_Computing_&_MapReduce_Introduction">
-                    <div class="nextTitle">DS730_1_High_Performance_Computing_&_MapReduce_Introduction</div>
-                </a>
-            
-        </li>
-        <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href= "/2020/08/27/Regular-Express/" title= "Regular Express">
-                    <div class="prevTitle">Regular Express</div>
-                </a>
-            
-        </li>
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-<!-- City版安装代码已完成 -->
     
-    
-    <!-- partial('_partial/comment/changyan') -->
-    <!--PC版-->
-
-
-    
-    
-
-    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -592,24 +461,6 @@ height:100vh;
 </footer>
     </div>
     <!-- toc -->
-    
-    <div class="toc-wrapper" style=
-    
-
-
-
-
-
-
-
-top:100vh;
-
-    >
-        <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-        </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Command"><span class="toc-number">1.</span> <span class="toc-text">1.Command</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-유용한-command"><span class="toc-number">2.</span> <span class="toc-text">2. 유용한 command</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-APT-Package-Manager-Mac의-경우-brew-사용"><span class="toc-number">3.</span> <span class="toc-text">3. APT - Package Manager (Mac의 경우 brew 사용)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-wget-다운로드-Mac의-경우-curl-사용"><span class="toc-number">4.</span> <span class="toc-text">4. wget - 다운로드 (Mac의 경우 curl 사용)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-git"><span class="toc-number">5.</span> <span class="toc-text">5. git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-pipeline"><span class="toc-number">6.</span> <span class="toc-text">6 pipeline</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-IO-redirection"><span class="toc-number">7.</span> <span class="toc-text">7. IO redirection</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-Shell-Script"><span class="toc-number">8.</span> <span class="toc-text">8. Shell Script</span></a></li></ol>
-    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1161,8 +1012,6 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
-    
-        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
