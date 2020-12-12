@@ -884,4 +884,32 @@ pip3 list</code></pre>
 <h3 id="4-Test-site"><a href="#4-Test-site" class="headerlink" title="4. Test site"></a>4. Test site</h3><p><a href="https://regexr.com/" target="_blank" rel="noopener">https://regexr.com/</a></p>
 ]]></content>
   </entry>
+  <entry>
+    <title>Python_Code_1</title>
+    <url>/2020/12/12/Python-Code-1/</url>
+    <content><![CDATA[<ol>
+<li><p>Brew</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ brew install pyenv</span><br><span class="line">$ brew list</span><br><span class="line">$ brew upgrade pyenv</span><br><span class="line">$ brew upgrade</span><br><span class="line">$ brew update</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Bash</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ source .bash_profile</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Pyenv</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pyenv install --list</span><br><span class="line">$ pyenv install 3.9.0</span><br><span class="line">$ pyenv versions</span><br><span class="line">$ pyenv shell 3.9.0</span><br><span class="line">$ pyenv virtualenv 3.9.0 python3</span><br><span class="line">$ pyenv uninstall python3</span><br><span class="line">$ pyenv global 3.6.4 </span><br><span class="line">$ pyenv activate python2</span><br><span class="line">$ pyenv deactivate</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Pip</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pip3 install ipython  </span><br><span class="line">$ pip3 list</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Python_House_Price</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">%matplotlib inline</span><br><span class="line">import seaborn as sns</span><br><span class="line">import warnings</span><br><span class="line">warnings.filterwarnings(&#39;ignore&#39;)</span><br><span class="line">from scipy import stats</span><br><span class="line"></span><br><span class="line">train.describe()</span><br><span class="line">display(train.head(n&#x3D;1))</span><br><span class="line">train.shape</span><br><span class="line"></span><br><span class="line">plt.figure(figsize&#x3D;(17,6))</span><br><span class="line">plt.subplot(131)</span><br><span class="line">sns.distplot(train[&quot;SalePrice&quot;])</span><br><span class="line">plt.subplot(132)</span><br><span class="line">stats.probplot(train[&quot;SalePrice&quot;],plot&#x3D;plt)</span><br><span class="line">plt.subplot(133)</span><br><span class="line">sns.boxplot(train[&quot;SalePrice&quot;])</span><br><span class="line">plt.tight_layout()</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">train[&quot;MSSubClass&quot;] &#x3D; train[&quot;MSSubClass&quot;].astype(&#39;str&#39;)</span><br><span class="line"></span><br><span class="line">numerical_features &#x3D; []</span><br><span class="line">categorical_features &#x3D; []</span><br><span class="line">for f in train.columns:</span><br><span class="line">    if train.dtypes[f] !&#x3D; &#39;object&#39;:</span><br><span class="line">        numerical_features.append(f)</span><br><span class="line">    else:</span><br><span class="line">        categorical_features.append(f)</span><br><span class="line"></span><br><span class="line">nomalized_SalePrice &#x3D; np.log1p(train[&quot;SalePrice&quot;])</span><br><span class="line">plt.figure(figsize&#x3D;(17,6))</span><br><span class="line">plt.subplot(131)</span><br><span class="line">sns.distplot(nomalized_SalePrice)</span><br><span class="line">plt.subplot(132)</span><br><span class="line">stats.probplot(nomalized_SalePrice, plot&#x3D;plt)</span><br><span class="line">plt.subplot(133)</span><br><span class="line">sns.boxplot(nomalized_SalePrice)</span><br><span class="line">plt.tight_layout()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Code</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Code</tag>
+      </tags>
+  </entry>
 </search>
