@@ -1,6 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>AWS/Docker Cloud Server (3)</title>
+    <url>/2020/01/25/AWS-Docker-Cloud-Server-3/</url>
+    <content><![CDATA[<p>1 Jira Issue 시작</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/73131945-bc71fd80-3fe1-11ea-99d3-9b0f9afc5f4f.png" alt="image"></p>
+<p>Projects -&gt; View All Projects<br><img src="https://user-images.githubusercontent.com/26552500/73131963-1b377700-3fe2-11ea-83ca-38303bbc6bc2.png" alt="image"></p>
+<p>Click “블로그 프로젝트”<br><img src="https://user-images.githubusercontent.com/26552500/73131971-618cd600-3fe2-11ea-9f05-a5c37f308090.png" alt="image"></p>
+<p>Click “Issues”<br><img src="https://user-images.githubusercontent.com/26552500/73131983-7b2e1d80-3fe2-11ea-9329-f81e35b15ffa.png" alt="image"></p>
+<p>Click “Create”<br><img src="https://user-images.githubusercontent.com/26552500/73131995-b3356080-3fe2-11ea-8f9f-7ae855c87b9e.png" alt="image"></p>
+<p>Fill out the form and then click “Create”<br><img src="https://user-images.githubusercontent.com/26552500/73132016-f2fc4800-3fe2-11ea-9294-172615d7572c.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/73132024-28089a80-3fe3-11ea-8091-8e5ee5374b8c.png" alt="image"></p>
+<p>2 Jira API  </p>
+<p><a href="https://docs.atlassian.com/software/jira/docs/api/REST/8.4.2/?_ga=2.93052573.1639889686.1571238783-647032862.1567516016" target="_blank" rel="noopener">Link : Jira API Document</a></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/73132093-5fc41200-3fe4-11ea-90d8-90ecf8ac5bd6.png" alt="image"></p>
+<p>API 를 사용하게 되면 데이터는 JSON의 형태로 데이터가 넘어오게 됩니다. Create 이슈는 이슈를 생성하는 것이고 Get 이슈는 이슈의 정보를 가져오는 것입니다.<br>그리고 DELETE 로 이슈를 삭제할 수 있고 PUT 으로 이슈를 수정할 수 있습니다. 이 API 를 실제로 사용하기 위해서 POSTMAN이라는<br>툴을 설치합니다.</p>
+<p>POSTMAN<br><a href="https://www.getpostman.com/" target="_blank" rel="noopener">https://www.getpostman.com/</a>  </p>
+<blockquote>
+<p>포스트 맨은 가입해서 ID/PWD 만 있으면 무료로 사용 가능한 다양한 API 메세징을 보낼 수 있는 유용한 툴입니다</p>
+</blockquote>
+<p><img src="https://user-images.githubusercontent.com/26552500/73132202-af570d80-3fe5-11ea-894c-7fab5e89ad9c.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/73132289-0b6e6180-3fe7-11ea-9574-3122a3cca5e1.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;&quot;amazon_address&quot;&#x2F;rest&#x2F;api&#x2F;2&#x2F;issue&#x2F;BLO-1</span><br></pre></td></tr></table></figure>
+
+
+<img width="1148" alt="Screen Shot 2020-01-26 at 2 51 06 AM" src="https://user-images.githubusercontent.com/26552500/73132270-d82bd280-3fe6-11ea-877c-69187237f6b5.png">   
+
+
+<p><img src="https://user-images.githubusercontent.com/26552500/73132323-a9fac280-3fe7-11ea-8a7f-417d931421dc.png" alt="image"></p>
+<p>[GET]<br><img src="https://user-images.githubusercontent.com/26552500/73132338-ca2a8180-3fe7-11ea-93c8-2ee6ee00e372.png" alt="image"></p>
+<img width="1569" alt="Screen Shot 2020-01-26 at 3 46 07 AM" src="https://user-images.githubusercontent.com/26552500/73132849-72434900-3fee-11ea-920a-e30ab563681c.png">
+[POST]  
+Create issue
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&quot;fields&quot;: &#123;</span><br><span class="line">                &quot;project&quot;: &#123;</span><br><span class="line">                    &quot;key&quot;: &quot;BLO&quot;</span><br><span class="line">                &#125;,</span><br><span class="line">                &quot;summary&quot;: &quot;테스트&quot;,</span><br><span class="line">                &quot;issuetype&quot;: &#123;</span><br><span class="line">                    &quot;id&quot;: &quot;10002&quot;</span><br><span class="line">                &#125;,</span><br><span class="line">                &quot;assignee&quot;: &#123;</span><br><span class="line">                    &quot;name&quot;: &quot;kish1919&quot;</span><br><span class="line">                &#125;,</span><br><span class="line">                &quot;reporter&quot;: &#123;</span><br><span class="line">                    &quot;name&quot;: &quot;kish1919&quot;</span><br><span class="line">                &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<img width="1584" alt="Screen Shot 2020-01-26 at 3 41 01 AM" src="https://user-images.githubusercontent.com/26552500/73132791-be41be00-3fed-11ea-8942-9d51638cd455.png">
+
+<p>  <img src="https://user-images.githubusercontent.com/26552500/73132811-f77a2e00-3fed-11ea-82e9-c71b30bd00fc.png" alt="image"></p>
+]]></content>
+      <categories>
+        <category>Today_I_Learn</category>
+      </categories>
+      <tags>
+        <tag>AWS</tag>
+        <tag>Docker</tag>
+        <tag>JIRA</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>AWS/Docker Cloud Server (2)</title>
     <url>/2020/01/24/AWS-Docker-Cloud-Server-2/</url>
     <content><![CDATA[<p>1 AWS 설치</p>
@@ -97,61 +144,6 @@
       </tags>
   </entry>
   <entry>
-    <title>DS730_1_High_Performance_Computing_&amp;_MapReduce_Introduction</title>
-    <url>/2020/09/01/DS730-1-High-Performance-Computing-MapReduce-Introduction/</url>
-    <content><![CDATA[<p>Author: SAS</p>
-<p>Description: Discusses the history and importance of big data.</p>
-<p><a href="https://www.sas.com/en_us/insights/big-data/what-is-big-data.html" target="_blank" rel="noopener">https://www.sas.com/en_us/insights/big-data/what-is-big-data.html</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>AWS/Docker Cloud Server (3)</title>
-    <url>/2020/01/25/AWS-Docker-Cloud-Server-3/</url>
-    <content><![CDATA[<p>1 Jira Issue 시작</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/73131945-bc71fd80-3fe1-11ea-99d3-9b0f9afc5f4f.png" alt="image"></p>
-<p>Projects -&gt; View All Projects<br><img src="https://user-images.githubusercontent.com/26552500/73131963-1b377700-3fe2-11ea-83ca-38303bbc6bc2.png" alt="image"></p>
-<p>Click “블로그 프로젝트”<br><img src="https://user-images.githubusercontent.com/26552500/73131971-618cd600-3fe2-11ea-9f05-a5c37f308090.png" alt="image"></p>
-<p>Click “Issues”<br><img src="https://user-images.githubusercontent.com/26552500/73131983-7b2e1d80-3fe2-11ea-9329-f81e35b15ffa.png" alt="image"></p>
-<p>Click “Create”<br><img src="https://user-images.githubusercontent.com/26552500/73131995-b3356080-3fe2-11ea-8f9f-7ae855c87b9e.png" alt="image"></p>
-<p>Fill out the form and then click “Create”<br><img src="https://user-images.githubusercontent.com/26552500/73132016-f2fc4800-3fe2-11ea-9294-172615d7572c.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/73132024-28089a80-3fe3-11ea-8091-8e5ee5374b8c.png" alt="image"></p>
-<p>2 Jira API  </p>
-<p><a href="https://docs.atlassian.com/software/jira/docs/api/REST/8.4.2/?_ga=2.93052573.1639889686.1571238783-647032862.1567516016" target="_blank" rel="noopener">Link : Jira API Document</a></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/73132093-5fc41200-3fe4-11ea-90d8-90ecf8ac5bd6.png" alt="image"></p>
-<p>API 를 사용하게 되면 데이터는 JSON의 형태로 데이터가 넘어오게 됩니다. Create 이슈는 이슈를 생성하는 것이고 Get 이슈는 이슈의 정보를 가져오는 것입니다.<br>그리고 DELETE 로 이슈를 삭제할 수 있고 PUT 으로 이슈를 수정할 수 있습니다. 이 API 를 실제로 사용하기 위해서 POSTMAN이라는<br>툴을 설치합니다.</p>
-<p>POSTMAN<br><a href="https://www.getpostman.com/" target="_blank" rel="noopener">https://www.getpostman.com/</a>  </p>
-<blockquote>
-<p>포스트 맨은 가입해서 ID/PWD 만 있으면 무료로 사용 가능한 다양한 API 메세징을 보낼 수 있는 유용한 툴입니다</p>
-</blockquote>
-<p><img src="https://user-images.githubusercontent.com/26552500/73132202-af570d80-3fe5-11ea-894c-7fab5e89ad9c.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/73132289-0b6e6180-3fe7-11ea-9574-3122a3cca5e1.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;&quot;amazon_address&quot;&#x2F;rest&#x2F;api&#x2F;2&#x2F;issue&#x2F;BLO-1</span><br></pre></td></tr></table></figure>
-
-
-<img width="1148" alt="Screen Shot 2020-01-26 at 2 51 06 AM" src="https://user-images.githubusercontent.com/26552500/73132270-d82bd280-3fe6-11ea-877c-69187237f6b5.png">   
-
-
-<p><img src="https://user-images.githubusercontent.com/26552500/73132323-a9fac280-3fe7-11ea-8a7f-417d931421dc.png" alt="image"></p>
-<p>[GET]<br><img src="https://user-images.githubusercontent.com/26552500/73132338-ca2a8180-3fe7-11ea-93c8-2ee6ee00e372.png" alt="image"></p>
-<img width="1569" alt="Screen Shot 2020-01-26 at 3 46 07 AM" src="https://user-images.githubusercontent.com/26552500/73132849-72434900-3fee-11ea-920a-e30ab563681c.png">
-[POST]  
-Create issue
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&quot;fields&quot;: &#123;</span><br><span class="line">                &quot;project&quot;: &#123;</span><br><span class="line">                    &quot;key&quot;: &quot;BLO&quot;</span><br><span class="line">                &#125;,</span><br><span class="line">                &quot;summary&quot;: &quot;테스트&quot;,</span><br><span class="line">                &quot;issuetype&quot;: &#123;</span><br><span class="line">                    &quot;id&quot;: &quot;10002&quot;</span><br><span class="line">                &#125;,</span><br><span class="line">                &quot;assignee&quot;: &#123;</span><br><span class="line">                    &quot;name&quot;: &quot;kish1919&quot;</span><br><span class="line">                &#125;,</span><br><span class="line">                &quot;reporter&quot;: &#123;</span><br><span class="line">                    &quot;name&quot;: &quot;kish1919&quot;</span><br><span class="line">                &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<img width="1584" alt="Screen Shot 2020-01-26 at 3 41 01 AM" src="https://user-images.githubusercontent.com/26552500/73132791-be41be00-3fed-11ea-8942-9d51638cd455.png">
-
-<p>  <img src="https://user-images.githubusercontent.com/26552500/73132811-f77a2e00-3fed-11ea-82e9-c71b30bd00fc.png" alt="image"></p>
-]]></content>
-      <categories>
-        <category>Today_I_Learn</category>
-      </categories>
-      <tags>
-        <tag>AWS</tag>
-        <tag>Docker</tag>
-        <tag>JIRA</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>AWS/Docker Cloud Server (4)</title>
     <url>/2020/01/26/AWS-Docker-Cloud-Server-4/</url>
     <content><![CDATA[<p>1 Install Confluence</p>
@@ -164,6 +156,14 @@ Create issue
         <tag>Docker</tag>
         <tag>JIRA</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>DS730_1_High_Performance_Computing_&amp;_MapReduce_Introduction</title>
+    <url>/2020/09/01/DS730-1-High-Performance-Computing-MapReduce-Introduction/</url>
+    <content><![CDATA[<p>Author: SAS</p>
+<p>Description: Discusses the history and importance of big data.</p>
+<p><a href="https://www.sas.com/en_us/insights/big-data/what-is-big-data.html" target="_blank" rel="noopener">https://www.sas.com/en_us/insights/big-data/what-is-big-data.html</a></p>
+]]></content>
   </entry>
   <entry>
     <title>DS730_1_1_Create_a_Hortonworks_Sandbox_on_Azure</title>
@@ -264,59 +264,6 @@ Create issue
 ]]></content>
   </entry>
   <entry>
-    <title>MYSQL_Installation(2)</title>
-    <url>/2020/01/27/MYSQL-Installation-2/</url>
-    <content><![CDATA[<p>1 Mysql installation - Ubuntu</p>
-<p>ubuntu 패키지 설치 관리자인 apt 업데이트 및 업그레이드</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo apt update</span><br><span class="line">$ sudo apt upgrade</span><br></pre></td></tr></table></figure>
-
-<p>mysql-server와 mysql-client를 apt로 설치</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 설치 중간에 패스워드 입력</span><br><span class="line">$ sudo apt install mysql-server mysql-client</span><br></pre></td></tr></table></figure>
-
-<p>mysql 보안과 관련된 설정 (순서대로 입력해줍니다 # n-n-y-n-y-y) </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo mysql_secure_installation</span><br><span class="line">$ mysql -u root -p</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73239381-8e1b2c00-4161-11ea-8037-5dbd1882e807.png" alt="image"><br>mysql 시작하기</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo mysql -u root -p</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73223480-cc95f400-412b-11ea-9ea4-3fc170897756.png" alt="image"></p>
-<p>2 mysql start &amp; stop &amp; restart &amp; status</p>
-<p>mysql을 시작하고 종료하고 재시작하고 상태를 확인하는 방법입니다. </p>
-<p>systemctl : 서비스 관리하는 명령</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># mysql 시작</span><br><span class="line">$ sudo systemctl start mysql</span><br><span class="line"></span><br><span class="line"># mysql 종료</span><br><span class="line">$ sudo systemctl stop mysql</span><br><span class="line"></span><br><span class="line"># mysql 재시작</span><br><span class="line">$ sudo systemctl restart mysql.service</span><br><span class="line"></span><br><span class="line"># mysql 상태확인</span><br><span class="line">$ sudo systemctl status mysql.service</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-images.githubusercontent.com/26552500/73223699-9d33b700-412c-11ea-85be-2b5d69e4d553.png" alt="image"></p>
-<p>3 Connection</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># mysql 설정파일 bind-address &#x3D; 0.0.0.0 으로 수정 </span><br><span class="line">$ sudo vi &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnf </span><br><span class="line"></span><br><span class="line">bind-address &#x3D; 0.0.0.0</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 외부접속이 허용되도록 mysql 설정</span><br><span class="line">sql&gt; grant all privileges on *.* to root@&#39;%&#39; identified by &#39;&lt;password&gt;&#39;;</span><br><span class="line"></span><br><span class="line"># 비밀번호가 qwer1234 인경우</span><br><span class="line">ex) grant all privileges on *.* to root@&#39;%&#39; identified by &#39;qwer1234&#39;;</span><br></pre></td></tr></table></figure>
-
-<img width="555" alt="Screen Shot 2020-01-27 at 5 47 11 PM" src="https://user-images.githubusercontent.com/26552500/73223862-221ed080-412d-11ea-80d8-7426fd9a8970.png">
-
-<p>4  포트 활성화<br>AWS 서비스에 들어가서 3306포트를 활성화 시켜 줍니다.</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/73225142-47154280-4131-11ea-9edb-be578159f1d7.png" alt="image"></p>
-<p>5 issues</p>
-<p>If you have a problem to install mysqlclient</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install python-pip python-dev libmysqlclient-dev</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-images.githubusercontent.com/26552500/73225082-0ae1e200-4131-11ea-8096-6f28a6151273.png" alt="image"></p>
-]]></content>
-      <tags>
-        <tag>Mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>HDFS_Command_1</title>
-    <url>/2020/08/13/HDFS-Command-1/</url>
-    <content><![CDATA[<h2 id="hdfs-dfs-command-command-options"><a href="#hdfs-dfs-command-command-options" class="headerlink" title="hdfs dfs [command] [command options]"></a>hdfs dfs [command] [command options]</h2><h3 id="Version"><a href="#Version" class="headerlink" title="Version"></a>Version</h3><h4 id="command-hdfs-version"><a href="#command-hdfs-version" class="headerlink" title="command : hdfs version"></a>command : hdfs version</h4><p><img src="https://user-images.githubusercontent.com/26552500/90162292-06da8200-dd5a-11ea-99cc-2daa1e6c808b.png" alt="image"></p>
-<h4 id="command-hadoop-version"><a href="#command-hadoop-version" class="headerlink" title="command : hadoop version"></a>command : hadoop version</h4><p><img src="https://user-images.githubusercontent.com/26552500/90162414-31c4d600-dd5a-11ea-9e11-c821da12fdc2.png" alt="image"></p>
-<h4 id="command-hdfs-getconf-namenodes"><a href="#command-hdfs-getconf-namenodes" class="headerlink" title="command : hdfs getconf -namenodes"></a>command : hdfs getconf -namenodes</h4><p><img src="https://user-images.githubusercontent.com/26552500/90163146-53728d00-dd5b-11ea-883b-c940a805734a.png" alt="image"></p>
-<h3 id="command-hdfs-dfs-ls-path"><a href="#command-hdfs-dfs-ls-path" class="headerlink" title="command : hdfs dfs -ls path"></a>command : hdfs dfs -ls path</h3><p><img src="https://user-images.githubusercontent.com/26552500/90164361-ec55d800-dd5c-11ea-95c0-6711cbb27a78.png" alt="image"></p>
-<h3 id="command-hdfs-dfs-get-path"><a href="#command-hdfs-dfs-get-path" class="headerlink" title="command : hdfs dfs -get path"></a>command : hdfs dfs -get path</h3><p><img src="https://user-images.githubusercontent.com/26552500/90175711-7148ed80-dd6d-11ea-91d3-deaf48d7f91b.png" alt="image"></p>
-<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>. : Current location<br>.. : Parent location</p>
-<h4 id="Example-cp-2-png-3-png"><a href="#Example-cp-2-png-3-png" class="headerlink" title="Example : cp ./2.png ../3.png"></a>Example : cp ./2.png ../3.png</h4><p>Copy the current 2.png file to the parent directory as 3.png</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/90166534-08a74400-dd60-11ea-96b9-410d0f3529df.png" alt="image"></p>
-]]></content>
-  </entry>
-  <entry>
     <title>MYSQL_Installation(1)</title>
     <url>/2020/01/27/MYSQL-Installation-1/</url>
     <content><![CDATA[<p>1 Install homebrew</p>
@@ -364,6 +311,86 @@ Create issue
       </tags>
   </entry>
   <entry>
+    <title>PostgreSQL_Basic (3)</title>
+    <url>/2020/02/12/PostgreSQL-Basic-3/</url>
+    <content><![CDATA[<h3 id="1-SQL-IN-BETWEEN-LIKE-IS-NULL"><a href="#1-SQL-IN-BETWEEN-LIKE-IS-NULL" class="headerlink" title="1. SQL [IN, BETWEEN, LIKE, IS NULL]"></a>1. SQL [IN, BETWEEN, LIKE, IS NULL]</h3><h4 id="1-IN"><a href="#1-IN" class="headerlink" title="1) IN"></a>1) IN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74402203-2adbfb80-4de9-11ea-915d-2a60b81d86d4.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74402265-552db900-4de9-11ea-8a2f-804997c5c93e.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74402303-75f60e80-4de9-11ea-83c1-18c5ab83797c.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74402325-86a68480-4de9-11ea-9596-ebb20cf5dd17.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74402370-a76eda00-4de9-11ea-9a9d-040999e399f0.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74402411-cb322000-4de9-11ea-86a3-0eaa93783308.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74402442-e3a23a80-4de9-11ea-8415-186b5fbca9cf.png" alt="image"></p>
+<h4 id="2-BETWEEN"><a href="#2-BETWEEN" class="headerlink" title="2) BETWEEN"></a>2) BETWEEN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74494851-cd54b700-4e9b-11ea-9780-928e76f4efcd.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74494892-ebbab280-4e9b-11ea-88ef-175ad1dc6717.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74494923-faa16500-4e9b-11ea-8812-13d09f20304d.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74494993-258bb900-4e9c-11ea-90e9-87855d9e7d07.png" alt="image"></p>
+<h4 id="3-LIKE"><a href="#3-LIKE" class="headerlink" title="3) LIKE"></a>3) LIKE</h4><p><img src="https://user-images.githubusercontent.com/26552500/74496441-5110a280-4ea0-11ea-8281-f02dd7422598.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74496482-6a195380-4ea0-11ea-8ff1-a35bc6473256.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74496536-8fa65d00-4ea0-11ea-8116-8392a54f1689.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74496563-a2b92d00-4ea0-11ea-8dd6-0f1a23a66beb.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74496585-b19fdf80-4ea0-11ea-9ee1-0b375280a2ca.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74496606-c1b7bf00-4ea0-11ea-9d6f-225b3c1efe35.png" alt="image"></p>
+<h4 id="4-IS-NULL"><a href="#4-IS-NULL" class="headerlink" title="4) IS NULL"></a>4) IS NULL</h4><p><img src="https://user-images.githubusercontent.com/26552500/74497339-03e20000-4ea3-11ea-9274-02ad7327820d.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74497375-2247fb80-4ea3-11ea-8c41-3fc2aafdad29.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74497966-b5cdfc00-4ea4-11ea-975a-472eef4f3a81.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74497984-c4b4ae80-4ea4-11ea-8c88-a49f7e8707b0.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74498007-d39b6100-4ea4-11ea-9a78-de116471f733.png" alt="image"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>HDFS_Command_1</title>
+    <url>/2020/08/13/HDFS-Command-1/</url>
+    <content><![CDATA[<h2 id="hdfs-dfs-command-command-options"><a href="#hdfs-dfs-command-command-options" class="headerlink" title="hdfs dfs [command] [command options]"></a>hdfs dfs [command] [command options]</h2><h3 id="Version"><a href="#Version" class="headerlink" title="Version"></a>Version</h3><h4 id="command-hdfs-version"><a href="#command-hdfs-version" class="headerlink" title="command : hdfs version"></a>command : hdfs version</h4><p><img src="https://user-images.githubusercontent.com/26552500/90162292-06da8200-dd5a-11ea-99cc-2daa1e6c808b.png" alt="image"></p>
+<h4 id="command-hadoop-version"><a href="#command-hadoop-version" class="headerlink" title="command : hadoop version"></a>command : hadoop version</h4><p><img src="https://user-images.githubusercontent.com/26552500/90162414-31c4d600-dd5a-11ea-9e11-c821da12fdc2.png" alt="image"></p>
+<h4 id="command-hdfs-getconf-namenodes"><a href="#command-hdfs-getconf-namenodes" class="headerlink" title="command : hdfs getconf -namenodes"></a>command : hdfs getconf -namenodes</h4><p><img src="https://user-images.githubusercontent.com/26552500/90163146-53728d00-dd5b-11ea-883b-c940a805734a.png" alt="image"></p>
+<h3 id="command-hdfs-dfs-ls-path"><a href="#command-hdfs-dfs-ls-path" class="headerlink" title="command : hdfs dfs -ls path"></a>command : hdfs dfs -ls path</h3><p><img src="https://user-images.githubusercontent.com/26552500/90164361-ec55d800-dd5c-11ea-95c0-6711cbb27a78.png" alt="image"></p>
+<h3 id="command-hdfs-dfs-get-path"><a href="#command-hdfs-dfs-get-path" class="headerlink" title="command : hdfs dfs -get path"></a>command : hdfs dfs -get path</h3><p><img src="https://user-images.githubusercontent.com/26552500/90175711-7148ed80-dd6d-11ea-91d3-deaf48d7f91b.png" alt="image"></p>
+<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>. : Current location<br>.. : Parent location</p>
+<h4 id="Example-cp-2-png-3-png"><a href="#Example-cp-2-png-3-png" class="headerlink" title="Example : cp ./2.png ../3.png"></a>Example : cp ./2.png ../3.png</h4><p>Copy the current 2.png file to the parent directory as 3.png</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/90166534-08a74400-dd60-11ea-96b9-410d0f3529df.png" alt="image"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>MYSQL_Installation(2)</title>
+    <url>/2020/01/27/MYSQL-Installation-2/</url>
+    <content><![CDATA[<p>1 Mysql installation - Ubuntu</p>
+<p>ubuntu 패키지 설치 관리자인 apt 업데이트 및 업그레이드</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo apt update</span><br><span class="line">$ sudo apt upgrade</span><br></pre></td></tr></table></figure>
+
+<p>mysql-server와 mysql-client를 apt로 설치</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 설치 중간에 패스워드 입력</span><br><span class="line">$ sudo apt install mysql-server mysql-client</span><br></pre></td></tr></table></figure>
+
+<p>mysql 보안과 관련된 설정 (순서대로 입력해줍니다 # n-n-y-n-y-y) </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo mysql_secure_installation</span><br><span class="line">$ mysql -u root -p</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73239381-8e1b2c00-4161-11ea-8037-5dbd1882e807.png" alt="image"><br>mysql 시작하기</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo mysql -u root -p</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73223480-cc95f400-412b-11ea-9ea4-3fc170897756.png" alt="image"></p>
+<p>2 mysql start &amp; stop &amp; restart &amp; status</p>
+<p>mysql을 시작하고 종료하고 재시작하고 상태를 확인하는 방법입니다. </p>
+<p>systemctl : 서비스 관리하는 명령</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># mysql 시작</span><br><span class="line">$ sudo systemctl start mysql</span><br><span class="line"></span><br><span class="line"># mysql 종료</span><br><span class="line">$ sudo systemctl stop mysql</span><br><span class="line"></span><br><span class="line"># mysql 재시작</span><br><span class="line">$ sudo systemctl restart mysql.service</span><br><span class="line"></span><br><span class="line"># mysql 상태확인</span><br><span class="line">$ sudo systemctl status mysql.service</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/26552500/73223699-9d33b700-412c-11ea-85be-2b5d69e4d553.png" alt="image"></p>
+<p>3 Connection</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># mysql 설정파일 bind-address &#x3D; 0.0.0.0 으로 수정 </span><br><span class="line">$ sudo vi &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnf </span><br><span class="line"></span><br><span class="line">bind-address &#x3D; 0.0.0.0</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 외부접속이 허용되도록 mysql 설정</span><br><span class="line">sql&gt; grant all privileges on *.* to root@&#39;%&#39; identified by &#39;&lt;password&gt;&#39;;</span><br><span class="line"></span><br><span class="line"># 비밀번호가 qwer1234 인경우</span><br><span class="line">ex) grant all privileges on *.* to root@&#39;%&#39; identified by &#39;qwer1234&#39;;</span><br></pre></td></tr></table></figure>
+
+<img width="555" alt="Screen Shot 2020-01-27 at 5 47 11 PM" src="https://user-images.githubusercontent.com/26552500/73223862-221ed080-412d-11ea-80d8-7426fd9a8970.png">
+
+<p>4  포트 활성화<br>AWS 서비스에 들어가서 3306포트를 활성화 시켜 줍니다.</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/73225142-47154280-4131-11ea-9edb-be578159f1d7.png" alt="image"></p>
+<p>5 issues</p>
+<p>If you have a problem to install mysqlclient</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install python-pip python-dev libmysqlclient-dev</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/26552500/73225082-0ae1e200-4131-11ea-8096-6f28a6151273.png" alt="image"></p>
+]]></content>
+      <tags>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PostgreSQL_Basic (1)</title>
     <url>/2020/02/01/PostgreSQL-Basic-1/</url>
     <content><![CDATA[<p><img src="https://user-images.githubusercontent.com/26552500/74211324-03ecc080-4c55-11ea-94e0-8fcb6041f962.png" alt="image"></p>
@@ -376,6 +403,17 @@ Create issue
 <p><img src="https://user-images.githubusercontent.com/26552500/74213312-33ec9180-4c5e-11ea-8646-6608bcf8c20d.png" alt="image"></p>
 <p><img src="https://user-images.githubusercontent.com/26552500/74213323-423aad80-4c5e-11ea-98fe-84c887d900b7.png" alt="image"></p>
 <p><img src="https://user-images.githubusercontent.com/26552500/74213334-5383ba00-4c5e-11ea-846e-7831f0de3e86.png" alt="image"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>PostgreSQL_Basic (4)</title>
+    <url>/2020/02/19/PostgreSQL-Basic-4/</url>
+    <content><![CDATA[<h3 id="2-SQL"><a href="#2-SQL" class="headerlink" title="2. SQL []"></a>2. SQL []</h3><h4 id="1-JOIN"><a href="#1-JOIN" class="headerlink" title="1) JOIN"></a>1) JOIN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74899081-849c7280-5361-11ea-9138-ed46065c5af9.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74899134-a5fd5e80-5361-11ea-926b-052c0567f8a6.png" alt="image"></p>
+<h4 id="2-INNER-JOIN"><a href="#2-INNER-JOIN" class="headerlink" title="2) INNER JOIN"></a>2) INNER JOIN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74899171-ba415b80-5361-11ea-88c2-46fb68b5f125.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74899211-d9d88400-5361-11ea-9500-4d00ee0609f4.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74899251-f379cb80-5361-11ea-97f2-e1c1a31182f9.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74899307-24f29700-5362-11ea-87ba-69111e078345.png" alt="image"></p>
 ]]></content>
   </entry>
   <entry>
@@ -413,41 +451,15 @@ Create issue
 ]]></content>
   </entry>
   <entry>
-    <title>PostgreSQL_Basic (3)</title>
-    <url>/2020/02/12/PostgreSQL-Basic-3/</url>
-    <content><![CDATA[<h3 id="1-SQL-IN-BETWEEN-LIKE-IS-NULL"><a href="#1-SQL-IN-BETWEEN-LIKE-IS-NULL" class="headerlink" title="1. SQL [IN, BETWEEN, LIKE, IS NULL]"></a>1. SQL [IN, BETWEEN, LIKE, IS NULL]</h3><h4 id="1-IN"><a href="#1-IN" class="headerlink" title="1) IN"></a>1) IN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74402203-2adbfb80-4de9-11ea-915d-2a60b81d86d4.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74402265-552db900-4de9-11ea-8a2f-804997c5c93e.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74402303-75f60e80-4de9-11ea-83c1-18c5ab83797c.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74402325-86a68480-4de9-11ea-9596-ebb20cf5dd17.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74402370-a76eda00-4de9-11ea-9a9d-040999e399f0.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74402411-cb322000-4de9-11ea-86a3-0eaa93783308.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74402442-e3a23a80-4de9-11ea-8415-186b5fbca9cf.png" alt="image"></p>
-<h4 id="2-BETWEEN"><a href="#2-BETWEEN" class="headerlink" title="2) BETWEEN"></a>2) BETWEEN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74494851-cd54b700-4e9b-11ea-9780-928e76f4efcd.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74494892-ebbab280-4e9b-11ea-88ef-175ad1dc6717.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74494923-faa16500-4e9b-11ea-8812-13d09f20304d.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74494993-258bb900-4e9c-11ea-90e9-87855d9e7d07.png" alt="image"></p>
-<h4 id="3-LIKE"><a href="#3-LIKE" class="headerlink" title="3) LIKE"></a>3) LIKE</h4><p><img src="https://user-images.githubusercontent.com/26552500/74496441-5110a280-4ea0-11ea-8281-f02dd7422598.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74496482-6a195380-4ea0-11ea-8ff1-a35bc6473256.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74496536-8fa65d00-4ea0-11ea-8116-8392a54f1689.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74496563-a2b92d00-4ea0-11ea-8dd6-0f1a23a66beb.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74496585-b19fdf80-4ea0-11ea-9ee1-0b375280a2ca.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74496606-c1b7bf00-4ea0-11ea-9d6f-225b3c1efe35.png" alt="image"></p>
-<h4 id="4-IS-NULL"><a href="#4-IS-NULL" class="headerlink" title="4) IS NULL"></a>4) IS NULL</h4><p><img src="https://user-images.githubusercontent.com/26552500/74497339-03e20000-4ea3-11ea-9274-02ad7327820d.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74497375-2247fb80-4ea3-11ea-8c41-3fc2aafdad29.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74497966-b5cdfc00-4ea4-11ea-975a-472eef4f3a81.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74497984-c4b4ae80-4ea4-11ea-8c88-a49f7e8707b0.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74498007-d39b6100-4ea4-11ea-9a78-de116471f733.png" alt="image"></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>PostgreSQL_Basic (4)</title>
-    <url>/2020/02/19/PostgreSQL-Basic-4/</url>
-    <content><![CDATA[<h3 id="2-SQL"><a href="#2-SQL" class="headerlink" title="2. SQL []"></a>2. SQL []</h3><h4 id="1-JOIN"><a href="#1-JOIN" class="headerlink" title="1) JOIN"></a>1) JOIN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74899081-849c7280-5361-11ea-9138-ed46065c5af9.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74899134-a5fd5e80-5361-11ea-926b-052c0567f8a6.png" alt="image"></p>
-<h4 id="2-INNER-JOIN"><a href="#2-INNER-JOIN" class="headerlink" title="2) INNER JOIN"></a>2) INNER JOIN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74899171-ba415b80-5361-11ea-88c2-46fb68b5f125.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74899211-d9d88400-5361-11ea-9500-4d00ee0609f4.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74899251-f379cb80-5361-11ea-97f2-e1c1a31182f9.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74899307-24f29700-5362-11ea-87ba-69111e078345.png" alt="image"></p>
+    <title>PostgreSQL_Basic Exam (1)</title>
+    <url>/2020/02/13/PostgreSQL-Basic-Exam-1/</url>
+    <content><![CDATA[<h4 id="1-PAYMENT-DATE가-2007년-2월-7일부터-2007년-2월-15일인-customer-id-first-name-Last-name"><a href="#1-PAYMENT-DATE가-2007년-2월-7일부터-2007년-2월-15일인-customer-id-first-name-Last-name" class="headerlink" title="1) PAYMENT_DATE가 2007년 2월 7일부터 2007년 2월 15일인 customer_id, first_name, Last_name"></a>1) PAYMENT_DATE가 2007년 2월 7일부터 2007년 2월 15일인 customer_id, first_name, Last_name</h4><ul>
+<li>to_char / cast</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/26552500/74495493-98e1fa80-4e9d-11ea-9802-4eaf3e30e1b5.png" alt="image"></p>
+<h4 id="2"><a href="#2" class="headerlink" title="2)"></a>2)</h4><p><img src="https://user-images.githubusercontent.com/26552500/74498354-03973400-4ea6-11ea-834a-c72cacf72f9e.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74498877-a4d2ba00-4ea7-11ea-9428-8255061fcb80.png" alt="image"></p>
+<h4 id="3"><a href="#3" class="headerlink" title="3)"></a>3)</h4><p><img src="https://user-images.githubusercontent.com/26552500/74498915-bc11a780-4ea7-11ea-8aa8-a1b2b324a4dd.png" alt="image"></p>
 ]]></content>
   </entry>
   <entry>
@@ -475,78 +487,6 @@ Create issue
 <li>aws open port 80</li>
 </ol>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Predict Used Car Project (2)</title>
-    <url>/2020/01/27/Predict-Used-Car-Project-2/</url>
-    <content><![CDATA[<p>Install CMake</p>
-<p>Enter the following command to download the source code:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ wget https:&#x2F;&#x2F;github.com&#x2F;Kitware&#x2F;CMake&#x2F;releases&#x2F;download&#x2F;v3.15.2&#x2F;cmake-3.15.2.tar.gz</span><br><span class="line">$ tar -zxvf cmake-3.15.2.tar.gz</span><br><span class="line">$ cd cmake-3.15.2</span><br><span class="line">.&#x2F;bootstrap</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-images.githubusercontent.com/26552500/73230770-f22ef780-4143-11ea-863e-4c2221ac32ee.png" alt="image"></p>
-<p>You can now make it using the following command:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ make</span><br></pre></td></tr></table></figure>
-
-<p>And then install it as follows:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo make install</span><br></pre></td></tr></table></figure>
-
-<p>After the software is successfully installed, you can verify its installation and also if the correct version is<br> installed, through the following command:<br> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cmake --version</span><br></pre></td></tr></table></figure></p>
-<hr>
-<p>Install XGBoost</p>
-<p>Enter the following command to download the source code:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone --recursive https:&#x2F;&#x2F;github.com&#x2F;dmlc&#x2F;xgboost</span><br><span class="line">cd xgboost</span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ..</span><br><span class="line">make -j4</span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<p>디스크용량 확인</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">df -P | grep -v ^Filesystem | awk &#39;&#123;sum +&#x3D; $2&#125; END &#123; print sum&#x2F;1024&#x2F;1024 &quot; GB&quot; &#125;&#39;</span><br></pre></td></tr></table></figure>
-
-<p>디스크 사용량</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">df -P | grep -v ^Filesystem | awk &#39;&#123;sum +&#x3D; $3&#125; END &#123; print sum&#x2F;1024&#x2F;1024 &quot; GB&quot; &#125;&#39;</span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-  </entry>
-  <entry>
-    <title>PostgreSQL_Basic Exam (1)</title>
-    <url>/2020/02/13/PostgreSQL-Basic-Exam-1/</url>
-    <content><![CDATA[<h4 id="1-PAYMENT-DATE가-2007년-2월-7일부터-2007년-2월-15일인-customer-id-first-name-Last-name"><a href="#1-PAYMENT-DATE가-2007년-2월-7일부터-2007년-2월-15일인-customer-id-first-name-Last-name" class="headerlink" title="1) PAYMENT_DATE가 2007년 2월 7일부터 2007년 2월 15일인 customer_id, first_name, Last_name"></a>1) PAYMENT_DATE가 2007년 2월 7일부터 2007년 2월 15일인 customer_id, first_name, Last_name</h4><ul>
-<li>to_char / cast</li>
-</ul>
-<p><img src="https://user-images.githubusercontent.com/26552500/74495493-98e1fa80-4e9d-11ea-9802-4eaf3e30e1b5.png" alt="image"></p>
-<h4 id="2"><a href="#2" class="headerlink" title="2)"></a>2)</h4><p><img src="https://user-images.githubusercontent.com/26552500/74498354-03973400-4ea6-11ea-834a-c72cacf72f9e.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74498877-a4d2ba00-4ea7-11ea-9428-8255061fcb80.png" alt="image"></p>
-<h4 id="3"><a href="#3" class="headerlink" title="3)"></a>3)</h4><p><img src="https://user-images.githubusercontent.com/26552500/74498915-bc11a780-4ea7-11ea-8aa8-a1b2b324a4dd.png" alt="image"></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Python_Code_1</title>
-    <url>/2020/12/12/Python-Code-1/</url>
-    <content><![CDATA[<ol>
-<li><p>Brew</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ brew install pyenv</span><br><span class="line">$ brew list</span><br><span class="line">$ brew upgrade pyenv</span><br><span class="line">$ brew upgrade</span><br><span class="line">$ brew update</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Bash</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ source .bash_profile</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Pyenv</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pyenv install --list</span><br><span class="line">$ pyenv install 3.9.0</span><br><span class="line">$ pyenv versions</span><br><span class="line">$ pyenv shell 3.9.0</span><br><span class="line">$ pyenv virtualenv 3.9.0 python3</span><br><span class="line">$ pyenv uninstall python3</span><br><span class="line">$ pyenv global 3.9.0 </span><br><span class="line">$ pyenv activate python2</span><br><span class="line">$ pyenv deactivate</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Pip</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pip3 install ipython  </span><br><span class="line">$ pip3 list</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Python_House_Price</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">%matplotlib inline</span><br><span class="line">import seaborn as sns</span><br><span class="line">import warnings</span><br><span class="line">warnings.filterwarnings(&#39;ignore&#39;)</span><br><span class="line">from scipy import stats</span><br><span class="line"></span><br><span class="line">train.describe()</span><br><span class="line">display(train.head(n&#x3D;1))</span><br><span class="line">train.shape</span><br><span class="line"></span><br><span class="line">plt.figure(figsize&#x3D;(17,6))</span><br><span class="line">plt.subplot(131)</span><br><span class="line">sns.distplot(train[&quot;SalePrice&quot;])</span><br><span class="line">plt.subplot(132)</span><br><span class="line">stats.probplot(train[&quot;SalePrice&quot;],plot&#x3D;plt)</span><br><span class="line">plt.subplot(133)</span><br><span class="line">sns.boxplot(train[&quot;SalePrice&quot;])</span><br><span class="line">plt.tight_layout()</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">train[&quot;MSSubClass&quot;] &#x3D; train[&quot;MSSubClass&quot;].astype(&#39;str&#39;)</span><br><span class="line"></span><br><span class="line">numerical_features &#x3D; []</span><br><span class="line">categorical_features &#x3D; []</span><br><span class="line">for f in train.columns:</span><br><span class="line">    if train.dtypes[f] !&#x3D; &#39;object&#39;:</span><br><span class="line">        numerical_features.append(f)</span><br><span class="line">    else:</span><br><span class="line">        categorical_features.append(f)</span><br><span class="line"></span><br><span class="line">nomalized_SalePrice &#x3D; np.log1p(train[&quot;SalePrice&quot;])</span><br><span class="line">plt.figure(figsize&#x3D;(17,6))</span><br><span class="line">plt.subplot(131)</span><br><span class="line">sns.distplot(nomalized_SalePrice)</span><br><span class="line">plt.subplot(132)</span><br><span class="line">stats.probplot(nomalized_SalePrice, plot&#x3D;plt)</span><br><span class="line">plt.subplot(133)</span><br><span class="line">sns.boxplot(nomalized_SalePrice)</span><br><span class="line">plt.tight_layout()</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">fig, ax &#x3D; plt.subplots(6,6, figsize &#x3D; (20,20))</span><br><span class="line">for idx, n in enumerate(numerical_features):</span><br><span class="line">    if n &#x3D;&#x3D; &#39;SalePrice&#39;:</span><br><span class="line">        continue</span><br><span class="line">    sns.regplot(x&#x3D;n, y&#x3D;&#39;SalePrice&#39;, data&#x3D;train, ax &#x3D; ax[idx&#x2F;&#x2F;6,idx%6])</span><br><span class="line">    ax[idx&#x2F;&#x2F;6, idx % 6].set(yticklabels&#x3D;[])</span><br><span class="line">    ax[idx&#x2F;&#x2F;6, idx % 6].set(xticklabels&#x3D;[])</span><br><span class="line"></span><br><span class="line">fig, ax &#x3D; plt.subplots(8,6, figsize &#x3D; (20,20))</span><br><span class="line">for idx, n in enumerate(categorical_features):</span><br><span class="line">    sns.countplot(x&#x3D;n, data&#x3D;train, ax &#x3D; ax[idx&#x2F;&#x2F;6, idx % 6])</span><br><span class="line">    ax[idx&#x2F;&#x2F;6, idx % 6].set(yticklabels&#x3D;[])</span><br><span class="line"></span><br><span class="line">df_train &#x3D; train.copy()</span><br><span class="line">df_train[&quot;2ndFloor&quot;] &#x3D; &quot;2ndFloor&quot;</span><br><span class="line">df_train[&quot;2ndFloor&quot;].loc[df_train[&quot;2ndFlrSF&quot;]&#x3D;&#x3D;0] &#x3D; &quot;No 2ndFloor&quot;</span><br><span class="line">df_train[&quot;Basement&quot;] &#x3D; &quot;Basement&quot;</span><br><span class="line">df_train[&quot;Basement&quot;].loc[df_train[&quot;TotalBsmtSF&quot;]&#x3D;&#x3D;0] &#x3D; &quot;No Basement&quot;</span><br><span class="line"></span><br><span class="line"># Joint plot GrLivArea&#x2F;saleprice</span><br><span class="line">grid &#x3D; sns.jointplot(x &#x3D; &quot;GrLivArea&quot;, y &#x3D; &quot;SalePrice&quot;, data&#x3D;train, kind&#x3D;&quot;reg&quot;)</span><br><span class="line">grid.fig.set_size_inches(15,5)</span><br><span class="line"></span><br><span class="line"># Strip plot GrLivArea&#x2F;2ndFloor&#x2F;saleprice</span><br><span class="line">plt.figure(figsize &#x3D; (20,8))</span><br><span class="line">plt.subplot(211)</span><br><span class="line">g &#x3D; sns.stripplot(x &#x3D; &quot;GrLivArea&quot;, y &#x3D; &#39;SalePrice&#39;, hue &#x3D; &quot;2ndFloor&quot;, data &#x3D; df_train, alpha &#x3D; 0.7)</span><br><span class="line">g.set_xlabel(&#39;GrLivArea&#39;)</span><br><span class="line">g.set_ylabel(&#39;SalePrice&#39;)</span><br><span class="line">g.set_xticks([])</span><br><span class="line">g.set_title(&#39;GrLiv &amp; 2ndFloor - SalePrice&#39;)</span><br><span class="line"></span><br><span class="line"># Strip plot GrLivArea&#x2F;Basement&#x2F;saleprice</span><br><span class="line">plt.subplot(212)</span><br><span class="line">b &#x3D; sns.stripplot( x &#x3D; &quot;GrLivArea&quot;, y &#x3D; &#39;SalePrice&#39;, hue &#x3D; &quot;Basement&quot;, data &#x3D; df_train, alpha &#x3D; 0.7)</span><br><span class="line">b.set_xlabel(&#39;GrLivArea&#39;)</span><br><span class="line">b.set_ylabel(&#39;SalePrice&#39;)</span><br><span class="line">b.set_title(&#39;GrLivArea &amp; Basement - SalePrice&#39;)</span><br><span class="line">b.set_xticks([])</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"># Graph for GrLivArea &amp; OverallQual - SalePrice</span><br><span class="line">plt.figure(figsize&#x3D;(15,8))</span><br><span class="line">ax1 &#x3D; plt.subplot2grid((2,2), (0,0), colspan &#x3D; 2)</span><br><span class="line">for qual in range(1,11):</span><br><span class="line">    index &#x3D; train.OverallQual &#x3D;&#x3D; qual</span><br><span class="line">    ax1.scatter(train.GrLivArea.loc[index], train.SalePrice.loc[index], data&#x3D;train, label&#x3D; qual, alpha &#x3D;0.5)</span><br><span class="line">ax1.legend(loc &#x3D; 0)</span><br><span class="line">ax1.set_title(&quot;GrLivArea &amp; OverallQual - SalePrice&quot;)</span><br><span class="line">ax1.set_xlabel(&#39;GrLivArea &amp; OverallQual&#39;)</span><br><span class="line">ax1.set_ylabel(&#39;SalePrice&#39;)</span><br><span class="line"></span><br><span class="line"># Graph for OverallQual - SalePrice</span><br><span class="line">ax2 &#x3D; plt.subplot2grid((2,2), (1,0))</span><br><span class="line">sns.boxplot(x &#x3D; &quot;OverallQual&quot;, y &#x3D; &quot;SalePrice&quot;, data&#x3D;train, ax&#x3D; ax2)</span><br><span class="line">ax2.set_title(&#39;OverallQual - SalePrice&#39;)</span><br><span class="line"></span><br><span class="line"># Graph for OverallCond - SalePrice</span><br><span class="line">ax3 &#x3D; plt.subplot2grid((2,2), (1,1))</span><br><span class="line">sns.boxplot(x &#x3D; &quot;OverallCond&quot;, y &#x3D; &quot;SalePrice&quot;, data&#x3D;train, ax&#x3D; ax3)</span><br><span class="line">ax3.set_title(&#39;OverallCond - SalePrice&#39;)</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Code</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>Code</tag>
-      </tags>
   </entry>
   <entry>
     <title>Predict Used Car Project (1)</title>
@@ -624,6 +564,55 @@ Create issue
 <p>Solution</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install python3-lxml</span><br><span class="line">pip3 install lxml</span><br></pre></td></tr></table></figure>
 
+<ol start="3">
+<li>MySQL Password change</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE USER &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;k68686868&#39;;</span><br><span class="line">GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39;;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/102420011-afc61180-3fc6-11eb-832b-48acf77fad0a.png" alt="image"></p>
+<p>Restart MySQL Server</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo systemctl restart mysql.service</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>Regular Express</title>
+    <url>/2020/08/27/Regular-Express/</url>
+    <content><![CDATA[<h3 id="1-Regular-expressions"><a href="#1-Regular-expressions" class="headerlink" title="1. Regular expressions"></a>1. Regular expressions</h3><h4 id="Regular-expressions-are-one-of-the-ways-to-process-character-strings-and-are-a-means-to-make-the-process-of’searching’-or’substituting’-characters-in-a-specific-condition-very-simple"><a href="#Regular-expressions-are-one-of-the-ways-to-process-character-strings-and-are-a-means-to-make-the-process-of’searching’-or’substituting’-characters-in-a-specific-condition-very-simple" class="headerlink" title="Regular expressions are one of the ways to process character strings and are a means to make the process of’searching’ or’substituting’ characters in a specific condition very simple."></a>Regular expressions are one of the ways to process character strings and are a means to make the process of’searching’ or’substituting’ characters in a specific condition very simple.</h4><h3 id="2-Term"><a href="#2-Term" class="headerlink" title="2. Term"></a>2. Term</h3><ul>
+<li><p>^x : x 문자로 시작 </p>
+</li>
+<li><p>x$ : x 문자로 종료</p>
+</li>
+<li><p>.x : 임의의 한 문자의 자리수를 표현하며 문자열이 x 로 끝남</p>
+</li>
+<li><p>x+ : x 문자가 1개 이상</p>
+</li>
+<li><p>x? : x 문자가 0개 ~1개</p>
+</li>
+<li><p>x* : x 문자가 0개 ~ 여러개</p>
+</li>
+<li><p>x|y : or 를 표현하며 x 또는 y 문자<br><img src="https://user-images.githubusercontent.com/26552500/91465533-82a4f600-e853-11ea-88cb-add460b6ba36.png" alt="image"></p>
+</li>
+</ul>
+<ul>
+<li>(x) :그룹을 표현하며 x 를 그룹으로 처리<br><img src="https://user-images.githubusercontent.com/26552500/91465533-82a4f600-e853-11ea-88cb-add460b6ba36.png" alt="image"></li>
+</ul>
+<ul>
+<li><p>(x)(y):x 그룹을 찾고 그 뒤에 있는 y값을 찾음<br><img src="https://user-images.githubusercontent.com/26552500/91466181-5d64b780-e854-11ea-876a-48a7e5cacfa9.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91466400-ad437e80-e854-11ea-8fa8-f2841802c0c3.png" alt="image"></p>
+</li>
+<li><p>x.?? : 앞에 있는 ?의 최소값인 0개로 검색 (? lazy)<br><img src="https://user-images.githubusercontent.com/26552500/91467435-30b19f80-e856-11ea-829e-7bf085ef9c8d.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91467497-445d0600-e856-11ea-9b83-f4357fa81e20.png" alt="image"></p>
+</li>
+<li><p>x.+? : 앞에 있는 +의 최소값인 1개로 검색 (? lazy)<br><img src="https://user-images.githubusercontent.com/26552500/91467651-779f9500-e856-11ea-9efc-067cb69f1f10.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91467705-8c7c2880-e856-11ea-958f-0152cf944e4c.png" alt="image"></p>
+</li>
+<li><p>x+(?=y) : 끝이 y로 끝나는 x를 검색<br><img src="https://user-images.githubusercontent.com/26552500/91468977-635c9780-e858-11ea-9603-74372293e2d5.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91469039-7a02ee80-e858-11ea-8e62-693e414dcf77.png" alt="image"></p>
+</li>
+</ul>
+<h3 id="3-Example"><a href="#3-Example" class="headerlink" title="3. Example"></a>3. Example</h3><ul>
+<li><p>전화번호 : ([\d]{3}) \d{3}-\d{4}  </p>
+<pre><code>\([0-9]{3}\) [0-9]{3}-[0-9]{4}</code></pre><p><img src="https://user-images.githubusercontent.com/26552500/91470069-d87c9c80-e859-11ea-8076-6aadd25d4334.png" alt="image"></p>
+</li>
+<li><p>전화번호 (중간에 8또는 1 제외): [^8|^1][0-9]{2}-[0-9]{4}<br><img src="https://user-images.githubusercontent.com/26552500/91471001-0f9f7d80-e85b-11ea-80fd-0d6d374ab14f.png" alt="image"></p>
+</li>
+</ul>
+<h3 id="4-Test-site"><a href="#4-Test-site" class="headerlink" title="4. Test site"></a>4. Test site</h3><p><a href="https://regexr.com/" target="_blank" rel="noopener">https://regexr.com/</a></p>
 ]]></content>
   </entry>
   <entry>
@@ -654,6 +643,24 @@ Create issue
 <p><img src="https://user-images.githubusercontent.com/26552500/74502215-62fb4100-4eb2-11ea-9505-f8b3c33db4b4.png" alt="image"></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> this</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="comment"># input incoding</span></span><br><span class="line">print(sys.stdin.encoding)</span><br><span class="line"></span><br><span class="line"><span class="comment"># output incoding</span></span><br><span class="line">print(sys.stdout.encoding)</span><br><span class="line"></span><br><span class="line"><span class="comment"># loop</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">        print(<span class="string">"%d * %d ="</span> %(i,j), i*j)</span><br><span class="line"></span><br><span class="line"><span class="comment"># function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greeting</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"hello"</span>)</span><br><span class="line"></span><br><span class="line">greeting()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cooking</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Instance</span></span><br><span class="line">cookie = Cooking()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print information about class</span></span><br><span class="line">print(id(cookie))</span><br><span class="line">print(dir(cookie))</span><br><span class="line"></span><br><span class="line">print(cookie.__class__)</span><br><span class="line">print(cookie.__hash__)</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">The Zen of Python, by Tim Peters</span><br><span class="line"></span><br><span class="line">Beautiful is better than ugly.</span><br><span class="line">Explicit is better than implicit.</span><br><span class="line">Simple is better than complex.</span><br><span class="line">Complex is better than complicated.</span><br><span class="line">Flat is better than nested.</span><br><span class="line">Sparse is better than dense.</span><br><span class="line">Readability counts.</span><br><span class="line">Special cases aren&#39;t special enough to break the rules.</span><br><span class="line">Although practicality beats purity.</span><br><span class="line">Errors should never pass silently.</span><br><span class="line">Unless explicitly silenced.</span><br><span class="line">In the face of ambiguity, refuse the temptation to guess.</span><br><span class="line">There should be one-- and preferably only one --obvious way to do it.</span><br><span class="line">Although that way may not be obvious at first unless you&#39;re Dutch.</span><br><span class="line">Now is better than never.</span><br><span class="line">Although never is often better than *right* now.</span><br><span class="line">If the implementation is hard to explain, it&#39;s a bad idea.</span><br><span class="line">If the implementation is easy to explain, it may be a good idea.</span><br><span class="line">Namespaces are one honking great idea -- let&#39;s do more of those!</span><br><span class="line">UTF-8</span><br><span class="line">UTF-8</span><br><span class="line">1 * 1 &#x3D; 1</span><br><span class="line">1 * 2 &#x3D; 2</span><br><span class="line">1 * 3 &#x3D; 3</span><br><span class="line">1 * 4 &#x3D; 4</span><br><span class="line">1 * 5 &#x3D; 5</span><br><span class="line">1 * 6 &#x3D; 6</span><br><span class="line">1 * 7 &#x3D; 7</span><br><span class="line">1 * 8 &#x3D; 8</span><br><span class="line">1 * 9 &#x3D; 9</span><br><span class="line">2 * 1 &#x3D; 2</span><br><span class="line">2 * 2 &#x3D; 4</span><br><span class="line">2 * 3 &#x3D; 6</span><br><span class="line">2 * 4 &#x3D; 8</span><br><span class="line">2 * 5 &#x3D; 10</span><br><span class="line">2 * 6 &#x3D; 12</span><br><span class="line">2 * 7 &#x3D; 14</span><br><span class="line">2 * 8 &#x3D; 16</span><br><span class="line">2 * 9 &#x3D; 18</span><br><span class="line">3 * 1 &#x3D; 3</span><br><span class="line">3 * 2 &#x3D; 6</span><br><span class="line">3 * 3 &#x3D; 9</span><br><span class="line">3 * 4 &#x3D; 12</span><br><span class="line">3 * 5 &#x3D; 15</span><br><span class="line">3 * 6 &#x3D; 18</span><br><span class="line">3 * 7 &#x3D; 21</span><br><span class="line">3 * 8 &#x3D; 24</span><br><span class="line">3 * 9 &#x3D; 27</span><br><span class="line">4 * 1 &#x3D; 4</span><br><span class="line">4 * 2 &#x3D; 8</span><br><span class="line">4 * 3 &#x3D; 12</span><br><span class="line">4 * 4 &#x3D; 16</span><br><span class="line">4 * 5 &#x3D; 20</span><br><span class="line">4 * 6 &#x3D; 24</span><br><span class="line">4 * 7 &#x3D; 28</span><br><span class="line">4 * 8 &#x3D; 32</span><br><span class="line">4 * 9 &#x3D; 36</span><br><span class="line">5 * 1 &#x3D; 5</span><br><span class="line">5 * 2 &#x3D; 10</span><br><span class="line">5 * 3 &#x3D; 15</span><br><span class="line">5 * 4 &#x3D; 20</span><br><span class="line">5 * 5 &#x3D; 25</span><br><span class="line">5 * 6 &#x3D; 30</span><br><span class="line">5 * 7 &#x3D; 35</span><br><span class="line">5 * 8 &#x3D; 40</span><br><span class="line">5 * 9 &#x3D; 45</span><br><span class="line">6 * 1 &#x3D; 6</span><br><span class="line">6 * 2 &#x3D; 12</span><br><span class="line">6 * 3 &#x3D; 18</span><br><span class="line">6 * 4 &#x3D; 24</span><br><span class="line">6 * 5 &#x3D; 30</span><br><span class="line">6 * 6 &#x3D; 36</span><br><span class="line">6 * 7 &#x3D; 42</span><br><span class="line">6 * 8 &#x3D; 48</span><br><span class="line">6 * 9 &#x3D; 54</span><br><span class="line">7 * 1 &#x3D; 7</span><br><span class="line">7 * 2 &#x3D; 14</span><br><span class="line">7 * 3 &#x3D; 21</span><br><span class="line">7 * 4 &#x3D; 28</span><br><span class="line">7 * 5 &#x3D; 35</span><br><span class="line">7 * 6 &#x3D; 42</span><br><span class="line">7 * 7 &#x3D; 49</span><br><span class="line">7 * 8 &#x3D; 56</span><br><span class="line">7 * 9 &#x3D; 63</span><br><span class="line">8 * 1 &#x3D; 8</span><br><span class="line">8 * 2 &#x3D; 16</span><br><span class="line">8 * 3 &#x3D; 24</span><br><span class="line">8 * 4 &#x3D; 32</span><br><span class="line">8 * 5 &#x3D; 40</span><br><span class="line">8 * 6 &#x3D; 48</span><br><span class="line">8 * 7 &#x3D; 56</span><br><span class="line">8 * 8 &#x3D; 64</span><br><span class="line">8 * 9 &#x3D; 72</span><br><span class="line">9 * 1 &#x3D; 9</span><br><span class="line">9 * 2 &#x3D; 18</span><br><span class="line">9 * 3 &#x3D; 27</span><br><span class="line">9 * 4 &#x3D; 36</span><br><span class="line">9 * 5 &#x3D; 45</span><br><span class="line">9 * 6 &#x3D; 54</span><br><span class="line">9 * 7 &#x3D; 63</span><br><span class="line">9 * 8 &#x3D; 72</span><br><span class="line">9 * 9 &#x3D; 81</span><br><span class="line">hello</span><br><span class="line">4337144080</span><br><span class="line">[&#39;__class__&#39;, &#39;__delattr__&#39;, &#39;__dict__&#39;, &#39;__dir__&#39;, &#39;__doc__&#39;, &#39;__eq__&#39;, &#39;__format__&#39;, &#39;__ge__&#39;, &#39;__getattribute__&#39;, &#39;__gt__&#39;, &#39;__hash__&#39;, &#39;__init__&#39;, &#39;__init_subclass__&#39;, &#39;__le__&#39;, &#39;__lt__&#39;, &#39;__module__&#39;, &#39;__ne__&#39;, &#39;__new__&#39;, &#39;__reduce__&#39;, &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__setattr__&#39;, &#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__subclasshook__&#39;, &#39;__weakref__&#39;]</span><br><span class="line">&lt;class &#39;__main__.Cooking&#39;&gt;</span><br><span class="line">&lt;method-wrapper &#39;__hash__&#39; of Cooking object at 0x102839110&gt;</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
+    <title>Hello world</title>
+    <url>/2020/01/22/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>Python Development Environment</title>
@@ -718,6 +725,38 @@ pip3 list</code></pre>
       </tags>
   </entry>
   <entry>
+    <title>Predict Used Car Project (2)</title>
+    <url>/2020/01/27/Predict-Used-Car-Project-2/</url>
+    <content><![CDATA[<p>Install CMake</p>
+<p>Enter the following command to download the source code:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ wget https:&#x2F;&#x2F;github.com&#x2F;Kitware&#x2F;CMake&#x2F;releases&#x2F;download&#x2F;v3.15.2&#x2F;cmake-3.15.2.tar.gz</span><br><span class="line">$ tar -zxvf cmake-3.15.2.tar.gz</span><br><span class="line">$ cd cmake-3.15.2</span><br><span class="line">.&#x2F;bootstrap</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/26552500/73230770-f22ef780-4143-11ea-863e-4c2221ac32ee.png" alt="image"></p>
+<p>You can now make it using the following command:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ make</span><br></pre></td></tr></table></figure>
+
+<p>And then install it as follows:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo make install</span><br></pre></td></tr></table></figure>
+
+<p>After the software is successfully installed, you can verify its installation and also if the correct version is<br> installed, through the following command:<br> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cmake --version</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>Install XGBoost</p>
+<p>Enter the following command to download the source code:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone --recursive https:&#x2F;&#x2F;github.com&#x2F;dmlc&#x2F;xgboost</span><br><span class="line">cd xgboost</span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ..</span><br><span class="line">make -j4</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<p>디스크용량 확인</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">df -P | grep -v ^Filesystem | awk &#39;&#123;sum +&#x3D; $2&#125; END &#123; print sum&#x2F;1024&#x2F;1024 &quot; GB&quot; &#125;&#39;</span><br></pre></td></tr></table></figure>
+
+<p>디스크 사용량</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">df -P | grep -v ^Filesystem | awk &#39;&#123;sum +&#x3D; $3&#125; END &#123; print sum&#x2F;1024&#x2F;1024 &quot; GB&quot; &#125;&#39;</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+  </entry>
+  <entry>
     <title>Python - Pickle</title>
     <url>/2020/02/05/Python-Pickle/</url>
     <content><![CDATA[<p>Input</p>
@@ -729,22 +768,32 @@ pip3 list</code></pre>
 ]]></content>
   </entry>
   <entry>
-    <title>Hello world</title>
-    <url>/2020/01/22/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+    <title>Python_Code_1</title>
+    <url>/2020/12/12/Python-Code-1/</url>
+    <content><![CDATA[<ol>
+<li><p>Brew</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ brew install pyenv</span><br><span class="line">$ brew list</span><br><span class="line">$ brew upgrade pyenv</span><br><span class="line">$ brew upgrade</span><br><span class="line">$ brew update</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Bash</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ source .bash_profile</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Pyenv</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pyenv install --list</span><br><span class="line">$ pyenv install 3.9.0</span><br><span class="line">$ pyenv versions</span><br><span class="line">$ pyenv shell 3.9.0</span><br><span class="line">$ pyenv virtualenv 3.9.0 python3</span><br><span class="line">$ pyenv uninstall python3</span><br><span class="line">$ pyenv global 3.9.0 </span><br><span class="line">$ pyenv activate python2</span><br><span class="line">$ pyenv deactivate</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Pip</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pip3 install ipython  </span><br><span class="line">$ pip3 list</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Python_House_Price</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">%matplotlib inline</span><br><span class="line">import seaborn as sns</span><br><span class="line">import warnings</span><br><span class="line">warnings.filterwarnings(&#39;ignore&#39;)</span><br><span class="line">from scipy import stats</span><br><span class="line"></span><br><span class="line">train.describe()</span><br><span class="line">display(train.head(n&#x3D;1))</span><br><span class="line">train.shape</span><br><span class="line"></span><br><span class="line">plt.figure(figsize&#x3D;(17,6))</span><br><span class="line">plt.subplot(131)</span><br><span class="line">sns.distplot(train[&quot;SalePrice&quot;])</span><br><span class="line">plt.subplot(132)</span><br><span class="line">stats.probplot(train[&quot;SalePrice&quot;],plot&#x3D;plt)</span><br><span class="line">plt.subplot(133)</span><br><span class="line">sns.boxplot(train[&quot;SalePrice&quot;])</span><br><span class="line">plt.tight_layout()</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">train[&quot;MSSubClass&quot;] &#x3D; train[&quot;MSSubClass&quot;].astype(&#39;str&#39;)</span><br><span class="line"></span><br><span class="line">numerical_features &#x3D; []</span><br><span class="line">categorical_features &#x3D; []</span><br><span class="line">for f in train.columns:</span><br><span class="line">    if train.dtypes[f] !&#x3D; &#39;object&#39;:</span><br><span class="line">        numerical_features.append(f)</span><br><span class="line">    else:</span><br><span class="line">        categorical_features.append(f)</span><br><span class="line"></span><br><span class="line">nomalized_SalePrice &#x3D; np.log1p(train[&quot;SalePrice&quot;])</span><br><span class="line">plt.figure(figsize&#x3D;(17,6))</span><br><span class="line">plt.subplot(131)</span><br><span class="line">sns.distplot(nomalized_SalePrice)</span><br><span class="line">plt.subplot(132)</span><br><span class="line">stats.probplot(nomalized_SalePrice, plot&#x3D;plt)</span><br><span class="line">plt.subplot(133)</span><br><span class="line">sns.boxplot(nomalized_SalePrice)</span><br><span class="line">plt.tight_layout()</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">fig, ax &#x3D; plt.subplots(6,6, figsize &#x3D; (20,20))</span><br><span class="line">for idx, n in enumerate(numerical_features):</span><br><span class="line">    if n &#x3D;&#x3D; &#39;SalePrice&#39;:</span><br><span class="line">        continue</span><br><span class="line">    sns.regplot(x&#x3D;n, y&#x3D;&#39;SalePrice&#39;, data&#x3D;train, ax &#x3D; ax[idx&#x2F;&#x2F;6,idx%6])</span><br><span class="line">    ax[idx&#x2F;&#x2F;6, idx % 6].set(yticklabels&#x3D;[])</span><br><span class="line">    ax[idx&#x2F;&#x2F;6, idx % 6].set(xticklabels&#x3D;[])</span><br><span class="line"></span><br><span class="line">fig, ax &#x3D; plt.subplots(8,6, figsize &#x3D; (20,20))</span><br><span class="line">for idx, n in enumerate(categorical_features):</span><br><span class="line">    sns.countplot(x&#x3D;n, data&#x3D;train, ax &#x3D; ax[idx&#x2F;&#x2F;6, idx % 6])</span><br><span class="line">    ax[idx&#x2F;&#x2F;6, idx % 6].set(yticklabels&#x3D;[])</span><br><span class="line"></span><br><span class="line">df_train &#x3D; train.copy()</span><br><span class="line">df_train[&quot;2ndFloor&quot;] &#x3D; &quot;2ndFloor&quot;</span><br><span class="line">df_train[&quot;2ndFloor&quot;].loc[df_train[&quot;2ndFlrSF&quot;]&#x3D;&#x3D;0] &#x3D; &quot;No 2ndFloor&quot;</span><br><span class="line">df_train[&quot;Basement&quot;] &#x3D; &quot;Basement&quot;</span><br><span class="line">df_train[&quot;Basement&quot;].loc[df_train[&quot;TotalBsmtSF&quot;]&#x3D;&#x3D;0] &#x3D; &quot;No Basement&quot;</span><br><span class="line"></span><br><span class="line"># Joint plot GrLivArea&#x2F;saleprice</span><br><span class="line">grid &#x3D; sns.jointplot(x &#x3D; &quot;GrLivArea&quot;, y &#x3D; &quot;SalePrice&quot;, data&#x3D;train, kind&#x3D;&quot;reg&quot;)</span><br><span class="line">grid.fig.set_size_inches(15,5)</span><br><span class="line"></span><br><span class="line"># Strip plot GrLivArea&#x2F;2ndFloor&#x2F;saleprice</span><br><span class="line">plt.figure(figsize &#x3D; (20,8))</span><br><span class="line">plt.subplot(211)</span><br><span class="line">g &#x3D; sns.stripplot(x &#x3D; &quot;GrLivArea&quot;, y &#x3D; &#39;SalePrice&#39;, hue &#x3D; &quot;2ndFloor&quot;, data &#x3D; df_train, alpha &#x3D; 0.7)</span><br><span class="line">g.set_xlabel(&#39;GrLivArea&#39;)</span><br><span class="line">g.set_ylabel(&#39;SalePrice&#39;)</span><br><span class="line">g.set_xticks([])</span><br><span class="line">g.set_title(&#39;GrLiv &amp; 2ndFloor - SalePrice&#39;)</span><br><span class="line"></span><br><span class="line"># Strip plot GrLivArea&#x2F;Basement&#x2F;saleprice</span><br><span class="line">plt.subplot(212)</span><br><span class="line">b &#x3D; sns.stripplot( x &#x3D; &quot;GrLivArea&quot;, y &#x3D; &#39;SalePrice&#39;, hue &#x3D; &quot;Basement&quot;, data &#x3D; df_train, alpha &#x3D; 0.7)</span><br><span class="line">b.set_xlabel(&#39;GrLivArea&#39;)</span><br><span class="line">b.set_ylabel(&#39;SalePrice&#39;)</span><br><span class="line">b.set_title(&#39;GrLivArea &amp; Basement - SalePrice&#39;)</span><br><span class="line">b.set_xticks([])</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"># Graph for GrLivArea &amp; OverallQual - SalePrice</span><br><span class="line">plt.figure(figsize&#x3D;(15,8))</span><br><span class="line">ax1 &#x3D; plt.subplot2grid((2,2), (0,0), colspan &#x3D; 2)</span><br><span class="line">for qual in range(1,11):</span><br><span class="line">    index &#x3D; train.OverallQual &#x3D;&#x3D; qual</span><br><span class="line">    ax1.scatter(train.GrLivArea.loc[index], train.SalePrice.loc[index], data&#x3D;train, label&#x3D; qual, alpha &#x3D;0.5)</span><br><span class="line">ax1.legend(loc &#x3D; 0)</span><br><span class="line">ax1.set_title(&quot;GrLivArea &amp; OverallQual - SalePrice&quot;)</span><br><span class="line">ax1.set_xlabel(&#39;GrLivArea &amp; OverallQual&#39;)</span><br><span class="line">ax1.set_ylabel(&#39;SalePrice&#39;)</span><br><span class="line"></span><br><span class="line"># Graph for OverallQual - SalePrice</span><br><span class="line">ax2 &#x3D; plt.subplot2grid((2,2), (1,0))</span><br><span class="line">sns.boxplot(x &#x3D; &quot;OverallQual&quot;, y &#x3D; &quot;SalePrice&quot;, data&#x3D;train, ax&#x3D; ax2)</span><br><span class="line">ax2.set_title(&#39;OverallQual - SalePrice&#39;)</span><br><span class="line"></span><br><span class="line"># Graph for OverallCond - SalePrice</span><br><span class="line">ax3 &#x3D; plt.subplot2grid((2,2), (1,1))</span><br><span class="line">sns.boxplot(x &#x3D; &quot;OverallCond&quot;, y &#x3D; &quot;SalePrice&quot;, data&#x3D;train, ax&#x3D; ax3)</span><br><span class="line">ax3.set_title(&#39;OverallCond - SalePrice&#39;)</span><br></pre></td></tr></table></figure></li>
+</ol>
 ]]></content>
+      <categories>
+        <category>Code</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Code</tag>
+      </tags>
   </entry>
   <entry>
     <title>linux</title>
@@ -836,48 +885,6 @@ pip3 list</code></pre>
 <p><img src="https://user-images.githubusercontent.com/26552500/91771956-84e7b700-eba9-11ea-8b1b-882b85f981c9.png" alt="image"></p>
 <p>chmod +x backup : 파일에 실행 권한 주기<br><img src="https://user-images.githubusercontent.com/26552500/91771828-4651fc80-eba9-11ea-9997-0a8c9be3e9d7.png" alt="image"></p>
 <p>./backup :  backup 스크립트 실행<br><img src="https://user-images.githubusercontent.com/26552500/91772230-148d6580-ebaa-11ea-9832-20d71e32a69d.png" alt="image"></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Regular Express</title>
-    <url>/2020/08/27/Regular-Express/</url>
-    <content><![CDATA[<h3 id="1-Regular-expressions"><a href="#1-Regular-expressions" class="headerlink" title="1. Regular expressions"></a>1. Regular expressions</h3><h4 id="Regular-expressions-are-one-of-the-ways-to-process-character-strings-and-are-a-means-to-make-the-process-of’searching’-or’substituting’-characters-in-a-specific-condition-very-simple"><a href="#Regular-expressions-are-one-of-the-ways-to-process-character-strings-and-are-a-means-to-make-the-process-of’searching’-or’substituting’-characters-in-a-specific-condition-very-simple" class="headerlink" title="Regular expressions are one of the ways to process character strings and are a means to make the process of’searching’ or’substituting’ characters in a specific condition very simple."></a>Regular expressions are one of the ways to process character strings and are a means to make the process of’searching’ or’substituting’ characters in a specific condition very simple.</h4><h3 id="2-Term"><a href="#2-Term" class="headerlink" title="2. Term"></a>2. Term</h3><ul>
-<li><p>^x : x 문자로 시작 </p>
-</li>
-<li><p>x$ : x 문자로 종료</p>
-</li>
-<li><p>.x : 임의의 한 문자의 자리수를 표현하며 문자열이 x 로 끝남</p>
-</li>
-<li><p>x+ : x 문자가 1개 이상</p>
-</li>
-<li><p>x? : x 문자가 0개 ~1개</p>
-</li>
-<li><p>x* : x 문자가 0개 ~ 여러개</p>
-</li>
-<li><p>x|y : or 를 표현하며 x 또는 y 문자<br><img src="https://user-images.githubusercontent.com/26552500/91465533-82a4f600-e853-11ea-88cb-add460b6ba36.png" alt="image"></p>
-</li>
-</ul>
-<ul>
-<li>(x) :그룹을 표현하며 x 를 그룹으로 처리<br><img src="https://user-images.githubusercontent.com/26552500/91465533-82a4f600-e853-11ea-88cb-add460b6ba36.png" alt="image"></li>
-</ul>
-<ul>
-<li><p>(x)(y):x 그룹을 찾고 그 뒤에 있는 y값을 찾음<br><img src="https://user-images.githubusercontent.com/26552500/91466181-5d64b780-e854-11ea-876a-48a7e5cacfa9.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91466400-ad437e80-e854-11ea-8fa8-f2841802c0c3.png" alt="image"></p>
-</li>
-<li><p>x.?? : 앞에 있는 ?의 최소값인 0개로 검색 (? lazy)<br><img src="https://user-images.githubusercontent.com/26552500/91467435-30b19f80-e856-11ea-829e-7bf085ef9c8d.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91467497-445d0600-e856-11ea-9b83-f4357fa81e20.png" alt="image"></p>
-</li>
-<li><p>x.+? : 앞에 있는 +의 최소값인 1개로 검색 (? lazy)<br><img src="https://user-images.githubusercontent.com/26552500/91467651-779f9500-e856-11ea-9efc-067cb69f1f10.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91467705-8c7c2880-e856-11ea-958f-0152cf944e4c.png" alt="image"></p>
-</li>
-<li><p>x+(?=y) : 끝이 y로 끝나는 x를 검색<br><img src="https://user-images.githubusercontent.com/26552500/91468977-635c9780-e858-11ea-9603-74372293e2d5.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91469039-7a02ee80-e858-11ea-8e62-693e414dcf77.png" alt="image"></p>
-</li>
-</ul>
-<h3 id="3-Example"><a href="#3-Example" class="headerlink" title="3. Example"></a>3. Example</h3><ul>
-<li><p>전화번호 : ([\d]{3}) \d{3}-\d{4}  </p>
-<pre><code>\([0-9]{3}\) [0-9]{3}-[0-9]{4}</code></pre><p><img src="https://user-images.githubusercontent.com/26552500/91470069-d87c9c80-e859-11ea-8076-6aadd25d4334.png" alt="image"></p>
-</li>
-<li><p>전화번호 (중간에 8또는 1 제외): [^8|^1][0-9]{2}-[0-9]{4}<br><img src="https://user-images.githubusercontent.com/26552500/91471001-0f9f7d80-e85b-11ea-80fd-0d6d374ab14f.png" alt="image"></p>
-</li>
-</ul>
-<h3 id="4-Test-site"><a href="#4-Test-site" class="headerlink" title="4. Test site"></a>4. Test site</h3><p><a href="https://regexr.com/" target="_blank" rel="noopener">https://regexr.com/</a></p>
 ]]></content>
   </entry>
 </search>
