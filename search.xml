@@ -1,6 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>AWS/Docker Cloud Server (4)</title>
+    <url>/2020/01/26/AWS-Docker-Cloud-Server-4/</url>
+    <content><![CDATA[<p>1 Install Confluence</p>
+]]></content>
+      <categories>
+        <category>Today_I_Learn</category>
+      </categories>
+      <tags>
+        <tag>AWS</tag>
+        <tag>Docker</tag>
+        <tag>JIRA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Basic_Data_Engineer_1</title>
+    <url>/2020/12/17/Basic-Data-Engineer-1/</url>
+    <content><![CDATA[<ol>
+<li><p>Atom</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; Execute atom</span><br><span class="line">atom .</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Unix commend</p>
+</li>
+</ol>
+<ul>
+<li>cat</li>
+<li>head</li>
+<li>tail</li>
+<li>command &gt; file<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; writing output at output.txt</span><br><span class="line">python3 example.py &gt; output.txt</span><br></pre></td></tr></table></figure></li>
+<li>command &gt;&gt; file<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; appending output at output.txt</span><br><span class="line">python3 example.py &gt;&gt; output.txt</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import sys</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    print(sys.argv[1])</span><br><span class="line"></span><br><span class="line">if __name__&#x3D;&#x3D;&#39;__main__&#39;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="https://user-images.githubusercontent.com/26552500/102570719-8df38a00-40ad-11eb-9e35-1247550429d7.png" alt="image"></p>
+<ul>
+<li>Writing Shell-script (run.sh)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">python3 example.py 1</span><br><span class="line">python3 example.py 2</span><br></pre></td></tr></table></figure></li>
+<li>Solve the permission issue<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chmod +x run.sh</span><br></pre></td></tr></table></figure>
+<img src="https://user-images.githubusercontent.com/26552500/102572326-61da0800-40b1-11eb-9272-fffe48b979a0.png" alt="image"></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">python3 example.py 1 &gt; example.txt</span><br><span class="line">python3 example.py 2 &gt; example.txt</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/26552500/102572401-a1085900-40b1-11eb-8c6f-eeb956ea999a.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">python3 example.py 1 &gt;&gt; example.txt</span><br><span class="line">python3 example.py 2 &gt;&gt; example.txt</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/26552500/102572444-c39a7200-40b1-11eb-9e2f-74f6d33ba065.png" alt="image"></p>
+]]></content>
+      <tags>
+        <tag>Data_Engineer</tag>
+        <tag>Unix</tag>
+        <tag>Atom</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>AWS/Docker Cloud Server (3)</title>
     <url>/2020/01/25/AWS-Docker-Cloud-Server-3/</url>
     <content><![CDATA[<p>1 Jira Issue 시작</p>
@@ -48,58 +104,45 @@ Create issue
       </tags>
   </entry>
   <entry>
-    <title>AWS/Docker Cloud Server (2)</title>
-    <url>/2020/01/24/AWS-Docker-Cloud-Server-2/</url>
-    <content><![CDATA[<p>1 AWS 설치</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/73048868-23f04780-3e40-11ea-98d1-0096c46a47c2.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/73048771-d542ad80-3e3f-11ea-920f-2bcfac8c8ad5.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/73048809-f5726c80-3e3f-11ea-8ebd-bbb7bdb65ca3.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/73048829-07eca600-3e40-11ea-8dcb-a0fc44677f1c.png" alt="image"></p>
-<p>2 Docker 설치</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/73048917-51d58c00-3e40-11ea-8dda-5ae7491f522a.png" alt="image"></p>
-<p>[Command] - 설치<br> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum install docker-io   -- yes</span><br></pre></td></tr></table></figure></p>
-<p>[Command] - 확인   </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-images.githubusercontent.com/26552500/73049014-a6790700-3e40-11ea-878e-95aef988d168.png" alt="image"></p>
-<p>[Command] - 도커리스트를 실행시켜줌   </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure>
-
-<p>[Command] - 현재 접속 유저의 계정 정보와 root 계정이 달라서 발생된 에러라 해당 부분에 권한을 주고 다시 실행    </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo setfacl -m user:ec2-user:rw &#x2F;var&#x2F;run&#x2F;docker.sock</span><br></pre></td></tr></table></figure>
-
-<p>[Command] - 도커리스트 확인   </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
-
-
-<p><img src="https://user-images.githubusercontent.com/26552500/73049146-34ed8880-3e41-11ea-828d-125cff05744b.png" alt="image"></p>
-<p>[Command] - 기존 지라 도커 컨테이너 삭제   </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker rm --volumes --force &quot;jira-container&quot;</span><br></pre></td></tr></table></figure>
-
-<p>[Command] - 지라 도커 컨테이너 설치  </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker pull cptactionhank&#x2F;atlassian-jira-software:latest</span><br></pre></td></tr></table></figure>
-
-<p>[Command] - 지라 도커 컨테이너 생성  </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker create --restart&#x3D;no --name &quot;jira-container&quot;  --publish &quot;8080:8080&quot;  --volume &quot;hostpath:&#x2F;var&#x2F;atlassian&#x2F;jira&quot; --env &quot;CATALINA_OPTS&#x3D; -Xms1024m -Xmx1024m -Datlassian.plugins.enable.wait&#x3D;300&quot; cptactionhank&#x2F;atlassian-jira-software:latest</span><br></pre></td></tr></table></figure>
-
-<p>[Command] - 지라 도커 컨테이너 실행  </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker start --attach &quot;jira-container&quot;</span><br></pre></td></tr></table></figure>
-
-<p>[Command] - 지라 셋업 페이지</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;ec2-3-89-93-84.compute-1.amazonaws.com:8080&#x2F;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-images.githubusercontent.com/26552500/73049255-957cc580-3e41-11ea-92c8-7e9b701a8bff.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/73049284-ae857680-3e41-11ea-8be1-e9cd62d6eae7.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/73130579-e3700580-3fc8-11ea-8144-6df985c162ce.png" alt="image"></p>
+    <title>DS730_1_1_Create_a_Hortonworks_Sandbox_on_Azure</title>
+    <url>/2020/09/10/DS730-1-1-Create-a-Hortonworks-Sandbox-on-Azure/</url>
+    <content><![CDATA[<h3 id="1-Set-up"><a href="#1-Set-up" class="headerlink" title="1. Set_up"></a>1. Set_up</h3><h4 id="1-Go-to-https-azure-microsoft-com-en-us-free-students-and-click-on-the-Activate-now-button"><a href="#1-Go-to-https-azure-microsoft-com-en-us-free-students-and-click-on-the-Activate-now-button" class="headerlink" title="1) Go to https://azure.microsoft.com/en-us/free/students/  and click on the Activate now button"></a>1) Go to <a href="https://azure.microsoft.com/en-us/free/students/" target="_blank" rel="noopener">https://azure.microsoft.com/en-us/free/students/</a>  and click on the Activate now button</h4><p><img src="https://user-images.githubusercontent.com/26552500/92764763-55c80700-f35a-11ea-9d7a-3023810f7d3d.png" alt="image"></p>
+<h4 id="2-click-on-Create-a-resource"><a href="#2-click-on-Create-a-resource" class="headerlink" title="2) click on Create a resource."></a>2) click on Create a resource.</h4><p><img src="https://user-images.githubusercontent.com/26552500/92766283-b0159780-f35b-11ea-935e-409a0f2f0ef9.png" alt="image"></p>
+<h4 id="3-Do-a-search-for-Hortonworks-and-click-on-the-option-for-Hortonworks-Data-Platform-HDP-Sandbox"><a href="#3-Do-a-search-for-Hortonworks-and-click-on-the-option-for-Hortonworks-Data-Platform-HDP-Sandbox" class="headerlink" title="3) Do a search for Hortonworks and click on the option for Hortonworks Data Platform (HDP) Sandbox"></a>3) Do a search for Hortonworks and click on the option for Hortonworks Data Platform (HDP) Sandbox</h4><p><img src="https://user-images.githubusercontent.com/26552500/92766538-ec48f800-f35b-11ea-9f9e-39de824e30d4.png" alt="image"></p>
+<h4 id="4-Click-on-the-Create-button-From-here-we-just-need-to-customize-our-sandbox"><a href="#4-Click-on-the-Create-button-From-here-we-just-need-to-customize-our-sandbox" class="headerlink" title="4) Click on the Create button. From here we just need to customize our sandbox."></a>4) Click on the Create button. From here we just need to customize our sandbox.</h4><p><img src="https://user-images.githubusercontent.com/26552500/92766731-1dc1c380-f35c-11ea-9bb1-4fc44be21d20.png" alt="image"></p>
+<h4 id="5-On-the-Basics-tab-click-on-Create-new-for-the-resource-group-You-can-call-your-resource-anything-you-want-e-g-DS730-The-Virtual-machine-name-can-be-called-Hortonworks-Under-Instance-Details-look-at-the-Size-option-We-are-only-allowed-4-cores-with-our-student-account-Therefore-click-on-the-Change-size-link-and-choose-the-Standard-B4ms-option-Change-the-Administrator-Account-Authentication-type-to-be-a-password-It-is-less-secure-than-an-SSH-public-key-Create-any-username-password-you-want"><a href="#5-On-the-Basics-tab-click-on-Create-new-for-the-resource-group-You-can-call-your-resource-anything-you-want-e-g-DS730-The-Virtual-machine-name-can-be-called-Hortonworks-Under-Instance-Details-look-at-the-Size-option-We-are-only-allowed-4-cores-with-our-student-account-Therefore-click-on-the-Change-size-link-and-choose-the-Standard-B4ms-option-Change-the-Administrator-Account-Authentication-type-to-be-a-password-It-is-less-secure-than-an-SSH-public-key-Create-any-username-password-you-want" class="headerlink" title="5) On the Basics tab, click on Create new for the resource group. You can call your resource anything you want, e.g. DS730. The Virtual machine name can be called Hortonworks. Under Instance Details, look at the Size option. We are only allowed 4 cores with our student account. Therefore, click on the Change size link and choose the Standard B4ms option. Change the Administrator Account Authentication type to be a password. It is less secure than an SSH public key. Create any username/password you want."></a>5) On the Basics tab, click on Create new for the resource group. You can call your resource anything you want, e.g. DS730. The Virtual machine name can be called Hortonworks. Under Instance Details, look at the Size option. We are only allowed 4 cores with our student account. Therefore, click on the Change size link and choose the Standard B4ms option. Change the Administrator Account Authentication type to be a password. It is less secure than an SSH public key. Create any username/password you want.</h4><p><img src="https://user-images.githubusercontent.com/26552500/92768074-4a2a0f80-f35d-11ea-9911-62ff93e239ee.png" alt="image"></p>
+<h4 id="6-Click-create-button"><a href="#6-Click-create-button" class="headerlink" title="6) Click create button"></a>6) Click create button</h4><p><img src="https://user-images.githubusercontent.com/26552500/92768624-cc1a3880-f35d-11ea-8630-d05a48c51409.png" alt="image"></p>
+<h4 id="7-Click-“Go-to-resource”"><a href="#7-Click-“Go-to-resource”" class="headerlink" title="7) Click “Go to resource”"></a>7) Click “Go to resource”</h4><p><img src="https://user-images.githubusercontent.com/26552500/92769685-d983f280-f35e-11ea-9b92-b7b615bd3a1c.png" alt="image"></p>
+<h4 id="8-Click-“Networking”"><a href="#8-Click-“Networking”" class="headerlink" title="8) Click “Networking”"></a>8) Click “Networking”</h4><p><img src="https://user-images.githubusercontent.com/26552500/92769907-0801cd80-f35f-11ea-92de-45406624d878.png" alt="image"></p>
+<h4 id="9-Click-on-the-Add-inbound-port-rule-button-Add-the-following-port-using-these-rule"><a href="#9-Click-on-the-Add-inbound-port-rule-button-Add-the-following-port-using-these-rule" class="headerlink" title="9) Click on the Add inbound port rule button. Add the following port using these rule:"></a>9) Click on the Add inbound port rule button. Add the following port using these rule:</h4><h4 id="Destination-port-ranges-Set-it-to-be-8080-It-might-default-at-that-port-already-If-that-is-the-case-then-leave-it"><a href="#Destination-port-ranges-Set-it-to-be-8080-It-might-default-at-that-port-already-If-that-is-the-case-then-leave-it" class="headerlink" title="Destination port ranges - Set it to be 8080. It might default at that port already. If that is the case, then leave it."></a>Destination port ranges - Set it to be 8080. It might default at that port already. If that is the case, then leave it.</h4><h4 id="Name-Not-critical-but-change-it-to-Ambari-so-you-know-what-the-port-is"><a href="#Name-Not-critical-but-change-it-to-Ambari-so-you-know-what-the-port-is" class="headerlink" title="Name - Not critical but change it to Ambari so you know what the port is."></a>Name - Not critical but change it to Ambari so you know what the port is.</h4><h4 id="The-rest-of-the-options-can-be-left-at-their-defaults-Feel-free-to-change-the-Source-if-you-are-super-concerned-about-security"><a href="#The-rest-of-the-options-can-be-left-at-their-defaults-Feel-free-to-change-the-Source-if-you-are-super-concerned-about-security" class="headerlink" title="The rest of the options can be left at their defaults. Feel free to change the Source if you are super concerned about security."></a>The rest of the options can be left at their defaults. Feel free to change the Source if you are super concerned about security.</h4><p><img src="https://user-images.githubusercontent.com/26552500/92770485-9b3b0300-f35f-11ea-8283-3b0bf49c6abd.png" alt="image"></p>
+<h4 id="10-Add-the-following-Port-Name-inbound-port-rules-as-well-4200-ssh-9995-zeppelin-2222-hortonworksfs-You-may-have-to-change-the-priority-to-be-a-different-number-for-each-rule-Change-it-to-any-number-that-is-unique"><a href="#10-Add-the-following-Port-Name-inbound-port-rules-as-well-4200-ssh-9995-zeppelin-2222-hortonworksfs-You-may-have-to-change-the-priority-to-be-a-different-number-for-each-rule-Change-it-to-any-number-that-is-unique" class="headerlink" title="10)  Add the following Port/Name inbound port rules as well: (4200/ssh, 9995/zeppelin, 2222/hortonworksfs) You may have to change the priority to be a different number for each rule. Change it to any number that is unique."></a>10)  Add the following Port/Name inbound port rules as well: (4200/ssh, 9995/zeppelin, 2222/hortonworksfs) You may have to change the priority to be a different number for each rule. Change it to any number that is unique.</h4><p><img src="https://user-images.githubusercontent.com/26552500/92772087-0a652700-f361-11ea-8140-b829732258bb.png" alt="image"></p>
+<h4 id="11-Your-Hortonworks-Sandbox-is-setup-and-is-now-ready-to-use"><a href="#11-Your-Hortonworks-Sandbox-is-setup-and-is-now-ready-to-use" class="headerlink" title="11) Your Hortonworks Sandbox is setup and is now ready to use."></a>11) Your Hortonworks Sandbox is setup and is now ready to use.</h4><h4 id="A-great-guide-to-learning-about-your-Sandbox-is-here"><a href="#A-great-guide-to-learning-about-your-Sandbox-is-here" class="headerlink" title="A great guide to learning about your Sandbox is here:"></a>A great guide to learning about your Sandbox is here:</h4><p><a href="https://hortonworks.com/tutorial/learning-the-ropes-of-the-hortonworks-sandbox" target="_blank" rel="noopener">https://hortonworks.com/tutorial/learning-the-ropes-of-the-hortonworks-sandbox</a> </p>
+<h4 id="However-everything-you-need-to-know-for-this-course-will-be-shown-in-this-and-future-activities"><a href="#However-everything-you-need-to-know-for-this-course-will-be-shown-in-this-and-future-activities" class="headerlink" title="However, everything you need to know for this course will be shown in this and future activities."></a>However, everything you need to know for this course will be shown in this and future activities.</h4><h4 id="12-Go-to-“All-resources”"><a href="#12-Go-to-“All-resources”" class="headerlink" title="12) Go to “All resources”"></a>12) Go to “All resources”</h4><p><img src="https://user-images.githubusercontent.com/26552500/92772670-88293280-f361-11ea-97be-c8e7c2654a51.png" alt="image"></p>
+<h4 id="13-Find-your-Public-IP-address-on-the-right-hand-side"><a href="#13-Find-your-Public-IP-address-on-the-right-hand-side" class="headerlink" title="13) Find your Public IP address on the right hand side"></a>13) Find your Public IP address on the right hand side</h4><h4 id="Note-that-my-IP-address-is-40-88-11-48-and-I-will-use-that-IP-in-the-steps-below"><a href="#Note-that-my-IP-address-is-40-88-11-48-and-I-will-use-that-IP-in-the-steps-below" class="headerlink" title="Note that my IP address is 40.88.11.48 and I will use that IP in the steps below."></a>Note that my IP address is 40.88.11.48 and I will use that IP in the steps below.</h4><p><img src="https://user-images.githubusercontent.com/26552500/92775947-6da48880-f364-11ea-8ece-24405eb090ec.png" alt="image"></p>
+<h4 id="14-Go-to-http-40-88-11-48-8080-and-enter-in-maria-dev-as-the-username-and-password-You-should-see-something-like-this"><a href="#14-Go-to-http-40-88-11-48-8080-and-enter-in-maria-dev-as-the-username-and-password-You-should-see-something-like-this" class="headerlink" title="14) Go to http://40.88.11.48:8080 and enter in maria_dev as the username and password. You should see something like this:"></a>14) Go to <a href="http://40.88.11.48:8080" target="_blank" rel="noopener">http://40.88.11.48:8080</a> and enter in maria_dev as the username and password. You should see something like this:</h4><p><img src="https://user-images.githubusercontent.com/26552500/92776642-118e3400-f365-11ea-98d8-e963476b6027.png" alt="image"></p>
+<h4 id="This-step-is-important-for-all-future-activities-and-projects-whenever-you-start-up-your-virtual-machine-You-must-check-this-page-before-beginning-any-activity-project-to-ensure-the-system-is-ready-to-use-As-long-as-there-are-0-alerts-at-the-top-you-are-ready-to-start-working-If-you-see-any-alerts-you-must-wait-for-the-alerts-to-clear-before-starting-Even-though-you-may-be-able-to-load-up-the-8080-port-and-the-4200-port-it-does-not-mean-the-machine-is-completely-started-and-ready-to-use-You-must-wait-for-all-alerts-to-clear-before-beginning"><a href="#This-step-is-important-for-all-future-activities-and-projects-whenever-you-start-up-your-virtual-machine-You-must-check-this-page-before-beginning-any-activity-project-to-ensure-the-system-is-ready-to-use-As-long-as-there-are-0-alerts-at-the-top-you-are-ready-to-start-working-If-you-see-any-alerts-you-must-wait-for-the-alerts-to-clear-before-starting-Even-though-you-may-be-able-to-load-up-the-8080-port-and-the-4200-port-it-does-not-mean-the-machine-is-completely-started-and-ready-to-use-You-must-wait-for-all-alerts-to-clear-before-beginning" class="headerlink" title="This step is important for all future activities and projects whenever you start up your virtual machine. You must check this page before beginning any activity/project to ensure the system is ready to use. As long as there are 0 alerts at the top, you are ready to start working. If you see any alerts, you must wait for the alerts to clear before starting. Even though you may be able to load up the 8080 port and the 4200 port, it does not mean the machine is completely started and ready to use. You must wait for all alerts to clear before beginning."></a>This step is important for all future activities and projects whenever you start up your virtual machine. You must check this page before beginning any activity/project to ensure the system is ready to use. As long as there are 0 alerts at the top, you are ready to start working. If you see any alerts, you must wait for the alerts to clear before starting. Even though you may be able to load up the 8080 port and the 4200 port, it does not mean the machine is completely started and ready to use. You must wait for all alerts to clear before beginning.</h4><h4 id="15-If-you-forget-to-do-these-steps-your-virtual-machine-will-still-be-running-and-you-will-run-out-of-credits"><a href="#15-If-you-forget-to-do-these-steps-your-virtual-machine-will-still-be-running-and-you-will-run-out-of-credits" class="headerlink" title="15)  If you forget to do these steps, your virtual machine will still be running and you will run out of credits"></a>15)  If you forget to do these steps, your virtual machine will still be running and you will run out of credits</h4><p><img src="https://user-images.githubusercontent.com/26552500/92777424-ce809080-f365-11ea-8ccb-9f73e2f47fe2.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/92777472-dd674300-f365-11ea-8de2-581c8a361178.png" alt="image"></p>
 ]]></content>
-      <categories>
-        <category>Today_I_Learn</category>
-      </categories>
-      <tags>
-        <tag>AWS</tag>
-        <tag>Docker</tag>
-        <tag>JIRA</tag>
-      </tags>
+  </entry>
+  <entry>
+    <title>DS730_1_High_Performance_Computing_&amp;_MapReduce_Introduction</title>
+    <url>/2020/09/01/DS730-1-High-Performance-Computing-MapReduce-Introduction/</url>
+    <content><![CDATA[<p>Author: SAS</p>
+<p>Description: Discusses the history and importance of big data.</p>
+<p><a href="https://www.sas.com/en_us/insights/big-data/what-is-big-data.html" target="_blank" rel="noopener">https://www.sas.com/en_us/insights/big-data/what-is-big-data.html</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>HDFS_Command_1</title>
+    <url>/2020/08/13/HDFS-Command-1/</url>
+    <content><![CDATA[<h2 id="hdfs-dfs-command-command-options"><a href="#hdfs-dfs-command-command-options" class="headerlink" title="hdfs dfs [command] [command options]"></a>hdfs dfs [command] [command options]</h2><h3 id="Version"><a href="#Version" class="headerlink" title="Version"></a>Version</h3><h4 id="command-hdfs-version"><a href="#command-hdfs-version" class="headerlink" title="command : hdfs version"></a>command : hdfs version</h4><p><img src="https://user-images.githubusercontent.com/26552500/90162292-06da8200-dd5a-11ea-99cc-2daa1e6c808b.png" alt="image"></p>
+<h4 id="command-hadoop-version"><a href="#command-hadoop-version" class="headerlink" title="command : hadoop version"></a>command : hadoop version</h4><p><img src="https://user-images.githubusercontent.com/26552500/90162414-31c4d600-dd5a-11ea-9e11-c821da12fdc2.png" alt="image"></p>
+<h4 id="command-hdfs-getconf-namenodes"><a href="#command-hdfs-getconf-namenodes" class="headerlink" title="command : hdfs getconf -namenodes"></a>command : hdfs getconf -namenodes</h4><p><img src="https://user-images.githubusercontent.com/26552500/90163146-53728d00-dd5b-11ea-883b-c940a805734a.png" alt="image"></p>
+<h3 id="command-hdfs-dfs-ls-path"><a href="#command-hdfs-dfs-ls-path" class="headerlink" title="command : hdfs dfs -ls path"></a>command : hdfs dfs -ls path</h3><p><img src="https://user-images.githubusercontent.com/26552500/90164361-ec55d800-dd5c-11ea-95c0-6711cbb27a78.png" alt="image"></p>
+<h3 id="command-hdfs-dfs-get-path"><a href="#command-hdfs-dfs-get-path" class="headerlink" title="command : hdfs dfs -get path"></a>command : hdfs dfs -get path</h3><p><img src="https://user-images.githubusercontent.com/26552500/90175711-7148ed80-dd6d-11ea-91d3-deaf48d7f91b.png" alt="image"></p>
+<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>. : Current location<br>.. : Parent location</p>
+<h4 id="Example-cp-2-png-3-png"><a href="#Example-cp-2-png-3-png" class="headerlink" title="Example : cp ./2.png ../3.png"></a>Example : cp ./2.png ../3.png</h4><p>Copy the current 2.png file to the parent directory as 3.png</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/90166534-08a74400-dd60-11ea-96b9-410d0f3529df.png" alt="image"></p>
+]]></content>
   </entry>
   <entry>
     <title>AWS/Docker Cloud Server (1)</title>
@@ -133,20 +176,6 @@ Create issue
 <p>3 도커:<br>2013년 docker.inc 에서 출시한 오픈소스 컨테이터 프로젝트 입니다.<br>도커를 사용하는 이유는 도커 없이도 서비스를 올릴수는 있지만, 도커를 이용해 패키징을 하게 되면 소프트웨어를 제어하는데 있어서<br>훨씬 용이해지게 됩니다. 즉 메모리나 IO를 이용하는 방식을 제어하거나 어플리케이션을 네트워크에 노출하는 방식, 그리고 접근 권한을 통제할 수 있게 됩니다.</p>
 <p>4 Bitbucket:<br>Bitbucket이라는 형상관리 툴을 활용하면 소스를 누구나 같이 볼 수 있고, 동시에 수정하거나<br>수정 이후에 소스 저장소에 있는 소스와 개인 공간에 있는 소스들을 비교함으로써, 어떻게 다른 사람이 소스를 변경했는지를<br>살펴 볼 수 있습니다. 또한 이후에 연동하는 영역을 통해서 지라에 빗버킷을 연동할 수 있게 되며,<br>업무 별로 소스에 대해서 파악하기 훨씬 용이합니다.</p>
 <p>5 Jenkins:<br>Bitbucket에 올라가있는 소스를 가져와서 Maven이나 Gradle 등을 활용하여 빌드 할 수 있고,<br>또한 이런 과정들을 파이프라인으로 만들어 패키지화 하여 배포할 수 있습니다</p>
-]]></content>
-      <categories>
-        <category>Today_I_Learn</category>
-      </categories>
-      <tags>
-        <tag>AWS</tag>
-        <tag>Docker</tag>
-        <tag>JIRA</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>AWS/Docker Cloud Server (4)</title>
-    <url>/2020/01/26/AWS-Docker-Cloud-Server-4/</url>
-    <content><![CDATA[<p>1 Install Confluence</p>
 ]]></content>
       <categories>
         <category>Today_I_Learn</category>
@@ -236,26 +265,6 @@ Create issue
 ]]></content>
   </entry>
   <entry>
-    <title>DS730_1_1_Create_a_Hortonworks_Sandbox_on_Azure</title>
-    <url>/2020/09/10/DS730-1-1-Create-a-Hortonworks-Sandbox-on-Azure/</url>
-    <content><![CDATA[<h3 id="1-Set-up"><a href="#1-Set-up" class="headerlink" title="1. Set_up"></a>1. Set_up</h3><h4 id="1-Go-to-https-azure-microsoft-com-en-us-free-students-and-click-on-the-Activate-now-button"><a href="#1-Go-to-https-azure-microsoft-com-en-us-free-students-and-click-on-the-Activate-now-button" class="headerlink" title="1) Go to https://azure.microsoft.com/en-us/free/students/  and click on the Activate now button"></a>1) Go to <a href="https://azure.microsoft.com/en-us/free/students/" target="_blank" rel="noopener">https://azure.microsoft.com/en-us/free/students/</a>  and click on the Activate now button</h4><p><img src="https://user-images.githubusercontent.com/26552500/92764763-55c80700-f35a-11ea-9d7a-3023810f7d3d.png" alt="image"></p>
-<h4 id="2-click-on-Create-a-resource"><a href="#2-click-on-Create-a-resource" class="headerlink" title="2) click on Create a resource."></a>2) click on Create a resource.</h4><p><img src="https://user-images.githubusercontent.com/26552500/92766283-b0159780-f35b-11ea-935e-409a0f2f0ef9.png" alt="image"></p>
-<h4 id="3-Do-a-search-for-Hortonworks-and-click-on-the-option-for-Hortonworks-Data-Platform-HDP-Sandbox"><a href="#3-Do-a-search-for-Hortonworks-and-click-on-the-option-for-Hortonworks-Data-Platform-HDP-Sandbox" class="headerlink" title="3) Do a search for Hortonworks and click on the option for Hortonworks Data Platform (HDP) Sandbox"></a>3) Do a search for Hortonworks and click on the option for Hortonworks Data Platform (HDP) Sandbox</h4><p><img src="https://user-images.githubusercontent.com/26552500/92766538-ec48f800-f35b-11ea-9f9e-39de824e30d4.png" alt="image"></p>
-<h4 id="4-Click-on-the-Create-button-From-here-we-just-need-to-customize-our-sandbox"><a href="#4-Click-on-the-Create-button-From-here-we-just-need-to-customize-our-sandbox" class="headerlink" title="4) Click on the Create button. From here we just need to customize our sandbox."></a>4) Click on the Create button. From here we just need to customize our sandbox.</h4><p><img src="https://user-images.githubusercontent.com/26552500/92766731-1dc1c380-f35c-11ea-9bb1-4fc44be21d20.png" alt="image"></p>
-<h4 id="5-On-the-Basics-tab-click-on-Create-new-for-the-resource-group-You-can-call-your-resource-anything-you-want-e-g-DS730-The-Virtual-machine-name-can-be-called-Hortonworks-Under-Instance-Details-look-at-the-Size-option-We-are-only-allowed-4-cores-with-our-student-account-Therefore-click-on-the-Change-size-link-and-choose-the-Standard-B4ms-option-Change-the-Administrator-Account-Authentication-type-to-be-a-password-It-is-less-secure-than-an-SSH-public-key-Create-any-username-password-you-want"><a href="#5-On-the-Basics-tab-click-on-Create-new-for-the-resource-group-You-can-call-your-resource-anything-you-want-e-g-DS730-The-Virtual-machine-name-can-be-called-Hortonworks-Under-Instance-Details-look-at-the-Size-option-We-are-only-allowed-4-cores-with-our-student-account-Therefore-click-on-the-Change-size-link-and-choose-the-Standard-B4ms-option-Change-the-Administrator-Account-Authentication-type-to-be-a-password-It-is-less-secure-than-an-SSH-public-key-Create-any-username-password-you-want" class="headerlink" title="5) On the Basics tab, click on Create new for the resource group. You can call your resource anything you want, e.g. DS730. The Virtual machine name can be called Hortonworks. Under Instance Details, look at the Size option. We are only allowed 4 cores with our student account. Therefore, click on the Change size link and choose the Standard B4ms option. Change the Administrator Account Authentication type to be a password. It is less secure than an SSH public key. Create any username/password you want."></a>5) On the Basics tab, click on Create new for the resource group. You can call your resource anything you want, e.g. DS730. The Virtual machine name can be called Hortonworks. Under Instance Details, look at the Size option. We are only allowed 4 cores with our student account. Therefore, click on the Change size link and choose the Standard B4ms option. Change the Administrator Account Authentication type to be a password. It is less secure than an SSH public key. Create any username/password you want.</h4><p><img src="https://user-images.githubusercontent.com/26552500/92768074-4a2a0f80-f35d-11ea-9911-62ff93e239ee.png" alt="image"></p>
-<h4 id="6-Click-create-button"><a href="#6-Click-create-button" class="headerlink" title="6) Click create button"></a>6) Click create button</h4><p><img src="https://user-images.githubusercontent.com/26552500/92768624-cc1a3880-f35d-11ea-8630-d05a48c51409.png" alt="image"></p>
-<h4 id="7-Click-“Go-to-resource”"><a href="#7-Click-“Go-to-resource”" class="headerlink" title="7) Click “Go to resource”"></a>7) Click “Go to resource”</h4><p><img src="https://user-images.githubusercontent.com/26552500/92769685-d983f280-f35e-11ea-9b92-b7b615bd3a1c.png" alt="image"></p>
-<h4 id="8-Click-“Networking”"><a href="#8-Click-“Networking”" class="headerlink" title="8) Click “Networking”"></a>8) Click “Networking”</h4><p><img src="https://user-images.githubusercontent.com/26552500/92769907-0801cd80-f35f-11ea-92de-45406624d878.png" alt="image"></p>
-<h4 id="9-Click-on-the-Add-inbound-port-rule-button-Add-the-following-port-using-these-rule"><a href="#9-Click-on-the-Add-inbound-port-rule-button-Add-the-following-port-using-these-rule" class="headerlink" title="9) Click on the Add inbound port rule button. Add the following port using these rule:"></a>9) Click on the Add inbound port rule button. Add the following port using these rule:</h4><h4 id="Destination-port-ranges-Set-it-to-be-8080-It-might-default-at-that-port-already-If-that-is-the-case-then-leave-it"><a href="#Destination-port-ranges-Set-it-to-be-8080-It-might-default-at-that-port-already-If-that-is-the-case-then-leave-it" class="headerlink" title="Destination port ranges - Set it to be 8080. It might default at that port already. If that is the case, then leave it."></a>Destination port ranges - Set it to be 8080. It might default at that port already. If that is the case, then leave it.</h4><h4 id="Name-Not-critical-but-change-it-to-Ambari-so-you-know-what-the-port-is"><a href="#Name-Not-critical-but-change-it-to-Ambari-so-you-know-what-the-port-is" class="headerlink" title="Name - Not critical but change it to Ambari so you know what the port is."></a>Name - Not critical but change it to Ambari so you know what the port is.</h4><h4 id="The-rest-of-the-options-can-be-left-at-their-defaults-Feel-free-to-change-the-Source-if-you-are-super-concerned-about-security"><a href="#The-rest-of-the-options-can-be-left-at-their-defaults-Feel-free-to-change-the-Source-if-you-are-super-concerned-about-security" class="headerlink" title="The rest of the options can be left at their defaults. Feel free to change the Source if you are super concerned about security."></a>The rest of the options can be left at their defaults. Feel free to change the Source if you are super concerned about security.</h4><p><img src="https://user-images.githubusercontent.com/26552500/92770485-9b3b0300-f35f-11ea-8283-3b0bf49c6abd.png" alt="image"></p>
-<h4 id="10-Add-the-following-Port-Name-inbound-port-rules-as-well-4200-ssh-9995-zeppelin-2222-hortonworksfs-You-may-have-to-change-the-priority-to-be-a-different-number-for-each-rule-Change-it-to-any-number-that-is-unique"><a href="#10-Add-the-following-Port-Name-inbound-port-rules-as-well-4200-ssh-9995-zeppelin-2222-hortonworksfs-You-may-have-to-change-the-priority-to-be-a-different-number-for-each-rule-Change-it-to-any-number-that-is-unique" class="headerlink" title="10)  Add the following Port/Name inbound port rules as well: (4200/ssh, 9995/zeppelin, 2222/hortonworksfs) You may have to change the priority to be a different number for each rule. Change it to any number that is unique."></a>10)  Add the following Port/Name inbound port rules as well: (4200/ssh, 9995/zeppelin, 2222/hortonworksfs) You may have to change the priority to be a different number for each rule. Change it to any number that is unique.</h4><p><img src="https://user-images.githubusercontent.com/26552500/92772087-0a652700-f361-11ea-8140-b829732258bb.png" alt="image"></p>
-<h4 id="11-Your-Hortonworks-Sandbox-is-setup-and-is-now-ready-to-use"><a href="#11-Your-Hortonworks-Sandbox-is-setup-and-is-now-ready-to-use" class="headerlink" title="11) Your Hortonworks Sandbox is setup and is now ready to use."></a>11) Your Hortonworks Sandbox is setup and is now ready to use.</h4><h4 id="A-great-guide-to-learning-about-your-Sandbox-is-here"><a href="#A-great-guide-to-learning-about-your-Sandbox-is-here" class="headerlink" title="A great guide to learning about your Sandbox is here:"></a>A great guide to learning about your Sandbox is here:</h4><p><a href="https://hortonworks.com/tutorial/learning-the-ropes-of-the-hortonworks-sandbox" target="_blank" rel="noopener">https://hortonworks.com/tutorial/learning-the-ropes-of-the-hortonworks-sandbox</a> </p>
-<h4 id="However-everything-you-need-to-know-for-this-course-will-be-shown-in-this-and-future-activities"><a href="#However-everything-you-need-to-know-for-this-course-will-be-shown-in-this-and-future-activities" class="headerlink" title="However, everything you need to know for this course will be shown in this and future activities."></a>However, everything you need to know for this course will be shown in this and future activities.</h4><h4 id="12-Go-to-“All-resources”"><a href="#12-Go-to-“All-resources”" class="headerlink" title="12) Go to “All resources”"></a>12) Go to “All resources”</h4><p><img src="https://user-images.githubusercontent.com/26552500/92772670-88293280-f361-11ea-97be-c8e7c2654a51.png" alt="image"></p>
-<h4 id="13-Find-your-Public-IP-address-on-the-right-hand-side"><a href="#13-Find-your-Public-IP-address-on-the-right-hand-side" class="headerlink" title="13) Find your Public IP address on the right hand side"></a>13) Find your Public IP address on the right hand side</h4><h4 id="Note-that-my-IP-address-is-40-88-11-48-and-I-will-use-that-IP-in-the-steps-below"><a href="#Note-that-my-IP-address-is-40-88-11-48-and-I-will-use-that-IP-in-the-steps-below" class="headerlink" title="Note that my IP address is 40.88.11.48 and I will use that IP in the steps below."></a>Note that my IP address is 40.88.11.48 and I will use that IP in the steps below.</h4><p><img src="https://user-images.githubusercontent.com/26552500/92775947-6da48880-f364-11ea-8ece-24405eb090ec.png" alt="image"></p>
-<h4 id="14-Go-to-http-40-88-11-48-8080-and-enter-in-maria-dev-as-the-username-and-password-You-should-see-something-like-this"><a href="#14-Go-to-http-40-88-11-48-8080-and-enter-in-maria-dev-as-the-username-and-password-You-should-see-something-like-this" class="headerlink" title="14) Go to http://40.88.11.48:8080 and enter in maria_dev as the username and password. You should see something like this:"></a>14) Go to <a href="http://40.88.11.48:8080" target="_blank" rel="noopener">http://40.88.11.48:8080</a> and enter in maria_dev as the username and password. You should see something like this:</h4><p><img src="https://user-images.githubusercontent.com/26552500/92776642-118e3400-f365-11ea-98d8-e963476b6027.png" alt="image"></p>
-<h4 id="This-step-is-important-for-all-future-activities-and-projects-whenever-you-start-up-your-virtual-machine-You-must-check-this-page-before-beginning-any-activity-project-to-ensure-the-system-is-ready-to-use-As-long-as-there-are-0-alerts-at-the-top-you-are-ready-to-start-working-If-you-see-any-alerts-you-must-wait-for-the-alerts-to-clear-before-starting-Even-though-you-may-be-able-to-load-up-the-8080-port-and-the-4200-port-it-does-not-mean-the-machine-is-completely-started-and-ready-to-use-You-must-wait-for-all-alerts-to-clear-before-beginning"><a href="#This-step-is-important-for-all-future-activities-and-projects-whenever-you-start-up-your-virtual-machine-You-must-check-this-page-before-beginning-any-activity-project-to-ensure-the-system-is-ready-to-use-As-long-as-there-are-0-alerts-at-the-top-you-are-ready-to-start-working-If-you-see-any-alerts-you-must-wait-for-the-alerts-to-clear-before-starting-Even-though-you-may-be-able-to-load-up-the-8080-port-and-the-4200-port-it-does-not-mean-the-machine-is-completely-started-and-ready-to-use-You-must-wait-for-all-alerts-to-clear-before-beginning" class="headerlink" title="This step is important for all future activities and projects whenever you start up your virtual machine. You must check this page before beginning any activity/project to ensure the system is ready to use. As long as there are 0 alerts at the top, you are ready to start working. If you see any alerts, you must wait for the alerts to clear before starting. Even though you may be able to load up the 8080 port and the 4200 port, it does not mean the machine is completely started and ready to use. You must wait for all alerts to clear before beginning."></a>This step is important for all future activities and projects whenever you start up your virtual machine. You must check this page before beginning any activity/project to ensure the system is ready to use. As long as there are 0 alerts at the top, you are ready to start working. If you see any alerts, you must wait for the alerts to clear before starting. Even though you may be able to load up the 8080 port and the 4200 port, it does not mean the machine is completely started and ready to use. You must wait for all alerts to clear before beginning.</h4><h4 id="15-If-you-forget-to-do-these-steps-your-virtual-machine-will-still-be-running-and-you-will-run-out-of-credits"><a href="#15-If-you-forget-to-do-these-steps-your-virtual-machine-will-still-be-running-and-you-will-run-out-of-credits" class="headerlink" title="15)  If you forget to do these steps, your virtual machine will still be running and you will run out of credits"></a>15)  If you forget to do these steps, your virtual machine will still be running and you will run out of credits</h4><p><img src="https://user-images.githubusercontent.com/26552500/92777424-ce809080-f365-11ea-8ccb-9f73e2f47fe2.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/92777472-dd674300-f365-11ea-8de2-581c8a361178.png" alt="image"></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Learning_Spark_1</title>
     <url>/2020/12/17/Learning-Spark-1/</url>
     <content><![CDATA[<ol>
@@ -297,11 +306,72 @@ Create issue
       </tags>
   </entry>
   <entry>
-    <title>DS730_1_High_Performance_Computing_&amp;_MapReduce_Introduction</title>
-    <url>/2020/09/01/DS730-1-High-Performance-Computing-MapReduce-Introduction/</url>
-    <content><![CDATA[<p>Author: SAS</p>
-<p>Description: Discusses the history and importance of big data.</p>
-<p><a href="https://www.sas.com/en_us/insights/big-data/what-is-big-data.html" target="_blank" rel="noopener">https://www.sas.com/en_us/insights/big-data/what-is-big-data.html</a></p>
+    <title>AWS/Docker Cloud Server (2)</title>
+    <url>/2020/01/24/AWS-Docker-Cloud-Server-2/</url>
+    <content><![CDATA[<p>1 AWS 설치</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/73048868-23f04780-3e40-11ea-98d1-0096c46a47c2.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/73048771-d542ad80-3e3f-11ea-920f-2bcfac8c8ad5.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/73048809-f5726c80-3e3f-11ea-8ebd-bbb7bdb65ca3.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/73048829-07eca600-3e40-11ea-8dcb-a0fc44677f1c.png" alt="image"></p>
+<p>2 Docker 설치</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/73048917-51d58c00-3e40-11ea-8dda-5ae7491f522a.png" alt="image"></p>
+<p>[Command] - 설치<br> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum install docker-io   -- yes</span><br></pre></td></tr></table></figure></p>
+<p>[Command] - 확인   </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/26552500/73049014-a6790700-3e40-11ea-878e-95aef988d168.png" alt="image"></p>
+<p>[Command] - 도커리스트를 실행시켜줌   </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure>
+
+<p>[Command] - 현재 접속 유저의 계정 정보와 root 계정이 달라서 발생된 에러라 해당 부분에 권한을 주고 다시 실행    </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo setfacl -m user:ec2-user:rw &#x2F;var&#x2F;run&#x2F;docker.sock</span><br></pre></td></tr></table></figure>
+
+<p>[Command] - 도커리스트 확인   </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="https://user-images.githubusercontent.com/26552500/73049146-34ed8880-3e41-11ea-828d-125cff05744b.png" alt="image"></p>
+<p>[Command] - 기존 지라 도커 컨테이너 삭제   </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker rm --volumes --force &quot;jira-container&quot;</span><br></pre></td></tr></table></figure>
+
+<p>[Command] - 지라 도커 컨테이너 설치  </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker pull cptactionhank&#x2F;atlassian-jira-software:latest</span><br></pre></td></tr></table></figure>
+
+<p>[Command] - 지라 도커 컨테이너 생성  </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker create --restart&#x3D;no --name &quot;jira-container&quot;  --publish &quot;8080:8080&quot;  --volume &quot;hostpath:&#x2F;var&#x2F;atlassian&#x2F;jira&quot; --env &quot;CATALINA_OPTS&#x3D; -Xms1024m -Xmx1024m -Datlassian.plugins.enable.wait&#x3D;300&quot; cptactionhank&#x2F;atlassian-jira-software:latest</span><br></pre></td></tr></table></figure>
+
+<p>[Command] - 지라 도커 컨테이너 실행  </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker start --attach &quot;jira-container&quot;</span><br></pre></td></tr></table></figure>
+
+<p>[Command] - 지라 셋업 페이지</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;ec2-3-89-93-84.compute-1.amazonaws.com:8080&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/26552500/73049255-957cc580-3e41-11ea-92c8-7e9b701a8bff.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/73049284-ae857680-3e41-11ea-8be1-e9cd62d6eae7.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/73130579-e3700580-3fc8-11ea-8144-6df985c162ce.png" alt="image"></p>
+]]></content>
+      <categories>
+        <category>Today_I_Learn</category>
+      </categories>
+      <tags>
+        <tag>AWS</tag>
+        <tag>Docker</tag>
+        <tag>JIRA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PostgreSQL_Basic (1)</title>
+    <url>/2020/02/01/PostgreSQL-Basic-1/</url>
+    <content><![CDATA[<p><img src="https://user-images.githubusercontent.com/26552500/74211324-03ecc080-4c55-11ea-94e0-8fcb6041f962.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74211398-61810d00-4c55-11ea-8047-b240f93bbc4f.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74211616-54185280-4c56-11ea-96d6-1b72f24f3869.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74211634-62ff0500-4c56-11ea-8187-025afe1b8697.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74213242-f7209a80-4c5d-11ea-93bb-64d2ccec8898.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74213271-0acc0100-4c5e-11ea-9df0-0b1cc889d93c.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74213283-17e8f000-4c5e-11ea-9774-8cb39c9605d4.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74213312-33ec9180-4c5e-11ea-8646-6608bcf8c20d.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74213323-423aad80-4c5e-11ea-98fe-84c887d900b7.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74213334-5383ba00-4c5e-11ea-846e-7831f0de3e86.png" alt="image"></p>
 ]]></content>
   </entry>
   <entry>
@@ -392,19 +462,6 @@ Create issue
       </tags>
   </entry>
   <entry>
-    <title>HDFS_Command_1</title>
-    <url>/2020/08/13/HDFS-Command-1/</url>
-    <content><![CDATA[<h2 id="hdfs-dfs-command-command-options"><a href="#hdfs-dfs-command-command-options" class="headerlink" title="hdfs dfs [command] [command options]"></a>hdfs dfs [command] [command options]</h2><h3 id="Version"><a href="#Version" class="headerlink" title="Version"></a>Version</h3><h4 id="command-hdfs-version"><a href="#command-hdfs-version" class="headerlink" title="command : hdfs version"></a>command : hdfs version</h4><p><img src="https://user-images.githubusercontent.com/26552500/90162292-06da8200-dd5a-11ea-99cc-2daa1e6c808b.png" alt="image"></p>
-<h4 id="command-hadoop-version"><a href="#command-hadoop-version" class="headerlink" title="command : hadoop version"></a>command : hadoop version</h4><p><img src="https://user-images.githubusercontent.com/26552500/90162414-31c4d600-dd5a-11ea-9e11-c821da12fdc2.png" alt="image"></p>
-<h4 id="command-hdfs-getconf-namenodes"><a href="#command-hdfs-getconf-namenodes" class="headerlink" title="command : hdfs getconf -namenodes"></a>command : hdfs getconf -namenodes</h4><p><img src="https://user-images.githubusercontent.com/26552500/90163146-53728d00-dd5b-11ea-883b-c940a805734a.png" alt="image"></p>
-<h3 id="command-hdfs-dfs-ls-path"><a href="#command-hdfs-dfs-ls-path" class="headerlink" title="command : hdfs dfs -ls path"></a>command : hdfs dfs -ls path</h3><p><img src="https://user-images.githubusercontent.com/26552500/90164361-ec55d800-dd5c-11ea-95c0-6711cbb27a78.png" alt="image"></p>
-<h3 id="command-hdfs-dfs-get-path"><a href="#command-hdfs-dfs-get-path" class="headerlink" title="command : hdfs dfs -get path"></a>command : hdfs dfs -get path</h3><p><img src="https://user-images.githubusercontent.com/26552500/90175711-7148ed80-dd6d-11ea-91d3-deaf48d7f91b.png" alt="image"></p>
-<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>. : Current location<br>.. : Parent location</p>
-<h4 id="Example-cp-2-png-3-png"><a href="#Example-cp-2-png-3-png" class="headerlink" title="Example : cp ./2.png ../3.png"></a>Example : cp ./2.png ../3.png</h4><p>Copy the current 2.png file to the parent directory as 3.png</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/90166534-08a74400-dd60-11ea-96b9-410d0f3529df.png" alt="image"></p>
-]]></content>
-  </entry>
-  <entry>
     <title>PostgreSQL_Basic (2)</title>
     <url>/2020/02/12/PostgreSQL-Basic-2/</url>
     <content><![CDATA[<h3 id="1-Download-DBeaver"><a href="#1-Download-DBeaver" class="headerlink" title="1. Download DBeaver"></a>1. Download DBeaver</h3><p><a href="https://dbeaver.io/download/" target="_blank" rel="noopener">https://dbeaver.io/download/</a><br><img src="https://user-images.githubusercontent.com/26552500/74398028-dda55d00-4ddb-11ea-94fa-96176a9857f1.png" alt="image"></p>
@@ -466,6 +523,49 @@ Create issue
 ]]></content>
   </entry>
   <entry>
+    <title>PostgreSQL_Basic (4)</title>
+    <url>/2020/02/19/PostgreSQL-Basic-4/</url>
+    <content><![CDATA[<h3 id="2-SQL"><a href="#2-SQL" class="headerlink" title="2. SQL []"></a>2. SQL []</h3><h4 id="1-JOIN"><a href="#1-JOIN" class="headerlink" title="1) JOIN"></a>1) JOIN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74899081-849c7280-5361-11ea-9138-ed46065c5af9.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74899134-a5fd5e80-5361-11ea-926b-052c0567f8a6.png" alt="image"></p>
+<h4 id="2-INNER-JOIN"><a href="#2-INNER-JOIN" class="headerlink" title="2) INNER JOIN"></a>2) INNER JOIN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74899171-ba415b80-5361-11ea-88c2-46fb68b5f125.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74899211-d9d88400-5361-11ea-9500-4d00ee0609f4.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74899251-f379cb80-5361-11ea-97f2-e1c1a31182f9.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74899307-24f29700-5362-11ea-87ba-69111e078345.png" alt="image"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Predict Used Car Project (2)</title>
+    <url>/2020/01/27/Predict-Used-Car-Project-2/</url>
+    <content><![CDATA[<p>Install CMake</p>
+<p>Enter the following command to download the source code:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ wget https:&#x2F;&#x2F;github.com&#x2F;Kitware&#x2F;CMake&#x2F;releases&#x2F;download&#x2F;v3.15.2&#x2F;cmake-3.15.2.tar.gz</span><br><span class="line">$ tar -zxvf cmake-3.15.2.tar.gz</span><br><span class="line">$ cd cmake-3.15.2</span><br><span class="line">.&#x2F;bootstrap</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/26552500/73230770-f22ef780-4143-11ea-863e-4c2221ac32ee.png" alt="image"></p>
+<p>You can now make it using the following command:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ make</span><br></pre></td></tr></table></figure>
+
+<p>And then install it as follows:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo make install</span><br></pre></td></tr></table></figure>
+
+<p>After the software is successfully installed, you can verify its installation and also if the correct version is<br> installed, through the following command:<br> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cmake --version</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>Install XGBoost</p>
+<p>Enter the following command to download the source code:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone --recursive https:&#x2F;&#x2F;github.com&#x2F;dmlc&#x2F;xgboost</span><br><span class="line">cd xgboost</span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ..</span><br><span class="line">make -j4</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<p>디스크용량 확인</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">df -P | grep -v ^Filesystem | awk &#39;&#123;sum +&#x3D; $2&#125; END &#123; print sum&#x2F;1024&#x2F;1024 &quot; GB&quot; &#125;&#39;</span><br></pre></td></tr></table></figure>
+
+<p>디스크 사용량</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">df -P | grep -v ^Filesystem | awk &#39;&#123;sum +&#x3D; $3&#125; END &#123; print sum&#x2F;1024&#x2F;1024 &quot; GB&quot; &#125;&#39;</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+  </entry>
+  <entry>
     <title>PostgreSQL_Basic Exam (1)</title>
     <url>/2020/02/13/PostgreSQL-Basic-Exam-1/</url>
     <content><![CDATA[<h4 id="1-PAYMENT-DATE가-2007년-2월-7일부터-2007년-2월-15일인-customer-id-first-name-Last-name"><a href="#1-PAYMENT-DATE가-2007년-2월-7일부터-2007년-2월-15일인-customer-id-first-name-Last-name" class="headerlink" title="1) PAYMENT_DATE가 2007년 2월 7일부터 2007년 2월 15일인 customer_id, first_name, Last_name"></a>1) PAYMENT_DATE가 2007년 2월 7일부터 2007년 2월 15일인 customer_id, first_name, Last_name</h4><ul>
@@ -478,14 +578,29 @@ Create issue
 ]]></content>
   </entry>
   <entry>
-    <title>PostgreSQL_Basic (4)</title>
-    <url>/2020/02/19/PostgreSQL-Basic-4/</url>
-    <content><![CDATA[<h3 id="2-SQL"><a href="#2-SQL" class="headerlink" title="2. SQL []"></a>2. SQL []</h3><h4 id="1-JOIN"><a href="#1-JOIN" class="headerlink" title="1) JOIN"></a>1) JOIN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74899081-849c7280-5361-11ea-9138-ed46065c5af9.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74899134-a5fd5e80-5361-11ea-926b-052c0567f8a6.png" alt="image"></p>
-<h4 id="2-INNER-JOIN"><a href="#2-INNER-JOIN" class="headerlink" title="2) INNER JOIN"></a>2) INNER JOIN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74899171-ba415b80-5361-11ea-88c2-46fb68b5f125.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74899211-d9d88400-5361-11ea-9500-4d00ee0609f4.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74899251-f379cb80-5361-11ea-97f2-e1c1a31182f9.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74899307-24f29700-5362-11ea-87ba-69111e078345.png" alt="image"></p>
+    <title>Predict Used Car Project (3)</title>
+    <url>/2020/01/30/Predict-Used-Car-Project-3/</url>
+    <content><![CDATA[<h3 id="Flask"><a href="#Flask" class="headerlink" title="Flask"></a>Flask</h3><p>reference : <a href="https://github.com/yyuu/pyenv/wiki/Common-build-problems" target="_blank" rel="noopener">https://github.com/yyuu/pyenv/wiki/Common-build-problems</a></p>
+<p>1 install 의존성 파일</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get upgrade</span><br><span class="line">$ sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev</span><br></pre></td></tr></table></figure>
+
+<p>2 install pip &amp; nginx</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get install python-pip nginx</span><br></pre></td></tr></table></figure>
+
+<p>3 set nginx</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># nginx를 시작하고 127.0.0.1:8000 ip를 외부 IP로 매핑 시켜줌</span><br><span class="line">$ sudo &#x2F;etc&#x2F;init.d&#x2F;nginx start</span><br><span class="line">$ sudo rm &#x2F;etc&#x2F;nginx&#x2F;sites-enabled&#x2F;default</span><br><span class="line">$ sudo touch &#x2F;etc&#x2F;nginx&#x2F;sites-available&#x2F;flask_settings</span><br><span class="line">$ sudo ln -s &#x2F;etc&#x2F;nginx&#x2F;sites-available&#x2F;flask_settings &#x2F;etc&#x2F;nginx&#x2F;sites-enabled&#x2F;flask_settings</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo vi &#x2F;etc&#x2F;nginx&#x2F;sites-enabled&#x2F;flask_settings</span><br><span class="line"></span><br><span class="line">------------------flask_settings-------------------- </span><br><span class="line">server &#123;</span><br><span class="line">    location &#x2F; &#123;</span><br><span class="line">        proxy_pass http:&#x2F;&#x2F;127.0.0.1:8000; </span><br><span class="line">        proxy_set_header Host $host; </span><br><span class="line">        proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">        &#125; </span><br><span class="line">&#125;</span><br><span class="line">------------------------------------------------------ </span><br><span class="line"></span><br><span class="line">$ sudo &#x2F;etc&#x2F;init.d&#x2F;nginx restart</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<ol start="4">
+<li>install flask &amp; gunicorn<br>$ pip install flask gunicorn</li>
+<li>excute flask app<br>$ gunicorn hello:app</li>
+<li>aws open port 80</li>
+</ol>
 ]]></content>
   </entry>
   <entry>
@@ -574,149 +689,6 @@ Create issue
 ]]></content>
   </entry>
   <entry>
-    <title>Predict Used Car Project (3)</title>
-    <url>/2020/01/30/Predict-Used-Car-Project-3/</url>
-    <content><![CDATA[<h3 id="Flask"><a href="#Flask" class="headerlink" title="Flask"></a>Flask</h3><p>reference : <a href="https://github.com/yyuu/pyenv/wiki/Common-build-problems" target="_blank" rel="noopener">https://github.com/yyuu/pyenv/wiki/Common-build-problems</a></p>
-<p>1 install 의존성 파일</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get upgrade</span><br><span class="line">$ sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev</span><br></pre></td></tr></table></figure>
-
-<p>2 install pip &amp; nginx</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get install python-pip nginx</span><br></pre></td></tr></table></figure>
-
-<p>3 set nginx</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># nginx를 시작하고 127.0.0.1:8000 ip를 외부 IP로 매핑 시켜줌</span><br><span class="line">$ sudo &#x2F;etc&#x2F;init.d&#x2F;nginx start</span><br><span class="line">$ sudo rm &#x2F;etc&#x2F;nginx&#x2F;sites-enabled&#x2F;default</span><br><span class="line">$ sudo touch &#x2F;etc&#x2F;nginx&#x2F;sites-available&#x2F;flask_settings</span><br><span class="line">$ sudo ln -s &#x2F;etc&#x2F;nginx&#x2F;sites-available&#x2F;flask_settings &#x2F;etc&#x2F;nginx&#x2F;sites-enabled&#x2F;flask_settings</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo vi &#x2F;etc&#x2F;nginx&#x2F;sites-enabled&#x2F;flask_settings</span><br><span class="line"></span><br><span class="line">------------------flask_settings-------------------- </span><br><span class="line">server &#123;</span><br><span class="line">    location &#x2F; &#123;</span><br><span class="line">        proxy_pass http:&#x2F;&#x2F;127.0.0.1:8000; </span><br><span class="line">        proxy_set_header Host $host; </span><br><span class="line">        proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">        &#125; </span><br><span class="line">&#125;</span><br><span class="line">------------------------------------------------------ </span><br><span class="line"></span><br><span class="line">$ sudo &#x2F;etc&#x2F;init.d&#x2F;nginx restart</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<ol start="4">
-<li>install flask &amp; gunicorn<br>$ pip install flask gunicorn</li>
-<li>excute flask app<br>$ gunicorn hello:app</li>
-<li>aws open port 80</li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>Python_Code_1</title>
-    <url>/2020/12/12/Python-Code-1/</url>
-    <content><![CDATA[<ol>
-<li><p>Brew</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ brew install pyenv</span><br><span class="line">$ brew list</span><br><span class="line">$ brew upgrade pyenv</span><br><span class="line">$ brew upgrade</span><br><span class="line">$ brew update</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Bash</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ source .bash_profile</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Pyenv</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pyenv install --list</span><br><span class="line">$ pyenv install 3.9.0</span><br><span class="line">$ pyenv versions</span><br><span class="line">$ pyenv shell 3.9.0</span><br><span class="line">$ pyenv virtualenv 3.9.0 python3</span><br><span class="line">$ pyenv uninstall python3</span><br><span class="line">$ pyenv global 3.9.0 </span><br><span class="line">$ pyenv activate python2</span><br><span class="line">$ pyenv deactivate</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Pip</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pip3 install ipython  </span><br><span class="line">$ pip3 list</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Python_House_Price</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">%matplotlib inline</span><br><span class="line">import seaborn as sns</span><br><span class="line">import warnings</span><br><span class="line">warnings.filterwarnings(&#39;ignore&#39;)</span><br><span class="line">from scipy import stats</span><br><span class="line"></span><br><span class="line">train.describe()</span><br><span class="line">display(train.head(n&#x3D;1))</span><br><span class="line">train.shape</span><br><span class="line"></span><br><span class="line">plt.figure(figsize&#x3D;(17,6))</span><br><span class="line">plt.subplot(131)</span><br><span class="line">sns.distplot(train[&quot;SalePrice&quot;])</span><br><span class="line">plt.subplot(132)</span><br><span class="line">stats.probplot(train[&quot;SalePrice&quot;],plot&#x3D;plt)</span><br><span class="line">plt.subplot(133)</span><br><span class="line">sns.boxplot(train[&quot;SalePrice&quot;])</span><br><span class="line">plt.tight_layout()</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">train[&quot;MSSubClass&quot;] &#x3D; train[&quot;MSSubClass&quot;].astype(&#39;str&#39;)</span><br><span class="line"></span><br><span class="line">numerical_features &#x3D; []</span><br><span class="line">categorical_features &#x3D; []</span><br><span class="line">for f in train.columns:</span><br><span class="line">    if train.dtypes[f] !&#x3D; &#39;object&#39;:</span><br><span class="line">        numerical_features.append(f)</span><br><span class="line">    else:</span><br><span class="line">        categorical_features.append(f)</span><br><span class="line"></span><br><span class="line">nomalized_SalePrice &#x3D; np.log1p(train[&quot;SalePrice&quot;])</span><br><span class="line">plt.figure(figsize&#x3D;(17,6))</span><br><span class="line">plt.subplot(131)</span><br><span class="line">sns.distplot(nomalized_SalePrice)</span><br><span class="line">plt.subplot(132)</span><br><span class="line">stats.probplot(nomalized_SalePrice, plot&#x3D;plt)</span><br><span class="line">plt.subplot(133)</span><br><span class="line">sns.boxplot(nomalized_SalePrice)</span><br><span class="line">plt.tight_layout()</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">fig, ax &#x3D; plt.subplots(6,6, figsize &#x3D; (20,20))</span><br><span class="line">for idx, n in enumerate(numerical_features):</span><br><span class="line">    if n &#x3D;&#x3D; &#39;SalePrice&#39;:</span><br><span class="line">        continue</span><br><span class="line">    sns.regplot(x&#x3D;n, y&#x3D;&#39;SalePrice&#39;, data&#x3D;train, ax &#x3D; ax[idx&#x2F;&#x2F;6,idx%6])</span><br><span class="line">    ax[idx&#x2F;&#x2F;6, idx % 6].set(yticklabels&#x3D;[])</span><br><span class="line">    ax[idx&#x2F;&#x2F;6, idx % 6].set(xticklabels&#x3D;[])</span><br><span class="line"></span><br><span class="line">fig, ax &#x3D; plt.subplots(8,6, figsize &#x3D; (20,20))</span><br><span class="line">for idx, n in enumerate(categorical_features):</span><br><span class="line">    sns.countplot(x&#x3D;n, data&#x3D;train, ax &#x3D; ax[idx&#x2F;&#x2F;6, idx % 6])</span><br><span class="line">    ax[idx&#x2F;&#x2F;6, idx % 6].set(yticklabels&#x3D;[])</span><br><span class="line"></span><br><span class="line">df_train &#x3D; train.copy()</span><br><span class="line">df_train[&quot;2ndFloor&quot;] &#x3D; &quot;2ndFloor&quot;</span><br><span class="line">df_train[&quot;2ndFloor&quot;].loc[df_train[&quot;2ndFlrSF&quot;]&#x3D;&#x3D;0] &#x3D; &quot;No 2ndFloor&quot;</span><br><span class="line">df_train[&quot;Basement&quot;] &#x3D; &quot;Basement&quot;</span><br><span class="line">df_train[&quot;Basement&quot;].loc[df_train[&quot;TotalBsmtSF&quot;]&#x3D;&#x3D;0] &#x3D; &quot;No Basement&quot;</span><br><span class="line"></span><br><span class="line"># Joint plot GrLivArea&#x2F;saleprice</span><br><span class="line">grid &#x3D; sns.jointplot(x &#x3D; &quot;GrLivArea&quot;, y &#x3D; &quot;SalePrice&quot;, data&#x3D;train, kind&#x3D;&quot;reg&quot;)</span><br><span class="line">grid.fig.set_size_inches(15,5)</span><br><span class="line"></span><br><span class="line"># Strip plot GrLivArea&#x2F;2ndFloor&#x2F;saleprice</span><br><span class="line">plt.figure(figsize &#x3D; (20,8))</span><br><span class="line">plt.subplot(211)</span><br><span class="line">g &#x3D; sns.stripplot(x &#x3D; &quot;GrLivArea&quot;, y &#x3D; &#39;SalePrice&#39;, hue &#x3D; &quot;2ndFloor&quot;, data &#x3D; df_train, alpha &#x3D; 0.7)</span><br><span class="line">g.set_xlabel(&#39;GrLivArea&#39;)</span><br><span class="line">g.set_ylabel(&#39;SalePrice&#39;)</span><br><span class="line">g.set_xticks([])</span><br><span class="line">g.set_title(&#39;GrLiv &amp; 2ndFloor - SalePrice&#39;)</span><br><span class="line"></span><br><span class="line"># Strip plot GrLivArea&#x2F;Basement&#x2F;saleprice</span><br><span class="line">plt.subplot(212)</span><br><span class="line">b &#x3D; sns.stripplot( x &#x3D; &quot;GrLivArea&quot;, y &#x3D; &#39;SalePrice&#39;, hue &#x3D; &quot;Basement&quot;, data &#x3D; df_train, alpha &#x3D; 0.7)</span><br><span class="line">b.set_xlabel(&#39;GrLivArea&#39;)</span><br><span class="line">b.set_ylabel(&#39;SalePrice&#39;)</span><br><span class="line">b.set_title(&#39;GrLivArea &amp; Basement - SalePrice&#39;)</span><br><span class="line">b.set_xticks([])</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"># Graph for GrLivArea &amp; OverallQual - SalePrice</span><br><span class="line">plt.figure(figsize&#x3D;(15,8))</span><br><span class="line">ax1 &#x3D; plt.subplot2grid((2,2), (0,0), colspan &#x3D; 2)</span><br><span class="line">for qual in range(1,11):</span><br><span class="line">    index &#x3D; train.OverallQual &#x3D;&#x3D; qual</span><br><span class="line">    ax1.scatter(train.GrLivArea.loc[index], train.SalePrice.loc[index], data&#x3D;train, label&#x3D; qual, alpha &#x3D;0.5)</span><br><span class="line">ax1.legend(loc &#x3D; 0)</span><br><span class="line">ax1.set_title(&quot;GrLivArea &amp; OverallQual - SalePrice&quot;)</span><br><span class="line">ax1.set_xlabel(&#39;GrLivArea &amp; OverallQual&#39;)</span><br><span class="line">ax1.set_ylabel(&#39;SalePrice&#39;)</span><br><span class="line"></span><br><span class="line"># Graph for OverallQual - SalePrice</span><br><span class="line">ax2 &#x3D; plt.subplot2grid((2,2), (1,0))</span><br><span class="line">sns.boxplot(x &#x3D; &quot;OverallQual&quot;, y &#x3D; &quot;SalePrice&quot;, data&#x3D;train, ax&#x3D; ax2)</span><br><span class="line">ax2.set_title(&#39;OverallQual - SalePrice&#39;)</span><br><span class="line"></span><br><span class="line"># Graph for OverallCond - SalePrice</span><br><span class="line">ax3 &#x3D; plt.subplot2grid((2,2), (1,1))</span><br><span class="line">sns.boxplot(x &#x3D; &quot;OverallCond&quot;, y &#x3D; &quot;SalePrice&quot;, data&#x3D;train, ax&#x3D; ax3)</span><br><span class="line">ax3.set_title(&#39;OverallCond - SalePrice&#39;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Graph for GarageArea &amp; GarageCars - SalePrice</span><br><span class="line">plt.figure(figsize&#x3D;(15,6))</span><br><span class="line"></span><br><span class="line">ax1 &#x3D; plt.subplot(1,2,1)</span><br><span class="line">for car in range(0,5):</span><br><span class="line">    index &#x3D; train.GarageCars &#x3D;&#x3D; car</span><br><span class="line">    ax1.scatter(x &#x3D; train.GarageArea.loc[index], y &#x3D; train.SalePrice.loc[index], data&#x3D;train, label&#x3D;car, alpha&#x3D;&#39;0.5&#39;)</span><br><span class="line"></span><br><span class="line"># Graph for GarageArea </span><br><span class="line">ax1.legend()</span><br><span class="line">ax1.set_title(&#39;GarageArea - SalePrice&#39;)</span><br><span class="line">ax1.set_xlabel(&#39;GarageArea&#39;)</span><br><span class="line">ax1.set_ylabel(&#39;SalePrice&#39;)</span><br><span class="line"></span><br><span class="line"># Graph for GarageCars</span><br><span class="line">ax2 &#x3D; plt.subplot(1,2,2)</span><br><span class="line">sns.stripplot(x &#x3D; &quot;GarageCars&quot;, y &#x3D; &quot;SalePrice&quot;, data&#x3D;train,ax&#x3D;ax2, jitter&#x3D;True)</span><br><span class="line">ax2.set_title(&#39;GarageCars - SalePrice&#39;)</span><br><span class="line">ax2.legend()</span><br><span class="line"></span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"># Neighborhood variables are grouped by neighbors and then aggregated by average</span><br><span class="line">Neighbor &#x3D; train.pivot_table(index&#x3D;&quot;Neighborhood&quot;,values&#x3D;&quot;SalePrice&quot;, aggfunc&#x3D;&#39;mean&#39;).sort_values(by &#x3D; [&quot;SalePrice&quot;], ascending &#x3D; False)</span><br><span class="line">Neighbor &#x3D; Neighbor.reset_index()</span><br><span class="line"></span><br><span class="line"># The bar graph displays the aggregated data in the order of the highest to lowest price</span><br><span class="line">g &#x3D; sns.factorplot(x &#x3D; &quot;Neighborhood&quot;, y&#x3D;&quot;SalePrice&quot;, data&#x3D;Neighbor, size &#x3D;8, kind&#x3D;&quot;bar&quot;)</span><br><span class="line">g.set_xticklabels(rotation&#x3D;45)</span><br><span class="line">g.fig.set_size_inches(15,5)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Code</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>Code</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python_Basic (1)</title>
-    <url>/2020/02/12/Python-Basic-1/</url>
-    <content><![CDATA[<h4 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h4><h5 id="check-“Add-Python-path”"><a href="#check-“Add-Python-path”" class="headerlink" title="check “Add Python ~ path”"></a>check “Add Python ~ path”</h5><p><img src="https://user-images.githubusercontent.com/26552500/74404590-95dd0080-4df0-11ea-9fd6-30502b8babf2.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74404765-0552f000-4df1-11ea-945f-167a20cb3d58.png" alt="image"></p>
-<h4 id="Download-Visual"><a href="#Download-Visual" class="headerlink" title="Download Visual"></a>Download Visual</h4><p><a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">https://code.visualstudio.com/download</a></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74404703-d9d00580-4df0-11ea-991a-7f76be558aac.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74405769-8a3f0900-4df3-11ea-9c7e-8d5408289ed6.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74405865-c8d4c380-4df3-11ea-833b-ba5d57744b51.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74405929-fb7ebc00-4df3-11ea-9940-6c3ad6a362fd.png" alt="image"></p>
-<h4 id="Setup-Virtual-Env"><a href="#Setup-Virtual-Env" class="headerlink" title="Setup Virtual Env"></a>Setup Virtual Env</h4><p><img src="https://user-images.githubusercontent.com/26552500/74406320-f2421f00-4df4-11ea-9cab-20c697d829b3.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74406376-1c93dc80-4df5-11ea-9c5e-6e2e88cd8a13.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74406439-451bd680-4df5-11ea-89cf-8bbeb3af5609.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74406461-5664e300-4df5-11ea-9f8f-9788cf4cd401.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74406604-bc516a80-4df5-11ea-855c-c4cae42b52d0.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74406650-d8eda280-4df5-11ea-979d-d45091c671df.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74406858-574a4480-4df6-11ea-8af5-303efb3048a8.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74406898-6af5ab00-4df6-11ea-8062-1aa197c3d338.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74407012-9f696700-4df6-11ea-809f-e3502b4c4c8e.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F; See https:&#x2F;&#x2F;go.microsoft.com&#x2F;fwlink&#x2F;?LinkId&#x3D;733558</span><br><span class="line">    &#x2F;&#x2F; for the documentation about the tasks.json format</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;,</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;label&quot;: &quot;Project Label&quot;,</span><br><span class="line">            &quot;type&quot;: &quot;shell&quot;,</span><br><span class="line">            &quot;command&quot;: &quot;python&quot;,</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;$&#123;file&#125;&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;presentation&quot;: &#123;</span><br><span class="line">                &quot;reveal&quot;: &quot;always&quot;,</span><br><span class="line">                &quot;panel&quot;: &quot;new&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;options&quot;: &#123;</span><br><span class="line">                &quot;env&quot;: &#123;</span><br><span class="line">                    &quot;PYTHONIOENCODING&quot;: &quot;UTF-8&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;group&quot;: &#123;</span><br><span class="line">                &quot;kind&quot;: &quot;build&quot;,</span><br><span class="line">                &quot;isDefault&quot;: true</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-images.githubusercontent.com/26552500/74407349-785f6500-4df7-11ea-8296-64ad5ae0939c.png" alt="image"></p>
-<hr>
-<h3 id="1-Function"><a href="#1-Function" class="headerlink" title="1. Function"></a>1. Function</h3><h4 id="1-Print"><a href="#1-Print" class="headerlink" title="1) Print"></a>1) Print</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Basic</span></span><br><span class="line">print(<span class="string">'hello'</span>)</span><br><span class="line">print(<span class="string">"hello"</span>)</span><br><span class="line">print(<span class="string">"""hello"""</span>)</span><br><span class="line">print(<span class="string">'''hello'''</span>)</span><br><span class="line"></span><br><span class="line">print()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Seperator</span></span><br><span class="line">print(<span class="string">'T'</span>, <span class="string">'E'</span>, <span class="string">'S'</span>, <span class="string">'T'</span>)</span><br><span class="line">print(<span class="string">'T'</span>, <span class="string">'E'</span>, <span class="string">'S'</span>, <span class="string">'T'</span>, sep=<span class="string">''</span>)</span><br><span class="line">print(<span class="string">'2020'</span>, <span class="string">'02'</span>, <span class="string">'13'</span>, sep=<span class="string">'-'</span>)</span><br><span class="line">print(<span class="string">'niceman'</span>, <span class="string">'gmail.com'</span>, sep=<span class="string">'@'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># End</span></span><br><span class="line">print(<span class="string">'welcome to'</span>, end=<span class="string">' '</span>)</span><br><span class="line">print(<span class="string">'the black parade'</span>, end=<span class="string">' '</span>)</span><br><span class="line">print(<span class="string">'piano note'</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'test'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Format </span></span><br><span class="line">print(<span class="string">'&#123;&#125; and &#123;&#125; '</span>.format(<span class="string">'you'</span>, <span class="string">'me'</span>))</span><br><span class="line">print(<span class="string">'&#123;0&#125; and &#123;1&#125;'</span>.format(<span class="string">'you'</span>, <span class="string">'me'</span>))</span><br><span class="line">print(<span class="string">'&#123;a&#125; and &#123;b&#125;'</span>.format(a=<span class="string">'you'</span>, b=<span class="string">'me'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># %s, %d, %f</span></span><br><span class="line">print(<span class="string">"%s's favorite number is %d"</span> % (<span class="string">'danny'</span>, <span class="number">7</span>))</span><br><span class="line">print(<span class="string">"test1: %5d, print: %4.2f"</span> % (<span class="number">777</span>, <span class="number">133.23</span>))</span><br><span class="line">print(<span class="string">"test1: &#123;0: 5d&#125;, print: &#123;1: 4.2f&#125;"</span>.format(<span class="number">777</span>, <span class="number">133.232</span>))</span><br><span class="line">print(<span class="string">"test1: &#123;a: 5d&#125;, print: &#123;b: 4.2f&#125;"</span>.format(a=<span class="number">776</span>, b=<span class="number">45432.342</span>))</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-images.githubusercontent.com/26552500/74502215-62fb4100-4eb2-11ea-9505-f8b3c33db4b4.png" alt="image"></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> this</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="comment"># input incoding</span></span><br><span class="line">print(sys.stdin.encoding)</span><br><span class="line"></span><br><span class="line"><span class="comment"># output incoding</span></span><br><span class="line">print(sys.stdout.encoding)</span><br><span class="line"></span><br><span class="line"><span class="comment"># loop</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">        print(<span class="string">"%d * %d ="</span> %(i,j), i*j)</span><br><span class="line"></span><br><span class="line"><span class="comment"># function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greeting</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"hello"</span>)</span><br><span class="line"></span><br><span class="line">greeting()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cooking</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Instance</span></span><br><span class="line">cookie = Cooking()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print information about class</span></span><br><span class="line">print(id(cookie))</span><br><span class="line">print(dir(cookie))</span><br><span class="line"></span><br><span class="line">print(cookie.__class__)</span><br><span class="line">print(cookie.__hash__)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">The Zen of Python, by Tim Peters</span><br><span class="line"></span><br><span class="line">Beautiful is better than ugly.</span><br><span class="line">Explicit is better than implicit.</span><br><span class="line">Simple is better than complex.</span><br><span class="line">Complex is better than complicated.</span><br><span class="line">Flat is better than nested.</span><br><span class="line">Sparse is better than dense.</span><br><span class="line">Readability counts.</span><br><span class="line">Special cases aren&#39;t special enough to break the rules.</span><br><span class="line">Although practicality beats purity.</span><br><span class="line">Errors should never pass silently.</span><br><span class="line">Unless explicitly silenced.</span><br><span class="line">In the face of ambiguity, refuse the temptation to guess.</span><br><span class="line">There should be one-- and preferably only one --obvious way to do it.</span><br><span class="line">Although that way may not be obvious at first unless you&#39;re Dutch.</span><br><span class="line">Now is better than never.</span><br><span class="line">Although never is often better than *right* now.</span><br><span class="line">If the implementation is hard to explain, it&#39;s a bad idea.</span><br><span class="line">If the implementation is easy to explain, it may be a good idea.</span><br><span class="line">Namespaces are one honking great idea -- let&#39;s do more of those!</span><br><span class="line">UTF-8</span><br><span class="line">UTF-8</span><br><span class="line">1 * 1 &#x3D; 1</span><br><span class="line">1 * 2 &#x3D; 2</span><br><span class="line">1 * 3 &#x3D; 3</span><br><span class="line">1 * 4 &#x3D; 4</span><br><span class="line">1 * 5 &#x3D; 5</span><br><span class="line">1 * 6 &#x3D; 6</span><br><span class="line">1 * 7 &#x3D; 7</span><br><span class="line">1 * 8 &#x3D; 8</span><br><span class="line">1 * 9 &#x3D; 9</span><br><span class="line">2 * 1 &#x3D; 2</span><br><span class="line">2 * 2 &#x3D; 4</span><br><span class="line">2 * 3 &#x3D; 6</span><br><span class="line">2 * 4 &#x3D; 8</span><br><span class="line">2 * 5 &#x3D; 10</span><br><span class="line">2 * 6 &#x3D; 12</span><br><span class="line">2 * 7 &#x3D; 14</span><br><span class="line">2 * 8 &#x3D; 16</span><br><span class="line">2 * 9 &#x3D; 18</span><br><span class="line">3 * 1 &#x3D; 3</span><br><span class="line">3 * 2 &#x3D; 6</span><br><span class="line">3 * 3 &#x3D; 9</span><br><span class="line">3 * 4 &#x3D; 12</span><br><span class="line">3 * 5 &#x3D; 15</span><br><span class="line">3 * 6 &#x3D; 18</span><br><span class="line">3 * 7 &#x3D; 21</span><br><span class="line">3 * 8 &#x3D; 24</span><br><span class="line">3 * 9 &#x3D; 27</span><br><span class="line">4 * 1 &#x3D; 4</span><br><span class="line">4 * 2 &#x3D; 8</span><br><span class="line">4 * 3 &#x3D; 12</span><br><span class="line">4 * 4 &#x3D; 16</span><br><span class="line">4 * 5 &#x3D; 20</span><br><span class="line">4 * 6 &#x3D; 24</span><br><span class="line">4 * 7 &#x3D; 28</span><br><span class="line">4 * 8 &#x3D; 32</span><br><span class="line">4 * 9 &#x3D; 36</span><br><span class="line">5 * 1 &#x3D; 5</span><br><span class="line">5 * 2 &#x3D; 10</span><br><span class="line">5 * 3 &#x3D; 15</span><br><span class="line">5 * 4 &#x3D; 20</span><br><span class="line">5 * 5 &#x3D; 25</span><br><span class="line">5 * 6 &#x3D; 30</span><br><span class="line">5 * 7 &#x3D; 35</span><br><span class="line">5 * 8 &#x3D; 40</span><br><span class="line">5 * 9 &#x3D; 45</span><br><span class="line">6 * 1 &#x3D; 6</span><br><span class="line">6 * 2 &#x3D; 12</span><br><span class="line">6 * 3 &#x3D; 18</span><br><span class="line">6 * 4 &#x3D; 24</span><br><span class="line">6 * 5 &#x3D; 30</span><br><span class="line">6 * 6 &#x3D; 36</span><br><span class="line">6 * 7 &#x3D; 42</span><br><span class="line">6 * 8 &#x3D; 48</span><br><span class="line">6 * 9 &#x3D; 54</span><br><span class="line">7 * 1 &#x3D; 7</span><br><span class="line">7 * 2 &#x3D; 14</span><br><span class="line">7 * 3 &#x3D; 21</span><br><span class="line">7 * 4 &#x3D; 28</span><br><span class="line">7 * 5 &#x3D; 35</span><br><span class="line">7 * 6 &#x3D; 42</span><br><span class="line">7 * 7 &#x3D; 49</span><br><span class="line">7 * 8 &#x3D; 56</span><br><span class="line">7 * 9 &#x3D; 63</span><br><span class="line">8 * 1 &#x3D; 8</span><br><span class="line">8 * 2 &#x3D; 16</span><br><span class="line">8 * 3 &#x3D; 24</span><br><span class="line">8 * 4 &#x3D; 32</span><br><span class="line">8 * 5 &#x3D; 40</span><br><span class="line">8 * 6 &#x3D; 48</span><br><span class="line">8 * 7 &#x3D; 56</span><br><span class="line">8 * 8 &#x3D; 64</span><br><span class="line">8 * 9 &#x3D; 72</span><br><span class="line">9 * 1 &#x3D; 9</span><br><span class="line">9 * 2 &#x3D; 18</span><br><span class="line">9 * 3 &#x3D; 27</span><br><span class="line">9 * 4 &#x3D; 36</span><br><span class="line">9 * 5 &#x3D; 45</span><br><span class="line">9 * 6 &#x3D; 54</span><br><span class="line">9 * 7 &#x3D; 63</span><br><span class="line">9 * 8 &#x3D; 72</span><br><span class="line">9 * 9 &#x3D; 81</span><br><span class="line">hello</span><br><span class="line">4337144080</span><br><span class="line">[&#39;__class__&#39;, &#39;__delattr__&#39;, &#39;__dict__&#39;, &#39;__dir__&#39;, &#39;__doc__&#39;, &#39;__eq__&#39;, &#39;__format__&#39;, &#39;__ge__&#39;, &#39;__getattribute__&#39;, &#39;__gt__&#39;, &#39;__hash__&#39;, &#39;__init__&#39;, &#39;__init_subclass__&#39;, &#39;__le__&#39;, &#39;__lt__&#39;, &#39;__module__&#39;, &#39;__ne__&#39;, &#39;__new__&#39;, &#39;__reduce__&#39;, &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__setattr__&#39;, &#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__subclasshook__&#39;, &#39;__weakref__&#39;]</span><br><span class="line">&lt;class &#39;__main__.Cooking&#39;&gt;</span><br><span class="line">&lt;method-wrapper &#39;__hash__&#39; of Cooking object at 0x102839110&gt;</span><br></pre></td></tr></table></figure>]]></content>
-  </entry>
-  <entry>
-    <title>Hello world</title>
-    <url>/2020/01/22/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Regular Express</title>
-    <url>/2020/08/27/Regular-Express/</url>
-    <content><![CDATA[<h3 id="1-Regular-expressions"><a href="#1-Regular-expressions" class="headerlink" title="1. Regular expressions"></a>1. Regular expressions</h3><h4 id="Regular-expressions-are-one-of-the-ways-to-process-character-strings-and-are-a-means-to-make-the-process-of’searching’-or’substituting’-characters-in-a-specific-condition-very-simple"><a href="#Regular-expressions-are-one-of-the-ways-to-process-character-strings-and-are-a-means-to-make-the-process-of’searching’-or’substituting’-characters-in-a-specific-condition-very-simple" class="headerlink" title="Regular expressions are one of the ways to process character strings and are a means to make the process of’searching’ or’substituting’ characters in a specific condition very simple."></a>Regular expressions are one of the ways to process character strings and are a means to make the process of’searching’ or’substituting’ characters in a specific condition very simple.</h4><h3 id="2-Term"><a href="#2-Term" class="headerlink" title="2. Term"></a>2. Term</h3><ul>
-<li><p>^x : x 문자로 시작 </p>
-</li>
-<li><p>x$ : x 문자로 종료</p>
-</li>
-<li><p>.x : 임의의 한 문자의 자리수를 표현하며 문자열이 x 로 끝남</p>
-</li>
-<li><p>x+ : x 문자가 1개 이상</p>
-</li>
-<li><p>x? : x 문자가 0개 ~1개</p>
-</li>
-<li><p>x* : x 문자가 0개 ~ 여러개</p>
-</li>
-<li><p>x|y : or 를 표현하며 x 또는 y 문자<br><img src="https://user-images.githubusercontent.com/26552500/91465533-82a4f600-e853-11ea-88cb-add460b6ba36.png" alt="image"></p>
-</li>
-</ul>
-<ul>
-<li>(x) :그룹을 표현하며 x 를 그룹으로 처리<br><img src="https://user-images.githubusercontent.com/26552500/91465533-82a4f600-e853-11ea-88cb-add460b6ba36.png" alt="image"></li>
-</ul>
-<ul>
-<li><p>(x)(y):x 그룹을 찾고 그 뒤에 있는 y값을 찾음<br><img src="https://user-images.githubusercontent.com/26552500/91466181-5d64b780-e854-11ea-876a-48a7e5cacfa9.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91466400-ad437e80-e854-11ea-8fa8-f2841802c0c3.png" alt="image"></p>
-</li>
-<li><p>x.?? : 앞에 있는 ?의 최소값인 0개로 검색 (? lazy)<br><img src="https://user-images.githubusercontent.com/26552500/91467435-30b19f80-e856-11ea-829e-7bf085ef9c8d.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91467497-445d0600-e856-11ea-9b83-f4357fa81e20.png" alt="image"></p>
-</li>
-<li><p>x.+? : 앞에 있는 +의 최소값인 1개로 검색 (? lazy)<br><img src="https://user-images.githubusercontent.com/26552500/91467651-779f9500-e856-11ea-9efc-067cb69f1f10.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91467705-8c7c2880-e856-11ea-958f-0152cf944e4c.png" alt="image"></p>
-</li>
-<li><p>x+(?=y) : 끝이 y로 끝나는 x를 검색<br><img src="https://user-images.githubusercontent.com/26552500/91468977-635c9780-e858-11ea-9603-74372293e2d5.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91469039-7a02ee80-e858-11ea-8e62-693e414dcf77.png" alt="image"></p>
-</li>
-</ul>
-<h3 id="3-Example"><a href="#3-Example" class="headerlink" title="3. Example"></a>3. Example</h3><ul>
-<li><p>전화번호 : ([\d]{3}) \d{3}-\d{4}  </p>
-<pre><code>\([0-9]{3}\) [0-9]{3}-[0-9]{4}</code></pre><p><img src="https://user-images.githubusercontent.com/26552500/91470069-d87c9c80-e859-11ea-8076-6aadd25d4334.png" alt="image"></p>
-</li>
-<li><p>전화번호 (중간에 8또는 1 제외): [^8|^1][0-9]{2}-[0-9]{4}<br><img src="https://user-images.githubusercontent.com/26552500/91471001-0f9f7d80-e85b-11ea-80fd-0d6d374ab14f.png" alt="image"></p>
-</li>
-</ul>
-<h3 id="4-Test-site"><a href="#4-Test-site" class="headerlink" title="4. Test site"></a>4. Test site</h3><p><a href="https://regexr.com/" target="_blank" rel="noopener">https://regexr.com/</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Python Development Environment</title>
     <url>/2020/12/12/Python-Development-Environment/</url>
     <content><![CDATA[<ol>
@@ -777,53 +749,6 @@ pip3 list</code></pre>
         <tag>Python</tag>
         <tag>Environment</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Predict Used Car Project (2)</title>
-    <url>/2020/01/27/Predict-Used-Car-Project-2/</url>
-    <content><![CDATA[<p>Install CMake</p>
-<p>Enter the following command to download the source code:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ wget https:&#x2F;&#x2F;github.com&#x2F;Kitware&#x2F;CMake&#x2F;releases&#x2F;download&#x2F;v3.15.2&#x2F;cmake-3.15.2.tar.gz</span><br><span class="line">$ tar -zxvf cmake-3.15.2.tar.gz</span><br><span class="line">$ cd cmake-3.15.2</span><br><span class="line">.&#x2F;bootstrap</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-images.githubusercontent.com/26552500/73230770-f22ef780-4143-11ea-863e-4c2221ac32ee.png" alt="image"></p>
-<p>You can now make it using the following command:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ make</span><br></pre></td></tr></table></figure>
-
-<p>And then install it as follows:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo make install</span><br></pre></td></tr></table></figure>
-
-<p>After the software is successfully installed, you can verify its installation and also if the correct version is<br> installed, through the following command:<br> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cmake --version</span><br></pre></td></tr></table></figure></p>
-<hr>
-<p>Install XGBoost</p>
-<p>Enter the following command to download the source code:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone --recursive https:&#x2F;&#x2F;github.com&#x2F;dmlc&#x2F;xgboost</span><br><span class="line">cd xgboost</span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ..</span><br><span class="line">make -j4</span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<p>디스크용량 확인</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">df -P | grep -v ^Filesystem | awk &#39;&#123;sum +&#x3D; $2&#125; END &#123; print sum&#x2F;1024&#x2F;1024 &quot; GB&quot; &#125;&#39;</span><br></pre></td></tr></table></figure>
-
-<p>디스크 사용량</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">df -P | grep -v ^Filesystem | awk &#39;&#123;sum +&#x3D; $3&#125; END &#123; print sum&#x2F;1024&#x2F;1024 &quot; GB&quot; &#125;&#39;</span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-  </entry>
-  <entry>
-    <title>PostgreSQL_Basic (1)</title>
-    <url>/2020/02/01/PostgreSQL-Basic-1/</url>
-    <content><![CDATA[<p><img src="https://user-images.githubusercontent.com/26552500/74211324-03ecc080-4c55-11ea-94e0-8fcb6041f962.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74211398-61810d00-4c55-11ea-8047-b240f93bbc4f.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74211616-54185280-4c56-11ea-96d6-1b72f24f3869.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74211634-62ff0500-4c56-11ea-8187-025afe1b8697.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74213242-f7209a80-4c5d-11ea-93bb-64d2ccec8898.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74213271-0acc0100-4c5e-11ea-9df0-0b1cc889d93c.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74213283-17e8f000-4c5e-11ea-9774-8cb39c9605d4.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74213312-33ec9180-4c5e-11ea-8646-6608bcf8c20d.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74213323-423aad80-4c5e-11ea-98fe-84c887d900b7.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74213334-5383ba00-4c5e-11ea-846e-7831f0de3e86.png" alt="image"></p>
-]]></content>
   </entry>
   <entry>
     <title>Python - Pickle</title>
@@ -927,5 +852,122 @@ pip3 list</code></pre>
 <p>chmod +x backup : 파일에 실행 권한 주기<br><img src="https://user-images.githubusercontent.com/26552500/91771828-4651fc80-eba9-11ea-9997-0a8c9be3e9d7.png" alt="image"></p>
 <p>./backup :  backup 스크립트 실행<br><img src="https://user-images.githubusercontent.com/26552500/91772230-148d6580-ebaa-11ea-9832-20d71e32a69d.png" alt="image"></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Regular Express</title>
+    <url>/2020/08/27/Regular-Express/</url>
+    <content><![CDATA[<h3 id="1-Regular-expressions"><a href="#1-Regular-expressions" class="headerlink" title="1. Regular expressions"></a>1. Regular expressions</h3><h4 id="Regular-expressions-are-one-of-the-ways-to-process-character-strings-and-are-a-means-to-make-the-process-of’searching’-or’substituting’-characters-in-a-specific-condition-very-simple"><a href="#Regular-expressions-are-one-of-the-ways-to-process-character-strings-and-are-a-means-to-make-the-process-of’searching’-or’substituting’-characters-in-a-specific-condition-very-simple" class="headerlink" title="Regular expressions are one of the ways to process character strings and are a means to make the process of’searching’ or’substituting’ characters in a specific condition very simple."></a>Regular expressions are one of the ways to process character strings and are a means to make the process of’searching’ or’substituting’ characters in a specific condition very simple.</h4><h3 id="2-Term"><a href="#2-Term" class="headerlink" title="2. Term"></a>2. Term</h3><ul>
+<li><p>^x : x 문자로 시작 </p>
+</li>
+<li><p>x$ : x 문자로 종료</p>
+</li>
+<li><p>.x : 임의의 한 문자의 자리수를 표현하며 문자열이 x 로 끝남</p>
+</li>
+<li><p>x+ : x 문자가 1개 이상</p>
+</li>
+<li><p>x? : x 문자가 0개 ~1개</p>
+</li>
+<li><p>x* : x 문자가 0개 ~ 여러개</p>
+</li>
+<li><p>x|y : or 를 표현하며 x 또는 y 문자<br><img src="https://user-images.githubusercontent.com/26552500/91465533-82a4f600-e853-11ea-88cb-add460b6ba36.png" alt="image"></p>
+</li>
+</ul>
+<ul>
+<li>(x) :그룹을 표현하며 x 를 그룹으로 처리<br><img src="https://user-images.githubusercontent.com/26552500/91465533-82a4f600-e853-11ea-88cb-add460b6ba36.png" alt="image"></li>
+</ul>
+<ul>
+<li><p>(x)(y):x 그룹을 찾고 그 뒤에 있는 y값을 찾음<br><img src="https://user-images.githubusercontent.com/26552500/91466181-5d64b780-e854-11ea-876a-48a7e5cacfa9.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91466400-ad437e80-e854-11ea-8fa8-f2841802c0c3.png" alt="image"></p>
+</li>
+<li><p>x.?? : 앞에 있는 ?의 최소값인 0개로 검색 (? lazy)<br><img src="https://user-images.githubusercontent.com/26552500/91467435-30b19f80-e856-11ea-829e-7bf085ef9c8d.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91467497-445d0600-e856-11ea-9b83-f4357fa81e20.png" alt="image"></p>
+</li>
+<li><p>x.+? : 앞에 있는 +의 최소값인 1개로 검색 (? lazy)<br><img src="https://user-images.githubusercontent.com/26552500/91467651-779f9500-e856-11ea-9efc-067cb69f1f10.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91467705-8c7c2880-e856-11ea-958f-0152cf944e4c.png" alt="image"></p>
+</li>
+<li><p>x+(?=y) : 끝이 y로 끝나는 x를 검색<br><img src="https://user-images.githubusercontent.com/26552500/91468977-635c9780-e858-11ea-9603-74372293e2d5.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91469039-7a02ee80-e858-11ea-8e62-693e414dcf77.png" alt="image"></p>
+</li>
+</ul>
+<h3 id="3-Example"><a href="#3-Example" class="headerlink" title="3. Example"></a>3. Example</h3><ul>
+<li><p>전화번호 : ([\d]{3}) \d{3}-\d{4}  </p>
+<pre><code>\([0-9]{3}\) [0-9]{3}-[0-9]{4}</code></pre><p><img src="https://user-images.githubusercontent.com/26552500/91470069-d87c9c80-e859-11ea-8076-6aadd25d4334.png" alt="image"></p>
+</li>
+<li><p>전화번호 (중간에 8또는 1 제외): [^8|^1][0-9]{2}-[0-9]{4}<br><img src="https://user-images.githubusercontent.com/26552500/91471001-0f9f7d80-e85b-11ea-80fd-0d6d374ab14f.png" alt="image"></p>
+</li>
+</ul>
+<h3 id="4-Test-site"><a href="#4-Test-site" class="headerlink" title="4. Test site"></a>4. Test site</h3><p><a href="https://regexr.com/" target="_blank" rel="noopener">https://regexr.com/</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Hello world</title>
+    <url>/2020/01/22/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Python_Code_1</title>
+    <url>/2020/12/12/Python-Code-1/</url>
+    <content><![CDATA[<ol>
+<li><p>Brew</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ brew install pyenv</span><br><span class="line">$ brew list</span><br><span class="line">$ brew upgrade pyenv</span><br><span class="line">$ brew upgrade</span><br><span class="line">$ brew update</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Bash</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ source .bash_profile</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Pyenv</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pyenv install --list</span><br><span class="line">$ pyenv install 3.9.0</span><br><span class="line">$ pyenv versions</span><br><span class="line">$ pyenv shell 3.9.0</span><br><span class="line">$ pyenv virtualenv 3.9.0 python3</span><br><span class="line">$ pyenv uninstall python3</span><br><span class="line">$ pyenv global 3.9.0 </span><br><span class="line">$ pyenv activate python2</span><br><span class="line">$ pyenv deactivate</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Pip</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pip3 install ipython  </span><br><span class="line">$ pip3 list</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Python_House_Price</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">%matplotlib inline</span><br><span class="line">import seaborn as sns</span><br><span class="line">import warnings</span><br><span class="line">warnings.filterwarnings(&#39;ignore&#39;)</span><br><span class="line">from scipy import stats</span><br><span class="line"></span><br><span class="line">train.describe()</span><br><span class="line">display(train.head(n&#x3D;1))</span><br><span class="line">train.shape</span><br><span class="line"></span><br><span class="line">plt.figure(figsize&#x3D;(17,6))</span><br><span class="line">plt.subplot(131)</span><br><span class="line">sns.distplot(train[&quot;SalePrice&quot;])</span><br><span class="line">plt.subplot(132)</span><br><span class="line">stats.probplot(train[&quot;SalePrice&quot;],plot&#x3D;plt)</span><br><span class="line">plt.subplot(133)</span><br><span class="line">sns.boxplot(train[&quot;SalePrice&quot;])</span><br><span class="line">plt.tight_layout()</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">train[&quot;MSSubClass&quot;] &#x3D; train[&quot;MSSubClass&quot;].astype(&#39;str&#39;)</span><br><span class="line"></span><br><span class="line">numerical_features &#x3D; []</span><br><span class="line">categorical_features &#x3D; []</span><br><span class="line">for f in train.columns:</span><br><span class="line">    if train.dtypes[f] !&#x3D; &#39;object&#39;:</span><br><span class="line">        numerical_features.append(f)</span><br><span class="line">    else:</span><br><span class="line">        categorical_features.append(f)</span><br><span class="line"></span><br><span class="line">nomalized_SalePrice &#x3D; np.log1p(train[&quot;SalePrice&quot;])</span><br><span class="line">plt.figure(figsize&#x3D;(17,6))</span><br><span class="line">plt.subplot(131)</span><br><span class="line">sns.distplot(nomalized_SalePrice)</span><br><span class="line">plt.subplot(132)</span><br><span class="line">stats.probplot(nomalized_SalePrice, plot&#x3D;plt)</span><br><span class="line">plt.subplot(133)</span><br><span class="line">sns.boxplot(nomalized_SalePrice)</span><br><span class="line">plt.tight_layout()</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">fig, ax &#x3D; plt.subplots(6,6, figsize &#x3D; (20,20))</span><br><span class="line">for idx, n in enumerate(numerical_features):</span><br><span class="line">    if n &#x3D;&#x3D; &#39;SalePrice&#39;:</span><br><span class="line">        continue</span><br><span class="line">    sns.regplot(x&#x3D;n, y&#x3D;&#39;SalePrice&#39;, data&#x3D;train, ax &#x3D; ax[idx&#x2F;&#x2F;6,idx%6])</span><br><span class="line">    ax[idx&#x2F;&#x2F;6, idx % 6].set(yticklabels&#x3D;[])</span><br><span class="line">    ax[idx&#x2F;&#x2F;6, idx % 6].set(xticklabels&#x3D;[])</span><br><span class="line"></span><br><span class="line">fig, ax &#x3D; plt.subplots(8,6, figsize &#x3D; (20,20))</span><br><span class="line">for idx, n in enumerate(categorical_features):</span><br><span class="line">    sns.countplot(x&#x3D;n, data&#x3D;train, ax &#x3D; ax[idx&#x2F;&#x2F;6, idx % 6])</span><br><span class="line">    ax[idx&#x2F;&#x2F;6, idx % 6].set(yticklabels&#x3D;[])</span><br><span class="line"></span><br><span class="line">df_train &#x3D; train.copy()</span><br><span class="line">df_train[&quot;2ndFloor&quot;] &#x3D; &quot;2ndFloor&quot;</span><br><span class="line">df_train[&quot;2ndFloor&quot;].loc[df_train[&quot;2ndFlrSF&quot;]&#x3D;&#x3D;0] &#x3D; &quot;No 2ndFloor&quot;</span><br><span class="line">df_train[&quot;Basement&quot;] &#x3D; &quot;Basement&quot;</span><br><span class="line">df_train[&quot;Basement&quot;].loc[df_train[&quot;TotalBsmtSF&quot;]&#x3D;&#x3D;0] &#x3D; &quot;No Basement&quot;</span><br><span class="line"></span><br><span class="line"># Joint plot GrLivArea&#x2F;saleprice</span><br><span class="line">grid &#x3D; sns.jointplot(x &#x3D; &quot;GrLivArea&quot;, y &#x3D; &quot;SalePrice&quot;, data&#x3D;train, kind&#x3D;&quot;reg&quot;)</span><br><span class="line">grid.fig.set_size_inches(15,5)</span><br><span class="line"></span><br><span class="line"># Strip plot GrLivArea&#x2F;2ndFloor&#x2F;saleprice</span><br><span class="line">plt.figure(figsize &#x3D; (20,8))</span><br><span class="line">plt.subplot(211)</span><br><span class="line">g &#x3D; sns.stripplot(x &#x3D; &quot;GrLivArea&quot;, y &#x3D; &#39;SalePrice&#39;, hue &#x3D; &quot;2ndFloor&quot;, data &#x3D; df_train, alpha &#x3D; 0.7)</span><br><span class="line">g.set_xlabel(&#39;GrLivArea&#39;)</span><br><span class="line">g.set_ylabel(&#39;SalePrice&#39;)</span><br><span class="line">g.set_xticks([])</span><br><span class="line">g.set_title(&#39;GrLiv &amp; 2ndFloor - SalePrice&#39;)</span><br><span class="line"></span><br><span class="line"># Strip plot GrLivArea&#x2F;Basement&#x2F;saleprice</span><br><span class="line">plt.subplot(212)</span><br><span class="line">b &#x3D; sns.stripplot( x &#x3D; &quot;GrLivArea&quot;, y &#x3D; &#39;SalePrice&#39;, hue &#x3D; &quot;Basement&quot;, data &#x3D; df_train, alpha &#x3D; 0.7)</span><br><span class="line">b.set_xlabel(&#39;GrLivArea&#39;)</span><br><span class="line">b.set_ylabel(&#39;SalePrice&#39;)</span><br><span class="line">b.set_title(&#39;GrLivArea &amp; Basement - SalePrice&#39;)</span><br><span class="line">b.set_xticks([])</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"># Graph for GrLivArea &amp; OverallQual - SalePrice</span><br><span class="line">plt.figure(figsize&#x3D;(15,8))</span><br><span class="line">ax1 &#x3D; plt.subplot2grid((2,2), (0,0), colspan &#x3D; 2)</span><br><span class="line">for qual in range(1,11):</span><br><span class="line">    index &#x3D; train.OverallQual &#x3D;&#x3D; qual</span><br><span class="line">    ax1.scatter(train.GrLivArea.loc[index], train.SalePrice.loc[index], data&#x3D;train, label&#x3D; qual, alpha &#x3D;0.5)</span><br><span class="line">ax1.legend(loc &#x3D; 0)</span><br><span class="line">ax1.set_title(&quot;GrLivArea &amp; OverallQual - SalePrice&quot;)</span><br><span class="line">ax1.set_xlabel(&#39;GrLivArea &amp; OverallQual&#39;)</span><br><span class="line">ax1.set_ylabel(&#39;SalePrice&#39;)</span><br><span class="line"></span><br><span class="line"># Graph for OverallQual - SalePrice</span><br><span class="line">ax2 &#x3D; plt.subplot2grid((2,2), (1,0))</span><br><span class="line">sns.boxplot(x &#x3D; &quot;OverallQual&quot;, y &#x3D; &quot;SalePrice&quot;, data&#x3D;train, ax&#x3D; ax2)</span><br><span class="line">ax2.set_title(&#39;OverallQual - SalePrice&#39;)</span><br><span class="line"></span><br><span class="line"># Graph for OverallCond - SalePrice</span><br><span class="line">ax3 &#x3D; plt.subplot2grid((2,2), (1,1))</span><br><span class="line">sns.boxplot(x &#x3D; &quot;OverallCond&quot;, y &#x3D; &quot;SalePrice&quot;, data&#x3D;train, ax&#x3D; ax3)</span><br><span class="line">ax3.set_title(&#39;OverallCond - SalePrice&#39;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Graph for GarageArea &amp; GarageCars - SalePrice</span><br><span class="line">plt.figure(figsize&#x3D;(15,6))</span><br><span class="line"></span><br><span class="line">ax1 &#x3D; plt.subplot(1,2,1)</span><br><span class="line">for car in range(0,5):</span><br><span class="line">    index &#x3D; train.GarageCars &#x3D;&#x3D; car</span><br><span class="line">    ax1.scatter(x &#x3D; train.GarageArea.loc[index], y &#x3D; train.SalePrice.loc[index], data&#x3D;train, label&#x3D;car, alpha&#x3D;&#39;0.5&#39;)</span><br><span class="line"></span><br><span class="line"># Graph for GarageArea </span><br><span class="line">ax1.legend()</span><br><span class="line">ax1.set_title(&#39;GarageArea - SalePrice&#39;)</span><br><span class="line">ax1.set_xlabel(&#39;GarageArea&#39;)</span><br><span class="line">ax1.set_ylabel(&#39;SalePrice&#39;)</span><br><span class="line"></span><br><span class="line"># Graph for GarageCars</span><br><span class="line">ax2 &#x3D; plt.subplot(1,2,2)</span><br><span class="line">sns.stripplot(x &#x3D; &quot;GarageCars&quot;, y &#x3D; &quot;SalePrice&quot;, data&#x3D;train,ax&#x3D;ax2, jitter&#x3D;True)</span><br><span class="line">ax2.set_title(&#39;GarageCars - SalePrice&#39;)</span><br><span class="line">ax2.legend()</span><br><span class="line"></span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"># Neighborhood variables are grouped by neighbors and then aggregated by average</span><br><span class="line">Neighbor &#x3D; train.pivot_table(index&#x3D;&quot;Neighborhood&quot;,values&#x3D;&quot;SalePrice&quot;, aggfunc&#x3D;&#39;mean&#39;).sort_values(by &#x3D; [&quot;SalePrice&quot;], ascending &#x3D; False)</span><br><span class="line">Neighbor &#x3D; Neighbor.reset_index()</span><br><span class="line"></span><br><span class="line"># The bar graph displays the aggregated data in the order of the highest to lowest price</span><br><span class="line">g &#x3D; sns.factorplot(x &#x3D; &quot;Neighborhood&quot;, y&#x3D;&quot;SalePrice&quot;, data&#x3D;Neighbor, size &#x3D;8, kind&#x3D;&quot;bar&quot;)</span><br><span class="line">g.set_xticklabels(rotation&#x3D;45)</span><br><span class="line">g.fig.set_size_inches(15,5)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Code</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Code</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python_Basic (1)</title>
+    <url>/2020/02/12/Python-Basic-1/</url>
+    <content><![CDATA[<h4 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h4><h5 id="check-“Add-Python-path”"><a href="#check-“Add-Python-path”" class="headerlink" title="check “Add Python ~ path”"></a>check “Add Python ~ path”</h5><p><img src="https://user-images.githubusercontent.com/26552500/74404590-95dd0080-4df0-11ea-9fd6-30502b8babf2.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74404765-0552f000-4df1-11ea-945f-167a20cb3d58.png" alt="image"></p>
+<h4 id="Download-Visual"><a href="#Download-Visual" class="headerlink" title="Download Visual"></a>Download Visual</h4><p><a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">https://code.visualstudio.com/download</a></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74404703-d9d00580-4df0-11ea-991a-7f76be558aac.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74405769-8a3f0900-4df3-11ea-9c7e-8d5408289ed6.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74405865-c8d4c380-4df3-11ea-833b-ba5d57744b51.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74405929-fb7ebc00-4df3-11ea-9940-6c3ad6a362fd.png" alt="image"></p>
+<h4 id="Setup-Virtual-Env"><a href="#Setup-Virtual-Env" class="headerlink" title="Setup Virtual Env"></a>Setup Virtual Env</h4><p><img src="https://user-images.githubusercontent.com/26552500/74406320-f2421f00-4df4-11ea-9cab-20c697d829b3.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74406376-1c93dc80-4df5-11ea-9c5e-6e2e88cd8a13.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74406439-451bd680-4df5-11ea-89cf-8bbeb3af5609.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74406461-5664e300-4df5-11ea-9f8f-9788cf4cd401.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74406604-bc516a80-4df5-11ea-855c-c4cae42b52d0.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74406650-d8eda280-4df5-11ea-979d-d45091c671df.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74406858-574a4480-4df6-11ea-8af5-303efb3048a8.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74406898-6af5ab00-4df6-11ea-8062-1aa197c3d338.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74407012-9f696700-4df6-11ea-809f-e3502b4c4c8e.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F; See https:&#x2F;&#x2F;go.microsoft.com&#x2F;fwlink&#x2F;?LinkId&#x3D;733558</span><br><span class="line">    &#x2F;&#x2F; for the documentation about the tasks.json format</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;,</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;label&quot;: &quot;Project Label&quot;,</span><br><span class="line">            &quot;type&quot;: &quot;shell&quot;,</span><br><span class="line">            &quot;command&quot;: &quot;python&quot;,</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;$&#123;file&#125;&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;presentation&quot;: &#123;</span><br><span class="line">                &quot;reveal&quot;: &quot;always&quot;,</span><br><span class="line">                &quot;panel&quot;: &quot;new&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;options&quot;: &#123;</span><br><span class="line">                &quot;env&quot;: &#123;</span><br><span class="line">                    &quot;PYTHONIOENCODING&quot;: &quot;UTF-8&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;group&quot;: &#123;</span><br><span class="line">                &quot;kind&quot;: &quot;build&quot;,</span><br><span class="line">                &quot;isDefault&quot;: true</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/26552500/74407349-785f6500-4df7-11ea-8296-64ad5ae0939c.png" alt="image"></p>
+<hr>
+<h3 id="1-Function"><a href="#1-Function" class="headerlink" title="1. Function"></a>1. Function</h3><h4 id="1-Print"><a href="#1-Print" class="headerlink" title="1) Print"></a>1) Print</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Basic</span></span><br><span class="line">print(<span class="string">'hello'</span>)</span><br><span class="line">print(<span class="string">"hello"</span>)</span><br><span class="line">print(<span class="string">"""hello"""</span>)</span><br><span class="line">print(<span class="string">'''hello'''</span>)</span><br><span class="line"></span><br><span class="line">print()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Seperator</span></span><br><span class="line">print(<span class="string">'T'</span>, <span class="string">'E'</span>, <span class="string">'S'</span>, <span class="string">'T'</span>)</span><br><span class="line">print(<span class="string">'T'</span>, <span class="string">'E'</span>, <span class="string">'S'</span>, <span class="string">'T'</span>, sep=<span class="string">''</span>)</span><br><span class="line">print(<span class="string">'2020'</span>, <span class="string">'02'</span>, <span class="string">'13'</span>, sep=<span class="string">'-'</span>)</span><br><span class="line">print(<span class="string">'niceman'</span>, <span class="string">'gmail.com'</span>, sep=<span class="string">'@'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># End</span></span><br><span class="line">print(<span class="string">'welcome to'</span>, end=<span class="string">' '</span>)</span><br><span class="line">print(<span class="string">'the black parade'</span>, end=<span class="string">' '</span>)</span><br><span class="line">print(<span class="string">'piano note'</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'test'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Format </span></span><br><span class="line">print(<span class="string">'&#123;&#125; and &#123;&#125; '</span>.format(<span class="string">'you'</span>, <span class="string">'me'</span>))</span><br><span class="line">print(<span class="string">'&#123;0&#125; and &#123;1&#125;'</span>.format(<span class="string">'you'</span>, <span class="string">'me'</span>))</span><br><span class="line">print(<span class="string">'&#123;a&#125; and &#123;b&#125;'</span>.format(a=<span class="string">'you'</span>, b=<span class="string">'me'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># %s, %d, %f</span></span><br><span class="line">print(<span class="string">"%s's favorite number is %d"</span> % (<span class="string">'danny'</span>, <span class="number">7</span>))</span><br><span class="line">print(<span class="string">"test1: %5d, print: %4.2f"</span> % (<span class="number">777</span>, <span class="number">133.23</span>))</span><br><span class="line">print(<span class="string">"test1: &#123;0: 5d&#125;, print: &#123;1: 4.2f&#125;"</span>.format(<span class="number">777</span>, <span class="number">133.232</span>))</span><br><span class="line">print(<span class="string">"test1: &#123;a: 5d&#125;, print: &#123;b: 4.2f&#125;"</span>.format(a=<span class="number">776</span>, b=<span class="number">45432.342</span>))</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/26552500/74502215-62fb4100-4eb2-11ea-9505-f8b3c33db4b4.png" alt="image"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> this</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="comment"># input incoding</span></span><br><span class="line">print(sys.stdin.encoding)</span><br><span class="line"></span><br><span class="line"><span class="comment"># output incoding</span></span><br><span class="line">print(sys.stdout.encoding)</span><br><span class="line"></span><br><span class="line"><span class="comment"># loop</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">        print(<span class="string">"%d * %d ="</span> %(i,j), i*j)</span><br><span class="line"></span><br><span class="line"><span class="comment"># function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greeting</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"hello"</span>)</span><br><span class="line"></span><br><span class="line">greeting()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cooking</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Instance</span></span><br><span class="line">cookie = Cooking()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print information about class</span></span><br><span class="line">print(id(cookie))</span><br><span class="line">print(dir(cookie))</span><br><span class="line"></span><br><span class="line">print(cookie.__class__)</span><br><span class="line">print(cookie.__hash__)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">The Zen of Python, by Tim Peters</span><br><span class="line"></span><br><span class="line">Beautiful is better than ugly.</span><br><span class="line">Explicit is better than implicit.</span><br><span class="line">Simple is better than complex.</span><br><span class="line">Complex is better than complicated.</span><br><span class="line">Flat is better than nested.</span><br><span class="line">Sparse is better than dense.</span><br><span class="line">Readability counts.</span><br><span class="line">Special cases aren&#39;t special enough to break the rules.</span><br><span class="line">Although practicality beats purity.</span><br><span class="line">Errors should never pass silently.</span><br><span class="line">Unless explicitly silenced.</span><br><span class="line">In the face of ambiguity, refuse the temptation to guess.</span><br><span class="line">There should be one-- and preferably only one --obvious way to do it.</span><br><span class="line">Although that way may not be obvious at first unless you&#39;re Dutch.</span><br><span class="line">Now is better than never.</span><br><span class="line">Although never is often better than *right* now.</span><br><span class="line">If the implementation is hard to explain, it&#39;s a bad idea.</span><br><span class="line">If the implementation is easy to explain, it may be a good idea.</span><br><span class="line">Namespaces are one honking great idea -- let&#39;s do more of those!</span><br><span class="line">UTF-8</span><br><span class="line">UTF-8</span><br><span class="line">1 * 1 &#x3D; 1</span><br><span class="line">1 * 2 &#x3D; 2</span><br><span class="line">1 * 3 &#x3D; 3</span><br><span class="line">1 * 4 &#x3D; 4</span><br><span class="line">1 * 5 &#x3D; 5</span><br><span class="line">1 * 6 &#x3D; 6</span><br><span class="line">1 * 7 &#x3D; 7</span><br><span class="line">1 * 8 &#x3D; 8</span><br><span class="line">1 * 9 &#x3D; 9</span><br><span class="line">2 * 1 &#x3D; 2</span><br><span class="line">2 * 2 &#x3D; 4</span><br><span class="line">2 * 3 &#x3D; 6</span><br><span class="line">2 * 4 &#x3D; 8</span><br><span class="line">2 * 5 &#x3D; 10</span><br><span class="line">2 * 6 &#x3D; 12</span><br><span class="line">2 * 7 &#x3D; 14</span><br><span class="line">2 * 8 &#x3D; 16</span><br><span class="line">2 * 9 &#x3D; 18</span><br><span class="line">3 * 1 &#x3D; 3</span><br><span class="line">3 * 2 &#x3D; 6</span><br><span class="line">3 * 3 &#x3D; 9</span><br><span class="line">3 * 4 &#x3D; 12</span><br><span class="line">3 * 5 &#x3D; 15</span><br><span class="line">3 * 6 &#x3D; 18</span><br><span class="line">3 * 7 &#x3D; 21</span><br><span class="line">3 * 8 &#x3D; 24</span><br><span class="line">3 * 9 &#x3D; 27</span><br><span class="line">4 * 1 &#x3D; 4</span><br><span class="line">4 * 2 &#x3D; 8</span><br><span class="line">4 * 3 &#x3D; 12</span><br><span class="line">4 * 4 &#x3D; 16</span><br><span class="line">4 * 5 &#x3D; 20</span><br><span class="line">4 * 6 &#x3D; 24</span><br><span class="line">4 * 7 &#x3D; 28</span><br><span class="line">4 * 8 &#x3D; 32</span><br><span class="line">4 * 9 &#x3D; 36</span><br><span class="line">5 * 1 &#x3D; 5</span><br><span class="line">5 * 2 &#x3D; 10</span><br><span class="line">5 * 3 &#x3D; 15</span><br><span class="line">5 * 4 &#x3D; 20</span><br><span class="line">5 * 5 &#x3D; 25</span><br><span class="line">5 * 6 &#x3D; 30</span><br><span class="line">5 * 7 &#x3D; 35</span><br><span class="line">5 * 8 &#x3D; 40</span><br><span class="line">5 * 9 &#x3D; 45</span><br><span class="line">6 * 1 &#x3D; 6</span><br><span class="line">6 * 2 &#x3D; 12</span><br><span class="line">6 * 3 &#x3D; 18</span><br><span class="line">6 * 4 &#x3D; 24</span><br><span class="line">6 * 5 &#x3D; 30</span><br><span class="line">6 * 6 &#x3D; 36</span><br><span class="line">6 * 7 &#x3D; 42</span><br><span class="line">6 * 8 &#x3D; 48</span><br><span class="line">6 * 9 &#x3D; 54</span><br><span class="line">7 * 1 &#x3D; 7</span><br><span class="line">7 * 2 &#x3D; 14</span><br><span class="line">7 * 3 &#x3D; 21</span><br><span class="line">7 * 4 &#x3D; 28</span><br><span class="line">7 * 5 &#x3D; 35</span><br><span class="line">7 * 6 &#x3D; 42</span><br><span class="line">7 * 7 &#x3D; 49</span><br><span class="line">7 * 8 &#x3D; 56</span><br><span class="line">7 * 9 &#x3D; 63</span><br><span class="line">8 * 1 &#x3D; 8</span><br><span class="line">8 * 2 &#x3D; 16</span><br><span class="line">8 * 3 &#x3D; 24</span><br><span class="line">8 * 4 &#x3D; 32</span><br><span class="line">8 * 5 &#x3D; 40</span><br><span class="line">8 * 6 &#x3D; 48</span><br><span class="line">8 * 7 &#x3D; 56</span><br><span class="line">8 * 8 &#x3D; 64</span><br><span class="line">8 * 9 &#x3D; 72</span><br><span class="line">9 * 1 &#x3D; 9</span><br><span class="line">9 * 2 &#x3D; 18</span><br><span class="line">9 * 3 &#x3D; 27</span><br><span class="line">9 * 4 &#x3D; 36</span><br><span class="line">9 * 5 &#x3D; 45</span><br><span class="line">9 * 6 &#x3D; 54</span><br><span class="line">9 * 7 &#x3D; 63</span><br><span class="line">9 * 8 &#x3D; 72</span><br><span class="line">9 * 9 &#x3D; 81</span><br><span class="line">hello</span><br><span class="line">4337144080</span><br><span class="line">[&#39;__class__&#39;, &#39;__delattr__&#39;, &#39;__dict__&#39;, &#39;__dir__&#39;, &#39;__doc__&#39;, &#39;__eq__&#39;, &#39;__format__&#39;, &#39;__ge__&#39;, &#39;__getattribute__&#39;, &#39;__gt__&#39;, &#39;__hash__&#39;, &#39;__init__&#39;, &#39;__init_subclass__&#39;, &#39;__le__&#39;, &#39;__lt__&#39;, &#39;__module__&#39;, &#39;__ne__&#39;, &#39;__new__&#39;, &#39;__reduce__&#39;, &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__setattr__&#39;, &#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__subclasshook__&#39;, &#39;__weakref__&#39;]</span><br><span class="line">&lt;class &#39;__main__.Cooking&#39;&gt;</span><br><span class="line">&lt;method-wrapper &#39;__hash__&#39; of Cooking object at 0x102839110&gt;</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
 </search>
