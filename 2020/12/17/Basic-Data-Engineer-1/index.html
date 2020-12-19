@@ -433,6 +433,24 @@ height:100vh;
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">python3 example.py 1 &gt;&gt; example.txt</span><br><span class="line">python3 example.py 2 &gt;&gt; example.txt</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://user-images.githubusercontent.com/26552500/102572444-c39a7200-40b1-11eb-9e2f-74f6d33ba065.png" alt="image"></p>
+<ol start="3">
+<li>AWS CLI<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install awscli --upgrade --user</span><br></pre></td></tr></table></figure>
+<img src="https://user-images.githubusercontent.com/26552500/102681447-0d08c100-4187-11eb-8cd9-163fce61874e.png" alt="image"></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; setup configure</span><br><span class="line">aws configure</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/102681659-fc594a80-4188-11eb-9c61-4b04e852ed7a.png" alt="image"></p>
+<ol start="4">
+<li>SQLite<br>site : <a href="https://sqlitebrowser.org/dl/" target="_blank" rel="noopener">https://sqlitebrowser.org/dl/</a></li>
+</ol>
+<ul>
+<li>Download baseball data<br><a href="https://lawlesst.github.io/notebook/baseball-datasette-full.html" target="_blank" rel="noopener">https://lawlesst.github.io/notebook/baseball-datasette-full.html</a></li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/26552500/102681824-4abb1900-418a-11eb-9ed5-c8186b328078.png" alt="image"></p>
+<ul>
+<li>SQL CODE<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from salaries order by salary desc limit 10;</span><br><span class="line">select * from salaries where yearid &#x3D; &#39;2010&#39; order by salary desc limit 10;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
 
     </article>
     <!-- license  -->
@@ -571,6 +589,14 @@ top:100vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -1066,17 +1092,17 @@ top:100vh;
     
         <span class="sidebar-tag-name" data-tags="Atom"><span class="iconfont-archer">&#xe606;</span>Atom</span>
     
+        <span class="sidebar-tag-name" data-tags="Mysql"><span class="iconfont-archer">&#xe606;</span>Mysql</span>
+    
         <span class="sidebar-tag-name" data-tags="Spark"><span class="iconfont-archer">&#xe606;</span>Spark</span>
     
         <span class="sidebar-tag-name" data-tags="Pyspark"><span class="iconfont-archer">&#xe606;</span>Pyspark</span>
     
-        <span class="sidebar-tag-name" data-tags="Mysql"><span class="iconfont-archer">&#xe606;</span>Mysql</span>
-    
         <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
     
-        <span class="sidebar-tag-name" data-tags="Environment"><span class="iconfont-archer">&#xe606;</span>Environment</span>
-    
         <span class="sidebar-tag-name" data-tags="Code"><span class="iconfont-archer">&#xe606;</span>Code</span>
+    
+        <span class="sidebar-tag-name" data-tags="Environment"><span class="iconfont-archer">&#xe606;</span>Environment</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -1113,9 +1139,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="Today-I-Learn"><span class="iconfont-archer">&#xe60a;</span>Today-I-Learn</span>
     
-        <span class="sidebar-category-name" data-categories="Python"><span class="iconfont-archer">&#xe60a;</span>Python</span>
-    
         <span class="sidebar-category-name" data-categories="Code"><span class="iconfont-archer">&#xe60a;</span>Code</span>
+    
+        <span class="sidebar-category-name" data-categories="Python"><span class="iconfont-archer">&#xe60a;</span>Python</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
