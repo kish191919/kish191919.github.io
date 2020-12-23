@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Danny&#39;s Studio</title>
+    <title>Basic_Data_Engineer_2_SQLite_1  · Danny&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 <meta name="generator" content="Hexo 4.2.0"></head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Danny&#39;s Studio.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Basic_Data_Engineer_2_SQLite_1 </a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>Danny's Studio.</a>
 </header>
@@ -220,24 +231,72 @@
 
 
 
+
+height:100vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            Basic_Data_Engineer_2_SQLite_1 
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Data_Engineer">Data_Engineer</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "SQL">SQL</a>
+    
+</div>
+                
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/12/22</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,43 +397,97 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/01/22/hello-world/" >
-            
-                <span>Hello world</span>
-        </a>
-        <div class="abstract-content">
-            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post"
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>Top 20 salary in NYA</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102946147-632a7c80-4485-11eb-8266-86e31a263927.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM Salaries</span><br><span class="line">WHERE yearId &#x3D; &#39;2010&#39;</span><br><span class="line">AND teamID &#x3D; &#39;NYA&#39;</span><br><span class="line">ORDER BY Salary DESC </span><br><span class="line">LIMIT 20;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>rodrial01 yealy salary</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102946232-a553be00-4485-11eb-93d0-a2d567c0356b.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM salaries</span><br><span class="line">WHERE playerID &#x3D; &#39;rodrial01&#39;</span><br><span class="line">ORDER BY yearID ASC;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>rodrial01 total salary</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102946282-cd432180-4485-11eb-99a2-363f3a205346.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT SUM(salary)</span><br><span class="line">FROM salaries</span><br><span class="line">WHERE playerID &#x3D; &#39;rodrial01&#39;;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>10 Player Names [MySQL Select CONCAT(nameFirst, nameLast)]</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102946361-07acbe80-4486-11eb-8c18-7864f87e57be.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT nameFirst|| &#39; &#39; || nameLast AS Name</span><br><span class="line">FROM people</span><br><span class="line">LIMIT 10;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>Player name : rodrial01</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102946414-375bc680-4486-11eb-81b2-ac8c57936c7a.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT nameFirst|| &#39; &#39; || nameLast AS Name</span><br><span class="line">FROM people</span><br><span class="line">WHERE playerID &#x3D; &#39;rodrial01&#39;;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>Name and Count</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102946517-830e7000-4486-11eb-9a3d-4d59710d903a.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT nameFirst|| &#39; &#39; || nameLast AS Name, COUNT(*) AS Num</span><br><span class="line">FROM people</span><br><span class="line">GROUP BY Name</span><br><span class="line">ORDER BY Num DESC;</span><br></pre></td></tr></table></figure>
 
-More info: Writing
-Run server1$ hexo server
+<hr>
+<p>total_salary per team</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102946562-a3d6c580-4486-11eb-961f-8f98dfb20602.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT teamID, SUM(salary) AS total_salary</span><br><span class="line">FROM Salaries</span><br><span class="line">GROUP BY teamID</span><br><span class="line">ORDER BY total_salary DESC;</span><br></pre></td></tr></table></figure>
 
-Mo...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/22</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
+<hr>
+<p>total salary per year and team</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102946596-c10b9400-4486-11eb-8572-2bdffde2645a.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT yearID, teamID, SUM(salary) AS total_salary</span><br><span class="line">FROM Salaries</span><br><span class="line">GROUP BY yearID, teamID</span><br><span class="line">ORDER BY total_salary DESC;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>LEFT JOIN</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102946650-e4ceda00-4486-11eb-85a5-e31c6d082a79.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM people t1</span><br><span class="line">LEFT JOIN AllstarFull t2 </span><br><span class="line">ON t2.playerID &#x3D; t1.playerID;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>Left Join people with AllstarFull and then count the t1.playerID</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102946701-04660280-4487-11eb-8ed0-3574e0ffe15f.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT COUNT(DISTINCT t1.playerID)</span><br><span class="line">FROM people t1</span><br><span class="line">LEFT JOIN AllstarFull t2 </span><br><span class="line">ON t2.playerID &#x3D; t1.playerID;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>Join people with AllstarFull and then count the t1.playerID</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102946776-45f6ad80-4487-11eb-86f1-2457e220a913.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT COUNT(DISTINCT t1.playerID)</span><br><span class="line">FROM people t1</span><br><span class="line">JOIN AllstarFull t2 </span><br><span class="line">ON t2.playerID &#x3D; t1.playerID;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>한번도 allstar에 포함 안된 선수들</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102946838-6aeb2080-4487-11eb-9f7c-5a79b04bfb15.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SELECT COUNT(DISTINCT t1.playerID)</span><br><span class="line">FROM people t1</span><br><span class="line">LEFT JOIN AllstarFull t2 </span><br><span class="line">ON t2.playerID &#x3D; t1.playerID</span><br><span class="line">WHERE t2.playerID IS NULL;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>t1.plyerID and count </p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102946869-89e9b280-4487-11eb-86be-8739b022262f.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SELECT t1.playerID, COUNT(*) AS count</span><br><span class="line">FROM people t1</span><br><span class="line">LEFT JOIN AllstarFull t2 </span><br><span class="line">ON t2.playerID &#x3D; t1.playerID</span><br><span class="line">GROUP BY t1.playerID</span><br><span class="line">ORDER BY count DESC</span><br><span class="line">LIMIT 20;</span><br></pre></td></tr></table></figure>
     </article>
+    <!-- license  -->
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2020/12/17/Basic-Data-Engineer-1/" title= "Basic_Data_Engineer_1">
+                    <div class="prevTitle">Basic_Data_Engineer_1</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/2020/01/">&amp;#60; PREV</a><a class="page-number" href="/archives/2020/01/">1</a><span class="page-number current">2</span>
-    </nav>
     
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -452,6 +565,24 @@ Mo...
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:100vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1069,6 +1200,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
