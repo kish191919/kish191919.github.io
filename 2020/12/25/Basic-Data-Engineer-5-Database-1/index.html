@@ -414,8 +414,30 @@ height:100vh;
 </ul>
 <p><img src="https://user-images.githubusercontent.com/26552500/103142117-d6213680-46c3-11eb-95ac-02a4c8f93a56.png" alt="image"></p>
 <ul>
+<li>Connect through MySQL Workbench</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/26552500/103152697-234aea00-4750-11eb-9033-d3d37561eda4.png" alt="image"></p>
+<ul>
 <li>Command<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SHOW DATABASES;</span><br></pre></td></tr></table></figure>
 <img src="https://user-images.githubusercontent.com/26552500/103142124-f81ab900-46c3-11eb-904c-9b9a12f00602.png" alt="image"></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE production;</span><br><span class="line">USE production;</span><br><span class="line">SHOW TABLES;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103152794-df0c1980-4750-11eb-8512-311fa73b3017.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE people (first_name VARCHAR(20), last_name VARCHAR(20), age INT);</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103152880-c6e8ca00-4751-11eb-83d1-8dcf0a4fa540.png" alt="image"></p>
+<ul>
+<li>처음부터 production database를 사용하고 싶을때<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># -D production 추</span><br><span class="line">mysql -h spotify.cpdc9uiavxev.us-east-2.rds.amazonaws.com -P 3306 -D production -u danny -p</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/26552500/103152830-3e6a2980-4751-11eb-94a9-753ceb6102da.png" alt="image"></p>
+<ul>
+<li><p>ERD 엔터티 관계도</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">엔터티 관계 다이어그램은 데이터 모델링 설계 과정에서 사용하는 모델로 약속된 기호를 이용하여 데이터 베이스의 구조를</span><br><span class="line">쉽게 이해</span><br><span class="line"></span><br><span class="line">- Entities : 사람, 장소, 물건, 사건 등</span><br><span class="line">- Attribute: 속성</span><br><span class="line">- Relation : 관계</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103153013-da486500-4752-11eb-903b-1189e20ed030.png" alt="image"></p>
+</li>
+<li><p>Primary Key and Unique Key</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- Primary Key: 테이블에 하나밖에 없는 유니크한 구별 값 (Unique &amp; Not Null)</span><br><span class="line">- Foreign Key: 다른 테이블의 키값 (Null value OK &amp; Can contain more than 1)</span><br></pre></td></tr></table></figure></li>
 </ul>
 
     </article>
@@ -555,14 +577,6 @@ top:100vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -1130,29 +1144,29 @@ top:100vh;
     
         <span class="sidebar-tag-name" data-tags="JIRA"><span class="iconfont-archer">&#xe606;</span>JIRA</span>
     
-        <span class="sidebar-tag-name" data-tags="Data_Engineer"><span class="iconfont-archer">&#xe606;</span>Data_Engineer</span>
-    
-        <span class="sidebar-tag-name" data-tags="SQL"><span class="iconfont-archer">&#xe606;</span>SQL</span>
-    
         <span class="sidebar-tag-name" data-tags="API"><span class="iconfont-archer">&#xe606;</span>API</span>
+    
+        <span class="sidebar-tag-name" data-tags="Datebase"><span class="iconfont-archer">&#xe606;</span>Datebase</span>
+    
+        <span class="sidebar-tag-name" data-tags="Data_Engineer"><span class="iconfont-archer">&#xe606;</span>Data_Engineer</span>
     
         <span class="sidebar-tag-name" data-tags="Unix"><span class="iconfont-archer">&#xe606;</span>Unix</span>
     
         <span class="sidebar-tag-name" data-tags="Atom"><span class="iconfont-archer">&#xe606;</span>Atom</span>
     
-        <span class="sidebar-tag-name" data-tags="Datebase"><span class="iconfont-archer">&#xe606;</span>Datebase</span>
+        <span class="sidebar-tag-name" data-tags="SQL"><span class="iconfont-archer">&#xe606;</span>SQL</span>
+    
+        <span class="sidebar-tag-name" data-tags="Mysql"><span class="iconfont-archer">&#xe606;</span>Mysql</span>
     
         <span class="sidebar-tag-name" data-tags="Spark"><span class="iconfont-archer">&#xe606;</span>Spark</span>
     
         <span class="sidebar-tag-name" data-tags="Pyspark"><span class="iconfont-archer">&#xe606;</span>Pyspark</span>
     
-        <span class="sidebar-tag-name" data-tags="Mysql"><span class="iconfont-archer">&#xe606;</span>Mysql</span>
-    
         <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
     
-        <span class="sidebar-tag-name" data-tags="Code"><span class="iconfont-archer">&#xe606;</span>Code</span>
-    
         <span class="sidebar-tag-name" data-tags="Environment"><span class="iconfont-archer">&#xe606;</span>Environment</span>
+    
+        <span class="sidebar-tag-name" data-tags="Code"><span class="iconfont-archer">&#xe606;</span>Code</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -1189,9 +1203,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="Today-I-Learn"><span class="iconfont-archer">&#xe60a;</span>Today-I-Learn</span>
     
-        <span class="sidebar-category-name" data-categories="Code"><span class="iconfont-archer">&#xe60a;</span>Code</span>
-    
         <span class="sidebar-category-name" data-categories="Python"><span class="iconfont-archer">&#xe60a;</span>Python</span>
+    
+        <span class="sidebar-category-name" data-categories="Code"><span class="iconfont-archer">&#xe60a;</span>Code</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
