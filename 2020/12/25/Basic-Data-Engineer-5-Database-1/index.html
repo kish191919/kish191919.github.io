@@ -408,7 +408,7 @@ height:100vh;
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql --help</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Connect to MySQL at AWS</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># h : host</span><br><span class="line"># P : port</span><br><span class="line"># u : user</span><br><span class="line"># p : password</span><br><span class="line"></span><br><span class="line">mysql -h spotify.cpdc9uiavxev.us-east-2.rds.amazonaws.com -P 3306 -u danny -p</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># h : host</span><br><span class="line"># P : port</span><br><span class="line"># u : user</span><br><span class="line"># p : password</span><br><span class="line"># D : database name</span><br><span class="line"></span><br><span class="line">mysql -h spotify.cpdc9u....  -P 3306 -u danny -p -D producton</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
@@ -440,7 +440,74 @@ height:100vh;
 <p><img src="https://user-images.githubusercontent.com/26552500/103153013-da486500-4752-11eb-903b-1189e20ed030.png" alt="image"></p>
 </li>
 <li><p>Primary Key and Unique Key</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- Primary Key: 테이블에 하나밖에 없는 유니크한 구별 값 (Unique &amp; Not Null)</span><br><span class="line">- Foreign Key: 다른 테이블의 키값 (Null value OK &amp; Can contain more than 1)</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- Primary Key: 테이블에 하나밖에 없는 유니크한 구별 값 (Unique &amp; Not Null)</span><br><span class="line">- Foreign Key: 다른 테이블의 키값 (Null value OK &amp; Can contain more than 1)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Create Database</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE artists (id varchar(255), name VARCHAR(255), followers INTEGER, popularity INTEGER, url VARCHAR(255), image_url VARCHAR(255), PRIMARY KEY(id)) ENGINE&#x3D;InnoDB DEFAULT CHARSET&#x3D;&#39;utf8&#39;;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103224780-f9c7c500-48ed-11eb-8442-67dc758beef4.png" alt="image"></p>
+</li>
+<li><p>Check the table</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show create table artists;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103227298-9e003a80-48f3-11eb-8c42-f1cbebb998ac.png" alt="image"></p>
+</li>
+<li><p>Insert Data</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO artist_genres (artist_id, genre) VALUES (&#39;1234&#39;, &#39;pop&#39;);</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103227468-11a24780-48f4-11eb-8c29-4bec10edbfa4.png" alt="image"></p>
+</li>
+<li><p>Delete data</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM artist_genres;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103227718-a1e08c80-48f4-11eb-9256-75eeccd4c63c.png" alt="image"></p>
+</li>
+<li><p>Delete table</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE artist_genres;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103227772-ca688680-48f4-11eb-9cea-cc0073bbc1e9.png" alt="image"></p>
+</li>
+<li><p>Unique Key</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE artist_genres (artist_id VARCHAR(255), genre VARCHAR(255), UNIQUE KEY(artist_id, genre)) engine&#x3D;InnoDB Default charset&#x3D;&#39;utf8&#39;;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103227951-45ca3800-48f5-11eb-9073-47e0a2e98a85.png" alt="image"></p>
+</li>
+<li><p>Update</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE artist_genres SET genre&#x3D;&#39;kpop&#39; WHERE artist_id&#x3D;&#39;1234&#39;;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103228205-d0129c00-48f5-11eb-88ac-4205d6dea75e.png" alt="image"></p>
+</li>
+<li><p>Add Column</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE artist_genres ADD COLUMN country VARCHAR(255);</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103228330-2c75bb80-48f6-11eb-8fa3-5b735507d673.png" alt="image"></p>
+</li>
+<li><p>Add updated time</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 기본값이 CURRENT_TIMESTAMP 이며, 업데이트시 CURRENT_TIMESTAMP 적</span><br><span class="line">ALTER TABLE artist_genres ADD COLUMN updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103228552-b0c83e80-48f6-11eb-8cfa-9bb60e4ff294.png" alt="image"></p>
+</li>
+<li><p>추가 동일한 키값의 데이터가 입력시 무시</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT IGNORE INTO artist_genres (artist_id, genre,country) VALUES (&#39;1234&#39;,&#39;rockpop&#39;,&#39;FR&#39;);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/26552500/103234905-6c449f00-4906-11eb-88e7-46ff32047a56.png" alt="image"></p>
+<ul>
+<li>Replace<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 동일한 키값이 없을 시, 데이터 Add</span><br><span class="line"> REPLACE INTO artist_genres (artist_id, genre, country) VALUES (&#39;222&#39;,&#39;pop&#39;,&#39;KO&#39;);</span><br></pre></td></tr></table></figure>
+<img src="https://user-images.githubusercontent.com/26552500/103235492-f3464700-4907-11eb-9e68-2ea1da94660b.png" alt="image"></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># 동일한 키값일 경우, 데이터 Replace</span><br></pre></td></tr></table></figure>
+<p>– 추가 동일한 키값의 데이터 입력시 업데이트 됨</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">REPLACE INTO artist_genres (artist_id, genre, country) VALUES (&#39;222&#39;,&#39;pop&#39;,&#39;JP&#39;);</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103235672-47512b80-4908-11eb-805e-349a2336c668.png" alt="image"></p>
+<ul>
+<li>동일한 키값의 데이터 입력시, 업데이트 됨 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO artist_genres (artist_id, genre, country) VALUES (&#39;1234&#39;, &#39;hip-hop&#39;, &#39;FR&#39;) ON DUPLICATE KEY UPDATE artist_id&#x3D;&#39;1234&#39;, genre&#x3D;&#39;hip-hop&#39;, country&#x3D;&#39;KR&#39;;</span><br></pre></td></tr></table></figure>
+<img src="https://user-images.githubusercontent.com/26552500/103235869-c9415480-4908-11eb-8ce7-521b4f7aacd4.png" alt="image"></li>
+</ul>
+<ul>
+<li>다른 키값의 데이터 입력시, 추가</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/26552500/103235958-01489780-4909-11eb-85df-e3914577c447.png" alt="image"></p>
+<ul>
+<li><p>Different Between Replace and INSERT INTO …ON DUPLICATE KEY UPDATE…</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Replace 는 키값이 맨 마지막에 다시 저장됨 (Actually it doesnot save at the end of line..)</span><br><span class="line">INSERT INTO ...ON DUPLICATE KEY UPDATE... 는 키값의 위치 변동없이 다시 저정</span><br><span class="line">I think these things all same.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Remove the column</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE artist_genres DROP COLUMN country;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103237526-7b7b1b00-490d-11eb-8d5e-78d857d6b715.png" alt="image"></p>
+</li>
 </ul>
 
     </article>
@@ -1173,9 +1240,9 @@ top:100vh;
     
         <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
     
-        <span class="sidebar-tag-name" data-tags="Code"><span class="iconfont-archer">&#xe606;</span>Code</span>
-    
         <span class="sidebar-tag-name" data-tags="Environment"><span class="iconfont-archer">&#xe606;</span>Environment</span>
+    
+        <span class="sidebar-tag-name" data-tags="Code"><span class="iconfont-archer">&#xe606;</span>Code</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -1212,9 +1279,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="Today-I-Learn"><span class="iconfont-archer">&#xe60a;</span>Today-I-Learn</span>
     
-        <span class="sidebar-category-name" data-categories="Code"><span class="iconfont-archer">&#xe60a;</span>Code</span>
-    
         <span class="sidebar-category-name" data-categories="Python"><span class="iconfont-archer">&#xe60a;</span>Python</span>
+    
+        <span class="sidebar-category-name" data-categories="Code"><span class="iconfont-archer">&#xe60a;</span>Code</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
