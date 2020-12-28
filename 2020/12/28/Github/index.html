@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>MYSQL_Installation(1) · Danny&#39;s Studio</title>
+    <title>Github · Danny&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >Danny&#39;s Studio.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">MYSQL_Installation(1)</a>
+                <a href="#" class="post-name">Github</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:100vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            MYSQL_Installation(1)
+            Github
             <!-- 404 -->
             
         </h1>
@@ -266,14 +266,14 @@ height:100vh;
                 
                     <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Mysql">Mysql</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Git">Git</a>
     
 </div>
                 
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2020/01/27</span>
+                    <span class="post-intro-time">2020/12/28</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -397,45 +397,10 @@ height:100vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>1 Install homebrew</p>
-<p><a href="https://brew.sh/index.html" target="_blank" rel="noopener">https://brew.sh/index.html</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;bin&#x2F;ruby -e &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;master&#x2F;install)&quot;</span><br></pre></td></tr></table></figure>
-
-<p>버전확인</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew -v</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73221682-13cdb600-4127-11ea-9394-6edd5f80ac7b.png" alt="image"></p>
-<p>패키지 설치</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install &#123;프로그램명&#125;</span><br></pre></td></tr></table></figure>
-
-<p>패키지목록 업데이트</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ brew update   # formula를 업데이트</span><br><span class="line">$ brew upgrade  # 업데이트 패키지를 다시 빌드</span><br></pre></td></tr></table></figure>
-
-<p>패키지 저장소 추가</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew tap homebrew&#x2F;패키지명</span><br></pre></td></tr></table></figure>
-
-<p>설치된 목록 보기</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew list</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73221653-04e70380-4127-11ea-87ed-6d75aea1a1e0.png" alt="image"></p>
-<p>패키지 제거</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew remove &#123;프로그램명&#125;</span><br></pre></td></tr></table></figure>
-
-<p>2 Install mysql</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install mysql</span><br></pre></td></tr></table></figure>
-
-<p>brew에서 실행하고 있는 서비스 리스트 확인</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew services list</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73221760-4677ae80-4127-11ea-9780-ea3350465dc4.png" alt="image"></p>
-<p>brew를 통해서 mysql 서비스를 정지</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew services stop mysql</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73221616-f4368d80-4126-11ea-8613-cf183e4f88b0.png" alt="image"></p>
-<p>brew를 통해서 mysql 서비스를 재시작<br><img src="https://user-images.githubusercontent.com/26552500/73221818-6e671200-4127-11ea-9d39-96a8ef5abe81.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/73221952-bdad4280-4127-11ea-88c2-c0d8a12db570.png" alt="image"></p>
-<p>3 Setting Password</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mysqladmin -u root password [yourpassword]</span><br><span class="line"># ex) mysqladmin -u root password qwer1234</span><br></pre></td></tr></table></figure>
-
-<p>4 Connection</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mysql -u root -p  # User가 root 라는 의미</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73222447-e124bd00-4128-11ea-893e-9058bbd87c3c.png" alt="image"></p>
+        <ul>
+<li>암호나 중요파일을 깃허브에 업로드 금지하기<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Create .gitignore file</span><br><span class="line"># add the file name</span><br></pre></td></tr></table></figure>
+<img src="https://user-images.githubusercontent.com/26552500/103239655-dc0d5680-4913-11eb-861f-76f363aa60e7.png" alt="image"></li>
+</ul>
 
     </article>
     <!-- license  -->
@@ -444,17 +409,12 @@ height:100vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2020/01/27/MYSQL-Installation-2/" title= "MYSQL_Installation(2)">
-                    <div class="nextTitle">MYSQL_Installation(2)</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2020/01/26/AWS-Docker-Cloud-Server-4/" title= "AWS/Docker Cloud Server (4)">
-                    <div class="prevTitle">AWS/Docker Cloud Server (4)</div>
+                <a href= "/2020/12/25/Basic-Data-Engineer-5-Database-1/" title= "Basic_Data_Engineer_5_Database_1">
+                    <div class="prevTitle">Basic_Data_Engineer_5_Database_1</div>
                 </a>
             
         </li>
