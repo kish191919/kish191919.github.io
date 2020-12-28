@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>AWS/Docker Cloud Server (4)</title>
+    <url>/2020/01/26/AWS-Docker-Cloud-Server-4/</url>
+    <content><![CDATA[<p>1 Install Confluence</p>
+]]></content>
+      <categories>
+        <category>Today_I_Learn</category>
+      </categories>
+      <tags>
+        <tag>AWS</tag>
+        <tag>Docker</tag>
+        <tag>JIRA</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>AWS/Docker Cloud Server (1)</title>
     <url>/2020/01/23/AWS-Docker-Cloud-Server-1/</url>
     <content><![CDATA[<p>1 AWS:<br>Amazon Web Service 의 약자입니다.<br>전통적으로 많은 기업들은 IDC라고 해서 직접 서버를 구매하고 운영 하는 방식으로 서버를 관리해왔습니다.<br>하지만 점차 클라우드 서버의 데이터 센터가 커지고 속도가 향상되면서, 기업이 큰 자본을 들여서 서버를 관리해야하고 유지해야할<br>이유들이 점점 사라져갔습니다. 그와 반면 아마존에서는 계속 데이터 센터를 확충하고 1시간 단위의 과금 구조를 채택함으로써<br>또한 서버를 빠르게 올리거나 내릴 수 있고 다양한 세팅들을 빠르게 할 수 있다는 점에서 매력이 커지고 있습니다.</p>
@@ -40,6 +54,68 @@
         <tag>AWS</tag>
         <tag>Docker</tag>
         <tag>JIRA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Basic_Data_Engineer_1</title>
+    <url>/2020/12/17/Basic-Data-Engineer-1/</url>
+    <content><![CDATA[<ol>
+<li><p>Atom</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; Execute atom</span><br><span class="line">atom .</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Unix commend</p>
+</li>
+</ol>
+<ul>
+<li>cat</li>
+<li>head</li>
+<li>tail</li>
+<li>command &gt; file<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; writing output at output.txt</span><br><span class="line">python3 example.py &gt; output.txt</span><br></pre></td></tr></table></figure></li>
+<li>command &gt;&gt; file<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; appending output at output.txt</span><br><span class="line">python3 example.py &gt;&gt; output.txt</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import sys</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    print(sys.argv[1])</span><br><span class="line"></span><br><span class="line">if __name__&#x3D;&#x3D;&#39;__main__&#39;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="https://user-images.githubusercontent.com/26552500/102570719-8df38a00-40ad-11eb-9e35-1247550429d7.png" alt="image"></p>
+<ul>
+<li>Writing Shell-script (run.sh)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">python3 example.py 1</span><br><span class="line">python3 example.py 2</span><br></pre></td></tr></table></figure></li>
+<li>Solve the permission issue<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chmod +x run.sh</span><br></pre></td></tr></table></figure>
+<img src="https://user-images.githubusercontent.com/26552500/102572326-61da0800-40b1-11eb-9272-fffe48b979a0.png" alt="image"></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">python3 example.py 1 &gt; example.txt</span><br><span class="line">python3 example.py 2 &gt; example.txt</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/26552500/102572401-a1085900-40b1-11eb-8c6f-eeb956ea999a.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">python3 example.py 1 &gt;&gt; example.txt</span><br><span class="line">python3 example.py 2 &gt;&gt; example.txt</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/26552500/102572444-c39a7200-40b1-11eb-9e2f-74f6d33ba065.png" alt="image"></p>
+<ol start="3">
+<li>AWS CLI<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip3 install awscli --upgrade --user</span><br></pre></td></tr></table></figure>
+<img src="https://user-images.githubusercontent.com/26552500/102681447-0d08c100-4187-11eb-8cd9-163fce61874e.png" alt="image"></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; setup configure</span><br><span class="line">aws configure</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/102681659-fc594a80-4188-11eb-9c61-4b04e852ed7a.png" alt="image"></p>
+<ol start="4">
+<li>SQLite<br>site : <a href="https://sqlitebrowser.org/dl/" target="_blank" rel="noopener">https://sqlitebrowser.org/dl/</a></li>
+</ol>
+<ul>
+<li>Download baseball data<br><a href="https://lawlesst.github.io/notebook/baseball-datasette-full.html" target="_blank" rel="noopener">https://lawlesst.github.io/notebook/baseball-datasette-full.html</a></li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/26552500/102681824-4abb1900-418a-11eb-9ed5-c8186b328078.png" alt="image"></p>
+<ul>
+<li>SQL CODE<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select * from salaries order by salary desc limit 10;</span><br><span class="line">select * from salaries where yearid &#x3D; &#39;2010&#39; order by salary desc limit 10;</span><br><span class="line">select * from salaries where yearid &#x3D; &#39;2010&#39; and lgID &#x3D; &#39;AL&#39; order by salary desc limit 2;</span><br><span class="line"></span><br><span class="line">select * from salaries where playerid&#x3D;&#39;rodrial01&#39; order by yearid asc;</span><br><span class="line"></span><br><span class="line">select sum(salary), playerid</span><br><span class="line">from salaries</span><br><span class="line">where playerid &#x3D; &#39;rodrial01&#39;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">select nameFirst ||&#39; &#39;|| nameLast as name from people limit 10;</span><br><span class="line">-- Mysql : select concat(nameFirst, nameLast) from people;</span><br><span class="line"></span><br><span class="line">select nameFirst ||&#39; &#39;|| nameLast as name from people where playerID &#x3D; &#39;rodrial01&#39;;</span><br><span class="line"></span><br><span class="line">select count(distinct(nameFirst ||&#39; &#39;||namelast)) from people;</span><br><span class="line"></span><br><span class="line">select nameFirst|| &#39; &#39; || namelast as name, count(*) from people group by name  having count(*) &gt;1;</span><br><span class="line"></span><br><span class="line">select </span><br><span class="line">    yearid,</span><br><span class="line">    teamID,</span><br><span class="line">    sum(salary) as total_salary</span><br><span class="line">from</span><br><span class="line">    salaries</span><br><span class="line">group by yearid,teamID</span><br><span class="line">order by total_salary desc;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Data_Engineer</tag>
+        <tag>Unix</tag>
+        <tag>Atom</tag>
       </tags>
   </entry>
   <entry>
@@ -144,42 +220,6 @@ Create issue
       </tags>
   </entry>
   <entry>
-    <title>AWS/Docker Cloud Server (4)</title>
-    <url>/2020/01/26/AWS-Docker-Cloud-Server-4/</url>
-    <content><![CDATA[<p>1 Install Confluence</p>
-]]></content>
-      <categories>
-        <category>Today_I_Learn</category>
-      </categories>
-      <tags>
-        <tag>AWS</tag>
-        <tag>Docker</tag>
-        <tag>JIRA</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Basic_Data_Engineer_4_API_1</title>
-    <url>/2020/12/22/Basic-Data-Engineer-4-API-1/</url>
-    <content><![CDATA[<ul>
-<li><p>Authentication : Identity (정체)가 맞다는 증명</p>
-</li>
-<li><p>Authorization: API를 통한 어떠한 액션을 허용</p>
-</li>
-<li><p>API가 Authentication을 하여도 어떠한 액션에 대해서는 Authorization 하지 못하는 경우가 있음</p>
-</li>
-<li><p>API key란 보통 Request URL 혹은 Request 헤더에 포함되는 긴 스트링</p>
-</li>
-<li><p>Python Requests Library<br><a href="https://requests.readthedocs.io/en/master/api/" target="_blank" rel="noopener">https://requests.readthedocs.io/en/master/api/</a></p>
-</li>
-<li><p>Status Code<br>1) 200 : OK  (200번대 대부분 성)<br>2) 401 : Unauthorized (credentional token 등이 잘못될 경)<br>3) 429 : Too Many Requests / 몇초 뒤에 다시 사용할 수 있는지 또한 정보 확인<br>4) 500 : Internal Server Error<br>5) 502 : Bad Gateway (Received a invalid response from the upstream server)<br>6) 503 : Service Unavailable</p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>API</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Basic_Data_Engineer_5_Database_1</title>
     <url>/2020/12/25/Basic-Data-Engineer-5-Database-1/</url>
     <content><![CDATA[<ul>
@@ -210,6 +250,9 @@ Create issue
 <p><img src="https://user-images.githubusercontent.com/26552500/103152794-df0c1980-4750-11eb-8512-311fa73b3017.png" alt="image"></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE people (first_name VARCHAR(20), last_name VARCHAR(20), age INT);</span><br></pre></td></tr></table></figure>
 <p><img src="https://user-images.githubusercontent.com/26552500/103152880-c6e8ca00-4751-11eb-83d1-8dcf0a4fa540.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">DESC user;</span><br><span class="line">DESCRIBE user;</span><br><span class="line">EXPLAIN user;</span><br><span class="line">RENAME TABLE user to customer;</span><br><span class="line">SYSTEM CLEAR</span><br><span class="line">Exit;</span><br></pre></td></tr></table></figure>
+
+
 <ul>
 <li>처음부터 production database를 사용하고 싶을때<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># -D production 추</span><br><span class="line">mysql -h spotify.cpdc9uiavxev.us-east-2.rds.amazonaws.com -P 3306 -D production -u danny -p</span><br></pre></td></tr></table></figure>
 
@@ -227,68 +270,6 @@ Create issue
 ]]></content>
       <tags>
         <tag>Datebase</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Basic_Data_Engineer_1</title>
-    <url>/2020/12/17/Basic-Data-Engineer-1/</url>
-    <content><![CDATA[<ol>
-<li><p>Atom</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; Execute atom</span><br><span class="line">atom .</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Unix commend</p>
-</li>
-</ol>
-<ul>
-<li>cat</li>
-<li>head</li>
-<li>tail</li>
-<li>command &gt; file<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; writing output at output.txt</span><br><span class="line">python3 example.py &gt; output.txt</span><br></pre></td></tr></table></figure></li>
-<li>command &gt;&gt; file<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; appending output at output.txt</span><br><span class="line">python3 example.py &gt;&gt; output.txt</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import sys</span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    print(sys.argv[1])</span><br><span class="line"></span><br><span class="line">if __name__&#x3D;&#x3D;&#39;__main__&#39;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
-
-
-<p><img src="https://user-images.githubusercontent.com/26552500/102570719-8df38a00-40ad-11eb-9e35-1247550429d7.png" alt="image"></p>
-<ul>
-<li>Writing Shell-script (run.sh)<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">python3 example.py 1</span><br><span class="line">python3 example.py 2</span><br></pre></td></tr></table></figure></li>
-<li>Solve the permission issue<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chmod +x run.sh</span><br></pre></td></tr></table></figure>
-<img src="https://user-images.githubusercontent.com/26552500/102572326-61da0800-40b1-11eb-9272-fffe48b979a0.png" alt="image"></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">python3 example.py 1 &gt; example.txt</span><br><span class="line">python3 example.py 2 &gt; example.txt</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-images.githubusercontent.com/26552500/102572401-a1085900-40b1-11eb-8c6f-eeb956ea999a.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">python3 example.py 1 &gt;&gt; example.txt</span><br><span class="line">python3 example.py 2 &gt;&gt; example.txt</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-images.githubusercontent.com/26552500/102572444-c39a7200-40b1-11eb-9e2f-74f6d33ba065.png" alt="image"></p>
-<ol start="3">
-<li>AWS CLI<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip3 install awscli --upgrade --user</span><br></pre></td></tr></table></figure>
-<img src="https://user-images.githubusercontent.com/26552500/102681447-0d08c100-4187-11eb-8cd9-163fce61874e.png" alt="image"></li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; setup configure</span><br><span class="line">aws configure</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/102681659-fc594a80-4188-11eb-9c61-4b04e852ed7a.png" alt="image"></p>
-<ol start="4">
-<li>SQLite<br>site : <a href="https://sqlitebrowser.org/dl/" target="_blank" rel="noopener">https://sqlitebrowser.org/dl/</a></li>
-</ol>
-<ul>
-<li>Download baseball data<br><a href="https://lawlesst.github.io/notebook/baseball-datasette-full.html" target="_blank" rel="noopener">https://lawlesst.github.io/notebook/baseball-datasette-full.html</a></li>
-</ul>
-<p><img src="https://user-images.githubusercontent.com/26552500/102681824-4abb1900-418a-11eb-9ed5-c8186b328078.png" alt="image"></p>
-<ul>
-<li>SQL CODE<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select * from salaries order by salary desc limit 10;</span><br><span class="line">select * from salaries where yearid &#x3D; &#39;2010&#39; order by salary desc limit 10;</span><br><span class="line">select * from salaries where yearid &#x3D; &#39;2010&#39; and lgID &#x3D; &#39;AL&#39; order by salary desc limit 2;</span><br><span class="line"></span><br><span class="line">select * from salaries where playerid&#x3D;&#39;rodrial01&#39; order by yearid asc;</span><br><span class="line"></span><br><span class="line">select sum(salary), playerid</span><br><span class="line">from salaries</span><br><span class="line">where playerid &#x3D; &#39;rodrial01&#39;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">select nameFirst ||&#39; &#39;|| nameLast as name from people limit 10;</span><br><span class="line">-- Mysql : select concat(nameFirst, nameLast) from people;</span><br><span class="line"></span><br><span class="line">select nameFirst ||&#39; &#39;|| nameLast as name from people where playerID &#x3D; &#39;rodrial01&#39;;</span><br><span class="line"></span><br><span class="line">select count(distinct(nameFirst ||&#39; &#39;||namelast)) from people;</span><br><span class="line"></span><br><span class="line">select nameFirst|| &#39; &#39; || namelast as name, count(*) from people group by name  having count(*) &gt;1;</span><br><span class="line"></span><br><span class="line">select </span><br><span class="line">    yearid,</span><br><span class="line">    teamID,</span><br><span class="line">    sum(salary) as total_salary</span><br><span class="line">from</span><br><span class="line">    salaries</span><br><span class="line">group by yearid,teamID</span><br><span class="line">order by total_salary desc;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Data_Engineer</tag>
-        <tag>Unix</tag>
-        <tag>Atom</tag>
       </tags>
   </entry>
   <entry>
@@ -386,12 +367,26 @@ Create issue
       </tags>
   </entry>
   <entry>
-    <title>DS730_1_High_Performance_Computing_&amp;_MapReduce_Introduction</title>
-    <url>/2020/09/01/DS730-1-High-Performance-Computing-MapReduce-Introduction/</url>
-    <content><![CDATA[<p>Author: SAS</p>
-<p>Description: Discusses the history and importance of big data.</p>
-<p><a href="https://www.sas.com/en_us/insights/big-data/what-is-big-data.html" target="_blank" rel="noopener">https://www.sas.com/en_us/insights/big-data/what-is-big-data.html</a></p>
+    <title>Basic_Data_Engineer_4_API_1</title>
+    <url>/2020/12/22/Basic-Data-Engineer-4-API-1/</url>
+    <content><![CDATA[<ul>
+<li><p>Authentication : Identity (정체)가 맞다는 증명</p>
+</li>
+<li><p>Authorization: API를 통한 어떠한 액션을 허용</p>
+</li>
+<li><p>API가 Authentication을 하여도 어떠한 액션에 대해서는 Authorization 하지 못하는 경우가 있음</p>
+</li>
+<li><p>API key란 보통 Request URL 혹은 Request 헤더에 포함되는 긴 스트링</p>
+</li>
+<li><p>Python Requests Library<br><a href="https://requests.readthedocs.io/en/master/api/" target="_blank" rel="noopener">https://requests.readthedocs.io/en/master/api/</a></p>
+</li>
+<li><p>Status Code<br>1) 200 : OK  (200번대 대부분 성)<br>2) 401 : Unauthorized (credentional token 등이 잘못될 경)<br>3) 429 : Too Many Requests / 몇초 뒤에 다시 사용할 수 있는지 또한 정보 확인<br>4) 500 : Internal Server Error<br>5) 502 : Bad Gateway (Received a invalid response from the upstream server)<br>6) 503 : Service Unavailable</p>
+</li>
+</ul>
 ]]></content>
+      <tags>
+        <tag>API</tag>
+      </tags>
   </entry>
   <entry>
     <title>DS730_1_1_Create_a_Hortonworks_Sandbox_on_Azure</title>
@@ -414,17 +409,53 @@ Create issue
 ]]></content>
   </entry>
   <entry>
-    <title>HDFS_Command_1</title>
-    <url>/2020/08/13/HDFS-Command-1/</url>
-    <content><![CDATA[<h2 id="hdfs-dfs-command-command-options"><a href="#hdfs-dfs-command-command-options" class="headerlink" title="hdfs dfs [command] [command options]"></a>hdfs dfs [command] [command options]</h2><h3 id="Version"><a href="#Version" class="headerlink" title="Version"></a>Version</h3><h4 id="command-hdfs-version"><a href="#command-hdfs-version" class="headerlink" title="command : hdfs version"></a>command : hdfs version</h4><p><img src="https://user-images.githubusercontent.com/26552500/90162292-06da8200-dd5a-11ea-99cc-2daa1e6c808b.png" alt="image"></p>
-<h4 id="command-hadoop-version"><a href="#command-hadoop-version" class="headerlink" title="command : hadoop version"></a>command : hadoop version</h4><p><img src="https://user-images.githubusercontent.com/26552500/90162414-31c4d600-dd5a-11ea-9e11-c821da12fdc2.png" alt="image"></p>
-<h4 id="command-hdfs-getconf-namenodes"><a href="#command-hdfs-getconf-namenodes" class="headerlink" title="command : hdfs getconf -namenodes"></a>command : hdfs getconf -namenodes</h4><p><img src="https://user-images.githubusercontent.com/26552500/90163146-53728d00-dd5b-11ea-883b-c940a805734a.png" alt="image"></p>
-<h3 id="command-hdfs-dfs-ls-path"><a href="#command-hdfs-dfs-ls-path" class="headerlink" title="command : hdfs dfs -ls path"></a>command : hdfs dfs -ls path</h3><p><img src="https://user-images.githubusercontent.com/26552500/90164361-ec55d800-dd5c-11ea-95c0-6711cbb27a78.png" alt="image"></p>
-<h3 id="command-hdfs-dfs-get-path"><a href="#command-hdfs-dfs-get-path" class="headerlink" title="command : hdfs dfs -get path"></a>command : hdfs dfs -get path</h3><p><img src="https://user-images.githubusercontent.com/26552500/90175711-7148ed80-dd6d-11ea-91d3-deaf48d7f91b.png" alt="image"></p>
-<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>. : Current location<br>.. : Parent location</p>
-<h4 id="Example-cp-2-png-3-png"><a href="#Example-cp-2-png-3-png" class="headerlink" title="Example : cp ./2.png ../3.png"></a>Example : cp ./2.png ../3.png</h4><p>Copy the current 2.png file to the parent directory as 3.png</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/90166534-08a74400-dd60-11ea-96b9-410d0f3529df.png" alt="image"></p>
+    <title>DS730_1_High_Performance_Computing_&amp;_MapReduce_Introduction</title>
+    <url>/2020/09/01/DS730-1-High-Performance-Computing-MapReduce-Introduction/</url>
+    <content><![CDATA[<p>Author: SAS</p>
+<p>Description: Discusses the history and importance of big data.</p>
+<p><a href="https://www.sas.com/en_us/insights/big-data/what-is-big-data.html" target="_blank" rel="noopener">https://www.sas.com/en_us/insights/big-data/what-is-big-data.html</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Learning_Spark_1</title>
+    <url>/2020/12/17/Learning-Spark-1/</url>
+    <content><![CDATA[<ol>
+<li>Spark UI</li>
+</ol>
+<ul>
+<li>IP addess:4041</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/26552500/102560292-82956400-4097-11eb-92ea-de4907b01285.png" alt="image"></p>
+<ol start="2">
+<li>Count line<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; lines &#x3D; sc.textFile(&quot;README.md&quot;)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; lines.count()</span><br><span class="line">108   </span><br><span class="line">                                     </span><br><span class="line">&gt;&gt;&gt; lines.first()</span><br><span class="line">&#39;# Apache Spark&#39;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">scala&gt; val lines &#x3D; sc.textFile(&quot;README.md&quot;)</span><br><span class="line">lines: org.apache.spark.rdd.RDD[String] &#x3D; README.md MapPartitionsRDD[3] at textFile at &lt;console&gt;:24</span><br><span class="line"></span><br><span class="line">scala&gt; lines.count()</span><br><span class="line">res1: Long &#x3D; 108</span><br><span class="line"></span><br><span class="line">scala&gt; lines.first()</span><br><span class="line">res2: String &#x3D; # Apache Spark</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>SC (SparkContext)</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/26552500/102560462-ea4baf00-4097-11eb-8d62-68bb2e03ca6b.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102560493-f8013480-4097-11eb-8035-281828ccc209.png" alt="image"></p>
+<p>SparkContext 객체를 하나 만들었다면 그것으로 RDD를 만들어 낼 수 있다.</p>
+<ul>
+<li>Filtering</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; pythonlines &#x3D; lines.filter(lambda line: &quot;Python&quot; in line)</span><br><span class="line">&gt;&gt;&gt; pythonlines.first()</span><br><span class="line">&#39;high-level APIs in Scala, Java, Python, and R, and an optimized engine that&#39;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def hasPython(line):</span><br><span class="line">    return &quot;Python&quot; in line</span><br><span class="line"></span><br><span class="line">pythonlines &#x3D; lines.filter(hasPython)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">scala&gt; val pythonlines &#x3D; lines.filter(line &#x3D;&gt; line.contains(&quot;Python&quot;))</span><br><span class="line">pythonlines: org.apache.spark.rdd.RDD[String] &#x3D; MapPartitionsRDD[4] at filter at &lt;console&gt;:25</span><br><span class="line"></span><br><span class="line">scala&gt; pythonlines.first()</span><br><span class="line">res4: String &#x3D; high-level APIs in Scala, Java, Python, and R, and an optimized engine that</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <tags>
+        <tag>Spark</tag>
+        <tag>Pyspark</tag>
+      </tags>
   </entry>
   <entry>
     <title>Guide for IntelliJ (1)</title>
@@ -505,100 +536,17 @@ Create issue
 ]]></content>
   </entry>
   <entry>
-    <title>PostgreSQL_Basic (1)</title>
-    <url>/2020/02/01/PostgreSQL-Basic-1/</url>
-    <content><![CDATA[<p><img src="https://user-images.githubusercontent.com/26552500/74211324-03ecc080-4c55-11ea-94e0-8fcb6041f962.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74211398-61810d00-4c55-11ea-8047-b240f93bbc4f.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74211616-54185280-4c56-11ea-96d6-1b72f24f3869.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74211634-62ff0500-4c56-11ea-8187-025afe1b8697.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74213242-f7209a80-4c5d-11ea-93bb-64d2ccec8898.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74213271-0acc0100-4c5e-11ea-9df0-0b1cc889d93c.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74213283-17e8f000-4c5e-11ea-9774-8cb39c9605d4.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74213312-33ec9180-4c5e-11ea-8646-6608bcf8c20d.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74213323-423aad80-4c5e-11ea-98fe-84c887d900b7.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74213334-5383ba00-4c5e-11ea-846e-7831f0de3e86.png" alt="image"></p>
+    <title>HDFS_Command_1</title>
+    <url>/2020/08/13/HDFS-Command-1/</url>
+    <content><![CDATA[<h2 id="hdfs-dfs-command-command-options"><a href="#hdfs-dfs-command-command-options" class="headerlink" title="hdfs dfs [command] [command options]"></a>hdfs dfs [command] [command options]</h2><h3 id="Version"><a href="#Version" class="headerlink" title="Version"></a>Version</h3><h4 id="command-hdfs-version"><a href="#command-hdfs-version" class="headerlink" title="command : hdfs version"></a>command : hdfs version</h4><p><img src="https://user-images.githubusercontent.com/26552500/90162292-06da8200-dd5a-11ea-99cc-2daa1e6c808b.png" alt="image"></p>
+<h4 id="command-hadoop-version"><a href="#command-hadoop-version" class="headerlink" title="command : hadoop version"></a>command : hadoop version</h4><p><img src="https://user-images.githubusercontent.com/26552500/90162414-31c4d600-dd5a-11ea-9e11-c821da12fdc2.png" alt="image"></p>
+<h4 id="command-hdfs-getconf-namenodes"><a href="#command-hdfs-getconf-namenodes" class="headerlink" title="command : hdfs getconf -namenodes"></a>command : hdfs getconf -namenodes</h4><p><img src="https://user-images.githubusercontent.com/26552500/90163146-53728d00-dd5b-11ea-883b-c940a805734a.png" alt="image"></p>
+<h3 id="command-hdfs-dfs-ls-path"><a href="#command-hdfs-dfs-ls-path" class="headerlink" title="command : hdfs dfs -ls path"></a>command : hdfs dfs -ls path</h3><p><img src="https://user-images.githubusercontent.com/26552500/90164361-ec55d800-dd5c-11ea-95c0-6711cbb27a78.png" alt="image"></p>
+<h3 id="command-hdfs-dfs-get-path"><a href="#command-hdfs-dfs-get-path" class="headerlink" title="command : hdfs dfs -get path"></a>command : hdfs dfs -get path</h3><p><img src="https://user-images.githubusercontent.com/26552500/90175711-7148ed80-dd6d-11ea-91d3-deaf48d7f91b.png" alt="image"></p>
+<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>. : Current location<br>.. : Parent location</p>
+<h4 id="Example-cp-2-png-3-png"><a href="#Example-cp-2-png-3-png" class="headerlink" title="Example : cp ./2.png ../3.png"></a>Example : cp ./2.png ../3.png</h4><p>Copy the current 2.png file to the parent directory as 3.png</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/90166534-08a74400-dd60-11ea-96b9-410d0f3529df.png" alt="image"></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>MYSQL_Installation(2)</title>
-    <url>/2020/01/27/MYSQL-Installation-2/</url>
-    <content><![CDATA[<p>1 Mysql installation - Ubuntu</p>
-<p>ubuntu 패키지 설치 관리자인 apt 업데이트 및 업그레이드</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo apt update</span><br><span class="line">$ sudo apt upgrade</span><br></pre></td></tr></table></figure>
-
-<p>mysql-server와 mysql-client를 apt로 설치</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 설치 중간에 패스워드 입력</span><br><span class="line">$ sudo apt install mysql-server mysql-client</span><br></pre></td></tr></table></figure>
-
-<p>mysql 보안과 관련된 설정 (순서대로 입력해줍니다 # n-n-y-n-y-y) </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo mysql_secure_installation</span><br><span class="line">$ mysql -u root -p</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73239381-8e1b2c00-4161-11ea-8037-5dbd1882e807.png" alt="image"><br>mysql 시작하기</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo mysql -u root -p</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73223480-cc95f400-412b-11ea-9ea4-3fc170897756.png" alt="image"></p>
-<p>2 mysql start &amp; stop &amp; restart &amp; status</p>
-<p>mysql을 시작하고 종료하고 재시작하고 상태를 확인하는 방법입니다. </p>
-<p>systemctl : 서비스 관리하는 명령</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># mysql 시작</span><br><span class="line">$ sudo systemctl start mysql</span><br><span class="line"></span><br><span class="line"># mysql 종료</span><br><span class="line">$ sudo systemctl stop mysql</span><br><span class="line"></span><br><span class="line"># mysql 재시작</span><br><span class="line">$ sudo systemctl restart mysql.service</span><br><span class="line"></span><br><span class="line"># mysql 상태확인</span><br><span class="line">$ sudo systemctl status mysql.service</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-images.githubusercontent.com/26552500/73223699-9d33b700-412c-11ea-85be-2b5d69e4d553.png" alt="image"></p>
-<p>3 Connection</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># mysql 설정파일 bind-address &#x3D; 0.0.0.0 으로 수정 </span><br><span class="line">$ sudo vi &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnf </span><br><span class="line"></span><br><span class="line">bind-address &#x3D; 0.0.0.0</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 외부접속이 허용되도록 mysql 설정</span><br><span class="line">sql&gt; grant all privileges on *.* to root@&#39;%&#39; identified by &#39;&lt;password&gt;&#39;;</span><br><span class="line"></span><br><span class="line"># 비밀번호가 qwer1234 인경우</span><br><span class="line">ex) grant all privileges on *.* to root@&#39;%&#39; identified by &#39;qwer1234&#39;;</span><br></pre></td></tr></table></figure>
-
-<img width="555" alt="Screen Shot 2020-01-27 at 5 47 11 PM" src="https://user-images.githubusercontent.com/26552500/73223862-221ed080-412d-11ea-80d8-7426fd9a8970.png">
-
-<p>4  포트 활성화<br>AWS 서비스에 들어가서 3306포트를 활성화 시켜 줍니다.</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/73225142-47154280-4131-11ea-9edb-be578159f1d7.png" alt="image"></p>
-<p>5 issues</p>
-<p>If you have a problem to install mysqlclient</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install python-pip python-dev libmysqlclient-dev</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-images.githubusercontent.com/26552500/73225082-0ae1e200-4131-11ea-8096-6f28a6151273.png" alt="image"></p>
-]]></content>
-      <tags>
-        <tag>Mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Learning_Spark_1</title>
-    <url>/2020/12/17/Learning-Spark-1/</url>
-    <content><![CDATA[<ol>
-<li>Spark UI</li>
-</ol>
-<ul>
-<li>IP addess:4041</li>
-</ul>
-<p><img src="https://user-images.githubusercontent.com/26552500/102560292-82956400-4097-11eb-92ea-de4907b01285.png" alt="image"></p>
-<ol start="2">
-<li>Count line<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; lines &#x3D; sc.textFile(&quot;README.md&quot;)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; lines.count()</span><br><span class="line">108   </span><br><span class="line">                                     </span><br><span class="line">&gt;&gt;&gt; lines.first()</span><br><span class="line">&#39;# Apache Spark&#39;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">scala&gt; val lines &#x3D; sc.textFile(&quot;README.md&quot;)</span><br><span class="line">lines: org.apache.spark.rdd.RDD[String] &#x3D; README.md MapPartitionsRDD[3] at textFile at &lt;console&gt;:24</span><br><span class="line"></span><br><span class="line">scala&gt; lines.count()</span><br><span class="line">res1: Long &#x3D; 108</span><br><span class="line"></span><br><span class="line">scala&gt; lines.first()</span><br><span class="line">res2: String &#x3D; # Apache Spark</span><br></pre></td></tr></table></figure>
-
-
-
-<ul>
-<li>SC (SparkContext)</li>
-</ul>
-<p><img src="https://user-images.githubusercontent.com/26552500/102560462-ea4baf00-4097-11eb-8d62-68bb2e03ca6b.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/102560493-f8013480-4097-11eb-8035-281828ccc209.png" alt="image"></p>
-<p>SparkContext 객체를 하나 만들었다면 그것으로 RDD를 만들어 낼 수 있다.</p>
-<ul>
-<li>Filtering</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; pythonlines &#x3D; lines.filter(lambda line: &quot;Python&quot; in line)</span><br><span class="line">&gt;&gt;&gt; pythonlines.first()</span><br><span class="line">&#39;high-level APIs in Scala, Java, Python, and R, and an optimized engine that&#39;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def hasPython(line):</span><br><span class="line">    return &quot;Python&quot; in line</span><br><span class="line"></span><br><span class="line">pythonlines &#x3D; lines.filter(hasPython)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">scala&gt; val pythonlines &#x3D; lines.filter(line &#x3D;&gt; line.contains(&quot;Python&quot;))</span><br><span class="line">pythonlines: org.apache.spark.rdd.RDD[String] &#x3D; MapPartitionsRDD[4] at filter at &lt;console&gt;:25</span><br><span class="line"></span><br><span class="line">scala&gt; pythonlines.first()</span><br><span class="line">res4: String &#x3D; high-level APIs in Scala, Java, Python, and R, and an optimized engine that</span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-      <tags>
-        <tag>Spark</tag>
-        <tag>Pyspark</tag>
-      </tags>
   </entry>
   <entry>
     <title>MYSQL_Installation(1)</title>
@@ -648,16 +596,44 @@ Create issue
       </tags>
   </entry>
   <entry>
-    <title>PostgreSQL_Basic Exam (1)</title>
-    <url>/2020/02/13/PostgreSQL-Basic-Exam-1/</url>
-    <content><![CDATA[<h4 id="1-PAYMENT-DATE가-2007년-2월-7일부터-2007년-2월-15일인-customer-id-first-name-Last-name"><a href="#1-PAYMENT-DATE가-2007년-2월-7일부터-2007년-2월-15일인-customer-id-first-name-Last-name" class="headerlink" title="1) PAYMENT_DATE가 2007년 2월 7일부터 2007년 2월 15일인 customer_id, first_name, Last_name"></a>1) PAYMENT_DATE가 2007년 2월 7일부터 2007년 2월 15일인 customer_id, first_name, Last_name</h4><ul>
-<li>to_char / cast</li>
-</ul>
-<p><img src="https://user-images.githubusercontent.com/26552500/74495493-98e1fa80-4e9d-11ea-9802-4eaf3e30e1b5.png" alt="image"></p>
-<h4 id="2"><a href="#2" class="headerlink" title="2)"></a>2)</h4><p><img src="https://user-images.githubusercontent.com/26552500/74498354-03973400-4ea6-11ea-834a-c72cacf72f9e.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74498877-a4d2ba00-4ea7-11ea-9428-8255061fcb80.png" alt="image"></p>
-<h4 id="3"><a href="#3" class="headerlink" title="3)"></a>3)</h4><p><img src="https://user-images.githubusercontent.com/26552500/74498915-bc11a780-4ea7-11ea-8aa8-a1b2b324a4dd.png" alt="image"></p>
+    <title>MYSQL_Installation(2)</title>
+    <url>/2020/01/27/MYSQL-Installation-2/</url>
+    <content><![CDATA[<p>1 Mysql installation - Ubuntu</p>
+<p>ubuntu 패키지 설치 관리자인 apt 업데이트 및 업그레이드</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo apt update</span><br><span class="line">$ sudo apt upgrade</span><br></pre></td></tr></table></figure>
+
+<p>mysql-server와 mysql-client를 apt로 설치</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 설치 중간에 패스워드 입력</span><br><span class="line">$ sudo apt install mysql-server mysql-client</span><br></pre></td></tr></table></figure>
+
+<p>mysql 보안과 관련된 설정 (순서대로 입력해줍니다 # n-n-y-n-y-y) </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo mysql_secure_installation</span><br><span class="line">$ mysql -u root -p</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73239381-8e1b2c00-4161-11ea-8037-5dbd1882e807.png" alt="image"><br>mysql 시작하기</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo mysql -u root -p</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73223480-cc95f400-412b-11ea-9ea4-3fc170897756.png" alt="image"></p>
+<p>2 mysql start &amp; stop &amp; restart &amp; status</p>
+<p>mysql을 시작하고 종료하고 재시작하고 상태를 확인하는 방법입니다. </p>
+<p>systemctl : 서비스 관리하는 명령</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># mysql 시작</span><br><span class="line">$ sudo systemctl start mysql</span><br><span class="line"></span><br><span class="line"># mysql 종료</span><br><span class="line">$ sudo systemctl stop mysql</span><br><span class="line"></span><br><span class="line"># mysql 재시작</span><br><span class="line">$ sudo systemctl restart mysql.service</span><br><span class="line"></span><br><span class="line"># mysql 상태확인</span><br><span class="line">$ sudo systemctl status mysql.service</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/26552500/73223699-9d33b700-412c-11ea-85be-2b5d69e4d553.png" alt="image"></p>
+<p>3 Connection</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># mysql 설정파일 bind-address &#x3D; 0.0.0.0 으로 수정 </span><br><span class="line">$ sudo vi &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnf </span><br><span class="line"></span><br><span class="line">bind-address &#x3D; 0.0.0.0</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 외부접속이 허용되도록 mysql 설정</span><br><span class="line">sql&gt; grant all privileges on *.* to root@&#39;%&#39; identified by &#39;&lt;password&gt;&#39;;</span><br><span class="line"></span><br><span class="line"># 비밀번호가 qwer1234 인경우</span><br><span class="line">ex) grant all privileges on *.* to root@&#39;%&#39; identified by &#39;qwer1234&#39;;</span><br></pre></td></tr></table></figure>
+
+<img width="555" alt="Screen Shot 2020-01-27 at 5 47 11 PM" src="https://user-images.githubusercontent.com/26552500/73223862-221ed080-412d-11ea-80d8-7426fd9a8970.png">
+
+<p>4  포트 활성화<br>AWS 서비스에 들어가서 3306포트를 활성화 시켜 줍니다.</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/73225142-47154280-4131-11ea-9edb-be578159f1d7.png" alt="image"></p>
+<p>5 issues</p>
+<p>If you have a problem to install mysqlclient</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install python-pip python-dev libmysqlclient-dev</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/26552500/73225082-0ae1e200-4131-11ea-8096-6f28a6151273.png" alt="image"></p>
 ]]></content>
+      <tags>
+        <tag>Mysql</tag>
+      </tags>
   </entry>
   <entry>
     <title>PostgreSQL_Basic (4)</title>
@@ -705,251 +681,19 @@ Create issue
 ]]></content>
   </entry>
   <entry>
-    <title>PostgreSQL_Basic (3)</title>
-    <url>/2020/02/12/PostgreSQL-Basic-3/</url>
-    <content><![CDATA[<h3 id="1-SQL-IN-BETWEEN-LIKE-IS-NULL"><a href="#1-SQL-IN-BETWEEN-LIKE-IS-NULL" class="headerlink" title="1. SQL [IN, BETWEEN, LIKE, IS NULL]"></a>1. SQL [IN, BETWEEN, LIKE, IS NULL]</h3><h4 id="1-IN"><a href="#1-IN" class="headerlink" title="1) IN"></a>1) IN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74402203-2adbfb80-4de9-11ea-915d-2a60b81d86d4.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74402265-552db900-4de9-11ea-8a2f-804997c5c93e.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74402303-75f60e80-4de9-11ea-83c1-18c5ab83797c.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74402325-86a68480-4de9-11ea-9596-ebb20cf5dd17.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74402370-a76eda00-4de9-11ea-9a9d-040999e399f0.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74402411-cb322000-4de9-11ea-86a3-0eaa93783308.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74402442-e3a23a80-4de9-11ea-8415-186b5fbca9cf.png" alt="image"></p>
-<h4 id="2-BETWEEN"><a href="#2-BETWEEN" class="headerlink" title="2) BETWEEN"></a>2) BETWEEN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74494851-cd54b700-4e9b-11ea-9780-928e76f4efcd.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74494892-ebbab280-4e9b-11ea-88ef-175ad1dc6717.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74494923-faa16500-4e9b-11ea-8812-13d09f20304d.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74494993-258bb900-4e9c-11ea-90e9-87855d9e7d07.png" alt="image"></p>
-<h4 id="3-LIKE"><a href="#3-LIKE" class="headerlink" title="3) LIKE"></a>3) LIKE</h4><p><img src="https://user-images.githubusercontent.com/26552500/74496441-5110a280-4ea0-11ea-8281-f02dd7422598.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74496482-6a195380-4ea0-11ea-8ff1-a35bc6473256.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74496536-8fa65d00-4ea0-11ea-8116-8392a54f1689.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74496563-a2b92d00-4ea0-11ea-8dd6-0f1a23a66beb.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74496585-b19fdf80-4ea0-11ea-9ee1-0b375280a2ca.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74496606-c1b7bf00-4ea0-11ea-9d6f-225b3c1efe35.png" alt="image"></p>
-<h4 id="4-IS-NULL"><a href="#4-IS-NULL" class="headerlink" title="4) IS NULL"></a>4) IS NULL</h4><p><img src="https://user-images.githubusercontent.com/26552500/74497339-03e20000-4ea3-11ea-9274-02ad7327820d.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74497375-2247fb80-4ea3-11ea-8c41-3fc2aafdad29.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74497966-b5cdfc00-4ea4-11ea-975a-472eef4f3a81.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74497984-c4b4ae80-4ea4-11ea-8c88-a49f7e8707b0.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74498007-d39b6100-4ea4-11ea-9a78-de116471f733.png" alt="image"></p>
+    <title>PostgreSQL_Basic (1)</title>
+    <url>/2020/02/01/PostgreSQL-Basic-1/</url>
+    <content><![CDATA[<p><img src="https://user-images.githubusercontent.com/26552500/74211324-03ecc080-4c55-11ea-94e0-8fcb6041f962.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74211398-61810d00-4c55-11ea-8047-b240f93bbc4f.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74211616-54185280-4c56-11ea-96d6-1b72f24f3869.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74211634-62ff0500-4c56-11ea-8187-025afe1b8697.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74213242-f7209a80-4c5d-11ea-93bb-64d2ccec8898.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74213271-0acc0100-4c5e-11ea-9df0-0b1cc889d93c.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74213283-17e8f000-4c5e-11ea-9774-8cb39c9605d4.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74213312-33ec9180-4c5e-11ea-8646-6608bcf8c20d.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74213323-423aad80-4c5e-11ea-98fe-84c887d900b7.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74213334-5383ba00-4c5e-11ea-846e-7831f0de3e86.png" alt="image"></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Predict Used Car Project (3)</title>
-    <url>/2020/01/30/Predict-Used-Car-Project-3/</url>
-    <content><![CDATA[<h3 id="Flask"><a href="#Flask" class="headerlink" title="Flask"></a>Flask</h3><p>reference : <a href="https://github.com/yyuu/pyenv/wiki/Common-build-problems" target="_blank" rel="noopener">https://github.com/yyuu/pyenv/wiki/Common-build-problems</a></p>
-<p>1 install 의존성 파일</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get upgrade</span><br><span class="line">$ sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev</span><br></pre></td></tr></table></figure>
-
-<p>2 install pip &amp; nginx</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get install python-pip nginx</span><br></pre></td></tr></table></figure>
-
-<p>3 set nginx</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># nginx를 시작하고 127.0.0.1:8000 ip를 외부 IP로 매핑 시켜줌</span><br><span class="line">$ sudo &#x2F;etc&#x2F;init.d&#x2F;nginx start</span><br><span class="line">$ sudo rm &#x2F;etc&#x2F;nginx&#x2F;sites-enabled&#x2F;default</span><br><span class="line">$ sudo touch &#x2F;etc&#x2F;nginx&#x2F;sites-available&#x2F;flask_settings</span><br><span class="line">$ sudo ln -s &#x2F;etc&#x2F;nginx&#x2F;sites-available&#x2F;flask_settings &#x2F;etc&#x2F;nginx&#x2F;sites-enabled&#x2F;flask_settings</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo vi &#x2F;etc&#x2F;nginx&#x2F;sites-enabled&#x2F;flask_settings</span><br><span class="line"></span><br><span class="line">------------------flask_settings-------------------- </span><br><span class="line">server &#123;</span><br><span class="line">    location &#x2F; &#123;</span><br><span class="line">        proxy_pass http:&#x2F;&#x2F;127.0.0.1:8000; </span><br><span class="line">        proxy_set_header Host $host; </span><br><span class="line">        proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">        &#125; </span><br><span class="line">&#125;</span><br><span class="line">------------------------------------------------------ </span><br><span class="line"></span><br><span class="line">$ sudo &#x2F;etc&#x2F;init.d&#x2F;nginx restart</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<ol start="4">
-<li>install flask &amp; gunicorn<br>$ pip install flask gunicorn</li>
-<li>excute flask app<br>$ gunicorn hello:app</li>
-<li>aws open port 80</li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>Predict Used Car Project (2)</title>
-    <url>/2020/01/27/Predict-Used-Car-Project-2/</url>
-    <content><![CDATA[<p>Install CMake</p>
-<p>Enter the following command to download the source code:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ wget https:&#x2F;&#x2F;github.com&#x2F;Kitware&#x2F;CMake&#x2F;releases&#x2F;download&#x2F;v3.15.2&#x2F;cmake-3.15.2.tar.gz</span><br><span class="line">$ tar -zxvf cmake-3.15.2.tar.gz</span><br><span class="line">$ cd cmake-3.15.2</span><br><span class="line">.&#x2F;bootstrap</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-images.githubusercontent.com/26552500/73230770-f22ef780-4143-11ea-863e-4c2221ac32ee.png" alt="image"></p>
-<p>You can now make it using the following command:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ make</span><br></pre></td></tr></table></figure>
-
-<p>And then install it as follows:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo make install</span><br></pre></td></tr></table></figure>
-
-<p>After the software is successfully installed, you can verify its installation and also if the correct version is<br> installed, through the following command:<br> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cmake --version</span><br></pre></td></tr></table></figure></p>
-<hr>
-<p>Install XGBoost</p>
-<p>Enter the following command to download the source code:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone --recursive https:&#x2F;&#x2F;github.com&#x2F;dmlc&#x2F;xgboost</span><br><span class="line">cd xgboost</span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ..</span><br><span class="line">make -j4</span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<p>디스크용량 확인</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">df -P | grep -v ^Filesystem | awk &#39;&#123;sum +&#x3D; $2&#125; END &#123; print sum&#x2F;1024&#x2F;1024 &quot; GB&quot; &#125;&#39;</span><br></pre></td></tr></table></figure>
-
-<p>디스크 사용량</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">df -P | grep -v ^Filesystem | awk &#39;&#123;sum +&#x3D; $3&#125; END &#123; print sum&#x2F;1024&#x2F;1024 &quot; GB&quot; &#125;&#39;</span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-  </entry>
-  <entry>
-    <title>Python_Basic (1)</title>
-    <url>/2020/02/12/Python-Basic-1/</url>
-    <content><![CDATA[<h4 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h4><h5 id="check-“Add-Python-path”"><a href="#check-“Add-Python-path”" class="headerlink" title="check “Add Python ~ path”"></a>check “Add Python ~ path”</h5><p><img src="https://user-images.githubusercontent.com/26552500/74404590-95dd0080-4df0-11ea-9fd6-30502b8babf2.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74404765-0552f000-4df1-11ea-945f-167a20cb3d58.png" alt="image"></p>
-<h4 id="Download-Visual"><a href="#Download-Visual" class="headerlink" title="Download Visual"></a>Download Visual</h4><p><a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">https://code.visualstudio.com/download</a></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74404703-d9d00580-4df0-11ea-991a-7f76be558aac.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74405769-8a3f0900-4df3-11ea-9c7e-8d5408289ed6.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74405865-c8d4c380-4df3-11ea-833b-ba5d57744b51.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74405929-fb7ebc00-4df3-11ea-9940-6c3ad6a362fd.png" alt="image"></p>
-<h4 id="Setup-Virtual-Env"><a href="#Setup-Virtual-Env" class="headerlink" title="Setup Virtual Env"></a>Setup Virtual Env</h4><p><img src="https://user-images.githubusercontent.com/26552500/74406320-f2421f00-4df4-11ea-9cab-20c697d829b3.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74406376-1c93dc80-4df5-11ea-9c5e-6e2e88cd8a13.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74406439-451bd680-4df5-11ea-89cf-8bbeb3af5609.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74406461-5664e300-4df5-11ea-9f8f-9788cf4cd401.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74406604-bc516a80-4df5-11ea-855c-c4cae42b52d0.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74406650-d8eda280-4df5-11ea-979d-d45091c671df.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74406858-574a4480-4df6-11ea-8af5-303efb3048a8.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74406898-6af5ab00-4df6-11ea-8062-1aa197c3d338.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74407012-9f696700-4df6-11ea-809f-e3502b4c4c8e.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F; See https:&#x2F;&#x2F;go.microsoft.com&#x2F;fwlink&#x2F;?LinkId&#x3D;733558</span><br><span class="line">    &#x2F;&#x2F; for the documentation about the tasks.json format</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;,</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;label&quot;: &quot;Project Label&quot;,</span><br><span class="line">            &quot;type&quot;: &quot;shell&quot;,</span><br><span class="line">            &quot;command&quot;: &quot;python&quot;,</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;$&#123;file&#125;&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;presentation&quot;: &#123;</span><br><span class="line">                &quot;reveal&quot;: &quot;always&quot;,</span><br><span class="line">                &quot;panel&quot;: &quot;new&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;options&quot;: &#123;</span><br><span class="line">                &quot;env&quot;: &#123;</span><br><span class="line">                    &quot;PYTHONIOENCODING&quot;: &quot;UTF-8&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;group&quot;: &#123;</span><br><span class="line">                &quot;kind&quot;: &quot;build&quot;,</span><br><span class="line">                &quot;isDefault&quot;: true</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-images.githubusercontent.com/26552500/74407349-785f6500-4df7-11ea-8296-64ad5ae0939c.png" alt="image"></p>
-<hr>
-<h3 id="1-Function"><a href="#1-Function" class="headerlink" title="1. Function"></a>1. Function</h3><h4 id="1-Print"><a href="#1-Print" class="headerlink" title="1) Print"></a>1) Print</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Basic</span></span><br><span class="line">print(<span class="string">'hello'</span>)</span><br><span class="line">print(<span class="string">"hello"</span>)</span><br><span class="line">print(<span class="string">"""hello"""</span>)</span><br><span class="line">print(<span class="string">'''hello'''</span>)</span><br><span class="line"></span><br><span class="line">print()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Seperator</span></span><br><span class="line">print(<span class="string">'T'</span>, <span class="string">'E'</span>, <span class="string">'S'</span>, <span class="string">'T'</span>)</span><br><span class="line">print(<span class="string">'T'</span>, <span class="string">'E'</span>, <span class="string">'S'</span>, <span class="string">'T'</span>, sep=<span class="string">''</span>)</span><br><span class="line">print(<span class="string">'2020'</span>, <span class="string">'02'</span>, <span class="string">'13'</span>, sep=<span class="string">'-'</span>)</span><br><span class="line">print(<span class="string">'niceman'</span>, <span class="string">'gmail.com'</span>, sep=<span class="string">'@'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># End</span></span><br><span class="line">print(<span class="string">'welcome to'</span>, end=<span class="string">' '</span>)</span><br><span class="line">print(<span class="string">'the black parade'</span>, end=<span class="string">' '</span>)</span><br><span class="line">print(<span class="string">'piano note'</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'test'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Format </span></span><br><span class="line">print(<span class="string">'&#123;&#125; and &#123;&#125; '</span>.format(<span class="string">'you'</span>, <span class="string">'me'</span>))</span><br><span class="line">print(<span class="string">'&#123;0&#125; and &#123;1&#125;'</span>.format(<span class="string">'you'</span>, <span class="string">'me'</span>))</span><br><span class="line">print(<span class="string">'&#123;a&#125; and &#123;b&#125;'</span>.format(a=<span class="string">'you'</span>, b=<span class="string">'me'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># %s, %d, %f</span></span><br><span class="line">print(<span class="string">"%s's favorite number is %d"</span> % (<span class="string">'danny'</span>, <span class="number">7</span>))</span><br><span class="line">print(<span class="string">"test1: %5d, print: %4.2f"</span> % (<span class="number">777</span>, <span class="number">133.23</span>))</span><br><span class="line">print(<span class="string">"test1: &#123;0: 5d&#125;, print: &#123;1: 4.2f&#125;"</span>.format(<span class="number">777</span>, <span class="number">133.232</span>))</span><br><span class="line">print(<span class="string">"test1: &#123;a: 5d&#125;, print: &#123;b: 4.2f&#125;"</span>.format(a=<span class="number">776</span>, b=<span class="number">45432.342</span>))</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-images.githubusercontent.com/26552500/74502215-62fb4100-4eb2-11ea-9505-f8b3c33db4b4.png" alt="image"></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> this</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="comment"># input incoding</span></span><br><span class="line">print(sys.stdin.encoding)</span><br><span class="line"></span><br><span class="line"><span class="comment"># output incoding</span></span><br><span class="line">print(sys.stdout.encoding)</span><br><span class="line"></span><br><span class="line"><span class="comment"># loop</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">        print(<span class="string">"%d * %d ="</span> %(i,j), i*j)</span><br><span class="line"></span><br><span class="line"><span class="comment"># function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greeting</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"hello"</span>)</span><br><span class="line"></span><br><span class="line">greeting()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cooking</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Instance</span></span><br><span class="line">cookie = Cooking()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print information about class</span></span><br><span class="line">print(id(cookie))</span><br><span class="line">print(dir(cookie))</span><br><span class="line"></span><br><span class="line">print(cookie.__class__)</span><br><span class="line">print(cookie.__hash__)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">The Zen of Python, by Tim Peters</span><br><span class="line"></span><br><span class="line">Beautiful is better than ugly.</span><br><span class="line">Explicit is better than implicit.</span><br><span class="line">Simple is better than complex.</span><br><span class="line">Complex is better than complicated.</span><br><span class="line">Flat is better than nested.</span><br><span class="line">Sparse is better than dense.</span><br><span class="line">Readability counts.</span><br><span class="line">Special cases aren&#39;t special enough to break the rules.</span><br><span class="line">Although practicality beats purity.</span><br><span class="line">Errors should never pass silently.</span><br><span class="line">Unless explicitly silenced.</span><br><span class="line">In the face of ambiguity, refuse the temptation to guess.</span><br><span class="line">There should be one-- and preferably only one --obvious way to do it.</span><br><span class="line">Although that way may not be obvious at first unless you&#39;re Dutch.</span><br><span class="line">Now is better than never.</span><br><span class="line">Although never is often better than *right* now.</span><br><span class="line">If the implementation is hard to explain, it&#39;s a bad idea.</span><br><span class="line">If the implementation is easy to explain, it may be a good idea.</span><br><span class="line">Namespaces are one honking great idea -- let&#39;s do more of those!</span><br><span class="line">UTF-8</span><br><span class="line">UTF-8</span><br><span class="line">1 * 1 &#x3D; 1</span><br><span class="line">1 * 2 &#x3D; 2</span><br><span class="line">1 * 3 &#x3D; 3</span><br><span class="line">1 * 4 &#x3D; 4</span><br><span class="line">1 * 5 &#x3D; 5</span><br><span class="line">1 * 6 &#x3D; 6</span><br><span class="line">1 * 7 &#x3D; 7</span><br><span class="line">1 * 8 &#x3D; 8</span><br><span class="line">1 * 9 &#x3D; 9</span><br><span class="line">2 * 1 &#x3D; 2</span><br><span class="line">2 * 2 &#x3D; 4</span><br><span class="line">2 * 3 &#x3D; 6</span><br><span class="line">2 * 4 &#x3D; 8</span><br><span class="line">2 * 5 &#x3D; 10</span><br><span class="line">2 * 6 &#x3D; 12</span><br><span class="line">2 * 7 &#x3D; 14</span><br><span class="line">2 * 8 &#x3D; 16</span><br><span class="line">2 * 9 &#x3D; 18</span><br><span class="line">3 * 1 &#x3D; 3</span><br><span class="line">3 * 2 &#x3D; 6</span><br><span class="line">3 * 3 &#x3D; 9</span><br><span class="line">3 * 4 &#x3D; 12</span><br><span class="line">3 * 5 &#x3D; 15</span><br><span class="line">3 * 6 &#x3D; 18</span><br><span class="line">3 * 7 &#x3D; 21</span><br><span class="line">3 * 8 &#x3D; 24</span><br><span class="line">3 * 9 &#x3D; 27</span><br><span class="line">4 * 1 &#x3D; 4</span><br><span class="line">4 * 2 &#x3D; 8</span><br><span class="line">4 * 3 &#x3D; 12</span><br><span class="line">4 * 4 &#x3D; 16</span><br><span class="line">4 * 5 &#x3D; 20</span><br><span class="line">4 * 6 &#x3D; 24</span><br><span class="line">4 * 7 &#x3D; 28</span><br><span class="line">4 * 8 &#x3D; 32</span><br><span class="line">4 * 9 &#x3D; 36</span><br><span class="line">5 * 1 &#x3D; 5</span><br><span class="line">5 * 2 &#x3D; 10</span><br><span class="line">5 * 3 &#x3D; 15</span><br><span class="line">5 * 4 &#x3D; 20</span><br><span class="line">5 * 5 &#x3D; 25</span><br><span class="line">5 * 6 &#x3D; 30</span><br><span class="line">5 * 7 &#x3D; 35</span><br><span class="line">5 * 8 &#x3D; 40</span><br><span class="line">5 * 9 &#x3D; 45</span><br><span class="line">6 * 1 &#x3D; 6</span><br><span class="line">6 * 2 &#x3D; 12</span><br><span class="line">6 * 3 &#x3D; 18</span><br><span class="line">6 * 4 &#x3D; 24</span><br><span class="line">6 * 5 &#x3D; 30</span><br><span class="line">6 * 6 &#x3D; 36</span><br><span class="line">6 * 7 &#x3D; 42</span><br><span class="line">6 * 8 &#x3D; 48</span><br><span class="line">6 * 9 &#x3D; 54</span><br><span class="line">7 * 1 &#x3D; 7</span><br><span class="line">7 * 2 &#x3D; 14</span><br><span class="line">7 * 3 &#x3D; 21</span><br><span class="line">7 * 4 &#x3D; 28</span><br><span class="line">7 * 5 &#x3D; 35</span><br><span class="line">7 * 6 &#x3D; 42</span><br><span class="line">7 * 7 &#x3D; 49</span><br><span class="line">7 * 8 &#x3D; 56</span><br><span class="line">7 * 9 &#x3D; 63</span><br><span class="line">8 * 1 &#x3D; 8</span><br><span class="line">8 * 2 &#x3D; 16</span><br><span class="line">8 * 3 &#x3D; 24</span><br><span class="line">8 * 4 &#x3D; 32</span><br><span class="line">8 * 5 &#x3D; 40</span><br><span class="line">8 * 6 &#x3D; 48</span><br><span class="line">8 * 7 &#x3D; 56</span><br><span class="line">8 * 8 &#x3D; 64</span><br><span class="line">8 * 9 &#x3D; 72</span><br><span class="line">9 * 1 &#x3D; 9</span><br><span class="line">9 * 2 &#x3D; 18</span><br><span class="line">9 * 3 &#x3D; 27</span><br><span class="line">9 * 4 &#x3D; 36</span><br><span class="line">9 * 5 &#x3D; 45</span><br><span class="line">9 * 6 &#x3D; 54</span><br><span class="line">9 * 7 &#x3D; 63</span><br><span class="line">9 * 8 &#x3D; 72</span><br><span class="line">9 * 9 &#x3D; 81</span><br><span class="line">hello</span><br><span class="line">4337144080</span><br><span class="line">[&#39;__class__&#39;, &#39;__delattr__&#39;, &#39;__dict__&#39;, &#39;__dir__&#39;, &#39;__doc__&#39;, &#39;__eq__&#39;, &#39;__format__&#39;, &#39;__ge__&#39;, &#39;__getattribute__&#39;, &#39;__gt__&#39;, &#39;__hash__&#39;, &#39;__init__&#39;, &#39;__init_subclass__&#39;, &#39;__le__&#39;, &#39;__lt__&#39;, &#39;__module__&#39;, &#39;__ne__&#39;, &#39;__new__&#39;, &#39;__reduce__&#39;, &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__setattr__&#39;, &#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__subclasshook__&#39;, &#39;__weakref__&#39;]</span><br><span class="line">&lt;class &#39;__main__.Cooking&#39;&gt;</span><br><span class="line">&lt;method-wrapper &#39;__hash__&#39; of Cooking object at 0x102839110&gt;</span><br></pre></td></tr></table></figure>]]></content>
-  </entry>
-  <entry>
-    <title>Regular Express</title>
-    <url>/2020/08/27/Regular-Express/</url>
-    <content><![CDATA[<h3 id="1-Regular-expressions"><a href="#1-Regular-expressions" class="headerlink" title="1. Regular expressions"></a>1. Regular expressions</h3><h4 id="Regular-expressions-are-one-of-the-ways-to-process-character-strings-and-are-a-means-to-make-the-process-of’searching’-or’substituting’-characters-in-a-specific-condition-very-simple"><a href="#Regular-expressions-are-one-of-the-ways-to-process-character-strings-and-are-a-means-to-make-the-process-of’searching’-or’substituting’-characters-in-a-specific-condition-very-simple" class="headerlink" title="Regular expressions are one of the ways to process character strings and are a means to make the process of’searching’ or’substituting’ characters in a specific condition very simple."></a>Regular expressions are one of the ways to process character strings and are a means to make the process of’searching’ or’substituting’ characters in a specific condition very simple.</h4><h3 id="2-Term"><a href="#2-Term" class="headerlink" title="2. Term"></a>2. Term</h3><ul>
-<li><p>^x : x 문자로 시작 </p>
-</li>
-<li><p>x$ : x 문자로 종료</p>
-</li>
-<li><p>.x : 임의의 한 문자의 자리수를 표현하며 문자열이 x 로 끝남</p>
-</li>
-<li><p>x+ : x 문자가 1개 이상</p>
-</li>
-<li><p>x? : x 문자가 0개 ~1개</p>
-</li>
-<li><p>x* : x 문자가 0개 ~ 여러개</p>
-</li>
-<li><p>x|y : or 를 표현하며 x 또는 y 문자<br><img src="https://user-images.githubusercontent.com/26552500/91465533-82a4f600-e853-11ea-88cb-add460b6ba36.png" alt="image"></p>
-</li>
-</ul>
-<ul>
-<li>(x) :그룹을 표현하며 x 를 그룹으로 처리<br><img src="https://user-images.githubusercontent.com/26552500/91465533-82a4f600-e853-11ea-88cb-add460b6ba36.png" alt="image"></li>
-</ul>
-<ul>
-<li><p>(x)(y):x 그룹을 찾고 그 뒤에 있는 y값을 찾음<br><img src="https://user-images.githubusercontent.com/26552500/91466181-5d64b780-e854-11ea-876a-48a7e5cacfa9.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91466400-ad437e80-e854-11ea-8fa8-f2841802c0c3.png" alt="image"></p>
-</li>
-<li><p>x.?? : 앞에 있는 ?의 최소값인 0개로 검색 (? lazy)<br><img src="https://user-images.githubusercontent.com/26552500/91467435-30b19f80-e856-11ea-829e-7bf085ef9c8d.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91467497-445d0600-e856-11ea-9b83-f4357fa81e20.png" alt="image"></p>
-</li>
-<li><p>x.+? : 앞에 있는 +의 최소값인 1개로 검색 (? lazy)<br><img src="https://user-images.githubusercontent.com/26552500/91467651-779f9500-e856-11ea-9efc-067cb69f1f10.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91467705-8c7c2880-e856-11ea-958f-0152cf944e4c.png" alt="image"></p>
-</li>
-<li><p>x+(?=y) : 끝이 y로 끝나는 x를 검색<br><img src="https://user-images.githubusercontent.com/26552500/91468977-635c9780-e858-11ea-9603-74372293e2d5.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91469039-7a02ee80-e858-11ea-8e62-693e414dcf77.png" alt="image"></p>
-</li>
-</ul>
-<h3 id="3-Example"><a href="#3-Example" class="headerlink" title="3. Example"></a>3. Example</h3><ul>
-<li><p>전화번호 : ([\d]{3}) \d{3}-\d{4}  </p>
-<pre><code>\([0-9]{3}\) [0-9]{3}-[0-9]{4}</code></pre><p><img src="https://user-images.githubusercontent.com/26552500/91470069-d87c9c80-e859-11ea-8076-6aadd25d4334.png" alt="image"></p>
-</li>
-<li><p>전화번호 (중간에 8또는 1 제외): [^8|^1][0-9]{2}-[0-9]{4}<br><img src="https://user-images.githubusercontent.com/26552500/91471001-0f9f7d80-e85b-11ea-80fd-0d6d374ab14f.png" alt="image"></p>
-</li>
-</ul>
-<h3 id="4-Test-site"><a href="#4-Test-site" class="headerlink" title="4. Test site"></a>4. Test site</h3><p><a href="https://regexr.com/" target="_blank" rel="noopener">https://regexr.com/</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Hello world</title>
-    <url>/2020/01/22/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Python - Pickle</title>
-    <url>/2020/02/05/Python-Pickle/</url>
-    <content><![CDATA[<p>Input</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line">pw = <span class="string">'12345'</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'pw.plk'</span>, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    pickle.dump(pw, f)</span><br></pre></td></tr></table></figure>
-
-<p>Output</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">with open(&#39;pw.plk&#39;, &#39;rb&#39;) as f:</span><br><span class="line">    pw &#x3D; pickle.load(f) # 단 한줄씩 읽어옴</span><br></pre></td></tr></table></figure>
-
-]]></content>
-  </entry>
-  <entry>
-    <title>Python Development Environment</title>
-    <url>/2020/12/12/Python-Development-Environment/</url>
-    <content><![CDATA[<ol>
-<li><p>Install pyenv</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ brew install pyenv</span><br><span class="line">$ brew install pyenv-virtualenv</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Check the brew list</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ brew list</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>brew upgrade</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># package upgrade</span><br><span class="line">brew upgrade rbenv</span><br><span class="line"></span><br><span class="line"># all package upgrade</span><br><span class="line">brew upgrade</span><br><span class="line">   </span><br><span class="line"># brew update</span><br><span class="line">brew update</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Add the below to .bash_profile</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export PATH&#x3D;&quot;$HOME&#x2F;.pyenv&#x2F;bin:$PATH&quot;</span><br><span class="line">eval &quot;$(pyenv init -)&quot;</span><br><span class="line">eval &quot;$(pyenv virtualenv-init -)&quot;</span><br></pre></td></tr></table></figure>
-
-<p>Re-boot the bash</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ source .bash_profile</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Check the installable pyenv</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pyenv install --list</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Install 3.9.0 version</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pyenv install 3.9.0</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Check the version of pyenv</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pyenv versions</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/101994150-b16d9d80-3c85-11eb-9a3c-b000a544d4e6.png" alt="image"></p>
-</li>
-<li><p>Change the python version</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pyenv shell 3.9.0</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/101994408-d5ca7980-3c87-11eb-93a3-ae2339757fa3.png" alt="image"></p>
-</li>
-<li><p>Create virtualenv</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pyenv virtualenv 3.9.0 python3</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Check the python version</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pyenv versions</span><br><span class="line">$ pyenv shell python3</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/101994613-4de56f00-3c89-11eb-86f5-2640b5ec42da.png" alt="image"></p>
-</li>
-<li><p>Remove virtualenv (Option)</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pyenv uninstall python3</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Install Ipython</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip3 install ipython  </span><br><span class="line">pip3 list</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/101995009-5ee3af80-3c8c-11eb-8d1b-cb3ce0c293f0.png" alt="image"></p>
-</li>
-</ol>
-<ol start="13">
-<li>Install Jupyter notebook<pre><code class="aidl">pip3 install jupyter
-pip3 list</code></pre>
-<img src="https://user-images.githubusercontent.com/26552500/101995042-ab2eef80-3c8c-11eb-97fe-95c42d519f5a.png" alt="image"></li>
-</ol>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>Environment</tag>
-      </tags>
   </entry>
   <entry>
     <title>Predict Used Car Project (1)</title>
@@ -1037,6 +781,100 @@ pip3 list</code></pre>
 ]]></content>
   </entry>
   <entry>
+    <title>PostgreSQL_Basic (3)</title>
+    <url>/2020/02/12/PostgreSQL-Basic-3/</url>
+    <content><![CDATA[<h3 id="1-SQL-IN-BETWEEN-LIKE-IS-NULL"><a href="#1-SQL-IN-BETWEEN-LIKE-IS-NULL" class="headerlink" title="1. SQL [IN, BETWEEN, LIKE, IS NULL]"></a>1. SQL [IN, BETWEEN, LIKE, IS NULL]</h3><h4 id="1-IN"><a href="#1-IN" class="headerlink" title="1) IN"></a>1) IN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74402203-2adbfb80-4de9-11ea-915d-2a60b81d86d4.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74402265-552db900-4de9-11ea-8a2f-804997c5c93e.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74402303-75f60e80-4de9-11ea-83c1-18c5ab83797c.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74402325-86a68480-4de9-11ea-9596-ebb20cf5dd17.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74402370-a76eda00-4de9-11ea-9a9d-040999e399f0.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74402411-cb322000-4de9-11ea-86a3-0eaa93783308.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74402442-e3a23a80-4de9-11ea-8415-186b5fbca9cf.png" alt="image"></p>
+<h4 id="2-BETWEEN"><a href="#2-BETWEEN" class="headerlink" title="2) BETWEEN"></a>2) BETWEEN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74494851-cd54b700-4e9b-11ea-9780-928e76f4efcd.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74494892-ebbab280-4e9b-11ea-88ef-175ad1dc6717.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74494923-faa16500-4e9b-11ea-8812-13d09f20304d.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74494993-258bb900-4e9c-11ea-90e9-87855d9e7d07.png" alt="image"></p>
+<h4 id="3-LIKE"><a href="#3-LIKE" class="headerlink" title="3) LIKE"></a>3) LIKE</h4><p><img src="https://user-images.githubusercontent.com/26552500/74496441-5110a280-4ea0-11ea-8281-f02dd7422598.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74496482-6a195380-4ea0-11ea-8ff1-a35bc6473256.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74496536-8fa65d00-4ea0-11ea-8116-8392a54f1689.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74496563-a2b92d00-4ea0-11ea-8dd6-0f1a23a66beb.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74496585-b19fdf80-4ea0-11ea-9ee1-0b375280a2ca.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74496606-c1b7bf00-4ea0-11ea-9d6f-225b3c1efe35.png" alt="image"></p>
+<h4 id="4-IS-NULL"><a href="#4-IS-NULL" class="headerlink" title="4) IS NULL"></a>4) IS NULL</h4><p><img src="https://user-images.githubusercontent.com/26552500/74497339-03e20000-4ea3-11ea-9274-02ad7327820d.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74497375-2247fb80-4ea3-11ea-8c41-3fc2aafdad29.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74497966-b5cdfc00-4ea4-11ea-975a-472eef4f3a81.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74497984-c4b4ae80-4ea4-11ea-8c88-a49f7e8707b0.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74498007-d39b6100-4ea4-11ea-9a78-de116471f733.png" alt="image"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>PostgreSQL_Basic Exam (1)</title>
+    <url>/2020/02/13/PostgreSQL-Basic-Exam-1/</url>
+    <content><![CDATA[<h4 id="1-PAYMENT-DATE가-2007년-2월-7일부터-2007년-2월-15일인-customer-id-first-name-Last-name"><a href="#1-PAYMENT-DATE가-2007년-2월-7일부터-2007년-2월-15일인-customer-id-first-name-Last-name" class="headerlink" title="1) PAYMENT_DATE가 2007년 2월 7일부터 2007년 2월 15일인 customer_id, first_name, Last_name"></a>1) PAYMENT_DATE가 2007년 2월 7일부터 2007년 2월 15일인 customer_id, first_name, Last_name</h4><ul>
+<li>to_char / cast</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/26552500/74495493-98e1fa80-4e9d-11ea-9802-4eaf3e30e1b5.png" alt="image"></p>
+<h4 id="2"><a href="#2" class="headerlink" title="2)"></a>2)</h4><p><img src="https://user-images.githubusercontent.com/26552500/74498354-03973400-4ea6-11ea-834a-c72cacf72f9e.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74498877-a4d2ba00-4ea7-11ea-9428-8255061fcb80.png" alt="image"></p>
+<h4 id="3"><a href="#3" class="headerlink" title="3)"></a>3)</h4><p><img src="https://user-images.githubusercontent.com/26552500/74498915-bc11a780-4ea7-11ea-8aa8-a1b2b324a4dd.png" alt="image"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Predict Used Car Project (3)</title>
+    <url>/2020/01/30/Predict-Used-Car-Project-3/</url>
+    <content><![CDATA[<h3 id="Flask"><a href="#Flask" class="headerlink" title="Flask"></a>Flask</h3><p>reference : <a href="https://github.com/yyuu/pyenv/wiki/Common-build-problems" target="_blank" rel="noopener">https://github.com/yyuu/pyenv/wiki/Common-build-problems</a></p>
+<p>1 install 의존성 파일</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get upgrade</span><br><span class="line">$ sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev</span><br></pre></td></tr></table></figure>
+
+<p>2 install pip &amp; nginx</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get install python-pip nginx</span><br></pre></td></tr></table></figure>
+
+<p>3 set nginx</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># nginx를 시작하고 127.0.0.1:8000 ip를 외부 IP로 매핑 시켜줌</span><br><span class="line">$ sudo &#x2F;etc&#x2F;init.d&#x2F;nginx start</span><br><span class="line">$ sudo rm &#x2F;etc&#x2F;nginx&#x2F;sites-enabled&#x2F;default</span><br><span class="line">$ sudo touch &#x2F;etc&#x2F;nginx&#x2F;sites-available&#x2F;flask_settings</span><br><span class="line">$ sudo ln -s &#x2F;etc&#x2F;nginx&#x2F;sites-available&#x2F;flask_settings &#x2F;etc&#x2F;nginx&#x2F;sites-enabled&#x2F;flask_settings</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo vi &#x2F;etc&#x2F;nginx&#x2F;sites-enabled&#x2F;flask_settings</span><br><span class="line"></span><br><span class="line">------------------flask_settings-------------------- </span><br><span class="line">server &#123;</span><br><span class="line">    location &#x2F; &#123;</span><br><span class="line">        proxy_pass http:&#x2F;&#x2F;127.0.0.1:8000; </span><br><span class="line">        proxy_set_header Host $host; </span><br><span class="line">        proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">        &#125; </span><br><span class="line">&#125;</span><br><span class="line">------------------------------------------------------ </span><br><span class="line"></span><br><span class="line">$ sudo &#x2F;etc&#x2F;init.d&#x2F;nginx restart</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<ol start="4">
+<li>install flask &amp; gunicorn<br>$ pip install flask gunicorn</li>
+<li>excute flask app<br>$ gunicorn hello:app</li>
+<li>aws open port 80</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>Python_Basic (1)</title>
+    <url>/2020/02/12/Python-Basic-1/</url>
+    <content><![CDATA[<h4 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h4><h5 id="check-“Add-Python-path”"><a href="#check-“Add-Python-path”" class="headerlink" title="check “Add Python ~ path”"></a>check “Add Python ~ path”</h5><p><img src="https://user-images.githubusercontent.com/26552500/74404590-95dd0080-4df0-11ea-9fd6-30502b8babf2.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74404765-0552f000-4df1-11ea-945f-167a20cb3d58.png" alt="image"></p>
+<h4 id="Download-Visual"><a href="#Download-Visual" class="headerlink" title="Download Visual"></a>Download Visual</h4><p><a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">https://code.visualstudio.com/download</a></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74404703-d9d00580-4df0-11ea-991a-7f76be558aac.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74405769-8a3f0900-4df3-11ea-9c7e-8d5408289ed6.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74405865-c8d4c380-4df3-11ea-833b-ba5d57744b51.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74405929-fb7ebc00-4df3-11ea-9940-6c3ad6a362fd.png" alt="image"></p>
+<h4 id="Setup-Virtual-Env"><a href="#Setup-Virtual-Env" class="headerlink" title="Setup Virtual Env"></a>Setup Virtual Env</h4><p><img src="https://user-images.githubusercontent.com/26552500/74406320-f2421f00-4df4-11ea-9cab-20c697d829b3.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74406376-1c93dc80-4df5-11ea-9c5e-6e2e88cd8a13.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74406439-451bd680-4df5-11ea-89cf-8bbeb3af5609.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74406461-5664e300-4df5-11ea-9f8f-9788cf4cd401.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74406604-bc516a80-4df5-11ea-855c-c4cae42b52d0.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74406650-d8eda280-4df5-11ea-979d-d45091c671df.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74406858-574a4480-4df6-11ea-8af5-303efb3048a8.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74406898-6af5ab00-4df6-11ea-8062-1aa197c3d338.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74407012-9f696700-4df6-11ea-809f-e3502b4c4c8e.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F; See https:&#x2F;&#x2F;go.microsoft.com&#x2F;fwlink&#x2F;?LinkId&#x3D;733558</span><br><span class="line">    &#x2F;&#x2F; for the documentation about the tasks.json format</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;,</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;label&quot;: &quot;Project Label&quot;,</span><br><span class="line">            &quot;type&quot;: &quot;shell&quot;,</span><br><span class="line">            &quot;command&quot;: &quot;python&quot;,</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;$&#123;file&#125;&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;presentation&quot;: &#123;</span><br><span class="line">                &quot;reveal&quot;: &quot;always&quot;,</span><br><span class="line">                &quot;panel&quot;: &quot;new&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;options&quot;: &#123;</span><br><span class="line">                &quot;env&quot;: &#123;</span><br><span class="line">                    &quot;PYTHONIOENCODING&quot;: &quot;UTF-8&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;group&quot;: &#123;</span><br><span class="line">                &quot;kind&quot;: &quot;build&quot;,</span><br><span class="line">                &quot;isDefault&quot;: true</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/26552500/74407349-785f6500-4df7-11ea-8296-64ad5ae0939c.png" alt="image"></p>
+<hr>
+<h3 id="1-Function"><a href="#1-Function" class="headerlink" title="1. Function"></a>1. Function</h3><h4 id="1-Print"><a href="#1-Print" class="headerlink" title="1) Print"></a>1) Print</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Basic</span></span><br><span class="line">print(<span class="string">'hello'</span>)</span><br><span class="line">print(<span class="string">"hello"</span>)</span><br><span class="line">print(<span class="string">"""hello"""</span>)</span><br><span class="line">print(<span class="string">'''hello'''</span>)</span><br><span class="line"></span><br><span class="line">print()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Seperator</span></span><br><span class="line">print(<span class="string">'T'</span>, <span class="string">'E'</span>, <span class="string">'S'</span>, <span class="string">'T'</span>)</span><br><span class="line">print(<span class="string">'T'</span>, <span class="string">'E'</span>, <span class="string">'S'</span>, <span class="string">'T'</span>, sep=<span class="string">''</span>)</span><br><span class="line">print(<span class="string">'2020'</span>, <span class="string">'02'</span>, <span class="string">'13'</span>, sep=<span class="string">'-'</span>)</span><br><span class="line">print(<span class="string">'niceman'</span>, <span class="string">'gmail.com'</span>, sep=<span class="string">'@'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># End</span></span><br><span class="line">print(<span class="string">'welcome to'</span>, end=<span class="string">' '</span>)</span><br><span class="line">print(<span class="string">'the black parade'</span>, end=<span class="string">' '</span>)</span><br><span class="line">print(<span class="string">'piano note'</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'test'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Format </span></span><br><span class="line">print(<span class="string">'&#123;&#125; and &#123;&#125; '</span>.format(<span class="string">'you'</span>, <span class="string">'me'</span>))</span><br><span class="line">print(<span class="string">'&#123;0&#125; and &#123;1&#125;'</span>.format(<span class="string">'you'</span>, <span class="string">'me'</span>))</span><br><span class="line">print(<span class="string">'&#123;a&#125; and &#123;b&#125;'</span>.format(a=<span class="string">'you'</span>, b=<span class="string">'me'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># %s, %d, %f</span></span><br><span class="line">print(<span class="string">"%s's favorite number is %d"</span> % (<span class="string">'danny'</span>, <span class="number">7</span>))</span><br><span class="line">print(<span class="string">"test1: %5d, print: %4.2f"</span> % (<span class="number">777</span>, <span class="number">133.23</span>))</span><br><span class="line">print(<span class="string">"test1: &#123;0: 5d&#125;, print: &#123;1: 4.2f&#125;"</span>.format(<span class="number">777</span>, <span class="number">133.232</span>))</span><br><span class="line">print(<span class="string">"test1: &#123;a: 5d&#125;, print: &#123;b: 4.2f&#125;"</span>.format(a=<span class="number">776</span>, b=<span class="number">45432.342</span>))</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/26552500/74502215-62fb4100-4eb2-11ea-9505-f8b3c33db4b4.png" alt="image"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> this</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="comment"># input incoding</span></span><br><span class="line">print(sys.stdin.encoding)</span><br><span class="line"></span><br><span class="line"><span class="comment"># output incoding</span></span><br><span class="line">print(sys.stdout.encoding)</span><br><span class="line"></span><br><span class="line"><span class="comment"># loop</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">        print(<span class="string">"%d * %d ="</span> %(i,j), i*j)</span><br><span class="line"></span><br><span class="line"><span class="comment"># function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greeting</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"hello"</span>)</span><br><span class="line"></span><br><span class="line">greeting()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cooking</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Instance</span></span><br><span class="line">cookie = Cooking()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print information about class</span></span><br><span class="line">print(id(cookie))</span><br><span class="line">print(dir(cookie))</span><br><span class="line"></span><br><span class="line">print(cookie.__class__)</span><br><span class="line">print(cookie.__hash__)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">The Zen of Python, by Tim Peters</span><br><span class="line"></span><br><span class="line">Beautiful is better than ugly.</span><br><span class="line">Explicit is better than implicit.</span><br><span class="line">Simple is better than complex.</span><br><span class="line">Complex is better than complicated.</span><br><span class="line">Flat is better than nested.</span><br><span class="line">Sparse is better than dense.</span><br><span class="line">Readability counts.</span><br><span class="line">Special cases aren&#39;t special enough to break the rules.</span><br><span class="line">Although practicality beats purity.</span><br><span class="line">Errors should never pass silently.</span><br><span class="line">Unless explicitly silenced.</span><br><span class="line">In the face of ambiguity, refuse the temptation to guess.</span><br><span class="line">There should be one-- and preferably only one --obvious way to do it.</span><br><span class="line">Although that way may not be obvious at first unless you&#39;re Dutch.</span><br><span class="line">Now is better than never.</span><br><span class="line">Although never is often better than *right* now.</span><br><span class="line">If the implementation is hard to explain, it&#39;s a bad idea.</span><br><span class="line">If the implementation is easy to explain, it may be a good idea.</span><br><span class="line">Namespaces are one honking great idea -- let&#39;s do more of those!</span><br><span class="line">UTF-8</span><br><span class="line">UTF-8</span><br><span class="line">1 * 1 &#x3D; 1</span><br><span class="line">1 * 2 &#x3D; 2</span><br><span class="line">1 * 3 &#x3D; 3</span><br><span class="line">1 * 4 &#x3D; 4</span><br><span class="line">1 * 5 &#x3D; 5</span><br><span class="line">1 * 6 &#x3D; 6</span><br><span class="line">1 * 7 &#x3D; 7</span><br><span class="line">1 * 8 &#x3D; 8</span><br><span class="line">1 * 9 &#x3D; 9</span><br><span class="line">2 * 1 &#x3D; 2</span><br><span class="line">2 * 2 &#x3D; 4</span><br><span class="line">2 * 3 &#x3D; 6</span><br><span class="line">2 * 4 &#x3D; 8</span><br><span class="line">2 * 5 &#x3D; 10</span><br><span class="line">2 * 6 &#x3D; 12</span><br><span class="line">2 * 7 &#x3D; 14</span><br><span class="line">2 * 8 &#x3D; 16</span><br><span class="line">2 * 9 &#x3D; 18</span><br><span class="line">3 * 1 &#x3D; 3</span><br><span class="line">3 * 2 &#x3D; 6</span><br><span class="line">3 * 3 &#x3D; 9</span><br><span class="line">3 * 4 &#x3D; 12</span><br><span class="line">3 * 5 &#x3D; 15</span><br><span class="line">3 * 6 &#x3D; 18</span><br><span class="line">3 * 7 &#x3D; 21</span><br><span class="line">3 * 8 &#x3D; 24</span><br><span class="line">3 * 9 &#x3D; 27</span><br><span class="line">4 * 1 &#x3D; 4</span><br><span class="line">4 * 2 &#x3D; 8</span><br><span class="line">4 * 3 &#x3D; 12</span><br><span class="line">4 * 4 &#x3D; 16</span><br><span class="line">4 * 5 &#x3D; 20</span><br><span class="line">4 * 6 &#x3D; 24</span><br><span class="line">4 * 7 &#x3D; 28</span><br><span class="line">4 * 8 &#x3D; 32</span><br><span class="line">4 * 9 &#x3D; 36</span><br><span class="line">5 * 1 &#x3D; 5</span><br><span class="line">5 * 2 &#x3D; 10</span><br><span class="line">5 * 3 &#x3D; 15</span><br><span class="line">5 * 4 &#x3D; 20</span><br><span class="line">5 * 5 &#x3D; 25</span><br><span class="line">5 * 6 &#x3D; 30</span><br><span class="line">5 * 7 &#x3D; 35</span><br><span class="line">5 * 8 &#x3D; 40</span><br><span class="line">5 * 9 &#x3D; 45</span><br><span class="line">6 * 1 &#x3D; 6</span><br><span class="line">6 * 2 &#x3D; 12</span><br><span class="line">6 * 3 &#x3D; 18</span><br><span class="line">6 * 4 &#x3D; 24</span><br><span class="line">6 * 5 &#x3D; 30</span><br><span class="line">6 * 6 &#x3D; 36</span><br><span class="line">6 * 7 &#x3D; 42</span><br><span class="line">6 * 8 &#x3D; 48</span><br><span class="line">6 * 9 &#x3D; 54</span><br><span class="line">7 * 1 &#x3D; 7</span><br><span class="line">7 * 2 &#x3D; 14</span><br><span class="line">7 * 3 &#x3D; 21</span><br><span class="line">7 * 4 &#x3D; 28</span><br><span class="line">7 * 5 &#x3D; 35</span><br><span class="line">7 * 6 &#x3D; 42</span><br><span class="line">7 * 7 &#x3D; 49</span><br><span class="line">7 * 8 &#x3D; 56</span><br><span class="line">7 * 9 &#x3D; 63</span><br><span class="line">8 * 1 &#x3D; 8</span><br><span class="line">8 * 2 &#x3D; 16</span><br><span class="line">8 * 3 &#x3D; 24</span><br><span class="line">8 * 4 &#x3D; 32</span><br><span class="line">8 * 5 &#x3D; 40</span><br><span class="line">8 * 6 &#x3D; 48</span><br><span class="line">8 * 7 &#x3D; 56</span><br><span class="line">8 * 8 &#x3D; 64</span><br><span class="line">8 * 9 &#x3D; 72</span><br><span class="line">9 * 1 &#x3D; 9</span><br><span class="line">9 * 2 &#x3D; 18</span><br><span class="line">9 * 3 &#x3D; 27</span><br><span class="line">9 * 4 &#x3D; 36</span><br><span class="line">9 * 5 &#x3D; 45</span><br><span class="line">9 * 6 &#x3D; 54</span><br><span class="line">9 * 7 &#x3D; 63</span><br><span class="line">9 * 8 &#x3D; 72</span><br><span class="line">9 * 9 &#x3D; 81</span><br><span class="line">hello</span><br><span class="line">4337144080</span><br><span class="line">[&#39;__class__&#39;, &#39;__delattr__&#39;, &#39;__dict__&#39;, &#39;__dir__&#39;, &#39;__doc__&#39;, &#39;__eq__&#39;, &#39;__format__&#39;, &#39;__ge__&#39;, &#39;__getattribute__&#39;, &#39;__gt__&#39;, &#39;__hash__&#39;, &#39;__init__&#39;, &#39;__init_subclass__&#39;, &#39;__le__&#39;, &#39;__lt__&#39;, &#39;__module__&#39;, &#39;__ne__&#39;, &#39;__new__&#39;, &#39;__reduce__&#39;, &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__setattr__&#39;, &#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__subclasshook__&#39;, &#39;__weakref__&#39;]</span><br><span class="line">&lt;class &#39;__main__.Cooking&#39;&gt;</span><br><span class="line">&lt;method-wrapper &#39;__hash__&#39; of Cooking object at 0x102839110&gt;</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
     <title>Python_Code_1</title>
     <url>/2020/12/12/Python-Code-1/</url>
     <content><![CDATA[<ol>
@@ -1063,6 +901,129 @@ pip3 list</code></pre>
         <tag>Python</tag>
         <tag>Code</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Predict Used Car Project (2)</title>
+    <url>/2020/01/27/Predict-Used-Car-Project-2/</url>
+    <content><![CDATA[<p>Install CMake</p>
+<p>Enter the following command to download the source code:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ wget https:&#x2F;&#x2F;github.com&#x2F;Kitware&#x2F;CMake&#x2F;releases&#x2F;download&#x2F;v3.15.2&#x2F;cmake-3.15.2.tar.gz</span><br><span class="line">$ tar -zxvf cmake-3.15.2.tar.gz</span><br><span class="line">$ cd cmake-3.15.2</span><br><span class="line">.&#x2F;bootstrap</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/26552500/73230770-f22ef780-4143-11ea-863e-4c2221ac32ee.png" alt="image"></p>
+<p>You can now make it using the following command:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ make</span><br></pre></td></tr></table></figure>
+
+<p>And then install it as follows:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo make install</span><br></pre></td></tr></table></figure>
+
+<p>After the software is successfully installed, you can verify its installation and also if the correct version is<br> installed, through the following command:<br> <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ cmake --version</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>Install XGBoost</p>
+<p>Enter the following command to download the source code:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone --recursive https:&#x2F;&#x2F;github.com&#x2F;dmlc&#x2F;xgboost</span><br><span class="line">cd xgboost</span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br><span class="line">cmake ..</span><br><span class="line">make -j4</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<p>디스크용량 확인</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">df -P | grep -v ^Filesystem | awk &#39;&#123;sum +&#x3D; $2&#125; END &#123; print sum&#x2F;1024&#x2F;1024 &quot; GB&quot; &#125;&#39;</span><br></pre></td></tr></table></figure>
+
+<p>디스크 사용량</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">df -P | grep -v ^Filesystem | awk &#39;&#123;sum +&#x3D; $3&#125; END &#123; print sum&#x2F;1024&#x2F;1024 &quot; GB&quot; &#125;&#39;</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+  </entry>
+  <entry>
+    <title>Python Development Environment</title>
+    <url>/2020/12/12/Python-Development-Environment/</url>
+    <content><![CDATA[<ol>
+<li><p>Install pyenv</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ brew install pyenv</span><br><span class="line">$ brew install pyenv-virtualenv</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Check the brew list</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ brew list</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>brew upgrade</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># package upgrade</span><br><span class="line">brew upgrade rbenv</span><br><span class="line"></span><br><span class="line"># all package upgrade</span><br><span class="line">brew upgrade</span><br><span class="line">   </span><br><span class="line"># brew update</span><br><span class="line">brew update</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Add the below to .bash_profile</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export PATH&#x3D;&quot;$HOME&#x2F;.pyenv&#x2F;bin:$PATH&quot;</span><br><span class="line">eval &quot;$(pyenv init -)&quot;</span><br><span class="line">eval &quot;$(pyenv virtualenv-init -)&quot;</span><br></pre></td></tr></table></figure>
+
+<p>Re-boot the bash</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ source .bash_profile</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Check the installable pyenv</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pyenv install --list</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Install 3.9.0 version</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pyenv install 3.9.0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Check the version of pyenv</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pyenv versions</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/101994150-b16d9d80-3c85-11eb-9a3c-b000a544d4e6.png" alt="image"></p>
+</li>
+<li><p>Change the python version</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pyenv shell 3.9.0</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/101994408-d5ca7980-3c87-11eb-93a3-ae2339757fa3.png" alt="image"></p>
+</li>
+<li><p>Create virtualenv</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pyenv virtualenv 3.9.0 python3</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Check the python version</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pyenv versions</span><br><span class="line">$ pyenv shell python3</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/101994613-4de56f00-3c89-11eb-86f5-2640b5ec42da.png" alt="image"></p>
+</li>
+<li><p>Remove virtualenv (Option)</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pyenv uninstall python3</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Install Ipython</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip3 install ipython  </span><br><span class="line">pip3 list</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/101995009-5ee3af80-3c8c-11eb-8d1b-cb3ce0c293f0.png" alt="image"></p>
+</li>
+</ol>
+<ol start="13">
+<li>Install Jupyter notebook<pre><code class="aidl">pip3 install jupyter
+pip3 list</code></pre>
+<img src="https://user-images.githubusercontent.com/26552500/101995042-ab2eef80-3c8c-11eb-97fe-95c42d519f5a.png" alt="image"></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Environment</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python - Pickle</title>
+    <url>/2020/02/05/Python-Pickle/</url>
+    <content><![CDATA[<p>Input</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line">pw = <span class="string">'12345'</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'pw.plk'</span>, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    pickle.dump(pw, f)</span><br></pre></td></tr></table></figure>
+
+<p>Output</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">with open(&#39;pw.plk&#39;, &#39;rb&#39;) as f:</span><br><span class="line">    pw &#x3D; pickle.load(f) # 단 한줄씩 읽어옴</span><br></pre></td></tr></table></figure>
+
+]]></content>
+  </entry>
+  <entry>
+    <title>Hello world</title>
+    <url>/2020/01/22/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>linux</title>
@@ -1154,6 +1115,48 @@ pip3 list</code></pre>
 <p><img src="https://user-images.githubusercontent.com/26552500/91771956-84e7b700-eba9-11ea-8b1b-882b85f981c9.png" alt="image"></p>
 <p>chmod +x backup : 파일에 실행 권한 주기<br><img src="https://user-images.githubusercontent.com/26552500/91771828-4651fc80-eba9-11ea-9997-0a8c9be3e9d7.png" alt="image"></p>
 <p>./backup :  backup 스크립트 실행<br><img src="https://user-images.githubusercontent.com/26552500/91772230-148d6580-ebaa-11ea-9832-20d71e32a69d.png" alt="image"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Regular Express</title>
+    <url>/2020/08/27/Regular-Express/</url>
+    <content><![CDATA[<h3 id="1-Regular-expressions"><a href="#1-Regular-expressions" class="headerlink" title="1. Regular expressions"></a>1. Regular expressions</h3><h4 id="Regular-expressions-are-one-of-the-ways-to-process-character-strings-and-are-a-means-to-make-the-process-of’searching’-or’substituting’-characters-in-a-specific-condition-very-simple"><a href="#Regular-expressions-are-one-of-the-ways-to-process-character-strings-and-are-a-means-to-make-the-process-of’searching’-or’substituting’-characters-in-a-specific-condition-very-simple" class="headerlink" title="Regular expressions are one of the ways to process character strings and are a means to make the process of’searching’ or’substituting’ characters in a specific condition very simple."></a>Regular expressions are one of the ways to process character strings and are a means to make the process of’searching’ or’substituting’ characters in a specific condition very simple.</h4><h3 id="2-Term"><a href="#2-Term" class="headerlink" title="2. Term"></a>2. Term</h3><ul>
+<li><p>^x : x 문자로 시작 </p>
+</li>
+<li><p>x$ : x 문자로 종료</p>
+</li>
+<li><p>.x : 임의의 한 문자의 자리수를 표현하며 문자열이 x 로 끝남</p>
+</li>
+<li><p>x+ : x 문자가 1개 이상</p>
+</li>
+<li><p>x? : x 문자가 0개 ~1개</p>
+</li>
+<li><p>x* : x 문자가 0개 ~ 여러개</p>
+</li>
+<li><p>x|y : or 를 표현하며 x 또는 y 문자<br><img src="https://user-images.githubusercontent.com/26552500/91465533-82a4f600-e853-11ea-88cb-add460b6ba36.png" alt="image"></p>
+</li>
+</ul>
+<ul>
+<li>(x) :그룹을 표현하며 x 를 그룹으로 처리<br><img src="https://user-images.githubusercontent.com/26552500/91465533-82a4f600-e853-11ea-88cb-add460b6ba36.png" alt="image"></li>
+</ul>
+<ul>
+<li><p>(x)(y):x 그룹을 찾고 그 뒤에 있는 y값을 찾음<br><img src="https://user-images.githubusercontent.com/26552500/91466181-5d64b780-e854-11ea-876a-48a7e5cacfa9.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91466400-ad437e80-e854-11ea-8fa8-f2841802c0c3.png" alt="image"></p>
+</li>
+<li><p>x.?? : 앞에 있는 ?의 최소값인 0개로 검색 (? lazy)<br><img src="https://user-images.githubusercontent.com/26552500/91467435-30b19f80-e856-11ea-829e-7bf085ef9c8d.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91467497-445d0600-e856-11ea-9b83-f4357fa81e20.png" alt="image"></p>
+</li>
+<li><p>x.+? : 앞에 있는 +의 최소값인 1개로 검색 (? lazy)<br><img src="https://user-images.githubusercontent.com/26552500/91467651-779f9500-e856-11ea-9efc-067cb69f1f10.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91467705-8c7c2880-e856-11ea-958f-0152cf944e4c.png" alt="image"></p>
+</li>
+<li><p>x+(?=y) : 끝이 y로 끝나는 x를 검색<br><img src="https://user-images.githubusercontent.com/26552500/91468977-635c9780-e858-11ea-9603-74372293e2d5.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91469039-7a02ee80-e858-11ea-8e62-693e414dcf77.png" alt="image"></p>
+</li>
+</ul>
+<h3 id="3-Example"><a href="#3-Example" class="headerlink" title="3. Example"></a>3. Example</h3><ul>
+<li><p>전화번호 : ([\d]{3}) \d{3}-\d{4}  </p>
+<pre><code>\([0-9]{3}\) [0-9]{3}-[0-9]{4}</code></pre><p><img src="https://user-images.githubusercontent.com/26552500/91470069-d87c9c80-e859-11ea-8076-6aadd25d4334.png" alt="image"></p>
+</li>
+<li><p>전화번호 (중간에 8또는 1 제외): [^8|^1][0-9]{2}-[0-9]{4}<br><img src="https://user-images.githubusercontent.com/26552500/91471001-0f9f7d80-e85b-11ea-80fd-0d6d374ab14f.png" alt="image"></p>
+</li>
+</ul>
+<h3 id="4-Test-site"><a href="#4-Test-site" class="headerlink" title="4. Test site"></a>4. Test site</h3><p><a href="https://regexr.com/" target="_blank" rel="noopener">https://regexr.com/</a></p>
 ]]></content>
   </entry>
 </search>
