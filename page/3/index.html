@@ -359,6 +359,35 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href = "/2020/02/05/Python-Pickle/" >
+            
+                <span>Python - Pickle</span>
+        </a>
+        <div class="abstract-content">
+            Input
+1234import picklepw = '12345'with open('pw.plk', 'wb') as f:    pickle.dump(pw, f)
+
+Output
+12with open(&#39;pw.plk&#39;, &#39;rb&#39;) as f:    pw &#x3D; pickle.load(f) # 단 한줄씩 읽어옴
+
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/05</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href = "/2020/02/01/PostgreSQL-Basic-1/" >
             
                 <span>PostgreSQL_Basic (1)</span>
@@ -642,55 +671,6 @@ API 를 사용하게 되면 데이터는 JSON의 형태로 데이터가 넘어�
             <!-- date  -->
             <div class="abstract-date">
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/25</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "AWS">AWS</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Docker">Docker</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "JIRA">JIRA</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2020/01/24/AWS-Docker-Cloud-Server-2/" >
-            
-                <span>AWS/Docker Cloud Server (2)</span>
-        </a>
-        <div class="abstract-content">
-            1 AWS 설치
-
-
-
-
-2 Docker 설치
-
-[Command] - 설치 1sudo yum install docker-io   -- yes
-[Command] - 확인   
-1docker
-
-
-[Command] - 도커리스트를 실행시켜줌   
-1sudo systemctl start docker
-
-[Command] - 현재 접속 유저의 계정 정보와 root 계정이 달라서 발생된 에러라 해당 부분에 권한을 주고 다시 실행    
-1sudo setfacl -m user:ec2-user:rw &#x2F;var&#x2F;run&#x2F;d...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/01/24</span>
             </div>
             <!-- tags  -->
             
@@ -1305,9 +1285,18 @@ API 를 사용하게 되면 데이터는 JSON의 형태로 데이터가 넘어�
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 32
+        Total : 33
         </div>
         <!-- search  -->
         
@@ -1320,6 +1309,11 @@ API 를 사용하게 되면 데이터는 JSON의 형태로 데이터가 넘어�
     
     <div class="archive-year"> 2020 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/29</span><a class="archive-post-title" href= "/2020/12/29/Basic-Data-Engineer-6-Database-2/" >Basic_Data_Engineer_6_Database_2</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1494,29 +1488,31 @@ API 를 사용하게 되면 데이터는 JSON의 형태로 데이터가 넘어�
     
         <span class="sidebar-tag-name" data-tags="Data_Engineer"><span class="iconfont-archer">&#xe606;</span>Data_Engineer</span>
     
-        <span class="sidebar-tag-name" data-tags="SQL"><span class="iconfont-archer">&#xe606;</span>SQL</span>
-    
-        <span class="sidebar-tag-name" data-tags="API"><span class="iconfont-archer">&#xe606;</span>API</span>
-    
         <span class="sidebar-tag-name" data-tags="Unix"><span class="iconfont-archer">&#xe606;</span>Unix</span>
     
         <span class="sidebar-tag-name" data-tags="Atom"><span class="iconfont-archer">&#xe606;</span>Atom</span>
     
         <span class="sidebar-tag-name" data-tags="Datebase"><span class="iconfont-archer">&#xe606;</span>Datebase</span>
     
-        <span class="sidebar-tag-name" data-tags="Git"><span class="iconfont-archer">&#xe606;</span>Git</span>
+        <span class="sidebar-tag-name" data-tags="Nosql"><span class="iconfont-archer">&#xe606;</span>Nosql</span>
     
-        <span class="sidebar-tag-name" data-tags="Mysql"><span class="iconfont-archer">&#xe606;</span>Mysql</span>
+        <span class="sidebar-tag-name" data-tags="SQL"><span class="iconfont-archer">&#xe606;</span>SQL</span>
+    
+        <span class="sidebar-tag-name" data-tags="API"><span class="iconfont-archer">&#xe606;</span>API</span>
+    
+        <span class="sidebar-tag-name" data-tags="Git"><span class="iconfont-archer">&#xe606;</span>Git</span>
     
         <span class="sidebar-tag-name" data-tags="Spark"><span class="iconfont-archer">&#xe606;</span>Spark</span>
     
         <span class="sidebar-tag-name" data-tags="Pyspark"><span class="iconfont-archer">&#xe606;</span>Pyspark</span>
     
+        <span class="sidebar-tag-name" data-tags="Mysql"><span class="iconfont-archer">&#xe606;</span>Mysql</span>
+    
         <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
     
-        <span class="sidebar-tag-name" data-tags="Environment"><span class="iconfont-archer">&#xe606;</span>Environment</span>
-    
         <span class="sidebar-tag-name" data-tags="Code"><span class="iconfont-archer">&#xe606;</span>Code</span>
+    
+        <span class="sidebar-tag-name" data-tags="Environment"><span class="iconfont-archer">&#xe606;</span>Environment</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -1553,9 +1549,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="Today-I-Learn"><span class="iconfont-archer">&#xe60a;</span>Today-I-Learn</span>
     
-        <span class="sidebar-category-name" data-categories="Python"><span class="iconfont-archer">&#xe60a;</span>Python</span>
-    
         <span class="sidebar-category-name" data-categories="Code"><span class="iconfont-archer">&#xe60a;</span>Code</span>
+    
+        <span class="sidebar-category-name" data-categories="Python"><span class="iconfont-archer">&#xe60a;</span>Python</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
