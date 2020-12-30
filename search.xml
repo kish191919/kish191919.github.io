@@ -454,6 +454,24 @@ Create issue
 <p><img src="https://user-images.githubusercontent.com/26552500/103237526-7b7b1b00-490d-11eb-8d5e-78d857d6b715.png" alt="image"></p>
 </li>
 </ul>
+<ul>
+<li>Quiz<br>1) 장르가 가장 많은 가수 상위 5명 </li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/26552500/103328253-b5d3dd80-4a1d-11eb-8213-3eefa0fcade2.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select id, name, count(*) as num from artists left join artist_genres on artists.id &#x3D; artist_genres.artist_id group by artists.id order by num desc limit 5;</span><br></pre></td></tr></table></figure>
+
+<p>2) 장르 종류별 가장 많은 것 상위 20개</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/103328305-ff242d00-4a1d-11eb-819c-dd2d8c3ff745.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select genre, count(*) from artist_genres group by 1 order by 2 desc limit 20;</span><br></pre></td></tr></table></figure>
+
+<p>3) popularity 가 가장 높은 가수 상위 20명</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/103328376-50ccb780-4a1e-11eb-9878-5713e8809c6a.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select popularity, name from artists order by 1 desc limit 20;</span><br></pre></td></tr></table></figure>
+
+<p>4) popularity 가 80 이상인 것 중에 가장 많은 장르 상위 20개</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/103328625-25969800-4a1f-11eb-930d-83b0504c2f8f.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select genre, count(*) from artists t1 join artist_genres t2 on t2.artist_id &#x3D; t1.id where t1.popularity &gt; 80 group by 1 order by 2 desc limit 20;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <tags>
         <tag>Datebase</tag>
