@@ -1281,4 +1281,18 @@ pip3 list</code></pre>
 <p>./backup :  backup 스크립트 실행<br><img src="https://user-images.githubusercontent.com/26552500/91772230-148d6580-ebaa-11ea-9832-20d71e32a69d.png" alt="image"></p>
 ]]></content>
   </entry>
+  <entry>
+    <title>Basic_Data_Engineer_7_Data_Lake_1</title>
+    <url>/2020/12/30/Basic-Data-Engineer-7-Data-Lake-1/</url>
+    <content><![CDATA[<ul>
+<li><p>Data Lake :<br>1) Data Structure : Raw<br>2) Purpose of Data : Not yet Determined<br>3) Users : Data Scientists<br>4) Accessibility : High / Quck to update</p>
+</li>
+<li><p>Data Warehouse :<br>1) Data Structure : Processed<br>2) Purpose of Data : In Use<br>3) Users : Business Professionals<br>4) Accessibility : Complicated / Costly</p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>DataLake</tag>
+      </tags>
+  </entry>
 </search>
