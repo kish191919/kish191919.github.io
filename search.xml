@@ -116,87 +116,6 @@ Create issue
       </tags>
   </entry>
   <entry>
-    <title>Basic_Data_Engineer_2_SQLite_1 </title>
-    <url>/2020/12/22/Basic-Data-Engineer-2-SQLite-1/</url>
-    <content><![CDATA[<p>Make New mytable</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/102947643-5f005e00-4489-11eb-9690-a0e794e03351.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE mytable (id INT, name VARCHAR(255), debut DATE);</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>Make New mytable2 (PRIMARY KEY AUTOINCREMENT)</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/102947935-2a40d680-448a-11eb-8825-307541ab5d7c.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE mytable2 (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(255), debut DATE);</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>Input Data into mytable2</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/102947973-52303a00-448a-11eb-883b-918980b663d2.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">INSERT INTO mytable2 (name, debut) VALUES (&#39;danny&#39;,&#39;2019-09-11&#39;);</span><br><span class="line">SELECT * FROM mytable2;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>Top 20 salary in NYA</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/102946147-632a7c80-4485-11eb-8266-86e31a263927.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM Salaries</span><br><span class="line">WHERE yearId &#x3D; &#39;2010&#39;</span><br><span class="line">AND teamID &#x3D; &#39;NYA&#39;</span><br><span class="line">ORDER BY Salary DESC </span><br><span class="line">LIMIT 20;</span><br></pre></td></tr></table></figure>
-<hr>
-<p>rodrial01 yealy salary</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/102946232-a553be00-4485-11eb-93d0-a2d567c0356b.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM salaries</span><br><span class="line">WHERE playerID &#x3D; &#39;rodrial01&#39;</span><br><span class="line">ORDER BY yearID ASC;</span><br></pre></td></tr></table></figure>
-<hr>
-<p>rodrial01 total salary</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/102946282-cd432180-4485-11eb-99a2-363f3a205346.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT SUM(salary)</span><br><span class="line">FROM salaries</span><br><span class="line">WHERE playerID &#x3D; &#39;rodrial01&#39;;</span><br></pre></td></tr></table></figure>
-<hr>
-<p>10 Player Names [MySQL Select CONCAT(nameFirst, nameLast)]</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/102946361-07acbe80-4486-11eb-8c18-7864f87e57be.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT nameFirst|| &#39; &#39; || nameLast AS Name</span><br><span class="line">FROM people</span><br><span class="line">LIMIT 10;</span><br></pre></td></tr></table></figure>
-<hr>
-<p>Player name : rodrial01</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/102946414-375bc680-4486-11eb-81b2-ac8c57936c7a.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT nameFirst|| &#39; &#39; || nameLast AS Name</span><br><span class="line">FROM people</span><br><span class="line">WHERE playerID &#x3D; &#39;rodrial01&#39;;</span><br></pre></td></tr></table></figure>
-<hr>
-<p>Name and Count</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/102946517-830e7000-4486-11eb-9a3d-4d59710d903a.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT nameFirst|| &#39; &#39; || nameLast AS Name, COUNT(*) AS Num</span><br><span class="line">FROM people</span><br><span class="line">GROUP BY Name</span><br><span class="line">ORDER BY Num DESC;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>total_salary per team</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/102946562-a3d6c580-4486-11eb-961f-8f98dfb20602.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT teamID, SUM(salary) AS total_salary</span><br><span class="line">FROM Salaries</span><br><span class="line">GROUP BY teamID</span><br><span class="line">ORDER BY total_salary DESC;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>total salary per year and team</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/102946596-c10b9400-4486-11eb-8572-2bdffde2645a.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT yearID, teamID, SUM(salary) AS total_salary</span><br><span class="line">FROM Salaries</span><br><span class="line">GROUP BY yearID, teamID</span><br><span class="line">ORDER BY total_salary DESC;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>LEFT JOIN</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/102946650-e4ceda00-4486-11eb-85a5-e31c6d082a79.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM people t1</span><br><span class="line">LEFT JOIN AllstarFull t2 </span><br><span class="line">ON t2.playerID &#x3D; t1.playerID;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>Left Join people with AllstarFull and then count the t1.playerID</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/102946701-04660280-4487-11eb-8ed0-3574e0ffe15f.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT COUNT(DISTINCT t1.playerID)</span><br><span class="line">FROM people t1</span><br><span class="line">LEFT JOIN AllstarFull t2 </span><br><span class="line">ON t2.playerID &#x3D; t1.playerID;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>Join people with AllstarFull and then count the t1.playerID</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/102946776-45f6ad80-4487-11eb-86f1-2457e220a913.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT COUNT(DISTINCT t1.playerID)</span><br><span class="line">FROM people t1</span><br><span class="line">JOIN AllstarFull t2 </span><br><span class="line">ON t2.playerID &#x3D; t1.playerID;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>한번도 allstar에 포함 안된 선수들</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/102946838-6aeb2080-4487-11eb-9f7c-5a79b04bfb15.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT COUNT(DISTINCT t1.playerID)</span><br><span class="line">FROM people t1</span><br><span class="line">LEFT JOIN AllstarFull t2 </span><br><span class="line">ON t2.playerID &#x3D; t1.playerID</span><br><span class="line">WHERE t2.playerID IS NULL;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>t1.plyerID and count </p>
-<p><img src="https://user-images.githubusercontent.com/26552500/102946869-89e9b280-4487-11eb-86be-8739b022262f.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT t1.playerID, COUNT(*) AS count</span><br><span class="line">FROM people t1</span><br><span class="line">LEFT JOIN AllstarFull t2 </span><br><span class="line">ON t2.playerID &#x3D; t1.playerID</span><br><span class="line">GROUP BY t1.playerID</span><br><span class="line">ORDER BY count DESC</span><br><span class="line">LIMIT 20;</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>Data_Engineer</tag>
-        <tag>SQL</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>AWS/Docker Cloud Server (1)</title>
     <url>/2020/01/23/AWS-Docker-Cloud-Server-1/</url>
     <content><![CDATA[<p>1 AWS:<br>Amazon Web Service 의 약자입니다.<br>전통적으로 많은 기업들은 IDC라고 해서 직접 서버를 구매하고 운영 하는 방식으로 서버를 관리해왔습니다.<br>하지만 점차 클라우드 서버의 데이터 센터가 커지고 속도가 향상되면서, 기업이 큰 자본을 들여서 서버를 관리해야하고 유지해야할<br>이유들이 점점 사라져갔습니다. 그와 반면 아마존에서는 계속 데이터 센터를 확충하고 1시간 단위의 과금 구조를 채택함으로써<br>또한 서버를 빠르게 올리거나 내릴 수 있고 다양한 세팅들을 빠르게 할 수 있다는 점에서 매력이 커지고 있습니다.</p>
@@ -340,6 +259,148 @@ Create issue
       </tags>
   </entry>
   <entry>
+    <title>Basic_Data_Engineer_2_SQLite_1 </title>
+    <url>/2020/12/22/Basic-Data-Engineer-2-SQLite-1/</url>
+    <content><![CDATA[<p>Make New mytable</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102947643-5f005e00-4489-11eb-9690-a0e794e03351.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE mytable (id INT, name VARCHAR(255), debut DATE);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>Make New mytable2 (PRIMARY KEY AUTOINCREMENT)</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102947935-2a40d680-448a-11eb-8825-307541ab5d7c.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE mytable2 (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(255), debut DATE);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>Input Data into mytable2</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102947973-52303a00-448a-11eb-883b-918980b663d2.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">INSERT INTO mytable2 (name, debut) VALUES (&#39;danny&#39;,&#39;2019-09-11&#39;);</span><br><span class="line">SELECT * FROM mytable2;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>Top 20 salary in NYA</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102946147-632a7c80-4485-11eb-8266-86e31a263927.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM Salaries</span><br><span class="line">WHERE yearId &#x3D; &#39;2010&#39;</span><br><span class="line">AND teamID &#x3D; &#39;NYA&#39;</span><br><span class="line">ORDER BY Salary DESC </span><br><span class="line">LIMIT 20;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>rodrial01 yealy salary</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102946232-a553be00-4485-11eb-93d0-a2d567c0356b.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM salaries</span><br><span class="line">WHERE playerID &#x3D; &#39;rodrial01&#39;</span><br><span class="line">ORDER BY yearID ASC;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>rodrial01 total salary</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102946282-cd432180-4485-11eb-99a2-363f3a205346.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT SUM(salary)</span><br><span class="line">FROM salaries</span><br><span class="line">WHERE playerID &#x3D; &#39;rodrial01&#39;;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>10 Player Names [MySQL Select CONCAT(nameFirst, nameLast)]</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102946361-07acbe80-4486-11eb-8c18-7864f87e57be.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT nameFirst|| &#39; &#39; || nameLast AS Name</span><br><span class="line">FROM people</span><br><span class="line">LIMIT 10;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>Player name : rodrial01</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102946414-375bc680-4486-11eb-81b2-ac8c57936c7a.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT nameFirst|| &#39; &#39; || nameLast AS Name</span><br><span class="line">FROM people</span><br><span class="line">WHERE playerID &#x3D; &#39;rodrial01&#39;;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>Name and Count</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102946517-830e7000-4486-11eb-9a3d-4d59710d903a.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT nameFirst|| &#39; &#39; || nameLast AS Name, COUNT(*) AS Num</span><br><span class="line">FROM people</span><br><span class="line">GROUP BY Name</span><br><span class="line">ORDER BY Num DESC;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>total_salary per team</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102946562-a3d6c580-4486-11eb-961f-8f98dfb20602.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT teamID, SUM(salary) AS total_salary</span><br><span class="line">FROM Salaries</span><br><span class="line">GROUP BY teamID</span><br><span class="line">ORDER BY total_salary DESC;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>total salary per year and team</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102946596-c10b9400-4486-11eb-8572-2bdffde2645a.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT yearID, teamID, SUM(salary) AS total_salary</span><br><span class="line">FROM Salaries</span><br><span class="line">GROUP BY yearID, teamID</span><br><span class="line">ORDER BY total_salary DESC;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>LEFT JOIN</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102946650-e4ceda00-4486-11eb-85a5-e31c6d082a79.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT *</span><br><span class="line">FROM people t1</span><br><span class="line">LEFT JOIN AllstarFull t2 </span><br><span class="line">ON t2.playerID &#x3D; t1.playerID;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>Left Join people with AllstarFull and then count the t1.playerID</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102946701-04660280-4487-11eb-8ed0-3574e0ffe15f.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT COUNT(DISTINCT t1.playerID)</span><br><span class="line">FROM people t1</span><br><span class="line">LEFT JOIN AllstarFull t2 </span><br><span class="line">ON t2.playerID &#x3D; t1.playerID;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>Join people with AllstarFull and then count the t1.playerID</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102946776-45f6ad80-4487-11eb-86f1-2457e220a913.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT COUNT(DISTINCT t1.playerID)</span><br><span class="line">FROM people t1</span><br><span class="line">JOIN AllstarFull t2 </span><br><span class="line">ON t2.playerID &#x3D; t1.playerID;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>한번도 allstar에 포함 안된 선수들</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102946838-6aeb2080-4487-11eb-9f7c-5a79b04bfb15.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT COUNT(DISTINCT t1.playerID)</span><br><span class="line">FROM people t1</span><br><span class="line">LEFT JOIN AllstarFull t2 </span><br><span class="line">ON t2.playerID &#x3D; t1.playerID</span><br><span class="line">WHERE t2.playerID IS NULL;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>t1.plyerID and count </p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102946869-89e9b280-4487-11eb-86be-8739b022262f.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT t1.playerID, COUNT(*) AS count</span><br><span class="line">FROM people t1</span><br><span class="line">LEFT JOIN AllstarFull t2 </span><br><span class="line">ON t2.playerID &#x3D; t1.playerID</span><br><span class="line">GROUP BY t1.playerID</span><br><span class="line">ORDER BY count DESC</span><br><span class="line">LIMIT 20;</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>Data_Engineer</tag>
+        <tag>SQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Basic_Data_Engineer_7_Data_Lake_1</title>
+    <url>/2020/12/30/Basic-Data-Engineer-7-Data-Lake-1/</url>
+    <content><![CDATA[<ul>
+<li><p>Data Lake :<br>1) Data Structure : Raw<br>2) Purpose of Data : Not yet Determined<br>3) Users : Data Scientists<br>4) Accessibility : High / Quck to update</p>
+</li>
+<li><p>Data Warehouse :<br>1) Data Structure : Processed<br>2) Purpose of Data : In Use<br>3) Users : Business Professionals<br>4) Accessibility : Complicated / Costly</p>
+</li>
+<li><p>Presto (SQL)<br>1) Presto is a high performance, distributed SQL query engine for big data.<br>2) One can even query data from multiple data sources within a single query</p>
+</li>
+<li><p>Severless : Lambda (User가 늘더라도 workload가 컨트롤 됨) , Athena<br>1) 시스템 확장성, 가용성 측면에서 매우 뛰어남.<br>2) 서버 환경을 구축할 때 비용이 드는데, 사용 고객이 가변적인 경우 자원 낭비는 필연적이며 이러한 제약을 극복하기 위해, serverless라는 개념이 등장하였다<br>3) Request가 오면 그에 맞게 리소스를 선형적으로 늘려나감(병철 처리 기반)</p>
+</li>
+<li><p>Athena :presto 기반의 AWS 빅데이처 처리 리소스(플랫폼)<br>1) partion을 기반으로 s3에 저장된 data를 빠르게 가져와서 ad-hoc분석을 쉽게 해 준다.<br>2) 복수의 데이터 소스들로 부터 데이터를 합치기에 용이하다.<br>3) nested 형식의 데이터를 파싱하는 강력한 쿼리 메소드를 지원한다.<br>4) partition별로 저장된 parquet 포멧의 데이터를 다룰 수 있음.</p>
+</li>
+</ul>
+<ul>
+<li><p>Create table at Athena</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE EXTERNAL TABLE IF NOT EXISTS top_tracks (</span><br><span class="line">  &#96;id&#96; string,</span><br><span class="line">  &#96;artist_id&#96; string,</span><br><span class="line">  &#96;name&#96; string,</span><br><span class="line">  &#96;popularity&#96; int,</span><br><span class="line">  &#96;external_url&#96; string </span><br><span class="line">) PARTITIONED BY (dt string)</span><br><span class="line">STORED AS PARQUET LOCATION &#39;s3:&#x2F;&#x2F;spotify-artist-project&#x2F;top-tracks&#x2F;&#39; tblproperties(&quot;parquet.compress&quot;&#x3D;&quot;SNAPPY&quot;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Use partition</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">MSCK REPAIR TABLE top_tracks</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>반드시 Partition column을 사용하여 데이터를 query함. otherwise, all data will be caculated.</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># the recent data</span><br><span class="line">WHERE CAST(dt as date) &#x3D; CURRENT_DATE</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103426089-796ac380-4b7c-11eb-9be4-18e6a0cdb733.png" alt="image"></p>
+</li>
+<li><p>7일 전까지의 데이터 중 10개만 확</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT * FROM top_tracks</span><br><span class="line">WHERE CAST(dt AS date) &gt;&#x3D; CURRENT_DATE - INTERVAL &#39;7&#39; DAY</span><br><span class="line">LIMIT 10</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/26552500/103425804-7242b600-4b7a-11eb-9958-090b05209a2e.png" alt="image"></p>
+<ul>
+<li>Presto function<br>Link : <a href="https://prestodb.io/docs/current/functions.html" target="_blank" rel="noopener">https://prestodb.io/docs/current/functions.html</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>DataLake</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Basic_Data_Engineer_6_Database_2</title>
+    <url>/2020/12/29/Basic-Data-Engineer-6-Database-2/</url>
+    <content><![CDATA[<ul>
+<li><p>Create table at DynamoDB<br><img src="https://user-images.githubusercontent.com/26552500/103329457-5fb56900-4a22-11eb-82bf-092d7c8118fb.png" alt="image"></p>
+</li>
+<li><p>Provisioned (free-tier eligible) : 이미 용량이 확인될 경우 체크<br><img src="https://user-images.githubusercontent.com/26552500/103329728-b4a5af00-4a23-11eb-8d5c-c14cf3e3d444.png" alt="image"></p>
+</li>
+</ul>
+<ul>
+<li>partition key :  artist_id</li>
+<li>sort key : id<br><img src="https://user-images.githubusercontent.com/26552500/103330599-dc971180-4a27-11eb-9667-07777b49bbef.png" alt="image"></li>
+</ul>
+<ul>
+<li>다른 키값으로 사용할 시 (using index)<br><img src="https://user-images.githubusercontent.com/26552500/103330774-824a8080-4a28-11eb-8d60-38a29e8221b0.png" alt="image"></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Nosql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Basic_Data_Engineer_5_Database_1</title>
     <url>/2020/12/25/Basic-Data-Engineer-5-Database-1/</url>
     <content><![CDATA[<ul>
@@ -478,37 +539,12 @@ Create issue
       </tags>
   </entry>
   <entry>
-    <title>Basic_Data_Engineer_6_Database_2</title>
-    <url>/2020/12/29/Basic-Data-Engineer-6-Database-2/</url>
-    <content><![CDATA[<ul>
-<li><p>Create table at DynamoDB<br><img src="https://user-images.githubusercontent.com/26552500/103329457-5fb56900-4a22-11eb-82bf-092d7c8118fb.png" alt="image"></p>
-</li>
-<li><p>Provisioned (free-tier eligible) : 이미 용량이 확인될 경우 체크<br><img src="https://user-images.githubusercontent.com/26552500/103329728-b4a5af00-4a23-11eb-8d5c-c14cf3e3d444.png" alt="image"></p>
-</li>
-</ul>
-<ul>
-<li>partition key :  artist_id</li>
-<li>sort key : id<br><img src="https://user-images.githubusercontent.com/26552500/103330599-dc971180-4a27-11eb-9667-07777b49bbef.png" alt="image"></li>
-</ul>
-<ul>
-<li>다른 키값으로 사용할 시 (using index)<br><img src="https://user-images.githubusercontent.com/26552500/103330774-824a8080-4a28-11eb-8d60-38a29e8221b0.png" alt="image"></li>
-</ul>
+    <title>DS730_1_High_Performance_Computing_&amp;_MapReduce_Introduction</title>
+    <url>/2020/09/01/DS730-1-High-Performance-Computing-MapReduce-Introduction/</url>
+    <content><![CDATA[<p>Author: SAS</p>
+<p>Description: Discusses the history and importance of big data.</p>
+<p><a href="https://www.sas.com/en_us/insights/big-data/what-is-big-data.html" target="_blank" rel="noopener">https://www.sas.com/en_us/insights/big-data/what-is-big-data.html</a></p>
 ]]></content>
-      <tags>
-        <tag>Nosql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Github</title>
-    <url>/2020/12/28/Github/</url>
-    <content><![CDATA[<ul>
-<li>암호나 중요파일을 깃허브에 업로드 금지하기<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Create .gitignore file</span><br><span class="line"># add the file name</span><br></pre></td></tr></table></figure>
-<img src="https://user-images.githubusercontent.com/26552500/103239655-dc0d5680-4913-11eb-861f-76f363aa60e7.png" alt="image"></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Git</tag>
-      </tags>
   </entry>
   <entry>
     <title>DS730_1_1_Create_a_Hortonworks_Sandbox_on_Azure</title>
@@ -531,59 +567,16 @@ Create issue
 ]]></content>
   </entry>
   <entry>
-    <title>HDFS_Command_1</title>
-    <url>/2020/08/13/HDFS-Command-1/</url>
-    <content><![CDATA[<h2 id="hdfs-dfs-command-command-options"><a href="#hdfs-dfs-command-command-options" class="headerlink" title="hdfs dfs [command] [command options]"></a>hdfs dfs [command] [command options]</h2><h3 id="Version"><a href="#Version" class="headerlink" title="Version"></a>Version</h3><h4 id="command-hdfs-version"><a href="#command-hdfs-version" class="headerlink" title="command : hdfs version"></a>command : hdfs version</h4><p><img src="https://user-images.githubusercontent.com/26552500/90162292-06da8200-dd5a-11ea-99cc-2daa1e6c808b.png" alt="image"></p>
-<h4 id="command-hadoop-version"><a href="#command-hadoop-version" class="headerlink" title="command : hadoop version"></a>command : hadoop version</h4><p><img src="https://user-images.githubusercontent.com/26552500/90162414-31c4d600-dd5a-11ea-9e11-c821da12fdc2.png" alt="image"></p>
-<h4 id="command-hdfs-getconf-namenodes"><a href="#command-hdfs-getconf-namenodes" class="headerlink" title="command : hdfs getconf -namenodes"></a>command : hdfs getconf -namenodes</h4><p><img src="https://user-images.githubusercontent.com/26552500/90163146-53728d00-dd5b-11ea-883b-c940a805734a.png" alt="image"></p>
-<h3 id="command-hdfs-dfs-ls-path"><a href="#command-hdfs-dfs-ls-path" class="headerlink" title="command : hdfs dfs -ls path"></a>command : hdfs dfs -ls path</h3><p><img src="https://user-images.githubusercontent.com/26552500/90164361-ec55d800-dd5c-11ea-95c0-6711cbb27a78.png" alt="image"></p>
-<h3 id="command-hdfs-dfs-get-path"><a href="#command-hdfs-dfs-get-path" class="headerlink" title="command : hdfs dfs -get path"></a>command : hdfs dfs -get path</h3><p><img src="https://user-images.githubusercontent.com/26552500/90175711-7148ed80-dd6d-11ea-91d3-deaf48d7f91b.png" alt="image"></p>
-<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>. : Current location<br>.. : Parent location</p>
-<h4 id="Example-cp-2-png-3-png"><a href="#Example-cp-2-png-3-png" class="headerlink" title="Example : cp ./2.png ../3.png"></a>Example : cp ./2.png ../3.png</h4><p>Copy the current 2.png file to the parent directory as 3.png</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/90166534-08a74400-dd60-11ea-96b9-410d0f3529df.png" alt="image"></p>
+    <title>Github</title>
+    <url>/2020/12/28/Github/</url>
+    <content><![CDATA[<ul>
+<li>암호나 중요파일을 깃허브에 업로드 금지하기<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Create .gitignore file</span><br><span class="line"># add the file name</span><br></pre></td></tr></table></figure>
+<img src="https://user-images.githubusercontent.com/26552500/103239655-dc0d5680-4913-11eb-861f-76f363aa60e7.png" alt="image"></li>
+</ul>
 ]]></content>
-  </entry>
-  <entry>
-    <title>DS730_1_High_Performance_Computing_&amp;_MapReduce_Introduction</title>
-    <url>/2020/09/01/DS730-1-High-Performance-Computing-MapReduce-Introduction/</url>
-    <content><![CDATA[<p>Author: SAS</p>
-<p>Description: Discusses the history and importance of big data.</p>
-<p><a href="https://www.sas.com/en_us/insights/big-data/what-is-big-data.html" target="_blank" rel="noopener">https://www.sas.com/en_us/insights/big-data/what-is-big-data.html</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>PostgreSQL_Basic (2)</title>
-    <url>/2020/02/12/PostgreSQL-Basic-2/</url>
-    <content><![CDATA[<h3 id="1-Download-DBeaver"><a href="#1-Download-DBeaver" class="headerlink" title="1. Download DBeaver"></a>1. Download DBeaver</h3><p><a href="https://dbeaver.io/download/" target="_blank" rel="noopener">https://dbeaver.io/download/</a><br><img src="https://user-images.githubusercontent.com/26552500/74398028-dda55d00-4ddb-11ea-94fa-96176a9857f1.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74398082-10e7ec00-4ddc-11ea-9437-a5042b59f56f.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74398107-252be900-4ddc-11ea-86bd-7e70108878e3.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74398122-35dc5f00-4ddc-11ea-969e-d6ea0497691d.png" alt="image"></p>
-<h3 id="2-SQL-SELECT-ORDER-BY-DISTINCT-WHERE-LIMIT-FETCH"><a href="#2-SQL-SELECT-ORDER-BY-DISTINCT-WHERE-LIMIT-FETCH" class="headerlink" title="2. SQL [SELECT, ORDER BY, DISTINCT, WHERE, LIMIT, FETCH ]"></a>2. SQL [SELECT, ORDER BY, DISTINCT, WHERE, LIMIT, FETCH ]</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Ctl + Shift + F : Make arrange</span><br><span class="line">Cmd + Shift + X : Make Capital letter</span><br></pre></td></tr></table></figure>
-
-<h4 id="1-SELECT"><a href="#1-SELECT" class="headerlink" title="1) SELECT"></a>1) SELECT</h4><p><img src="https://user-images.githubusercontent.com/26552500/74398194-6de3a200-4ddc-11ea-8063-4ea763e4bee7.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74398237-94a1d880-4ddc-11ea-8810-a8e3dca206fc.png" alt="image"></p>
-<h4 id="2-ORDER-BY"><a href="#2-ORDER-BY" class="headerlink" title="2) ORDER BY"></a>2) ORDER BY</h4><p><img src="https://user-images.githubusercontent.com/26552500/74398287-b4390100-4ddc-11ea-9d78-6d32f9c69fb1.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74398632-ed25a580-4ddd-11ea-9955-5428a52aef23.png" alt="image"></p>
-<h4 id="3-DISTINCT"><a href="#3-DISTINCT" class="headerlink" title="3) DISTINCT"></a>3) DISTINCT</h4><p><img src="https://user-images.githubusercontent.com/26552500/74399882-e5680000-4de1-11ea-9129-877cee914cbf.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74399904-fe70b100-4de1-11ea-94a9-3be50a973f29.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74399931-10525400-4de2-11ea-85ee-f45c7dcdaffa.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74399947-1d6f4300-4de2-11ea-92c9-a6fad99ac4f0.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74399965-2d872280-4de2-11ea-8fb4-74df8fb4ad4b.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74399990-3a0b7b00-4de2-11ea-9525-3d8ea7f782e1.png" alt="image"></p>
-<h4 id="4-WHERE"><a href="#4-WHERE" class="headerlink" title="4) WHERE"></a>4) WHERE</h4><p><img src="https://user-images.githubusercontent.com/26552500/74400033-5c9d9400-4de2-11ea-9ea3-4e1ef716d707.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74400042-6921ec80-4de2-11ea-8dba-e97be52c6728.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74400052-750dae80-4de2-11ea-9204-ec52db5999c9.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74400069-81920700-4de2-11ea-8c38-f53cbfe60abf.png" alt="image"></p>
-<h4 id="5-LIMIT"><a href="#5-LIMIT" class="headerlink" title="5) LIMIT"></a>5) LIMIT</h4><p><img src="https://user-images.githubusercontent.com/26552500/74400761-a12a2f00-4de4-11ea-8ca3-0cea89456415.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74400780-b56e2c00-4de4-11ea-8813-d6ec1e9b2ebc.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74400812-d3d42780-4de4-11ea-9927-865fba3877bb.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74400836-e77f8e00-4de4-11ea-8ef3-c659fcd29c9f.png" alt="image"></p>
-<h4 id="6-FETCH"><a href="#6-FETCH" class="headerlink" title="6) FETCH"></a>6) FETCH</h4><p><img src="https://user-images.githubusercontent.com/26552500/74401308-7ccf5200-4de6-11ea-96f8-c3184a62340f.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74401387-b607c200-4de6-11ea-8af2-385758cfa02d.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74401410-c4ee7480-4de6-11ea-9bdd-cbaa7dcfb4ce.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74401485-ff581180-4de6-11ea-9687-7997661793d8.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74401502-097a1000-4de7-11ea-87e7-eeda681aa4c1.png" alt="image"></p>
-]]></content>
+      <tags>
+        <tag>Git</tag>
+      </tags>
   </entry>
   <entry>
     <title>Guide for IntelliJ (1)</title>
@@ -704,74 +697,6 @@ Create issue
       </tags>
   </entry>
   <entry>
-    <title>Learning_Spark_1</title>
-    <url>/2020/12/17/Learning-Spark-1/</url>
-    <content><![CDATA[<ol>
-<li>Spark UI</li>
-</ol>
-<ul>
-<li>IP addess:4041</li>
-</ul>
-<p><img src="https://user-images.githubusercontent.com/26552500/102560292-82956400-4097-11eb-92ea-de4907b01285.png" alt="image"></p>
-<ol start="2">
-<li>Count line<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; lines &#x3D; sc.textFile(&quot;README.md&quot;)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; lines.count()</span><br><span class="line">108   </span><br><span class="line">                                     </span><br><span class="line">&gt;&gt;&gt; lines.first()</span><br><span class="line">&#39;# Apache Spark&#39;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">scala&gt; val lines &#x3D; sc.textFile(&quot;README.md&quot;)</span><br><span class="line">lines: org.apache.spark.rdd.RDD[String] &#x3D; README.md MapPartitionsRDD[3] at textFile at &lt;console&gt;:24</span><br><span class="line"></span><br><span class="line">scala&gt; lines.count()</span><br><span class="line">res1: Long &#x3D; 108</span><br><span class="line"></span><br><span class="line">scala&gt; lines.first()</span><br><span class="line">res2: String &#x3D; # Apache Spark</span><br></pre></td></tr></table></figure>
-
-
-
-<ul>
-<li>SC (SparkContext)</li>
-</ul>
-<p><img src="https://user-images.githubusercontent.com/26552500/102560462-ea4baf00-4097-11eb-8d62-68bb2e03ca6b.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/102560493-f8013480-4097-11eb-8035-281828ccc209.png" alt="image"></p>
-<p>SparkContext 객체를 하나 만들었다면 그것으로 RDD를 만들어 낼 수 있다.</p>
-<ul>
-<li>Filtering</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; pythonlines &#x3D; lines.filter(lambda line: &quot;Python&quot; in line)</span><br><span class="line">&gt;&gt;&gt; pythonlines.first()</span><br><span class="line">&#39;high-level APIs in Scala, Java, Python, and R, and an optimized engine that&#39;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def hasPython(line):</span><br><span class="line">    return &quot;Python&quot; in line</span><br><span class="line"></span><br><span class="line">pythonlines &#x3D; lines.filter(hasPython)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">scala&gt; val pythonlines &#x3D; lines.filter(line &#x3D;&gt; line.contains(&quot;Python&quot;))</span><br><span class="line">pythonlines: org.apache.spark.rdd.RDD[String] &#x3D; MapPartitionsRDD[4] at filter at &lt;console&gt;:25</span><br><span class="line"></span><br><span class="line">scala&gt; pythonlines.first()</span><br><span class="line">res4: String &#x3D; high-level APIs in Scala, Java, Python, and R, and an optimized engine that</span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-      <tags>
-        <tag>Spark</tag>
-        <tag>Pyspark</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PostgreSQL_Basic (3)</title>
-    <url>/2020/02/12/PostgreSQL-Basic-3/</url>
-    <content><![CDATA[<h3 id="1-SQL-IN-BETWEEN-LIKE-IS-NULL"><a href="#1-SQL-IN-BETWEEN-LIKE-IS-NULL" class="headerlink" title="1. SQL [IN, BETWEEN, LIKE, IS NULL]"></a>1. SQL [IN, BETWEEN, LIKE, IS NULL]</h3><h4 id="1-IN"><a href="#1-IN" class="headerlink" title="1) IN"></a>1) IN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74402203-2adbfb80-4de9-11ea-915d-2a60b81d86d4.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74402265-552db900-4de9-11ea-8a2f-804997c5c93e.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74402303-75f60e80-4de9-11ea-83c1-18c5ab83797c.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74402325-86a68480-4de9-11ea-9596-ebb20cf5dd17.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74402370-a76eda00-4de9-11ea-9a9d-040999e399f0.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74402411-cb322000-4de9-11ea-86a3-0eaa93783308.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74402442-e3a23a80-4de9-11ea-8415-186b5fbca9cf.png" alt="image"></p>
-<h4 id="2-BETWEEN"><a href="#2-BETWEEN" class="headerlink" title="2) BETWEEN"></a>2) BETWEEN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74494851-cd54b700-4e9b-11ea-9780-928e76f4efcd.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74494892-ebbab280-4e9b-11ea-88ef-175ad1dc6717.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74494923-faa16500-4e9b-11ea-8812-13d09f20304d.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74494993-258bb900-4e9c-11ea-90e9-87855d9e7d07.png" alt="image"></p>
-<h4 id="3-LIKE"><a href="#3-LIKE" class="headerlink" title="3) LIKE"></a>3) LIKE</h4><p><img src="https://user-images.githubusercontent.com/26552500/74496441-5110a280-4ea0-11ea-8281-f02dd7422598.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74496482-6a195380-4ea0-11ea-8ff1-a35bc6473256.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74496536-8fa65d00-4ea0-11ea-8116-8392a54f1689.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74496563-a2b92d00-4ea0-11ea-8dd6-0f1a23a66beb.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74496585-b19fdf80-4ea0-11ea-9ee1-0b375280a2ca.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74496606-c1b7bf00-4ea0-11ea-9d6f-225b3c1efe35.png" alt="image"></p>
-<h4 id="4-IS-NULL"><a href="#4-IS-NULL" class="headerlink" title="4) IS NULL"></a>4) IS NULL</h4><p><img src="https://user-images.githubusercontent.com/26552500/74497339-03e20000-4ea3-11ea-9274-02ad7327820d.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74497375-2247fb80-4ea3-11ea-8c41-3fc2aafdad29.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74497966-b5cdfc00-4ea4-11ea-975a-472eef4f3a81.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74497984-c4b4ae80-4ea4-11ea-8c88-a49f7e8707b0.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74498007-d39b6100-4ea4-11ea-9a78-de116471f733.png" alt="image"></p>
-]]></content>
-  </entry>
-  <entry>
     <title>MYSQL_Installation(1)</title>
     <url>/2020/01/27/MYSQL-Installation-1/</url>
     <content><![CDATA[<p>1 Install homebrew</p>
@@ -819,6 +744,47 @@ Create issue
       </tags>
   </entry>
   <entry>
+    <title>Learning_Spark_1</title>
+    <url>/2020/12/17/Learning-Spark-1/</url>
+    <content><![CDATA[<ol>
+<li>Spark UI</li>
+</ol>
+<ul>
+<li>IP addess:4041</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/26552500/102560292-82956400-4097-11eb-92ea-de4907b01285.png" alt="image"></p>
+<ol start="2">
+<li>Count line<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; lines &#x3D; sc.textFile(&quot;README.md&quot;)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; lines.count()</span><br><span class="line">108   </span><br><span class="line">                                     </span><br><span class="line">&gt;&gt;&gt; lines.first()</span><br><span class="line">&#39;# Apache Spark&#39;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">scala&gt; val lines &#x3D; sc.textFile(&quot;README.md&quot;)</span><br><span class="line">lines: org.apache.spark.rdd.RDD[String] &#x3D; README.md MapPartitionsRDD[3] at textFile at &lt;console&gt;:24</span><br><span class="line"></span><br><span class="line">scala&gt; lines.count()</span><br><span class="line">res1: Long &#x3D; 108</span><br><span class="line"></span><br><span class="line">scala&gt; lines.first()</span><br><span class="line">res2: String &#x3D; # Apache Spark</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>SC (SparkContext)</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/26552500/102560462-ea4baf00-4097-11eb-8d62-68bb2e03ca6b.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/102560493-f8013480-4097-11eb-8035-281828ccc209.png" alt="image"></p>
+<p>SparkContext 객체를 하나 만들었다면 그것으로 RDD를 만들어 낼 수 있다.</p>
+<ul>
+<li>Filtering</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; pythonlines &#x3D; lines.filter(lambda line: &quot;Python&quot; in line)</span><br><span class="line">&gt;&gt;&gt; pythonlines.first()</span><br><span class="line">&#39;high-level APIs in Scala, Java, Python, and R, and an optimized engine that&#39;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def hasPython(line):</span><br><span class="line">    return &quot;Python&quot; in line</span><br><span class="line"></span><br><span class="line">pythonlines &#x3D; lines.filter(hasPython)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">scala&gt; val pythonlines &#x3D; lines.filter(line &#x3D;&gt; line.contains(&quot;Python&quot;))</span><br><span class="line">pythonlines: org.apache.spark.rdd.RDD[String] &#x3D; MapPartitionsRDD[4] at filter at &lt;console&gt;:25</span><br><span class="line"></span><br><span class="line">scala&gt; pythonlines.first()</span><br><span class="line">res4: String &#x3D; high-level APIs in Scala, Java, Python, and R, and an optimized engine that</span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <tags>
+        <tag>Spark</tag>
+        <tag>Pyspark</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PostgreSQL_Basic (1)</title>
     <url>/2020/02/01/PostgreSQL-Basic-1/</url>
     <content><![CDATA[<p><img src="https://user-images.githubusercontent.com/26552500/74211324-03ecc080-4c55-11ea-94e0-8fcb6041f962.png" alt="image"></p>
@@ -831,6 +797,137 @@ Create issue
 <p><img src="https://user-images.githubusercontent.com/26552500/74213312-33ec9180-4c5e-11ea-8646-6608bcf8c20d.png" alt="image"></p>
 <p><img src="https://user-images.githubusercontent.com/26552500/74213323-423aad80-4c5e-11ea-98fe-84c887d900b7.png" alt="image"></p>
 <p><img src="https://user-images.githubusercontent.com/26552500/74213334-5383ba00-4c5e-11ea-846e-7831f0de3e86.png" alt="image"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>HDFS_Command_1</title>
+    <url>/2020/08/13/HDFS-Command-1/</url>
+    <content><![CDATA[<h2 id="hdfs-dfs-command-command-options"><a href="#hdfs-dfs-command-command-options" class="headerlink" title="hdfs dfs [command] [command options]"></a>hdfs dfs [command] [command options]</h2><h3 id="Version"><a href="#Version" class="headerlink" title="Version"></a>Version</h3><h4 id="command-hdfs-version"><a href="#command-hdfs-version" class="headerlink" title="command : hdfs version"></a>command : hdfs version</h4><p><img src="https://user-images.githubusercontent.com/26552500/90162292-06da8200-dd5a-11ea-99cc-2daa1e6c808b.png" alt="image"></p>
+<h4 id="command-hadoop-version"><a href="#command-hadoop-version" class="headerlink" title="command : hadoop version"></a>command : hadoop version</h4><p><img src="https://user-images.githubusercontent.com/26552500/90162414-31c4d600-dd5a-11ea-9e11-c821da12fdc2.png" alt="image"></p>
+<h4 id="command-hdfs-getconf-namenodes"><a href="#command-hdfs-getconf-namenodes" class="headerlink" title="command : hdfs getconf -namenodes"></a>command : hdfs getconf -namenodes</h4><p><img src="https://user-images.githubusercontent.com/26552500/90163146-53728d00-dd5b-11ea-883b-c940a805734a.png" alt="image"></p>
+<h3 id="command-hdfs-dfs-ls-path"><a href="#command-hdfs-dfs-ls-path" class="headerlink" title="command : hdfs dfs -ls path"></a>command : hdfs dfs -ls path</h3><p><img src="https://user-images.githubusercontent.com/26552500/90164361-ec55d800-dd5c-11ea-95c0-6711cbb27a78.png" alt="image"></p>
+<h3 id="command-hdfs-dfs-get-path"><a href="#command-hdfs-dfs-get-path" class="headerlink" title="command : hdfs dfs -get path"></a>command : hdfs dfs -get path</h3><p><img src="https://user-images.githubusercontent.com/26552500/90175711-7148ed80-dd6d-11ea-91d3-deaf48d7f91b.png" alt="image"></p>
+<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>. : Current location<br>.. : Parent location</p>
+<h4 id="Example-cp-2-png-3-png"><a href="#Example-cp-2-png-3-png" class="headerlink" title="Example : cp ./2.png ../3.png"></a>Example : cp ./2.png ../3.png</h4><p>Copy the current 2.png file to the parent directory as 3.png</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/90166534-08a74400-dd60-11ea-96b9-410d0f3529df.png" alt="image"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>PostgreSQL_Basic (2)</title>
+    <url>/2020/02/12/PostgreSQL-Basic-2/</url>
+    <content><![CDATA[<h3 id="1-Download-DBeaver"><a href="#1-Download-DBeaver" class="headerlink" title="1. Download DBeaver"></a>1. Download DBeaver</h3><p><a href="https://dbeaver.io/download/" target="_blank" rel="noopener">https://dbeaver.io/download/</a><br><img src="https://user-images.githubusercontent.com/26552500/74398028-dda55d00-4ddb-11ea-94fa-96176a9857f1.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74398082-10e7ec00-4ddc-11ea-9437-a5042b59f56f.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74398107-252be900-4ddc-11ea-86bd-7e70108878e3.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74398122-35dc5f00-4ddc-11ea-969e-d6ea0497691d.png" alt="image"></p>
+<h3 id="2-SQL-SELECT-ORDER-BY-DISTINCT-WHERE-LIMIT-FETCH"><a href="#2-SQL-SELECT-ORDER-BY-DISTINCT-WHERE-LIMIT-FETCH" class="headerlink" title="2. SQL [SELECT, ORDER BY, DISTINCT, WHERE, LIMIT, FETCH ]"></a>2. SQL [SELECT, ORDER BY, DISTINCT, WHERE, LIMIT, FETCH ]</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Ctl + Shift + F : Make arrange</span><br><span class="line">Cmd + Shift + X : Make Capital letter</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-SELECT"><a href="#1-SELECT" class="headerlink" title="1) SELECT"></a>1) SELECT</h4><p><img src="https://user-images.githubusercontent.com/26552500/74398194-6de3a200-4ddc-11ea-8063-4ea763e4bee7.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74398237-94a1d880-4ddc-11ea-8810-a8e3dca206fc.png" alt="image"></p>
+<h4 id="2-ORDER-BY"><a href="#2-ORDER-BY" class="headerlink" title="2) ORDER BY"></a>2) ORDER BY</h4><p><img src="https://user-images.githubusercontent.com/26552500/74398287-b4390100-4ddc-11ea-9d78-6d32f9c69fb1.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74398632-ed25a580-4ddd-11ea-9955-5428a52aef23.png" alt="image"></p>
+<h4 id="3-DISTINCT"><a href="#3-DISTINCT" class="headerlink" title="3) DISTINCT"></a>3) DISTINCT</h4><p><img src="https://user-images.githubusercontent.com/26552500/74399882-e5680000-4de1-11ea-9129-877cee914cbf.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74399904-fe70b100-4de1-11ea-94a9-3be50a973f29.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74399931-10525400-4de2-11ea-85ee-f45c7dcdaffa.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74399947-1d6f4300-4de2-11ea-92c9-a6fad99ac4f0.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74399965-2d872280-4de2-11ea-8fb4-74df8fb4ad4b.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74399990-3a0b7b00-4de2-11ea-9525-3d8ea7f782e1.png" alt="image"></p>
+<h4 id="4-WHERE"><a href="#4-WHERE" class="headerlink" title="4) WHERE"></a>4) WHERE</h4><p><img src="https://user-images.githubusercontent.com/26552500/74400033-5c9d9400-4de2-11ea-9ea3-4e1ef716d707.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74400042-6921ec80-4de2-11ea-8dba-e97be52c6728.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74400052-750dae80-4de2-11ea-9204-ec52db5999c9.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74400069-81920700-4de2-11ea-8c38-f53cbfe60abf.png" alt="image"></p>
+<h4 id="5-LIMIT"><a href="#5-LIMIT" class="headerlink" title="5) LIMIT"></a>5) LIMIT</h4><p><img src="https://user-images.githubusercontent.com/26552500/74400761-a12a2f00-4de4-11ea-8ca3-0cea89456415.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74400780-b56e2c00-4de4-11ea-8813-d6ec1e9b2ebc.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74400812-d3d42780-4de4-11ea-9927-865fba3877bb.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74400836-e77f8e00-4de4-11ea-8ef3-c659fcd29c9f.png" alt="image"></p>
+<h4 id="6-FETCH"><a href="#6-FETCH" class="headerlink" title="6) FETCH"></a>6) FETCH</h4><p><img src="https://user-images.githubusercontent.com/26552500/74401308-7ccf5200-4de6-11ea-96f8-c3184a62340f.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74401387-b607c200-4de6-11ea-8af2-385758cfa02d.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74401410-c4ee7480-4de6-11ea-9bdd-cbaa7dcfb4ce.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74401485-ff581180-4de6-11ea-9687-7997661793d8.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74401502-097a1000-4de7-11ea-87e7-eeda681aa4c1.png" alt="image"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>PostgreSQL_Basic (3)</title>
+    <url>/2020/02/12/PostgreSQL-Basic-3/</url>
+    <content><![CDATA[<h3 id="1-SQL-IN-BETWEEN-LIKE-IS-NULL"><a href="#1-SQL-IN-BETWEEN-LIKE-IS-NULL" class="headerlink" title="1. SQL [IN, BETWEEN, LIKE, IS NULL]"></a>1. SQL [IN, BETWEEN, LIKE, IS NULL]</h3><h4 id="1-IN"><a href="#1-IN" class="headerlink" title="1) IN"></a>1) IN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74402203-2adbfb80-4de9-11ea-915d-2a60b81d86d4.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74402265-552db900-4de9-11ea-8a2f-804997c5c93e.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74402303-75f60e80-4de9-11ea-83c1-18c5ab83797c.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74402325-86a68480-4de9-11ea-9596-ebb20cf5dd17.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74402370-a76eda00-4de9-11ea-9a9d-040999e399f0.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74402411-cb322000-4de9-11ea-86a3-0eaa93783308.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74402442-e3a23a80-4de9-11ea-8415-186b5fbca9cf.png" alt="image"></p>
+<h4 id="2-BETWEEN"><a href="#2-BETWEEN" class="headerlink" title="2) BETWEEN"></a>2) BETWEEN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74494851-cd54b700-4e9b-11ea-9780-928e76f4efcd.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74494892-ebbab280-4e9b-11ea-88ef-175ad1dc6717.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74494923-faa16500-4e9b-11ea-8812-13d09f20304d.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74494993-258bb900-4e9c-11ea-90e9-87855d9e7d07.png" alt="image"></p>
+<h4 id="3-LIKE"><a href="#3-LIKE" class="headerlink" title="3) LIKE"></a>3) LIKE</h4><p><img src="https://user-images.githubusercontent.com/26552500/74496441-5110a280-4ea0-11ea-8281-f02dd7422598.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74496482-6a195380-4ea0-11ea-8ff1-a35bc6473256.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74496536-8fa65d00-4ea0-11ea-8116-8392a54f1689.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74496563-a2b92d00-4ea0-11ea-8dd6-0f1a23a66beb.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74496585-b19fdf80-4ea0-11ea-9ee1-0b375280a2ca.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74496606-c1b7bf00-4ea0-11ea-9d6f-225b3c1efe35.png" alt="image"></p>
+<h4 id="4-IS-NULL"><a href="#4-IS-NULL" class="headerlink" title="4) IS NULL"></a>4) IS NULL</h4><p><img src="https://user-images.githubusercontent.com/26552500/74497339-03e20000-4ea3-11ea-9274-02ad7327820d.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74497375-2247fb80-4ea3-11ea-8c41-3fc2aafdad29.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74497966-b5cdfc00-4ea4-11ea-975a-472eef4f3a81.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74497984-c4b4ae80-4ea4-11ea-8c88-a49f7e8707b0.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74498007-d39b6100-4ea4-11ea-9a78-de116471f733.png" alt="image"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>PostgreSQL_Basic Exam (1)</title>
+    <url>/2020/02/13/PostgreSQL-Basic-Exam-1/</url>
+    <content><![CDATA[<h4 id="1-PAYMENT-DATE가-2007년-2월-7일부터-2007년-2월-15일인-customer-id-first-name-Last-name"><a href="#1-PAYMENT-DATE가-2007년-2월-7일부터-2007년-2월-15일인-customer-id-first-name-Last-name" class="headerlink" title="1) PAYMENT_DATE가 2007년 2월 7일부터 2007년 2월 15일인 customer_id, first_name, Last_name"></a>1) PAYMENT_DATE가 2007년 2월 7일부터 2007년 2월 15일인 customer_id, first_name, Last_name</h4><ul>
+<li>to_char / cast</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/26552500/74495493-98e1fa80-4e9d-11ea-9802-4eaf3e30e1b5.png" alt="image"></p>
+<h4 id="2"><a href="#2" class="headerlink" title="2)"></a>2)</h4><p><img src="https://user-images.githubusercontent.com/26552500/74498354-03973400-4ea6-11ea-834a-c72cacf72f9e.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74498877-a4d2ba00-4ea7-11ea-9428-8255061fcb80.png" alt="image"></p>
+<h4 id="3"><a href="#3" class="headerlink" title="3)"></a>3)</h4><p><img src="https://user-images.githubusercontent.com/26552500/74498915-bc11a780-4ea7-11ea-8aa8-a1b2b324a4dd.png" alt="image"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>PostgreSQL_Basic (4)</title>
+    <url>/2020/02/19/PostgreSQL-Basic-4/</url>
+    <content><![CDATA[<h3 id="2-SQL"><a href="#2-SQL" class="headerlink" title="2. SQL []"></a>2. SQL []</h3><h4 id="1-JOIN"><a href="#1-JOIN" class="headerlink" title="1) JOIN"></a>1) JOIN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74899081-849c7280-5361-11ea-9138-ed46065c5af9.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74899134-a5fd5e80-5361-11ea-926b-052c0567f8a6.png" alt="image"></p>
+<h4 id="2-INNER-JOIN"><a href="#2-INNER-JOIN" class="headerlink" title="2) INNER JOIN"></a>2) INNER JOIN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74899171-ba415b80-5361-11ea-88c2-46fb68b5f125.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74899211-d9d88400-5361-11ea-9500-4d00ee0609f4.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74899251-f379cb80-5361-11ea-97f2-e1c1a31182f9.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74899307-24f29700-5362-11ea-87ba-69111e078345.png" alt="image"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Python_Basic (1)</title>
+    <url>/2020/02/12/Python-Basic-1/</url>
+    <content><![CDATA[<h4 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h4><h5 id="check-“Add-Python-path”"><a href="#check-“Add-Python-path”" class="headerlink" title="check “Add Python ~ path”"></a>check “Add Python ~ path”</h5><p><img src="https://user-images.githubusercontent.com/26552500/74404590-95dd0080-4df0-11ea-9fd6-30502b8babf2.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74404765-0552f000-4df1-11ea-945f-167a20cb3d58.png" alt="image"></p>
+<h4 id="Download-Visual"><a href="#Download-Visual" class="headerlink" title="Download Visual"></a>Download Visual</h4><p><a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">https://code.visualstudio.com/download</a></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74404703-d9d00580-4df0-11ea-991a-7f76be558aac.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74405769-8a3f0900-4df3-11ea-9c7e-8d5408289ed6.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74405865-c8d4c380-4df3-11ea-833b-ba5d57744b51.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74405929-fb7ebc00-4df3-11ea-9940-6c3ad6a362fd.png" alt="image"></p>
+<h4 id="Setup-Virtual-Env"><a href="#Setup-Virtual-Env" class="headerlink" title="Setup Virtual Env"></a>Setup Virtual Env</h4><p><img src="https://user-images.githubusercontent.com/26552500/74406320-f2421f00-4df4-11ea-9cab-20c697d829b3.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74406376-1c93dc80-4df5-11ea-9c5e-6e2e88cd8a13.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74406439-451bd680-4df5-11ea-89cf-8bbeb3af5609.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74406461-5664e300-4df5-11ea-9f8f-9788cf4cd401.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74406604-bc516a80-4df5-11ea-855c-c4cae42b52d0.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74406650-d8eda280-4df5-11ea-979d-d45091c671df.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74406858-574a4480-4df6-11ea-8af5-303efb3048a8.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74406898-6af5ab00-4df6-11ea-8062-1aa197c3d338.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74407012-9f696700-4df6-11ea-809f-e3502b4c4c8e.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F; See https:&#x2F;&#x2F;go.microsoft.com&#x2F;fwlink&#x2F;?LinkId&#x3D;733558</span><br><span class="line">    &#x2F;&#x2F; for the documentation about the tasks.json format</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;,</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;label&quot;: &quot;Project Label&quot;,</span><br><span class="line">            &quot;type&quot;: &quot;shell&quot;,</span><br><span class="line">            &quot;command&quot;: &quot;python&quot;,</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;$&#123;file&#125;&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;presentation&quot;: &#123;</span><br><span class="line">                &quot;reveal&quot;: &quot;always&quot;,</span><br><span class="line">                &quot;panel&quot;: &quot;new&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;options&quot;: &#123;</span><br><span class="line">                &quot;env&quot;: &#123;</span><br><span class="line">                    &quot;PYTHONIOENCODING&quot;: &quot;UTF-8&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;group&quot;: &#123;</span><br><span class="line">                &quot;kind&quot;: &quot;build&quot;,</span><br><span class="line">                &quot;isDefault&quot;: true</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/26552500/74407349-785f6500-4df7-11ea-8296-64ad5ae0939c.png" alt="image"></p>
+<hr>
+<h3 id="1-Function"><a href="#1-Function" class="headerlink" title="1. Function"></a>1. Function</h3><h4 id="1-Print"><a href="#1-Print" class="headerlink" title="1) Print"></a>1) Print</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Basic</span></span><br><span class="line">print(<span class="string">'hello'</span>)</span><br><span class="line">print(<span class="string">"hello"</span>)</span><br><span class="line">print(<span class="string">"""hello"""</span>)</span><br><span class="line">print(<span class="string">'''hello'''</span>)</span><br><span class="line"></span><br><span class="line">print()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Seperator</span></span><br><span class="line">print(<span class="string">'T'</span>, <span class="string">'E'</span>, <span class="string">'S'</span>, <span class="string">'T'</span>)</span><br><span class="line">print(<span class="string">'T'</span>, <span class="string">'E'</span>, <span class="string">'S'</span>, <span class="string">'T'</span>, sep=<span class="string">''</span>)</span><br><span class="line">print(<span class="string">'2020'</span>, <span class="string">'02'</span>, <span class="string">'13'</span>, sep=<span class="string">'-'</span>)</span><br><span class="line">print(<span class="string">'niceman'</span>, <span class="string">'gmail.com'</span>, sep=<span class="string">'@'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># End</span></span><br><span class="line">print(<span class="string">'welcome to'</span>, end=<span class="string">' '</span>)</span><br><span class="line">print(<span class="string">'the black parade'</span>, end=<span class="string">' '</span>)</span><br><span class="line">print(<span class="string">'piano note'</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'test'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Format </span></span><br><span class="line">print(<span class="string">'&#123;&#125; and &#123;&#125; '</span>.format(<span class="string">'you'</span>, <span class="string">'me'</span>))</span><br><span class="line">print(<span class="string">'&#123;0&#125; and &#123;1&#125;'</span>.format(<span class="string">'you'</span>, <span class="string">'me'</span>))</span><br><span class="line">print(<span class="string">'&#123;a&#125; and &#123;b&#125;'</span>.format(a=<span class="string">'you'</span>, b=<span class="string">'me'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># %s, %d, %f</span></span><br><span class="line">print(<span class="string">"%s's favorite number is %d"</span> % (<span class="string">'danny'</span>, <span class="number">7</span>))</span><br><span class="line">print(<span class="string">"test1: %5d, print: %4.2f"</span> % (<span class="number">777</span>, <span class="number">133.23</span>))</span><br><span class="line">print(<span class="string">"test1: &#123;0: 5d&#125;, print: &#123;1: 4.2f&#125;"</span>.format(<span class="number">777</span>, <span class="number">133.232</span>))</span><br><span class="line">print(<span class="string">"test1: &#123;a: 5d&#125;, print: &#123;b: 4.2f&#125;"</span>.format(a=<span class="number">776</span>, b=<span class="number">45432.342</span>))</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/26552500/74502215-62fb4100-4eb2-11ea-9505-f8b3c33db4b4.png" alt="image"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> this</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="comment"># input incoding</span></span><br><span class="line">print(sys.stdin.encoding)</span><br><span class="line"></span><br><span class="line"><span class="comment"># output incoding</span></span><br><span class="line">print(sys.stdout.encoding)</span><br><span class="line"></span><br><span class="line"><span class="comment"># loop</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">        print(<span class="string">"%d * %d ="</span> %(i,j), i*j)</span><br><span class="line"></span><br><span class="line"><span class="comment"># function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greeting</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"hello"</span>)</span><br><span class="line"></span><br><span class="line">greeting()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cooking</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Instance</span></span><br><span class="line">cookie = Cooking()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print information about class</span></span><br><span class="line">print(id(cookie))</span><br><span class="line">print(dir(cookie))</span><br><span class="line"></span><br><span class="line">print(cookie.__class__)</span><br><span class="line">print(cookie.__hash__)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">The Zen of Python, by Tim Peters</span><br><span class="line"></span><br><span class="line">Beautiful is better than ugly.</span><br><span class="line">Explicit is better than implicit.</span><br><span class="line">Simple is better than complex.</span><br><span class="line">Complex is better than complicated.</span><br><span class="line">Flat is better than nested.</span><br><span class="line">Sparse is better than dense.</span><br><span class="line">Readability counts.</span><br><span class="line">Special cases aren&#39;t special enough to break the rules.</span><br><span class="line">Although practicality beats purity.</span><br><span class="line">Errors should never pass silently.</span><br><span class="line">Unless explicitly silenced.</span><br><span class="line">In the face of ambiguity, refuse the temptation to guess.</span><br><span class="line">There should be one-- and preferably only one --obvious way to do it.</span><br><span class="line">Although that way may not be obvious at first unless you&#39;re Dutch.</span><br><span class="line">Now is better than never.</span><br><span class="line">Although never is often better than *right* now.</span><br><span class="line">If the implementation is hard to explain, it&#39;s a bad idea.</span><br><span class="line">If the implementation is easy to explain, it may be a good idea.</span><br><span class="line">Namespaces are one honking great idea -- let&#39;s do more of those!</span><br><span class="line">UTF-8</span><br><span class="line">UTF-8</span><br><span class="line">1 * 1 &#x3D; 1</span><br><span class="line">1 * 2 &#x3D; 2</span><br><span class="line">1 * 3 &#x3D; 3</span><br><span class="line">1 * 4 &#x3D; 4</span><br><span class="line">1 * 5 &#x3D; 5</span><br><span class="line">1 * 6 &#x3D; 6</span><br><span class="line">1 * 7 &#x3D; 7</span><br><span class="line">1 * 8 &#x3D; 8</span><br><span class="line">1 * 9 &#x3D; 9</span><br><span class="line">2 * 1 &#x3D; 2</span><br><span class="line">2 * 2 &#x3D; 4</span><br><span class="line">2 * 3 &#x3D; 6</span><br><span class="line">2 * 4 &#x3D; 8</span><br><span class="line">2 * 5 &#x3D; 10</span><br><span class="line">2 * 6 &#x3D; 12</span><br><span class="line">2 * 7 &#x3D; 14</span><br><span class="line">2 * 8 &#x3D; 16</span><br><span class="line">2 * 9 &#x3D; 18</span><br><span class="line">3 * 1 &#x3D; 3</span><br><span class="line">3 * 2 &#x3D; 6</span><br><span class="line">3 * 3 &#x3D; 9</span><br><span class="line">3 * 4 &#x3D; 12</span><br><span class="line">3 * 5 &#x3D; 15</span><br><span class="line">3 * 6 &#x3D; 18</span><br><span class="line">3 * 7 &#x3D; 21</span><br><span class="line">3 * 8 &#x3D; 24</span><br><span class="line">3 * 9 &#x3D; 27</span><br><span class="line">4 * 1 &#x3D; 4</span><br><span class="line">4 * 2 &#x3D; 8</span><br><span class="line">4 * 3 &#x3D; 12</span><br><span class="line">4 * 4 &#x3D; 16</span><br><span class="line">4 * 5 &#x3D; 20</span><br><span class="line">4 * 6 &#x3D; 24</span><br><span class="line">4 * 7 &#x3D; 28</span><br><span class="line">4 * 8 &#x3D; 32</span><br><span class="line">4 * 9 &#x3D; 36</span><br><span class="line">5 * 1 &#x3D; 5</span><br><span class="line">5 * 2 &#x3D; 10</span><br><span class="line">5 * 3 &#x3D; 15</span><br><span class="line">5 * 4 &#x3D; 20</span><br><span class="line">5 * 5 &#x3D; 25</span><br><span class="line">5 * 6 &#x3D; 30</span><br><span class="line">5 * 7 &#x3D; 35</span><br><span class="line">5 * 8 &#x3D; 40</span><br><span class="line">5 * 9 &#x3D; 45</span><br><span class="line">6 * 1 &#x3D; 6</span><br><span class="line">6 * 2 &#x3D; 12</span><br><span class="line">6 * 3 &#x3D; 18</span><br><span class="line">6 * 4 &#x3D; 24</span><br><span class="line">6 * 5 &#x3D; 30</span><br><span class="line">6 * 6 &#x3D; 36</span><br><span class="line">6 * 7 &#x3D; 42</span><br><span class="line">6 * 8 &#x3D; 48</span><br><span class="line">6 * 9 &#x3D; 54</span><br><span class="line">7 * 1 &#x3D; 7</span><br><span class="line">7 * 2 &#x3D; 14</span><br><span class="line">7 * 3 &#x3D; 21</span><br><span class="line">7 * 4 &#x3D; 28</span><br><span class="line">7 * 5 &#x3D; 35</span><br><span class="line">7 * 6 &#x3D; 42</span><br><span class="line">7 * 7 &#x3D; 49</span><br><span class="line">7 * 8 &#x3D; 56</span><br><span class="line">7 * 9 &#x3D; 63</span><br><span class="line">8 * 1 &#x3D; 8</span><br><span class="line">8 * 2 &#x3D; 16</span><br><span class="line">8 * 3 &#x3D; 24</span><br><span class="line">8 * 4 &#x3D; 32</span><br><span class="line">8 * 5 &#x3D; 40</span><br><span class="line">8 * 6 &#x3D; 48</span><br><span class="line">8 * 7 &#x3D; 56</span><br><span class="line">8 * 8 &#x3D; 64</span><br><span class="line">8 * 9 &#x3D; 72</span><br><span class="line">9 * 1 &#x3D; 9</span><br><span class="line">9 * 2 &#x3D; 18</span><br><span class="line">9 * 3 &#x3D; 27</span><br><span class="line">9 * 4 &#x3D; 36</span><br><span class="line">9 * 5 &#x3D; 45</span><br><span class="line">9 * 6 &#x3D; 54</span><br><span class="line">9 * 7 &#x3D; 63</span><br><span class="line">9 * 8 &#x3D; 72</span><br><span class="line">9 * 9 &#x3D; 81</span><br><span class="line">hello</span><br><span class="line">4337144080</span><br><span class="line">[&#39;__class__&#39;, &#39;__delattr__&#39;, &#39;__dict__&#39;, &#39;__dir__&#39;, &#39;__doc__&#39;, &#39;__eq__&#39;, &#39;__format__&#39;, &#39;__ge__&#39;, &#39;__getattribute__&#39;, &#39;__gt__&#39;, &#39;__hash__&#39;, &#39;__init__&#39;, &#39;__init_subclass__&#39;, &#39;__le__&#39;, &#39;__lt__&#39;, &#39;__module__&#39;, &#39;__ne__&#39;, &#39;__new__&#39;, &#39;__reduce__&#39;, &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__setattr__&#39;, &#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__subclasshook__&#39;, &#39;__weakref__&#39;]</span><br><span class="line">&lt;class &#39;__main__.Cooking&#39;&gt;</span><br><span class="line">&lt;method-wrapper &#39;__hash__&#39; of Cooking object at 0x102839110&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>append 와 extend의 차이<br>1) append(x)는 리스트 끝에 x 1개를 그대로 넣습니다.<br>2) extend(iterable)는 리스트 끝에 가장 바깥쪽 iterable의 모든 항목을 넣습니다.점</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/26552500/103426426-234b4f80-4b7f-11eb-8255-b181897f254d.png" alt="image"></p>
 ]]></content>
   </entry>
   <entry>
@@ -863,17 +960,6 @@ Create issue
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">df -P | grep -v ^Filesystem | awk &#39;&#123;sum +&#x3D; $3&#125; END &#123; print sum&#x2F;1024&#x2F;1024 &quot; GB&quot; &#125;&#39;</span><br></pre></td></tr></table></figure>
 
 
-]]></content>
-  </entry>
-  <entry>
-    <title>PostgreSQL_Basic (4)</title>
-    <url>/2020/02/19/PostgreSQL-Basic-4/</url>
-    <content><![CDATA[<h3 id="2-SQL"><a href="#2-SQL" class="headerlink" title="2. SQL []"></a>2. SQL []</h3><h4 id="1-JOIN"><a href="#1-JOIN" class="headerlink" title="1) JOIN"></a>1) JOIN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74899081-849c7280-5361-11ea-9138-ed46065c5af9.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74899134-a5fd5e80-5361-11ea-926b-052c0567f8a6.png" alt="image"></p>
-<h4 id="2-INNER-JOIN"><a href="#2-INNER-JOIN" class="headerlink" title="2) INNER JOIN"></a>2) INNER JOIN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74899171-ba415b80-5361-11ea-88c2-46fb68b5f125.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74899211-d9d88400-5361-11ea-9500-4d00ee0609f4.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74899251-f379cb80-5361-11ea-97f2-e1c1a31182f9.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74899307-24f29700-5362-11ea-87ba-69111e078345.png" alt="image"></p>
 ]]></content>
   </entry>
   <entry>
@@ -959,18 +1045,6 @@ Create issue
 <p><img src="https://user-images.githubusercontent.com/26552500/102420011-afc61180-3fc6-11eb-832b-48acf77fad0a.png" alt="image"></p>
 <p>Restart MySQL Server</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo systemctl restart mysql.service</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
-    <title>PostgreSQL_Basic Exam (1)</title>
-    <url>/2020/02/13/PostgreSQL-Basic-Exam-1/</url>
-    <content><![CDATA[<h4 id="1-PAYMENT-DATE가-2007년-2월-7일부터-2007년-2월-15일인-customer-id-first-name-Last-name"><a href="#1-PAYMENT-DATE가-2007년-2월-7일부터-2007년-2월-15일인-customer-id-first-name-Last-name" class="headerlink" title="1) PAYMENT_DATE가 2007년 2월 7일부터 2007년 2월 15일인 customer_id, first_name, Last_name"></a>1) PAYMENT_DATE가 2007년 2월 7일부터 2007년 2월 15일인 customer_id, first_name, Last_name</h4><ul>
-<li>to_char / cast</li>
-</ul>
-<p><img src="https://user-images.githubusercontent.com/26552500/74495493-98e1fa80-4e9d-11ea-9802-4eaf3e30e1b5.png" alt="image"></p>
-<h4 id="2"><a href="#2" class="headerlink" title="2)"></a>2)</h4><p><img src="https://user-images.githubusercontent.com/26552500/74498354-03973400-4ea6-11ea-834a-c72cacf72f9e.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74498877-a4d2ba00-4ea7-11ea-9428-8255061fcb80.png" alt="image"></p>
-<h4 id="3"><a href="#3" class="headerlink" title="3)"></a>3)</h4><p><img src="https://user-images.githubusercontent.com/26552500/74498915-bc11a780-4ea7-11ea-8aa8-a1b2b324a4dd.png" alt="image"></p>
 ]]></content>
   </entry>
   <entry>
@@ -1062,35 +1136,6 @@ pip3 list</code></pre>
 ]]></content>
   </entry>
   <entry>
-    <title>Python_Basic (1)</title>
-    <url>/2020/02/12/Python-Basic-1/</url>
-    <content><![CDATA[<h4 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h4><h5 id="check-“Add-Python-path”"><a href="#check-“Add-Python-path”" class="headerlink" title="check “Add Python ~ path”"></a>check “Add Python ~ path”</h5><p><img src="https://user-images.githubusercontent.com/26552500/74404590-95dd0080-4df0-11ea-9fd6-30502b8babf2.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74404765-0552f000-4df1-11ea-945f-167a20cb3d58.png" alt="image"></p>
-<h4 id="Download-Visual"><a href="#Download-Visual" class="headerlink" title="Download Visual"></a>Download Visual</h4><p><a href="https://code.visualstudio.com/download" target="_blank" rel="noopener">https://code.visualstudio.com/download</a></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74404703-d9d00580-4df0-11ea-991a-7f76be558aac.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74405769-8a3f0900-4df3-11ea-9c7e-8d5408289ed6.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74405865-c8d4c380-4df3-11ea-833b-ba5d57744b51.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74405929-fb7ebc00-4df3-11ea-9940-6c3ad6a362fd.png" alt="image"></p>
-<h4 id="Setup-Virtual-Env"><a href="#Setup-Virtual-Env" class="headerlink" title="Setup Virtual Env"></a>Setup Virtual Env</h4><p><img src="https://user-images.githubusercontent.com/26552500/74406320-f2421f00-4df4-11ea-9cab-20c697d829b3.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74406376-1c93dc80-4df5-11ea-9c5e-6e2e88cd8a13.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74406439-451bd680-4df5-11ea-89cf-8bbeb3af5609.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74406461-5664e300-4df5-11ea-9f8f-9788cf4cd401.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74406604-bc516a80-4df5-11ea-855c-c4cae42b52d0.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74406650-d8eda280-4df5-11ea-979d-d45091c671df.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74406858-574a4480-4df6-11ea-8af5-303efb3048a8.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74406898-6af5ab00-4df6-11ea-8062-1aa197c3d338.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74407012-9f696700-4df6-11ea-809f-e3502b4c4c8e.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F; See https:&#x2F;&#x2F;go.microsoft.com&#x2F;fwlink&#x2F;?LinkId&#x3D;733558</span><br><span class="line">    &#x2F;&#x2F; for the documentation about the tasks.json format</span><br><span class="line">    &quot;version&quot;: &quot;2.0.0&quot;,</span><br><span class="line">    &quot;tasks&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;label&quot;: &quot;Project Label&quot;,</span><br><span class="line">            &quot;type&quot;: &quot;shell&quot;,</span><br><span class="line">            &quot;command&quot;: &quot;python&quot;,</span><br><span class="line">            &quot;args&quot;: [</span><br><span class="line">                &quot;$&#123;file&#125;&quot;</span><br><span class="line">            ],</span><br><span class="line">            &quot;presentation&quot;: &#123;</span><br><span class="line">                &quot;reveal&quot;: &quot;always&quot;,</span><br><span class="line">                &quot;panel&quot;: &quot;new&quot;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;options&quot;: &#123;</span><br><span class="line">                &quot;env&quot;: &#123;</span><br><span class="line">                    &quot;PYTHONIOENCODING&quot;: &quot;UTF-8&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;group&quot;: &#123;</span><br><span class="line">                &quot;kind&quot;: &quot;build&quot;,</span><br><span class="line">                &quot;isDefault&quot;: true</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-images.githubusercontent.com/26552500/74407349-785f6500-4df7-11ea-8296-64ad5ae0939c.png" alt="image"></p>
-<hr>
-<h3 id="1-Function"><a href="#1-Function" class="headerlink" title="1. Function"></a>1. Function</h3><h4 id="1-Print"><a href="#1-Print" class="headerlink" title="1) Print"></a>1) Print</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Basic</span></span><br><span class="line">print(<span class="string">'hello'</span>)</span><br><span class="line">print(<span class="string">"hello"</span>)</span><br><span class="line">print(<span class="string">"""hello"""</span>)</span><br><span class="line">print(<span class="string">'''hello'''</span>)</span><br><span class="line"></span><br><span class="line">print()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Seperator</span></span><br><span class="line">print(<span class="string">'T'</span>, <span class="string">'E'</span>, <span class="string">'S'</span>, <span class="string">'T'</span>)</span><br><span class="line">print(<span class="string">'T'</span>, <span class="string">'E'</span>, <span class="string">'S'</span>, <span class="string">'T'</span>, sep=<span class="string">''</span>)</span><br><span class="line">print(<span class="string">'2020'</span>, <span class="string">'02'</span>, <span class="string">'13'</span>, sep=<span class="string">'-'</span>)</span><br><span class="line">print(<span class="string">'niceman'</span>, <span class="string">'gmail.com'</span>, sep=<span class="string">'@'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># End</span></span><br><span class="line">print(<span class="string">'welcome to'</span>, end=<span class="string">' '</span>)</span><br><span class="line">print(<span class="string">'the black parade'</span>, end=<span class="string">' '</span>)</span><br><span class="line">print(<span class="string">'piano note'</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'test'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Format </span></span><br><span class="line">print(<span class="string">'&#123;&#125; and &#123;&#125; '</span>.format(<span class="string">'you'</span>, <span class="string">'me'</span>))</span><br><span class="line">print(<span class="string">'&#123;0&#125; and &#123;1&#125;'</span>.format(<span class="string">'you'</span>, <span class="string">'me'</span>))</span><br><span class="line">print(<span class="string">'&#123;a&#125; and &#123;b&#125;'</span>.format(a=<span class="string">'you'</span>, b=<span class="string">'me'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># %s, %d, %f</span></span><br><span class="line">print(<span class="string">"%s's favorite number is %d"</span> % (<span class="string">'danny'</span>, <span class="number">7</span>))</span><br><span class="line">print(<span class="string">"test1: %5d, print: %4.2f"</span> % (<span class="number">777</span>, <span class="number">133.23</span>))</span><br><span class="line">print(<span class="string">"test1: &#123;0: 5d&#125;, print: &#123;1: 4.2f&#125;"</span>.format(<span class="number">777</span>, <span class="number">133.232</span>))</span><br><span class="line">print(<span class="string">"test1: &#123;a: 5d&#125;, print: &#123;b: 4.2f&#125;"</span>.format(a=<span class="number">776</span>, b=<span class="number">45432.342</span>))</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://user-images.githubusercontent.com/26552500/74502215-62fb4100-4eb2-11ea-9505-f8b3c33db4b4.png" alt="image"></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> this</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="comment"># input incoding</span></span><br><span class="line">print(sys.stdin.encoding)</span><br><span class="line"></span><br><span class="line"><span class="comment"># output incoding</span></span><br><span class="line">print(sys.stdout.encoding)</span><br><span class="line"></span><br><span class="line"><span class="comment"># loop</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">        print(<span class="string">"%d * %d ="</span> %(i,j), i*j)</span><br><span class="line"></span><br><span class="line"><span class="comment"># function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greeting</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"hello"</span>)</span><br><span class="line"></span><br><span class="line">greeting()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cooking</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Instance</span></span><br><span class="line">cookie = Cooking()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Print information about class</span></span><br><span class="line">print(id(cookie))</span><br><span class="line">print(dir(cookie))</span><br><span class="line"></span><br><span class="line">print(cookie.__class__)</span><br><span class="line">print(cookie.__hash__)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">The Zen of Python, by Tim Peters</span><br><span class="line"></span><br><span class="line">Beautiful is better than ugly.</span><br><span class="line">Explicit is better than implicit.</span><br><span class="line">Simple is better than complex.</span><br><span class="line">Complex is better than complicated.</span><br><span class="line">Flat is better than nested.</span><br><span class="line">Sparse is better than dense.</span><br><span class="line">Readability counts.</span><br><span class="line">Special cases aren&#39;t special enough to break the rules.</span><br><span class="line">Although practicality beats purity.</span><br><span class="line">Errors should never pass silently.</span><br><span class="line">Unless explicitly silenced.</span><br><span class="line">In the face of ambiguity, refuse the temptation to guess.</span><br><span class="line">There should be one-- and preferably only one --obvious way to do it.</span><br><span class="line">Although that way may not be obvious at first unless you&#39;re Dutch.</span><br><span class="line">Now is better than never.</span><br><span class="line">Although never is often better than *right* now.</span><br><span class="line">If the implementation is hard to explain, it&#39;s a bad idea.</span><br><span class="line">If the implementation is easy to explain, it may be a good idea.</span><br><span class="line">Namespaces are one honking great idea -- let&#39;s do more of those!</span><br><span class="line">UTF-8</span><br><span class="line">UTF-8</span><br><span class="line">1 * 1 &#x3D; 1</span><br><span class="line">1 * 2 &#x3D; 2</span><br><span class="line">1 * 3 &#x3D; 3</span><br><span class="line">1 * 4 &#x3D; 4</span><br><span class="line">1 * 5 &#x3D; 5</span><br><span class="line">1 * 6 &#x3D; 6</span><br><span class="line">1 * 7 &#x3D; 7</span><br><span class="line">1 * 8 &#x3D; 8</span><br><span class="line">1 * 9 &#x3D; 9</span><br><span class="line">2 * 1 &#x3D; 2</span><br><span class="line">2 * 2 &#x3D; 4</span><br><span class="line">2 * 3 &#x3D; 6</span><br><span class="line">2 * 4 &#x3D; 8</span><br><span class="line">2 * 5 &#x3D; 10</span><br><span class="line">2 * 6 &#x3D; 12</span><br><span class="line">2 * 7 &#x3D; 14</span><br><span class="line">2 * 8 &#x3D; 16</span><br><span class="line">2 * 9 &#x3D; 18</span><br><span class="line">3 * 1 &#x3D; 3</span><br><span class="line">3 * 2 &#x3D; 6</span><br><span class="line">3 * 3 &#x3D; 9</span><br><span class="line">3 * 4 &#x3D; 12</span><br><span class="line">3 * 5 &#x3D; 15</span><br><span class="line">3 * 6 &#x3D; 18</span><br><span class="line">3 * 7 &#x3D; 21</span><br><span class="line">3 * 8 &#x3D; 24</span><br><span class="line">3 * 9 &#x3D; 27</span><br><span class="line">4 * 1 &#x3D; 4</span><br><span class="line">4 * 2 &#x3D; 8</span><br><span class="line">4 * 3 &#x3D; 12</span><br><span class="line">4 * 4 &#x3D; 16</span><br><span class="line">4 * 5 &#x3D; 20</span><br><span class="line">4 * 6 &#x3D; 24</span><br><span class="line">4 * 7 &#x3D; 28</span><br><span class="line">4 * 8 &#x3D; 32</span><br><span class="line">4 * 9 &#x3D; 36</span><br><span class="line">5 * 1 &#x3D; 5</span><br><span class="line">5 * 2 &#x3D; 10</span><br><span class="line">5 * 3 &#x3D; 15</span><br><span class="line">5 * 4 &#x3D; 20</span><br><span class="line">5 * 5 &#x3D; 25</span><br><span class="line">5 * 6 &#x3D; 30</span><br><span class="line">5 * 7 &#x3D; 35</span><br><span class="line">5 * 8 &#x3D; 40</span><br><span class="line">5 * 9 &#x3D; 45</span><br><span class="line">6 * 1 &#x3D; 6</span><br><span class="line">6 * 2 &#x3D; 12</span><br><span class="line">6 * 3 &#x3D; 18</span><br><span class="line">6 * 4 &#x3D; 24</span><br><span class="line">6 * 5 &#x3D; 30</span><br><span class="line">6 * 6 &#x3D; 36</span><br><span class="line">6 * 7 &#x3D; 42</span><br><span class="line">6 * 8 &#x3D; 48</span><br><span class="line">6 * 9 &#x3D; 54</span><br><span class="line">7 * 1 &#x3D; 7</span><br><span class="line">7 * 2 &#x3D; 14</span><br><span class="line">7 * 3 &#x3D; 21</span><br><span class="line">7 * 4 &#x3D; 28</span><br><span class="line">7 * 5 &#x3D; 35</span><br><span class="line">7 * 6 &#x3D; 42</span><br><span class="line">7 * 7 &#x3D; 49</span><br><span class="line">7 * 8 &#x3D; 56</span><br><span class="line">7 * 9 &#x3D; 63</span><br><span class="line">8 * 1 &#x3D; 8</span><br><span class="line">8 * 2 &#x3D; 16</span><br><span class="line">8 * 3 &#x3D; 24</span><br><span class="line">8 * 4 &#x3D; 32</span><br><span class="line">8 * 5 &#x3D; 40</span><br><span class="line">8 * 6 &#x3D; 48</span><br><span class="line">8 * 7 &#x3D; 56</span><br><span class="line">8 * 8 &#x3D; 64</span><br><span class="line">8 * 9 &#x3D; 72</span><br><span class="line">9 * 1 &#x3D; 9</span><br><span class="line">9 * 2 &#x3D; 18</span><br><span class="line">9 * 3 &#x3D; 27</span><br><span class="line">9 * 4 &#x3D; 36</span><br><span class="line">9 * 5 &#x3D; 45</span><br><span class="line">9 * 6 &#x3D; 54</span><br><span class="line">9 * 7 &#x3D; 63</span><br><span class="line">9 * 8 &#x3D; 72</span><br><span class="line">9 * 9 &#x3D; 81</span><br><span class="line">hello</span><br><span class="line">4337144080</span><br><span class="line">[&#39;__class__&#39;, &#39;__delattr__&#39;, &#39;__dict__&#39;, &#39;__dir__&#39;, &#39;__doc__&#39;, &#39;__eq__&#39;, &#39;__format__&#39;, &#39;__ge__&#39;, &#39;__getattribute__&#39;, &#39;__gt__&#39;, &#39;__hash__&#39;, &#39;__init__&#39;, &#39;__init_subclass__&#39;, &#39;__le__&#39;, &#39;__lt__&#39;, &#39;__module__&#39;, &#39;__ne__&#39;, &#39;__new__&#39;, &#39;__reduce__&#39;, &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__setattr__&#39;, &#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__subclasshook__&#39;, &#39;__weakref__&#39;]</span><br><span class="line">&lt;class &#39;__main__.Cooking&#39;&gt;</span><br><span class="line">&lt;method-wrapper &#39;__hash__&#39; of Cooking object at 0x102839110&gt;</span><br></pre></td></tr></table></figure>]]></content>
-  </entry>
-  <entry>
     <title>Python - Pickle</title>
     <url>/2020/02/05/Python-Pickle/</url>
     <content><![CDATA[<p>Input</p>
@@ -1117,48 +1162,6 @@ pip3 list</code></pre>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Regular Express</title>
-    <url>/2020/08/27/Regular-Express/</url>
-    <content><![CDATA[<h3 id="1-Regular-expressions"><a href="#1-Regular-expressions" class="headerlink" title="1. Regular expressions"></a>1. Regular expressions</h3><h4 id="Regular-expressions-are-one-of-the-ways-to-process-character-strings-and-are-a-means-to-make-the-process-of’searching’-or’substituting’-characters-in-a-specific-condition-very-simple"><a href="#Regular-expressions-are-one-of-the-ways-to-process-character-strings-and-are-a-means-to-make-the-process-of’searching’-or’substituting’-characters-in-a-specific-condition-very-simple" class="headerlink" title="Regular expressions are one of the ways to process character strings and are a means to make the process of’searching’ or’substituting’ characters in a specific condition very simple."></a>Regular expressions are one of the ways to process character strings and are a means to make the process of’searching’ or’substituting’ characters in a specific condition very simple.</h4><h3 id="2-Term"><a href="#2-Term" class="headerlink" title="2. Term"></a>2. Term</h3><ul>
-<li><p>^x : x 문자로 시작 </p>
-</li>
-<li><p>x$ : x 문자로 종료</p>
-</li>
-<li><p>.x : 임의의 한 문자의 자리수를 표현하며 문자열이 x 로 끝남</p>
-</li>
-<li><p>x+ : x 문자가 1개 이상</p>
-</li>
-<li><p>x? : x 문자가 0개 ~1개</p>
-</li>
-<li><p>x* : x 문자가 0개 ~ 여러개</p>
-</li>
-<li><p>x|y : or 를 표현하며 x 또는 y 문자<br><img src="https://user-images.githubusercontent.com/26552500/91465533-82a4f600-e853-11ea-88cb-add460b6ba36.png" alt="image"></p>
-</li>
-</ul>
-<ul>
-<li>(x) :그룹을 표현하며 x 를 그룹으로 처리<br><img src="https://user-images.githubusercontent.com/26552500/91465533-82a4f600-e853-11ea-88cb-add460b6ba36.png" alt="image"></li>
-</ul>
-<ul>
-<li><p>(x)(y):x 그룹을 찾고 그 뒤에 있는 y값을 찾음<br><img src="https://user-images.githubusercontent.com/26552500/91466181-5d64b780-e854-11ea-876a-48a7e5cacfa9.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91466400-ad437e80-e854-11ea-8fa8-f2841802c0c3.png" alt="image"></p>
-</li>
-<li><p>x.?? : 앞에 있는 ?의 최소값인 0개로 검색 (? lazy)<br><img src="https://user-images.githubusercontent.com/26552500/91467435-30b19f80-e856-11ea-829e-7bf085ef9c8d.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91467497-445d0600-e856-11ea-9b83-f4357fa81e20.png" alt="image"></p>
-</li>
-<li><p>x.+? : 앞에 있는 +의 최소값인 1개로 검색 (? lazy)<br><img src="https://user-images.githubusercontent.com/26552500/91467651-779f9500-e856-11ea-9efc-067cb69f1f10.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91467705-8c7c2880-e856-11ea-958f-0152cf944e4c.png" alt="image"></p>
-</li>
-<li><p>x+(?=y) : 끝이 y로 끝나는 x를 검색<br><img src="https://user-images.githubusercontent.com/26552500/91468977-635c9780-e858-11ea-9603-74372293e2d5.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91469039-7a02ee80-e858-11ea-8e62-693e414dcf77.png" alt="image"></p>
-</li>
-</ul>
-<h3 id="3-Example"><a href="#3-Example" class="headerlink" title="3. Example"></a>3. Example</h3><ul>
-<li><p>전화번호 : ([\d]{3}) \d{3}-\d{4}  </p>
-<pre><code>\([0-9]{3}\) [0-9]{3}-[0-9]{4}</code></pre><p><img src="https://user-images.githubusercontent.com/26552500/91470069-d87c9c80-e859-11ea-8076-6aadd25d4334.png" alt="image"></p>
-</li>
-<li><p>전화번호 (중간에 8또는 1 제외): [^8|^1][0-9]{2}-[0-9]{4}<br><img src="https://user-images.githubusercontent.com/26552500/91471001-0f9f7d80-e85b-11ea-80fd-0d6d374ab14f.png" alt="image"></p>
-</li>
-</ul>
-<h3 id="4-Test-site"><a href="#4-Test-site" class="headerlink" title="4. Test site"></a>4. Test site</h3><p><a href="https://regexr.com/" target="_blank" rel="noopener">https://regexr.com/</a></p>
 ]]></content>
   </entry>
   <entry>
@@ -1282,17 +1285,45 @@ pip3 list</code></pre>
 ]]></content>
   </entry>
   <entry>
-    <title>Basic_Data_Engineer_7_Data_Lake_1</title>
-    <url>/2020/12/30/Basic-Data-Engineer-7-Data-Lake-1/</url>
-    <content><![CDATA[<ul>
-<li><p>Data Lake :<br>1) Data Structure : Raw<br>2) Purpose of Data : Not yet Determined<br>3) Users : Data Scientists<br>4) Accessibility : High / Quck to update</p>
+    <title>Regular Express</title>
+    <url>/2020/08/27/Regular-Express/</url>
+    <content><![CDATA[<h3 id="1-Regular-expressions"><a href="#1-Regular-expressions" class="headerlink" title="1. Regular expressions"></a>1. Regular expressions</h3><h4 id="Regular-expressions-are-one-of-the-ways-to-process-character-strings-and-are-a-means-to-make-the-process-of’searching’-or’substituting’-characters-in-a-specific-condition-very-simple"><a href="#Regular-expressions-are-one-of-the-ways-to-process-character-strings-and-are-a-means-to-make-the-process-of’searching’-or’substituting’-characters-in-a-specific-condition-very-simple" class="headerlink" title="Regular expressions are one of the ways to process character strings and are a means to make the process of’searching’ or’substituting’ characters in a specific condition very simple."></a>Regular expressions are one of the ways to process character strings and are a means to make the process of’searching’ or’substituting’ characters in a specific condition very simple.</h4><h3 id="2-Term"><a href="#2-Term" class="headerlink" title="2. Term"></a>2. Term</h3><ul>
+<li><p>^x : x 문자로 시작 </p>
 </li>
-<li><p>Data Warehouse :<br>1) Data Structure : Processed<br>2) Purpose of Data : In Use<br>3) Users : Business Professionals<br>4) Accessibility : Complicated / Costly</p>
+<li><p>x$ : x 문자로 종료</p>
+</li>
+<li><p>.x : 임의의 한 문자의 자리수를 표현하며 문자열이 x 로 끝남</p>
+</li>
+<li><p>x+ : x 문자가 1개 이상</p>
+</li>
+<li><p>x? : x 문자가 0개 ~1개</p>
+</li>
+<li><p>x* : x 문자가 0개 ~ 여러개</p>
+</li>
+<li><p>x|y : or 를 표현하며 x 또는 y 문자<br><img src="https://user-images.githubusercontent.com/26552500/91465533-82a4f600-e853-11ea-88cb-add460b6ba36.png" alt="image"></p>
 </li>
 </ul>
+<ul>
+<li>(x) :그룹을 표현하며 x 를 그룹으로 처리<br><img src="https://user-images.githubusercontent.com/26552500/91465533-82a4f600-e853-11ea-88cb-add460b6ba36.png" alt="image"></li>
+</ul>
+<ul>
+<li><p>(x)(y):x 그룹을 찾고 그 뒤에 있는 y값을 찾음<br><img src="https://user-images.githubusercontent.com/26552500/91466181-5d64b780-e854-11ea-876a-48a7e5cacfa9.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91466400-ad437e80-e854-11ea-8fa8-f2841802c0c3.png" alt="image"></p>
+</li>
+<li><p>x.?? : 앞에 있는 ?의 최소값인 0개로 검색 (? lazy)<br><img src="https://user-images.githubusercontent.com/26552500/91467435-30b19f80-e856-11ea-829e-7bf085ef9c8d.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91467497-445d0600-e856-11ea-9b83-f4357fa81e20.png" alt="image"></p>
+</li>
+<li><p>x.+? : 앞에 있는 +의 최소값인 1개로 검색 (? lazy)<br><img src="https://user-images.githubusercontent.com/26552500/91467651-779f9500-e856-11ea-9efc-067cb69f1f10.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91467705-8c7c2880-e856-11ea-958f-0152cf944e4c.png" alt="image"></p>
+</li>
+<li><p>x+(?=y) : 끝이 y로 끝나는 x를 검색<br><img src="https://user-images.githubusercontent.com/26552500/91468977-635c9780-e858-11ea-9603-74372293e2d5.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91469039-7a02ee80-e858-11ea-8e62-693e414dcf77.png" alt="image"></p>
+</li>
+</ul>
+<h3 id="3-Example"><a href="#3-Example" class="headerlink" title="3. Example"></a>3. Example</h3><ul>
+<li><p>전화번호 : ([\d]{3}) \d{3}-\d{4}  </p>
+<pre><code>\([0-9]{3}\) [0-9]{3}-[0-9]{4}</code></pre><p><img src="https://user-images.githubusercontent.com/26552500/91470069-d87c9c80-e859-11ea-8076-6aadd25d4334.png" alt="image"></p>
+</li>
+<li><p>전화번호 (중간에 8또는 1 제외): [^8|^1][0-9]{2}-[0-9]{4}<br><img src="https://user-images.githubusercontent.com/26552500/91471001-0f9f7d80-e85b-11ea-80fd-0d6d374ab14f.png" alt="image"></p>
+</li>
+</ul>
+<h3 id="4-Test-site"><a href="#4-Test-site" class="headerlink" title="4. Test site"></a>4. Test site</h3><p><a href="https://regexr.com/" target="_blank" rel="noopener">https://regexr.com/</a></p>
 ]]></content>
-      <tags>
-        <tag>DataLake</tag>
-      </tags>
   </entry>
 </search>

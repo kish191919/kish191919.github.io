@@ -402,6 +402,32 @@ height:100vh;
 </li>
 <li><p>Data Warehouse :<br>1) Data Structure : Processed<br>2) Purpose of Data : In Use<br>3) Users : Business Professionals<br>4) Accessibility : Complicated / Costly</p>
 </li>
+<li><p>Presto (SQL)<br>1) Presto is a high performance, distributed SQL query engine for big data.<br>2) One can even query data from multiple data sources within a single query</p>
+</li>
+<li><p>Severless : Lambda (User가 늘더라도 workload가 컨트롤 됨) , Athena<br>1) 시스템 확장성, 가용성 측면에서 매우 뛰어남.<br>2) 서버 환경을 구축할 때 비용이 드는데, 사용 고객이 가변적인 경우 자원 낭비는 필연적이며 이러한 제약을 극복하기 위해, serverless라는 개념이 등장하였다<br>3) Request가 오면 그에 맞게 리소스를 선형적으로 늘려나감(병철 처리 기반)</p>
+</li>
+<li><p>Athena :presto 기반의 AWS 빅데이처 처리 리소스(플랫폼)<br>1) partion을 기반으로 s3에 저장된 data를 빠르게 가져와서 ad-hoc분석을 쉽게 해 준다.<br>2) 복수의 데이터 소스들로 부터 데이터를 합치기에 용이하다.<br>3) nested 형식의 데이터를 파싱하는 강력한 쿼리 메소드를 지원한다.<br>4) partition별로 저장된 parquet 포멧의 데이터를 다룰 수 있음.</p>
+</li>
+</ul>
+<ul>
+<li><p>Create table at Athena</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CREATE EXTERNAL TABLE IF NOT EXISTS top_tracks (</span><br><span class="line">  &#96;id&#96; string,</span><br><span class="line">  &#96;artist_id&#96; string,</span><br><span class="line">  &#96;name&#96; string,</span><br><span class="line">  &#96;popularity&#96; int,</span><br><span class="line">  &#96;external_url&#96; string </span><br><span class="line">) PARTITIONED BY (dt string)</span><br><span class="line">STORED AS PARQUET LOCATION &#39;s3:&#x2F;&#x2F;spotify-artist-project&#x2F;top-tracks&#x2F;&#39; tblproperties(&quot;parquet.compress&quot;&#x3D;&quot;SNAPPY&quot;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Use partition</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MSCK REPAIR TABLE top_tracks</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>반드시 Partition column을 사용하여 데이터를 query함. otherwise, all data will be caculated.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># the recent data</span><br><span class="line">WHERE CAST(dt as date) &#x3D; CURRENT_DATE</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103426089-796ac380-4b7c-11eb-9be4-18e6a0cdb733.png" alt="image"></p>
+</li>
+<li><p>7일 전까지의 데이터 중 10개만 확</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM top_tracks</span><br><span class="line">WHERE CAST(dt AS date) &gt;&#x3D; CURRENT_DATE - INTERVAL &#39;7&#39; DAY</span><br><span class="line">LIMIT 10</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/26552500/103425804-7242b600-4b7a-11eb-9958-090b05209a2e.png" alt="image"></p>
+<ul>
+<li>Presto function<br>Link : <a href="https://prestodb.io/docs/current/functions.html" target="_blank" rel="noopener">https://prestodb.io/docs/current/functions.html</a></li>
 </ul>
 
     </article>
@@ -1180,19 +1206,21 @@ top:100vh;
     
         <span class="sidebar-tag-name" data-tags="JIRA"><span class="iconfont-archer">&#xe606;</span>JIRA</span>
     
-        <span class="sidebar-tag-name" data-tags="Data_Engineer"><span class="iconfont-archer">&#xe606;</span>Data_Engineer</span>
-    
-        <span class="sidebar-tag-name" data-tags="SQL"><span class="iconfont-archer">&#xe606;</span>SQL</span>
-    
         <span class="sidebar-tag-name" data-tags="API"><span class="iconfont-archer">&#xe606;</span>API</span>
+    
+        <span class="sidebar-tag-name" data-tags="Data_Engineer"><span class="iconfont-archer">&#xe606;</span>Data_Engineer</span>
     
         <span class="sidebar-tag-name" data-tags="Unix"><span class="iconfont-archer">&#xe606;</span>Unix</span>
     
         <span class="sidebar-tag-name" data-tags="Atom"><span class="iconfont-archer">&#xe606;</span>Atom</span>
     
-        <span class="sidebar-tag-name" data-tags="Datebase"><span class="iconfont-archer">&#xe606;</span>Datebase</span>
+        <span class="sidebar-tag-name" data-tags="SQL"><span class="iconfont-archer">&#xe606;</span>SQL</span>
+    
+        <span class="sidebar-tag-name" data-tags="DataLake"><span class="iconfont-archer">&#xe606;</span>DataLake</span>
     
         <span class="sidebar-tag-name" data-tags="Nosql"><span class="iconfont-archer">&#xe606;</span>Nosql</span>
+    
+        <span class="sidebar-tag-name" data-tags="Datebase"><span class="iconfont-archer">&#xe606;</span>Datebase</span>
     
         <span class="sidebar-tag-name" data-tags="Git"><span class="iconfont-archer">&#xe606;</span>Git</span>
     
@@ -1207,8 +1235,6 @@ top:100vh;
         <span class="sidebar-tag-name" data-tags="Environment"><span class="iconfont-archer">&#xe606;</span>Environment</span>
     
         <span class="sidebar-tag-name" data-tags="Code"><span class="iconfont-archer">&#xe606;</span>Code</span>
-    
-        <span class="sidebar-tag-name" data-tags="DataLake"><span class="iconfont-archer">&#xe606;</span>DataLake</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
