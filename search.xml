@@ -1329,4 +1329,70 @@ pip3 list</code></pre>
 <p>./backup :  backup 스크립트 실행<br><img src="https://user-images.githubusercontent.com/26552500/91772230-148d6580-ebaa-11ea-9832-20d71e32a69d.png" alt="image"></p>
 ]]></content>
   </entry>
+  <entry>
+    <title>Kaggle_1_House_Price</title>
+    <url>/2021/01/02/Kaggle-1-House-Price/</url>
+    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Library</span><br><span class="line">import numpy as np</span><br><span class="line">import pandas as pd</span><br><span class="line"></span><br><span class="line">import seaborn as sns</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line">import scipy</span><br><span class="line">from scipy import stats</span><br><span class="line">from scipy.stats import norm, skew </span><br><span class="line"></span><br><span class="line">import warnings</span><br><span class="line">warnings.filterwarnings(&#39;ignore&#39;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Check data</span><br><span class="line">print(&quot;Train data : &quot;, train.shape)</span><br><span class="line">print(&quot;Test  data : &quot;, test.shape)</span><br><span class="line">train.describe()</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Explore SalePrice</span><br><span class="line"></span><br><span class="line">plt.figure(figsize&#x3D;(17,6))</span><br><span class="line"></span><br><span class="line">plt.subplot(131)</span><br><span class="line">sns.distplot(train[&quot;SalePrice&quot;])</span><br><span class="line"></span><br><span class="line">plt.subplot(132)</span><br><span class="line">stats.probplot(train[&quot;SalePrice&quot;], plot&#x3D;plt)</span><br><span class="line"></span><br><span class="line">plt.subplot(133)</span><br><span class="line">sns.boxplot(train[&quot;SalePrice&quot;])</span><br><span class="line">plt.tight_layout() #경계선이 좀 더 정리됨</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>distplot: 단변량분포를 그린다. 커널밀도함수도 같이표현할 수 있다.<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sns.distplot(df.sepal_length,)</span><br></pre></td></tr></table></figure>
+<img src="https://user-images.githubusercontent.com/26552500/103469375-7e20aa80-4d29-11eb-8cc6-301463bd926f.png" alt="image"></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">print(&quot;Skewness: %f&quot; % train[&#39;SalePrice&#39;].skew())</span><br><span class="line">print(&quot;Kurtosis: %f&quot; % train[&#39;SalePrice&#39;].kurt())</span><br><span class="line"></span><br><span class="line"># Skewness: 1.882876</span><br><span class="line"># Kurtosis: 6.536282</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>Skew (왜도) : </p>
+<blockquote>
+<p> 분포의 비대칭도  </p>
+<pre><code>정규분포 = 왜도 0  
+오른쪽으로 치우침 : 왜도 &gt; 0 : Negative Skew</code></pre><p>  <img src="https://user-images.githubusercontent.com/26552500/103469190-3862e280-4d27-11eb-934b-0df00bdee5a6.png" alt="image"></p>
+</blockquote>
+</li>
+<li><p>Kurtosis (첨도) : </p>
+<blockquote>
+<p>  확률분포의 뽀족한 정도  </p>
+<pre><code>정규분포 = 첨도 0 (Pearson 첨도 = 3)  
+위로 뾰족함 = 첨도 &gt; 0 (Pearson 첨도 &gt; 3)  
+아래로 뾰족함 = 첨도 &lt; 0 (Pearson 첨도 &lt; 3)   </code></pre><p>  <img src="https://user-images.githubusercontent.com/26552500/103469257-2170c000-4d28-11eb-890c-1b3504606162.png" alt="image"></p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># SalePrice log transformation</span><br><span class="line"></span><br><span class="line">nomalized_SalePrice &#x3D; np.log1p(train[&quot;SalePrice&quot;])</span><br><span class="line"></span><br><span class="line">plt.figure(figsize&#x3D;(17,6))</span><br><span class="line"></span><br><span class="line">plt.subplot(131)</span><br><span class="line">sns.distplot(nomalized_SalePrice)</span><br><span class="line"></span><br><span class="line">plt.subplot(132)</span><br><span class="line">stats.probplot(nomalized_SalePrice, plot&#x3D;plt)</span><br><span class="line"></span><br><span class="line">plt.subplot(133)</span><br><span class="line">sns.boxplot(nomalized_SalePrice)</span><br><span class="line">plt.tight_layout()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>(1) Check Numerical and Catergorical variables</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Because the MSSubClass variable is a category value, change numeric data to character data</span><br><span class="line">train[&quot;MSSubClass&quot;] &#x3D; train[&quot;MSSubClass&quot;].astype(&#39;str&#39;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Divide into numeric and categorical variables</span><br><span class="line">numerical_features &#x3D; []</span><br><span class="line">categorical_features &#x3D; []</span><br><span class="line">for f in train.columns:</span><br><span class="line">    if train.dtypes[f] !&#x3D; &#39;object&#39;:</span><br><span class="line">        numerical_features.append(f)</span><br><span class="line">    else:</span><br><span class="line">        categorical_features.append(f)</span><br><span class="line">&#96;&#96;&#96;  </span><br><span class="line"></span><br><span class="line">(2) Graph for numerical features with SalePrice¶                </span><br><span class="line">&#96;&#96;&#96;aidl</span><br><span class="line">fig, ax &#x3D; plt.subplots(6,6, figsize &#x3D; (20,20))</span><br><span class="line"></span><br><span class="line">for idx, n in enumerate(numerical_features):</span><br><span class="line">    if n &#x3D;&#x3D; &#39;SalePrice&#39;:</span><br><span class="line">        continue</span><br><span class="line">    sns.regplot(x&#x3D;n, y&#x3D;&#39;SalePrice&#39;, data&#x3D;train, ax &#x3D; ax[idx&#x2F;&#x2F;6,idx%6])</span><br><span class="line">    ax[idx&#x2F;&#x2F;6, idx % 6].set(yticklabels&#x3D;[])</span><br><span class="line">    ax[idx&#x2F;&#x2F;6, idx % 6].set(xticklabels&#x3D;[])</span><br><span class="line">    </span><br><span class="line">    continue</span><br></pre></td></tr></table></figure>
+<ul>
+<li>regplot : 두 변수를 이용하여 선형 회귀 모형을 만들고, 그레프로 표현<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sns.regplot(x&#x3D;&#39;sepal_length&#39;, y&#x3D;&#39;sepal_width&#39;, data&#x3D;df)</span><br></pre></td></tr></table></figure>
+<img src="https://user-images.githubusercontent.com/26552500/103469361-4e71a280-4d29-11eb-86f3-e25be6ecaf3e.png" alt="image"></li>
+</ul>
+<p>(3) Graph for categorical features</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fig, ax &#x3D; plt.subplots(8,6, figsize &#x3D; (20,20))</span><br><span class="line"></span><br><span class="line">for idx, n in enumerate(categorical_features):</span><br><span class="line">    </span><br><span class="line">    sns.countplot(x&#x3D;n, data&#x3D;train, ax &#x3D; ax[idx&#x2F;&#x2F;6, idx % 6])</span><br><span class="line">    ax[idx&#x2F;&#x2F;6, idx % 6].set(yticklabels&#x3D;[])</span><br><span class="line">    </span><br><span class="line">    continue</span><br></pre></td></tr></table></figure>
+<ul>
+<li>seaborn.countplot: 각 범주 구간의 갯수만 파악<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sns.countplot(x&#x3D;&#39;deck&#39;, data&#x3D;df)</span><br></pre></td></tr></table></figure>
+<img src="https://user-images.githubusercontent.com/26552500/103469399-e8394f80-4d29-11eb-9d8a-22df1f7f9c7c.png" alt="image"></li>
+</ul>
+<hr>
+<p>(4) Relationship with numerical variables</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#scatter plot grlivarea&#x2F;saleprice</span><br><span class="line">var &#x3D; &#39;GrLivArea&#39;</span><br><span class="line">data &#x3D; pd.concat([df_train[&#39;SalePrice&#39;], df_train[var]], axis&#x3D;1)</span><br><span class="line">plt.scatter(x&#x3D;var, y&#x3D;&#39;SalePrice&#39;, data&#x3D;data)</span><br></pre></td></tr></table></figure>
+<p>(5) Relationship with categorical features</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var &#x3D; &#39;OverallQual&#39;</span><br><span class="line">data &#x3D; pd.concat([df_train[&#39;SalePrice&#39;], df_train[var]], axis&#x3D;1)</span><br><span class="line"></span><br><span class="line">plt.subplots(figsize&#x3D;(8,6))</span><br><span class="line">fig &#x3D; sns.boxplot(x&#x3D;var, y&#x3D;&#39;SalePrice&#39;, data&#x3D;data)</span><br><span class="line">fig.axis(ymin&#x3D;0, ymax&#x3D;800000)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">var &#x3D; &#39;YearBuilt&#39;</span><br><span class="line">data &#x3D; pd.concat([df_train[&#39;SalePrice&#39;], df_train[var]],axis&#x3D;1)</span><br><span class="line">plt.subplots(figsize &#x3D; (16,8))</span><br><span class="line">fig &#x3D; sns.boxplot(x&#x3D;var, y&#x3D;&#39;SalePrice&#39;, data&#x3D;data)</span><br><span class="line">fig.axis(ymin &#x3D;0, ymax&#x3D;800000)</span><br><span class="line">plt.xticks(rotation&#x3D;90);</span><br></pre></td></tr></table></figure>
+
+<p>(6) CCorrelation matrix (heatmap style)</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># correlation matrix</span><br><span class="line">corrmat &#x3D; df_train.corr()</span><br><span class="line">plt.figure(figsize&#x3D;(12,12))</span><br><span class="line">sns.heatmap(corrmat, vmax &#x3D; .8, square&#x3D;True);</span><br></pre></td></tr></table></figure>
+
+<p>(7) ‘SalePrice’ correlation matrix (zoomed heatmap style)</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># saleprice correlation matrix</span><br><span class="line">k &#x3D; 10</span><br><span class="line">cols &#x3D; corrmat.nlargest(k, &#39;SalePrice&#39;)[&#39;SalePrice&#39;].index</span><br><span class="line">cm &#x3D; np.corrcoef(df_train[cols].T)</span><br><span class="line">sns.heatmap(cm, annot&#x3D;True, yticklabels&#x3D;cols, xticklabels &#x3D;cols)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Kaggle</tag>
+        <tag>House_Price</tag>
+      </tags>
+  </entry>
 </search>
