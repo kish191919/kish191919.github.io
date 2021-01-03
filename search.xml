@@ -544,6 +544,20 @@ Create issue
 <ul>
 <li>AWS EMR<br>1) Amazon EMR은 AWS에서 Apache Hadoop 및 Apache Spark와 같은 빅데이터 프레임워크 실행을 간소화하는 관리형 클러스터 플랫폼입니다.<br>2) 아마존 S3는 HDFS API를 만족시켜서 HDFS 대신 파일시스템으로 사용될 수 있고, 아마존 EMR은 EC2인스턴스 클러스터를 구성하여 하둡 프레임워크로서 동작하여 분산처리가 가능하게 합니다.</li>
 </ul>
+<p>3) Create Cluster</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/103482667-b9fa5500-4da7-11eb-8166-10bd6f88cbce.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/103482709-f75ee280-4da7-11eb-97fa-86598db5f48a.png" alt="image"></p>
+<p>4) Add inbound rule (SSH, Zeppline - 8890)<br><img src="https://user-images.githubusercontent.com/26552500/103482726-1c535580-4da8-11eb-96a6-f651a8abd63c.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/103482771-64727800-4da8-11eb-982c-1da855217d4f.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/103482811-8e2b9f00-4da8-11eb-8c0d-f0086775973c.png" alt="image"></p>
+<p>5) Connect to Zeppline</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/103482831-adc2c780-4da8-11eb-8055-cfe4c4731311.png" alt="image"></p>
+<p>6) Create notebook and run code</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/103482845-cdf28680-4da8-11eb-982f-3491bf5ed23c.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">%pyspark</span><br><span class="line">raw &#x3D; &#39;&#123;&quot;name&quot;:&quot;Drake&quot;&#125;&#39;</span><br><span class="line">import json</span><br><span class="line">print(json.loads(raw)[&#39;name&#39;])</span><br><span class="line"></span><br><span class="line">%pyspark</span><br><span class="line">raw &#x3D; [&#39;&#123;&quot;name&quot;:&quot;Drake&quot;&#125;&#39;, &#39;&#123;&quot;name&quot;:&quot;Danny&quot;&#125;&#39;, &#39;&#123;&quot;name&quot;:&quot;post&quot;&#125;&#39;]</span><br><span class="line">for entry in raw:</span><br><span class="line">    print(json.loads(entry)[&#39;name&#39;])</span><br><span class="line"># Drake</span><br><span class="line"># Danny</span><br><span class="line"># post</span><br><span class="line"></span><br><span class="line">%pyspark</span><br><span class="line">rdd &#x3D; sc.parallelize(raw)</span><br><span class="line">rdd.count()</span><br><span class="line">rdd.map(json.loads).map(lambda entry: entry[&#39;name&#39;]).collect()</span><br><span class="line"># [&#39;Drake&#39;, &#39;Danny&#39;, &#39;post&#39;]</span><br><span class="line"></span><br><span class="line">%pyspark</span><br><span class="line">rdd.map(json.loads).collect()</span><br><span class="line"># [&#123;&#39;name&#39;: &#39;Drake&#39;&#125;, &#123;&#39;name&#39;: &#39;Danny&#39;&#125;, &#123;&#39;name&#39;: &#39;post&#39;&#125;]</span><br></pre></td></tr></table></figure>
+
+
+
 ]]></content>
       <tags>
         <tag>DataLake</tag>
