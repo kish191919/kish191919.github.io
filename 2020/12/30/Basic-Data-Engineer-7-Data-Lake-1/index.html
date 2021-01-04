@@ -444,8 +444,33 @@ height:100vh;
 <p><img src="https://user-images.githubusercontent.com/26552500/103482845-cdf28680-4da8-11eb-982f-3491bf5ed23c.png" alt="image"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">%pyspark</span><br><span class="line">raw &#x3D; &#39;&#123;&quot;name&quot;:&quot;Drake&quot;&#125;&#39;</span><br><span class="line">import json</span><br><span class="line">print(json.loads(raw)[&#39;name&#39;])</span><br><span class="line"></span><br><span class="line">%pyspark</span><br><span class="line">raw &#x3D; [&#39;&#123;&quot;name&quot;:&quot;Drake&quot;&#125;&#39;, &#39;&#123;&quot;name&quot;:&quot;Danny&quot;&#125;&#39;, &#39;&#123;&quot;name&quot;:&quot;post&quot;&#125;&#39;]</span><br><span class="line">for entry in raw:</span><br><span class="line">    print(json.loads(entry)[&#39;name&#39;])</span><br><span class="line"># Drake</span><br><span class="line"># Danny</span><br><span class="line"># post</span><br><span class="line"></span><br><span class="line">%pyspark</span><br><span class="line">rdd &#x3D; sc.parallelize(raw)</span><br><span class="line">rdd.count()</span><br><span class="line">rdd.map(json.loads).map(lambda entry: entry[&#39;name&#39;]).collect()</span><br><span class="line"># [&#39;Drake&#39;, &#39;Danny&#39;, &#39;post&#39;]</span><br><span class="line"></span><br><span class="line">%pyspark</span><br><span class="line">rdd.map(json.loads).collect()</span><br><span class="line"># [&#123;&#39;name&#39;: &#39;Drake&#39;&#125;, &#123;&#39;name&#39;: &#39;Danny&#39;&#125;, &#123;&#39;name&#39;: &#39;post&#39;&#125;]</span><br></pre></td></tr></table></figure>
 
-
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Read file at S3</span><br><span class="line">raw &#x3D; sqlContext.read.format(&quot;parquet&quot;).load(&quot;s3:&#x2F;&#x2F;spotify-artist-project&#x2F;top-tracks&#x2F;dt&#x3D;2020-12-31&#x2F;top_tracks.parquet&quot;)</span><br><span class="line">&#x2F;&#x2F; sc.textFile(&quot;textfile&quot;) 바로 textfile을 읽음</span><br><span class="line">print(type(raw))</span><br><span class="line">print(raw.printSchema())</span><br><span class="line"></span><br><span class="line">df &#x3D; raw.toDF(&quot;id&quot;, &quot;artist_id&quot;, &quot;name&quot;, &quot;popularity&quot;, &quot;external_url&quot;)</span><br><span class="line">df.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103488832-a49c1f80-4dd5-11eb-90d5-4a4919dd1deb.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import pyspark.sql.functions as F</span><br><span class="line"></span><br><span class="line">df_new &#x3D; df1.select(df1[&quot;danceability&quot;], df1[&quot;acousticness&quot;], df1[&quot;liveness&quot;]).agg(F.avg(df1[&quot;danceability&quot;]).alias(&quot;avg_danceability&quot;), F.max(df1[&quot;acousticness&quot;]).alias(&quot;max_acousticness&quot;))</span><br><span class="line">df_new.show()</span><br><span class="line"></span><br><span class="line">from pyspark.sql.functions import udf</span><br><span class="line">from pyspark.sql.types import *</span><br><span class="line"></span><br><span class="line">udf1 &#x3D; udf(lambda e: e.upper())</span><br><span class="line"></span><br><span class="line">@udf(returnType&#x3D;BooleanType())</span><br><span class="line">def udf2(e):</span><br><span class="line">    if e &gt;&#x3D; 0.06:</span><br><span class="line">        return True</span><br><span class="line">    else:</span><br><span class="line">        return False</span><br><span class="line"></span><br><span class="line">df_filtered &#x3D; df1.filter(udf2(df1[&quot;danceability&quot;]))</span><br><span class="line">df_filtered.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103489425-18402b80-4dda-11eb-9178-b9068fd4184e.png" alt="image"></p>
+<ul>
+<li><p>ModuleNotFoundError: No module named ‘pandas’ 발생시<br><img src="https://user-images.githubusercontent.com/26552500/103490115-365c5a80-4ddf-11eb-93b1-aeb6e1f026b1.png" alt="image"></p>
+<blockquote>
+<p>Go to Termianl and then connect to EMR </p>
+<pre><code><figure class="highlight plain"><figcaption><span>-i ~/AWS_CAR_KEY.pem hadoop@ec2-3-137-223-63.us-east-2.compute.amazonaws.com```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">![image](https:&#x2F;&#x2F;user-images.githubusercontent.com&#x2F;26552500&#x2F;103490081-fa28fa00-4dde-11eb-947f-0bf5e4fd558a.png)</span><br><span class="line"></span><br><span class="line">&gt; type &#96;&#96;&#96; pip install pandas</span><br></pre></td></tr></table></figure></code></pre></blockquote>
+</li>
+<li><p>Connect AWS MySQL through Zepplin</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">%pyspark</span><br><span class="line"></span><br><span class="line">artists &#x3D; sqlContext.read.format(&quot;parquet&quot;).load(&quot;s3:&#x2F;&#x2F;spotify-artist-project&#x2F;artists&#x2F;dt&#x3D;2021-01-03&#x2F;artists.parquet&quot;)</span><br><span class="line">artists.toDF(&quot;id&quot;, &quot;name&quot;, &quot;followers&quot;, &quot;popularity&quot;, &quot;url&quot;, &quot;image_url&quot; )</span><br><span class="line"></span><br><span class="line">import pandas as pd</span><br><span class="line">import pymysql </span><br><span class="line"></span><br><span class="line">host &#x3D; &quot;spotify.cirsjhqz33jx.us-west-2.rds.amazonaws.com&quot;</span><br><span class="line">port &#x3D; 3306</span><br><span class="line">username &#x3D; &quot;****&quot;</span><br><span class="line">database &#x3D; &quot;production&quot;</span><br><span class="line">password &#x3D;  &quot;****&quot;</span><br><span class="line"></span><br><span class="line">try:</span><br><span class="line">    conn &#x3D; pymysql.connect(host, user&#x3D;username, passwd&#x3D;password, db&#x3D;database, port&#x3D;port, use_unicode &#x3D; True, charset&#x3D;&#39;utf8&#39;)</span><br><span class="line">    cursor &#x3D; conn.cursor()</span><br><span class="line">except:</span><br><span class="line">    logging.error(&quot;could not connect to RDS&quot;)</span><br><span class="line">    sys.exit(1)</span><br><span class="line"></span><br><span class="line">cursor.execute(&quot;SELECT * FROM artists&quot;)</span><br><span class="line">colnames &#x3D; [d[0] for d in cursor.description]</span><br><span class="line">artists &#x3D; [dict(zip(colnames, raw)) for raw in cursor.fetchall()]</span><br><span class="line">artists &#x3D; pd.DataFrame(artists)</span><br><span class="line"></span><br><span class="line">artists.head()</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103490338-d070d280-4de0-11eb-8e77-505d65e67b90.png" alt="image"></p>
+</li>
+<li><p>Change pandas dataFrame to spark dataFrame</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">artists &#x3D; sqlContext.createDataFrame(artists)</span><br><span class="line">artists.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103490403-234a8a00-4de1-11eb-9908-e2fcdc6fcb78.png" alt="image"></p>
+</li>
+<li><p>Join artists with top-tracks</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">%pyspark</span><br><span class="line">joined &#x3D; artists.join(df, df[&#39;artist_id&#39;] &#x3D;&#x3D; artists[&#39;id&#39;])</span><br><span class="line">joined.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103490500-d4512480-4de1-11eb-90b3-cee9e6d48710.png" alt="image"></p>
+</li>
+<li><p>Renamed the column and then join</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">top_tracks &#x3D; df</span><br><span class="line">top_tracks &#x3D; top_tracks.withColumnRenamed(&quot;id&quot;, &quot;track_id&quot;).withColumnRenamed(&quot;name&quot;,&quot;track_name&quot;)</span><br><span class="line">joined &#x3D; artists.join(top_tracks, top_tracks[&#39;artist_id&#39;] &#x3D;&#x3D; artists[&#39;id&#39;])</span><br><span class="line">joined.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103491085-56434c80-4de6-11eb-8c6b-323525d30dc1.png" alt="image"></p>
+</li>
+</ul>
 
     </article>
     <!-- license  -->
@@ -589,6 +614,8 @@ top:100vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
     
     
     
@@ -1259,21 +1286,25 @@ top:100vh;
     
         <span class="sidebar-tag-name" data-tags="Data_Engineer"><span class="iconfont-archer">&#xe606;</span>Data_Engineer</span>
     
-        <span class="sidebar-tag-name" data-tags="SQL"><span class="iconfont-archer">&#xe606;</span>SQL</span>
-    
         <span class="sidebar-tag-name" data-tags="Unix"><span class="iconfont-archer">&#xe606;</span>Unix</span>
     
         <span class="sidebar-tag-name" data-tags="Atom"><span class="iconfont-archer">&#xe606;</span>Atom</span>
     
         <span class="sidebar-tag-name" data-tags="API"><span class="iconfont-archer">&#xe606;</span>API</span>
     
-        <span class="sidebar-tag-name" data-tags="Datebase"><span class="iconfont-archer">&#xe606;</span>Datebase</span>
+        <span class="sidebar-tag-name" data-tags="SQL"><span class="iconfont-archer">&#xe606;</span>SQL</span>
     
         <span class="sidebar-tag-name" data-tags="Nosql"><span class="iconfont-archer">&#xe606;</span>Nosql</span>
     
+        <span class="sidebar-tag-name" data-tags="Git"><span class="iconfont-archer">&#xe606;</span>Git</span>
+    
         <span class="sidebar-tag-name" data-tags="DataLake"><span class="iconfont-archer">&#xe606;</span>DataLake</span>
     
-        <span class="sidebar-tag-name" data-tags="Git"><span class="iconfont-archer">&#xe606;</span>Git</span>
+        <span class="sidebar-tag-name" data-tags="Datebase"><span class="iconfont-archer">&#xe606;</span>Datebase</span>
+    
+        <span class="sidebar-tag-name" data-tags="Kaggle"><span class="iconfont-archer">&#xe606;</span>Kaggle</span>
+    
+        <span class="sidebar-tag-name" data-tags="House_Price"><span class="iconfont-archer">&#xe606;</span>House_Price</span>
     
         <span class="sidebar-tag-name" data-tags="Mysql"><span class="iconfont-archer">&#xe606;</span>Mysql</span>
     
@@ -1283,13 +1314,9 @@ top:100vh;
     
         <span class="sidebar-tag-name" data-tags="Python"><span class="iconfont-archer">&#xe606;</span>Python</span>
     
-        <span class="sidebar-tag-name" data-tags="Code"><span class="iconfont-archer">&#xe606;</span>Code</span>
-    
         <span class="sidebar-tag-name" data-tags="Environment"><span class="iconfont-archer">&#xe606;</span>Environment</span>
     
-        <span class="sidebar-tag-name" data-tags="Kaggle"><span class="iconfont-archer">&#xe606;</span>Kaggle</span>
-    
-        <span class="sidebar-tag-name" data-tags="House_Price"><span class="iconfont-archer">&#xe606;</span>House_Price</span>
+        <span class="sidebar-tag-name" data-tags="Code"><span class="iconfont-archer">&#xe606;</span>Code</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -1326,9 +1353,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="Today-I-Learn"><span class="iconfont-archer">&#xe60a;</span>Today-I-Learn</span>
     
-        <span class="sidebar-category-name" data-categories="Code"><span class="iconfont-archer">&#xe60a;</span>Code</span>
-    
         <span class="sidebar-category-name" data-categories="Python"><span class="iconfont-archer">&#xe60a;</span>Python</span>
+    
+        <span class="sidebar-category-name" data-categories="Code"><span class="iconfont-archer">&#xe60a;</span>Code</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
