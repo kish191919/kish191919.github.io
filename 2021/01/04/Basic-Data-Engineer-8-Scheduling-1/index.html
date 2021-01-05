@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Basic_Data_Engineer_7_Data_Lake_1 · Danny&#39;s Studio</title>
+    <title>Basic_Data_Engineer_8_Scheduling_1 · Danny&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >Danny&#39;s Studio.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Basic_Data_Engineer_7_Data_Lake_1</a>
+                <a href="#" class="post-name">Basic_Data_Engineer_8_Scheduling_1</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:100vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Basic_Data_Engineer_7_Data_Lake_1
+            Basic_Data_Engineer_8_Scheduling_1
             <!-- 404 -->
             
         </h1>
@@ -266,14 +266,14 @@ height:100vh;
                 
                     <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "DataLake">DataLake</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Cron">Cron</a>
     
 </div>
                 
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2020/12/30</span>
+                    <span class="post-intro-time">2021/01/04</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -398,79 +398,61 @@ height:100vh;
             <main class="main post-page">
     <article class="article-entry">
         <ul>
-<li><p>Data Lake :<br>1) Data Structure : Raw<br>2) Purpose of Data : Not yet Determined<br>3) Users : Data Scientists<br>4) Accessibility : High / Quck to update</p>
+<li><p>Copy file from local to server</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># pem key should be at same folder with file</span><br><span class="line">scp -i AWS_CAR_KEY.pem spotify.py ec2-user@ec2-18-220-173-150.us-east-2.compute.amazonaws.com:~&#x2F;</span><br><span class="line">spotify.py</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103601189-b9a8a980-4ece-11eb-99f7-a54f1b67b04c.png" alt="image"></p>
 </li>
-<li><p>Data Warehouse :<br>1) Data Structure : Processed<br>2) Purpose of Data : In Use<br>3) Users : Business Professionals<br>4) Accessibility : Complicated / Costly</p>
-</li>
-<li><p>Presto (SQL)<br>1) Presto is a high performance, distributed SQL query engine for big data.<br>2) One can even query data from multiple data sources within a single query</p>
-</li>
-<li><p>Severless : Lambda (User가 늘더라도 workload가 컨트롤 됨) , Athena<br>1) 시스템 확장성, 가용성 측면에서 매우 뛰어남.<br>2) 서버 환경을 구축할 때 비용이 드는데, 사용 고객이 가변적인 경우 자원 낭비는 필연적이며 이러한 제약을 극복하기 위해, serverless라는 개념이 등장하였다<br>3) Request가 오면 그에 맞게 리소스를 선형적으로 늘려나감(병철 처리 기반)</p>
-</li>
-<li><p>Athena :presto 기반의 AWS 빅데이처 처리 리소스(플랫폼)<br>1) partion을 기반으로 s3에 저장된 data를 빠르게 가져와서 ad-hoc분석을 쉽게 해 준다.<br>2) 복수의 데이터 소스들로 부터 데이터를 합치기에 용이하다.<br>3) nested 형식의 데이터를 파싱하는 강력한 쿼리 메소드를 지원한다.<br>4) partition별로 저장된 parquet 포멧의 데이터를 다룰 수 있음.</p>
+<li><p>Install Python3 at Linux</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum list | grep python3</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103601368-1c01aa00-4ecf-11eb-8c13-d39d85ba724c.png" alt="image"></p>
 </li>
 </ul>
-<ul>
-<li><p>Create table at Athena</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">CREATE EXTERNAL TABLE IF NOT EXISTS top_tracks (</span><br><span class="line">  &#96;id&#96; string,</span><br><span class="line">  &#96;artist_id&#96; string,</span><br><span class="line">  &#96;name&#96; string,</span><br><span class="line">  &#96;popularity&#96; int,</span><br><span class="line">  &#96;external_url&#96; string </span><br><span class="line">) PARTITIONED BY (dt string)</span><br><span class="line">STORED AS PARQUET LOCATION &#39;s3:&#x2F;&#x2F;spotify-artist-project&#x2F;top-tracks&#x2F;&#39; tblproperties(&quot;parquet.compress&quot;&#x3D;&quot;SNAPPY&quot;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Use partition</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MSCK REPAIR TABLE top_tracks</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>반드시 Partition column을 사용하여 데이터를 query함. otherwise, all data will be caculated.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># the recent data</span><br><span class="line">WHERE CAST(dt as date) &#x3D; CURRENT_DATE</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/103426089-796ac380-4b7c-11eb-9be4-18e6a0cdb733.png" alt="image"></p>
-</li>
-<li><p>7일 전까지의 데이터 중 10개만 확</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM top_tracks</span><br><span class="line">WHERE CAST(dt AS date) &gt;&#x3D; CURRENT_DATE - INTERVAL &#39;7&#39; DAY</span><br><span class="line">LIMIT 10</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># install python3</span><br><span class="line">sudo yum install python3</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103601472-523f2980-4ecf-11eb-82f3-aaf8066105f7.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># install pip</span><br><span class="line">curl -O https:&#x2F;&#x2F;bootstrap.pypa.io&#x2F;get-pip.py</span><br><span class="line"></span><br><span class="line">python3 get-pip.py</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103601635-a944fe80-4ecf-11eb-92fb-9a92ed8890fe.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/103601700-d5f91600-4ecf-11eb-8209-04968ae01212.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># install library</span><br><span class="line">pip3 install --upgrade pip</span><br><span class="line">pip3 install boto3</span><br></pre></td></tr></table></figure>
 
+<ul>
+<li><p>botocore.exceptions.NoCredentialsError: Unable to locate credentials</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># add aws_access_key_id, aws_secret_access_key</span><br><span class="line">s3 &#x3D; boto3.resource(&#39;s3&#39;,</span><br><span class="line">     aws_access_key_id&#x3D;ACCESS_ID,</span><br><span class="line">     aws_secret_access_key&#x3D; ACCESS_KEY)</span><br><span class="line"></span><br><span class="line"># you can find it at ~&#x2F;.aws&#x2F;credentials</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Crontab</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># set up the schedule                     </span><br><span class="line">crontab -e</span><br><span class="line">23 21 * * * &#x2F;usr&#x2F;bin&#x2F;python3 &#x2F;home&#x2F;ec2-user&#x2F;spotify.py</span><br><span class="line">MAILTO&#x3D;kish1919@gmail.com  # 메일로 notice 받</span><br><span class="line"></span><br><span class="line"># Check date ( Tue Jan  5 03:22:39 UTC 2021 &#x2F; UTC 기준)</span><br><span class="line">date </span><br><span class="line"></span><br><span class="line"># 사용되는 파이썬 주소 확인</span><br><span class="line">which python3</span><br><span class="line"></span><br><span class="line"># Check the crontab</span><br><span class="line">crontab -l</span><br><span class="line"></span><br><span class="line"># If it does not work, use below command</span><br><span class="line"># sudo service crond start</span><br><span class="line"># sudo chkconfig crond on</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103603261-d0053400-4ed3-11eb-8704-37c03ec12b8b.png" alt="image"></p>
+</li>
+<li><p>Create Lambda</p>
 </li>
 </ul>
-<p><img src="https://user-images.githubusercontent.com/26552500/103425804-7242b600-4b7a-11eb-9958-090b05209a2e.png" alt="image"></p>
-<ul>
-<li>Presto function<br>Link : <a href="https://prestodb.io/docs/current/functions.html" target="_blank" rel="noopener">https://prestodb.io/docs/current/functions.html</a></li>
-</ul>
-<ul>
-<li>AWS EMR<br>1) Amazon EMR은 AWS에서 Apache Hadoop 및 Apache Spark와 같은 빅데이터 프레임워크 실행을 간소화하는 관리형 클러스터 플랫폼입니다.<br>2) 아마존 S3는 HDFS API를 만족시켜서 HDFS 대신 파일시스템으로 사용될 수 있고, 아마존 EMR은 EC2인스턴스 클러스터를 구성하여 하둡 프레임워크로서 동작하여 분산처리가 가능하게 합니다.</li>
-</ul>
-<p>3) Create Cluster</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/103482667-b9fa5500-4da7-11eb-8166-10bd6f88cbce.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/103482709-f75ee280-4da7-11eb-97fa-86598db5f48a.png" alt="image"></p>
-<p>4) Add inbound rule (SSH, Zeppline - 8890)<br><img src="https://user-images.githubusercontent.com/26552500/103482726-1c535580-4da8-11eb-96a6-f651a8abd63c.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/103482771-64727800-4da8-11eb-982c-1da855217d4f.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/103482811-8e2b9f00-4da8-11eb-8c0d-f0086775973c.png" alt="image"></p>
-<p>5) Connect to Zeppline</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/103482831-adc2c780-4da8-11eb-8055-cfe4c4731311.png" alt="image"></p>
-<p>6) Create notebook and run code</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/103482845-cdf28680-4da8-11eb-982f-3491bf5ed23c.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">%pyspark</span><br><span class="line">raw &#x3D; &#39;&#123;&quot;name&quot;:&quot;Drake&quot;&#125;&#39;</span><br><span class="line">import json</span><br><span class="line">print(json.loads(raw)[&#39;name&#39;])</span><br><span class="line"></span><br><span class="line">%pyspark</span><br><span class="line">raw &#x3D; [&#39;&#123;&quot;name&quot;:&quot;Drake&quot;&#125;&#39;, &#39;&#123;&quot;name&quot;:&quot;Danny&quot;&#125;&#39;, &#39;&#123;&quot;name&quot;:&quot;post&quot;&#125;&#39;]</span><br><span class="line">for entry in raw:</span><br><span class="line">    print(json.loads(entry)[&#39;name&#39;])</span><br><span class="line"># Drake</span><br><span class="line"># Danny</span><br><span class="line"># post</span><br><span class="line"></span><br><span class="line">%pyspark</span><br><span class="line">rdd &#x3D; sc.parallelize(raw)</span><br><span class="line">rdd.count()</span><br><span class="line">rdd.map(json.loads).map(lambda entry: entry[&#39;name&#39;]).collect()</span><br><span class="line"># [&#39;Drake&#39;, &#39;Danny&#39;, &#39;post&#39;]</span><br><span class="line"></span><br><span class="line">%pyspark</span><br><span class="line">rdd.map(json.loads).collect()</span><br><span class="line"># [&#123;&#39;name&#39;: &#39;Drake&#39;&#125;, &#123;&#39;name&#39;: &#39;Danny&#39;&#125;, &#123;&#39;name&#39;: &#39;post&#39;&#125;]</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103606785-e6fc5400-4edc-11eb-9189-57b73149c78f.png" alt="image"></p>
+<p>1)Create Lambda function file</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">import boto3</span><br><span class="line">import sys</span><br><span class="line">sys.path.append(&#39;.&#x2F;libs&#39;)</span><br><span class="line">import os</span><br><span class="line">import logging</span><br><span class="line">import requests</span><br><span class="line">import base64</span><br><span class="line">import json</span><br><span class="line"></span><br><span class="line">client_id &#x3D; &quot;ac43****&quot;</span><br><span class="line">client_secret &#x3D; &quot;adb5****&quot;</span><br><span class="line"></span><br><span class="line"># Lambda define connection at top</span><br><span class="line">try:</span><br><span class="line">    dynamodb &#x3D; boto3.resource(&#39;dynamodb&#39;, region_name&#x3D;&#39;us-west-2&#39;, endpoint_url&#x3D;&#39;http:&#x2F;&#x2F;dynamodb.us-west-2.amazonaws.com&#39;)</span><br><span class="line"></span><br><span class="line">except:</span><br><span class="line">    logging.error(&#39;Could not connect to dynamodb&#39;)</span><br><span class="line">    sys.exit(1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def lambda_handler(event, context):</span><br><span class="line"></span><br><span class="line">    headers &#x3D; get_headers(client_id,client_secret)</span><br><span class="line"></span><br><span class="line">    table &#x3D; dynamodb.Table(&#39;top_tracks&#39;)</span><br><span class="line"></span><br><span class="line">    artist_id &#x3D; event[&#39;artist_id&#39;]</span><br><span class="line"></span><br><span class="line">    URL &#x3D; &quot;https:&#x2F;&#x2F;api.spotify.com&#x2F;v1&#x2F;artists&#x2F;&#123;&#125;&#x2F;top-tracks&quot;.format(artist_id)</span><br><span class="line">    params &#x3D; &#123;</span><br><span class="line">        &#39;country&#39; : &#39;US&#39;</span><br><span class="line">    &#125;</span><br><span class="line">    r &#x3D; requests.get(URL, params &#x3D; params, headers &#x3D; headers)</span><br><span class="line"></span><br><span class="line">    raw &#x3D; json.loads(r.text)</span><br><span class="line"></span><br><span class="line">    for track in raw[&#39;tracks&#39;]:</span><br><span class="line">        # Add artist_id</span><br><span class="line">        data &#x3D; &#123;</span><br><span class="line">            &#39;artist_id&#39;: artist_id</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        data.update(track)</span><br><span class="line"></span><br><span class="line">        table.put_item(</span><br><span class="line">            Item &#x3D; data</span><br><span class="line">        )</span><br><span class="line">    return &quot;SUCCESS&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def get_headers(client_id, client_secret):</span><br><span class="line"></span><br><span class="line">    endpoint &#x3D; &quot;https:&#x2F;&#x2F;accounts.spotify.com&#x2F;api&#x2F;token&quot;</span><br><span class="line">    encoded &#x3D; base64.b64encode(&quot;&#123;&#125;:&#123;&#125;&quot;.format(client_id, client_secret).encode(&#39;utf-8&#39;)).decode(&#39;ascii&#39;)</span><br><span class="line"></span><br><span class="line">    headers &#x3D; &#123;</span><br><span class="line">        &quot;Authorization&quot;: &quot;Basic &#123;&#125;&quot;.format(encoded)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    payload &#x3D; &#123;</span><br><span class="line">        &quot;grant_type&quot; : &quot;client_credentials&quot;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    r &#x3D; requests.post(endpoint, data&#x3D;payload, headers&#x3D;headers)</span><br><span class="line"></span><br><span class="line">    access_token &#x3D; json.loads(r.text)[&#39;access_token&#39;]</span><br><span class="line"></span><br><span class="line">    headers &#x3D; &#123;</span><br><span class="line">        &quot;Authorization&quot;: &quot;Bearer &#123;&#125;&quot;.format(access_token)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    return headers</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__&#x3D;&#x3D;&#39;__main__&#39;:</span><br><span class="line"></span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Read file at S3</span><br><span class="line">raw &#x3D; sqlContext.read.format(&quot;parquet&quot;).load(&quot;s3:&#x2F;&#x2F;spotify-artist-project&#x2F;top-tracks&#x2F;dt&#x3D;2020-12-31&#x2F;top_tracks.parquet&quot;)</span><br><span class="line">&#x2F;&#x2F; sc.textFile(&quot;textfile&quot;) 바로 textfile을 읽음</span><br><span class="line">print(type(raw))</span><br><span class="line">print(raw.printSchema())</span><br><span class="line"></span><br><span class="line">df &#x3D; raw.toDF(&quot;id&quot;, &quot;artist_id&quot;, &quot;name&quot;, &quot;popularity&quot;, &quot;external_url&quot;)</span><br><span class="line">df.show()</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/103488832-a49c1f80-4dd5-11eb-90d5-4a4919dd1deb.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import pyspark.sql.functions as F</span><br><span class="line"></span><br><span class="line">df_new &#x3D; df1.select(df1[&quot;danceability&quot;], df1[&quot;acousticness&quot;], df1[&quot;liveness&quot;]).agg(F.avg(df1[&quot;danceability&quot;]).alias(&quot;avg_danceability&quot;), F.max(df1[&quot;acousticness&quot;]).alias(&quot;max_acousticness&quot;))</span><br><span class="line">df_new.show()</span><br><span class="line"></span><br><span class="line">from pyspark.sql.functions import udf</span><br><span class="line">from pyspark.sql.types import *</span><br><span class="line"></span><br><span class="line">udf1 &#x3D; udf(lambda e: e.upper())</span><br><span class="line"></span><br><span class="line">@udf(returnType&#x3D;BooleanType())</span><br><span class="line">def udf2(e):</span><br><span class="line">    if e &gt;&#x3D; 0.06:</span><br><span class="line">        return True</span><br><span class="line">    else:</span><br><span class="line">        return False</span><br><span class="line"></span><br><span class="line">df_filtered &#x3D; df1.filter(udf2(df1[&quot;danceability&quot;]))</span><br><span class="line">df_filtered.show()</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/103489425-18402b80-4dda-11eb-9178-b9068fd4184e.png" alt="image"></p>
-<ul>
-<li><p>ModuleNotFoundError: No module named ‘pandas’ 발생시<br><img src="https://user-images.githubusercontent.com/26552500/103490115-365c5a80-4ddf-11eb-93b1-aeb6e1f026b1.png" alt="image"></p>
-<blockquote>
-<p>Go to Termianl and then connect to EMR </p>
-<pre><code><figure class="highlight plain"><figcaption><span>-i ~/AWS_CAR_KEY.pem hadoop@ec2-3-137-223-63.us-east-2.compute.amazonaws.com```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">![image](https:&#x2F;&#x2F;user-images.githubusercontent.com&#x2F;26552500&#x2F;103490081-fa28fa00-4dde-11eb-947f-0bf5e4fd558a.png)</span><br><span class="line"></span><br><span class="line">&gt; type &#96;&#96;&#96; pip install pandas</span><br></pre></td></tr></table></figure></code></pre></blockquote>
-</li>
-<li><p>Connect AWS MySQL through Zepplin</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">%pyspark</span><br><span class="line"></span><br><span class="line">artists &#x3D; sqlContext.read.format(&quot;parquet&quot;).load(&quot;s3:&#x2F;&#x2F;spotify-artist-project&#x2F;artists&#x2F;dt&#x3D;2021-01-03&#x2F;artists.parquet&quot;)</span><br><span class="line">artists.toDF(&quot;id&quot;, &quot;name&quot;, &quot;followers&quot;, &quot;popularity&quot;, &quot;url&quot;, &quot;image_url&quot; )</span><br><span class="line"></span><br><span class="line">import pandas as pd</span><br><span class="line">import pymysql </span><br><span class="line"></span><br><span class="line">host &#x3D; &quot;spotify.cirsjhqz33jx.us-west-2.rds.amazonaws.com&quot;</span><br><span class="line">port &#x3D; 3306</span><br><span class="line">username &#x3D; &quot;****&quot;</span><br><span class="line">database &#x3D; &quot;production&quot;</span><br><span class="line">password &#x3D;  &quot;****&quot;</span><br><span class="line"></span><br><span class="line">try:</span><br><span class="line">    conn &#x3D; pymysql.connect(host, user&#x3D;username, passwd&#x3D;password, db&#x3D;database, port&#x3D;port, use_unicode &#x3D; True, charset&#x3D;&#39;utf8&#39;)</span><br><span class="line">    cursor &#x3D; conn.cursor()</span><br><span class="line">except:</span><br><span class="line">    logging.error(&quot;could not connect to RDS&quot;)</span><br><span class="line">    sys.exit(1)</span><br><span class="line"></span><br><span class="line">cursor.execute(&quot;SELECT * FROM artists&quot;)</span><br><span class="line">colnames &#x3D; [d[0] for d in cursor.description]</span><br><span class="line">artists &#x3D; [dict(zip(colnames, raw)) for raw in cursor.fetchall()]</span><br><span class="line">artists &#x3D; pd.DataFrame(artists)</span><br><span class="line"></span><br><span class="line">artists.head()</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/103490338-d070d280-4de0-11eb-8e77-505d65e67b90.png" alt="image"></p>
-</li>
-<li><p>Change pandas dataFrame to spark dataFrame</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">artists &#x3D; sqlContext.createDataFrame(artists)</span><br><span class="line">artists.show()</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/103490403-234a8a00-4de1-11eb-9908-e2fcdc6fcb78.png" alt="image"></p>
-</li>
-<li><p>Join artists with top-tracks</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">%pyspark</span><br><span class="line">joined &#x3D; artists.join(df, df[&#39;artist_id&#39;] &#x3D;&#x3D; artists[&#39;id&#39;])</span><br><span class="line">joined.show()</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/103490500-d4512480-4de1-11eb-90b3-cee9e6d48710.png" alt="image"></p>
-</li>
-<li><p>Renamed the column and then join</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">top_tracks &#x3D; df</span><br><span class="line">top_tracks &#x3D; top_tracks.withColumnRenamed(&quot;id&quot;, &quot;track_id&quot;).withColumnRenamed(&quot;name&quot;,&quot;track_name&quot;)</span><br><span class="line">joined &#x3D; artists.join(top_tracks, top_tracks[&#39;artist_id&#39;] &#x3D;&#x3D; artists[&#39;id&#39;])</span><br><span class="line">joined.show()</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/103491085-56434c80-4de6-11eb-8c6b-323525d30dc1.png" alt="image"></p>
-</li>
-</ul>
+<p>2)Create requirements.txt</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># t : target directory</span><br><span class="line">pip3 install -r requirements.txt -t .&#x2F;libs</span><br></pre></td></tr></table></figure>
+<pre><code>&gt; 만약 아래와 같은 에러가 발생한다면,</code></pre><p>  <img src="https://user-images.githubusercontent.com/26552500/103608636-668c2200-4ee1-11eb-8557-1af7bc3e843c.png" alt="image"></p>
+<pre><code>&gt; create file named &apos;setup.cfg&apos;</code></pre>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[install]</span><br><span class="line">prefix&#x3D;</span><br></pre></td></tr></table></figure>
+
+<p>3)remove dist-info files</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm *.dist-info</span><br></pre></td></tr></table></figure>
+
+<p>4)Create .deploy.sh file</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">rm -rf .&#x2F;libs</span><br><span class="line">pip3 install -r requirements.txt -t .&#x2F;libs</span><br><span class="line"></span><br><span class="line">rm *.zip</span><br><span class="line">rm *.dist-info</span><br><span class="line">zip top_tracks.zip -r *</span><br><span class="line"></span><br><span class="line">aws s3 rm s3:&#x2F;&#x2F;top-tracks-lambda-project&#x2F;top_tracks.zip</span><br><span class="line">aws s3 cp .&#x2F;top_tracks.zip s3:&#x2F;&#x2F;top-tracks-lambda-project&#x2F;top_tracks.zip</span><br><span class="line">aws lambda update-function-code --function-name top-tracks --s3-bucket top-tracks-lambda-project --s3-key top_tracks.zip</span><br></pre></td></tr></table></figure>
+<p>5)권한 변경 및 실</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod +x deploy.sh 행</span><br><span class="line">.&#x2F;deploy.sh</span><br></pre></td></tr></table></figure>
+
+<p>6)aws region_name issue</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vi ~&#x2F;.aws&#x2F;config</span><br><span class="line"></span><br><span class="line"># Change the region name</span><br><span class="line">[default]</span><br><span class="line">region &#x3D; us-west-2</span><br></pre></td></tr></table></figure>
+
+<p>7)Check the Lambda at AWS</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># 실행 파일이 업로드 됨</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103610770-7f4b0680-4ee6-11eb-92b6-8b36763c165d.png" alt="image"></p>
+<p>8)Error [An error occurred (AccessDeniedException) when calling the PutItem operation:]</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/103614661-ca691780-4eee-11eb-8e1f-24a17ebde5d7.png" alt="image"></p>
+<pre><code>- dynamo db의 엑세스 권한이 필요 / click &quot;Attach policies&quot;</code></pre><p><img src="https://user-images.githubusercontent.com/26552500/103614755-f6849880-4eee-11eb-997c-b2ebb67bf624.png" alt="image"></p>
+<pre><code>- dynamo db를 추가</code></pre><p><img src="https://user-images.githubusercontent.com/26552500/103614919-41061500-4eef-11eb-9f68-87b259d14dc2.png" alt="image"></p>
+<pre><code>- Success</code></pre><p><img src="https://user-images.githubusercontent.com/26552500/103615029-77439480-4eef-11eb-8aea-ab6a522dac8e.png" alt="image"></p>
 
     </article>
     <!-- license  -->
@@ -479,17 +461,12 @@ height:100vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2021/01/02/Kaggle-1-House-Price/" title= "Kaggle_1_House_Price">
-                    <div class="nextTitle">Kaggle_1_House_Price</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2020/12/29/Basic-Data-Engineer-6-Database-2/" title= "Basic_Data_Engineer_6_Database_2">
-                    <div class="prevTitle">Basic_Data_Engineer_6_Database_2</div>
+                <a href= "/2021/01/02/Kaggle-1-House-Price/" title= "Kaggle_1_House_Price">
+                    <div class="prevTitle">Kaggle_1_House_Price</div>
                 </a>
             
         </li>
