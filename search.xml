@@ -1559,6 +1559,28 @@ pip3 list</code></pre>
 <li><p>we get a lot of outliers among our data.</p>
 </li>
 </ul>
+<h4 id="5-Sampling-Distribution-of-Test-Statics-T-Test"><a href="#5-Sampling-Distribution-of-Test-Statics-T-Test" class="headerlink" title="5. Sampling Distribution of Test Statics (T-Test)"></a>5. Sampling Distribution of Test Statics (T-Test)</h4><figure class="highlight r"><table><tr><td class="code"><pre><span class="line">install.packages(<span class="string">'shiny'</span>) <span class="comment">#only needed the first time</span></span><br><span class="line"><span class="keyword">require</span>(shiny)</span><br><span class="line">runGitHub(<span class="string">'samplingTestStat'</span>,<span class="string">'DataScienceUWL'</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/106790233-e14b7880-6618-11eb-99aa-dce49dc6fb96.png" alt="image"></p>
+<h4 id="6-Confidence-Interval"><a href="#6-Confidence-Interval" class="headerlink" title="6. Confidence Interval"></a>6. Confidence Interval</h4><ul>
+<li><p>A confidence interval estimates a population parameter, such as the mean, while accounting for uncertainty.<br>(신뢰 구간은 평균과 같은 모집단 모수를 추정하면서 불확실성을 설명)</p>
+</li>
+<li><p>Link: <a href="http://www.rossmanchance.com/applets/ConfSim.html" target="_blank" rel="noopener">http://www.rossmanchance.com/applets/ConfSim.html</a></p>
+</li>
+<li><p>Quiz</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Using the HealthExam data set in the DS705data package, use R to build a</span><br><span class="line">90% CI for the population mean height of women.</span><br><span class="line"></span><br><span class="line">&gt; require(DS705data)</span><br><span class="line">&gt; data(HealthExam)</span><br><span class="line">&gt; hw &lt;- HealthExam$Height[HealthExam$Sex &#x3D;&#x3D; &#39;F&#39;]</span><br><span class="line"></span><br><span class="line"># Answer: (62.5, 63.9)</span><br><span class="line"># Feedback: t.test(hw,conf.level&#x3D;.9)$conf.int</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="7-What-is-a-Hypothesis-Test"><a href="#7-What-is-a-Hypothesis-Test" class="headerlink" title="7. What is a Hypothesis Test?"></a>7. What is a Hypothesis Test?</h4><ul>
+<li>Null Hypothesis<blockquote>
+<p>H0 : random variation only</p>
+</blockquote>
+</li>
+<li>Alternative Hypothesis<blockquote>
+<p>Ha : there is a real effect</p>
+</blockquote>
+</li>
+</ul>
 ]]></content>
       <tags>
         <tag>Statistics</tag>
