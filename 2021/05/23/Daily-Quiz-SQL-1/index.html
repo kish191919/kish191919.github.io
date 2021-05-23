@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Python Development Environment · Danny&#39;s Studio</title>
+    <title>Daily_Quiz_SQL_1 · Danny&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >Danny&#39;s Studio.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Python Development Environment</a>
+                <a href="#" class="post-name">Daily_Quiz_SQL_1</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:100vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Python Development Environment
+            Daily_Quiz_SQL_1
             <!-- 404 -->
             
         </h1>
@@ -264,18 +264,10 @@ height:100vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
-                    <div class= post-intro-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Python">Python</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Environment">Environment</a>
-    
-</div>
-                
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2020/12/12</span>
+                    <span class="post-intro-time">2021/05/23</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -399,57 +391,7 @@ height:100vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <ol>
-<li><p>Install pyenv</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ brew install pyenv</span><br><span class="line">$ brew install pyenv-virtualenv</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Check the brew list</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew list</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>brew upgrade</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># package upgrade</span><br><span class="line">brew upgrade rbenv</span><br><span class="line"></span><br><span class="line"># all package upgrade</span><br><span class="line">brew upgrade</span><br><span class="line">   </span><br><span class="line"># brew update</span><br><span class="line">brew update</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Add the below to .bash_profile</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export PATH&#x3D;&quot;$HOME&#x2F;.pyenv&#x2F;bin:$PATH&quot;</span><br><span class="line">eval &quot;$(pyenv init -)&quot;</span><br><span class="line">eval &quot;$(pyenv virtualenv-init -)&quot;</span><br></pre></td></tr></table></figure>
-
-<p>Re-boot the bash</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ source .bash_profile</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Check the installable pyenv</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv install --list</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Install 3.9.0 version</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv install 3.9.0</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Check the version of pyenv</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv versions</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/101994150-b16d9d80-3c85-11eb-9a3c-b000a544d4e6.png" alt="image"></p>
-</li>
-<li><p>Change the python version</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv shell 3.9.0</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/101994408-d5ca7980-3c87-11eb-93a3-ae2339757fa3.png" alt="image"></p>
-</li>
-<li><p>Create virtualenv</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv virtualenv 3.9.0 python3</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Check the python version</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv versions</span><br><span class="line">$ pyenv shell python3</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/101994613-4de56f00-3c89-11eb-86f5-2640b5ec42da.png" alt="image"></p>
-</li>
-<li><p>Remove virtualenv (Option)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv uninstall python3</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Install Ipython</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip3 install ipython  </span><br><span class="line">pip3 list</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/101995009-5ee3af80-3c8c-11eb-8d1b-cb3ce0c293f0.png" alt="image"></p>
-</li>
-</ol>
-<ol start="13">
-<li>Install Jupyter notebook<pre><code class="aidl">pip3 install jupyter
-pip3 list</code></pre>
-<img src="https://user-images.githubusercontent.com/26552500/101995042-ab2eef80-3c8c-11eb-97fe-95c42d519f5a.png" alt="image"></li>
-</ol>
-
+        
     </article>
     <!-- license  -->
     
@@ -457,17 +399,12 @@ pip3 list</code></pre>
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/2020/12/12/Python-Code-1/" title= "Python_Code_1">
-                    <div class="nextTitle">Python_Code_1</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2020/09/10/DS730-1-1-Create-a-Hortonworks-Sandbox-on-Azure/" title= "DS730_1_1_Create_a_Hortonworks_Sandbox_on_Azure">
-                    <div class="prevTitle">DS730_1_1_Create_a_Hortonworks_Sandbox_on_Azure</div>
+                <a href= "/2021/05/23/Daily_Quiz_Python_1/" title= "Daily_Quiz_Python_1">
+                    <div class="prevTitle">Daily_Quiz_Python_1</div>
                 </a>
             
         </li>

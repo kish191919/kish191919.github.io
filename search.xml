@@ -1215,7 +1215,7 @@ Create issue
 ]]></content>
   </entry>
   <entry>
-    <title>Python_Daily_Quiz_1</title>
+    <title>Daily_Quiz_Python_1</title>
     <url>/2021/05/22/Python-Daily-Quiz-1/</url>
     <content><![CDATA[<h4 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h4><p><img src="https://user-images.githubusercontent.com/26552500/119247487-7b471a80-bb4f-11eb-9c93-00fdae726d83.png" alt="image"></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    n &#x3D; int(input().strip())</span><br><span class="line">    if n % 2 &#x3D;&#x3D; 1 or (6 &lt;&#x3D; n &lt;&#x3D; 20):</span><br><span class="line">        print(&quot;Weird&quot;)</span><br><span class="line">    elif (n % 2 &#x3D;&#x3D; 0) and (2 &lt;&#x3D; n &lt;&#x3D; 5):</span><br><span class="line">        print(&quot;Not Weird&quot;)</span><br><span class="line">    elif (n % 2 &#x3D;&#x3D; 0) and (20 &lt; n &lt;&#x3D; 100):</span><br><span class="line">        print(&quot;Not Weird&quot;)</span><br></pre></td></tr></table></figure>
@@ -1637,5 +1637,15 @@ pip3 list</code></pre>
       <tags>
         <tag>Statistics</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Daily_Quiz_SQL_1</title>
+    <url>/2021/05/23/Daily-Quiz-SQL-1/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Daily_Quiz_Python_1</title>
+    <url>/2021/05/23/Daily_Quiz_Python_1/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
