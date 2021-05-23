@@ -1217,7 +1217,7 @@ Create issue
   <entry>
     <title>Python_Daily_Quiz_1</title>
     <url>/2021/05/22/Python-Daily-Quiz-1/</url>
-    <content><![CDATA[<p><img src="https://user-images.githubusercontent.com/26552500/119247487-7b471a80-bb4f-11eb-9c93-00fdae726d83.png" alt="image"></p>
+    <content><![CDATA[<p>####1.<br><img src="https://user-images.githubusercontent.com/26552500/119247487-7b471a80-bb4f-11eb-9c93-00fdae726d83.png" alt="image"></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    n &#x3D; int(input().strip())</span><br><span class="line">    if n % 2 &#x3D;&#x3D; 1 or (6 &lt;&#x3D; n &lt;&#x3D; 20):</span><br><span class="line">        print(&quot;Weird&quot;)</span><br><span class="line">    elif (n % 2 &#x3D;&#x3D; 0) and (2 &lt;&#x3D; n &lt;&#x3D; 5):</span><br><span class="line">        print(&quot;Not Weird&quot;)</span><br><span class="line">    elif (n % 2 &#x3D;&#x3D; 0) and (20 &lt; n &lt;&#x3D; 100):</span><br><span class="line">        print(&quot;Not Weird&quot;)</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    n &#x3D; int(input().strip())</span><br><span class="line">    if n%2&#x3D;&#x3D;0 and (n in range(2,6) or n&gt;20 ):</span><br><span class="line">        print(&quot;Not&quot;, end&#x3D;&#39; &#39;)</span><br><span class="line">    print(&quot;Weird&quot;)</span><br></pre></td></tr></table></figure>
@@ -1225,35 +1225,35 @@ Create issue
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    n &#x3D; int(input().strip())</span><br><span class="line">    # print(not 0) is True </span><br><span class="line">    print(&quot;Not Weird&quot; if not n%2 and (n in range(2,6) or n&gt;20) else &quot;Weird&quot;)</span><br></pre></td></tr></table></figure>
 
 <hr>
-<p><img src="https://user-images.githubusercontent.com/26552500/119247501-9d409d00-bb4f-11eb-838c-aefa8ac19e25.png" alt="image"></p>
+<p>####2.<br><img src="https://user-images.githubusercontent.com/26552500/119247501-9d409d00-bb4f-11eb-838c-aefa8ac19e25.png" alt="image"></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    a &#x3D; int(input())</span><br><span class="line">    b &#x3D; int(input())</span><br><span class="line">    print(&#39;&#123;0&#125; \n&#123;1&#125; \n&#123;2&#125;&#39;.format((a+b), (a-b), (a*b)))</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    a, b &#x3D; int(input()), int(input())</span><br><span class="line">    print((a + b), (a - b), (a * b), sep&#x3D;&#39;\n&#39;)</span><br></pre></td></tr></table></figure>
 <hr>
-<p><img src="https://user-images.githubusercontent.com/26552500/119247402-aed57500-bb4e-11eb-8606-78a7542fcb45.png" alt="image"></p>
+<p>####3.<br><img src="https://user-images.githubusercontent.com/26552500/119247402-aed57500-bb4e-11eb-8606-78a7542fcb45.png" alt="image"></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    n &#x3D; int(input())</span><br><span class="line">    [print(i * i) for i in range(n)]</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    n &#x3D; int(input())</span><br><span class="line">    print(*[num**2 for num in range(n)],sep&#x3D;&#39;\n&#39;)</span><br></pre></td></tr></table></figure>
 <hr>
-<p><img src="https://user-images.githubusercontent.com/26552500/119278034-7da98300-bbe8-11eb-89b2-edf395391d0a.png" alt="image"></p>
+<p>####4.<br><img src="https://user-images.githubusercontent.com/26552500/119278034-7da98300-bbe8-11eb-89b2-edf395391d0a.png" alt="image"></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def is_leap(year):</span><br><span class="line">    if not year % 4 and year % 100 !&#x3D; 0:</span><br><span class="line">        return True</span><br><span class="line">    elif year % 400 &#x3D;&#x3D; 0:</span><br><span class="line">        return True</span><br><span class="line">    else:</span><br><span class="line">        return False</span><br><span class="line"></span><br><span class="line">year &#x3D; int(input())</span><br><span class="line">print(is_leap(year))</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def is_leap(year):</span><br><span class="line">    return year % 4 &#x3D;&#x3D; 0 and (year % 400 &#x3D;&#x3D; 0 or year % 100 !&#x3D; 0)</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def is_leap(year):</span><br><span class="line">    leap &#x3D; False</span><br><span class="line">    if year % 4 &#x3D;&#x3D; 0 and (year % 400 &#x3D;&#x3D; 0 or year % 100 !&#x3D; 0):</span><br><span class="line">        leap &#x3D; True</span><br><span class="line">    return leap</span><br></pre></td></tr></table></figure>
 <hr>
-<p><img src="https://user-images.githubusercontent.com/26552500/119278260-c3b31680-bbe9-11eb-9ad4-a367a1f9e19b.png" alt="image"></p>
+<p>####5.<br><img src="https://user-images.githubusercontent.com/26552500/119278260-c3b31680-bbe9-11eb-9ad4-a367a1f9e19b.png" alt="image"></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    n &#x3D; int(input())</span><br><span class="line">    [print(n, end&#x3D;&#39;&#39;) for n in range(1,n+1)]</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    n &#x3D; int(input())</span><br><span class="line">    print(* [n for n in range(1,n+1)],sep&#x3D;&#39;&#39;)</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">print(*range(1, n+1), sep&#x3D;&#39;&#39;)</span><br><span class="line"></span><br><span class="line"># For short operator &#39;*&#39; allows you to pass an array. Example:</span><br><span class="line"># user &#x3D; [name, password, captcha]</span><br><span class="line"># log_in(*user)</span><br></pre></td></tr></table></figure>
 <hr>
-<p><img src="https://user-images.githubusercontent.com/26552500/119278901-eba47900-bbed-11eb-9c44-2243219438b4.png" alt="image"></p>
+<p>####6.<br><img src="https://user-images.githubusercontent.com/26552500/119278901-eba47900-bbed-11eb-9c44-2243219438b4.png" alt="image"></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    x &#x3D; int(input())</span><br><span class="line">    y &#x3D; int(input())</span><br><span class="line">    z &#x3D; int(input())</span><br><span class="line">    n &#x3D; int(input())</span><br><span class="line">    a_list &#x3D;[]</span><br><span class="line">    for num_x in range(x+1):</span><br><span class="line">        for num_y in range(y+1):</span><br><span class="line">            for num_z in range(z+1):</span><br><span class="line">                if num_x+num_y+num_z !&#x3D; n:</span><br><span class="line">                    a_list.append([num_x,num_y,num_z])</span><br><span class="line">    print(a_list)</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">print([[num_x,num_y,num_z] for num_x in range(x+1) for num_y in range(y+1) for num_z in range(z+1) if num_x+num_y+num_z !&#x3D; n])</span><br></pre></td></tr></table></figure>
 <hr>
-<p><img src="https://user-images.githubusercontent.com/26552500/119279229-f2cc8680-bbef-11eb-83a4-9fd0279930e9.png" alt="image"></p>
+<p>####7.<br><img src="https://user-images.githubusercontent.com/26552500/119279229-f2cc8680-bbef-11eb-83a4-9fd0279930e9.png" alt="image"></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    n &#x3D; int(input())</span><br><span class="line">    arr &#x3D; list(map(int, input().split()))</span><br><span class="line">    max_num &#x3D; max(arr)</span><br><span class="line">    z &#x3D; max(arr)</span><br><span class="line">    while max_num &#x3D;&#x3D; z:</span><br><span class="line">        arr.remove(z)</span><br><span class="line">        z &#x3D; max(arr)</span><br><span class="line">    print(z)</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">n &#x3D; int(input())</span><br><span class="line">arr &#x3D; list(set(map(int, input().split())))</span><br><span class="line">arr.sort(reverse&#x3D;True)</span><br><span class="line">print(arr[1])</span><br></pre></td></tr></table></figure>
