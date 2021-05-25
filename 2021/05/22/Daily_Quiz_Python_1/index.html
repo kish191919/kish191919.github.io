@@ -422,6 +422,8 @@ height:100vh;
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def is_leap(year):</span><br><span class="line">    return year % 4 &#x3D;&#x3D; 0 and (year % 400 &#x3D;&#x3D; 0 or year % 100 !&#x3D; 0)</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def is_leap(year):</span><br><span class="line">    leap &#x3D; False</span><br><span class="line">    if year % 4 &#x3D;&#x3D; 0 and (year % 400 &#x3D;&#x3D; 0 or year % 100 !&#x3D; 0):</span><br><span class="line">        leap &#x3D; True</span><br><span class="line">    return leap</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def is_leap(year):</span><br><span class="line">    leap &#x3D; False</span><br><span class="line">    if year%4&#x3D;&#x3D;0 and (year % 400 &#x3D;&#x3D;0 or year % 100 !&#x3D; 0): leap &#x3D; True</span><br><span class="line">    </span><br><span class="line">    return leap</span><br></pre></td></tr></table></figure>
 <hr>
 <h4 id="5"><a href="#5" class="headerlink" title="5."></a>5.</h4><p><img src="https://user-images.githubusercontent.com/26552500/119278260-c3b31680-bbe9-11eb-9ad4-a367a1f9e19b.png" alt="image"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    n &#x3D; int(input())</span><br><span class="line">    [print(n, end&#x3D;&#39;&#39;) for n in range(1,n+1)]</span><br></pre></td></tr></table></figure>
@@ -441,6 +443,21 @@ height:100vh;
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">n &#x3D; int(input())</span><br><span class="line">arr &#x3D; list(set(map(int, input().split())))</span><br><span class="line">arr.sort(reverse&#x3D;True)</span><br><span class="line">print(arr[1])</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">n &#x3D; int(input())</span><br><span class="line">arr &#x3D; list(map(int, input().split()))</span><br><span class="line">print(max([ x for x in arr if x !&#x3D; max(arr)]))</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="8"><a href="#8" class="headerlink" title="8."></a>8.</h4><p><img src="https://user-images.githubusercontent.com/26552500/119431977-21725c00-bcd9-11eb-80c6-87d5815cf862.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/119432042-3f3fc100-bcd9-11eb-9db2-818a4ac1e3e0.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    nested &#x3D; []</span><br><span class="line">    for _ in range(int(input())):</span><br><span class="line">        name &#x3D; input()</span><br><span class="line">        score &#x3D; float(input())</span><br><span class="line">        nested.append([name,score])</span><br><span class="line">        </span><br><span class="line">    second_highest &#x3D; sorted(list(set([score for name, score in nested])))[1]</span><br><span class="line">    print(*sorted([name for name, score in nested if score &#x3D;&#x3D; second_highest]),sep&#x3D;&#39;\n&#39;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">nested &#x3D;[]</span><br><span class="line"></span><br><span class="line">for _ in range(int(input().strip())):</span><br><span class="line">    nested.append([input(), float(input())])</span><br><span class="line"></span><br><span class="line">second_highest &#x3D; sorted(list(set([score for name, score in nested])))[1]</span><br><span class="line">print(&#39;\n&#39;.join([name for name, score in sorted(nested) if score &#x3D;&#x3D; second_highest]))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">n &#x3D; int(input())</span><br><span class="line">nested &#x3D; [[input(), float(input())] for _ in range(n)]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">n &#x3D; int(input().strip())</span><br><span class="line">scores &#x3D; set()</span><br><span class="line">nested &#x3D; []</span><br><span class="line">for _ in range(n):</span><br><span class="line">    name &#x3D; input()</span><br><span class="line">    score &#x3D; float(input())</span><br><span class="line">    nested.append([name, score])</span><br><span class="line">    scores.add(score)</span><br><span class="line">     </span><br><span class="line">second_score &#x3D; sorted(list(scores))[1]</span><br><span class="line">print(*[name for name, score in sorted(nested) if score &#x3D;&#x3D; second_score], sep&#x3D;&#39;\n&#39;)</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="9"><a href="#9" class="headerlink" title="9."></a>9.</h4><p><img src="https://user-images.githubusercontent.com/26552500/119436302-85991e00-bce1-11eb-81af-934f60f0d3f4.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    n &#x3D; int(input())</span><br><span class="line">    student_marks &#x3D; &#123;&#125;</span><br><span class="line">    for _ in range(n):</span><br><span class="line">        name, *line &#x3D; input().split()</span><br><span class="line">        scores &#x3D; list(map(float, line))</span><br><span class="line">        student_marks[name] &#x3D; scores</span><br><span class="line">    query_name &#x3D; input()</span><br><span class="line">    print(&quot;&#123;:.2f&#125;&quot;.format(sum(student_marks[query_name])&#x2F;len(student_marks[query_name])))</span><br></pre></td></tr></table></figure>
+
+
+
 
 
     </article>
@@ -572,7 +589,7 @@ top:100vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1"><span class="toc-number">1.</span> <span class="toc-text">1.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2"><span class="toc-number">2.</span> <span class="toc-text">2.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3"><span class="toc-number">3.</span> <span class="toc-text">3.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4"><span class="toc-number">4.</span> <span class="toc-text">4.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5"><span class="toc-number">5.</span> <span class="toc-text">5.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6"><span class="toc-number">6.</span> <span class="toc-text">6.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7"><span class="toc-number">7.</span> <span class="toc-text">7.</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1"><span class="toc-number">1.</span> <span class="toc-text">1.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2"><span class="toc-number">2.</span> <span class="toc-text">2.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3"><span class="toc-number">3.</span> <span class="toc-text">3.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4"><span class="toc-number">4.</span> <span class="toc-text">4.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5"><span class="toc-number">5.</span> <span class="toc-text">5.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6"><span class="toc-number">6.</span> <span class="toc-text">6.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7"><span class="toc-number">7.</span> <span class="toc-text">7.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8"><span class="toc-number">8.</span> <span class="toc-text">8.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9"><span class="toc-number">9.</span> <span class="toc-text">9.</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -585,14 +602,6 @@ top:100vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -1341,17 +1350,17 @@ top:100vh;
     
         <span class="sidebar-tag-name" data-tags="JIRA"><span class="iconfont-archer">&#xe606;</span>JIRA</span>
     
+        <span class="sidebar-tag-name" data-tags="API"><span class="iconfont-archer">&#xe606;</span>API</span>
+    
         <span class="sidebar-tag-name" data-tags="Data_Engineer"><span class="iconfont-archer">&#xe606;</span>Data_Engineer</span>
     
         <span class="sidebar-tag-name" data-tags="SQL"><span class="iconfont-archer">&#xe606;</span>SQL</span>
     
+        <span class="sidebar-tag-name" data-tags="Datebase"><span class="iconfont-archer">&#xe606;</span>Datebase</span>
+    
         <span class="sidebar-tag-name" data-tags="Unix"><span class="iconfont-archer">&#xe606;</span>Unix</span>
     
         <span class="sidebar-tag-name" data-tags="Atom"><span class="iconfont-archer">&#xe606;</span>Atom</span>
-    
-        <span class="sidebar-tag-name" data-tags="Datebase"><span class="iconfont-archer">&#xe606;</span>Datebase</span>
-    
-        <span class="sidebar-tag-name" data-tags="API"><span class="iconfont-archer">&#xe606;</span>API</span>
     
         <span class="sidebar-tag-name" data-tags="Nosql"><span class="iconfont-archer">&#xe606;</span>Nosql</span>
     
@@ -1365,15 +1374,15 @@ top:100vh;
     
         <span class="sidebar-tag-name" data-tags="Git"><span class="iconfont-archer">&#xe606;</span>Git</span>
     
-        <span class="sidebar-tag-name" data-tags="Spark"><span class="iconfont-archer">&#xe606;</span>Spark</span>
-    
-        <span class="sidebar-tag-name" data-tags="Pyspark"><span class="iconfont-archer">&#xe606;</span>Pyspark</span>
-    
         <span class="sidebar-tag-name" data-tags="Kaggle"><span class="iconfont-archer">&#xe606;</span>Kaggle</span>
     
         <span class="sidebar-tag-name" data-tags="House_Price"><span class="iconfont-archer">&#xe606;</span>House_Price</span>
     
         <span class="sidebar-tag-name" data-tags="Mysql"><span class="iconfont-archer">&#xe606;</span>Mysql</span>
+    
+        <span class="sidebar-tag-name" data-tags="Spark"><span class="iconfont-archer">&#xe606;</span>Spark</span>
+    
+        <span class="sidebar-tag-name" data-tags="Pyspark"><span class="iconfont-archer">&#xe606;</span>Pyspark</span>
     
         <span class="sidebar-tag-name" data-tags="Environment"><span class="iconfont-archer">&#xe606;</span>Environment</span>
     
