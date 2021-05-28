@@ -43,53 +43,6 @@
       </tags>
   </entry>
   <entry>
-    <title>AWS/Docker Cloud Server (3)</title>
-    <url>/2020/01/25/AWS-Docker-Cloud-Server-3/</url>
-    <content><![CDATA[<p>1 Jira Issue 시작</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/73131945-bc71fd80-3fe1-11ea-99d3-9b0f9afc5f4f.png" alt="image"></p>
-<p>Projects -&gt; View All Projects<br><img src="https://user-images.githubusercontent.com/26552500/73131963-1b377700-3fe2-11ea-83ca-38303bbc6bc2.png" alt="image"></p>
-<p>Click “블로그 프로젝트”<br><img src="https://user-images.githubusercontent.com/26552500/73131971-618cd600-3fe2-11ea-9f05-a5c37f308090.png" alt="image"></p>
-<p>Click “Issues”<br><img src="https://user-images.githubusercontent.com/26552500/73131983-7b2e1d80-3fe2-11ea-9329-f81e35b15ffa.png" alt="image"></p>
-<p>Click “Create”<br><img src="https://user-images.githubusercontent.com/26552500/73131995-b3356080-3fe2-11ea-8f9f-7ae855c87b9e.png" alt="image"></p>
-<p>Fill out the form and then click “Create”<br><img src="https://user-images.githubusercontent.com/26552500/73132016-f2fc4800-3fe2-11ea-9294-172615d7572c.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/73132024-28089a80-3fe3-11ea-8091-8e5ee5374b8c.png" alt="image"></p>
-<p>2 Jira API  </p>
-<p><a href="https://docs.atlassian.com/software/jira/docs/api/REST/8.4.2/?_ga=2.93052573.1639889686.1571238783-647032862.1567516016" target="_blank" rel="noopener">Link : Jira API Document</a></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/73132093-5fc41200-3fe4-11ea-90d8-90ecf8ac5bd6.png" alt="image"></p>
-<p>API 를 사용하게 되면 데이터는 JSON의 형태로 데이터가 넘어오게 됩니다. Create 이슈는 이슈를 생성하는 것이고 Get 이슈는 이슈의 정보를 가져오는 것입니다.<br>그리고 DELETE 로 이슈를 삭제할 수 있고 PUT 으로 이슈를 수정할 수 있습니다. 이 API 를 실제로 사용하기 위해서 POSTMAN이라는<br>툴을 설치합니다.</p>
-<p>POSTMAN<br><a href="https://www.getpostman.com/" target="_blank" rel="noopener">https://www.getpostman.com/</a>  </p>
-<blockquote>
-<p>포스트 맨은 가입해서 ID/PWD 만 있으면 무료로 사용 가능한 다양한 API 메세징을 보낼 수 있는 유용한 툴입니다</p>
-</blockquote>
-<p><img src="https://user-images.githubusercontent.com/26552500/73132202-af570d80-3fe5-11ea-894c-7fab5e89ad9c.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/73132289-0b6e6180-3fe7-11ea-9574-3122a3cca5e1.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;&quot;amazon_address&quot;&#x2F;rest&#x2F;api&#x2F;2&#x2F;issue&#x2F;BLO-1</span><br></pre></td></tr></table></figure>
-
-
-<img width="1148" alt="Screen Shot 2020-01-26 at 2 51 06 AM" src="https://user-images.githubusercontent.com/26552500/73132270-d82bd280-3fe6-11ea-877c-69187237f6b5.png">   
-
-
-<p><img src="https://user-images.githubusercontent.com/26552500/73132323-a9fac280-3fe7-11ea-8a7f-417d931421dc.png" alt="image"></p>
-<p>[GET]<br><img src="https://user-images.githubusercontent.com/26552500/73132338-ca2a8180-3fe7-11ea-93c8-2ee6ee00e372.png" alt="image"></p>
-<img width="1569" alt="Screen Shot 2020-01-26 at 3 46 07 AM" src="https://user-images.githubusercontent.com/26552500/73132849-72434900-3fee-11ea-920a-e30ab563681c.png">
-[POST]  
-Create issue
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&quot;fields&quot;: &#123;</span><br><span class="line">                &quot;project&quot;: &#123;</span><br><span class="line">                    &quot;key&quot;: &quot;BLO&quot;</span><br><span class="line">                &#125;,</span><br><span class="line">                &quot;summary&quot;: &quot;테스트&quot;,</span><br><span class="line">                &quot;issuetype&quot;: &#123;</span><br><span class="line">                    &quot;id&quot;: &quot;10002&quot;</span><br><span class="line">                &#125;,</span><br><span class="line">                &quot;assignee&quot;: &#123;</span><br><span class="line">                    &quot;name&quot;: &quot;kish1919&quot;</span><br><span class="line">                &#125;,</span><br><span class="line">                &quot;reporter&quot;: &#123;</span><br><span class="line">                    &quot;name&quot;: &quot;kish1919&quot;</span><br><span class="line">                &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<img width="1584" alt="Screen Shot 2020-01-26 at 3 41 01 AM" src="https://user-images.githubusercontent.com/26552500/73132791-be41be00-3fed-11ea-8942-9d51638cd455.png">
-
-<p>  <img src="https://user-images.githubusercontent.com/26552500/73132811-f77a2e00-3fed-11ea-82e9-c71b30bd00fc.png" alt="image"></p>
-]]></content>
-      <categories>
-        <category>Today_I_Learn</category>
-      </categories>
-      <tags>
-        <tag>AWS</tag>
-        <tag>Docker</tag>
-        <tag>JIRA</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>AWS/Docker Cloud Server (2)</title>
     <url>/2020/01/24/AWS-Docker-Cloud-Server-2/</url>
     <content><![CDATA[<p>1 AWS 설치</p>
@@ -147,6 +100,53 @@ Create issue
     <title>AWS/Docker Cloud Server (4)</title>
     <url>/2020/01/26/AWS-Docker-Cloud-Server-4/</url>
     <content><![CDATA[<p>1 Install Confluence</p>
+]]></content>
+      <categories>
+        <category>Today_I_Learn</category>
+      </categories>
+      <tags>
+        <tag>AWS</tag>
+        <tag>Docker</tag>
+        <tag>JIRA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AWS/Docker Cloud Server (3)</title>
+    <url>/2020/01/25/AWS-Docker-Cloud-Server-3/</url>
+    <content><![CDATA[<p>1 Jira Issue 시작</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/73131945-bc71fd80-3fe1-11ea-99d3-9b0f9afc5f4f.png" alt="image"></p>
+<p>Projects -&gt; View All Projects<br><img src="https://user-images.githubusercontent.com/26552500/73131963-1b377700-3fe2-11ea-83ca-38303bbc6bc2.png" alt="image"></p>
+<p>Click “블로그 프로젝트”<br><img src="https://user-images.githubusercontent.com/26552500/73131971-618cd600-3fe2-11ea-9f05-a5c37f308090.png" alt="image"></p>
+<p>Click “Issues”<br><img src="https://user-images.githubusercontent.com/26552500/73131983-7b2e1d80-3fe2-11ea-9329-f81e35b15ffa.png" alt="image"></p>
+<p>Click “Create”<br><img src="https://user-images.githubusercontent.com/26552500/73131995-b3356080-3fe2-11ea-8f9f-7ae855c87b9e.png" alt="image"></p>
+<p>Fill out the form and then click “Create”<br><img src="https://user-images.githubusercontent.com/26552500/73132016-f2fc4800-3fe2-11ea-9294-172615d7572c.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/73132024-28089a80-3fe3-11ea-8091-8e5ee5374b8c.png" alt="image"></p>
+<p>2 Jira API  </p>
+<p><a href="https://docs.atlassian.com/software/jira/docs/api/REST/8.4.2/?_ga=2.93052573.1639889686.1571238783-647032862.1567516016" target="_blank" rel="noopener">Link : Jira API Document</a></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/73132093-5fc41200-3fe4-11ea-90d8-90ecf8ac5bd6.png" alt="image"></p>
+<p>API 를 사용하게 되면 데이터는 JSON의 형태로 데이터가 넘어오게 됩니다. Create 이슈는 이슈를 생성하는 것이고 Get 이슈는 이슈의 정보를 가져오는 것입니다.<br>그리고 DELETE 로 이슈를 삭제할 수 있고 PUT 으로 이슈를 수정할 수 있습니다. 이 API 를 실제로 사용하기 위해서 POSTMAN이라는<br>툴을 설치합니다.</p>
+<p>POSTMAN<br><a href="https://www.getpostman.com/" target="_blank" rel="noopener">https://www.getpostman.com/</a>  </p>
+<blockquote>
+<p>포스트 맨은 가입해서 ID/PWD 만 있으면 무료로 사용 가능한 다양한 API 메세징을 보낼 수 있는 유용한 툴입니다</p>
+</blockquote>
+<p><img src="https://user-images.githubusercontent.com/26552500/73132202-af570d80-3fe5-11ea-894c-7fab5e89ad9c.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/73132289-0b6e6180-3fe7-11ea-9574-3122a3cca5e1.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http:&#x2F;&#x2F;&quot;amazon_address&quot;&#x2F;rest&#x2F;api&#x2F;2&#x2F;issue&#x2F;BLO-1</span><br></pre></td></tr></table></figure>
+
+
+<img width="1148" alt="Screen Shot 2020-01-26 at 2 51 06 AM" src="https://user-images.githubusercontent.com/26552500/73132270-d82bd280-3fe6-11ea-877c-69187237f6b5.png">   
+
+
+<p><img src="https://user-images.githubusercontent.com/26552500/73132323-a9fac280-3fe7-11ea-8a7f-417d931421dc.png" alt="image"></p>
+<p>[GET]<br><img src="https://user-images.githubusercontent.com/26552500/73132338-ca2a8180-3fe7-11ea-93c8-2ee6ee00e372.png" alt="image"></p>
+<img width="1569" alt="Screen Shot 2020-01-26 at 3 46 07 AM" src="https://user-images.githubusercontent.com/26552500/73132849-72434900-3fee-11ea-920a-e30ab563681c.png">
+[POST]  
+Create issue
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&quot;fields&quot;: &#123;</span><br><span class="line">                &quot;project&quot;: &#123;</span><br><span class="line">                    &quot;key&quot;: &quot;BLO&quot;</span><br><span class="line">                &#125;,</span><br><span class="line">                &quot;summary&quot;: &quot;테스트&quot;,</span><br><span class="line">                &quot;issuetype&quot;: &#123;</span><br><span class="line">                    &quot;id&quot;: &quot;10002&quot;</span><br><span class="line">                &#125;,</span><br><span class="line">                &quot;assignee&quot;: &#123;</span><br><span class="line">                    &quot;name&quot;: &quot;kish1919&quot;</span><br><span class="line">                &#125;,</span><br><span class="line">                &quot;reporter&quot;: &#123;</span><br><span class="line">                    &quot;name&quot;: &quot;kish1919&quot;</span><br><span class="line">                &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<img width="1584" alt="Screen Shot 2020-01-26 at 3 41 01 AM" src="https://user-images.githubusercontent.com/26552500/73132791-be41be00-3fed-11ea-8942-9d51638cd455.png">
+
+<p>  <img src="https://user-images.githubusercontent.com/26552500/73132811-f77a2e00-3fed-11ea-82e9-c71b30bd00fc.png" alt="image"></p>
 ]]></content>
       <categories>
         <category>Today_I_Learn</category>
@@ -221,19 +221,6 @@ Create issue
         <tag>Data_Engineer</tag>
         <tag>Unix</tag>
         <tag>Atom</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Basic_Data_Engineer_3_SQLite_2</title>
-    <url>/2020/12/22/Basic-Data-Engineer-3-SQLite-2/</url>
-    <content><![CDATA[<p>UPDATE</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">UPDATE &lt;Table name&gt; </span><br><span class="line">SET &lt;Column name&gt; &#x3D; &lt;Value &gt;</span><br><span class="line">WHERE &lt;Condition&gt; ;</span><br></pre></td></tr></table></figure>
-<p>EXAMPLE</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">UPDATE mytable2 </span><br><span class="line">SET debut &#x3D;&#39;2010-09-01&#39;</span><br><span class="line">WHERE id &#x3D; 1 or id &#x3D; 2;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>Data_Engineer</tag>
-        <tag>SQL</tag>
       </tags>
   </entry>
   <entry>
@@ -315,6 +302,41 @@ Create issue
       <tags>
         <tag>Data_Engineer</tag>
         <tag>SQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Basic_Data_Engineer_3_SQLite_2</title>
+    <url>/2020/12/22/Basic-Data-Engineer-3-SQLite-2/</url>
+    <content><![CDATA[<p>UPDATE</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">UPDATE &lt;Table name&gt; </span><br><span class="line">SET &lt;Column name&gt; &#x3D; &lt;Value &gt;</span><br><span class="line">WHERE &lt;Condition&gt; ;</span><br></pre></td></tr></table></figure>
+<p>EXAMPLE</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">UPDATE mytable2 </span><br><span class="line">SET debut &#x3D;&#39;2010-09-01&#39;</span><br><span class="line">WHERE id &#x3D; 1 or id &#x3D; 2;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>Data_Engineer</tag>
+        <tag>SQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Basic_Data_Engineer_4_API_1</title>
+    <url>/2020/12/22/Basic-Data-Engineer-4-API-1/</url>
+    <content><![CDATA[<ul>
+<li><p>Authentication : Identity (정체)가 맞다는 증명</p>
+</li>
+<li><p>Authorization: API를 통한 어떠한 액션을 허용</p>
+</li>
+<li><p>API가 Authentication을 하여도 어떠한 액션에 대해서는 Authorization 하지 못하는 경우가 있음</p>
+</li>
+<li><p>API key란 보통 Request URL 혹은 Request 헤더에 포함되는 긴 스트링</p>
+</li>
+<li><p>Python Requests Library<br><a href="https://requests.readthedocs.io/en/master/api/" target="_blank" rel="noopener">https://requests.readthedocs.io/en/master/api/</a></p>
+</li>
+<li><p>Status Code<br>1) 200 : OK  (200번대 대부분 성)<br>2) 401 : Unauthorized (credentional token 등이 잘못될 경)<br>3) 429 : Too Many Requests / 몇초 뒤에 다시 사용할 수 있는지 또한 정보 확인<br>4) 500 : Internal Server Error<br>5) 502 : Bad Gateway (Received a invalid response from the upstream server)<br>6) 503 : Service Unavailable</p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>API</tag>
       </tags>
   </entry>
   <entry>
@@ -456,93 +478,95 @@ Create issue
       </tags>
   </entry>
   <entry>
-    <title>Basic_Data_Engineer_4_API_1</title>
-    <url>/2020/12/22/Basic-Data-Engineer-4-API-1/</url>
+    <title>Basic_Data_Engineer_6_Database_2</title>
+    <url>/2020/12/29/Basic-Data-Engineer-6-Database-2/</url>
     <content><![CDATA[<ul>
-<li><p>Authentication : Identity (정체)가 맞다는 증명</p>
+<li><p>Create table at DynamoDB<br><img src="https://user-images.githubusercontent.com/26552500/103329457-5fb56900-4a22-11eb-82bf-092d7c8118fb.png" alt="image"></p>
 </li>
-<li><p>Authorization: API를 통한 어떠한 액션을 허용</p>
+<li><p>Provisioned (free-tier eligible) : 이미 용량이 확인될 경우 체크<br><img src="https://user-images.githubusercontent.com/26552500/103329728-b4a5af00-4a23-11eb-8d5c-c14cf3e3d444.png" alt="image"></p>
 </li>
-<li><p>API가 Authentication을 하여도 어떠한 액션에 대해서는 Authorization 하지 못하는 경우가 있음</p>
-</li>
-<li><p>API key란 보통 Request URL 혹은 Request 헤더에 포함되는 긴 스트링</p>
-</li>
-<li><p>Python Requests Library<br><a href="https://requests.readthedocs.io/en/master/api/" target="_blank" rel="noopener">https://requests.readthedocs.io/en/master/api/</a></p>
-</li>
-<li><p>Status Code<br>1) 200 : OK  (200번대 대부분 성)<br>2) 401 : Unauthorized (credentional token 등이 잘못될 경)<br>3) 429 : Too Many Requests / 몇초 뒤에 다시 사용할 수 있는지 또한 정보 확인<br>4) 500 : Internal Server Error<br>5) 502 : Bad Gateway (Received a invalid response from the upstream server)<br>6) 503 : Service Unavailable</p>
-</li>
+</ul>
+<ul>
+<li>partition key :  artist_id</li>
+<li>sort key : id<br><img src="https://user-images.githubusercontent.com/26552500/103330599-dc971180-4a27-11eb-9667-07777b49bbef.png" alt="image"></li>
+</ul>
+<ul>
+<li>다른 키값으로 사용할 시 (using index)<br><img src="https://user-images.githubusercontent.com/26552500/103330774-824a8080-4a28-11eb-8d60-38a29e8221b0.png" alt="image"></li>
 </ul>
 ]]></content>
       <tags>
-        <tag>API</tag>
+        <tag>Nosql</tag>
       </tags>
   </entry>
   <entry>
-    <title>Basic_Data_Engineer_8_Scheduling_1</title>
-    <url>/2021/01/04/Basic-Data-Engineer-8-Scheduling-1/</url>
-    <content><![CDATA[<ul>
-<li><p>Copy file from local to server</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># pem key should be at same folder with file</span><br><span class="line">scp -i AWS_CAR_KEY.pem spotify.py ec2-user@ec2-18-220-173-150.us-east-2.compute.amazonaws.com:~&#x2F;</span><br><span class="line">spotify.py</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/103601189-b9a8a980-4ece-11eb-99f7-a54f1b67b04c.png" alt="image"></p>
-</li>
-<li><p>Install Python3 at Linux</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum list | grep python3</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/103601368-1c01aa00-4ecf-11eb-8c13-d39d85ba724c.png" alt="image"></p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># install python3</span><br><span class="line">sudo yum install python3</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/103601472-523f2980-4ecf-11eb-82f3-aaf8066105f7.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># install pip</span><br><span class="line">curl -O https:&#x2F;&#x2F;bootstrap.pypa.io&#x2F;get-pip.py</span><br><span class="line"></span><br><span class="line">python3 get-pip.py</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/103601635-a944fe80-4ecf-11eb-92fb-9a92ed8890fe.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/103601700-d5f91600-4ecf-11eb-8209-04968ae01212.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># install library</span><br><span class="line">pip3 install --upgrade pip</span><br><span class="line">pip3 install boto3</span><br></pre></td></tr></table></figure>
+    <title>Daily_Quiz_SQL_1</title>
+    <url>/2021/05/23/Daily-Quiz-SQL-1/</url>
+    <content><![CDATA[<h4 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h4><p><img src="https://user-images.githubusercontent.com/26552500/119280480-3aa2dc00-bbf7-11eb-8a69-fae11c16d8d2.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select * from city where population &gt;&#x3D; 100000 and CountryCode &#x3D; &#39;USA&#39;;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li><p>botocore.exceptions.NoCredentialsError: Unable to locate credentials</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># add aws_access_key_id, aws_secret_access_key</span><br><span class="line">s3 &#x3D; boto3.resource(&#39;s3&#39;,</span><br><span class="line">     aws_access_key_id&#x3D;ACCESS_ID,</span><br><span class="line">     aws_secret_access_key&#x3D; ACCESS_KEY)</span><br><span class="line"></span><br><span class="line"># you can find it at ~&#x2F;.aws&#x2F;credentials</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Crontab</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># set up the schedule                     </span><br><span class="line">crontab -e</span><br><span class="line">23 21 * * * &#x2F;usr&#x2F;bin&#x2F;python3 &#x2F;home&#x2F;ec2-user&#x2F;spotify.py</span><br><span class="line">MAILTO&#x3D;kish1919@gmail.com  # 메일로 notice 받</span><br><span class="line"></span><br><span class="line"># Check date ( Tue Jan  5 03:22:39 UTC 2021 &#x2F; UTC 기준)</span><br><span class="line">date </span><br><span class="line"></span><br><span class="line"># 사용되는 파이썬 주소 확인</span><br><span class="line">which python3</span><br><span class="line"></span><br><span class="line"># Check the crontab</span><br><span class="line">crontab -l</span><br><span class="line"></span><br><span class="line"># If it does not work, use below command</span><br><span class="line"># sudo service crond start</span><br><span class="line"># sudo chkconfig crond on</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/103603261-d0053400-4ed3-11eb-8704-37c03ec12b8b.png" alt="image"></p>
-</li>
-<li><p>Create Lambda</p>
-</li>
-</ul>
-<p><img src="https://user-images.githubusercontent.com/26552500/103606785-e6fc5400-4edc-11eb-9189-57b73149c78f.png" alt="image"></p>
-<p>1)Create Lambda function file</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import boto3</span><br><span class="line">import sys</span><br><span class="line">sys.path.append(&#39;.&#x2F;libs&#39;)</span><br><span class="line">import os</span><br><span class="line">import logging</span><br><span class="line">import requests</span><br><span class="line">import base64</span><br><span class="line">import json</span><br><span class="line"></span><br><span class="line">client_id &#x3D; &quot;ac43****&quot;</span><br><span class="line">client_secret &#x3D; &quot;adb5****&quot;</span><br><span class="line"></span><br><span class="line"># Lambda define connection at top</span><br><span class="line">try:</span><br><span class="line">    dynamodb &#x3D; boto3.resource(&#39;dynamodb&#39;, region_name&#x3D;&#39;us-west-2&#39;, endpoint_url&#x3D;&#39;http:&#x2F;&#x2F;dynamodb.us-west-2.amazonaws.com&#39;)</span><br><span class="line"></span><br><span class="line">except:</span><br><span class="line">    logging.error(&#39;Could not connect to dynamodb&#39;)</span><br><span class="line">    sys.exit(1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def lambda_handler(event, context):</span><br><span class="line"></span><br><span class="line">    headers &#x3D; get_headers(client_id,client_secret)</span><br><span class="line"></span><br><span class="line">    table &#x3D; dynamodb.Table(&#39;top_tracks&#39;)</span><br><span class="line"></span><br><span class="line">    artist_id &#x3D; event[&#39;artist_id&#39;]</span><br><span class="line"></span><br><span class="line">    URL &#x3D; &quot;https:&#x2F;&#x2F;api.spotify.com&#x2F;v1&#x2F;artists&#x2F;&#123;&#125;&#x2F;top-tracks&quot;.format(artist_id)</span><br><span class="line">    params &#x3D; &#123;</span><br><span class="line">        &#39;country&#39; : &#39;US&#39;</span><br><span class="line">    &#125;</span><br><span class="line">    r &#x3D; requests.get(URL, params &#x3D; params, headers &#x3D; headers)</span><br><span class="line"></span><br><span class="line">    raw &#x3D; json.loads(r.text)</span><br><span class="line"></span><br><span class="line">    for track in raw[&#39;tracks&#39;]:</span><br><span class="line">        # Add artist_id</span><br><span class="line">        data &#x3D; &#123;</span><br><span class="line">            &#39;artist_id&#39;: artist_id</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        data.update(track)</span><br><span class="line"></span><br><span class="line">        table.put_item(</span><br><span class="line">            Item &#x3D; data</span><br><span class="line">        )</span><br><span class="line">    return &quot;SUCCESS&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def get_headers(client_id, client_secret):</span><br><span class="line"></span><br><span class="line">    endpoint &#x3D; &quot;https:&#x2F;&#x2F;accounts.spotify.com&#x2F;api&#x2F;token&quot;</span><br><span class="line">    encoded &#x3D; base64.b64encode(&quot;&#123;&#125;:&#123;&#125;&quot;.format(client_id, client_secret).encode(&#39;utf-8&#39;)).decode(&#39;ascii&#39;)</span><br><span class="line"></span><br><span class="line">    headers &#x3D; &#123;</span><br><span class="line">        &quot;Authorization&quot;: &quot;Basic &#123;&#125;&quot;.format(encoded)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    payload &#x3D; &#123;</span><br><span class="line">        &quot;grant_type&quot; : &quot;client_credentials&quot;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    r &#x3D; requests.post(endpoint, data&#x3D;payload, headers&#x3D;headers)</span><br><span class="line"></span><br><span class="line">    access_token &#x3D; json.loads(r.text)[&#39;access_token&#39;]</span><br><span class="line"></span><br><span class="line">    headers &#x3D; &#123;</span><br><span class="line">        &quot;Authorization&quot;: &quot;Bearer &#123;&#125;&quot;.format(access_token)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    return headers</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__&#x3D;&#x3D;&#39;__main__&#39;:</span><br><span class="line"></span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h4><p><img src="https://user-images.githubusercontent.com/26552500/119280718-37f4b680-bbf8-11eb-8794-1dcf88a1ee74.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select distinct(city) from station where ID % 2 &#x3D; 0;</span><br></pre></td></tr></table></figure>
 
-<p>2)Create requirements.txt</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># t : target directory</span><br><span class="line">pip3 install -r requirements.txt -t .&#x2F;libs</span><br></pre></td></tr></table></figure>
-<pre><code>&gt; 만약 아래와 같은 에러가 발생한다면,</code></pre><p>  <img src="https://user-images.githubusercontent.com/26552500/103608636-668c2200-4ee1-11eb-8557-1af7bc3e843c.png" alt="image"></p>
-<pre><code>&gt; create file named &apos;setup.cfg&apos;</code></pre>   <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[install]</span><br><span class="line">prefix&#x3D;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h4><p><img src="https://user-images.githubusercontent.com/26552500/119280870-ec8ed800-bbf8-11eb-8546-9601835b56e5.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select count(ID)- count(distinct(city)) from station;</span><br></pre></td></tr></table></figure>
 
-<p>3)remove dist-info files</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rm *.dist-info</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h4><p><img src="https://user-images.githubusercontent.com/26552500/119437543-f5a8a380-bce3-11eb-8655-fb40ad061d09.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select city, length(city) as len from station order by len, city limit 1;</span><br><span class="line">select city, length(city) as len from station order by len desc, city asc limit 1;</span><br></pre></td></tr></table></figure>
 
-<p>4)Create .deploy.sh file</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rm -rf .&#x2F;libs</span><br><span class="line">pip3 install -r requirements.txt -t .&#x2F;libs</span><br><span class="line"></span><br><span class="line">rm *.zip</span><br><span class="line">rm *.dist-info</span><br><span class="line">zip top_tracks.zip -r *</span><br><span class="line"></span><br><span class="line">aws s3 rm s3:&#x2F;&#x2F;top-tracks-lambda-project&#x2F;top_tracks.zip</span><br><span class="line">aws s3 cp .&#x2F;top_tracks.zip s3:&#x2F;&#x2F;top-tracks-lambda-project&#x2F;top_tracks.zip</span><br><span class="line">aws lambda update-function-code --function-name top-tracks --s3-bucket top-tracks-lambda-project --s3-key top_tracks.zip</span><br></pre></td></tr></table></figure>
-<p>5)권한 변경 및 실</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chmod +x deploy.sh 행</span><br><span class="line">.&#x2F;deploy.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(select city, length(city) as len from station order by len, city limit 1)</span><br><span class="line">union</span><br><span class="line">(select city, length(city) as len from station order by len desc, city asc limit 1);</span><br></pre></td></tr></table></figure>
 
-<p>6)aws region_name issue</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vi ~&#x2F;.aws&#x2F;config</span><br><span class="line"></span><br><span class="line"># Change the region name</span><br><span class="line">[default]</span><br><span class="line">region &#x3D; us-west-2</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="5"><a href="#5" class="headerlink" title="5."></a>5.</h4><p><img src="https://user-images.githubusercontent.com/26552500/119438568-24277e00-bce6-11eb-94db-0e61feab9572.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select distinct(city) as city_name from station where  substr(city,1) like &#39;A%&#39; or substr(city,1) like &#39;E%&#39; or substr(city,1) like &#39;I%&#39; or substr(city,1) like &#39;O%&#39; or substr(city,1) like &#39;U%&#39;;</span><br></pre></td></tr></table></figure>
 
-<p>7)Check the Lambda at AWS</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 실행 파일이 업로드 됨</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/103610770-7f4b0680-4ee6-11eb-92b6-8b36763c165d.png" alt="image"></p>
-<p>8)Error [An error occurred (AccessDeniedException) when calling the PutItem operation:]</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/103614661-ca691780-4eee-11eb-8e1f-24a17ebde5d7.png" alt="image"></p>
-<pre><code>- dynamo db의 엑세스 권한이 필요 / click &quot;Attach policies&quot;</code></pre><p><img src="https://user-images.githubusercontent.com/26552500/103614755-f6849880-4eee-11eb-997c-b2ebb67bf624.png" alt="image"></p>
-<pre><code>- dynamo db를 추가</code></pre><p><img src="https://user-images.githubusercontent.com/26552500/103614919-41061500-4eef-11eb-9f68-87b259d14dc2.png" alt="image"></p>
-<pre><code>- Success</code></pre><p><img src="https://user-images.githubusercontent.com/26552500/103615029-77439480-4eef-11eb-8aea-ab6a522dac8e.png" alt="image"></p>
-<p>9) Create related_artists table at mysql</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE related_artists (artist_id VARCHAR(255), y_artist VARCHAR(255), distance FLOAT, PRIMARY KEY(artist_id, y_artist)) ENGINE&#x3D;InnoDB DEFAULT CHARSET&#x3D;utf8;</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/105040377-633b7f00-5a27-11eb-9b36-2648379cd56c.png" alt="image"></p>
-]]></content>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select distinct(city) as city_name from station where  substr(city,1,1) in (&#39;A&#39;,&#39;E&#39;,&#39;I&#39;,&#39;O&#39;,&#39;U&#39;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select distinct(city) as city_name from station where city REGEXP &quot;^[AEIOU].*&quot;;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/119440625-47ecc300-bcea-11eb-9961-82a642423ad5.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/119440698-6fdc2680-bcea-11eb-8136-393e984db4a7.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/119440770-8da98b80-bcea-11eb-9e5a-b1e1badd03d5.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/119440921-cba6af80-bcea-11eb-8a6a-2b5dc7e8d483.png" alt="image"></p>
+<hr>
+<h4 id="6"><a href="#6" class="headerlink" title="6."></a>6.</h4><p><img src="https://user-images.githubusercontent.com/26552500/119595112-a6757800-bda2-11eb-80c8-ab3e65ca0399.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select distinct(city) from station where city regexp &#39;[AEIOU]$&#39;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select distinct(city) from station where right(city,1) in (&#39;A&#39;, &#39;E&#39;, &#39;I&#39;, &#39;O&#39;,&#39;U&#39;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select distinct(city) from station where right(city,1) like &#39;%A&#39; or right(city,1) like &#39;%E&#39; or right(city,1) like &#39;%I&#39; or right(city,1) like &#39;%O&#39; or right(city,1) like &#39;%U&#39;;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="7"><a href="#7" class="headerlink" title="7."></a>7.</h4><p><img src="https://user-images.githubusercontent.com/26552500/119595865-d5d8b480-bda3-11eb-924c-ff3d7cb5f8c6.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select distinct(city) from station where (city regexp &#39;^[AEIOU]&#39;) and (city regexp &#39;[AEIOU]$&#39;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select distinct(city) from station where city regexp &#39;^[AEIOU].*[AEIOU]$&#39;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select distinct(city) from station where (left(city,1) in (&#39;A&#39;,&#39;E&#39;,&#39;I&#39;,&#39;O&#39;,&#39;U&#39;)) and (right(city,1) in (&#39;A&#39;,&#39;E&#39;,&#39;I&#39;,&#39;O&#39;,&#39;U&#39;));</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="8"><a href="#8" class="headerlink" title="8."></a>8.</h4><p><img src="https://user-images.githubusercontent.com/26552500/119596586-1553d080-bda5-11eb-9724-91c573c54f43.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select distinct(city) from station where city regexp &#39;^[^AEOIU]&#39;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select distinct(city) from station where city Not regexp &#39;^[AEOIU]&#39;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select distinct(city) from station where left(city,1) not in (&#39;A&#39;,&#39;E&#39;,&#39;O&#39;,&#39;U&#39;,&#39;I&#39;);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h4 id="9"><a href="#9" class="headerlink" title="9."></a>9.</h4>]]></content>
       <tags>
-        <tag>Cron</tag>
+        <tag>SQL</tag>
+        <tag>Coding</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>DS730_1_High_Performance_Computing_&amp;_MapReduce_Introduction</title>
+    <url>/2020/09/01/DS730-1-High-Performance-Computing-MapReduce-Introduction/</url>
+    <content><![CDATA[<p>Author: SAS</p>
+<p>Description: Discusses the history and importance of big data.</p>
+<p><a href="https://www.sas.com/en_us/insights/big-data/what-is-big-data.html" target="_blank" rel="noopener">https://www.sas.com/en_us/insights/big-data/what-is-big-data.html</a></p>
+]]></content>
   </entry>
   <entry>
     <title>DS730_1_1_Create_a_Hortonworks_Sandbox_on_Azure</title>
@@ -563,27 +587,6 @@ Create issue
 <h4 id="14-Go-to-http-40-88-11-48-8080-and-enter-in-maria-dev-as-the-username-and-password-You-should-see-something-like-this"><a href="#14-Go-to-http-40-88-11-48-8080-and-enter-in-maria-dev-as-the-username-and-password-You-should-see-something-like-this" class="headerlink" title="14) Go to http://40.88.11.48:8080 and enter in maria_dev as the username and password. You should see something like this:"></a>14) Go to <a href="http://40.88.11.48:8080" target="_blank" rel="noopener">http://40.88.11.48:8080</a> and enter in maria_dev as the username and password. You should see something like this:</h4><p><img src="https://user-images.githubusercontent.com/26552500/92776642-118e3400-f365-11ea-98d8-e963476b6027.png" alt="image"></p>
 <h4 id="This-step-is-important-for-all-future-activities-and-projects-whenever-you-start-up-your-virtual-machine-You-must-check-this-page-before-beginning-any-activity-project-to-ensure-the-system-is-ready-to-use-As-long-as-there-are-0-alerts-at-the-top-you-are-ready-to-start-working-If-you-see-any-alerts-you-must-wait-for-the-alerts-to-clear-before-starting-Even-though-you-may-be-able-to-load-up-the-8080-port-and-the-4200-port-it-does-not-mean-the-machine-is-completely-started-and-ready-to-use-You-must-wait-for-all-alerts-to-clear-before-beginning"><a href="#This-step-is-important-for-all-future-activities-and-projects-whenever-you-start-up-your-virtual-machine-You-must-check-this-page-before-beginning-any-activity-project-to-ensure-the-system-is-ready-to-use-As-long-as-there-are-0-alerts-at-the-top-you-are-ready-to-start-working-If-you-see-any-alerts-you-must-wait-for-the-alerts-to-clear-before-starting-Even-though-you-may-be-able-to-load-up-the-8080-port-and-the-4200-port-it-does-not-mean-the-machine-is-completely-started-and-ready-to-use-You-must-wait-for-all-alerts-to-clear-before-beginning" class="headerlink" title="This step is important for all future activities and projects whenever you start up your virtual machine. You must check this page before beginning any activity/project to ensure the system is ready to use. As long as there are 0 alerts at the top, you are ready to start working. If you see any alerts, you must wait for the alerts to clear before starting. Even though you may be able to load up the 8080 port and the 4200 port, it does not mean the machine is completely started and ready to use. You must wait for all alerts to clear before beginning."></a>This step is important for all future activities and projects whenever you start up your virtual machine. You must check this page before beginning any activity/project to ensure the system is ready to use. As long as there are 0 alerts at the top, you are ready to start working. If you see any alerts, you must wait for the alerts to clear before starting. Even though you may be able to load up the 8080 port and the 4200 port, it does not mean the machine is completely started and ready to use. You must wait for all alerts to clear before beginning.</h4><h4 id="15-If-you-forget-to-do-these-steps-your-virtual-machine-will-still-be-running-and-you-will-run-out-of-credits"><a href="#15-If-you-forget-to-do-these-steps-your-virtual-machine-will-still-be-running-and-you-will-run-out-of-credits" class="headerlink" title="15)  If you forget to do these steps, your virtual machine will still be running and you will run out of credits"></a>15)  If you forget to do these steps, your virtual machine will still be running and you will run out of credits</h4><p><img src="https://user-images.githubusercontent.com/26552500/92777424-ce809080-f365-11ea-8ccb-9f73e2f47fe2.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/92777472-dd674300-f365-11ea-8de2-581c8a361178.png" alt="image"></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Basic_Data_Engineer_6_Database_2</title>
-    <url>/2020/12/29/Basic-Data-Engineer-6-Database-2/</url>
-    <content><![CDATA[<ul>
-<li><p>Create table at DynamoDB<br><img src="https://user-images.githubusercontent.com/26552500/103329457-5fb56900-4a22-11eb-82bf-092d7c8118fb.png" alt="image"></p>
-</li>
-<li><p>Provisioned (free-tier eligible) : 이미 용량이 확인될 경우 체크<br><img src="https://user-images.githubusercontent.com/26552500/103329728-b4a5af00-4a23-11eb-8d5c-c14cf3e3d444.png" alt="image"></p>
-</li>
-</ul>
-<ul>
-<li>partition key :  artist_id</li>
-<li>sort key : id<br><img src="https://user-images.githubusercontent.com/26552500/103330599-dc971180-4a27-11eb-9667-07777b49bbef.png" alt="image"></li>
-</ul>
-<ul>
-<li>다른 키값으로 사용할 시 (using index)<br><img src="https://user-images.githubusercontent.com/26552500/103330774-824a8080-4a28-11eb-8d60-38a29e8221b0.png" alt="image"></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Nosql</tag>
-      </tags>
   </entry>
   <entry>
     <title>Basic_Data_Engineer_7_Data_Lake_1</title>
@@ -668,18 +671,6 @@ Create issue
       </tags>
   </entry>
   <entry>
-    <title>Github</title>
-    <url>/2020/12/28/Github/</url>
-    <content><![CDATA[<ul>
-<li>암호나 중요파일을 깃허브에 업로드 금지하기<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Create .gitignore file</span><br><span class="line"># add the file name</span><br></pre></td></tr></table></figure>
-<img src="https://user-images.githubusercontent.com/26552500/103239655-dc0d5680-4913-11eb-861f-76f363aa60e7.png" alt="image"></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Daily_Quiz_Python_1</title>
     <url>/2021/05/22/Daily_Quiz_Python_1/</url>
     <content><![CDATA[<h4 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h4><p><img src="https://user-images.githubusercontent.com/26552500/119247487-7b471a80-bb4f-11eb-9c93-00fdae726d83.png" alt="image"></p>
@@ -753,159 +744,91 @@ Create issue
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if cmd !&#x3D; &quot;print&quot;:</span><br><span class="line">    eval(&quot;result.&quot;+cmd + str(tuple(map(int, args))))</span><br><span class="line">else:</span><br><span class="line">    print(result)</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h4 id="11"><a href="#11" class="headerlink" title="11."></a>11.</h4>]]></content>
+<h4 id="11"><a href="#11" class="headerlink" title="11."></a>11.</h4><p><img src="https://user-images.githubusercontent.com/26552500/119931220-99918980-bf46-11eb-851a-79b32902ba23.png" alt="image"></p>
+]]></content>
       <tags>
+        <tag>Coding</tag>
         <tag>Python</tag>
-        <tag>Coding</tag>
       </tags>
   </entry>
   <entry>
-    <title>Daily_Quiz_SQL_1</title>
-    <url>/2021/05/23/Daily-Quiz-SQL-1/</url>
-    <content><![CDATA[<h4 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h4><p><img src="https://user-images.githubusercontent.com/26552500/119280480-3aa2dc00-bbf7-11eb-8a69-fae11c16d8d2.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select * from city where population &gt;&#x3D; 100000 and CountryCode &#x3D; &#39;USA&#39;;</span><br></pre></td></tr></table></figure>
+    <title>Basic_Data_Engineer_8_Scheduling_1</title>
+    <url>/2021/01/04/Basic-Data-Engineer-8-Scheduling-1/</url>
+    <content><![CDATA[<ul>
+<li><p>Copy file from local to server</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># pem key should be at same folder with file</span><br><span class="line">scp -i AWS_CAR_KEY.pem spotify.py ec2-user@ec2-18-220-173-150.us-east-2.compute.amazonaws.com:~&#x2F;</span><br><span class="line">spotify.py</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103601189-b9a8a980-4ece-11eb-99f7-a54f1b67b04c.png" alt="image"></p>
+</li>
+<li><p>Install Python3 at Linux</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo yum list | grep python3</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103601368-1c01aa00-4ecf-11eb-8c13-d39d85ba724c.png" alt="image"></p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># install python3</span><br><span class="line">sudo yum install python3</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103601472-523f2980-4ecf-11eb-82f3-aaf8066105f7.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># install pip</span><br><span class="line">curl -O https:&#x2F;&#x2F;bootstrap.pypa.io&#x2F;get-pip.py</span><br><span class="line"></span><br><span class="line">python3 get-pip.py</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103601635-a944fe80-4ecf-11eb-92fb-9a92ed8890fe.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/103601700-d5f91600-4ecf-11eb-8209-04968ae01212.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># install library</span><br><span class="line">pip3 install --upgrade pip</span><br><span class="line">pip3 install boto3</span><br></pre></td></tr></table></figure>
 
-<hr>
-<h4 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h4><p><img src="https://user-images.githubusercontent.com/26552500/119280718-37f4b680-bbf8-11eb-8794-1dcf88a1ee74.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select distinct(city) from station where ID % 2 &#x3D; 0;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>botocore.exceptions.NoCredentialsError: Unable to locate credentials</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># add aws_access_key_id, aws_secret_access_key</span><br><span class="line">s3 &#x3D; boto3.resource(&#39;s3&#39;,</span><br><span class="line">     aws_access_key_id&#x3D;ACCESS_ID,</span><br><span class="line">     aws_secret_access_key&#x3D; ACCESS_KEY)</span><br><span class="line"></span><br><span class="line"># you can find it at ~&#x2F;.aws&#x2F;credentials</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Crontab</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># set up the schedule                     </span><br><span class="line">crontab -e</span><br><span class="line">23 21 * * * &#x2F;usr&#x2F;bin&#x2F;python3 &#x2F;home&#x2F;ec2-user&#x2F;spotify.py</span><br><span class="line">MAILTO&#x3D;kish1919@gmail.com  # 메일로 notice 받</span><br><span class="line"></span><br><span class="line"># Check date ( Tue Jan  5 03:22:39 UTC 2021 &#x2F; UTC 기준)</span><br><span class="line">date </span><br><span class="line"></span><br><span class="line"># 사용되는 파이썬 주소 확인</span><br><span class="line">which python3</span><br><span class="line"></span><br><span class="line"># Check the crontab</span><br><span class="line">crontab -l</span><br><span class="line"></span><br><span class="line"># If it does not work, use below command</span><br><span class="line"># sudo service crond start</span><br><span class="line"># sudo chkconfig crond on</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103603261-d0053400-4ed3-11eb-8704-37c03ec12b8b.png" alt="image"></p>
+</li>
+<li><p>Create Lambda</p>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/26552500/103606785-e6fc5400-4edc-11eb-9189-57b73149c78f.png" alt="image"></p>
+<p>1)Create Lambda function file</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import boto3</span><br><span class="line">import sys</span><br><span class="line">sys.path.append(&#39;.&#x2F;libs&#39;)</span><br><span class="line">import os</span><br><span class="line">import logging</span><br><span class="line">import requests</span><br><span class="line">import base64</span><br><span class="line">import json</span><br><span class="line"></span><br><span class="line">client_id &#x3D; &quot;ac43****&quot;</span><br><span class="line">client_secret &#x3D; &quot;adb5****&quot;</span><br><span class="line"></span><br><span class="line"># Lambda define connection at top</span><br><span class="line">try:</span><br><span class="line">    dynamodb &#x3D; boto3.resource(&#39;dynamodb&#39;, region_name&#x3D;&#39;us-west-2&#39;, endpoint_url&#x3D;&#39;http:&#x2F;&#x2F;dynamodb.us-west-2.amazonaws.com&#39;)</span><br><span class="line"></span><br><span class="line">except:</span><br><span class="line">    logging.error(&#39;Could not connect to dynamodb&#39;)</span><br><span class="line">    sys.exit(1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def lambda_handler(event, context):</span><br><span class="line"></span><br><span class="line">    headers &#x3D; get_headers(client_id,client_secret)</span><br><span class="line"></span><br><span class="line">    table &#x3D; dynamodb.Table(&#39;top_tracks&#39;)</span><br><span class="line"></span><br><span class="line">    artist_id &#x3D; event[&#39;artist_id&#39;]</span><br><span class="line"></span><br><span class="line">    URL &#x3D; &quot;https:&#x2F;&#x2F;api.spotify.com&#x2F;v1&#x2F;artists&#x2F;&#123;&#125;&#x2F;top-tracks&quot;.format(artist_id)</span><br><span class="line">    params &#x3D; &#123;</span><br><span class="line">        &#39;country&#39; : &#39;US&#39;</span><br><span class="line">    &#125;</span><br><span class="line">    r &#x3D; requests.get(URL, params &#x3D; params, headers &#x3D; headers)</span><br><span class="line"></span><br><span class="line">    raw &#x3D; json.loads(r.text)</span><br><span class="line"></span><br><span class="line">    for track in raw[&#39;tracks&#39;]:</span><br><span class="line">        # Add artist_id</span><br><span class="line">        data &#x3D; &#123;</span><br><span class="line">            &#39;artist_id&#39;: artist_id</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        data.update(track)</span><br><span class="line"></span><br><span class="line">        table.put_item(</span><br><span class="line">            Item &#x3D; data</span><br><span class="line">        )</span><br><span class="line">    return &quot;SUCCESS&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def get_headers(client_id, client_secret):</span><br><span class="line"></span><br><span class="line">    endpoint &#x3D; &quot;https:&#x2F;&#x2F;accounts.spotify.com&#x2F;api&#x2F;token&quot;</span><br><span class="line">    encoded &#x3D; base64.b64encode(&quot;&#123;&#125;:&#123;&#125;&quot;.format(client_id, client_secret).encode(&#39;utf-8&#39;)).decode(&#39;ascii&#39;)</span><br><span class="line"></span><br><span class="line">    headers &#x3D; &#123;</span><br><span class="line">        &quot;Authorization&quot;: &quot;Basic &#123;&#125;&quot;.format(encoded)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    payload &#x3D; &#123;</span><br><span class="line">        &quot;grant_type&quot; : &quot;client_credentials&quot;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    r &#x3D; requests.post(endpoint, data&#x3D;payload, headers&#x3D;headers)</span><br><span class="line"></span><br><span class="line">    access_token &#x3D; json.loads(r.text)[&#39;access_token&#39;]</span><br><span class="line"></span><br><span class="line">    headers &#x3D; &#123;</span><br><span class="line">        &quot;Authorization&quot;: &quot;Bearer &#123;&#125;&quot;.format(access_token)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    return headers</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__&#x3D;&#x3D;&#39;__main__&#39;:</span><br><span class="line"></span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
 
-<hr>
-<h4 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h4><p><img src="https://user-images.githubusercontent.com/26552500/119280870-ec8ed800-bbf8-11eb-8546-9601835b56e5.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select count(ID)- count(distinct(city)) from station;</span><br></pre></td></tr></table></figure>
+<p>2)Create requirements.txt</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># t : target directory</span><br><span class="line">pip3 install -r requirements.txt -t .&#x2F;libs</span><br></pre></td></tr></table></figure>
+<pre><code>&gt; 만약 아래와 같은 에러가 발생한다면,</code></pre><p>  <img src="https://user-images.githubusercontent.com/26552500/103608636-668c2200-4ee1-11eb-8557-1af7bc3e843c.png" alt="image"></p>
+<pre><code>&gt; create file named &apos;setup.cfg&apos;</code></pre>   <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[install]</span><br><span class="line">prefix&#x3D;</span><br></pre></td></tr></table></figure>
 
-<hr>
-<h4 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h4><p><img src="https://user-images.githubusercontent.com/26552500/119437543-f5a8a380-bce3-11eb-8655-fb40ad061d09.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select city, length(city) as len from station order by len, city limit 1;</span><br><span class="line">select city, length(city) as len from station order by len desc, city asc limit 1;</span><br></pre></td></tr></table></figure>
+<p>3)remove dist-info files</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rm *.dist-info</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">(select city, length(city) as len from station order by len, city limit 1)</span><br><span class="line">union</span><br><span class="line">(select city, length(city) as len from station order by len desc, city asc limit 1);</span><br></pre></td></tr></table></figure>
+<p>4)Create .deploy.sh file</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rm -rf .&#x2F;libs</span><br><span class="line">pip3 install -r requirements.txt -t .&#x2F;libs</span><br><span class="line"></span><br><span class="line">rm *.zip</span><br><span class="line">rm *.dist-info</span><br><span class="line">zip top_tracks.zip -r *</span><br><span class="line"></span><br><span class="line">aws s3 rm s3:&#x2F;&#x2F;top-tracks-lambda-project&#x2F;top_tracks.zip</span><br><span class="line">aws s3 cp .&#x2F;top_tracks.zip s3:&#x2F;&#x2F;top-tracks-lambda-project&#x2F;top_tracks.zip</span><br><span class="line">aws lambda update-function-code --function-name top-tracks --s3-bucket top-tracks-lambda-project --s3-key top_tracks.zip</span><br></pre></td></tr></table></figure>
+<p>5)권한 변경 및 실</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chmod +x deploy.sh 행</span><br><span class="line">.&#x2F;deploy.sh</span><br></pre></td></tr></table></figure>
 
-<hr>
-<h4 id="5"><a href="#5" class="headerlink" title="5."></a>5.</h4><p><img src="https://user-images.githubusercontent.com/26552500/119438568-24277e00-bce6-11eb-94db-0e61feab9572.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select distinct(city) as city_name from station where  substr(city,1) like &#39;A%&#39; or substr(city,1) like &#39;E%&#39; or substr(city,1) like &#39;I%&#39; or substr(city,1) like &#39;O%&#39; or substr(city,1) like &#39;U%&#39;;</span><br></pre></td></tr></table></figure>
+<p>6)aws region_name issue</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vi ~&#x2F;.aws&#x2F;config</span><br><span class="line"></span><br><span class="line"># Change the region name</span><br><span class="line">[default]</span><br><span class="line">region &#x3D; us-west-2</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select distinct(city) as city_name from station where  substr(city,1,1) in (&#39;A&#39;,&#39;E&#39;,&#39;I&#39;,&#39;O&#39;,&#39;U&#39;);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select distinct(city) as city_name from station where city REGEXP &quot;^[AEIOU].*&quot;;</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/119440625-47ecc300-bcea-11eb-9961-82a642423ad5.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/119440698-6fdc2680-bcea-11eb-8136-393e984db4a7.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/119440770-8da98b80-bcea-11eb-9e5a-b1e1badd03d5.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/119440921-cba6af80-bcea-11eb-8a6a-2b5dc7e8d483.png" alt="image"></p>
-<hr>
-<h4 id="6"><a href="#6" class="headerlink" title="6."></a>6.</h4><p><img src="https://user-images.githubusercontent.com/26552500/119595112-a6757800-bda2-11eb-80c8-ab3e65ca0399.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select distinct(city) from station where city regexp &#39;[AEIOU]$&#39;;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select distinct(city) from station where right(city,1) in (&#39;A&#39;, &#39;E&#39;, &#39;I&#39;, &#39;O&#39;,&#39;U&#39;);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select distinct(city) from station where right(city,1) like &#39;%A&#39; or right(city,1) like &#39;%E&#39; or right(city,1) like &#39;%I&#39; or right(city,1) like &#39;%O&#39; or right(city,1) like &#39;%U&#39;;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="7"><a href="#7" class="headerlink" title="7."></a>7.</h4><p><img src="https://user-images.githubusercontent.com/26552500/119595865-d5d8b480-bda3-11eb-924c-ff3d7cb5f8c6.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select distinct(city) from station where (city regexp &#39;^[AEIOU]&#39;) and (city regexp &#39;[AEIOU]$&#39;);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select distinct(city) from station where city regexp &#39;^[AEIOU].*[AEIOU]$&#39;;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select distinct(city) from station where (left(city,1) in (&#39;A&#39;,&#39;E&#39;,&#39;I&#39;,&#39;O&#39;,&#39;U&#39;)) and (right(city,1) in (&#39;A&#39;,&#39;E&#39;,&#39;I&#39;,&#39;O&#39;,&#39;U&#39;));</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="8"><a href="#8" class="headerlink" title="8."></a>8.</h4><p><img src="https://user-images.githubusercontent.com/26552500/119596586-1553d080-bda5-11eb-9724-91c573c54f43.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select distinct(city) from station where city regexp &#39;^[^AEOIU]&#39;;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select distinct(city) from station where city Not regexp &#39;^[AEOIU]&#39;;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">select distinct(city) from station where left(city,1) not in (&#39;A&#39;,&#39;E&#39;,&#39;O&#39;,&#39;U&#39;,&#39;I&#39;);</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h4 id="9"><a href="#9" class="headerlink" title="9."></a>9.</h4>]]></content>
+<p>7)Check the Lambda at AWS</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 실행 파일이 업로드 됨</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/103610770-7f4b0680-4ee6-11eb-92b6-8b36763c165d.png" alt="image"></p>
+<p>8)Error [An error occurred (AccessDeniedException) when calling the PutItem operation:]</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/103614661-ca691780-4eee-11eb-8e1f-24a17ebde5d7.png" alt="image"></p>
+<pre><code>- dynamo db의 엑세스 권한이 필요 / click &quot;Attach policies&quot;</code></pre><p><img src="https://user-images.githubusercontent.com/26552500/103614755-f6849880-4eee-11eb-997c-b2ebb67bf624.png" alt="image"></p>
+<pre><code>- dynamo db를 추가</code></pre><p><img src="https://user-images.githubusercontent.com/26552500/103614919-41061500-4eef-11eb-9f68-87b259d14dc2.png" alt="image"></p>
+<pre><code>- Success</code></pre><p><img src="https://user-images.githubusercontent.com/26552500/103615029-77439480-4eef-11eb-8aea-ab6a522dac8e.png" alt="image"></p>
+<p>9) Create related_artists table at mysql</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE TABLE related_artists (artist_id VARCHAR(255), y_artist VARCHAR(255), distance FLOAT, PRIMARY KEY(artist_id, y_artist)) ENGINE&#x3D;InnoDB DEFAULT CHARSET&#x3D;utf8;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/105040377-633b7f00-5a27-11eb-9b36-2648379cd56c.png" alt="image"></p>
+]]></content>
       <tags>
-        <tag>SQL</tag>
-        <tag>Coding</tag>
+        <tag>Cron</tag>
       </tags>
   </entry>
   <entry>
-    <title>DS730_1_High_Performance_Computing_&amp;_MapReduce_Introduction</title>
-    <url>/2020/09/01/DS730-1-High-Performance-Computing-MapReduce-Introduction/</url>
-    <content><![CDATA[<p>Author: SAS</p>
-<p>Description: Discusses the history and importance of big data.</p>
-<p><a href="https://www.sas.com/en_us/insights/big-data/what-is-big-data.html" target="_blank" rel="noopener">https://www.sas.com/en_us/insights/big-data/what-is-big-data.html</a></p>
+    <title>Github</title>
+    <url>/2020/12/28/Github/</url>
+    <content><![CDATA[<ul>
+<li>암호나 중요파일을 깃허브에 업로드 금지하기<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Create .gitignore file</span><br><span class="line"># add the file name</span><br></pre></td></tr></table></figure>
+<img src="https://user-images.githubusercontent.com/26552500/103239655-dc0d5680-4913-11eb-861f-76f363aa60e7.png" alt="image"></li>
+</ul>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Guide for IntelliJ (1)</title>
-    <url>/2020/01/30/Guide-for-IntelliJ-1/</url>
-    <content><![CDATA[<h4 id="1-Create-New-Project"><a href="#1-Create-New-Project" class="headerlink" title="1 Create New Project"></a>1 Create New Project</h4><p><img src="https://user-images.githubusercontent.com/26552500/73508374-60bcc100-43a1-11ea-8f8a-5c42340888fe.png" alt="image"></p>
-<p>Java를 사용할 경우, 보통 Maven 또는 Gradle을 사용하면 편하다.<br>이번에는 Gradle을 선택해서 진행하겠다.</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/73508446-9b265e00-43a1-11ea-8fd3-b1e6d6ad4c29.png" alt="image"></p>
-<p>GroupId: 전체 프로젝트 아이디<br>ArtifactId: 하위 프로젝트 아이디</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/73508635-2dc6fd00-43a2-11ea-8f26-e2181cc13722.png" alt="image"></p>
-<h4 id="2-유용플러그인"><a href="#2-유용플러그인" class="headerlink" title="2. 유용플러그인"></a>2. 유용플러그인</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Cmd + Shift + A</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73509049-6ca98280-43a3-11ea-8be3-0f4f3a23aa1c.png" alt="image"></p>
-<p>Presentation Assistance : 맥 유저외에 다른 유저들을 위해 키를 안내해주는 플러그<br><img src="https://user-images.githubusercontent.com/26552500/73508953-2a804100-43a3-11ea-8375-a6901b465823.png" alt="image"></p>
-<h4 id="3-메인메소드-생성하고-실행하기"><a href="#3-메인메소드-생성하고-실행하기" class="headerlink" title="3. 메인메소드 생성하고 실행하기"></a>3. 메인메소드 생성하고 실행하기</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">폴더 생성   </span><br><span class="line">cmd + N : 위치에 따라 생성할 수 있는 매뉴가 다름</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73509309-52bc6f80-43a4-11ea-946f-a88d73d4a7b8.png" alt="image"></p>
-<p>src/main/java 디렉토리 생성됨<br><img src="https://user-images.githubusercontent.com/26552500/73509352-75e71f00-43a4-11ea-8143-c4bcbbb653b2.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">패키지 생성  : com.kish1919.danny.intellij  </span><br><span class="line">cmd + N</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73509474-d4140200-43a4-11ea-9a38-b06d083dc335.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">클레스 생성 : main</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73509600-45ec4b80-43a5-11ea-898a-6f50b59eecc0.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">축약어 : psvm</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73509670-8ba91400-43a5-11ea-9dc9-c83594beddd0.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 축약어 : sout</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73509756-de82cb80-43a5-11ea-8542-9885abb3ded9.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 현재 포커스 된 상태에서 실행 : ctl + shift + R  </span><br><span class="line">이전 실행된 명령 : ctl + R</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73509902-4fc27e80-43a6-11ea-97c0-e9aee380d037.png" alt="image"></p>
-<h4 id="4-라인-수정"><a href="#4-라인-수정" class="headerlink" title="4. 라인 수정"></a>4. 라인 수정</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 라인복제</span><br><span class="line">Cmd + D : 라인에 포커스를 둔 후, 실행</span><br><span class="line"></span><br><span class="line"># 라인 삭제</span><br><span class="line">Cmd + delete : 라인에 포커스 둔 후, 실행</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 라인 연결 [ 특히, sql 구문에 많이 사용됨]</span><br><span class="line">Ctl + Shift + J</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73510748-df692c80-43a8-11ea-8d12-b4ad1ea3229c.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/73510779-00ca1880-43a9-11ea-85a6-751686b765f5.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 구문 안에서 라인 움직임</span><br><span class="line">Cmd + Shift + 방향키</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73510928-7a620680-43a9-11ea-8049-da7e11915e66.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/73510955-8cdc4000-43a9-11ea-9c06-f48d0a2c0def.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 구문에 상관없이 라인 움직이기</span><br><span class="line">Cmd + Option + 방향키</span><br><span class="line"></span><br><span class="line"># HTML 상 엘리먼트 안에서 좌우로 움직일 경우</span><br><span class="line">Option + Shift + Cmd + 좌우 방향키</span><br></pre></td></tr></table></figure>
-<h4 id="5-즉시-보기"><a href="#5-즉시-보기" class="headerlink" title="5. 즉시 보기"></a>5. 즉시 보기</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 인자값 보기</span><br><span class="line">Cmd + P</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73545483-07847a00-4401-11ea-8aee-9fd902d45282.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 선언부보기</span><br><span class="line">Option + Space</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73545653-5d592200-4401-11ea-8fae-f45de70fd844.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Docs 미리보기</span><br><span class="line">F1</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73545934-f1c38480-4401-11ea-91d1-eebc8dd2e821.png" alt="image"></p>
-<h4 id="6-포커스-에디터"><a href="#6-포커스-에디터" class="headerlink" title="6. 포커스 에디터"></a>6. 포커스 에디터</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 단어별 이동</span><br><span class="line">Option + 화살표</span><br><span class="line"></span><br><span class="line"># 단어별 선택 이동</span><br><span class="line">Option + Shift + 화살표</span><br><span class="line"></span><br><span class="line"># 맨 끝라인 이동</span><br><span class="line">Cmd (fn) + 화살표</span><br><span class="line"></span><br><span class="line"># 페이지 업다운</span><br><span class="line">fn + 화살표</span><br></pre></td></tr></table></figure>
-
-<h4 id="7-포커스-특수기능"><a href="#7-포커스-특수기능" class="headerlink" title="7. 포커스 특수기능"></a>7. 포커스 특수기능</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 범위 지정</span><br><span class="line">Option + 위아래 화살</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73546738-56cbaa00-4403-11ea-9fb0-fe888f4cf7c6.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 포커스 이전</span><br><span class="line">Cmd + [</span><br><span class="line"></span><br><span class="line"># 포커스 이후</span><br><span class="line">cmd + ]</span><br><span class="line"></span><br><span class="line"># 멀티 포커스</span><br><span class="line">Option + Option + 아래 방향키</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73547084-e3766800-4403-11ea-9fa3-03a49db4690b.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 에러 난 곳으로 이동</span><br><span class="line">F2</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73547198-14ef3380-4404-11ea-9f95-4931e2d56a9d.png" alt="image"></p>
-<h4 id="8-검색-텍스트"><a href="#8-검색-텍스트" class="headerlink" title="8. 검색 - 텍스트"></a>8. 검색 - 텍스트</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 현재파일에서 검색</span><br><span class="line">Cmd + F</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73564460-34e31f00-4425-11ea-8a0d-3b0d1fa9d0e8.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 현재 파잉레서 교체</span><br><span class="line">Cmd + R</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73567162-67901600-442b-11ea-9733-c7f7fd369964.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 전체에서 검색</span><br><span class="line">Cmd + Shift + F</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73567213-8393b780-442b-11ea-8ceb-baef688c8a73.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 전체에서 교체</span><br><span class="line">Cmd + Shift + R</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73567283-b2aa2900-442b-11ea-9ef3-ac6373434d46.png" alt="image"></p>
-<h4 id="9-검색-기타"><a href="#9-검색-기타" class="headerlink" title="9. 검색 기타"></a>9. 검색 기타</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 파일 검색</span><br><span class="line">Cmd + Shift + O</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73567598-4f6cc680-442c-11ea-814a-e46797739d27.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 메소드 검색</span><br><span class="line">Cmd + Option + O</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73567761-a83c5f00-442c-11ea-811a-3b9c99e91960.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Action 검색</span><br><span class="line">Cmd + Shift+ A</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73567905-f3ef0880-442c-11ea-97cd-daa241341f85.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 최근에 열었던 파일</span><br><span class="line">Cmd + E</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73568025-2e58a580-442d-11ea-8349-b0b118eda8e5.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 최근 수정한 파일</span><br><span class="line">Cmd + Shift + E</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73568089-4e886480-442d-11ea-8338-d82ba4ac3ead.png" alt="image"></p>
-<h4 id="10-자동-완성"><a href="#10-자동-완성" class="headerlink" title="10. 자동 완성"></a>10. 자동 완성</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 자동완성</span><br><span class="line">Ctrl + Space</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73568297-c0f94480-442d-11ea-9f14-5be655eac276.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 스마트 자동완성</span><br><span class="line">Ctrl + Shift + Space</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73568441-04ec4980-442e-11ea-978d-58f2d19a42e3.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 스태틱 메소드 자동 완성</span><br><span class="line">Ctrl + Space + Space</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73568529-3402bb00-442e-11ea-98e3-5cf35c2ea0a4.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Getter&#x2F;Setter&#x2F;생성자 자동완성</span><br><span class="line">Cmd + N</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73568656-7a581a00-442e-11ea-89d7-5995c7c7921f.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Override 메소드 자동완성</span><br><span class="line">Ctrl + I</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73568869-de7ade00-442e-11ea-8479-a9252d6efcac.png" alt="image"></p>
-<h4 id="11-Git-사용하기"><a href="#11-Git-사용하기" class="headerlink" title="11. Git 사용하기"></a>11. Git 사용하기</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Git View On</span><br><span class="line">Cmd + 9</span><br><span class="line"></span><br><span class="line"># Local Changes : 최종번에서 어느부분이 변경되었는지 확인 가능</span><br><span class="line">  -&gt; Show Diff [Cmd + D] : 변경내용을 확인과 동시에 바로 수정가능</span><br><span class="line">&#96;&#96;&#96; </span><br><span class="line">&#96;&#96;&#96;aidl</span><br><span class="line"># Git Option Popup : git의 상세한 내역 사용</span><br><span class="line">Cnd + V</span><br><span class="line">  -&gt; Show History</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73569610-67464980-4430-11ea-9dac-75ec2c3c6a12.png" alt="image"></p>
-]]></content>
+      <tags>
+        <tag>Git</tag>
+      </tags>
   </entry>
   <entry>
     <title>HDFS_Command_1</title>
@@ -987,6 +910,84 @@ Create issue
       </tags>
   </entry>
   <entry>
+    <title>Guide for IntelliJ (1)</title>
+    <url>/2020/01/30/Guide-for-IntelliJ-1/</url>
+    <content><![CDATA[<h4 id="1-Create-New-Project"><a href="#1-Create-New-Project" class="headerlink" title="1 Create New Project"></a>1 Create New Project</h4><p><img src="https://user-images.githubusercontent.com/26552500/73508374-60bcc100-43a1-11ea-8f8a-5c42340888fe.png" alt="image"></p>
+<p>Java를 사용할 경우, 보통 Maven 또는 Gradle을 사용하면 편하다.<br>이번에는 Gradle을 선택해서 진행하겠다.</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/73508446-9b265e00-43a1-11ea-8fd3-b1e6d6ad4c29.png" alt="image"></p>
+<p>GroupId: 전체 프로젝트 아이디<br>ArtifactId: 하위 프로젝트 아이디</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/73508635-2dc6fd00-43a2-11ea-8f26-e2181cc13722.png" alt="image"></p>
+<h4 id="2-유용플러그인"><a href="#2-유용플러그인" class="headerlink" title="2. 유용플러그인"></a>2. 유용플러그인</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Cmd + Shift + A</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73509049-6ca98280-43a3-11ea-8be3-0f4f3a23aa1c.png" alt="image"></p>
+<p>Presentation Assistance : 맥 유저외에 다른 유저들을 위해 키를 안내해주는 플러그<br><img src="https://user-images.githubusercontent.com/26552500/73508953-2a804100-43a3-11ea-8375-a6901b465823.png" alt="image"></p>
+<h4 id="3-메인메소드-생성하고-실행하기"><a href="#3-메인메소드-생성하고-실행하기" class="headerlink" title="3. 메인메소드 생성하고 실행하기"></a>3. 메인메소드 생성하고 실행하기</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">폴더 생성   </span><br><span class="line">cmd + N : 위치에 따라 생성할 수 있는 매뉴가 다름</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73509309-52bc6f80-43a4-11ea-946f-a88d73d4a7b8.png" alt="image"></p>
+<p>src/main/java 디렉토리 생성됨<br><img src="https://user-images.githubusercontent.com/26552500/73509352-75e71f00-43a4-11ea-8143-c4bcbbb653b2.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">패키지 생성  : com.kish1919.danny.intellij  </span><br><span class="line">cmd + N</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73509474-d4140200-43a4-11ea-9a38-b06d083dc335.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">클레스 생성 : main</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73509600-45ec4b80-43a5-11ea-898a-6f50b59eecc0.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">축약어 : psvm</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73509670-8ba91400-43a5-11ea-9dc9-c83594beddd0.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 축약어 : sout</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73509756-de82cb80-43a5-11ea-8542-9885abb3ded9.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 현재 포커스 된 상태에서 실행 : ctl + shift + R  </span><br><span class="line">이전 실행된 명령 : ctl + R</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73509902-4fc27e80-43a6-11ea-97c0-e9aee380d037.png" alt="image"></p>
+<h4 id="4-라인-수정"><a href="#4-라인-수정" class="headerlink" title="4. 라인 수정"></a>4. 라인 수정</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 라인복제</span><br><span class="line">Cmd + D : 라인에 포커스를 둔 후, 실행</span><br><span class="line"></span><br><span class="line"># 라인 삭제</span><br><span class="line">Cmd + delete : 라인에 포커스 둔 후, 실행</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 라인 연결 [ 특히, sql 구문에 많이 사용됨]</span><br><span class="line">Ctl + Shift + J</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73510748-df692c80-43a8-11ea-8d12-b4ad1ea3229c.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/73510779-00ca1880-43a9-11ea-85a6-751686b765f5.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 구문 안에서 라인 움직임</span><br><span class="line">Cmd + Shift + 방향키</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73510928-7a620680-43a9-11ea-8049-da7e11915e66.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/73510955-8cdc4000-43a9-11ea-9c06-f48d0a2c0def.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 구문에 상관없이 라인 움직이기</span><br><span class="line">Cmd + Option + 방향키</span><br><span class="line"></span><br><span class="line"># HTML 상 엘리먼트 안에서 좌우로 움직일 경우</span><br><span class="line">Option + Shift + Cmd + 좌우 방향키</span><br></pre></td></tr></table></figure>
+<h4 id="5-즉시-보기"><a href="#5-즉시-보기" class="headerlink" title="5. 즉시 보기"></a>5. 즉시 보기</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 인자값 보기</span><br><span class="line">Cmd + P</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73545483-07847a00-4401-11ea-8aee-9fd902d45282.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 선언부보기</span><br><span class="line">Option + Space</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73545653-5d592200-4401-11ea-8fae-f45de70fd844.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Docs 미리보기</span><br><span class="line">F1</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73545934-f1c38480-4401-11ea-91d1-eebc8dd2e821.png" alt="image"></p>
+<h4 id="6-포커스-에디터"><a href="#6-포커스-에디터" class="headerlink" title="6. 포커스 에디터"></a>6. 포커스 에디터</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 단어별 이동</span><br><span class="line">Option + 화살표</span><br><span class="line"></span><br><span class="line"># 단어별 선택 이동</span><br><span class="line">Option + Shift + 화살표</span><br><span class="line"></span><br><span class="line"># 맨 끝라인 이동</span><br><span class="line">Cmd (fn) + 화살표</span><br><span class="line"></span><br><span class="line"># 페이지 업다운</span><br><span class="line">fn + 화살표</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-포커스-특수기능"><a href="#7-포커스-특수기능" class="headerlink" title="7. 포커스 특수기능"></a>7. 포커스 특수기능</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 범위 지정</span><br><span class="line">Option + 위아래 화살</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73546738-56cbaa00-4403-11ea-9fb0-fe888f4cf7c6.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 포커스 이전</span><br><span class="line">Cmd + [</span><br><span class="line"></span><br><span class="line"># 포커스 이후</span><br><span class="line">cmd + ]</span><br><span class="line"></span><br><span class="line"># 멀티 포커스</span><br><span class="line">Option + Option + 아래 방향키</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73547084-e3766800-4403-11ea-9fa3-03a49db4690b.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 에러 난 곳으로 이동</span><br><span class="line">F2</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73547198-14ef3380-4404-11ea-9f95-4931e2d56a9d.png" alt="image"></p>
+<h4 id="8-검색-텍스트"><a href="#8-검색-텍스트" class="headerlink" title="8. 검색 - 텍스트"></a>8. 검색 - 텍스트</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 현재파일에서 검색</span><br><span class="line">Cmd + F</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73564460-34e31f00-4425-11ea-8a0d-3b0d1fa9d0e8.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 현재 파잉레서 교체</span><br><span class="line">Cmd + R</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73567162-67901600-442b-11ea-9733-c7f7fd369964.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 전체에서 검색</span><br><span class="line">Cmd + Shift + F</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73567213-8393b780-442b-11ea-8ceb-baef688c8a73.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 전체에서 교체</span><br><span class="line">Cmd + Shift + R</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73567283-b2aa2900-442b-11ea-9ef3-ac6373434d46.png" alt="image"></p>
+<h4 id="9-검색-기타"><a href="#9-검색-기타" class="headerlink" title="9. 검색 기타"></a>9. 검색 기타</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 파일 검색</span><br><span class="line">Cmd + Shift + O</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73567598-4f6cc680-442c-11ea-814a-e46797739d27.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 메소드 검색</span><br><span class="line">Cmd + Option + O</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73567761-a83c5f00-442c-11ea-811a-3b9c99e91960.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Action 검색</span><br><span class="line">Cmd + Shift+ A</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73567905-f3ef0880-442c-11ea-97cd-daa241341f85.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 최근에 열었던 파일</span><br><span class="line">Cmd + E</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73568025-2e58a580-442d-11ea-8349-b0b118eda8e5.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 최근 수정한 파일</span><br><span class="line">Cmd + Shift + E</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73568089-4e886480-442d-11ea-8338-d82ba4ac3ead.png" alt="image"></p>
+<h4 id="10-자동-완성"><a href="#10-자동-완성" class="headerlink" title="10. 자동 완성"></a>10. 자동 완성</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 자동완성</span><br><span class="line">Ctrl + Space</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73568297-c0f94480-442d-11ea-9f14-5be655eac276.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 스마트 자동완성</span><br><span class="line">Ctrl + Shift + Space</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73568441-04ec4980-442e-11ea-978d-58f2d19a42e3.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 스태틱 메소드 자동 완성</span><br><span class="line">Ctrl + Space + Space</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73568529-3402bb00-442e-11ea-98e3-5cf35c2ea0a4.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Getter&#x2F;Setter&#x2F;생성자 자동완성</span><br><span class="line">Cmd + N</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73568656-7a581a00-442e-11ea-89d7-5995c7c7921f.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Override 메소드 자동완성</span><br><span class="line">Ctrl + I</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73568869-de7ade00-442e-11ea-8479-a9252d6efcac.png" alt="image"></p>
+<h4 id="11-Git-사용하기"><a href="#11-Git-사용하기" class="headerlink" title="11. Git 사용하기"></a>11. Git 사용하기</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Git View On</span><br><span class="line">Cmd + 9</span><br><span class="line"></span><br><span class="line"># Local Changes : 최종번에서 어느부분이 변경되었는지 확인 가능</span><br><span class="line">  -&gt; Show Diff [Cmd + D] : 변경내용을 확인과 동시에 바로 수정가능</span><br><span class="line">&#96;&#96;&#96; </span><br><span class="line">&#96;&#96;&#96;aidl</span><br><span class="line"># Git Option Popup : git의 상세한 내역 사용</span><br><span class="line">Cnd + V</span><br><span class="line">  -&gt; Show History</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73569610-67464980-4430-11ea-9dac-75ec2c3c6a12.png" alt="image"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Learning_Spark_1</title>
     <url>/2020/12/17/Learning-Spark-1/</url>
     <content><![CDATA[<ol>
@@ -1026,80 +1027,6 @@ Create issue
         <tag>Spark</tag>
         <tag>Pyspark</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>MYSQL_Installation(1)</title>
-    <url>/2020/01/27/MYSQL-Installation-1/</url>
-    <content><![CDATA[<p>1 Install homebrew</p>
-<p><a href="https://brew.sh/index.html" target="_blank" rel="noopener">https://brew.sh/index.html</a></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;usr&#x2F;bin&#x2F;ruby -e &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;master&#x2F;install)&quot;</span><br></pre></td></tr></table></figure>
-
-<p>버전확인</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ brew -v</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73221682-13cdb600-4127-11ea-9394-6edd5f80ac7b.png" alt="image"></p>
-<p>패키지 설치</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ brew install &#123;프로그램명&#125;</span><br></pre></td></tr></table></figure>
-
-<p>패키지목록 업데이트</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ brew update   # formula를 업데이트</span><br><span class="line">$ brew upgrade  # 업데이트 패키지를 다시 빌드</span><br></pre></td></tr></table></figure>
-
-<p>패키지 저장소 추가</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ brew tap homebrew&#x2F;패키지명</span><br></pre></td></tr></table></figure>
-
-<p>설치된 목록 보기</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ brew list</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73221653-04e70380-4127-11ea-87ed-6d75aea1a1e0.png" alt="image"></p>
-<p>패키지 제거</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ brew remove &#123;프로그램명&#125;</span><br></pre></td></tr></table></figure>
-
-<p>2 Install mysql</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ brew install mysql</span><br></pre></td></tr></table></figure>
-
-<p>brew에서 실행하고 있는 서비스 리스트 확인</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ brew services list</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73221760-4677ae80-4127-11ea-9780-ea3350465dc4.png" alt="image"></p>
-<p>brew를 통해서 mysql 서비스를 정지</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew services stop mysql</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73221616-f4368d80-4126-11ea-8613-cf183e4f88b0.png" alt="image"></p>
-<p>brew를 통해서 mysql 서비스를 재시작<br><img src="https://user-images.githubusercontent.com/26552500/73221818-6e671200-4127-11ea-9d39-96a8ef5abe81.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/73221952-bdad4280-4127-11ea-88c2-c0d8a12db570.png" alt="image"></p>
-<p>3 Setting Password</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ mysqladmin -u root password [yourpassword]</span><br><span class="line"># ex) mysqladmin -u root password qwer1234</span><br></pre></td></tr></table></figure>
-
-<p>4 Connection</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ mysql -u root -p  # User가 root 라는 의미</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/73222447-e124bd00-4128-11ea-893e-9058bbd87c3c.png" alt="image"></p>
-]]></content>
-      <tags>
-        <tag>Mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PostgreSQL_Basic (3)</title>
-    <url>/2020/02/12/PostgreSQL-Basic-3/</url>
-    <content><![CDATA[<h3 id="1-SQL-IN-BETWEEN-LIKE-IS-NULL"><a href="#1-SQL-IN-BETWEEN-LIKE-IS-NULL" class="headerlink" title="1. SQL [IN, BETWEEN, LIKE, IS NULL]"></a>1. SQL [IN, BETWEEN, LIKE, IS NULL]</h3><h4 id="1-IN"><a href="#1-IN" class="headerlink" title="1) IN"></a>1) IN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74402203-2adbfb80-4de9-11ea-915d-2a60b81d86d4.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74402265-552db900-4de9-11ea-8a2f-804997c5c93e.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74402303-75f60e80-4de9-11ea-83c1-18c5ab83797c.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74402325-86a68480-4de9-11ea-9596-ebb20cf5dd17.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74402370-a76eda00-4de9-11ea-9a9d-040999e399f0.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74402411-cb322000-4de9-11ea-86a3-0eaa93783308.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74402442-e3a23a80-4de9-11ea-8415-186b5fbca9cf.png" alt="image"></p>
-<h4 id="2-BETWEEN"><a href="#2-BETWEEN" class="headerlink" title="2) BETWEEN"></a>2) BETWEEN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74494851-cd54b700-4e9b-11ea-9780-928e76f4efcd.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74494892-ebbab280-4e9b-11ea-88ef-175ad1dc6717.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74494923-faa16500-4e9b-11ea-8812-13d09f20304d.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74494993-258bb900-4e9c-11ea-90e9-87855d9e7d07.png" alt="image"></p>
-<h4 id="3-LIKE"><a href="#3-LIKE" class="headerlink" title="3) LIKE"></a>3) LIKE</h4><p><img src="https://user-images.githubusercontent.com/26552500/74496441-5110a280-4ea0-11ea-8281-f02dd7422598.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74496482-6a195380-4ea0-11ea-8ff1-a35bc6473256.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74496536-8fa65d00-4ea0-11ea-8116-8392a54f1689.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74496563-a2b92d00-4ea0-11ea-8dd6-0f1a23a66beb.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74496585-b19fdf80-4ea0-11ea-9ee1-0b375280a2ca.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74496606-c1b7bf00-4ea0-11ea-9d6f-225b3c1efe35.png" alt="image"></p>
-<h4 id="4-IS-NULL"><a href="#4-IS-NULL" class="headerlink" title="4) IS NULL"></a>4) IS NULL</h4><p><img src="https://user-images.githubusercontent.com/26552500/74497339-03e20000-4ea3-11ea-9274-02ad7327820d.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74497375-2247fb80-4ea3-11ea-8c41-3fc2aafdad29.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74497966-b5cdfc00-4ea4-11ea-975a-472eef4f3a81.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74497984-c4b4ae80-4ea4-11ea-8c88-a49f7e8707b0.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74498007-d39b6100-4ea4-11ea-9a78-de116471f733.png" alt="image"></p>
-]]></content>
   </entry>
   <entry>
     <title>PostgreSQL_Basic (1)</title>
@@ -1188,6 +1115,103 @@ Create issue
 <p><img src="https://user-images.githubusercontent.com/26552500/74401410-c4ee7480-4de6-11ea-9bdd-cbaa7dcfb4ce.png" alt="image"></p>
 <p><img src="https://user-images.githubusercontent.com/26552500/74401485-ff581180-4de6-11ea-9687-7997661793d8.png" alt="image"></p>
 <p><img src="https://user-images.githubusercontent.com/26552500/74401502-097a1000-4de7-11ea-87e7-eeda681aa4c1.png" alt="image"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>MYSQL_Installation(1)</title>
+    <url>/2020/01/27/MYSQL-Installation-1/</url>
+    <content><![CDATA[<p>1 Install homebrew</p>
+<p><a href="https://brew.sh/index.html" target="_blank" rel="noopener">https://brew.sh/index.html</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;usr&#x2F;bin&#x2F;ruby -e &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Homebrew&#x2F;install&#x2F;master&#x2F;install)&quot;</span><br></pre></td></tr></table></figure>
+
+<p>버전확인</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ brew -v</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73221682-13cdb600-4127-11ea-9394-6edd5f80ac7b.png" alt="image"></p>
+<p>패키지 설치</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ brew install &#123;프로그램명&#125;</span><br></pre></td></tr></table></figure>
+
+<p>패키지목록 업데이트</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ brew update   # formula를 업데이트</span><br><span class="line">$ brew upgrade  # 업데이트 패키지를 다시 빌드</span><br></pre></td></tr></table></figure>
+
+<p>패키지 저장소 추가</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ brew tap homebrew&#x2F;패키지명</span><br></pre></td></tr></table></figure>
+
+<p>설치된 목록 보기</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ brew list</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73221653-04e70380-4127-11ea-87ed-6d75aea1a1e0.png" alt="image"></p>
+<p>패키지 제거</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ brew remove &#123;프로그램명&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2 Install mysql</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ brew install mysql</span><br></pre></td></tr></table></figure>
+
+<p>brew에서 실행하고 있는 서비스 리스트 확인</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ brew services list</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73221760-4677ae80-4127-11ea-9780-ea3350465dc4.png" alt="image"></p>
+<p>brew를 통해서 mysql 서비스를 정지</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew services stop mysql</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73221616-f4368d80-4126-11ea-8613-cf183e4f88b0.png" alt="image"></p>
+<p>brew를 통해서 mysql 서비스를 재시작<br><img src="https://user-images.githubusercontent.com/26552500/73221818-6e671200-4127-11ea-9d39-96a8ef5abe81.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/73221952-bdad4280-4127-11ea-88c2-c0d8a12db570.png" alt="image"></p>
+<p>3 Setting Password</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ mysqladmin -u root password [yourpassword]</span><br><span class="line"># ex) mysqladmin -u root password qwer1234</span><br></pre></td></tr></table></figure>
+
+<p>4 Connection</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ mysql -u root -p  # User가 root 라는 의미</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/73222447-e124bd00-4128-11ea-893e-9058bbd87c3c.png" alt="image"></p>
+]]></content>
+      <tags>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PostgreSQL_Basic Exam (1)</title>
+    <url>/2020/02/13/PostgreSQL-Basic-Exam-1/</url>
+    <content><![CDATA[<h4 id="1-PAYMENT-DATE가-2007년-2월-7일부터-2007년-2월-15일인-customer-id-first-name-Last-name"><a href="#1-PAYMENT-DATE가-2007년-2월-7일부터-2007년-2월-15일인-customer-id-first-name-Last-name" class="headerlink" title="1) PAYMENT_DATE가 2007년 2월 7일부터 2007년 2월 15일인 customer_id, first_name, Last_name"></a>1) PAYMENT_DATE가 2007년 2월 7일부터 2007년 2월 15일인 customer_id, first_name, Last_name</h4><ul>
+<li>to_char / cast</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/26552500/74495493-98e1fa80-4e9d-11ea-9802-4eaf3e30e1b5.png" alt="image"></p>
+<h4 id="2"><a href="#2" class="headerlink" title="2)"></a>2)</h4><p><img src="https://user-images.githubusercontent.com/26552500/74498354-03973400-4ea6-11ea-834a-c72cacf72f9e.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74498877-a4d2ba00-4ea7-11ea-9428-8255061fcb80.png" alt="image"></p>
+<h4 id="3"><a href="#3" class="headerlink" title="3)"></a>3)</h4><p><img src="https://user-images.githubusercontent.com/26552500/74498915-bc11a780-4ea7-11ea-8aa8-a1b2b324a4dd.png" alt="image"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>PostgreSQL_Basic (4)</title>
+    <url>/2020/02/19/PostgreSQL-Basic-4/</url>
+    <content><![CDATA[<h3 id="2-SQL"><a href="#2-SQL" class="headerlink" title="2. SQL []"></a>2. SQL []</h3><h4 id="1-JOIN"><a href="#1-JOIN" class="headerlink" title="1) JOIN"></a>1) JOIN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74899081-849c7280-5361-11ea-9138-ed46065c5af9.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74899134-a5fd5e80-5361-11ea-926b-052c0567f8a6.png" alt="image"></p>
+<h4 id="2-INNER-JOIN"><a href="#2-INNER-JOIN" class="headerlink" title="2) INNER JOIN"></a>2) INNER JOIN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74899171-ba415b80-5361-11ea-88c2-46fb68b5f125.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74899211-d9d88400-5361-11ea-9500-4d00ee0609f4.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74899251-f379cb80-5361-11ea-97f2-e1c1a31182f9.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74899307-24f29700-5362-11ea-87ba-69111e078345.png" alt="image"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>PostgreSQL_Basic (3)</title>
+    <url>/2020/02/12/PostgreSQL-Basic-3/</url>
+    <content><![CDATA[<h3 id="1-SQL-IN-BETWEEN-LIKE-IS-NULL"><a href="#1-SQL-IN-BETWEEN-LIKE-IS-NULL" class="headerlink" title="1. SQL [IN, BETWEEN, LIKE, IS NULL]"></a>1. SQL [IN, BETWEEN, LIKE, IS NULL]</h3><h4 id="1-IN"><a href="#1-IN" class="headerlink" title="1) IN"></a>1) IN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74402203-2adbfb80-4de9-11ea-915d-2a60b81d86d4.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74402265-552db900-4de9-11ea-8a2f-804997c5c93e.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74402303-75f60e80-4de9-11ea-83c1-18c5ab83797c.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74402325-86a68480-4de9-11ea-9596-ebb20cf5dd17.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74402370-a76eda00-4de9-11ea-9a9d-040999e399f0.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74402411-cb322000-4de9-11ea-86a3-0eaa93783308.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74402442-e3a23a80-4de9-11ea-8415-186b5fbca9cf.png" alt="image"></p>
+<h4 id="2-BETWEEN"><a href="#2-BETWEEN" class="headerlink" title="2) BETWEEN"></a>2) BETWEEN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74494851-cd54b700-4e9b-11ea-9780-928e76f4efcd.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74494892-ebbab280-4e9b-11ea-88ef-175ad1dc6717.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74494923-faa16500-4e9b-11ea-8812-13d09f20304d.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74494993-258bb900-4e9c-11ea-90e9-87855d9e7d07.png" alt="image"></p>
+<h4 id="3-LIKE"><a href="#3-LIKE" class="headerlink" title="3) LIKE"></a>3) LIKE</h4><p><img src="https://user-images.githubusercontent.com/26552500/74496441-5110a280-4ea0-11ea-8281-f02dd7422598.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74496482-6a195380-4ea0-11ea-8ff1-a35bc6473256.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74496536-8fa65d00-4ea0-11ea-8116-8392a54f1689.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74496563-a2b92d00-4ea0-11ea-8dd6-0f1a23a66beb.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74496585-b19fdf80-4ea0-11ea-9ee1-0b375280a2ca.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74496606-c1b7bf00-4ea0-11ea-9d6f-225b3c1efe35.png" alt="image"></p>
+<h4 id="4-IS-NULL"><a href="#4-IS-NULL" class="headerlink" title="4) IS NULL"></a>4) IS NULL</h4><p><img src="https://user-images.githubusercontent.com/26552500/74497339-03e20000-4ea3-11ea-9274-02ad7327820d.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74497375-2247fb80-4ea3-11ea-8c41-3fc2aafdad29.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74497966-b5cdfc00-4ea4-11ea-975a-472eef4f3a81.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74497984-c4b4ae80-4ea4-11ea-8c88-a49f7e8707b0.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/26552500/74498007-d39b6100-4ea4-11ea-9a78-de116471f733.png" alt="image"></p>
 ]]></content>
   </entry>
   <entry>
@@ -1308,6 +1332,60 @@ Create issue
 ]]></content>
   </entry>
   <entry>
+    <title>Python_Code_1</title>
+    <url>/2020/12/12/Python-Code-1/</url>
+    <content><![CDATA[<ol>
+<li><p>Brew</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ brew install pyenv</span><br><span class="line">$ brew list</span><br><span class="line">$ brew upgrade pyenv</span><br><span class="line">$ brew upgrade</span><br><span class="line">$ brew update</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Bash</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ source .bash_profile</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Pyenv</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pyenv install --list</span><br><span class="line">$ pyenv install 3.9.0</span><br><span class="line">$ pyenv versions</span><br><span class="line">$ pyenv shell 3.9.0</span><br><span class="line">$ pyenv virtualenv 3.9.0 python3</span><br><span class="line">$ pyenv uninstall python3</span><br><span class="line">$ pyenv global 3.9.0 </span><br><span class="line">$ pyenv activate python2</span><br><span class="line">$ pyenv deactivate</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Pip</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pip3 install ipython  </span><br><span class="line">$ pip3 list</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Python_House_Price</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">%matplotlib inline</span><br><span class="line">import seaborn as sns</span><br><span class="line">import warnings</span><br><span class="line">warnings.filterwarnings(&#39;ignore&#39;)</span><br><span class="line">from scipy import stats</span><br><span class="line"></span><br><span class="line">train.describe()</span><br><span class="line">display(train.head(n&#x3D;1))</span><br><span class="line">train.shape</span><br><span class="line"></span><br><span class="line">plt.figure(figsize&#x3D;(17,6))</span><br><span class="line">plt.subplot(131)</span><br><span class="line">sns.distplot(train[&quot;SalePrice&quot;])</span><br><span class="line">plt.subplot(132)</span><br><span class="line">stats.probplot(train[&quot;SalePrice&quot;],plot&#x3D;plt)</span><br><span class="line">plt.subplot(133)</span><br><span class="line">sns.boxplot(train[&quot;SalePrice&quot;])</span><br><span class="line">plt.tight_layout()</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">train[&quot;MSSubClass&quot;] &#x3D; train[&quot;MSSubClass&quot;].astype(&#39;str&#39;)</span><br><span class="line"></span><br><span class="line">numerical_features &#x3D; []</span><br><span class="line">categorical_features &#x3D; []</span><br><span class="line">for f in train.columns:</span><br><span class="line">    if train.dtypes[f] !&#x3D; &#39;object&#39;:</span><br><span class="line">        numerical_features.append(f)</span><br><span class="line">    else:</span><br><span class="line">        categorical_features.append(f)</span><br><span class="line"></span><br><span class="line">nomalized_SalePrice &#x3D; np.log1p(train[&quot;SalePrice&quot;])</span><br><span class="line">plt.figure(figsize&#x3D;(17,6))</span><br><span class="line">plt.subplot(131)</span><br><span class="line">sns.distplot(nomalized_SalePrice)</span><br><span class="line">plt.subplot(132)</span><br><span class="line">stats.probplot(nomalized_SalePrice, plot&#x3D;plt)</span><br><span class="line">plt.subplot(133)</span><br><span class="line">sns.boxplot(nomalized_SalePrice)</span><br><span class="line">plt.tight_layout()</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">fig, ax &#x3D; plt.subplots(6,6, figsize &#x3D; (20,20))</span><br><span class="line">for idx, n in enumerate(numerical_features):</span><br><span class="line">    if n &#x3D;&#x3D; &#39;SalePrice&#39;:</span><br><span class="line">        continue</span><br><span class="line">    sns.regplot(x&#x3D;n, y&#x3D;&#39;SalePrice&#39;, data&#x3D;train, ax &#x3D; ax[idx&#x2F;&#x2F;6,idx%6])</span><br><span class="line">    ax[idx&#x2F;&#x2F;6, idx % 6].set(yticklabels&#x3D;[])</span><br><span class="line">    ax[idx&#x2F;&#x2F;6, idx % 6].set(xticklabels&#x3D;[])</span><br><span class="line"></span><br><span class="line">fig, ax &#x3D; plt.subplots(8,6, figsize &#x3D; (20,20))</span><br><span class="line">for idx, n in enumerate(categorical_features):</span><br><span class="line">    sns.countplot(x&#x3D;n, data&#x3D;train, ax &#x3D; ax[idx&#x2F;&#x2F;6, idx % 6])</span><br><span class="line">    ax[idx&#x2F;&#x2F;6, idx % 6].set(yticklabels&#x3D;[])</span><br><span class="line"></span><br><span class="line">df_train &#x3D; train.copy()</span><br><span class="line">df_train[&quot;2ndFloor&quot;] &#x3D; &quot;2ndFloor&quot;</span><br><span class="line">df_train[&quot;2ndFloor&quot;].loc[df_train[&quot;2ndFlrSF&quot;]&#x3D;&#x3D;0] &#x3D; &quot;No 2ndFloor&quot;</span><br><span class="line">df_train[&quot;Basement&quot;] &#x3D; &quot;Basement&quot;</span><br><span class="line">df_train[&quot;Basement&quot;].loc[df_train[&quot;TotalBsmtSF&quot;]&#x3D;&#x3D;0] &#x3D; &quot;No Basement&quot;</span><br><span class="line"></span><br><span class="line"># Joint plot GrLivArea&#x2F;saleprice</span><br><span class="line">grid &#x3D; sns.jointplot(x &#x3D; &quot;GrLivArea&quot;, y &#x3D; &quot;SalePrice&quot;, data&#x3D;train, kind&#x3D;&quot;reg&quot;)</span><br><span class="line">grid.fig.set_size_inches(15,5)</span><br><span class="line"></span><br><span class="line"># Strip plot GrLivArea&#x2F;2ndFloor&#x2F;saleprice</span><br><span class="line">plt.figure(figsize &#x3D; (20,8))</span><br><span class="line">plt.subplot(211)</span><br><span class="line">g &#x3D; sns.stripplot(x &#x3D; &quot;GrLivArea&quot;, y &#x3D; &#39;SalePrice&#39;, hue &#x3D; &quot;2ndFloor&quot;, data &#x3D; df_train, alpha &#x3D; 0.7)</span><br><span class="line">g.set_xlabel(&#39;GrLivArea&#39;)</span><br><span class="line">g.set_ylabel(&#39;SalePrice&#39;)</span><br><span class="line">g.set_xticks([])</span><br><span class="line">g.set_title(&#39;GrLiv &amp; 2ndFloor - SalePrice&#39;)</span><br><span class="line"></span><br><span class="line"># Strip plot GrLivArea&#x2F;Basement&#x2F;saleprice</span><br><span class="line">plt.subplot(212)</span><br><span class="line">b &#x3D; sns.stripplot( x &#x3D; &quot;GrLivArea&quot;, y &#x3D; &#39;SalePrice&#39;, hue &#x3D; &quot;Basement&quot;, data &#x3D; df_train, alpha &#x3D; 0.7)</span><br><span class="line">b.set_xlabel(&#39;GrLivArea&#39;)</span><br><span class="line">b.set_ylabel(&#39;SalePrice&#39;)</span><br><span class="line">b.set_title(&#39;GrLivArea &amp; Basement - SalePrice&#39;)</span><br><span class="line">b.set_xticks([])</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"># Graph for GrLivArea &amp; OverallQual - SalePrice</span><br><span class="line">plt.figure(figsize&#x3D;(15,8))</span><br><span class="line">ax1 &#x3D; plt.subplot2grid((2,2), (0,0), colspan &#x3D; 2)</span><br><span class="line">for qual in range(1,11):</span><br><span class="line">    index &#x3D; train.OverallQual &#x3D;&#x3D; qual</span><br><span class="line">    ax1.scatter(train.GrLivArea.loc[index], train.SalePrice.loc[index], data&#x3D;train, label&#x3D; qual, alpha &#x3D;0.5)</span><br><span class="line">ax1.legend(loc &#x3D; 0)</span><br><span class="line">ax1.set_title(&quot;GrLivArea &amp; OverallQual - SalePrice&quot;)</span><br><span class="line">ax1.set_xlabel(&#39;GrLivArea &amp; OverallQual&#39;)</span><br><span class="line">ax1.set_ylabel(&#39;SalePrice&#39;)</span><br><span class="line"></span><br><span class="line"># Graph for OverallQual - SalePrice</span><br><span class="line">ax2 &#x3D; plt.subplot2grid((2,2), (1,0))</span><br><span class="line">sns.boxplot(x &#x3D; &quot;OverallQual&quot;, y &#x3D; &quot;SalePrice&quot;, data&#x3D;train, ax&#x3D; ax2)</span><br><span class="line">ax2.set_title(&#39;OverallQual - SalePrice&#39;)</span><br><span class="line"></span><br><span class="line"># Graph for OverallCond - SalePrice</span><br><span class="line">ax3 &#x3D; plt.subplot2grid((2,2), (1,1))</span><br><span class="line">sns.boxplot(x &#x3D; &quot;OverallCond&quot;, y &#x3D; &quot;SalePrice&quot;, data&#x3D;train, ax&#x3D; ax3)</span><br><span class="line">ax3.set_title(&#39;OverallCond - SalePrice&#39;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Graph for GarageArea &amp; GarageCars - SalePrice</span><br><span class="line">plt.figure(figsize&#x3D;(15,6))</span><br><span class="line"></span><br><span class="line">ax1 &#x3D; plt.subplot(1,2,1)</span><br><span class="line">for car in range(0,5):</span><br><span class="line">    index &#x3D; train.GarageCars &#x3D;&#x3D; car</span><br><span class="line">    ax1.scatter(x &#x3D; train.GarageArea.loc[index], y &#x3D; train.SalePrice.loc[index], data&#x3D;train, label&#x3D;car, alpha&#x3D;&#39;0.5&#39;)</span><br><span class="line"></span><br><span class="line"># Graph for GarageArea </span><br><span class="line">ax1.legend()</span><br><span class="line">ax1.set_title(&#39;GarageArea - SalePrice&#39;)</span><br><span class="line">ax1.set_xlabel(&#39;GarageArea&#39;)</span><br><span class="line">ax1.set_ylabel(&#39;SalePrice&#39;)</span><br><span class="line"></span><br><span class="line"># Graph for GarageCars</span><br><span class="line">ax2 &#x3D; plt.subplot(1,2,2)</span><br><span class="line">sns.stripplot(x &#x3D; &quot;GarageCars&quot;, y &#x3D; &quot;SalePrice&quot;, data&#x3D;train,ax&#x3D;ax2, jitter&#x3D;True)</span><br><span class="line">ax2.set_title(&#39;GarageCars - SalePrice&#39;)</span><br><span class="line">ax2.legend()</span><br><span class="line"></span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"># Neighborhood variables are grouped by neighbors and then aggregated by average</span><br><span class="line">Neighbor &#x3D; train.pivot_table(index&#x3D;&quot;Neighborhood&quot;,values&#x3D;&quot;SalePrice&quot;, aggfunc&#x3D;&#39;mean&#39;).sort_values(by &#x3D; [&quot;SalePrice&quot;], ascending &#x3D; False)</span><br><span class="line">Neighbor &#x3D; Neighbor.reset_index()</span><br><span class="line"></span><br><span class="line"># The bar graph displays the aggregated data in the order of the highest to lowest price</span><br><span class="line">g &#x3D; sns.factorplot(x &#x3D; &quot;Neighborhood&quot;, y&#x3D;&quot;SalePrice&quot;, data&#x3D;Neighbor, size &#x3D;8, kind&#x3D;&quot;bar&quot;)</span><br><span class="line">g.set_xticklabels(rotation&#x3D;45)</span><br><span class="line">g.fig.set_size_inches(15,5)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>Code</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Code</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Predict Used Car Project (3)</title>
+    <url>/2020/01/30/Predict-Used-Car-Project-3/</url>
+    <content><![CDATA[<h3 id="Flask"><a href="#Flask" class="headerlink" title="Flask"></a>Flask</h3><p>reference : <a href="https://github.com/yyuu/pyenv/wiki/Common-build-problems" target="_blank" rel="noopener">https://github.com/yyuu/pyenv/wiki/Common-build-problems</a></p>
+<p>1 install 의존성 파일</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get upgrade</span><br><span class="line">$ sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev</span><br></pre></td></tr></table></figure>
+
+<p>2 install pip &amp; nginx</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get install python-pip nginx</span><br></pre></td></tr></table></figure>
+
+<p>3 set nginx</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># nginx를 시작하고 127.0.0.1:8000 ip를 외부 IP로 매핑 시켜줌</span><br><span class="line">$ sudo &#x2F;etc&#x2F;init.d&#x2F;nginx start</span><br><span class="line">$ sudo rm &#x2F;etc&#x2F;nginx&#x2F;sites-enabled&#x2F;default</span><br><span class="line">$ sudo touch &#x2F;etc&#x2F;nginx&#x2F;sites-available&#x2F;flask_settings</span><br><span class="line">$ sudo ln -s &#x2F;etc&#x2F;nginx&#x2F;sites-available&#x2F;flask_settings &#x2F;etc&#x2F;nginx&#x2F;sites-enabled&#x2F;flask_settings</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo vi &#x2F;etc&#x2F;nginx&#x2F;sites-enabled&#x2F;flask_settings</span><br><span class="line"></span><br><span class="line">------------------flask_settings-------------------- </span><br><span class="line">server &#123;</span><br><span class="line">    location &#x2F; &#123;</span><br><span class="line">        proxy_pass http:&#x2F;&#x2F;127.0.0.1:8000; </span><br><span class="line">        proxy_set_header Host $host; </span><br><span class="line">        proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">        &#125; </span><br><span class="line">&#125;</span><br><span class="line">------------------------------------------------------ </span><br><span class="line"></span><br><span class="line">$ sudo &#x2F;etc&#x2F;init.d&#x2F;nginx restart</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<ol start="4">
+<li>install flask &amp; gunicorn<br>$ pip install flask gunicorn</li>
+<li>excute flask app<br>$ gunicorn hello:app</li>
+<li>aws open port 80</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
     <title>Python_Basic (1)</title>
     <url>/2020/02/12/Python-Basic-1/</url>
     <content><![CDATA[<h4 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h4><h5 id="check-“Add-Python-path”"><a href="#check-“Add-Python-path”" class="headerlink" title="check “Add Python ~ path”"></a>check “Add Python ~ path”</h5><p><img src="https://user-images.githubusercontent.com/26552500/74404590-95dd0080-4df0-11ea-9fd6-30502b8babf2.png" alt="image"></p>
@@ -1342,32 +1420,160 @@ Create issue
 ]]></content>
   </entry>
   <entry>
-    <title>Python_Code_1</title>
-    <url>/2020/12/12/Python-Code-1/</url>
-    <content><![CDATA[<ol>
-<li><p>Brew</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ brew install pyenv</span><br><span class="line">$ brew list</span><br><span class="line">$ brew upgrade pyenv</span><br><span class="line">$ brew upgrade</span><br><span class="line">$ brew update</span><br></pre></td></tr></table></figure>
+    <title>Regular Express</title>
+    <url>/2020/08/27/Regular-Express/</url>
+    <content><![CDATA[<h3 id="1-Regular-expressions"><a href="#1-Regular-expressions" class="headerlink" title="1. Regular expressions"></a>1. Regular expressions</h3><h4 id="Regular-expressions-are-one-of-the-ways-to-process-character-strings-and-are-a-means-to-make-the-process-of’searching’-or’substituting’-characters-in-a-specific-condition-very-simple"><a href="#Regular-expressions-are-one-of-the-ways-to-process-character-strings-and-are-a-means-to-make-the-process-of’searching’-or’substituting’-characters-in-a-specific-condition-very-simple" class="headerlink" title="Regular expressions are one of the ways to process character strings and are a means to make the process of’searching’ or’substituting’ characters in a specific condition very simple."></a>Regular expressions are one of the ways to process character strings and are a means to make the process of’searching’ or’substituting’ characters in a specific condition very simple.</h4><h3 id="2-Term"><a href="#2-Term" class="headerlink" title="2. Term"></a>2. Term</h3><ul>
+<li><p>^x : x 문자로 시작 </p>
 </li>
-<li><p>Bash</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ source .bash_profile</span><br></pre></td></tr></table></figure>
+<li><p>x$ : x 문자로 종료</p>
 </li>
-<li><p>Pyenv</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pyenv install --list</span><br><span class="line">$ pyenv install 3.9.0</span><br><span class="line">$ pyenv versions</span><br><span class="line">$ pyenv shell 3.9.0</span><br><span class="line">$ pyenv virtualenv 3.9.0 python3</span><br><span class="line">$ pyenv uninstall python3</span><br><span class="line">$ pyenv global 3.9.0 </span><br><span class="line">$ pyenv activate python2</span><br><span class="line">$ pyenv deactivate</span><br></pre></td></tr></table></figure>
+<li><p>.x : 임의의 한 문자의 자리수를 표현하며 문자열이 x 로 끝남</p>
 </li>
-<li><p>Pip</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ pip3 install ipython  </span><br><span class="line">$ pip3 list</span><br></pre></td></tr></table></figure>
+<li><p>x+ : x 문자가 1개 이상</p>
 </li>
-<li><p>Python_House_Price</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">%matplotlib inline</span><br><span class="line">import seaborn as sns</span><br><span class="line">import warnings</span><br><span class="line">warnings.filterwarnings(&#39;ignore&#39;)</span><br><span class="line">from scipy import stats</span><br><span class="line"></span><br><span class="line">train.describe()</span><br><span class="line">display(train.head(n&#x3D;1))</span><br><span class="line">train.shape</span><br><span class="line"></span><br><span class="line">plt.figure(figsize&#x3D;(17,6))</span><br><span class="line">plt.subplot(131)</span><br><span class="line">sns.distplot(train[&quot;SalePrice&quot;])</span><br><span class="line">plt.subplot(132)</span><br><span class="line">stats.probplot(train[&quot;SalePrice&quot;],plot&#x3D;plt)</span><br><span class="line">plt.subplot(133)</span><br><span class="line">sns.boxplot(train[&quot;SalePrice&quot;])</span><br><span class="line">plt.tight_layout()</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">train[&quot;MSSubClass&quot;] &#x3D; train[&quot;MSSubClass&quot;].astype(&#39;str&#39;)</span><br><span class="line"></span><br><span class="line">numerical_features &#x3D; []</span><br><span class="line">categorical_features &#x3D; []</span><br><span class="line">for f in train.columns:</span><br><span class="line">    if train.dtypes[f] !&#x3D; &#39;object&#39;:</span><br><span class="line">        numerical_features.append(f)</span><br><span class="line">    else:</span><br><span class="line">        categorical_features.append(f)</span><br><span class="line"></span><br><span class="line">nomalized_SalePrice &#x3D; np.log1p(train[&quot;SalePrice&quot;])</span><br><span class="line">plt.figure(figsize&#x3D;(17,6))</span><br><span class="line">plt.subplot(131)</span><br><span class="line">sns.distplot(nomalized_SalePrice)</span><br><span class="line">plt.subplot(132)</span><br><span class="line">stats.probplot(nomalized_SalePrice, plot&#x3D;plt)</span><br><span class="line">plt.subplot(133)</span><br><span class="line">sns.boxplot(nomalized_SalePrice)</span><br><span class="line">plt.tight_layout()</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">fig, ax &#x3D; plt.subplots(6,6, figsize &#x3D; (20,20))</span><br><span class="line">for idx, n in enumerate(numerical_features):</span><br><span class="line">    if n &#x3D;&#x3D; &#39;SalePrice&#39;:</span><br><span class="line">        continue</span><br><span class="line">    sns.regplot(x&#x3D;n, y&#x3D;&#39;SalePrice&#39;, data&#x3D;train, ax &#x3D; ax[idx&#x2F;&#x2F;6,idx%6])</span><br><span class="line">    ax[idx&#x2F;&#x2F;6, idx % 6].set(yticklabels&#x3D;[])</span><br><span class="line">    ax[idx&#x2F;&#x2F;6, idx % 6].set(xticklabels&#x3D;[])</span><br><span class="line"></span><br><span class="line">fig, ax &#x3D; plt.subplots(8,6, figsize &#x3D; (20,20))</span><br><span class="line">for idx, n in enumerate(categorical_features):</span><br><span class="line">    sns.countplot(x&#x3D;n, data&#x3D;train, ax &#x3D; ax[idx&#x2F;&#x2F;6, idx % 6])</span><br><span class="line">    ax[idx&#x2F;&#x2F;6, idx % 6].set(yticklabels&#x3D;[])</span><br><span class="line"></span><br><span class="line">df_train &#x3D; train.copy()</span><br><span class="line">df_train[&quot;2ndFloor&quot;] &#x3D; &quot;2ndFloor&quot;</span><br><span class="line">df_train[&quot;2ndFloor&quot;].loc[df_train[&quot;2ndFlrSF&quot;]&#x3D;&#x3D;0] &#x3D; &quot;No 2ndFloor&quot;</span><br><span class="line">df_train[&quot;Basement&quot;] &#x3D; &quot;Basement&quot;</span><br><span class="line">df_train[&quot;Basement&quot;].loc[df_train[&quot;TotalBsmtSF&quot;]&#x3D;&#x3D;0] &#x3D; &quot;No Basement&quot;</span><br><span class="line"></span><br><span class="line"># Joint plot GrLivArea&#x2F;saleprice</span><br><span class="line">grid &#x3D; sns.jointplot(x &#x3D; &quot;GrLivArea&quot;, y &#x3D; &quot;SalePrice&quot;, data&#x3D;train, kind&#x3D;&quot;reg&quot;)</span><br><span class="line">grid.fig.set_size_inches(15,5)</span><br><span class="line"></span><br><span class="line"># Strip plot GrLivArea&#x2F;2ndFloor&#x2F;saleprice</span><br><span class="line">plt.figure(figsize &#x3D; (20,8))</span><br><span class="line">plt.subplot(211)</span><br><span class="line">g &#x3D; sns.stripplot(x &#x3D; &quot;GrLivArea&quot;, y &#x3D; &#39;SalePrice&#39;, hue &#x3D; &quot;2ndFloor&quot;, data &#x3D; df_train, alpha &#x3D; 0.7)</span><br><span class="line">g.set_xlabel(&#39;GrLivArea&#39;)</span><br><span class="line">g.set_ylabel(&#39;SalePrice&#39;)</span><br><span class="line">g.set_xticks([])</span><br><span class="line">g.set_title(&#39;GrLiv &amp; 2ndFloor - SalePrice&#39;)</span><br><span class="line"></span><br><span class="line"># Strip plot GrLivArea&#x2F;Basement&#x2F;saleprice</span><br><span class="line">plt.subplot(212)</span><br><span class="line">b &#x3D; sns.stripplot( x &#x3D; &quot;GrLivArea&quot;, y &#x3D; &#39;SalePrice&#39;, hue &#x3D; &quot;Basement&quot;, data &#x3D; df_train, alpha &#x3D; 0.7)</span><br><span class="line">b.set_xlabel(&#39;GrLivArea&#39;)</span><br><span class="line">b.set_ylabel(&#39;SalePrice&#39;)</span><br><span class="line">b.set_title(&#39;GrLivArea &amp; Basement - SalePrice&#39;)</span><br><span class="line">b.set_xticks([])</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"># Graph for GrLivArea &amp; OverallQual - SalePrice</span><br><span class="line">plt.figure(figsize&#x3D;(15,8))</span><br><span class="line">ax1 &#x3D; plt.subplot2grid((2,2), (0,0), colspan &#x3D; 2)</span><br><span class="line">for qual in range(1,11):</span><br><span class="line">    index &#x3D; train.OverallQual &#x3D;&#x3D; qual</span><br><span class="line">    ax1.scatter(train.GrLivArea.loc[index], train.SalePrice.loc[index], data&#x3D;train, label&#x3D; qual, alpha &#x3D;0.5)</span><br><span class="line">ax1.legend(loc &#x3D; 0)</span><br><span class="line">ax1.set_title(&quot;GrLivArea &amp; OverallQual - SalePrice&quot;)</span><br><span class="line">ax1.set_xlabel(&#39;GrLivArea &amp; OverallQual&#39;)</span><br><span class="line">ax1.set_ylabel(&#39;SalePrice&#39;)</span><br><span class="line"></span><br><span class="line"># Graph for OverallQual - SalePrice</span><br><span class="line">ax2 &#x3D; plt.subplot2grid((2,2), (1,0))</span><br><span class="line">sns.boxplot(x &#x3D; &quot;OverallQual&quot;, y &#x3D; &quot;SalePrice&quot;, data&#x3D;train, ax&#x3D; ax2)</span><br><span class="line">ax2.set_title(&#39;OverallQual - SalePrice&#39;)</span><br><span class="line"></span><br><span class="line"># Graph for OverallCond - SalePrice</span><br><span class="line">ax3 &#x3D; plt.subplot2grid((2,2), (1,1))</span><br><span class="line">sns.boxplot(x &#x3D; &quot;OverallCond&quot;, y &#x3D; &quot;SalePrice&quot;, data&#x3D;train, ax&#x3D; ax3)</span><br><span class="line">ax3.set_title(&#39;OverallCond - SalePrice&#39;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Graph for GarageArea &amp; GarageCars - SalePrice</span><br><span class="line">plt.figure(figsize&#x3D;(15,6))</span><br><span class="line"></span><br><span class="line">ax1 &#x3D; plt.subplot(1,2,1)</span><br><span class="line">for car in range(0,5):</span><br><span class="line">    index &#x3D; train.GarageCars &#x3D;&#x3D; car</span><br><span class="line">    ax1.scatter(x &#x3D; train.GarageArea.loc[index], y &#x3D; train.SalePrice.loc[index], data&#x3D;train, label&#x3D;car, alpha&#x3D;&#39;0.5&#39;)</span><br><span class="line"></span><br><span class="line"># Graph for GarageArea </span><br><span class="line">ax1.legend()</span><br><span class="line">ax1.set_title(&#39;GarageArea - SalePrice&#39;)</span><br><span class="line">ax1.set_xlabel(&#39;GarageArea&#39;)</span><br><span class="line">ax1.set_ylabel(&#39;SalePrice&#39;)</span><br><span class="line"></span><br><span class="line"># Graph for GarageCars</span><br><span class="line">ax2 &#x3D; plt.subplot(1,2,2)</span><br><span class="line">sns.stripplot(x &#x3D; &quot;GarageCars&quot;, y &#x3D; &quot;SalePrice&quot;, data&#x3D;train,ax&#x3D;ax2, jitter&#x3D;True)</span><br><span class="line">ax2.set_title(&#39;GarageCars - SalePrice&#39;)</span><br><span class="line">ax2.legend()</span><br><span class="line"></span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line"># Neighborhood variables are grouped by neighbors and then aggregated by average</span><br><span class="line">Neighbor &#x3D; train.pivot_table(index&#x3D;&quot;Neighborhood&quot;,values&#x3D;&quot;SalePrice&quot;, aggfunc&#x3D;&#39;mean&#39;).sort_values(by &#x3D; [&quot;SalePrice&quot;], ascending &#x3D; False)</span><br><span class="line">Neighbor &#x3D; Neighbor.reset_index()</span><br><span class="line"></span><br><span class="line"># The bar graph displays the aggregated data in the order of the highest to lowest price</span><br><span class="line">g &#x3D; sns.factorplot(x &#x3D; &quot;Neighborhood&quot;, y&#x3D;&quot;SalePrice&quot;, data&#x3D;Neighbor, size &#x3D;8, kind&#x3D;&quot;bar&quot;)</span><br><span class="line">g.set_xticklabels(rotation&#x3D;45)</span><br><span class="line">g.fig.set_size_inches(15,5)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></li>
-</ol>
+<li><p>x? : x 문자가 0개 ~1개</p>
+</li>
+<li><p>x* : x 문자가 0개 ~ 여러개</p>
+</li>
+<li><p>x|y : or 를 표현하며 x 또는 y 문자<br><img src="https://user-images.githubusercontent.com/26552500/91465533-82a4f600-e853-11ea-88cb-add460b6ba36.png" alt="image"></p>
+</li>
+</ul>
+<ul>
+<li>(x) :그룹을 표현하며 x 를 그룹으로 처리<br><img src="https://user-images.githubusercontent.com/26552500/91465533-82a4f600-e853-11ea-88cb-add460b6ba36.png" alt="image"></li>
+</ul>
+<ul>
+<li><p>(x)(y):x 그룹을 찾고 그 뒤에 있는 y값을 찾음<br><img src="https://user-images.githubusercontent.com/26552500/91466181-5d64b780-e854-11ea-876a-48a7e5cacfa9.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91466400-ad437e80-e854-11ea-8fa8-f2841802c0c3.png" alt="image"></p>
+</li>
+<li><p>x.?? : 앞에 있는 ?의 최소값인 0개로 검색 (? lazy)<br><img src="https://user-images.githubusercontent.com/26552500/91467435-30b19f80-e856-11ea-829e-7bf085ef9c8d.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91467497-445d0600-e856-11ea-9b83-f4357fa81e20.png" alt="image"></p>
+</li>
+<li><p>x.+? : 앞에 있는 +의 최소값인 1개로 검색 (? lazy)<br><img src="https://user-images.githubusercontent.com/26552500/91467651-779f9500-e856-11ea-9efc-067cb69f1f10.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91467705-8c7c2880-e856-11ea-958f-0152cf944e4c.png" alt="image"></p>
+</li>
+<li><p>x+(?=y) : 끝이 y로 끝나는 x를 검색<br><img src="https://user-images.githubusercontent.com/26552500/91468977-635c9780-e858-11ea-9603-74372293e2d5.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91469039-7a02ee80-e858-11ea-8e62-693e414dcf77.png" alt="image"></p>
+</li>
+</ul>
+<h3 id="3-Example"><a href="#3-Example" class="headerlink" title="3. Example"></a>3. Example</h3><ul>
+<li><p>전화번호 : ([\d]{3}) \d{3}-\d{4}  </p>
+<pre><code>\([0-9]{3}\) [0-9]{3}-[0-9]{4}</code></pre><p><img src="https://user-images.githubusercontent.com/26552500/91470069-d87c9c80-e859-11ea-8076-6aadd25d4334.png" alt="image"></p>
+</li>
+<li><p>전화번호 (중간에 8또는 1 제외): [^8|^1][0-9]{2}-[0-9]{4}<br><img src="https://user-images.githubusercontent.com/26552500/91471001-0f9f7d80-e85b-11ea-80fd-0d6d374ab14f.png" alt="image"></p>
+</li>
+</ul>
+<h3 id="4-Test-site"><a href="#4-Test-site" class="headerlink" title="4. Test site"></a>4. Test site</h3><p><a href="https://regexr.com/" target="_blank" rel="noopener">https://regexr.com/</a></p>
 ]]></content>
-      <categories>
-        <category>Code</category>
-      </categories>
+  </entry>
+  <entry>
+    <title>Python - Pickle</title>
+    <url>/2020/02/05/Python-Pickle/</url>
+    <content><![CDATA[<p>Input</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line">pw = <span class="string">'12345'</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'pw.plk'</span>, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    pickle.dump(pw, f)</span><br></pre></td></tr></table></figure>
+
+<p>Output</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">with open(&#39;pw.plk&#39;, &#39;rb&#39;) as f:</span><br><span class="line">    pw &#x3D; pickle.load(f) # 단 한줄씩 읽어옴</span><br></pre></td></tr></table></figure>
+
+]]></content>
+  </entry>
+  <entry>
+    <title>Statistical_Methods_1</title>
+    <url>/2021/02/02/Statistical-Methods-1/</url>
+    <content><![CDATA[<h4 id="1-Frequentist-vs-Bayesian-Statistics"><a href="#1-Frequentist-vs-Bayesian-Statistics" class="headerlink" title="1. Frequentist vs. Bayesian Statistics"></a>1. Frequentist vs. Bayesian Statistics</h4><ul>
+<li>Frequentist : Data varies / Parameters fixed</li>
+<li>Bayesian    : Data fixed / Parameters varies</li>
+</ul>
+<h4 id="2-What-is-a-sampling-distribution"><a href="#2-What-is-a-sampling-distribution" class="headerlink" title="2. What is a sampling distribution?"></a>2. What is a sampling distribution?</h4><p>   <img src="https://user-images.githubusercontent.com/26552500/106632984-f2768580-6543-11eb-85f3-338b5eef3b51.png" alt="image"></p>
+<blockquote>
+<p>A statistician considers this to be one of many possible samples<br>     that you can get. So a different sample of size n would result in a different value<br>     of the statistic s. And actually there are lots– maybe even infinitely– many<br>     possible different samples you could get, along with infinitely many different<br>     possible values for the statistic s. </p>
+</blockquote>
+<blockquote>
+<p>This collection of all the possible values of that statistic, that’s called the sampling distribution.</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">install.packages(<span class="string">'shiny'</span>) <span class="comment">#only needed the first time</span></span><br><span class="line"><span class="keyword">require</span>(shiny)</span><br><span class="line">runGitHub(<span class="string">'samplingShiny'</span>,<span class="string">'DataScienceUWL'</span>)</span><br></pre></td></tr></table></figure>
+<p>   <img src="https://user-images.githubusercontent.com/26552500/106633646-a11ac600-6544-11eb-8ffb-fdf205c7d662.png" alt="image"></p>
+<h4 id="3-Why-Sampling-Distributions"><a href="#3-Why-Sampling-Distributions" class="headerlink" title="3. Why Sampling Distributions?"></a>3. Why Sampling Distributions?</h4><ul>
+<li>Account for uncertainty by using a sampling distribution.</li>
+<li>If we don’t have a model for the sampling distribution, we can simulate the sampling distribution through a process called <strong>bootstrapping</strong>.</li>
+</ul>
+<h4 id="4-Sampling-Distribution-of-Sample-Means"><a href="#4-Sampling-Distribution-of-Sample-Means" class="headerlink" title="4. Sampling Distribution of Sample Means"></a>4. Sampling Distribution of Sample Means</h4><p>   <img src="https://user-images.githubusercontent.com/26552500/106635109-15a23480-6546-11eb-8cd1-54fd4e0a7522.png" alt="image"></p>
+<blockquote>
+<p>(1) the mean of all the sample means is the same as the original population mean.</p>
+</blockquote>
+<blockquote>
+<p>(2) the standard deviation of the sample means– this is also called the standard error of the sample mean– is given by this formula<br>         here. <strong>Sigma over square root n</strong>. This shows that the variability of sample means decreases as n increases.</p>
+</blockquote>
+<blockquote>
+<p>(3) the central limit theorem guarantees that sample means will always be approximately normally distributed for large enough<br>         samples.</p>
+</blockquote>
+<p>   <img src="https://user-images.githubusercontent.com/26552500/106635901-f952c780-6546-11eb-8f58-285945ad8a16.png" alt="image"></p>
+<p>   <img src="https://user-images.githubusercontent.com/26552500/106637534-6fa3f980-6548-11eb-8281-ba4a2cfc4a1d.png" alt="image"></p>
+<blockquote>
+<p>As we increase the sample size by a factor of 4– let’s go from 10 to 40– we should see the sample mean standard deviation getting<br>     cut in half.</p>
+</blockquote>
+<p>   <img src="https://user-images.githubusercontent.com/26552500/106638685-c0682200-6549-11eb-89a2-68d7c9edda90.png" alt="image"></p>
+<blockquote>
+<p>(4) Skewed to the right</p>
+</blockquote>
+<p>   <img src="https://user-images.githubusercontent.com/26552500/106639053-2bb1f400-654a-11eb-9eca-c1a6ede1a112.png" alt="image"></p>
+<ul>
+<li><p>it’s centered in the right place. The mean of both the population and the sample mean distribution is 1.65.</p>
+</li>
+<li><p>the shape here isn’t quite normal</p>
+<p><img src="https://user-images.githubusercontent.com/26552500/106639657-d0343600-654a-11eb-8fcd-f6714b5821c2.png" alt="image"></p>
+</li>
+<li><p>We can increase our sample size even further. There’s 500. It’s a very good approximation</p>
+</li>
+<li><p>we can see that there isn’t much difference between the sample mean distribution and a normal distribution.</p>
+<blockquote>
+<p>(5) Heavy tailed distribution<br><img src="https://user-images.githubusercontent.com/26552500/106640122-4769ca00-654b-11eb-8005-09092465618b.png" alt="image"></p>
+</blockquote>
+</li>
+<li><p>the tails of the distribution are thicker than they would be in a normal distribution. </p>
+</li>
+<li><p>we get a lot of outliers among our data.</p>
+</li>
+</ul>
+<h4 id="5-Sampling-Distribution-of-Test-Statics-T-Test"><a href="#5-Sampling-Distribution-of-Test-Statics-T-Test" class="headerlink" title="5. Sampling Distribution of Test Statics (T-Test)"></a>5. Sampling Distribution of Test Statics (T-Test)</h4><figure class="highlight r"><table><tr><td class="code"><pre><span class="line">install.packages(<span class="string">'shiny'</span>) <span class="comment">#only needed the first time</span></span><br><span class="line"><span class="keyword">require</span>(shiny)</span><br><span class="line">runGitHub(<span class="string">'samplingTestStat'</span>,<span class="string">'DataScienceUWL'</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/26552500/106790233-e14b7880-6618-11eb-99aa-dce49dc6fb96.png" alt="image"></p>
+<h4 id="6-Confidence-Interval"><a href="#6-Confidence-Interval" class="headerlink" title="6. Confidence Interval"></a>6. Confidence Interval</h4><ul>
+<li><p>A confidence interval estimates a population parameter, such as the mean, while accounting for uncertainty.<br>(신뢰 구간은 평균과 같은 모집단 모수를 추정하면서 불확실성을 설명)</p>
+</li>
+<li><p>Link: <a href="http://www.rossmanchance.com/applets/ConfSim.html" target="_blank" rel="noopener">http://www.rossmanchance.com/applets/ConfSim.html</a></p>
+</li>
+<li><p>Quiz</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Using the HealthExam data set in the DS705data package, use R to build a</span><br><span class="line">90% CI for the population mean height of women.</span><br><span class="line"></span><br><span class="line">&gt; require(DS705data)</span><br><span class="line">&gt; data(HealthExam)</span><br><span class="line">&gt; hw &lt;- HealthExam$Height[HealthExam$Sex &#x3D;&#x3D; &#39;F&#39;]</span><br><span class="line"></span><br><span class="line"># Answer: (62.5, 63.9)</span><br><span class="line"># Feedback: t.test(hw,conf.level&#x3D;.9)$conf.int</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="7-What-is-a-Hypothesis-Test"><a href="#7-What-is-a-Hypothesis-Test" class="headerlink" title="7. What is a Hypothesis Test?"></a>7. What is a Hypothesis Test?</h4><ul>
+<li>Null Hypothesis<blockquote>
+<p>H0 : random variation only</p>
+</blockquote>
+</li>
+<li>Alternative Hypothesis<blockquote>
+<p>Ha : there is a real effect</p>
+</blockquote>
+</li>
+</ul>
+]]></content>
       <tags>
-        <tag>Python</tag>
-        <tag>Code</tag>
+        <tag>Statistics</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello world</title>
+    <url>/2020/01/22/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>Python Development Environment</title>
@@ -1430,84 +1636,6 @@ pip3 list</code></pre>
         <tag>Python</tag>
         <tag>Environment</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>PostgreSQL_Basic (4)</title>
-    <url>/2020/02/19/PostgreSQL-Basic-4/</url>
-    <content><![CDATA[<h3 id="2-SQL"><a href="#2-SQL" class="headerlink" title="2. SQL []"></a>2. SQL []</h3><h4 id="1-JOIN"><a href="#1-JOIN" class="headerlink" title="1) JOIN"></a>1) JOIN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74899081-849c7280-5361-11ea-9138-ed46065c5af9.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74899134-a5fd5e80-5361-11ea-926b-052c0567f8a6.png" alt="image"></p>
-<h4 id="2-INNER-JOIN"><a href="#2-INNER-JOIN" class="headerlink" title="2) INNER JOIN"></a>2) INNER JOIN</h4><p><img src="https://user-images.githubusercontent.com/26552500/74899171-ba415b80-5361-11ea-88c2-46fb68b5f125.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74899211-d9d88400-5361-11ea-9500-4d00ee0609f4.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74899251-f379cb80-5361-11ea-97f2-e1c1a31182f9.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74899307-24f29700-5362-11ea-87ba-69111e078345.png" alt="image"></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>PostgreSQL_Basic Exam (1)</title>
-    <url>/2020/02/13/PostgreSQL-Basic-Exam-1/</url>
-    <content><![CDATA[<h4 id="1-PAYMENT-DATE가-2007년-2월-7일부터-2007년-2월-15일인-customer-id-first-name-Last-name"><a href="#1-PAYMENT-DATE가-2007년-2월-7일부터-2007년-2월-15일인-customer-id-first-name-Last-name" class="headerlink" title="1) PAYMENT_DATE가 2007년 2월 7일부터 2007년 2월 15일인 customer_id, first_name, Last_name"></a>1) PAYMENT_DATE가 2007년 2월 7일부터 2007년 2월 15일인 customer_id, first_name, Last_name</h4><ul>
-<li>to_char / cast</li>
-</ul>
-<p><img src="https://user-images.githubusercontent.com/26552500/74495493-98e1fa80-4e9d-11ea-9802-4eaf3e30e1b5.png" alt="image"></p>
-<h4 id="2"><a href="#2" class="headerlink" title="2)"></a>2)</h4><p><img src="https://user-images.githubusercontent.com/26552500/74498354-03973400-4ea6-11ea-834a-c72cacf72f9e.png" alt="image"></p>
-<p><img src="https://user-images.githubusercontent.com/26552500/74498877-a4d2ba00-4ea7-11ea-9428-8255061fcb80.png" alt="image"></p>
-<h4 id="3"><a href="#3" class="headerlink" title="3)"></a>3)</h4><p><img src="https://user-images.githubusercontent.com/26552500/74498915-bc11a780-4ea7-11ea-8aa8-a1b2b324a4dd.png" alt="image"></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Predict Used Car Project (3)</title>
-    <url>/2020/01/30/Predict-Used-Car-Project-3/</url>
-    <content><![CDATA[<h3 id="Flask"><a href="#Flask" class="headerlink" title="Flask"></a>Flask</h3><p>reference : <a href="https://github.com/yyuu/pyenv/wiki/Common-build-problems" target="_blank" rel="noopener">https://github.com/yyuu/pyenv/wiki/Common-build-problems</a></p>
-<p>1 install 의존성 파일</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get upgrade</span><br><span class="line">$ sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev</span><br></pre></td></tr></table></figure>
-
-<p>2 install pip &amp; nginx</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get install python-pip nginx</span><br></pre></td></tr></table></figure>
-
-<p>3 set nginx</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># nginx를 시작하고 127.0.0.1:8000 ip를 외부 IP로 매핑 시켜줌</span><br><span class="line">$ sudo &#x2F;etc&#x2F;init.d&#x2F;nginx start</span><br><span class="line">$ sudo rm &#x2F;etc&#x2F;nginx&#x2F;sites-enabled&#x2F;default</span><br><span class="line">$ sudo touch &#x2F;etc&#x2F;nginx&#x2F;sites-available&#x2F;flask_settings</span><br><span class="line">$ sudo ln -s &#x2F;etc&#x2F;nginx&#x2F;sites-available&#x2F;flask_settings &#x2F;etc&#x2F;nginx&#x2F;sites-enabled&#x2F;flask_settings</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ sudo vi &#x2F;etc&#x2F;nginx&#x2F;sites-enabled&#x2F;flask_settings</span><br><span class="line"></span><br><span class="line">------------------flask_settings-------------------- </span><br><span class="line">server &#123;</span><br><span class="line">    location &#x2F; &#123;</span><br><span class="line">        proxy_pass http:&#x2F;&#x2F;127.0.0.1:8000; </span><br><span class="line">        proxy_set_header Host $host; </span><br><span class="line">        proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">        &#125; </span><br><span class="line">&#125;</span><br><span class="line">------------------------------------------------------ </span><br><span class="line"></span><br><span class="line">$ sudo &#x2F;etc&#x2F;init.d&#x2F;nginx restart</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<ol start="4">
-<li>install flask &amp; gunicorn<br>$ pip install flask gunicorn</li>
-<li>excute flask app<br>$ gunicorn hello:app</li>
-<li>aws open port 80</li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>Python - Pickle</title>
-    <url>/2020/02/05/Python-Pickle/</url>
-    <content><![CDATA[<p>Input</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line">pw = <span class="string">'12345'</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'pw.plk'</span>, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    pickle.dump(pw, f)</span><br></pre></td></tr></table></figure>
-
-<p>Output</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">with open(&#39;pw.plk&#39;, &#39;rb&#39;) as f:</span><br><span class="line">    pw &#x3D; pickle.load(f) # 단 한줄씩 읽어옴</span><br></pre></td></tr></table></figure>
-
-]]></content>
-  </entry>
-  <entry>
-    <title>Hello world</title>
-    <url>/2020/01/22/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>linux</title>
@@ -1599,133 +1727,6 @@ pip3 list</code></pre>
 <p><img src="https://user-images.githubusercontent.com/26552500/91771956-84e7b700-eba9-11ea-8b1b-882b85f981c9.png" alt="image"></p>
 <p>chmod +x backup : 파일에 실행 권한 주기<br><img src="https://user-images.githubusercontent.com/26552500/91771828-4651fc80-eba9-11ea-9997-0a8c9be3e9d7.png" alt="image"></p>
 <p>./backup :  backup 스크립트 실행<br><img src="https://user-images.githubusercontent.com/26552500/91772230-148d6580-ebaa-11ea-9832-20d71e32a69d.png" alt="image"></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Statistical_Methods_1</title>
-    <url>/2021/02/02/Statistical-Methods-1/</url>
-    <content><![CDATA[<h4 id="1-Frequentist-vs-Bayesian-Statistics"><a href="#1-Frequentist-vs-Bayesian-Statistics" class="headerlink" title="1. Frequentist vs. Bayesian Statistics"></a>1. Frequentist vs. Bayesian Statistics</h4><ul>
-<li>Frequentist : Data varies / Parameters fixed</li>
-<li>Bayesian    : Data fixed / Parameters varies</li>
-</ul>
-<h4 id="2-What-is-a-sampling-distribution"><a href="#2-What-is-a-sampling-distribution" class="headerlink" title="2. What is a sampling distribution?"></a>2. What is a sampling distribution?</h4><p>   <img src="https://user-images.githubusercontent.com/26552500/106632984-f2768580-6543-11eb-85f3-338b5eef3b51.png" alt="image"></p>
-<blockquote>
-<p>A statistician considers this to be one of many possible samples<br>     that you can get. So a different sample of size n would result in a different value<br>     of the statistic s. And actually there are lots– maybe even infinitely– many<br>     possible different samples you could get, along with infinitely many different<br>     possible values for the statistic s. </p>
-</blockquote>
-<blockquote>
-<p>This collection of all the possible values of that statistic, that’s called the sampling distribution.</p>
-</blockquote>
-<figure class="highlight r"><table><tr><td class="code"><pre><span class="line">install.packages(<span class="string">'shiny'</span>) <span class="comment">#only needed the first time</span></span><br><span class="line"><span class="keyword">require</span>(shiny)</span><br><span class="line">runGitHub(<span class="string">'samplingShiny'</span>,<span class="string">'DataScienceUWL'</span>)</span><br></pre></td></tr></table></figure>
-<p>   <img src="https://user-images.githubusercontent.com/26552500/106633646-a11ac600-6544-11eb-8ffb-fdf205c7d662.png" alt="image"></p>
-<h4 id="3-Why-Sampling-Distributions"><a href="#3-Why-Sampling-Distributions" class="headerlink" title="3. Why Sampling Distributions?"></a>3. Why Sampling Distributions?</h4><ul>
-<li>Account for uncertainty by using a sampling distribution.</li>
-<li>If we don’t have a model for the sampling distribution, we can simulate the sampling distribution through a process called <strong>bootstrapping</strong>.</li>
-</ul>
-<h4 id="4-Sampling-Distribution-of-Sample-Means"><a href="#4-Sampling-Distribution-of-Sample-Means" class="headerlink" title="4. Sampling Distribution of Sample Means"></a>4. Sampling Distribution of Sample Means</h4><p>   <img src="https://user-images.githubusercontent.com/26552500/106635109-15a23480-6546-11eb-8cd1-54fd4e0a7522.png" alt="image"></p>
-<blockquote>
-<p>(1) the mean of all the sample means is the same as the original population mean.</p>
-</blockquote>
-<blockquote>
-<p>(2) the standard deviation of the sample means– this is also called the standard error of the sample mean– is given by this formula<br>         here. <strong>Sigma over square root n</strong>. This shows that the variability of sample means decreases as n increases.</p>
-</blockquote>
-<blockquote>
-<p>(3) the central limit theorem guarantees that sample means will always be approximately normally distributed for large enough<br>         samples.</p>
-</blockquote>
-<p>   <img src="https://user-images.githubusercontent.com/26552500/106635901-f952c780-6546-11eb-8f58-285945ad8a16.png" alt="image"></p>
-<p>   <img src="https://user-images.githubusercontent.com/26552500/106637534-6fa3f980-6548-11eb-8281-ba4a2cfc4a1d.png" alt="image"></p>
-<blockquote>
-<p>As we increase the sample size by a factor of 4– let’s go from 10 to 40– we should see the sample mean standard deviation getting<br>     cut in half.</p>
-</blockquote>
-<p>   <img src="https://user-images.githubusercontent.com/26552500/106638685-c0682200-6549-11eb-89a2-68d7c9edda90.png" alt="image"></p>
-<blockquote>
-<p>(4) Skewed to the right</p>
-</blockquote>
-<p>   <img src="https://user-images.githubusercontent.com/26552500/106639053-2bb1f400-654a-11eb-9eca-c1a6ede1a112.png" alt="image"></p>
-<ul>
-<li><p>it’s centered in the right place. The mean of both the population and the sample mean distribution is 1.65.</p>
-</li>
-<li><p>the shape here isn’t quite normal</p>
-<p><img src="https://user-images.githubusercontent.com/26552500/106639657-d0343600-654a-11eb-8fcd-f6714b5821c2.png" alt="image"></p>
-</li>
-<li><p>We can increase our sample size even further. There’s 500. It’s a very good approximation</p>
-</li>
-<li><p>we can see that there isn’t much difference between the sample mean distribution and a normal distribution.</p>
-<blockquote>
-<p>(5) Heavy tailed distribution<br><img src="https://user-images.githubusercontent.com/26552500/106640122-4769ca00-654b-11eb-8005-09092465618b.png" alt="image"></p>
-</blockquote>
-</li>
-<li><p>the tails of the distribution are thicker than they would be in a normal distribution. </p>
-</li>
-<li><p>we get a lot of outliers among our data.</p>
-</li>
-</ul>
-<h4 id="5-Sampling-Distribution-of-Test-Statics-T-Test"><a href="#5-Sampling-Distribution-of-Test-Statics-T-Test" class="headerlink" title="5. Sampling Distribution of Test Statics (T-Test)"></a>5. Sampling Distribution of Test Statics (T-Test)</h4><figure class="highlight r"><table><tr><td class="code"><pre><span class="line">install.packages(<span class="string">'shiny'</span>) <span class="comment">#only needed the first time</span></span><br><span class="line"><span class="keyword">require</span>(shiny)</span><br><span class="line">runGitHub(<span class="string">'samplingTestStat'</span>,<span class="string">'DataScienceUWL'</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-images.githubusercontent.com/26552500/106790233-e14b7880-6618-11eb-99aa-dce49dc6fb96.png" alt="image"></p>
-<h4 id="6-Confidence-Interval"><a href="#6-Confidence-Interval" class="headerlink" title="6. Confidence Interval"></a>6. Confidence Interval</h4><ul>
-<li><p>A confidence interval estimates a population parameter, such as the mean, while accounting for uncertainty.<br>(신뢰 구간은 평균과 같은 모집단 모수를 추정하면서 불확실성을 설명)</p>
-</li>
-<li><p>Link: <a href="http://www.rossmanchance.com/applets/ConfSim.html" target="_blank" rel="noopener">http://www.rossmanchance.com/applets/ConfSim.html</a></p>
-</li>
-<li><p>Quiz</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Using the HealthExam data set in the DS705data package, use R to build a</span><br><span class="line">90% CI for the population mean height of women.</span><br><span class="line"></span><br><span class="line">&gt; require(DS705data)</span><br><span class="line">&gt; data(HealthExam)</span><br><span class="line">&gt; hw &lt;- HealthExam$Height[HealthExam$Sex &#x3D;&#x3D; &#39;F&#39;]</span><br><span class="line"></span><br><span class="line"># Answer: (62.5, 63.9)</span><br><span class="line"># Feedback: t.test(hw,conf.level&#x3D;.9)$conf.int</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h4 id="7-What-is-a-Hypothesis-Test"><a href="#7-What-is-a-Hypothesis-Test" class="headerlink" title="7. What is a Hypothesis Test?"></a>7. What is a Hypothesis Test?</h4><ul>
-<li>Null Hypothesis<blockquote>
-<p>H0 : random variation only</p>
-</blockquote>
-</li>
-<li>Alternative Hypothesis<blockquote>
-<p>Ha : there is a real effect</p>
-</blockquote>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Statistics</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Regular Express</title>
-    <url>/2020/08/27/Regular-Express/</url>
-    <content><![CDATA[<h3 id="1-Regular-expressions"><a href="#1-Regular-expressions" class="headerlink" title="1. Regular expressions"></a>1. Regular expressions</h3><h4 id="Regular-expressions-are-one-of-the-ways-to-process-character-strings-and-are-a-means-to-make-the-process-of’searching’-or’substituting’-characters-in-a-specific-condition-very-simple"><a href="#Regular-expressions-are-one-of-the-ways-to-process-character-strings-and-are-a-means-to-make-the-process-of’searching’-or’substituting’-characters-in-a-specific-condition-very-simple" class="headerlink" title="Regular expressions are one of the ways to process character strings and are a means to make the process of’searching’ or’substituting’ characters in a specific condition very simple."></a>Regular expressions are one of the ways to process character strings and are a means to make the process of’searching’ or’substituting’ characters in a specific condition very simple.</h4><h3 id="2-Term"><a href="#2-Term" class="headerlink" title="2. Term"></a>2. Term</h3><ul>
-<li><p>^x : x 문자로 시작 </p>
-</li>
-<li><p>x$ : x 문자로 종료</p>
-</li>
-<li><p>.x : 임의의 한 문자의 자리수를 표현하며 문자열이 x 로 끝남</p>
-</li>
-<li><p>x+ : x 문자가 1개 이상</p>
-</li>
-<li><p>x? : x 문자가 0개 ~1개</p>
-</li>
-<li><p>x* : x 문자가 0개 ~ 여러개</p>
-</li>
-<li><p>x|y : or 를 표현하며 x 또는 y 문자<br><img src="https://user-images.githubusercontent.com/26552500/91465533-82a4f600-e853-11ea-88cb-add460b6ba36.png" alt="image"></p>
-</li>
-</ul>
-<ul>
-<li>(x) :그룹을 표현하며 x 를 그룹으로 처리<br><img src="https://user-images.githubusercontent.com/26552500/91465533-82a4f600-e853-11ea-88cb-add460b6ba36.png" alt="image"></li>
-</ul>
-<ul>
-<li><p>(x)(y):x 그룹을 찾고 그 뒤에 있는 y값을 찾음<br><img src="https://user-images.githubusercontent.com/26552500/91466181-5d64b780-e854-11ea-876a-48a7e5cacfa9.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91466400-ad437e80-e854-11ea-8fa8-f2841802c0c3.png" alt="image"></p>
-</li>
-<li><p>x.?? : 앞에 있는 ?의 최소값인 0개로 검색 (? lazy)<br><img src="https://user-images.githubusercontent.com/26552500/91467435-30b19f80-e856-11ea-829e-7bf085ef9c8d.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91467497-445d0600-e856-11ea-9b83-f4357fa81e20.png" alt="image"></p>
-</li>
-<li><p>x.+? : 앞에 있는 +의 최소값인 1개로 검색 (? lazy)<br><img src="https://user-images.githubusercontent.com/26552500/91467651-779f9500-e856-11ea-9efc-067cb69f1f10.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91467705-8c7c2880-e856-11ea-958f-0152cf944e4c.png" alt="image"></p>
-</li>
-<li><p>x+(?=y) : 끝이 y로 끝나는 x를 검색<br><img src="https://user-images.githubusercontent.com/26552500/91468977-635c9780-e858-11ea-9603-74372293e2d5.png" alt="image"><br><img src="https://user-images.githubusercontent.com/26552500/91469039-7a02ee80-e858-11ea-8e62-693e414dcf77.png" alt="image"></p>
-</li>
-</ul>
-<h3 id="3-Example"><a href="#3-Example" class="headerlink" title="3. Example"></a>3. Example</h3><ul>
-<li><p>전화번호 : ([\d]{3}) \d{3}-\d{4}  </p>
-<pre><code>\([0-9]{3}\) [0-9]{3}-[0-9]{4}</code></pre><p><img src="https://user-images.githubusercontent.com/26552500/91470069-d87c9c80-e859-11ea-8076-6aadd25d4334.png" alt="image"></p>
-</li>
-<li><p>전화번호 (중간에 8또는 1 제외): [^8|^1][0-9]{2}-[0-9]{4}<br><img src="https://user-images.githubusercontent.com/26552500/91471001-0f9f7d80-e85b-11ea-80fd-0d6d374ab14f.png" alt="image"></p>
-</li>
-</ul>
-<h3 id="4-Test-site"><a href="#4-Test-site" class="headerlink" title="4. Test site"></a>4. Test site</h3><p><a href="https://regexr.com/" target="_blank" rel="noopener">https://regexr.com/</a></p>
 ]]></content>
   </entry>
 </search>
