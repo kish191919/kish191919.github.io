@@ -10,19 +10,19 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="ALGORITHM" />
+    <meta name="keywords" content="배열" />
     
-    <meta name="description" content="배열">
+    <meta name="description" content="배열 (Array)1. 배열은 왜 필요할까? 같은 종류의 데이터를 효율적으로 관리하기 위해  같은 종류의 데이터를 순차적으로 저장  장점:  빠른 접근 가능 : 첫 데이터의 위치에서 상재적인 위치로 데이터 접근 (인덱스 번호로 접근)   단점:  데이터 추가&#x2F;삭제의 어려움 : 미리 최대 길이를 지정해야 함  파이썬의 경우에는 리스트가 배열 역할을">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Algorithm_1">
 <meta property="og:url" content="https://kish191919.github.io/2024/01/21/Algorithm_1/index.html">
 <meta property="og:site_name" content="Danny Sweet Home">
-<meta property="og:description" content="배열">
+<meta property="og:description" content="배열 (Array)1. 배열은 왜 필요할까? 같은 종류의 데이터를 효율적으로 관리하기 위해  같은 종류의 데이터를 순차적으로 저장  장점:  빠른 접근 가능 : 첫 데이터의 위치에서 상재적인 위치로 데이터 접근 (인덱스 번호로 접근)   단점:  데이터 추가&#x2F;삭제의 어려움 : 미리 최대 길이를 지정해야 함  파이썬의 경우에는 리스트가 배열 역할을">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-01-22T04:35:15.000Z">
-<meta property="article:modified_time" content="2024-01-22T04:39:44.968Z">
+<meta property="article:modified_time" content="2024-01-23T05:12:02.870Z">
 <meta property="article:author" content="Danny">
-<meta property="article:tag" content="ALGORITHM">
+<meta property="article:tag" content="배열">
 <meta name="twitter:card" content="summary">
     
 
@@ -88,7 +88,7 @@
                                     <a class="main-nav-list-link" href="/">Home</a>
                                 </li>
                             
-                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/">PYTHON</a></li></ul>
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/">PYTHON</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/ALGORITHM/">ALGORITHM</a></li></ul></li></ul>
                                 
                                 <li class="main-nav-list-item" >
                                     <a class="main-nav-list-link" href="/about/index.html">About</a>
@@ -150,7 +150,7 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/PYTHON/">PYTHON</a>
+    <a class="page-title-link" href="/categories/PYTHON/">PYTHON</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/PYTHON/ALGORITHM/">ALGORITHM</a>
     </h1>
 </div>
 
@@ -182,7 +182,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2024/01/21/Algorithm_1/" class="article-date">
-     <time datetime="2024-01-22T04:39:44.968Z" itemprop="dateModified">2024-01-21</time>
+     <time datetime="2024-01-23T05:12:02.870Z" itemprop="dateModified">2024-01-23</time>
   </a>
 </div>
 
@@ -192,7 +192,7 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/ALGORITHM/" rel="tag">ALGORITHM</a>
+        <a class="tag-link-link" href="/tags/%EB%B0%B0%EC%97%B4/" rel="tag">배열</a>
     </div>
 
                 
@@ -209,14 +209,45 @@
 
             
 
-            <h2 id="배열"><a href="#배열" class="headerlink" title="배열"></a>배열</h2>
+            <h2 id="배열-Array"><a href="#배열-Array" class="headerlink" title="배열 (Array)"></a>배열 (Array)</h2><h3 id="1-배열은-왜-필요할까"><a href="#1-배열은-왜-필요할까" class="headerlink" title="1. 배열은 왜 필요할까?"></a>1. 배열은 왜 필요할까?</h3><ul>
+<li><p>같은 종류의 데이터를 효율적으로 관리하기 위해</p>
+</li>
+<li><p>같은 종류의 데이터를 순차적으로 저장</p>
+</li>
+<li><p>장점:</p>
+<ul>
+<li>빠른 접근 가능 : 첫 데이터의 위치에서 상재적인 위치로 데이터 접근 (인덱스 번호로 접근)</li>
+</ul>
+</li>
+<li><p>단점:</p>
+<ul>
+<li>데이터 추가&#x2F;삭제의 어려움 : 미리 최대 길이를 지정해야 함 </li>
+<li>파이썬의 경우에는 리스트가 배열 역할을 하며, 미리 최대 길이를 지정하지 않아도 자동으로 늘어남으로 배열을 이해함에 있어 어려움</li>
+</ul>
+</li>
+<li><p>C 언어 예: 영어 단어 저장</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> * argv[])</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="type">char</span> country[<span class="number">3</span>] = <span class="string">&quot;US&quot;</span>;</span><br><span class="line"><span class="built_in">printf</span> (<span class="string">&quot;%c%c\n&quot;</span>, country[<span class="number">0</span>], country[<span class="number">1</span>]);</span><br><span class="line"><span class="built_in">printf</span> (<span class="string">&quot;%s\n&quot;</span>, country);    </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>파이썬 언어 예: 영어 단어 저장</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">country = <span class="string">&#x27;US&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(country)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="2-파이썬과-배열"><a href="#2-파이썬과-배열" class="headerlink" title="2. 파이썬과 배열"></a>2. 파이썬과 배열</h3><ul>
+<li>파이썬에서는 리스트로 배열 구현 가능<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1차원 배열: 리스트로 구현시</span></span><br><span class="line">data_list = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">data_list</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2차원 배열: 리스트로 구현시</span></span><br><span class="line">data_list = [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br><span class="line">data_list</span><br><span class="line"></span><br><span class="line">[[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br></pre></td></tr></table></figure></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span> (data_list[<span class="number">0</span>])        [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="built_in">print</span> (data_list[<span class="number">0</span>][<span class="number">0</span>])      <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span> (data_list[<span class="number">0</span>][<span class="number">1</span>])      <span class="number">2</span></span><br><span class="line"><span class="built_in">print</span> (data_list[<span class="number">0</span>][<span class="number">2</span>])      <span class="number">3</span></span><br><span class="line"><span class="built_in">print</span> (data_list[<span class="number">1</span>][<span class="number">0</span>])      <span class="number">4</span></span><br><span class="line"><span class="built_in">print</span> (data_list[<span class="number">1</span>][<span class="number">1</span>])      <span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="https://kish191919.github.io/2024/01/21/Algorithm_1/" data-id="clrog0bj10000oss98x9c8uf2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://kish191919.github.io/2024/01/21/Algorithm_1/" data-id="clrpwgj5200018ps97fzma34n" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -288,14 +319,27 @@
         },
         "headline": "Algorithm_1",
         "image": "https://kish191919.github.io",
-        "keywords": "ALGORITHM",
-        "genre": "PYTHON",
+        "keywords": "배열",
+        "genre": "PYTHON ALGORITHM",
         "datePublished": "2024-01-21",
         "dateCreated": "2024-01-21",
-        "dateModified": "2024-01-21",
+        "dateModified": "2024-01-23",
         "url": "https://kish191919.github.io/2024/01/21/Algorithm_1/",
-        "description": "배열",
-        "wordCount": 5
+        "description": "배열 (Array)1. 배열은 왜 필요할까?
+같은 종류의 데이터를 효율적으로 관리하기 위해
+
+같은 종류의 데이터를 순차적으로 저장
+
+장점:
+
+빠른 접근 가능 : 첫 데이터의 위치에서 상재적인 위치로 데이터 접근 (인덱스 번호로 접근)
+
+
+단점:
+
+데이터 추가&#x2F;삭제의 어려움 : 미리 최대 길이를 지정해야 함 
+파이썬의 경우에는 리스트가 배열 역할을 ",
+        "wordCount": 340
     }
 </script>
 
@@ -412,7 +456,7 @@
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/PYTHON/">PYTHON</a></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/PYTHON/">PYTHON</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/PYTHON/ALGORITHM/">ALGORITHM</a></p>
                             <p class="item-title"><a href="/2024/01/21/Algorithm_1/" class="title">Algorithm_1</a></p>
                             <p class="item-date"><time datetime="2024-01-22T04:35:15.000Z" itemprop="datePublished">2024-01-21</time></p>
                         </div>
@@ -447,7 +491,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/">PYTHON</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/">PYTHON</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/ALGORITHM/">ALGORITHM</a><span class="category-list-count">1</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -467,7 +511,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ALGORITHM/" rel="tag">ALGORITHM</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EB%B0%B0%EC%97%B4/" rel="tag">배열</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -477,7 +521,7 @@
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/ALGORITHM/" style="font-size: 10px;">ALGORITHM</a>
+            <a href="/tags/%EB%B0%B0%EC%97%B4/" style="font-size: 10px;">배열</a>
         </div>
     </div>
 
