@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://github.com/kish191919/kish191919.github.io/assets/26552500/b8f10253-85d7-474d-9118-930205f37f3c">
 <meta property="article:published_time" content="2024-01-26T19:54:02.000Z">
-<meta property="article:modified_time" content="2024-01-26T20:14:27.942Z">
+<meta property="article:modified_time" content="2024-01-26T20:16:22.830Z">
 <meta property="article:author" content="Danny">
 <meta property="article:tag" content="알고리즘_복잡도">
 <meta name="twitter:card" content="summary">
@@ -182,7 +182,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2024/01/26/Algorithm_5/" class="article-date">
-     <time datetime="2024-01-26T20:14:27.942Z" itemprop="dateModified">2024-01-26</time>
+     <time datetime="2024-01-26T20:16:22.830Z" itemprop="dateModified">2024-01-26</time>
   </a>
 </div>
 
@@ -253,30 +253,17 @@
 <p>시간 복잡도 계산은 반복문이 핵심 요소임을 인지하고, 계산 표기는 최상, 평균, 최악 중, 최악의 시간인 Big-O 표기법을 중심으로 익히면 됨 </p>
 </blockquote>
 <h3 id="3-대문자-O-표기법"><a href="#3-대문자-O-표기법" class="headerlink" title="3. 대문자 O 표기법"></a>3. 대문자 O 표기법</h3><ul>
-<li><p>빅 오 표기법, Big-O 표기법 이라고도 부름</p>
-</li>
-<li><p>O(입력)<br><img src="https://github.com/kish191919/kish191919.github.io/assets/26552500/b8f10253-85d7-474d-9118-930205f37f3c" alt="image"></p>
-</li>
-<li><p>단순하게 입력 n에 따라, 몇번 실행이 되는지를 계산하면 됩니다.</p>
-<ul>
-<li><strong>표현식에 가장 큰 영향을 미치는 n 의 단위로 표기합니다.</strong></li>
-<li>n이 1이든 100이든, 1000이든, 10000이든 실행을<ul>
-<li>무조건 2회(상수회) 실행한다: O(1) <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> n &gt; <span class="number">10</span>:</span><br><span class="line">     <span class="built_in">print</span>(n)</span><br></pre></td></tr></table></figure></li>
-<li>n에 따라, n번, n + 10 번, 또는 3n + 10 번등 실행한다: O(n) <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">variable = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">    <span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">         <span class="built_in">print</span>(index)</span><br></pre></td></tr></table></figure></li>
-<li>n에 따라, $n^2$번, $n^2$ + 1000 번, 100$n^2$ - 100, 또는 300$n^2$ + 1번등 실행한다: O($n^2$) <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">            variable = <span class="number">1</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">300</span>):</span><br><span class="line">                <span class="keyword">for</span> num <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">                    <span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">                         <span class="built_in">print</span>(index)</span><br><span class="line">       ```    </span><br><span class="line"></span><br><span class="line">&lt;img src=<span class="string">&quot;http://www.fun-coding.org/00_Images/bigo.png&quot;</span> width=<span class="number">400</span>/&gt;</span><br><span class="line"></span><br><span class="line">* 빅 오 입력값 표기 방법</span><br><span class="line">  - 예:</span><br><span class="line">    - 만약 시간 복잡도 함수가 2n^<span class="number">2</span> + 3n 이라면</span><br><span class="line">      - 가장 높은 차수는 2n^<span class="number">2</span></span><br><span class="line">      - 상수는 실제 큰 영향이 없음</span><br><span class="line">      - 결국 빅 오 표기법으로는 O(n^<span class="number">2</span>) (서울부터 부산까지 가는 자동차의 예를 상기)</span><br><span class="line"></span><br><span class="line"><span class="comment">### 4. 실제 알고리즘을 예로 각 알고리즘의 시간 복잡도와 빅 오 표기법 알아보기</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 시간 복잡도 구하기</span></span><br><span class="line">* <span class="number">1</span>부터 n까지의 합을 구하는 알고리즘<span class="number">1</span></span><br><span class="line">  - 입력 n에 따라 덧셈을 n 번 해야 함 (반복문!)</span><br><span class="line">  - 시간 복잡도: n, 빅 오 표기법으로는 **O(n)**</span><br><span class="line">```python</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sum_all</span>(<span class="params">n</span>):</span><br><span class="line">    total = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">        total += num</span><br><span class="line">    <span class="keyword">return</span> total</span><br></pre></td></tr></table></figure></li>
+<li>빅 오 표기법, Big-O 표기법 이라고도 부름</li>
+<li>O(입력)<br><img src="https://github.com/kish191919/kish191919.github.io/assets/26552500/b8f10253-85d7-474d-9118-930205f37f3c" alt="image"></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-
+<img src="http://www.fun-coding.org/00_Images/bigo.png" width=400/>
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="https://kish191919.github.io/2024/01/26/Algorithm_5/" data-id="clrv30d0g00064ps9fb972lzr" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://kish191919.github.io/2024/01/26/Algorithm_5/" data-id="clrv32tzu00067os9f3xqh6eb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -360,7 +347,7 @@
 방법1 : 정수값을 제곱한 값에 다시 루트를 씌우기
 방법2 : 정수가 음수인지 확인해서 음수일 때만 -1을 곱하기
 다양한 알고리즘 중 어느 알고리즘이 더 좋은지를 분석하기 위해, 복잡도를 정의하고 계산",
-        "wordCount": 651
+        "wordCount": 206
     }
 </script>
 
