@@ -10,17 +10,22 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="" />
+    <meta name="keywords" content="알고리즘_복잡도" />
     
-    <meta property="og:type" content="article">
+    <meta name="description" content="알고리즘 복잡도 표현 방법1. 알고리즘 복잡도 계산이 필요한 이유하나의 문제를 푸는 알고리즘은 다양할 수 있음 정수의 절대값 구하기 1, -1 –&gt; 1 방법1 : 정수값을 제곱한 값에 다시 루트를 씌우기 방법2 : 정수가 음수인지 확인해서 음수일 때만 -1을 곱하기 다양한 알고리즘 중 어느 알고리즘이 더 좋은지를 분석하기 위해, 복잡도를 정의하고 계산">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Algorithm_5">
 <meta property="og:url" content="https://kish191919.github.io/2024/01/26/Algorithm_5/index.html">
 <meta property="og:site_name" content="Danny Sweet Home">
+<meta property="og:description" content="알고리즘 복잡도 표현 방법1. 알고리즘 복잡도 계산이 필요한 이유하나의 문제를 푸는 알고리즘은 다양할 수 있음 정수의 절대값 구하기 1, -1 –&gt; 1 방법1 : 정수값을 제곱한 값에 다시 루트를 씌우기 방법2 : 정수가 음수인지 확인해서 음수일 때만 -1을 곱하기 다양한 알고리즘 중 어느 알고리즘이 더 좋은지를 분석하기 위해, 복잡도를 정의하고 계산">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/kish191919/kish191919.github.io/assets/26552500/b8f10253-85d7-474d-9118-930205f37f3c">
 <meta property="article:published_time" content="2024-01-26T19:54:02.000Z">
-<meta property="article:modified_time" content="2024-01-26T19:54:02.337Z">
+<meta property="article:modified_time" content="2024-01-26T20:14:27.942Z">
 <meta property="article:author" content="Danny">
+<meta property="article:tag" content="알고리즘_복잡도">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/kish191919/kish191919.github.io/assets/26552500/b8f10253-85d7-474d-9118-930205f37f3c">
     
 
     
@@ -145,7 +150,7 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    uncategorized
+    <a class="page-title-link" href="/categories/PYTHON/">PYTHON</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/PYTHON/ALGORITHM/">ALGORITHM</a>
     </h1>
 </div>
 
@@ -177,7 +182,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2024/01/26/Algorithm_5/" class="article-date">
-     <time datetime="2024-01-26T19:54:02.337Z" itemprop="dateModified">2024-01-26</time>
+     <time datetime="2024-01-26T20:14:27.942Z" itemprop="dateModified">2024-01-26</time>
   </a>
 </div>
 
@@ -185,6 +190,11 @@
                 
 
                 
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" rel="tag">알고리즘_복잡도</a>
+    </div>
+
                 
 
                 
@@ -199,14 +209,74 @@
 
             
 
-            
+            <h2 id="알고리즘-복잡도-표현-방법"><a href="#알고리즘-복잡도-표현-방법" class="headerlink" title="알고리즘 복잡도 표현 방법"></a>알고리즘 복잡도 표현 방법</h2><h3 id="1-알고리즘-복잡도-계산이-필요한-이유"><a href="#1-알고리즘-복잡도-계산이-필요한-이유" class="headerlink" title="1. 알고리즘 복잡도 계산이 필요한 이유"></a>1. 알고리즘 복잡도 계산이 필요한 이유</h3><h4 id="하나의-문제를-푸는-알고리즘은-다양할-수-있음"><a href="#하나의-문제를-푸는-알고리즘은-다양할-수-있음" class="headerlink" title="하나의 문제를 푸는 알고리즘은 다양할 수 있음"></a>하나의 문제를 푸는 알고리즘은 다양할 수 있음</h4><ul>
+<li>정수의 절대값 구하기<ul>
+<li>1, -1 –&gt; 1</li>
+<li>방법1 : 정수값을 제곱한 값에 다시 루트를 씌우기</li>
+<li>방법2 : 정수가 음수인지 확인해서 음수일 때만 -1을 곱하기<blockquote>
+<p>다양한 알고리즘 중 어느 알고리즘이 더 좋은지를 분석하기 위해, 복잡도를 정의하고 계산함</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-알고리즘-복잡도-계산항목"><a href="#2-알고리즘-복잡도-계산항목" class="headerlink" title="2. 알고리즘 복잡도 계산항목"></a>2. 알고리즘 복잡도 계산항목</h3><ol>
+<li><strong>시간 복잡도</strong> : 알고리즘 실행 속도</li>
+<li><strong>공간 복잡도</strong> : 알고리즘이 사용하는 메모리 사이즈<blockquote>
+<p>가장 중요한 시간 복잡도를 꼭 이해하고 계산할 수 있어야 함</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="알고리즘-시간-복잡도의-주요-요소"><a href="#알고리즘-시간-복잡도의-주요-요소" class="headerlink" title="알고리즘 시간 복잡도의 주요 요소"></a>알고리즘 시간 복잡도의 주요 요소</h3><blockquote>
+<p>반복문이 지배함<br>입력의 크기가 커지면 커질수록 반복문의 알고리즘 수행시간을 지배함</p>
+</blockquote>
+<h3 id="알고리즘-성능-표기법"><a href="#알고리즘-성능-표기법" class="headerlink" title="알고리즘 성능 표기법"></a>알고리즘 성능 표기법</h3><ul>
+<li><p>Big O (빅-오) 표기법: O(N)</p>
+<ul>
+<li>알고리즘 최악의 실행 시간을 표기</li>
+<li><strong>가장 많이&#x2F;일반적으로 사용함</strong></li>
+<li><strong>아무리 최악의 상황이라도, 이정도의 성능은 보장한다는 의미이기 때문</strong></li>
+</ul>
+</li>
+<li><p>Ω (오메가) 표기법:  Ω(N)</p>
+<ul>
+<li>오메가 표기법은 알고리즘 최상의 실행 시간을 표기</li>
+</ul>
+</li>
+<li><p>Θ (세타) 표기법: Θ(N)</p>
+<ul>
+<li>세타 표기법은 알고리즘 평균 실행 시간을 표기</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>시간 복잡도 계산은 반복문이 핵심 요소임을 인지하고, 계산 표기는 최상, 평균, 최악 중, 최악의 시간인 Big-O 표기법을 중심으로 익히면 됨 </p>
+</blockquote>
+<h3 id="3-대문자-O-표기법"><a href="#3-대문자-O-표기법" class="headerlink" title="3. 대문자 O 표기법"></a>3. 대문자 O 표기법</h3><ul>
+<li><p>빅 오 표기법, Big-O 표기법 이라고도 부름</p>
+</li>
+<li><p>O(입력)<br><img src="https://github.com/kish191919/kish191919.github.io/assets/26552500/b8f10253-85d7-474d-9118-930205f37f3c" alt="image"></p>
+</li>
+<li><p>단순하게 입력 n에 따라, 몇번 실행이 되는지를 계산하면 됩니다.</p>
+<ul>
+<li><strong>표현식에 가장 큰 영향을 미치는 n 의 단위로 표기합니다.</strong></li>
+<li>n이 1이든 100이든, 1000이든, 10000이든 실행을<ul>
+<li>무조건 2회(상수회) 실행한다: O(1) <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> n &gt; <span class="number">10</span>:</span><br><span class="line">     <span class="built_in">print</span>(n)</span><br></pre></td></tr></table></figure></li>
+<li>n에 따라, n번, n + 10 번, 또는 3n + 10 번등 실행한다: O(n) <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">variable = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">    <span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">         <span class="built_in">print</span>(index)</span><br></pre></td></tr></table></figure></li>
+<li>n에 따라, $n^2$번, $n^2$ + 1000 번, 100$n^2$ - 100, 또는 300$n^2$ + 1번등 실행한다: O($n^2$) <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">            variable = <span class="number">1</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">300</span>):</span><br><span class="line">                <span class="keyword">for</span> num <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">                    <span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">                         <span class="built_in">print</span>(index)</span><br><span class="line">       ```    </span><br><span class="line"></span><br><span class="line">&lt;img src=<span class="string">&quot;http://www.fun-coding.org/00_Images/bigo.png&quot;</span> width=<span class="number">400</span>/&gt;</span><br><span class="line"></span><br><span class="line">* 빅 오 입력값 표기 방법</span><br><span class="line">  - 예:</span><br><span class="line">    - 만약 시간 복잡도 함수가 2n^<span class="number">2</span> + 3n 이라면</span><br><span class="line">      - 가장 높은 차수는 2n^<span class="number">2</span></span><br><span class="line">      - 상수는 실제 큰 영향이 없음</span><br><span class="line">      - 결국 빅 오 표기법으로는 O(n^<span class="number">2</span>) (서울부터 부산까지 가는 자동차의 예를 상기)</span><br><span class="line"></span><br><span class="line"><span class="comment">### 4. 실제 알고리즘을 예로 각 알고리즘의 시간 복잡도와 빅 오 표기법 알아보기</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 시간 복잡도 구하기</span></span><br><span class="line">* <span class="number">1</span>부터 n까지의 합을 구하는 알고리즘<span class="number">1</span></span><br><span class="line">  - 입력 n에 따라 덧셈을 n 번 해야 함 (반복문!)</span><br><span class="line">  - 시간 복잡도: n, 빅 오 표기법으로는 **O(n)**</span><br><span class="line">```python</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sum_all</span>(<span class="params">n</span>):</span><br><span class="line">    total = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">        total += num</span><br><span class="line">    <span class="keyword">return</span> total</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="https://kish191919.github.io/2024/01/26/Algorithm_5/" data-id="clrv2cblx0006vss92daa5e83" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://kish191919.github.io/2024/01/26/Algorithm_5/" data-id="clrv30d0g00064ps9fb972lzr" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -277,15 +347,20 @@
             "name": "Danny"
         },
         "headline": "Algorithm_5",
-        "image": "https://kish191919.github.io",
-        "keywords": "",
-        "genre": "",
+        "image": "https://kish191919.github.iohttps://github.com/kish191919/kish191919.github.io/assets/26552500/b8f10253-85d7-474d-9118-930205f37f3c",
+        "keywords": "알고리즘_복잡도",
+        "genre": "PYTHON ALGORITHM",
         "datePublished": "2024-01-26",
         "dateCreated": "2024-01-26",
         "dateModified": "2024-01-26",
         "url": "https://kish191919.github.io/2024/01/26/Algorithm_5/",
-        "description": "",
-        "wordCount": 1
+        "description": "알고리즘 복잡도 표현 방법1. 알고리즘 복잡도 계산이 필요한 이유하나의 문제를 푸는 알고리즘은 다양할 수 있음
+정수의 절대값 구하기
+1, -1 –&gt; 1
+방법1 : 정수값을 제곱한 값에 다시 루트를 씌우기
+방법2 : 정수가 음수인지 확인해서 음수일 때만 -1을 곱하기
+다양한 알고리즘 중 어느 알고리즘이 더 좋은지를 분석하기 위해, 복잡도를 정의하고 계산",
+        "wordCount": 651
     }
 </script>
 
@@ -354,7 +429,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/">PYTHON</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/ALGORITHM/">ALGORITHM</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/CODING/">CODING</a><span class="category-list-count">4</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/">PYTHON</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/ALGORITHM/">ALGORITHM</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/CODING/">CODING</a><span class="category-list-count">4</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -374,7 +449,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/" rel="tag">Linked_List</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/" rel="tag">Queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quiz/" rel="tag">Quiz</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/" rel="tag">Stack</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/" rel="tag">Linked_List</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/" rel="tag">Queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quiz/" rel="tag">Quiz</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/" rel="tag">Stack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" rel="tag">알고리즘_복잡도</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -384,7 +459,7 @@
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Linked-List/" style="font-size: 20px;">Linked_List</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Quiz/" style="font-size: 10px;">Quiz</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a>
+            <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Linked-List/" style="font-size: 20px;">Linked_List</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Quiz/" style="font-size: 10px;">Quiz</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" style="font-size: 10px;">알고리즘_복잡도</a>
         </div>
     </div>
 
