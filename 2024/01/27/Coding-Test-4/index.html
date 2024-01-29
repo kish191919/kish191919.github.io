@@ -10,22 +10,22 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="Hash" />
+    <meta name="keywords" content="Greedy" />
     
-    <meta name="description" content="705. Design HashSetLink : https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;design-hashset&#x2F;  Design a HashSet without using any built-in hash table libraries.Implement MyHashSet class:   void add(key) Inserts the value k">
+    <meta name="description" content="2160. Minimum Sum of Four Digit Number After Splitting DigitsLink : https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;minimum-sum-of-four-digit-number-after-splitting-digits&#x2F;  You are given a positive integer num consist">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Coding_Test_4">
 <meta property="og:url" content="https://kish191919.github.io/2024/01/27/Coding-Test-4/index.html">
 <meta property="og:site_name" content="Danny Sweet Home">
-<meta property="og:description" content="705. Design HashSetLink : https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;design-hashset&#x2F;  Design a HashSet without using any built-in hash table libraries.Implement MyHashSet class:   void add(key) Inserts the value k">
+<meta property="og:description" content="2160. Minimum Sum of Four Digit Number After Splitting DigitsLink : https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;minimum-sum-of-four-digit-number-after-splitting-digits&#x2F;  You are given a positive integer num consist">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://github.com/kish191919/Python_Project/assets/26552500/c78a89b9-fa7b-4985-996e-c80fe5fe1e81">
+<meta property="og:image" content="https://github.com/ndb796/Fast_Campus_Algorithm_Lecture_Notes/assets/26552500/f5dcf15d-4fa9-4b99-abb5-3aab6797e0e4">
 <meta property="article:published_time" content="2024-01-28T04:49:57.000Z">
-<meta property="article:modified_time" content="2024-01-28T05:13:26.091Z">
+<meta property="article:modified_time" content="2024-01-29T03:32:42.424Z">
 <meta property="article:author" content="Danny">
-<meta property="article:tag" content="Hash">
+<meta property="article:tag" content="Greedy">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://github.com/kish191919/Python_Project/assets/26552500/c78a89b9-fa7b-4985-996e-c80fe5fe1e81">
+<meta name="twitter:image" content="https://github.com/ndb796/Fast_Campus_Algorithm_Lecture_Notes/assets/26552500/f5dcf15d-4fa9-4b99-abb5-3aab6797e0e4">
     
 
     
@@ -182,7 +182,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2024/01/27/Coding-Test-4/" class="article-date">
-     <time datetime="2024-01-28T05:13:26.091Z" itemprop="dateModified">2024-01-28</time>
+     <time datetime="2024-01-29T03:32:42.424Z" itemprop="dateModified">2024-01-28</time>
   </a>
 </div>
 
@@ -192,7 +192,7 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/Hash/" rel="tag">Hash</a>
+        <a class="tag-link-link" href="/tags/Greedy/" rel="tag">Greedy</a>
     </div>
 
                 
@@ -209,24 +209,22 @@
 
             
 
-            <h3 id="705-Design-HashSet"><a href="#705-Design-HashSet" class="headerlink" title="705. Design HashSet"></a>705. Design HashSet</h3><p>Link : <a target="_blank" rel="noopener" href="https://leetcode.com/problems/design-hashset/">https://leetcode.com/problems/design-hashset/</a></p>
+            <h3 id="2160-Minimum-Sum-of-Four-Digit-Number-After-Splitting-Digits"><a href="#2160-Minimum-Sum-of-Four-Digit-Number-After-Splitting-Digits" class="headerlink" title="2160. Minimum Sum of Four Digit Number After Splitting Digits"></a>2160. Minimum Sum of Four Digit Number After Splitting Digits</h3><p>Link : <a target="_blank" rel="noopener" href="https://leetcode.com/problems/minimum-sum-of-four-digit-number-after-splitting-digits/">https://leetcode.com/problems/minimum-sum-of-four-digit-number-after-splitting-digits/</a></p>
 <blockquote>
-<p>Design a HashSet without using any built-in hash table libraries.<br>Implement MyHashSet class:</p>
+<p>You are given a positive integer num consisting of exactly four digits. Split num into two new integers new1 and new2 by using the digits found in num. Leading zeros are allowed in new1 and new2, and all the digits found in num must be used.</p>
 </blockquote>
-<ul>
-<li>void add(key) Inserts the value key into the HashSet.</li>
-<li>bool contains(key) Returns whether the value key exists in the HashSet or not.</li>
-<li>void remove(key) Removes the value key in the HashSet. If key does not exist in the HashSet, do nothing.</li>
-</ul>
-<p><img src="https://github.com/kish191919/Python_Project/assets/26552500/c78a89b9-fa7b-4985-996e-c80fe5fe1e81" alt="image"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyHashSet</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.size = <span class="number">10000</span></span><br><span class="line">        self.buckets = [[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(self.size)]</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">self, key: <span class="built_in">int</span></span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        bucket, idx = self._index(key)</span><br><span class="line">        <span class="keyword">if</span> idx &gt;= <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> </span><br><span class="line">        bucket.append(key) </span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">remove</span>(<span class="params">self, key: <span class="built_in">int</span></span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        bucket, idx = self._index(key)</span><br><span class="line">        <span class="keyword">if</span> idx &lt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> </span><br><span class="line">        bucket.remove(key)</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">contains</span>(<span class="params">self, key: <span class="built_in">int</span></span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">        _, idx = self._index(key)</span><br><span class="line">        <span class="keyword">return</span> idx &gt;= <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_hash</span>(<span class="params">self, key</span>):</span><br><span class="line">        <span class="keyword">return</span> key % self.size</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_index</span>(<span class="params">self, key</span>):</span><br><span class="line">        <span class="built_in">hash</span> = self._<span class="built_in">hash</span>(key)</span><br><span class="line">        bucket = self.buckets[<span class="built_in">hash</span>]</span><br><span class="line">        <span class="keyword">for</span> i, k <span class="keyword">in</span> <span class="built_in">enumerate</span>(bucket):</span><br><span class="line">            <span class="keyword">if</span> k == key:</span><br><span class="line">                <span class="keyword">return</span> bucket, i</span><br><span class="line">        <span class="keyword">return</span> bucket, -<span class="number">1</span></span><br><span class="line"></span><br><span class="line">*MyHashSet 클래스를 정의합니다.</span><br><span class="line">*클래스 생성자 __init__에서는 해시 테이블의 크기를 <span class="number">10</span>,<span class="number">000</span>으로 설정하고, 빈 버킷(해시 테이블의 각 슬롯)으로 초기화합니다.</span><br><span class="line">*add 메서드는 주어진 key 값을 해시 함수를 사용하여 해시 테이블에 삽입합니다. 이미 같은 key 값이 존재하는 경우 아무 동작도 하지 않습니다.</span><br><span class="line">*remove 메서드는 주어진 key 값을 해시 함수를 사용하여 해시 테이블에서 제거합니다. key 값이 존재하지 않는 경우 아무 동작도 하지 않습니다.</span><br><span class="line">*contains 메서드는 주어진 key 값을 해시 함수를 사용하여 해시 테이블에서 찾아내며, 존재 여부를 확인하여 <span class="literal">True</span> 또는 <span class="literal">False</span>를 반환합니다.</span><br><span class="line">*_<span class="built_in">hash</span> 메서드는 key 값을 해시 테이블의 크기로 나눈 나머지를 반환하는 간단한 해시 함수를 정의합니다.</span><br><span class="line">*_index 메서드는 주어진 key 값의 해시 주소를 계산하고, 해당 버킷(슬롯)에 저장된 값을 검사하여 key 값이 존재하는 경우 인덱스를 반환하고, 존재하지 않는 경우 -<span class="number">1</span>을 반환합니다.</span><br><span class="line">*이 클래스는 중복된 값을 허용하지 않는 해시셋을 구현하는데 사용될 수 있으며, 각 key 값이 해시 테이블의 어느 버킷에 저장되는지는 _<span class="built_in">hash</span> 메서드를 통해 결정됩니다.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>For example, given num &#x3D; 2932, you have the following digits: two 2’s, one 9 and one 3. Some of the possible pairs [new1, new2] are [22, 93], [23, 92], [223, 9] and [2, 329].<br>Return the minimum possible sum of new1 and new2.</p>
+</blockquote>
+<p><img src="https://github.com/ndb796/Fast_Campus_Algorithm_Lecture_Notes/assets/26552500/f5dcf15d-4fa9-4b99-abb5-3aab6797e0e4" alt="image"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="https://kish191919.github.io/2024/01/27/Coding-Test-4/" data-id="clrx1pec6001sv2s94subblug" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://kish191919.github.io/2024/01/27/Coding-Test-4/" data-id="clrydlrn0000l5is9frb9ex6r" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -297,20 +295,17 @@
             "name": "Danny"
         },
         "headline": "Coding_Test_4",
-        "image": "https://kish191919.github.iohttps://github.com/kish191919/Python_Project/assets/26552500/c78a89b9-fa7b-4985-996e-c80fe5fe1e81",
-        "keywords": "Hash",
+        "image": "https://kish191919.github.iohttps://github.com/ndb796/Fast_Campus_Algorithm_Lecture_Notes/assets/26552500/f5dcf15d-4fa9-4b99-abb5-3aab6797e0e4",
+        "keywords": "Greedy",
         "genre": "PYTHON CODING",
         "datePublished": "2024-01-27",
         "dateCreated": "2024-01-27",
         "dateModified": "2024-01-28",
         "url": "https://kish191919.github.io/2024/01/27/Coding-Test-4/",
-        "description": "705. Design HashSetLink : https://leetcode.com/problems/design-hashset/
+        "description": "2160. Minimum Sum of Four Digit Number After Splitting DigitsLink : https://leetcode.com/problems/minimum-sum-of-four-digit-number-after-splitting-digits/
 
-Design a HashSet without using any built-in hash table libraries.Implement MyHashSet class:
-
-
-void add(key) Inserts the value k",
-        "wordCount": 627
+You are given a positive integer num consist",
+        "wordCount": 121
     }
 </script>
 
@@ -399,7 +394,7 @@ void add(key) Inserts the value k",
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash/" rel="tag">Hash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash-Table/" rel="tag">Hash_Table</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/" rel="tag">Linked_List</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/" rel="tag">Queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quiz/" rel="tag">Quiz</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/" rel="tag">Stack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" rel="tag">알고리즘_복잡도</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy/" rel="tag">Greedy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash-Table/" rel="tag">Hash_Table</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/" rel="tag">Linked_List</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/" rel="tag">Queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quiz/" rel="tag">Quiz</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/" rel="tag">Stack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" rel="tag">알고리즘_복잡도</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -409,7 +404,7 @@ void add(key) Inserts the value k",
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Hash/" style="font-size: 10px;">Hash</a> <a href="/tags/Hash-Table/" style="font-size: 10px;">Hash_Table</a> <a href="/tags/Linked-List/" style="font-size: 20px;">Linked_List</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Quiz/" style="font-size: 10px;">Quiz</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" style="font-size: 10px;">알고리즘_복잡도</a>
+            <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Greedy/" style="font-size: 10px;">Greedy</a> <a href="/tags/Hash-Table/" style="font-size: 10px;">Hash_Table</a> <a href="/tags/Linked-List/" style="font-size: 20px;">Linked_List</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Quiz/" style="font-size: 10px;">Quiz</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" style="font-size: 10px;">알고리즘_복잡도</a>
         </div>
     </div>
 
