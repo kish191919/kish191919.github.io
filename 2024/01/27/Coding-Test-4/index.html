@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://github.com/ndb796/Fast_Campus_Algorithm_Lecture_Notes/assets/26552500/f5dcf15d-4fa9-4b99-abb5-3aab6797e0e4">
 <meta property="article:published_time" content="2024-01-28T04:49:57.000Z">
-<meta property="article:modified_time" content="2024-01-30T18:46:23.556Z">
+<meta property="article:modified_time" content="2024-01-30T21:14:40.587Z">
 <meta property="article:author" content="Danny">
 <meta property="article:tag" content="Greedy">
 <meta name="twitter:card" content="summary">
@@ -182,7 +182,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2024/01/27/Coding-Test-4/" class="article-date">
-     <time datetime="2024-01-30T18:46:23.556Z" itemprop="dateModified">2024-01-30</time>
+     <time datetime="2024-01-30T21:14:40.587Z" itemprop="dateModified">2024-01-30</time>
   </a>
 </div>
 
@@ -247,6 +247,17 @@
 <p>Select an element m from nums.<br>Remove the selected element m from the array.<br>Add a new element with a value of m + 1 to the array.<br>Increase your score by m.<br>Return the maximum score you can achieve after performing the operation exactly k times.</p>
 </blockquote>
 <p><img src="https://github.com/kish191919/Python_Project/assets/26552500/ceba5825-c0ea-49ff-9dc8-deb9b5161ad5" alt="image"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">maximizeSum</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>], k: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        sums = <span class="built_in">max</span>(nums)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(sums+<span class="number">1</span>, sums+k):</span><br><span class="line">            sums += i</span><br><span class="line">        <span class="keyword">return</span> sums</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">maximizeSum</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>], k: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        max_num = <span class="built_in">max</span>(nums)</span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(k):</span><br><span class="line">            ans += max_num</span><br><span class="line">            max_num += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
+
+<h3 id="2697-Lexicographically-Smallest-Palindrome"><a href="#2697-Lexicographically-Smallest-Palindrome" class="headerlink" title="2697. Lexicographically Smallest Palindrome"></a>2697. Lexicographically Smallest Palindrome</h3><p>Link : <a target="_blank" rel="noopener" href="https://leetcode.com/problems/lexicographically-smallest-palindrome/">https://leetcode.com/problems/lexicographically-smallest-palindrome/</a></p>
+<blockquote>
+<p>You are given a string s consisting of lowercase English letters, and you are allowed to perform operations on it. In one operation, you can replace a character in s with another lowercase English letter.<br>Your task is to make s a palindrome with the minimum number of operations possible. If there are multiple palindromes that can be made using the minimum number of operations, make the lexicographically smallest one.<br>A string a is lexicographically smaller than a string b (of the same length) if in the first position where a and b differ, string a has a letter that appears earlier in the alphabet than the corresponding letter in b.<br>Return the resulting palindrome string.</p>
+</blockquote>
+<p><img src="https://github.com/kish191919/Python_Project/assets/26552500/7ff8b007-5d23-4e2b-a648-f1ce85ce6e74" alt="image"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">makeSmallestPalindrome</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">        result = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">min</span>, <span class="built_in">zip</span>(s, s[::-<span class="number">1</span>])))</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;&#x27;</span>.join(result)</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
         </div>
         <footer class="article-footer">
@@ -254,7 +265,7 @@
 
 
 
-    <a data-url="https://kish191919.github.io/2024/01/27/Coding-Test-4/" data-id="cls0pmjg1001t0ss944zc6rrn" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://kish191919.github.io/2024/01/27/Coding-Test-4/" data-id="cls0ux86y000ljfs97od3d52r" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -335,7 +346,7 @@
         "description": "2160. Minimum Sum of Four Digit Number After Splitting DigitsLink : https://leetcode.com/problems/minimum-sum-of-four-digit-number-after-splitting-digits/
 
 You are given a positive integer num consist",
-        "wordCount": 1225
+        "wordCount": 1619
     }
 </script>
 
