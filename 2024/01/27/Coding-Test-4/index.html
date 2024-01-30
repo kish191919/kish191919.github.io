@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://github.com/ndb796/Fast_Campus_Algorithm_Lecture_Notes/assets/26552500/f5dcf15d-4fa9-4b99-abb5-3aab6797e0e4">
 <meta property="article:published_time" content="2024-01-28T04:49:57.000Z">
-<meta property="article:modified_time" content="2024-01-30T02:16:28.304Z">
+<meta property="article:modified_time" content="2024-01-30T13:16:06.799Z">
 <meta property="article:author" content="Danny">
 <meta property="article:tag" content="Greedy">
 <meta name="twitter:card" content="summary">
@@ -182,7 +182,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2024/01/27/Coding-Test-4/" class="article-date">
-     <time datetime="2024-01-30T02:16:28.304Z" itemprop="dateModified">2024-01-29</time>
+     <time datetime="2024-01-30T13:16:06.799Z" itemprop="dateModified">2024-01-30</time>
   </a>
 </div>
 
@@ -217,14 +217,25 @@
 <p>For example, given num &#x3D; 2932, you have the following digits: two 2’s, one 9 and one 3. Some of the possible pairs [new1, new2] are [22, 93], [23, 92], [223, 9] and [2, 329].<br>Return the minimum possible sum of new1 and new2.</p>
 </blockquote>
 <p><img src="https://github.com/ndb796/Fast_Campus_Algorithm_Lecture_Notes/assets/26552500/f5dcf15d-4fa9-4b99-abb5-3aab6797e0e4" alt="image"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">minimumSum</span>(<span class="params">self, num: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        num = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">sorted</span>(<span class="built_in">str</span>(num), reverse=<span class="literal">True</span>)))</span><br><span class="line">        <span class="keyword">return</span> num[<span class="number">0</span>]+num[<span class="number">1</span>]+ num[<span class="number">2</span>]*<span class="number">10</span> + num[<span class="number">3</span>]*<span class="number">10</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">minimumSum</span>(<span class="params">self, num: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        num = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">sorted</span>(<span class="built_in">str</span>(num), reverse=<span class="literal">True</span>)))</span><br><span class="line">        pos = <span class="number">0</span></span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(num)):</span><br><span class="line">            ans += num[i] * <span class="number">10</span>**pos</span><br><span class="line">            <span class="keyword">if</span> i % <span class="number">2</span>:</span><br><span class="line">                pos += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
 
+<h3 id="1221-Split-a-String-in-Balanced-Strings"><a href="#1221-Split-a-String-in-Balanced-Strings" class="headerlink" title="1221. Split a String in Balanced Strings"></a>1221. Split a String in Balanced Strings</h3><p>Link : <a target="_blank" rel="noopener" href="https://leetcode.com/problems/split-a-string-in-balanced-strings/">https://leetcode.com/problems/split-a-string-in-balanced-strings/</a></p>
+<blockquote>
+<p>Balanced strings are those that have an equal quantity of ‘L’ and ‘R’ characters.<br>Given a balanced string s, split it into some number of substrings such that:</p>
+</blockquote>
+<blockquote>
+<p>Each substring is balanced.<br>Return the maximum number of balanced strings you can obtain.</p>
+</blockquote>
+<p><img src="https://github.com/kish191919/Python_Project/assets/26552500/8e6209f3-8af4-4d3a-b742-179ac71c8113" alt="image"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">balancedStringSplit</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        res = cnt = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> s:</span><br><span class="line">            cnt +=<span class="number">1</span> <span class="keyword">if</span> c==<span class="string">&#x27;L&#x27;</span> <span class="keyword">else</span> -<span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> cnt == <span class="number">0</span>:</span><br><span class="line">                res +=<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="https://kish191919.github.io/2024/01/27/Coding-Test-4/" data-id="clrzq9hgy000lkds9dt548671" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://kish191919.github.io/2024/01/27/Coding-Test-4/" data-id="cls0dtrca000l5ws94q5ibmsk" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -300,12 +311,12 @@
         "genre": "PYTHON CODING",
         "datePublished": "2024-01-27",
         "dateCreated": "2024-01-27",
-        "dateModified": "2024-01-29",
+        "dateModified": "2024-01-30",
         "url": "https://kish191919.github.io/2024/01/27/Coding-Test-4/",
         "description": "2160. Minimum Sum of Four Digit Number After Splitting DigitsLink : https://leetcode.com/problems/minimum-sum-of-four-digit-number-after-splitting-digits/
 
 You are given a positive integer num consist",
-        "wordCount": 115
+        "wordCount": 535
     }
 </script>
 
