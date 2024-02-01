@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://github.com/kish191919/Predict_Used_Car_Price_by_Python/assets/26552500/0c5d8c78-fd61-4dab-be8b-f013339d1096">
 <meta property="article:published_time" content="2024-01-31T14:45:57.000Z">
-<meta property="article:modified_time" content="2024-01-31T16:37:54.214Z">
+<meta property="article:modified_time" content="2024-02-01T22:40:07.126Z">
 <meta property="article:author" content="Danny">
 <meta property="article:tag" content="AWS">
 <meta name="twitter:card" content="summary">
@@ -182,7 +182,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2024/01/31/Predicting-Used-Car-Prices-in-VA-1/" class="article-date">
-     <time datetime="2024-01-31T16:37:54.214Z" itemprop="dateModified">2024-01-31</time>
+     <time datetime="2024-02-01T22:40:07.126Z" itemprop="dateModified">2024-02-01</time>
   </a>
 </div>
 
@@ -223,32 +223,41 @@
 <ul>
 <li>우분투에서는 웹사이트에 접속하여 프로그램을 다운 받는 것이 아니라 apt-get과 같은 명령을 이용해 프로그램을 설치하기 때문에 apt get을 업데이트 해야함<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update </span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>(2) python3를 이용해 pip 설치</p>
+<p>(2) 주피터 노트북 설치</p>
 <ul>
-<li>기본적으로 최신 우분투에는 python3가 기본적으로 설치되어 있어서 이를 이용해 pip를 설치가능<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python3-pip</span><br></pre></td></tr></table></figure></li>
+<li><p>아나콘다 다운로드</p>
+</li>
+<li><p>To download the Anaconda distribution to your EC2, copy the “installer” link and run:<br><img src="https://github.com/kish191919/Python_Project/assets/26552500/fd491dc3-589a-43dd-b15b-a7e3109cd0dc" alt="image"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>bash 명령어로 다운받은 파일 실행</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash Anaconda3-2019.03-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>.bashrc 파일에 방금 설치한 아나콘다 path를 넣음<br><img src="https://github.com/kish191919/Python_Project/assets/26552500/12c0f25c-0a9d-4b08-81c2-978ca15d8e52" alt="image"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/home/ubuntu/anaconda3/bin:$PATH</span><br></pre></td></tr></table></figure></li>
+<li><p>bashrc를 다시 실행</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source .bashrc</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>(3) pip를 이용해 주피터 노트북 설치</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip3 install notebook</span><br></pre></td></tr></table></figure>
+<p>(3) 주피터 노트북의 환경설정 파일 생성 및 수정</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 주피터 노트북의 환경설정 파일 생성</span><br><span class="line">jupyter notebook --generate-config</span><br></pre></td></tr></table></figure>
 
-<p>(4) 주피터 비밀번호 설정하기</p>
 <ul>
-<li>아무나 서버에 접속할 수 없도록 하기 위해 주피터 노트북에 비밀번호를 설정<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter server password</span><br></pre></td></tr></table></figure>
-<img width="1033" alt="image" src="https://github.com/kish191919/Predict_Used_Car_Price_by_Python/assets/26552500/ad444d40-2444-4484-8258-16237314c724"></li>
+<li><p>노트북 패스워드 설정</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ipython</span><br><span class="line">        </span><br><span class="line">from IPython.lib import passwd</span><br><span class="line">passwd()                # hash 값은 저장</span><br></pre></td></tr></table></figure>
+<img width="1664" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/541f7976-608c-4163-89d9-9713168c9c7c">
+</li>
+<li><p>주피터 노트북의 환경설정 파일 수정<br>sudo vi &#x2F;home&#x2F;ubuntu&#x2F;.jupyter&#x2F;jupyter_notebook_config.py</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Jupyter_notebook_config.py 파일에 아래 세줄을 추가</span><br><span class="line"></span><br><span class="line">```dtd</span><br><span class="line">conf = get_config()</span><br><span class="line"></span><br><span class="line">conf.NotebookApp.ip = &#x27;0.0.0.0&#x27;</span><br><span class="line">conf.NotebookApp.password = u&#x27;YOUR PASSWORD HASH&#x27;</span><br><span class="line">conf.NotebookApp.port = 8888</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>(5) SSL 적용을위한 키파일 생성<br>아래와 같이 입력해주면 365일 사용이 가능한 cert.pem 파일이 생성됨</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout cert.pem -out cert.pem</span><br></pre></td></tr></table></figure>
-<img width="1327" alt="image" src="https://github.com/kish191919/Predict_Used_Car_Price_by_Python/assets/26552500/fcc1364e-3444-4a80-a883-feea1f084354">
-
-<p>(6) 주피터 노트북의 환경설정 파일 생성 및 수정</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 주피터 노트북의 환경설정 파일 생성</span><br><span class="line">jupyter notebook --generate-config</span><br><span class="line"></span><br><span class="line"># 주피터 노트북의 환경설정 파일 수정</span><br><span class="line">sudo vi /home/ubuntu/.jupyter/jupyter_notebook_config.py</span><br></pre></td></tr></table></figure>
-<p>Jupyter_notebook_config.py 파일에 아래 세줄을 추가</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">c.NotebookApp.ip = &#x27;172.*********&#x27;</span><br><span class="line">c.NotebookApp.open_browser = False</span><br><span class="line">c.NotebookApp.password = &#x27;******************&#x27;</span><br><span class="line">c.NotebookApp.certfile =&#x27;/home/ubuntu/cert.pem&#x27;</span><br></pre></td></tr></table></figure>
-<img width="1461" alt="image" src="https://github.com/kish191919/Predict_Used_Car_Price_by_Python/assets/26552500/2dd98526-d056-445b-8ec2-039da5304ee2">
-
-<p>(7) AWS에서 방화벽 설정 해제</p>
+<p>(4) AWS에서 방화벽 설정 해제</p>
 <ul>
 <li>Security Groups 에서 Inbound rule을 수정<br><img src="https://github.com/kish191919/Predict_Used_Car_Price_by_Python/assets/26552500/0ed1e4cb-99f6-4eae-8d60-6b5cb7f6635d" alt="image"></li>
 </ul>
+<p>(5) 주피터 노트북 실행</p>
+<ul>
+<li>jupyter notebook 명령문으로 실행후 아래 링크로 가서 주피터 노트북이 실행되고 있는지 확인</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># http://(your AWS public dns):8888/</span><br><span class="line"># 예시:</span><br><span class="line">http://ec2-3-80-101-99.compute-1.amazonaws.com:8888/</span><br></pre></td></tr></table></figure>
 
         </div>
         <footer class="article-footer">
@@ -256,7 +265,7 @@
 
 
 
-    <a data-url="https://kish191919.github.io/2024/01/31/Predicting-Used-Car-Prices-in-VA-1/" data-id="cls21e4yt000pals9hr8nd7sg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://kish191919.github.io/2024/01/31/Predicting-Used-Car-Prices-in-VA-1/" data-id="cls3suutz001zazs94cd5fviv" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -332,11 +341,11 @@
         "genre": "PYTHON PROJECT",
         "datePublished": "2024-01-31",
         "dateCreated": "2024-01-31",
-        "dateModified": "2024-01-31",
+        "dateModified": "2024-02-01",
         "url": "https://kish191919.github.io/2024/01/31/Predicting-Used-Car-Prices-in-VA-1/",
         "description": "AWS EC2EC2란 AWS 에서 제공하는 클라우드 컴퓨팅 서비스로, 아마존이 사용자들에게 독립된 컴퓨터를 임대해주는 서비스
 EC2를 사용해 가상 서버를 구축하고, 보안 및 네트워킹을 구성해 보다 빠르게 애플리케이션을 개발하고 배포.인스턴스 유형, 운영체제, 소프트웨어 패키지 등을 선택할 수 있으며, 메모리, CPU, 스토리지, 부팅 파티션 크기 등을 선택",
-        "wordCount": 316
+        "wordCount": 361
     }
 </script>
 
