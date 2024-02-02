@@ -10,7 +10,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="AWS" />
+    <meta name="keywords" content="Used_Car" />
     
     <meta name="description" content="AWS EC2EC2란 AWS 에서 제공하는 클라우드 컴퓨팅 서비스로, 아마존이 사용자들에게 독립된 컴퓨터를 임대해주는 서비스 EC2를 사용해 가상 서버를 구축하고, 보안 및 네트워킹을 구성해 보다 빠르게 애플리케이션을 개발하고 배포.인스턴스 유형, 운영체제, 소프트웨어 패키지 등을 선택할 수 있으며, 메모리, CPU, 스토리지, 부팅 파티션 크기 등을 선택">
 <meta property="og:type" content="article">
@@ -21,9 +21,9 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://github.com/kish191919/Predict_Used_Car_Price_by_Python/assets/26552500/0c5d8c78-fd61-4dab-be8b-f013339d1096">
 <meta property="article:published_time" content="2024-01-31T14:45:57.000Z">
-<meta property="article:modified_time" content="2024-02-01T22:40:07.126Z">
+<meta property="article:modified_time" content="2024-02-02T09:27:51.092Z">
 <meta property="article:author" content="Danny">
-<meta property="article:tag" content="AWS">
+<meta property="article:tag" content="Used_Car">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://github.com/kish191919/Predict_Used_Car_Price_by_Python/assets/26552500/0c5d8c78-fd61-4dab-be8b-f013339d1096">
     
@@ -182,7 +182,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2024/01/31/Predicting-Used-Car-Prices-in-VA-1/" class="article-date">
-     <time datetime="2024-02-01T22:40:07.126Z" itemprop="dateModified">2024-02-01</time>
+     <time datetime="2024-02-02T09:27:51.092Z" itemprop="dateModified">2024-02-02</time>
   </a>
 </div>
 
@@ -192,7 +192,7 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/AWS/" rel="tag">AWS</a>
+        <a class="tag-link-link" href="/tags/Used-Car/" rel="tag">Used_Car</a>
     </div>
 
                 
@@ -216,7 +216,7 @@
 <li>EC2 인스턴스란 가상 컴퓨팅 환경으로 가상 머신을 생성하고 실행하는데 사용된다</li>
 </ul>
 <p>(1) “Launch Instances” 버튼 클릭<br><img src="https://github.com/kish191919/Predict_Used_Car_Price_by_Python/assets/26552500/0c5d8c78-fd61-4dab-be8b-f013339d1096" alt="image"></p>
-<p>(2) “Predict_Used_CAr_Price” 우분투 인스턴스를 생성<br><img src="https://github.com/kish191919/Predict_Used_Car_Price_by_Python/assets/26552500/00fac8cf-1517-40f5-a3e3-8c7d4a404901" alt="image"></p>
+<p>(2) “Used_Car” 우분투 인스턴스를 생성<br><img width="1670" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/6cbf2dbc-8fd3-49fa-af9d-34094d6e392b"></p>
 <p>(3) 클릭 “Connect”<br><img src="https://github.com/kish191919/Predict_Used_Car_Price_by_Python/assets/26552500/135ca0c2-40d0-49da-8aa4-97d80cdfbdea" alt="image"></p>
 <p>(4) Set up SSH Client<br><img width="589" alt="image" src="https://github.com/kish191919/Predict_Used_Car_Price_by_Python/assets/26552500/e7542117-0cc9-4026-a323-27e6e3a11ffc"></p>
 <h3 id="우분투에-Jupyter-notebook-설치"><a href="#우분투에-Jupyter-notebook-설치" class="headerlink" title="우분투에 Jupyter notebook 설치"></a>우분투에 Jupyter notebook 설치</h3><p>(1) apt get업데이트</p>
@@ -247,7 +247,7 @@
 <img width="1664" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/541f7976-608c-4163-89d9-9713168c9c7c">
 </li>
 <li><p>주피터 노트북의 환경설정 파일 수정<br>sudo vi &#x2F;home&#x2F;ubuntu&#x2F;.jupyter&#x2F;jupyter_notebook_config.py</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Jupyter_notebook_config.py 파일에 아래 세줄을 추가</span><br><span class="line"></span><br><span class="line">```dtd</span><br><span class="line">conf = get_config()</span><br><span class="line"></span><br><span class="line">conf.NotebookApp.ip = &#x27;0.0.0.0&#x27;</span><br><span class="line">conf.NotebookApp.password = u&#x27;YOUR PASSWORD HASH&#x27;</span><br><span class="line">conf.NotebookApp.port = 8888</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Jupyter_notebook_config.py 파일에 아래 4줄을 추가</span><br><span class="line"></span><br><span class="line">conf = get_config()</span><br><span class="line">conf.NotebookApp.ip = &#x27;0.0.0.0&#x27;</span><br><span class="line">conf.NotebookApp.password = u&#x27;YOUR PASSWORD HASH&#x27;</span><br><span class="line">conf.NotebookApp.port = 8888</span><br></pre></td></tr></table></figure></li>
 </ul>
 <p>(4) AWS에서 방화벽 설정 해제</p>
 <ul>
@@ -265,7 +265,7 @@
 
 
 
-    <a data-url="https://kish191919.github.io/2024/01/31/Predicting-Used-Car-Prices-in-VA-1/" data-id="cls3suutz001zazs94cd5fviv" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://kish191919.github.io/2024/01/31/Predicting-Used-Car-Prices-in-VA-1/" data-id="cls4fzvoc000q9hs91xzudvqy" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -337,15 +337,15 @@
         },
         "headline": "Predicting Used Car Prices in VA 1",
         "image": "https://kish191919.github.iohttps://github.com/kish191919/Predict_Used_Car_Price_by_Python/assets/26552500/0c5d8c78-fd61-4dab-be8b-f013339d1096",
-        "keywords": "AWS",
+        "keywords": "Used_Car",
         "genre": "PYTHON PROJECT",
         "datePublished": "2024-01-31",
         "dateCreated": "2024-01-31",
-        "dateModified": "2024-02-01",
+        "dateModified": "2024-02-02",
         "url": "https://kish191919.github.io/2024/01/31/Predicting-Used-Car-Prices-in-VA-1/",
         "description": "AWS EC2EC2란 AWS 에서 제공하는 클라우드 컴퓨팅 서비스로, 아마존이 사용자들에게 독립된 컴퓨터를 임대해주는 서비스
 EC2를 사용해 가상 서버를 구축하고, 보안 및 네트워킹을 구성해 보다 빠르게 애플리케이션을 개발하고 배포.인스턴스 유형, 운영체제, 소프트웨어 패키지 등을 선택할 수 있으며, 메모리, CPU, 스토리지, 부팅 파티션 크기 등을 선택",
-        "wordCount": 361
+        "wordCount": 359
     }
 </script>
 
@@ -394,6 +394,16 @@ EC2를 사용해 가상 서버를 구축하고, 보안 및 네트워킹을 구�
         
 <nav id="article-nav">
     
+        <a href="/2024/02/01/Predicting-Used-Car-Prices-in-VA-2/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Predicting Used Car Prices in VA 2
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
     
         <a href="/2024/01/27/Coding-Test-4/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
@@ -414,7 +424,7 @@ EC2를 사용해 가상 서버를 구축하고, 보안 및 네트워킹을 구�
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/">PYTHON</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/ALGORITHM/">ALGORITHM</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/CODING/">CODING</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/PROJECT/">PROJECT</a><span class="category-list-count">1</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/">PYTHON</a><span class="category-list-count">13</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/ALGORITHM/">ALGORITHM</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/CODING/">CODING</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/PROJECT/">PROJECT</a><span class="category-list-count">2</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -424,7 +434,7 @@ EC2를 사용해 가상 서버를 구축하고, 보안 및 네트워킹을 구�
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">12</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">12</span></li></ul>
         </div>
     </div>
 
@@ -434,7 +444,7 @@ EC2를 사용해 가상 서버를 구축하고, 보안 및 네트워킹을 구�
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AWS/" rel="tag">AWS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy/" rel="tag">Greedy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash-Table/" rel="tag">Hash_Table</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/" rel="tag">Linked_List</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/" rel="tag">Queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quiz/" rel="tag">Quiz</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/" rel="tag">Stack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" rel="tag">알고리즘_복잡도</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy/" rel="tag">Greedy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash-Table/" rel="tag">Hash_Table</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/" rel="tag">Linked_List</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/" rel="tag">Queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quiz/" rel="tag">Quiz</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/" rel="tag">Stack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Used-Car/" rel="tag">Used_Car</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" rel="tag">알고리즘_복잡도</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -444,7 +454,7 @@ EC2를 사용해 가상 서버를 구축하고, 보안 및 네트워킹을 구�
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/AWS/" style="font-size: 10px;">AWS</a> <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Greedy/" style="font-size: 10px;">Greedy</a> <a href="/tags/Hash-Table/" style="font-size: 10px;">Hash_Table</a> <a href="/tags/Linked-List/" style="font-size: 20px;">Linked_List</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Quiz/" style="font-size: 10px;">Quiz</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" style="font-size: 10px;">알고리즘_복잡도</a>
+            <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Greedy/" style="font-size: 10px;">Greedy</a> <a href="/tags/Hash-Table/" style="font-size: 10px;">Hash_Table</a> <a href="/tags/Linked-List/" style="font-size: 20px;">Linked_List</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Quiz/" style="font-size: 10px;">Quiz</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Used-Car/" style="font-size: 15px;">Used_Car</a> <a href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" style="font-size: 10px;">알고리즘_복잡도</a>
         </div>
     </div>
 
