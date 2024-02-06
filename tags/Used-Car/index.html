@@ -183,13 +183,10 @@
 MySQL을 설치하려면 터미널 프롬프트에서 다음 명령을 실행
 
 (1) 우분투 서버 업데이트
-1sudo apt-get update
+12sudo apt-get updatesudo apt upgrade
 
-(2) Mysql-server 설치
-1sudo apt install mysql-server
-
-(3) 외부 접속 기능 설정 (포트 3306 오픈)
-12345# 외부 접속 가능sudo ufw all
+(2) Mmysql-server와 mysql-client를 apt로 설치
+1234sudo apt install mysql-server mysql-client# pi
         </p>
     </div>
 </article>
