@@ -12,20 +12,18 @@
     
     <meta name="keywords" content="Greedy" />
     
-    <meta name="description" content="2160. Minimum Sum of Four Digit Number After Splitting DigitsLink : https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;minimum-sum-of-four-digit-number-after-splitting-digits&#x2F;  You are given a positive integer num consist">
+    <meta name="description" content="2160. Minimum Sum of Four Digit Number After Splitting DigitsLink : https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;minimum-sum-of-four-digit-number-after-splitting-digits&#x2F; 1234class Solution:    def minimumSum(self, n">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Coding-Test-4">
 <meta property="og:url" content="https://kish191919.github.io/2024/01/27/Coding-Test-4/index.html">
 <meta property="og:site_name" content="Danny Sweet Home">
-<meta property="og:description" content="2160. Minimum Sum of Four Digit Number After Splitting DigitsLink : https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;minimum-sum-of-four-digit-number-after-splitting-digits&#x2F;  You are given a positive integer num consist">
+<meta property="og:description" content="2160. Minimum Sum of Four Digit Number After Splitting DigitsLink : https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;minimum-sum-of-four-digit-number-after-splitting-digits&#x2F; 1234class Solution:    def minimumSum(self, n">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://github.com/ndb796/Fast_Campus_Algorithm_Lecture_Notes/assets/26552500/f5dcf15d-4fa9-4b99-abb5-3aab6797e0e4">
 <meta property="article:published_time" content="2024-01-28T04:49:57.000Z">
-<meta property="article:modified_time" content="2024-01-30T21:49:01.237Z">
+<meta property="article:modified_time" content="2024-02-07T13:21:40.415Z">
 <meta property="article:author" content="Danny">
 <meta property="article:tag" content="Greedy">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://github.com/ndb796/Fast_Campus_Algorithm_Lecture_Notes/assets/26552500/f5dcf15d-4fa9-4b99-abb5-3aab6797e0e4">
     
 
     
@@ -182,7 +180,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2024/01/27/Coding-Test-4/" class="article-date">
-     <time datetime="2024-01-30T21:49:01.237Z" itemprop="dateModified">2024-01-30</time>
+     <time datetime="2024-02-07T13:21:40.415Z" itemprop="dateModified">2024-02-07</time>
   </a>
 </div>
 
@@ -210,52 +208,26 @@
             
 
             <h3 id="2160-Minimum-Sum-of-Four-Digit-Number-After-Splitting-Digits"><a href="#2160-Minimum-Sum-of-Four-Digit-Number-After-Splitting-Digits" class="headerlink" title="2160. Minimum Sum of Four Digit Number After Splitting Digits"></a>2160. Minimum Sum of Four Digit Number After Splitting Digits</h3><p>Link : <a target="_blank" rel="noopener" href="https://leetcode.com/problems/minimum-sum-of-four-digit-number-after-splitting-digits/">https://leetcode.com/problems/minimum-sum-of-four-digit-number-after-splitting-digits/</a></p>
-<blockquote>
-<p>You are given a positive integer num consisting of exactly four digits. Split num into two new integers new1 and new2 by using the digits found in num. Leading zeros are allowed in new1 and new2, and all the digits found in num must be used.</p>
-</blockquote>
-<blockquote>
-<p>For example, given num &#x3D; 2932, you have the following digits: two 2’s, one 9 and one 3. Some of the possible pairs [new1, new2] are [22, 93], [23, 92], [223, 9] and [2, 329].<br>Return the minimum possible sum of new1 and new2.</p>
-</blockquote>
-<p><img src="https://github.com/ndb796/Fast_Campus_Algorithm_Lecture_Notes/assets/26552500/f5dcf15d-4fa9-4b99-abb5-3aab6797e0e4" alt="image"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">minimumSum</span>(<span class="params">self, num: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        num = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">sorted</span>(<span class="built_in">str</span>(num), reverse=<span class="literal">True</span>)))</span><br><span class="line">        <span class="keyword">return</span> num[<span class="number">0</span>]+num[<span class="number">1</span>]+ num[<span class="number">2</span>]*<span class="number">10</span> + num[<span class="number">3</span>]*<span class="number">10</span></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">minimumSum</span>(<span class="params">self, num: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        num = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">sorted</span>(<span class="built_in">str</span>(num), reverse=<span class="literal">True</span>)))</span><br><span class="line">        pos = <span class="number">0</span></span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(num)):</span><br><span class="line">            ans += num[i] * <span class="number">10</span>**pos</span><br><span class="line">            <span class="keyword">if</span> i % <span class="number">2</span>:</span><br><span class="line">                pos += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
 
 <h3 id="1221-Split-a-String-in-Balanced-Strings"><a href="#1221-Split-a-String-in-Balanced-Strings" class="headerlink" title="1221. Split a String in Balanced Strings"></a>1221. Split a String in Balanced Strings</h3><p>Link : <a target="_blank" rel="noopener" href="https://leetcode.com/problems/split-a-string-in-balanced-strings/">https://leetcode.com/problems/split-a-string-in-balanced-strings/</a></p>
-<blockquote>
-<p>Balanced strings are those that have an equal quantity of ‘L’ and ‘R’ characters.<br>Given a balanced string s, split it into some number of substrings such that:</p>
-</blockquote>
-<blockquote>
-<p>Each substring is balanced.<br>Return the maximum number of balanced strings you can obtain.</p>
-</blockquote>
-<p><img src="https://github.com/kish191919/Python_Project/assets/26552500/8e6209f3-8af4-4d3a-b742-179ac71c8113" alt="image"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">balancedStringSplit</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        res = cnt = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> s:</span><br><span class="line">            cnt += <span class="number">1</span> <span class="keyword">if</span> c ==<span class="string">&#x27;L&#x27;</span> <span class="keyword">else</span> -<span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> cnt == <span class="number">0</span>:            <span class="comment"># res += cnt == 0</span></span><br><span class="line">                res +=<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">balancedStringSplit</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        w_count = l_count = r_count = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> ch <span class="keyword">in</span> s :</span><br><span class="line">            <span class="keyword">if</span> ch == <span class="string">&quot;L&quot;</span>:</span><br><span class="line">                l_count += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                r_count += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> l_count == r_count:</span><br><span class="line">                w_count += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> w_count</span><br></pre></td></tr></table></figure>
 
 <h3 id="1323-Maximum-69-Number"><a href="#1323-Maximum-69-Number" class="headerlink" title="1323. Maximum 69 Number"></a>1323. Maximum 69 Number</h3><p>Link : <a target="_blank" rel="noopener" href="https://leetcode.com/problems/maximum-69-number/">https://leetcode.com/problems/maximum-69-number/</a></p>
-<blockquote>
-<p>You are given a positive integer num consisting only of digits 6 and 9.<br>Return the maximum number you can get by changing at most one digit (6 becomes 9, and 9 becomes 6).</p>
-</blockquote>
-<p><img src="https://github.com/kish191919/Python_Project/assets/26552500/acc87d61-2254-49ca-9de5-d9504833d837" alt="image"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">maximum69Number</span> (self, num: <span class="built_in">int</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        max_num = num</span><br><span class="line">        num = <span class="built_in">list</span>(<span class="built_in">str</span>(num))</span><br><span class="line">        res = <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(num)):</span><br><span class="line">            temp = num.copy()</span><br><span class="line">            <span class="keyword">if</span> temp[i] == <span class="string">&quot;6&quot;</span>:</span><br><span class="line">                temp[i] = <span class="string">&quot;9&quot;</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                temp[i] = <span class="string">&quot;6&quot;</span></span><br><span class="line">            res = <span class="string">&quot;&quot;</span>.join(temp)</span><br><span class="line">            res = <span class="built_in">int</span>(res)</span><br><span class="line">            <span class="keyword">if</span> res &gt; max_num:</span><br><span class="line">                max_num = res</span><br><span class="line">        <span class="keyword">return</span> max_num</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">maximum69Number</span> (self, num: <span class="built_in">int</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">      result = <span class="built_in">str</span>(num).replace(<span class="string">&#x27;6&#x27;</span>,<span class="string">&#x27;9&#x27;</span>, <span class="number">1</span>)         <span class="comment">#  return int(str(num).replace(&#x27;6&#x27;, &#x27;9&#x27;, 1))</span></span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">int</span>(result)</span><br></pre></td></tr></table></figure>
 
 <h3 id="2656-Maximum-Sum-With-Exactly-K-Elements"><a href="#2656-Maximum-Sum-With-Exactly-K-Elements" class="headerlink" title="2656. Maximum Sum With Exactly K Elements"></a>2656. Maximum Sum With Exactly K Elements</h3><p>Link : <a target="_blank" rel="noopener" href="https://leetcode.com/problems/maximum-sum-with-exactly-k-elements/">https://leetcode.com/problems/maximum-sum-with-exactly-k-elements/</a></p>
-<blockquote>
-<p>You are given a 0-indexed integer array nums and an integer k. Your task is to perform the following operation exactly k times in order to maximize your score:</p>
-</blockquote>
-<blockquote>
-<p>Select an element m from nums.<br>Remove the selected element m from the array.<br>Add a new element with a value of m + 1 to the array.<br>Increase your score by m.<br>Return the maximum score you can achieve after performing the operation exactly k times.</p>
-</blockquote>
-<p><img src="https://github.com/kish191919/Python_Project/assets/26552500/ceba5825-c0ea-49ff-9dc8-deb9b5161ad5" alt="image"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">maximizeSum</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>], k: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        sums = <span class="built_in">max</span>(nums)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(sums+<span class="number">1</span>, sums+k):</span><br><span class="line">            sums += i</span><br><span class="line">        <span class="keyword">return</span> sums</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">maximizeSum</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>], k: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        max_num = <span class="built_in">max</span>(nums)</span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(k):</span><br><span class="line">            ans += max_num</span><br><span class="line">            max_num += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
 
 <h3 id="2697-Lexicographically-Smallest-Palindrome"><a href="#2697-Lexicographically-Smallest-Palindrome" class="headerlink" title="2697. Lexicographically Smallest Palindrome"></a>2697. Lexicographically Smallest Palindrome</h3><p>Link : <a target="_blank" rel="noopener" href="https://leetcode.com/problems/lexicographically-smallest-palindrome/">https://leetcode.com/problems/lexicographically-smallest-palindrome/</a></p>
-<blockquote>
-<p>You are given a string s consisting of lowercase English letters, and you are allowed to perform operations on it. In one operation, you can replace a character in s with another lowercase English letter.<br>Your task is to make s a palindrome with the minimum number of operations possible. If there are multiple palindromes that can be made using the minimum number of operations, make the lexicographically smallest one.<br>A string a is lexicographically smaller than a string b (of the same length) if in the first position where a and b differ, string a has a letter that appears earlier in the alphabet than the corresponding letter in b.<br>Return the resulting palindrome string.</p>
-</blockquote>
-<p><img src="https://github.com/kish191919/Python_Project/assets/26552500/7ff8b007-5d23-4e2b-a648-f1ce85ce6e74" alt="image"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">makeSmallestPalindrome</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">        result = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">min</span>, <span class="built_in">zip</span>(s, s[::-<span class="number">1</span>])))</span><br><span class="line">        <span class="built_in">print</span>(<span class="built_in">list</span>(<span class="built_in">zip</span>(s, s[::-<span class="number">1</span>])))        <span class="comment"># [(&#x27;a&#x27;, &#x27;d&#x27;), (&#x27;b&#x27;, &#x27;c&#x27;), (&#x27;c&#x27;, &#x27;b&#x27;), (&#x27;d&#x27;, &#x27;a&#x27;)]</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;&#x27;</span>.join(result)</span><br></pre></td></tr></table></figure>
         </div>
         <footer class="article-footer">
@@ -263,7 +235,7 @@
 
 
 
-    <a data-url="https://kish191919.github.io/2024/01/27/Coding-Test-4/" data-id="clsatsl9c000ltrs9a20rehlb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://kish191919.github.io/2024/01/27/Coding-Test-4/" data-id="clsby0qka000lwgs95i8kbjt0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -334,17 +306,16 @@
             "name": "Danny"
         },
         "headline": "Coding-Test-4",
-        "image": "https://kish191919.github.iohttps://github.com/ndb796/Fast_Campus_Algorithm_Lecture_Notes/assets/26552500/f5dcf15d-4fa9-4b99-abb5-3aab6797e0e4",
+        "image": "https://kish191919.github.io",
         "keywords": "Greedy",
         "genre": "PYTHON CODING",
         "datePublished": "2024-01-27",
         "dateCreated": "2024-01-27",
-        "dateModified": "2024-01-30",
+        "dateModified": "2024-02-07",
         "url": "https://kish191919.github.io/2024/01/27/Coding-Test-4/",
         "description": "2160. Minimum Sum of Four Digit Number After Splitting DigitsLink : https://leetcode.com/problems/minimum-sum-of-four-digit-number-after-splitting-digits/
-
-You are given a positive integer num consist",
-        "wordCount": 1645
+1234class Solution:    def minimumSum(self, n",
+        "wordCount": 1296
     }
 </script>
 
@@ -423,7 +394,7 @@ You are given a positive integer num consist",
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/">PYTHON</a><span class="category-list-count">13</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/ALGORITHM/">ALGORITHM</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/CODING/">CODING</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/PROJECT/">PROJECT</a><span class="category-list-count">2</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/">PYTHON</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/ALGORITHM/">ALGORITHM</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/CODING/">CODING</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/PROJECT/">PROJECT</a><span class="category-list-count">2</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -433,7 +404,7 @@ You are given a positive integer num consist",
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">12</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">12</span></li></ul>
         </div>
     </div>
 
@@ -443,7 +414,7 @@ You are given a positive integer num consist",
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy/" rel="tag">Greedy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash-Table/" rel="tag">Hash_Table</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/" rel="tag">Linked_List</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql/" rel="tag">MySql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/" rel="tag">Queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quiz/" rel="tag">Quiz</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/" rel="tag">Stack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Used-Car/" rel="tag">Used_Car</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" rel="tag">알고리즘_복잡도</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy/" rel="tag">Greedy</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash-Table/" rel="tag">Hash_Table</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/" rel="tag">Linked_List</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql/" rel="tag">MySql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/" rel="tag">Queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quiz/" rel="tag">Quiz</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/" rel="tag">Stack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Used-Car/" rel="tag">Used_Car</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" rel="tag">알고리즘_복잡도</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -453,7 +424,7 @@ You are given a positive integer num consist",
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Greedy/" style="font-size: 10px;">Greedy</a> <a href="/tags/Hash-Table/" style="font-size: 10px;">Hash_Table</a> <a href="/tags/Linked-List/" style="font-size: 20px;">Linked_List</a> <a href="/tags/MySql/" style="font-size: 10px;">MySql</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Quiz/" style="font-size: 10px;">Quiz</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Used-Car/" style="font-size: 15px;">Used_Car</a> <a href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" style="font-size: 10px;">알고리즘_복잡도</a>
+            <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Greedy/" style="font-size: 15px;">Greedy</a> <a href="/tags/Hash-Table/" style="font-size: 10px;">Hash_Table</a> <a href="/tags/Linked-List/" style="font-size: 20px;">Linked_List</a> <a href="/tags/MySql/" style="font-size: 10px;">MySql</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Quiz/" style="font-size: 10px;">Quiz</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Used-Car/" style="font-size: 15px;">Used_Car</a> <a href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" style="font-size: 10px;">알고리즘_복잡도</a>
         </div>
     </div>
 

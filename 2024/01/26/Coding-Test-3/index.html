@@ -12,20 +12,18 @@
     
     <meta name="keywords" content="Linked_List" />
     
-    <meta name="description" content="206. Reverse Linked ListLink : https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;reverse-linked-list&#x2F;  Given the head of a singly linked list, reverse the list, and return the reversed list.   Youtube : https:&#x2F;&#x2F;youtu.be&#x2F;">
+    <meta name="description" content="206. Reverse Linked ListLink : https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;reverse-linked-list&#x2F;Youtube : https:&#x2F;&#x2F;youtu.be&#x2F;XDO6I8jxHtA 123456789class Solution:    def reverseList(self, head: Optional[ListNode]) -&amp;gt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Coding-Test-3">
 <meta property="og:url" content="https://kish191919.github.io/2024/01/26/Coding-Test-3/index.html">
 <meta property="og:site_name" content="Danny Sweet Home">
-<meta property="og:description" content="206. Reverse Linked ListLink : https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;reverse-linked-list&#x2F;  Given the head of a singly linked list, reverse the list, and return the reversed list.   Youtube : https:&#x2F;&#x2F;youtu.be&#x2F;">
+<meta property="og:description" content="206. Reverse Linked ListLink : https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;reverse-linked-list&#x2F;Youtube : https:&#x2F;&#x2F;youtu.be&#x2F;XDO6I8jxHtA 123456789class Solution:    def reverseList(self, head: Optional[ListNode]) -&amp;gt">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://github.com/kish191919/kish191919.github.io/assets/26552500/a5cd2ac0-b779-4a76-b0f8-1aaeeadf66a3">
 <meta property="article:published_time" content="2024-01-26T15:53:33.000Z">
-<meta property="article:modified_time" content="2024-01-30T21:49:01.223Z">
+<meta property="article:modified_time" content="2024-02-07T13:21:40.405Z">
 <meta property="article:author" content="Danny">
 <meta property="article:tag" content="Linked_List">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://github.com/kish191919/kish191919.github.io/assets/26552500/a5cd2ac0-b779-4a76-b0f8-1aaeeadf66a3">
     
 
     
@@ -182,7 +180,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2024/01/26/Coding-Test-3/" class="article-date">
-     <time datetime="2024-01-30T21:49:01.223Z" itemprop="dateModified">2024-01-30</time>
+     <time datetime="2024-02-07T13:21:40.405Z" itemprop="dateModified">2024-02-07</time>
   </a>
 </div>
 
@@ -209,37 +207,12 @@
 
             
 
-            <h3 id="206-Reverse-Linked-List"><a href="#206-Reverse-Linked-List" class="headerlink" title="206. Reverse Linked List"></a>206. Reverse Linked List</h3><p>Link : <a target="_blank" rel="noopener" href="https://leetcode.com/problems/reverse-linked-list/">https://leetcode.com/problems/reverse-linked-list/</a></p>
-<blockquote>
-<p>Given the head of a singly linked list, reverse the list, and return the reversed list.</p>
-</blockquote>
-<p><img src="https://github.com/kish191919/kish191919.github.io/assets/26552500/a5cd2ac0-b779-4a76-b0f8-1aaeeadf66a3" alt="image"></p>
-<p>Youtube : <a target="_blank" rel="noopener" href="https://youtu.be/XDO6I8jxHtA">https://youtu.be/XDO6I8jxHtA</a></p>
+            <h3 id="206-Reverse-Linked-List"><a href="#206-Reverse-Linked-List" class="headerlink" title="206. Reverse Linked List"></a>206. Reverse Linked List</h3><p>Link : <a target="_blank" rel="noopener" href="https://leetcode.com/problems/reverse-linked-list/">https://leetcode.com/problems/reverse-linked-list/</a><br>Youtube : <a target="_blank" rel="noopener" href="https://youtu.be/XDO6I8jxHtA">https://youtu.be/XDO6I8jxHtA</a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">reverseList</span>(<span class="params">self, head: <span class="type">Optional</span>[ListNode]</span>) -&gt; <span class="type">Optional</span>[ListNode]:</span><br><span class="line">        prev = <span class="literal">None</span></span><br><span class="line">        <span class="keyword">while</span> head:</span><br><span class="line">            temp = head</span><br><span class="line">            head = head.<span class="built_in">next</span></span><br><span class="line">            temp.<span class="built_in">next</span> = prev</span><br><span class="line">            prev = temp</span><br><span class="line">        <span class="keyword">return</span> prev</span><br></pre></td></tr></table></figure>
 
 <h3 id="160-Intersection-of-Two-Linked-Lists"><a href="#160-Intersection-of-Two-Linked-Lists" class="headerlink" title="160. Intersection of Two Linked Lists"></a>160. Intersection of Two Linked Lists</h3><p>Link : <a target="_blank" rel="noopener" href="https://leetcode.com/problems/intersection-of-two-linked-lists/">https://leetcode.com/problems/intersection-of-two-linked-lists/</a></p>
-<blockquote>
-<p>Given the heads of two singly linked-lists headA and headB, return the node at which the two lists intersect.<br>If the two linked lists have no intersection at all, return null.</p>
-<p>For example, the following two linked lists begin to intersect at node c1:<br><img src="https://github.com/kish191919/kish191919.github.io/assets/26552500/de1424cf-0f97-4506-b0f4-66c2b409bb25" alt="image"><br>The test cases are generated such that there are no cycles anywhere in the entire linked structure.<br>Note that the linked lists must retain their original structure after the function returns.</p>
-</blockquote>
-<blockquote>
-<p>Custom Judge:<br>The inputs to the judge are given as follows (your program is not given these inputs):</p>
-</blockquote>
-<blockquote>
-<p>intersectVal - The value of the node where the intersection occurs. This is 0 if there is no intersected node.</p>
-</blockquote>
-<ul>
-<li>listA - The first linked list. </li>
-<li>listB - The second linked list. </li>
-<li>skipA - The number of nodes to skip ahead in listA (starting from the head) to get to the intersected node. </li>
-<li>skipB - The number of nodes to skip ahead in listB (starting from the head) to get to the intersected node.<blockquote>
-<p>The judge will then create the linked structure based on these inputs and pass the two heads, headA and headB to your program. If you correctly return the intersected node, then your solution will be accepted.</p>
-</blockquote>
-</li>
-</ul>
-<p><img src="https://github.com/kish191919/kish191919.github.io/assets/26552500/b470e7c8-ab10-4062-a9c1-1ffc5aff570e" alt="image"></p>
-<p><img src="https://github.com/kish191919/kish191919.github.io/assets/26552500/5edef419-00cc-417f-b9b6-c107ef57d1ea" alt="image"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getIntersectionNode</span>(<span class="params">self, headA: ListNode, headB: ListNode</span>) -&gt; <span class="type">Optional</span>[ListNode]:</span><br><span class="line">        <span class="keyword">if</span> headA <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">or</span> headB <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        </span><br><span class="line">        pa = headA</span><br><span class="line">        pb = headB</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> pa <span class="keyword">is</span> <span class="keyword">not</span> pb:</span><br><span class="line">            pa = headB <span class="keyword">if</span> pa <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">else</span> pa.<span class="built_in">next</span></span><br><span class="line">            pb = headA <span class="keyword">if</span> pb <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">else</span> pb.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> pa</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getIntersectionNode</span>(<span class="params">self, headA: ListNode, headB: ListNode</span>) -&gt; <span class="type">Optional</span>[ListNode]:</span><br><span class="line">        stackA = [<span class="string">&#x27;A&#x27;</span>]</span><br><span class="line">        stackB = [<span class="string">&#x27;B&#x27;</span>]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> headA <span class="keyword">or</span> headB:</span><br><span class="line">            <span class="keyword">if</span> headA:</span><br><span class="line">                stackA.append(headA)</span><br><span class="line">                headA = headA.<span class="built_in">next</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> headB:</span><br><span class="line">                stackB.append(headB)</span><br><span class="line">                headB = headB.<span class="built_in">next</span></span><br><span class="line">                </span><br><span class="line">        prev = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> stackA <span class="keyword">and</span> stackB:</span><br><span class="line">            nodeA = stackA.pop(-<span class="number">1</span>)</span><br><span class="line">            nodeB = stackB.pop(-<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> nodeA != nodeB:</span><br><span class="line">                <span class="keyword">return</span> prev</span><br><span class="line">            </span><br><span class="line">            prev = nodeA</span><br></pre></td></tr></table></figure>
         </div>
         <footer class="article-footer">
@@ -247,7 +220,7 @@
 
 
 
-    <a data-url="https://kish191919.github.io/2024/01/26/Coding-Test-3/" data-id="clsatsl9b000jtrs9ckub0jh3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://kish191919.github.io/2024/01/26/Coding-Test-3/" data-id="clsby0qk9000jwgs91rnp2mln" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -318,20 +291,16 @@
             "name": "Danny"
         },
         "headline": "Coding-Test-3",
-        "image": "https://kish191919.github.iohttps://github.com/kish191919/kish191919.github.io/assets/26552500/a5cd2ac0-b779-4a76-b0f8-1aaeeadf66a3",
+        "image": "https://kish191919.github.io",
         "keywords": "Linked_List",
         "genre": "PYTHON CODING",
         "datePublished": "2024-01-26",
         "dateCreated": "2024-01-26",
-        "dateModified": "2024-01-30",
+        "dateModified": "2024-02-07",
         "url": "https://kish191919.github.io/2024/01/26/Coding-Test-3/",
-        "description": "206. Reverse Linked ListLink : https://leetcode.com/problems/reverse-linked-list/
-
-Given the head of a singly linked list, reverse the list, and return the reversed list.
-
-
-Youtube : https://youtu.be/",
-        "wordCount": 916
+        "description": "206. Reverse Linked ListLink : https://leetcode.com/problems/reverse-linked-list/Youtube : https://youtu.be/XDO6I8jxHtA
+123456789class Solution:    def reverseList(self, head: Optional[ListNode]) -&gt",
+        "wordCount": 700
     }
 </script>
 
@@ -410,7 +379,7 @@ Youtube : https://youtu.be/",
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/">PYTHON</a><span class="category-list-count">13</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/ALGORITHM/">ALGORITHM</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/CODING/">CODING</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/PROJECT/">PROJECT</a><span class="category-list-count">2</span></li></ul></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/">PYTHON</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/ALGORITHM/">ALGORITHM</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/CODING/">CODING</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/PROJECT/">PROJECT</a><span class="category-list-count">2</span></li></ul></li></ul>
         </div>
     </div>
 
@@ -420,7 +389,7 @@ Youtube : https://youtu.be/",
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">12</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">12</span></li></ul>
         </div>
     </div>
 
@@ -430,7 +399,7 @@ Youtube : https://youtu.be/",
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy/" rel="tag">Greedy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash-Table/" rel="tag">Hash_Table</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/" rel="tag">Linked_List</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql/" rel="tag">MySql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/" rel="tag">Queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quiz/" rel="tag">Quiz</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/" rel="tag">Stack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Used-Car/" rel="tag">Used_Car</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" rel="tag">알고리즘_복잡도</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy/" rel="tag">Greedy</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash-Table/" rel="tag">Hash_Table</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/" rel="tag">Linked_List</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql/" rel="tag">MySql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/" rel="tag">Queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Quiz/" rel="tag">Quiz</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/" rel="tag">Stack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Used-Car/" rel="tag">Used_Car</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" rel="tag">알고리즘_복잡도</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -440,7 +409,7 @@ Youtube : https://youtu.be/",
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Greedy/" style="font-size: 10px;">Greedy</a> <a href="/tags/Hash-Table/" style="font-size: 10px;">Hash_Table</a> <a href="/tags/Linked-List/" style="font-size: 20px;">Linked_List</a> <a href="/tags/MySql/" style="font-size: 10px;">MySql</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Quiz/" style="font-size: 10px;">Quiz</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Used-Car/" style="font-size: 15px;">Used_Car</a> <a href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" style="font-size: 10px;">알고리즘_복잡도</a>
+            <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Greedy/" style="font-size: 15px;">Greedy</a> <a href="/tags/Hash-Table/" style="font-size: 10px;">Hash_Table</a> <a href="/tags/Linked-List/" style="font-size: 20px;">Linked_List</a> <a href="/tags/MySql/" style="font-size: 10px;">MySql</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Quiz/" style="font-size: 10px;">Quiz</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Used-Car/" style="font-size: 15px;">Used_Car</a> <a href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" style="font-size: 10px;">알고리즘_복잡도</a>
         </div>
     </div>
 
