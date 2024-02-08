@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://github.com/kish191919/Python_Project/assets/26552500/accecd8d-ed9d-49f3-a8dc-c35658ccc52f">
 <meta property="article:published_time" content="2024-02-01T22:44:19.000Z">
-<meta property="article:modified_time" content="2024-02-07T15:26:45.090Z">
+<meta property="article:modified_time" content="2024-02-08T15:04:54.288Z">
 <meta property="article:author" content="Danny">
 <meta property="article:tag" content="Used_Car">
 <meta property="article:tag" content="MySql">
@@ -183,7 +183,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2024/02/01/Predicting-Used-Car-Prices-in-VA-2/" class="article-date">
-     <time datetime="2024-02-07T15:26:45.090Z" itemprop="dateModified">2024-02-07</time>
+     <time datetime="2024-02-08T15:04:54.288Z" itemprop="dateModified">2024-02-08</time>
   </a>
 </div>
 
@@ -253,6 +253,31 @@
 <ul>
 <li>This is to avoid the below error;<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ERROR: THESE PACKAGES DO NOT MATCH THE HASHES FROM THE REQUIREMENTS FILE. If you have updated the package versions, please update the hashes. Otherwise, examine the package contents carefully; someone may have tampered with them.</span><br><span class="line">xgboost from https://files.pythonhosted.org/packages/c3/eb/496aa2f5d356af4185f770bc76055307f8d1870e11016b10fd779b21769c/xgboost-2.0.3-py3-none-manylinux2014_x86_64.whl#sha256=30bd5f789fad467fd49e04e5d19e04238b931682c3951a514da5c2410b3bf59c:</span><br><span class="line">Expected sha256 30bd5f789fad467fd49e04e5d19e04238b931682c3951a514da5c2410b3bf59c</span><br><span class="line">Got        0b97c8359dfadf847c7cfdc5e4ffede6b3af0d367a94e5e32d5d5ade2a37626c</span><br></pre></td></tr></table></figure></li>
 </ul>
+<h4 id="4-파이썬-백그라운드-실행"><a href="#4-파이썬-백그라운드-실행" class="headerlink" title="4. 파이썬 백그라운드 실행"></a>4. 파이썬 백그라운드 실행</h4><ul>
+<li>보통 linux에서 &amp;를 마지막에 붙이면 백그라운드 작업있지만 해당 쉘이나 터미널이 종료되면 같이 종료됨.</li>
+<li>따라서 <strong>nohup</strong>을 이용함 </li>
+<li>참고로 권한이 755 이상이여야 nohup으로 파일을 실행시킬 수 있음</li>
+</ul>
+<h5 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h5><ol>
+<li><p>no hangup의 줄임말, ‘끊지마!(프로세스를 끊지마!)’라는 뜻. 리눅스 명령어임. </p>
+<ul>
+<li>터미널 세션이 끊겨도 프로그램을 종료하지 마라! 라는 명령어. <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup python test.py &amp;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>실시간 로그와 함께 백그라운드 작업을 하는 법 </p>
+<ul>
+<li>실시간으로 로그를 확인하며 백그라운드 프로그램을 돌릴 수 있음 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nohup python -u test.py &amp;         #  -u 옵션 추가</span><br><span class="line">tail -f nohup.out                 #  로그 출력</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>PID 알아내기</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep test.py</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>프로세스 종료</p>
+<ul>
+<li>백그라운드에서 돌고있는 프로세스를 종료하는 명령 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill PID</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
 
         </div>
         <footer class="article-footer">
@@ -260,7 +285,7 @@
 
 
 
-    <a data-url="https://kish191919.github.io/2024/02/01/Predicting-Used-Car-Prices-in-VA-2/" data-id="clsc1vgwq000udms95pus6yf6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://kish191919.github.io/2024/02/01/Predicting-Used-Car-Prices-in-VA-2/" data-id="clsdcoelp000wzgs948kwcc2y" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -336,7 +361,7 @@
         "genre": "PYTHON PROJECT",
         "datePublished": "2024-02-01",
         "dateCreated": "2024-02-01",
-        "dateModified": "2024-02-07",
+        "dateModified": "2024-02-08",
         "url": "https://kish191919.github.io/2024/02/01/Predicting-Used-Car-Prices-in-VA-2/",
         "description": "1. 우분투에 Mysql 설치하기
 MySQL을 설치하려면 터미널 프롬프트에서 다음 명령을 실행
@@ -346,7 +371,7 @@ MySQL을 설치하려면 터미널 프롬프트에서 다음 명령을 실행
 
 (2) Mmysql-server와 mysql-client를 apt로 설치
 1234sudo apt install mysql-server mysql-client# pi",
-        "wordCount": 459
+        "wordCount": 608
     }
 </script>
 
