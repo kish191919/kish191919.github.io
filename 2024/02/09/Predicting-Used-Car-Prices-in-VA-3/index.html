@@ -20,7 +20,7 @@
 <meta property="og:description" content="1. Flask Python 웹 프레임워크인 flask와 flask를 서버로 올리기위한 WSGI(Web Server Gateway Interface)를 설치   설치12pip install flaskpip install gunicorn Flask로 Hello World!   프로젝트 폴더 안에 app.py라는 스크립트 파일을 만든후 아래 코드넣고 실행  1">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-02-09T12:07:31.000Z">
-<meta property="article:modified_time" content="2024-02-10T11:49:02.183Z">
+<meta property="article:modified_time" content="2024-02-12T03:11:08.475Z">
 <meta property="article:author" content="Danny">
 <meta property="article:tag" content="Used_Car">
 <meta property="article:tag" content="Flask">
@@ -181,7 +181,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2024/02/09/Predicting-Used-Car-Prices-in-VA-3/" class="article-date">
-     <time datetime="2024-02-10T11:49:02.183Z" itemprop="dateModified">2024-02-10</time>
+     <time datetime="2024-02-12T03:11:08.475Z" itemprop="dateModified">2024-02-11</time>
   </a>
 </div>
 
@@ -256,13 +256,102 @@
 </li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/home&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">home</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Hello, World!&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/user/&lt;user_name&gt;/&lt;int:user_id&gt;&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">user</span>(<span class="params">user_name, user_id</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="string">f&#x27;Hello, <span class="subst">&#123;user_name&#125;</span>(<span class="subst">&#123;user_id&#125;</span>)!&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run(debug=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>HTML 렌더링</li>
+</ol>
+<ul>
+<li>뷰 함수에서 return하는 응답은 일반 텍스트, 데이터 등 다양한 형식이 될 수 있는데, 일반적으로는 웹 페이지에서 렌더링 할 HTML을 직접 반환하게 됨</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/home&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">home</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    &lt;h1&gt;이건 h1 제목&lt;/h1&gt;</span></span><br><span class="line"><span class="string">    &lt;p&gt;이건 p 본문 &lt;/p&gt;</span></span><br><span class="line"><span class="string">    &lt;a href=&quot;https://flask.palletsprojects.com&quot;&gt;Flask 홈페이지 바로가기&lt;/a&gt;</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/user/&lt;user_name&gt;/&lt;int:user_id&gt;&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">user</span>(<span class="params">user_name, user_id</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="string">f&#x27;Hello, <span class="subst">&#123;user_name&#125;</span>(<span class="subst">&#123;user_id&#125;</span>)!&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run(debug=<span class="literal">True</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>Template</li>
+</ol>
+<ul>
+<li>Flask에서는 보여지는 부분과 처리하는 부분을 나누기 위해 템플릿이라는 기능을 제공</li>
+<li>클라이언트에게 돌려줄 웹 페이지로 단순한 HTML 형식의 문자열을 작성해도 웹페이지가 잘 나타나긴 하지만 애플리케이션을 만들고자 한다면 모든 페이지마다 HTML 파일을 각각 작성할 게 아니라 일관된 구조와 기능을 가진 템플릿(template)을 활용해야 함</li>
+<li>Flask에서는 Jinja2라는 템플릿 엔진을 사용해서 애플리케이션 내 변수와 반복문, 조건문 등을 포함하는 HTML 파일을 렌더링할 수 있음</li>
+</ul>
+<p>(1) 템플릿 렌더링해서 Url연결하기</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, render_template</span><br><span class="line">app = Flask(__name__)</span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">&quot;index.html&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run(debug=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>프로젝트 폴더 내에 templates라는 폴더 생성</li>
+<li>폴더 이름은 반드시 templates여야 한다.</li>
+<li>안에 index.html이라는 파일을 생성<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>메인 화면<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>첫 화면이 index.html을 띄워줌</li>
+<li>@app.route(‘&#x2F;‘)에 바인딩 된 함수가 render_template(“index.html”)이라고 되어 있기 때문에 해당 문서를 렌더링해서 반환하는 것</li>
+</ul>
+<p>(2) 코드 예시</p>
+<ul>
+<li>학생들의 정보와 시험 성적을 딕셔너리로 만들어놓은 후, 메인 페이지에서 이름을 확인하면 해당 학생의 성적이 리스트로 출력되는 페이지</li>
+</ul>
+<p>app.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, render_template</span><br><span class="line">app = Flask(__name__)</span><br><span class="line">student_data = &#123;</span><br><span class="line">    <span class="number">1</span>: &#123;<span class="string">&quot;name&quot;</span>: <span class="string">&quot;슈퍼맨&quot;</span>, <span class="string">&quot;score&quot;</span>: &#123;<span class="string">&quot;국어&quot;</span>: <span class="number">90</span>, <span class="string">&quot;수학&quot;</span>: <span class="number">65</span>&#125;&#125;,</span><br><span class="line">    <span class="number">2</span>: &#123;<span class="string">&quot;name&quot;</span>: <span class="string">&quot;배트맨&quot;</span>, <span class="string">&quot;score&quot;</span>: &#123;<span class="string">&quot;국어&quot;</span>: <span class="number">75</span>, <span class="string">&quot;영어&quot;</span>: <span class="number">80</span>, <span class="string">&quot;수학&quot;</span>: <span class="number">75</span>&#125;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">&quot;index.html&quot;</span>, </span><br><span class="line">            template_students = student_data)</span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/student/&lt;int:id&gt;&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">student</span>(<span class="params"><span class="built_in">id</span></span>):</span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">&quot;student.html&quot;</span>, </span><br><span class="line">            template_name=student_data[<span class="built_in">id</span>][<span class="string">&quot;name&quot;</span>], </span><br><span class="line">            template_score=student_data[<span class="built_in">id</span>][<span class="string">&quot;score&quot;</span>])</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run(debug=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p>base.html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;ko&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>시험성적 확인 사이트<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/&quot;</span>&gt;</span>메인화면 바로가기<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    &#123;% block content %&#125;&#123;% endblock %&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>index.html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;% extends &quot;base.html&quot;  %&#125;</span><br><span class="line">&#123;% block content %&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>시험 성적 확인하기<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>이름을 클릭하세요.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">        &#123;% for key, value in template_students | dictsort %&#125;</span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/student/&#123;&#123; key &#125;&#125;&quot;</span>&gt;</span>&#123;&#123; value[&quot;name&quot;] &#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        &#123;% endfor%&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">&#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>student.html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;% extends &quot;base.html&quot;  %&#125;</span><br><span class="line">&#123;% block content %&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>&#123;&#123; template_name &#125;&#125; 님의 성적<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">        &#123;% for key, value in template_score.items() %&#125;</span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;&#123; key &#125;&#125; : &#123;&#123; value &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        &#123;% endfor%&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">&#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>Form</li>
+</ol>
+<ul>
+<li>사용자로부터 정보를 입력 받는 방식</li>
+<li>계정에 로그인하고, 상품을 주문하거나 설문조사를 하는 등 사용자로부터 정보를 수집하는 것</li>
+<li>정보를 깔끔하고 체계적으로 수집하는 것은 쉽지 않은데 Flask를 사용하면 필드를 표시하고 데이터를 쉽게 수집하는 절차를 깔끔히 처리할 수 있음</li>
+</ul>
+<p>(1) Flask에서 form 활용을 위한 프로젝트 폴더, 파일 관리</p>
+<ul>
+<li>Flask(플라스크)로 웹 앱을 만들기 위한 프로젝트 폴더 내에서 파일 구조를 어떻게 가져가면 편한지 간단한 형태로 구성<ul>
+<li>forms.py : form을 활용하기 위한 클래스를 담아놓는 파일. 유효성 검사와 같은 기능을 포함해놓을 수 있고, 이후에 flask 앱에서는 여기서 미리 생성해놓은 form 클래스를 가져다 쓰기만 하면 된다.</li>
+<li>app.py : Flask 앱을 구동시킬 실행시킬 파일. URL와 템플릿을 연결하는 route 데코레이터와 그에 해당하는 뷰 함수가 담겨 있다.</li>
+<li>*.html : 모든 HTML 문서, 즉 템플릿 파일은 templates라는 폴더 안에 담아놓아야 한다. 이 템플릿 내에서 내가 쓸 폼을 플라스크 변수 형태로 담아 사용할 수 있다.</li>
+</ul>
+</li>
+</ul>
+<p>(2) FlaskForm을 활용하여 클래스 만들기 (forms.py)</p>
+<ul>
+<li>프로젝트 폴더 내에서 forms.py를 만들고 아래와 같이 회원 가입을 위한 form을 구성하는 파일 생성</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask_wtf <span class="keyword">import</span> FlaskForm</span><br><span class="line"><span class="keyword">from</span> wtforms <span class="keyword">import</span> StringField, PasswordField, SubmitField</span><br><span class="line"><span class="keyword">from</span> wtforms.validators <span class="keyword">import</span> DataRequired, Length, Email, EqualTo</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">RegistrationForm</span>(<span class="title class_ inherited__">FlaskForm</span>):</span><br><span class="line">    username =  StringField(<span class="string">&quot;아이디&quot;</span>, </span><br><span class="line">                            validators=[DataRequired(), Length(<span class="built_in">min</span>=<span class="number">4</span>, <span class="built_in">max</span>=<span class="number">20</span>)])</span><br><span class="line">    email =  StringField(<span class="string">&quot;이메일&quot;</span>, </span><br><span class="line">                            validators=[DataRequired(), Email()])</span><br><span class="line">    password = PasswordField(<span class="string">&quot;비밀번호&quot;</span>, </span><br><span class="line">                            validators=[DataRequired(), Length(<span class="built_in">min</span>=<span class="number">4</span>, <span class="built_in">max</span>=<span class="number">20</span>)])</span><br><span class="line">    confirm_password = PasswordField(<span class="string">&quot;비밀번호 확인&quot;</span>, </span><br><span class="line">                            validators=[DataRequired(), EqualTo(<span class="string">&quot;password&quot;</span>)] )</span><br><span class="line">    submit = SubmitField(<span class="string">&quot;가입&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>FlaskWTF의 FlaskForm를 불러오는데, 내가 원하는 form을 만들기 위해서는 FlaskForm이라는 부모 클래스를 상속 받아 자식 클래스를 만들어 사용</li>
+<li>자식클래스를 선언할때 소괄호로 부모클래스를 포함시키게 되면 자식클래스에서는 부모클래스의 속성과 메소드는 기재하지 않아도 알아서 포함이 된다.<ul>
+<li><p>wtforms라는 라이브러리를 사용하여 원하는 폼 지정</p>
+<ul>
+<li>StringField: 문자열</li>
+<li>PasswordFiel: 화면에 표시되지 않아야 할 패스워드</li>
+<li>SubmitField: 제출 버튼</li>
+</ul>
+</li>
+<li><p>wtforms.validators를 통해 유효성 검사</p>
+<ul>
+<li>DataRequired: 필수입력값인지</li>
+<li>Length: 길이는 어떻게 제한하는지</li>
+<li>Email: 이메일인지</li>
+<li>EqualTo: 이미 입력한 값과 같은 값을 입력했는지</li>
+</ul>
+</li>
+<li><p>예제에서 생성한 클래스를 보면 일단 폼의 종류와 함께, 그 입력란의 label이 무엇인지 적어주고, validators를 통해 유효성 검사 항목을 포함해주면 끝</p>
+</li>
+</ul>
+</li>
+</ul>
+
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="https://kish191919.github.io/2024/02/09/Predicting-Used-Car-Prices-in-VA-3/" data-id="clsg0kht1000y5fs971lzbock" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://kish191919.github.io/2024/02/09/Predicting-Used-Car-Prices-in-VA-3/" data-id="clsicy00y000yvqs9d85bezid" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -338,7 +427,7 @@
         "genre": "PYTHON PROJECT",
         "datePublished": "2024-02-09",
         "dateCreated": "2024-02-09",
-        "dateModified": "2024-02-10",
+        "dateModified": "2024-02-11",
         "url": "https://kish191919.github.io/2024/02/09/Predicting-Used-Car-Prices-in-VA-3/",
         "description": "1. Flask
 Python 웹 프레임워크인 flask와 flask를 서버로 올리기위한 WSGI(Web Server Gateway Interface)를 설치
@@ -351,7 +440,7 @@ Flask로 Hello World!
 프로젝트 폴더 안에 app.py라는 스크립트 파일을 만든후 아래 코드넣고 실행
 
 1",
-        "wordCount": 418
+        "wordCount": 1707
     }
 </script>
 
