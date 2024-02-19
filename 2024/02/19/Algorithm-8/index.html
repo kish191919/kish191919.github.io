@@ -6,24 +6,26 @@
     
 
     
-    <title>Coding-Test-6 | Danny Sweet Home</title>
+    <title>Algorithm_8 | Danny Sweet Home</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="Binary_Search" />
+    <meta name="keywords" content="Sort" />
     
-    <meta name="description" content="268. Missing NumberLink : https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;missing-number&#x2F; 69. Sqrt(x)Link : https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;sqrtx&#x2F;">
+    <meta name="description" content="1. 삽입 정렬 (insertion sort) 란? 삽입 정렬은 두 번째 인덱스부터 시작 해당 인덱스(key 값) 앞에 있는 데이터(B)부터 비교해서 key값이 더 작으면, B값을 뒤 인덱스로 복사 이를 key값이 더 큰 데이터를 만날때까지 반복, 그리고 큰 데이터를 만난 위치 바로 뒤에 key 값을 이동  직접 눈으로 보면 더 이해가 쉽다: https:&#x2F;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Coding-Test-6">
-<meta property="og:url" content="https://kish191919.github.io/2024/02/15/Coding-Test-6/index.html">
+<meta property="og:title" content="Algorithm_8">
+<meta property="og:url" content="https://kish191919.github.io/2024/02/19/Algorithm-8/index.html">
 <meta property="og:site_name" content="Danny Sweet Home">
-<meta property="og:description" content="268. Missing NumberLink : https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;missing-number&#x2F; 69. Sqrt(x)Link : https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;sqrtx&#x2F;">
+<meta property="og:description" content="1. 삽입 정렬 (insertion sort) 란? 삽입 정렬은 두 번째 인덱스부터 시작 해당 인덱스(key 값) 앞에 있는 데이터(B)부터 비교해서 key값이 더 작으면, B값을 뒤 인덱스로 복사 이를 key값이 더 큰 데이터를 만날때까지 반복, 그리고 큰 데이터를 만난 위치 바로 뒤에 key 값을 이동  직접 눈으로 보면 더 이해가 쉽다: https:&#x2F;">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-02-15T13:38:29.000Z">
-<meta property="article:modified_time" content="2024-02-18T04:30:20.141Z">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/9/9c/Insertion-sort-example.gif">
+<meta property="article:published_time" content="2024-02-19T13:16:45.000Z">
+<meta property="article:modified_time" content="2024-02-19T13:23:09.581Z">
 <meta property="article:author" content="Danny">
-<meta property="article:tag" content="Binary_Search">
+<meta property="article:tag" content="Sort">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/9/9c/Insertion-sort-example.gif">
     
 
     
@@ -148,19 +150,19 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/PYTHON/">PYTHON</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/PYTHON/CODING/">CODING</a>
+    <a class="page-title-link" href="/categories/PYTHON/">PYTHON</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/PYTHON/ALGORITHM/">ALGORITHM</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-Coding-Test-6" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-Algorithm-8" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        Coding-Test-6
+        Algorithm_8
         </h1>
     
 
@@ -171,16 +173,16 @@
                 
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2024/02/15/Coding-Test-6/" class="article-date">
-       <time datetime="2024-02-15T13:38:29.000Z" itemprop="datePublished">2024-02-15</time>
+    <a href="/2024/02/19/Algorithm-8/" class="article-date">
+       <time datetime="2024-02-19T13:16:45.000Z" itemprop="datePublished">2024-02-19</time>
     </a>
   </div>
 
 
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
-  <a href="/2024/02/15/Coding-Test-6/" class="article-date">
-     <time datetime="2024-02-18T04:30:20.141Z" itemprop="dateModified">2024-02-17</time>
+  <a href="/2024/02/19/Algorithm-8/" class="article-date">
+     <time datetime="2024-02-19T13:23:09.581Z" itemprop="dateModified">2024-02-19</time>
   </a>
 </div>
 
@@ -190,7 +192,7 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/Binary-Search/" rel="tag">Binary_Search</a>
+        <a class="tag-link-link" href="/tags/Sort/" rel="tag">Sort</a>
     </div>
 
                 
@@ -207,8 +209,55 @@
 
             
 
-            <h3 id="268-Missing-Number"><a href="#268-Missing-Number" class="headerlink" title="268. Missing Number"></a>268. Missing Number</h3><p>Link : <a target="_blank" rel="noopener" href="https://leetcode.com/problems/missing-number/">https://leetcode.com/problems/missing-number/</a></p>
-<h3 id="69-Sqrt-x"><a href="#69-Sqrt-x" class="headerlink" title="69. Sqrt(x)"></a>69. Sqrt(x)</h3><p>Link : <a target="_blank" rel="noopener" href="https://leetcode.com/problems/sqrtx/">https://leetcode.com/problems/sqrtx/</a></p>
+            <h3 id="1-삽입-정렬-insertion-sort-란"><a href="#1-삽입-정렬-insertion-sort-란" class="headerlink" title="1. 삽입 정렬 (insertion sort) 란?"></a>1. 삽입 정렬 (insertion sort) 란?</h3><ul>
+<li>삽입 정렬은 두 번째 인덱스부터 시작</li>
+<li>해당 인덱스(key 값) 앞에 있는 데이터(B)부터 비교해서 key값이 더 작으면, B값을 뒤 인덱스로 복사</li>
+<li>이를 key값이 더 큰 데이터를 만날때까지 반복, 그리고 큰 데이터를 만난 위치 바로 뒤에 key 값을 이동</li>
+</ul>
+<h4 id="직접-눈으로-보면-더-이해가-쉽다-https-visualgo-net-en-sorting"><a href="#직접-눈으로-보면-더-이해가-쉽다-https-visualgo-net-en-sorting" class="headerlink" title="직접 눈으로 보면 더 이해가 쉽다: https://visualgo.net/en/sorting"></a>직접 눈으로 보면 더 이해가 쉽다: <a target="_blank" rel="noopener" href="https://visualgo.net/en/sorting">https://visualgo.net/en/sorting</a></h4><img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Insertion-sort-example.gif" />
+
+<blockquote>
+<p>출처: <a target="_blank" rel="noopener" href="https://commons.wikimedia.org/wiki/File:Insertion-sort-example.gif">https://commons.wikimedia.org/wiki/File:Insertion-sort-example.gif</a></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>, <span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">    <span class="built_in">print</span> (index)       <span class="comment"># 10 9 8 7 6 5 4 3 2</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-어떻게-코드로-만들까-결국-프로그래밍으로-일반화할-수-있도록-만드는-것"><a href="#2-어떻게-코드로-만들까-결국-프로그래밍으로-일반화할-수-있도록-만드는-것" class="headerlink" title="2. 어떻게 코드로 만들까? (결국 프로그래밍으로 일반화할 수 있도록 만드는 것)"></a>2. 어떻게 코드로 만들까? (결국 프로그래밍으로 일반화할 수 있도록 만드는 것)</h3><blockquote>
+<p>알고리즘 연습 방법에 기반해서 단계별로 생각</p>
+</blockquote>
+<ul>
+<li>데이터가 네 개 일때 (데이터 갯수에 따라 복잡도가 떨어지는 것은 아니므로, 네 개로 바로 로직을 이해해보자.)<ul>
+<li>예: data_list &#x3D; [9, 3, 2, 5]<ul>
+<li>처음 한번 실행하면, key값은 9, 인덱스(0) - 1 은 0보다 작으므로 끝: [9, 3, 2, 5]</li>
+<li>두 번째 실행하면, key값은 3, 9보다 3이 작으므로 자리 바꾸고, 끝: [3, 9, 2, 5]</li>
+<li>세 번째 실행하면, key값은 2, 9보다 2가 작으므로 자리 바꾸고, 다시 3보다 2가 작으므로 끝: [2, 3, 9, 5]</li>
+<li>네 번째 실행하면, key값은 5, 9보다 5이 작으므로 자리 바꾸고, 3보다는 5가 크므로 끝: [2, 3, 5, 9]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-알고리즘-구현"><a href="#3-알고리즘-구현" class="headerlink" title="3. 알고리즘 구현"></a>3. 알고리즘 구현</h3><ol>
+<li>for stand in range(len(data_list)) 로 반복</li>
+<li>key &#x3D; data_list[stand]</li>
+<li>for num in range(stand, 0, -1) 반복<ul>
+<li>내부 반복문 안에서 data_list[stand] &lt; data_list[num - 1] 이면,<ul>
+<li>data_list[num - 1], data_list[num] &#x3D; data_list[num], data_list[num - 1]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">insertion_sort</span>(<span class="params">data</span>):</span><br><span class="line">    <span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data) - <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> index2 <span class="keyword">in</span> <span class="built_in">range</span>(index + <span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> data[index2] &lt; data[index2 - <span class="number">1</span>]:</span><br><span class="line">                data[index2], data[index2 - <span class="number">1</span>] = data[index2 - <span class="number">1</span>], data[index2]</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">return</span> data</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">data_list = random.sample(<span class="built_in">range</span>(<span class="number">100</span>), <span class="number">50</span>)</span><br><span class="line"><span class="built_in">print</span> (insertion_sort(data_list))       <span class="comment"># [1, 2, 3, 5, 8, 9, 10, 11, 14, 16, 17, 20, 22, 23...]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-알고리즘-분석"><a href="#4-알고리즘-분석" class="headerlink" title="4. 알고리즘 분석"></a>4. 알고리즘 분석</h3><ul>
+<li>반복문이 두 개 O($n^2$)<ul>
+<li>최악의 경우, <font size=5em>$\frac { n \times (n - 1)}{ 2 }$</font></li>
+</ul>
+</li>
+<li>완전 정렬이 되어 있는 상태라면 최선은 O(n)</li>
+</ul>
 
         </div>
         <footer class="article-footer">
@@ -216,7 +265,7 @@
 
 
 
-    <a data-url="https://kish191919.github.io/2024/02/15/Coding-Test-6/" data-id="clssyvzlg000x4vs97kbi9m2n" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://kish191919.github.io/2024/02/19/Algorithm-8/" data-id="clssyvzl7000e4vs9b6xv2fuu" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -286,18 +335,21 @@
             "@type": "Person",
             "name": "Danny"
         },
-        "headline": "Coding-Test-6",
-        "image": "https://kish191919.github.io",
-        "keywords": "Binary_Search",
-        "genre": "PYTHON CODING",
-        "datePublished": "2024-02-15",
-        "dateCreated": "2024-02-15",
-        "dateModified": "2024-02-17",
-        "url": "https://kish191919.github.io/2024/02/15/Coding-Test-6/",
-        "description": "268. Missing NumberLink : https://leetcode.com/problems/missing-number/
-69. Sqrt(x)Link : https://leetcode.com/problems/sqrtx/
-",
-        "wordCount": 21
+        "headline": "Algorithm_8",
+        "image": "https://kish191919.github.iohttps://upload.wikimedia.org/wikipedia/commons/9/9c/Insertion-sort-example.gif",
+        "keywords": "Sort",
+        "genre": "PYTHON ALGORITHM",
+        "datePublished": "2024-02-19",
+        "dateCreated": "2024-02-19",
+        "dateModified": "2024-02-19",
+        "url": "https://kish191919.github.io/2024/02/19/Algorithm-8/",
+        "description": "1. 삽입 정렬 (insertion sort) 란?
+삽입 정렬은 두 번째 인덱스부터 시작
+해당 인덱스(key 값) 앞에 있는 데이터(B)부터 비교해서 key값이 더 작으면, B값을 뒤 인덱스로 복사
+이를 key값이 더 큰 데이터를 만날때까지 반복, 그리고 큰 데이터를 만난 위치 바로 뒤에 key 값을 이동
+
+직접 눈으로 보면 더 이해가 쉽다: https:/",
+        "wordCount": 476
     }
 </script>
 
@@ -346,20 +398,10 @@
         
 <nav id="article-nav">
     
-        <a href="/2024/02/19/Algorithm-7/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            Algorithm_7
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2024/02/09/Predicting-Used-Car-Prices-in-VA-3/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2024/02/19/Algorithm-7/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">Predicting Used Car Prices in VA 3</p>
+        <p class="article-nav-title">Algorithm_7</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -449,7 +491,7 @@
     var disqus_shortname = 'DannyBlog';
     
     
-    var disqus_url = 'https://kish191919.github.io/2024/02/15/Coding-Test-6/';
+    var disqus_url = 'https://kish191919.github.io/2024/02/19/Algorithm-8/';
     
     (function() {
     var dsq = document.createElement('script');
