@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://github.com/kish191919/kish191919.github.io/assets/26552500/e4b91071-9747-4ce1-90f4-760734e1f038">
 <meta property="article:published_time" content="2024-02-22T17:38:31.000Z">
-<meta property="article:modified_time" content="2024-02-24T16:44:17.539Z">
+<meta property="article:modified_time" content="2024-02-24T16:50:47.724Z">
 <meta property="article:author" content="Danny">
 <meta property="article:tag" content="linux_basic">
 <meta name="twitter:card" content="summary">
@@ -182,7 +182,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2024/02/22/Data-Engineer-2-1-Linux-Basic/" class="article-date">
-     <time datetime="2024-02-24T16:44:17.539Z" itemprop="dateModified">2024-02-24</time>
+     <time datetime="2024-02-24T16:50:47.724Z" itemprop="dateModified">2024-02-24</time>
   </a>
 </div>
 
@@ -272,21 +272,82 @@
 </li>
 <li><p>tail</p>
 <ul>
-<li>tail -f </li>
-<li><pre><code class="html">while sleep 1; do echo &quot;hello world&quot; &gt;&gt; example.log;done &amp;
-tail -f example.log
-ps -ef
-kill -9 pid#
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">  ![image](https://github.com/kish191919/kish191919.github.io/assets/26552500/f181e1ec-5fcf-4448-88ea-2a2a9d8d5cc1)</span><br><span class="line"></span><br><span class="line">* comm</span><br><span class="line">  * comm -12 line1.txt line2.txt : line1 과 line2 공통 라인 출력</span><br><span class="line">  * comm -3 line1.txt line2.txt : line1 과 line2 다른 라인 출력</span><br><span class="line">    &lt;img width=&quot;590&quot; alt=&quot;image&quot; src=&quot;https://github.com/kish191919/Python_Project/assets/26552500/ad402c75-6ae3-44eb-af34-cc261afd2d64&quot;&gt;</span><br><span class="line"></span><br><span class="line">* cmp</span><br><span class="line">  * 두 파일을 바이트 단위로 비교한 결과를 출력</span><br><span class="line">    &lt;img width=&quot;673&quot; alt=&quot;image&quot; src=&quot;https://github.com/kish191919/Python_Project/assets/26552500/01dfb654-20e8-4436-885e-b394a5cdc624&quot;&gt;</span><br><span class="line">  </span><br><span class="line">* diff</span><br><span class="line">  * 두 파일의 라인별 차이점을 보여줌</span><br><span class="line">  * symbol 차이</span><br><span class="line">    * a : add</span><br><span class="line">    * c : change</span><br><span class="line">    * d : delete</span><br><span class="line">      &lt;img width=&quot;544&quot; alt=&quot;image&quot; src=&quot;https://github.com/kish191919/Python_Project/assets/26552500/36945681-422a-49c2-9311-1a226c48bf9f&quot;&gt;</span><br><span class="line"></span><br><span class="line">* less</span><br><span class="line">  * 터미널 세션에 프린트하지 않고 파일내용 볼수있음</span><br><span class="line">  * 보는 부분만 열기때문에, 큰 용량의 파일을 볼때는 vi보다 빠름</span><br><span class="line">  * 양방향 탐색이 가능하기때문에 more보다 편리</span><br><span class="line">    * j : down      5j 다섯줄 아래     space : 한 화면씩 아래</span><br><span class="line">    * k : up        5k 다섯줄 위        b    : 한 화면씩 위</span><br><span class="line">    * shift + g : 맨아래</span><br><span class="line">    * h : help </span><br><span class="line"></span><br><span class="line">* ln</span><br><span class="line">  * 심볼릭 링크 : 절대경로 또는 상대경로 형태로 된 다른 파일이나 디렉토리에 대한 참조를 포함한 특별한 종류의 파일</span><br><span class="line">  * in -s $원래파일위치 $목표파일위치</span><br><span class="line">  * 원래 파일을 삭제하면 심볼릭 링크로 만든 파일에서 에러가 발생</span><br><span class="line">  * 파일에 심볼릭 링크 설정</span><br><span class="line">    &lt;img width=&quot;764&quot; alt=&quot;image&quot; src=&quot;https://github.com/kish191919/Python_Project/assets/26552500/38d61858-a8b7-4f76-a9aa-3220427bbe9b&quot;&gt;</span><br><span class="line">  * 폴더에 심볼릭 링크 설정</span><br><span class="line">    &lt;img width=&quot;572&quot; alt=&quot;image&quot; src=&quot;https://github.com/kish191919/Python_Project/assets/26552500/605c0ee9-dbc7-46cf-8b46-8984a2897f1b&quot;&gt;</span><br><span class="line"></span><br><span class="line">* alias</span><br><span class="line">  * 다른 문자열에 대채하는 단어 지정</span><br><span class="line">  * 주로 복잡한 명령어의 약어로 사용</span><br><span class="line">  * 환경변수와 다름</span><br><span class="line">    &lt;img width=&quot;701&quot; alt=&quot;image&quot; src=&quot;https://github.com/kish191919/Python_Project/assets/26552500/003eb96c-4489-4169-9f5a-30e1cd044eb5&quot;&gt;</span><br><span class="line">  </span><br><span class="line">* cp</span><br><span class="line">  * cp -r 디렉토리 타겟디렉토리 :</span><br><span class="line">    &lt;img width=&quot;471&quot; alt=&quot;image&quot; src=&quot;https://github.com/kish191919/Python_Project/assets/26552500/5fb8b83a-6544-4648-987e-cd433e9cb8d3&quot;&gt;</span><br><span class="line"></span><br><span class="line">* find</span><br><span class="line">  * find . -name 파일이름 : 파일을 찾음</span><br><span class="line">  * find . -name &#x27;정규표현식&#x27;</span><br><span class="line">    &lt;img width=&quot;665&quot; alt=&quot;image&quot; src=&quot;https://github.com/kish191919/Python_Project/assets/26552500/1251d168-b94f-4bbd-972c-9b273d78e853&quot;&gt;</span><br><span class="line"></span><br><span class="line">* which</span><br><span class="line">  * $PATH에 등록된 경로중에 주어진 이름의 실행 파일의 위치 보여줌</span><br><span class="line">  * 사용하는 명령어의 위치 찾음</span><br><span class="line">    &lt;img width=&quot;1109&quot; alt=&quot;image&quot; src=&quot;https://github.com/kish191919/Python_Project/assets/26552500/1ae9d1a5-363a-4b52-bbe6-e17a1d6442a3&quot;&gt;</span><br><span class="line"></span><br><span class="line">* grep</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### 유용한 명령어</span><br></pre></td></tr></table></figure>
-echo &quot;hello&quot; &gt;&gt; newfile.txt
-man find &gt; find.txt         # find.txt에 find 내용을 넣음
-</code></pre>
+<li>tail -f <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while sleep 1; do echo &quot;hello world&quot; &gt;&gt; example.log;done &amp;</span><br><span class="line">tail -f example.log</span><br><span class="line">ps -ef</span><br><span class="line">kill -9 pid#</span><br></pre></td></tr></table></figure>
+<img src="https://github.com/kish191919/kish191919.github.io/assets/26552500/f181e1ec-5fcf-4448-88ea-2a2a9d8d5cc1" alt="image"></li>
+</ul>
 </li>
+<li><p>comm</p>
+<ul>
+<li>comm -12 line1.txt line2.txt : line1 과 line2 공통 라인 출력</li>
+<li>comm -3 line1.txt line2.txt : line1 과 line2 다른 라인 출력<img width="590" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/ad402c75-6ae3-44eb-af34-cc261afd2d64"></li>
+</ul>
+</li>
+<li><p>cmp</p>
+<ul>
+<li>두 파일을 바이트 단위로 비교한 결과를 출력<img width="673" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/01dfb654-20e8-4436-885e-b394a5cdc624"></li>
+</ul>
+</li>
+<li><p>diff</p>
+<ul>
+<li>두 파일의 라인별 차이점을 보여줌</li>
+<li>symbol 차이<ul>
+<li>a : add</li>
+<li>c : change</li>
+<li>d : delete<img width="544" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/36945681-422a-49c2-9311-1a226c48bf9f"></li>
 </ul>
 </li>
 </ul>
-<h1 id="vim-상에서-맨-마지막-이동-shift-G"><a href="#vim-상에서-맨-마지막-이동-shift-G" class="headerlink" title="vim 상에서 맨 마지막 이동 : shift + G"></a>vim 상에서 맨 마지막 이동 : shift + G</h1><pre><code>
-</code></pre>
+</li>
+<li><p>less</p>
+<ul>
+<li>터미널 세션에 프린트하지 않고 파일내용 볼수있음</li>
+<li>보는 부분만 열기때문에, 큰 용량의 파일을 볼때는 vi보다 빠름</li>
+<li>양방향 탐색이 가능하기때문에 more보다 편리<ul>
+<li>j : down      5j 다섯줄 아래     space : 한 화면씩 아래</li>
+<li>k : up        5k 다섯줄 위        b    : 한 화면씩 위</li>
+<li>shift + g : 맨아래</li>
+<li>h : help</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>ln</p>
+<ul>
+<li>심볼릭 링크 : 절대경로 또는 상대경로 형태로 된 다른 파일이나 디렉토리에 대한 참조를 포함한 특별한 종류의 파일</li>
+<li>in -s $원래파일위치 $목표파일위치</li>
+<li>원래 파일을 삭제하면 심볼릭 링크로 만든 파일에서 에러가 발생</li>
+<li>파일에 심볼릭 링크 설정<img width="764" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/38d61858-a8b7-4f76-a9aa-3220427bbe9b"></li>
+<li>폴더에 심볼릭 링크 설정<img width="572" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/605c0ee9-dbc7-46cf-8b46-8984a2897f1b"></li>
+</ul>
+</li>
+<li><p>alias</p>
+<ul>
+<li>다른 문자열에 대채하는 단어 지정</li>
+<li>주로 복잡한 명령어의 약어로 사용</li>
+<li>환경변수와 다름<img width="701" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/003eb96c-4489-4169-9f5a-30e1cd044eb5"></li>
+</ul>
+</li>
+<li><p>cp</p>
+<ul>
+<li>cp -r 디렉토리 타겟디렉토리 :<img width="471" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/5fb8b83a-6544-4648-987e-cd433e9cb8d3"></li>
+</ul>
+</li>
+<li><p>find</p>
+<ul>
+<li>find . -name 파일이름 : 파일을 찾음</li>
+<li>find . -name ‘정규표현식’<img width="665" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/1251d168-b94f-4bbd-972c-9b273d78e853"></li>
+</ul>
+</li>
+<li><p>which</p>
+<ul>
+<li>$PATH에 등록된 경로중에 주어진 이름의 실행 파일의 위치 보여줌</li>
+<li>사용하는 명령어의 위치 찾음<img width="1109" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/1ae9d1a5-363a-4b52-bbe6-e17a1d6442a3"></li>
+</ul>
+</li>
+<li><p>grep</p>
+</li>
+</ul>
+<h4 id="유용한-명령어"><a href="#유용한-명령어" class="headerlink" title="유용한 명령어"></a>유용한 명령어</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="string">&quot;hello&quot;</span> &gt;&gt; newfile.txt</span><br><span class="line">man find &gt; find.txt         <span class="comment"># find.txt에 find 내용을 넣음 </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># vim 상에서 맨 마지막 이동 : shift + G</span></span><br></pre></td></tr></table></figure>
 
         </div>
         <footer class="article-footer">
@@ -294,7 +355,7 @@ man find &gt; find.txt         # find.txt에 find 내용을 넣음
 
 
 
-    <a data-url="https://kish191919.github.io/2024/02/22/Data-Engineer-2-1-Linux-Basic/" data-id="clt0b9zs80017h3s91d8d9irq" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://kish191919.github.io/2024/02/22/Data-Engineer-2-1-Linux-Basic/" data-id="clt0bi8sj0018nws93yohanuu" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -386,7 +447,7 @@ J - 다운, K - 업 , Q - 종료, H - help
 cd
 
 cd .. : 상위 디렉토리로 ",
-        "wordCount": 721
+        "wordCount": 464
     }
 </script>
 
