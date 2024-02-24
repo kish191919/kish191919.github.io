@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://github.com/kish191919/kish191919.github.io/assets/26552500/e4b91071-9747-4ce1-90f4-760734e1f038">
 <meta property="article:published_time" content="2024-02-22T17:38:31.000Z">
-<meta property="article:modified_time" content="2024-02-22T18:06:18.568Z">
+<meta property="article:modified_time" content="2024-02-23T17:25:50.152Z">
 <meta property="article:author" content="Danny">
 <meta property="article:tag" content="linux_basic">
 <meta name="twitter:card" content="summary">
@@ -182,7 +182,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2024/02/22/Data-Engineer-2-1-Linux-Basic/" class="article-date">
-     <time datetime="2024-02-22T18:06:18.568Z" itemprop="dateModified">2024-02-22</time>
+     <time datetime="2024-02-23T17:25:50.152Z" itemprop="dateModified">2024-02-23</time>
   </a>
 </div>
 
@@ -241,7 +241,53 @@
 <li>파일 숨기기 (파일이름 앞에 .을 붙이면 됨) : mv hello.txt .hello.txt</li>
 </ul>
 </li>
+<li><p>df</p>
+<ul>
+<li>df -h : 디스크 공간 정보 , 인간이 읽을 수 있음 (h)</li>
 </ul>
+</li>
+<li><p>du</p>
+<ul>
+<li>du -sh : 해당경로 하위의 총합 (s), 인간이 읽을 수 있음 (h)</li>
+<li>du -h -d 2 : 해당 depth 만큼 보여줌</li>
+</ul>
+</li>
+<li><p>chmod </p>
+<ul>
+<li>chmod +x test.txt : test 파일의 오너, 그룹, other 모두 x 가 추가<ul>
+<li>실행 : .&#x2F;test  (앞에 .&#x2F; 를 붙여서 실행)</li>
+</ul>
+</li>
+<li>chmod u+x test.txt : test 파일의 오너만 x 가 추가</li>
+<li>chmod g+w,o-r test.txt : test 파일의 그룹 w 가 추가, other에게는 r를 제거.</li>
+<li>chmod 760 test.txt</li>
+<li><img width="693" alt="image" src="https://github.com/kish191919/kish191919.github.io/assets/26552500/5cf59a37-a313-4d63-ace1-424190f65eac"></li>
+<li><img width="1376" alt="image" src="https://github.com/kish191919/kish191919.github.io/assets/26552500/0795d33f-0fb4-4418-8023-3de48a55c57d"></li>
+<li><img width="544" alt="image" src="https://github.com/kish191919/kish191919.github.io/assets/26552500/dbd4bcb0-1f7a-49f9-8816-ef09f31ce8a6"></li>
+</ul>
+</li>
+<li><p>head</p>
+<ul>
+<li>head -n 3 : 첫 3줄만 출력</li>
+</ul>
+</li>
+<li><p>tail</p>
+<ul>
+<li>tail -f </li>
+<li><pre><code class="html">while sleep 1; do echo &quot;hello world&quot; &gt;&gt; example.log;done &amp;
+tail -f example.log
+ps -ef
+kill -9 pid#
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  * ![image](https://github.com/kish191919/kish191919.github.io/assets/26552500/f181e1ec-5fcf-4448-88ea-2a2a9d8d5cc1)</span><br><span class="line"></span><br><span class="line">* comm</span><br><span class="line">  * </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### 유용한 명령어</span><br></pre></td></tr></table></figure>
+echo &quot;hello&quot; &gt;&gt; newfile.txt
+man find &gt; find.txt         # find.txt에 find 내용을 넣음
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="vim-상에서-맨-마지막-이동-shift-G"><a href="#vim-상에서-맨-마지막-이동-shift-G" class="headerlink" title="vim 상에서 맨 마지막 이동 : shift + G"></a>vim 상에서 맨 마지막 이동 : shift + G</h1><pre><code>
+</code></pre>
 
         </div>
         <footer class="article-footer">
@@ -249,7 +295,7 @@
 
 
 
-    <a data-url="https://kish191919.github.io/2024/02/22/Data-Engineer-2-1-Linux-Basic/" data-id="clsxjj0tn0018i8s9ckkihz5c" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://kish191919.github.io/2024/02/22/Data-Engineer-2-1-Linux-Basic/" data-id="clszm30p50017ews959nb5kdu" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -325,7 +371,7 @@
         "genre": "DATA_ENGINEER LINUX",
         "datePublished": "2024-02-22",
         "dateCreated": "2024-02-22",
-        "dateModified": "2024-02-22",
+        "dateModified": "2024-02-23",
         "url": "https://kish191919.github.io/2024/02/22/Data-Engineer-2-1-Linux-Basic/",
         "description": "
 man
@@ -341,7 +387,7 @@ J - 다운, K - 업 , Q - 종료, H - help
 cd
 
 cd .. : 상위 디렉토리로 ",
-        "wordCount": 96
+        "wordCount": 270
     }
 </script>
 
