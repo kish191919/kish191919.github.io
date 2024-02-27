@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://github.com/kish191919/kish191919.github.io/assets/26552500/e4b91071-9747-4ce1-90f4-760734e1f038">
 <meta property="article:published_time" content="2024-02-22T17:38:31.000Z">
-<meta property="article:modified_time" content="2024-02-24T16:51:19.205Z">
+<meta property="article:modified_time" content="2024-02-27T13:52:42.667Z">
 <meta property="article:author" content="Danny">
 <meta property="article:tag" content="linux_basic">
 <meta name="twitter:card" content="summary">
@@ -182,7 +182,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2024/02/22/Data-Engineer-2-1-Linux-Basic/" class="article-date">
-     <time datetime="2024-02-24T16:51:19.205Z" itemprop="dateModified">2024-02-24</time>
+     <time datetime="2024-02-27T13:52:42.667Z" itemprop="dateModified">2024-02-27</time>
   </a>
 </div>
 
@@ -339,12 +339,31 @@
 </ul>
 </li>
 <li><p>which</p>
-<ul>
-<li>$PATH에 등록된 경로중에 주어진 이름의 실행 파일의 위치 보여줌</li>
-<li>사용하는 명령어의 위치 찾음<img width="1109" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/1ae9d1a5-363a-4b52-bbe6-e17a1d6442a3"></li>
-</ul>
+<blockquote>
+<p>$PATH에 등록된 경로중에 주어진 이름의 실행 파일의 위치 보여줌<br>사용하는 명령어의 위치 찾음<br>  <img width="1109" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/1ae9d1a5-363a-4b52-bbe6-e17a1d6442a3"></p>
+</blockquote>
 </li>
 <li><p>grep</p>
+<blockquote>
+<p>grep -rl “[0-9]0{3}“ .  : 현재 디렉토리에서 하위 디렉토리까지 검색하여 맞는 조건의 파일이름만 표기<br>grep -n “[0-9]0{1}“ find.txt : 찾는 문자열의 줄번호 표기<br>  <img width="945" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/994fca50-137b-4e65-9400-5b9d255be697"></p>
+</blockquote>
+</li>
+<li><p>sed</p>
+<blockquote>
+<p>텍스트를 필터링하거나 변환하는 스트림 에디터<br>sed <code>s/old_word/new_word/g</code> target_file : 타겟파일에서 old word를 new word 로 교체</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># -e :동시에 여러 표현 변경</span><br><span class="line"># g : 모든 것을 교체</span><br><span class="line">sed -e &#x27;s/find/where/g&#x27; -e &#x27;s/options/gooood/g&#x27; find.txt</span><br><span class="line">sed &#x27;s/find/where/g&#x27; find.txt</span><br><span class="line"></span><br><span class="line"># -i : 파일자체에서 변경을 적용</span><br><span class="line">sed -i find.txt -e &#x27;s/find/where/g&#x27; find.txt</span><br><span class="line"></span><br><span class="line"># xargs 앞의 결과물을 인수로 받아서 처리</span><br><span class="line"># sed로 수정하기 위해서는 앞에 grep 명령어에 -l를 붙임</span><br><span class="line">grep -rl &quot;[0-9]0\&#123;1\&#125;&quot; . | xargs sed -i &quot;&quot; &#x27;s/minute (60 seconds)/minute (60111111111 seconds)/g&#x27;</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+<img width="1324" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/45b83f90-1f2f-4a74-9ffb-4ab1f5a86a1b">
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 파일의 확장명을 찾아서 일괄적으로 바꾸고 싶을때</span><br><span class="line"># p 원래 파일명을 그대로 유지</span><br><span class="line"># xargs -n2 mv : xargs를 사용하여 각각의 출력된 파일 이름에 대해 mv 명령어를 실행</span><br><span class="line"># xargs는 한 번에 두 개의 인자를 받아들이도록 설정</span><br><span class="line"></span><br><span class="line">find . -type f -name &#x27;*.txt&#x27; | sed &#x27;p;s/.txt/.pdf/g&#x27; | xargs -n2 mv</span><br></pre></td></tr></table></figure>
+<img width="1071" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/4acd8939-27aa-4be3-bf12-d28e849bca06">
+
+<ul>
+<li>vi에서도 %s&#x2F;old_word&#x2F;new_word&#x2F;g 를 이용하여 단어를 교체<blockquote>
+<p>:%s&#x2F;where&#x2F;find&#x2F;g</p>
+</blockquote>
+</li>
+</ul>
 </li>
 </ul>
 <h4 id="유용한-명령어"><a href="#유용한-명령어" class="headerlink" title="유용한 명령어"></a>유용한 명령어</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="string">&quot;hello&quot;</span> &gt;&gt; newfile.txt</span><br><span class="line">man find &gt; find.txt         <span class="comment"># find.txt에 find 내용을 넣음 </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># vim 상에서 맨 마지막 이동 : shift + G</span></span><br></pre></td></tr></table></figure>
@@ -355,7 +374,7 @@
 
 
 
-    <a data-url="https://kish191919.github.io/2024/02/22/Data-Engineer-2-1-Linux-Basic/" data-id="clt49yn6000182ys9c0vd45tw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://kish191919.github.io/2024/02/22/Data-Engineer-2-1-Linux-Basic/" data-id="clt4fjl8y0018rrs9fw6cb3x3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -431,7 +450,7 @@
         "genre": "DATA_ENGINEER LINUX",
         "datePublished": "2024-02-22",
         "dateCreated": "2024-02-22",
-        "dateModified": "2024-02-24",
+        "dateModified": "2024-02-27",
         "url": "https://kish191919.github.io/2024/02/22/Data-Engineer-2-1-Linux-Basic/",
         "description": "
 man
@@ -447,7 +466,7 @@ J - 다운, K - 업 , Q - 종료, H - help
 cd
 
 cd .. : 상위 디렉토리로 ",
-        "wordCount": 464
+        "wordCount": 662
     }
 </script>
 
