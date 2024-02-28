@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://github.com/kish191919/kish191919.github.io/assets/26552500/e4b91071-9747-4ce1-90f4-760734e1f038">
 <meta property="article:published_time" content="2024-02-22T17:38:31.000Z">
-<meta property="article:modified_time" content="2024-02-27T13:52:42.667Z">
+<meta property="article:modified_time" content="2024-02-28T20:39:38.179Z">
 <meta property="article:author" content="Danny">
 <meta property="article:tag" content="linux_basic">
 <meta name="twitter:card" content="summary">
@@ -182,7 +182,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2024/02/22/Data-Engineer-2-1-Linux-Basic/" class="article-date">
-     <time datetime="2024-02-27T13:52:42.667Z" itemprop="dateModified">2024-02-27</time>
+     <time datetime="2024-02-28T20:39:38.179Z" itemprop="dateModified">2024-02-28</time>
   </a>
 </div>
 
@@ -358,13 +358,17 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 파일의 확장명을 찾아서 일괄적으로 바꾸고 싶을때</span><br><span class="line"># p 원래 파일명을 그대로 유지</span><br><span class="line"># xargs -n2 mv : xargs를 사용하여 각각의 출력된 파일 이름에 대해 mv 명령어를 실행</span><br><span class="line"># xargs는 한 번에 두 개의 인자를 받아들이도록 설정</span><br><span class="line"></span><br><span class="line">find . -type f -name &#x27;*.txt&#x27; | sed &#x27;p;s/.txt/.pdf/g&#x27; | xargs -n2 mv</span><br></pre></td></tr></table></figure>
 <img width="1071" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/4acd8939-27aa-4be3-bf12-d28e849bca06">
 
-<ul>
-<li>vi에서도 %s&#x2F;old_word&#x2F;new_word&#x2F;g 를 이용하여 단어를 교체<blockquote>
-<p>:%s&#x2F;where&#x2F;find&#x2F;g</p>
+<blockquote>
+<p>vi에서도 %s&#x2F;old_word&#x2F;new_word&#x2F;g 를 이용하여 단어를 교체<br>  :%s&#x2F;where&#x2F;find&#x2F;g</p>
 </blockquote>
 </li>
 </ul>
-</li>
+<blockquote>
+<p>uname</p>
+</blockquote>
+<ul>
+<li>이름, 버전, 기타 시스템 정보확인</li>
+<li>-a : 모든정보 표기  <img width="1433" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/a077b14c-32e1-4335-bf59-0864f666029a"></li>
 </ul>
 <h4 id="유용한-명령어"><a href="#유용한-명령어" class="headerlink" title="유용한 명령어"></a>유용한 명령어</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="string">&quot;hello&quot;</span> &gt;&gt; newfile.txt</span><br><span class="line">man find &gt; find.txt         <span class="comment"># find.txt에 find 내용을 넣음 </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># vim 상에서 맨 마지막 이동 : shift + G</span></span><br></pre></td></tr></table></figure>
 
@@ -374,7 +378,7 @@
 
 
 
-    <a data-url="https://kish191919.github.io/2024/02/22/Data-Engineer-2-1-Linux-Basic/" data-id="clt4fjl8y0018rrs9fw6cb3x3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://kish191919.github.io/2024/02/22/Data-Engineer-2-1-Linux-Basic/" data-id="clt69gznr0018fms99pxxfz59" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -450,7 +454,7 @@
         "genre": "DATA_ENGINEER LINUX",
         "datePublished": "2024-02-22",
         "dateCreated": "2024-02-22",
-        "dateModified": "2024-02-27",
+        "dateModified": "2024-02-28",
         "url": "https://kish191919.github.io/2024/02/22/Data-Engineer-2-1-Linux-Basic/",
         "description": "
 man
@@ -466,7 +470,7 @@ J - 다운, K - 업 , Q - 종료, H - help
 cd
 
 cd .. : 상위 디렉토리로 ",
-        "wordCount": 662
+        "wordCount": 676
     }
 </script>
 
