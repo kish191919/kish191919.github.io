@@ -10,21 +10,22 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="linux_basic,vi" />
+    <meta name="keywords" content="linux_basic,vi,shell_script" />
     
-    <meta name="description" content="vi set number  set nonumber   방향키  h : 왼쪽l : 오른쪽j : 아래k : 위w : 다음 단어 첫글자 이동b : 이전 단어 첫글자 이동   행이동  gg : 맨 앞장 첫행으로 이동shift + g : 맨 마지막으로 이동^ : 현재행의 첫 문자로 이동0 : 현재행의 맨 앞으로 이동$ : 현재행의 마지막 문자로 이동:5 : 타이핑">
+    <meta name="description" content="vi  set number  set nonumber   방향키  h : 왼쪽l : 오른쪽j : 아래k : 위w : 다음 단어 첫글자 이동b : 이전 단어 첫글자 이동   행이동  gg : 맨 앞장 첫행으로 이동shift + g : 맨 마지막으로 이동^ : 현재행의 첫 문자로 이동0 : 현재행의 맨 앞으로 이동$ : 현재행의 마지막 문자로 이동:5 : 타이">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Data_Engineer_2_2_Linux_Basic">
 <meta property="og:url" content="https://kish191919.github.io/2024/02/29/Data-Engineer-2-2-Linux-Basic/index.html">
 <meta property="og:site_name" content="Danny Sweet Home">
-<meta property="og:description" content="vi set number  set nonumber   방향키  h : 왼쪽l : 오른쪽j : 아래k : 위w : 다음 단어 첫글자 이동b : 이전 단어 첫글자 이동   행이동  gg : 맨 앞장 첫행으로 이동shift + g : 맨 마지막으로 이동^ : 현재행의 첫 문자로 이동0 : 현재행의 맨 앞으로 이동$ : 현재행의 마지막 문자로 이동:5 : 타이핑">
+<meta property="og:description" content="vi  set number  set nonumber   방향키  h : 왼쪽l : 오른쪽j : 아래k : 위w : 다음 단어 첫글자 이동b : 이전 단어 첫글자 이동   행이동  gg : 맨 앞장 첫행으로 이동shift + g : 맨 마지막으로 이동^ : 현재행의 첫 문자로 이동0 : 현재행의 맨 앞으로 이동$ : 현재행의 마지막 문자로 이동:5 : 타이">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://github.com/kish191919/Python_Project/assets/26552500/2c2f644d-1415-43c4-bbcc-f8c828ce7fcc">
 <meta property="article:published_time" content="2024-02-29T18:38:54.000Z">
-<meta property="article:modified_time" content="2024-02-29T19:52:58.416Z">
+<meta property="article:modified_time" content="2024-03-02T04:08:13.890Z">
 <meta property="article:author" content="Danny">
 <meta property="article:tag" content="linux_basic">
 <meta property="article:tag" content="vi">
+<meta property="article:tag" content="shell_script">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://github.com/kish191919/Python_Project/assets/26552500/2c2f644d-1415-43c4-bbcc-f8c828ce7fcc">
     
@@ -183,7 +184,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2024/02/29/Data-Engineer-2-2-Linux-Basic/" class="article-date">
-     <time datetime="2024-02-29T19:52:58.416Z" itemprop="dateModified">2024-02-29</time>
+     <time datetime="2024-03-02T04:08:13.890Z" itemprop="dateModified">2024-03-01</time>
   </a>
 </div>
 
@@ -193,7 +194,7 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/linux-basic/" rel="tag">linux_basic</a>, <a class="tag-link-link" href="/tags/vi/" rel="tag">vi</a>
+        <a class="tag-link-link" href="/tags/linux-basic/" rel="tag">linux_basic</a>, <a class="tag-link-link" href="/tags/shell-script/" rel="tag">shell_script</a>, <a class="tag-link-link" href="/tags/vi/" rel="tag">vi</a>
     </div>
 
                 
@@ -211,7 +212,8 @@
             
 
             <ol>
-<li>vi<ul>
+<li><p>vi</p>
+<ul>
 <li><p>set number</p>
 </li>
 <li><p>set nonumber</p>
@@ -254,6 +256,30 @@
 </li>
 </ul>
 </li>
+<li><p>shell script</p>
+<ul>
+<li>파일 맨 위에 다음과 같은 표시가 있다면 shell script 파일 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"><span class="comment">#!/bin/zsh </span></span><br><span class="line">   </span><br><span class="line"><span class="comment">#! 는 shebang 이라고 읽음</span></span><br></pre></td></tr></table></figure></li>
+<li>실행방법 :  .&#x2F;$Filename 을 이용, 만약 안된다면 chmod +x 로 권한 주기</li>
+<li>변수 : 영문, 숫자, _ 만 사용</li>
+<li>변수명은 대문자로 작성</li>
+</ul>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">NAME=eileen</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$NAME</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 변수 할당 제거</span></span><br><span class="line"><span class="comment"># unset NAME</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 변수를 못바 / 읽기 전용 변수 값을 수정하려고 하면 에러 발생</span></span><br><span class="line"><span class="built_in">readonly</span> NAME</span><br><span class="line"></span><br><span class="line">NAME=danny</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$NAME</span></span><br></pre></td></tr></table></figure>
+<img width="514" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/f2667488-adb5-44f8-a1bc-ce03690ef14c">
+
+<ul>
+<li>특수 목적 변수<ul>
+<li>$ : 현재 shell의 프로세스 아이디</li>
+<li>$0 : 현재 스크립트의 파일 이름</li>
+<li>$n : 스크립트 실행시 넘겨준 n번째 인자</li>
+<li>$# : 스크립트에 넣어준 인자의 개수</li>
+<li>$* : 모든 인자를 “”로 감싸서 반환</li>
+<li>$@ : 각 인자를 “”로 감싸서 반환</li>
+<li>$? : 마지막으로 실행된 명령어의 종료 상태</li>
+<li>$! : 마지막 백그라운드 명령어의 프로세스 아이디</li>
+</ul>
+</li>
+</ul>
+</li>
 </ol>
 
         </div>
@@ -262,7 +288,7 @@
 
 
 
-    <a data-url="https://kish191919.github.io/2024/02/29/Data-Engineer-2-2-Linux-Basic/" data-id="clt9jd9j2001b63s909bkas9k" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://kish191919.github.io/2024/02/29/Data-Engineer-2-2-Linux-Basic/" data-id="clt9kcq77001fd8s99u7uainc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -334,14 +360,15 @@
         },
         "headline": "Data_Engineer_2_2_Linux_Basic",
         "image": "https://kish191919.github.iohttps://github.com/kish191919/Python_Project/assets/26552500/2c2f644d-1415-43c4-bbcc-f8c828ce7fcc",
-        "keywords": "linux_basic vi",
+        "keywords": "linux_basic vi shell_script",
         "genre": "DATA_ENGINEER LINUX",
         "datePublished": "2024-02-29",
         "dateCreated": "2024-02-29",
-        "dateModified": "2024-02-29",
+        "dateModified": "2024-03-01",
         "url": "https://kish191919.github.io/2024/02/29/Data-Engineer-2-2-Linux-Basic/",
         "description": "
 vi
+
 set number
 
 set nonumber
@@ -354,8 +381,8 @@ h : 왼쪽l : 오른쪽j : 아래k : 위w : 다음 단어 첫글자 이동b : �
 
 행이동
 
-gg : 맨 앞장 첫행으로 이동shift + g : 맨 마지막으로 이동^ : 현재행의 첫 문자로 이동0 : 현재행의 맨 앞으로 이동$ : 현재행의 마지막 문자로 이동:5 : 타이핑",
-        "wordCount": 246
+gg : 맨 앞장 첫행으로 이동shift + g : 맨 마지막으로 이동^ : 현재행의 첫 문자로 이동0 : 현재행의 맨 앞으로 이동$ : 현재행의 마지막 문자로 이동:5 : 타이",
+        "wordCount": 410
     }
 </script>
 
@@ -444,7 +471,7 @@ gg : 맨 앞장 첫행으로 이동shift + g : 맨 마지막으로 이동^ : 현
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2024/" rel="tag">2024</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-Conquer/" rel="tag">Divide_and_Conquer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-Programming/" rel="tag">Dynamic_Programming</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/" rel="tag">Flask</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy/" rel="tag">Greedy</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash-Table/" rel="tag">Hash_Table</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/" rel="tag">Linked_List</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql/" rel="tag">MySql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/" rel="tag">Queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Recursion/" rel="tag">Recursion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sort/" rel="tag">Sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sorting/" rel="tag">Sorting</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/" rel="tag">Stack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Used-Car/" rel="tag">Used_Car</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-basic/" rel="tag">git_basic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-basic/" rel="tag">linux_basic</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" rel="tag">알고리즘_복잡도</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2024/" rel="tag">2024</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-Conquer/" rel="tag">Divide_and_Conquer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-Programming/" rel="tag">Dynamic_Programming</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/" rel="tag">Flask</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy/" rel="tag">Greedy</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash-Table/" rel="tag">Hash_Table</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/" rel="tag">Linked_List</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql/" rel="tag">MySql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/" rel="tag">Queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Recursion/" rel="tag">Recursion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sort/" rel="tag">Sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sorting/" rel="tag">Sorting</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/" rel="tag">Stack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Used-Car/" rel="tag">Used_Car</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-basic/" rel="tag">git_basic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-basic/" rel="tag">linux_basic</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell-script/" rel="tag">shell_script</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" rel="tag">알고리즘_복잡도</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -454,7 +481,7 @@ gg : 맨 앞장 첫행으로 이동shift + g : 맨 마지막으로 이동^ : 현
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/2024/" style="font-size: 10px;">2024</a> <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 10px;">Divide_and_Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 10px;">Dynamic_Programming</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/Greedy/" style="font-size: 15px;">Greedy</a> <a href="/tags/Hash-Table/" style="font-size: 10px;">Hash_Table</a> <a href="/tags/Linked-List/" style="font-size: 20px;">Linked_List</a> <a href="/tags/MySql/" style="font-size: 10px;">MySql</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Recursion/" style="font-size: 10px;">Recursion</a> <a href="/tags/Sort/" style="font-size: 15px;">Sort</a> <a href="/tags/Sorting/" style="font-size: 10px;">Sorting</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Used-Car/" style="font-size: 20px;">Used_Car</a> <a href="/tags/git-basic/" style="font-size: 10px;">git_basic</a> <a href="/tags/linux-basic/" style="font-size: 15px;">linux_basic</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" style="font-size: 10px;">알고리즘_복잡도</a>
+            <a href="/tags/2024/" style="font-size: 10px;">2024</a> <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 10px;">Divide_and_Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 10px;">Dynamic_Programming</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/Greedy/" style="font-size: 15px;">Greedy</a> <a href="/tags/Hash-Table/" style="font-size: 10px;">Hash_Table</a> <a href="/tags/Linked-List/" style="font-size: 20px;">Linked_List</a> <a href="/tags/MySql/" style="font-size: 10px;">MySql</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Recursion/" style="font-size: 10px;">Recursion</a> <a href="/tags/Sort/" style="font-size: 15px;">Sort</a> <a href="/tags/Sorting/" style="font-size: 10px;">Sorting</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Used-Car/" style="font-size: 20px;">Used_Car</a> <a href="/tags/git-basic/" style="font-size: 10px;">git_basic</a> <a href="/tags/linux-basic/" style="font-size: 15px;">linux_basic</a> <a href="/tags/shell-script/" style="font-size: 10px;">shell_script</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" style="font-size: 10px;">알고리즘_복잡도</a>
         </div>
     </div>
 
