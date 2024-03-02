@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://github.com/kish191919/kish191919.github.io/assets/26552500/e4b91071-9747-4ce1-90f4-760734e1f038">
 <meta property="article:published_time" content="2024-02-22T17:38:31.000Z">
-<meta property="article:modified_time" content="2024-02-29T20:16:32.182Z">
+<meta property="article:modified_time" content="2024-03-02T03:40:51.918Z">
 <meta property="article:author" content="Danny">
 <meta property="article:tag" content="linux_basic">
 <meta name="twitter:card" content="summary">
@@ -182,7 +182,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2024/02/22/Data-Engineer-2-1-Linux-Basic/" class="article-date">
-     <time datetime="2024-02-29T20:16:32.182Z" itemprop="dateModified">2024-02-29</time>
+     <time datetime="2024-03-02T03:40:51.918Z" itemprop="dateModified">2024-03-01</time>
   </a>
 </div>
 
@@ -428,9 +428,9 @@
 </li>
 <li><p>redirection</p>
 <ul>
-<li>출력결과를 파일로 저장<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; 기존의 파일 내용을 지우고 저장</span><br><span class="line">&gt;&gt;  기존 파일 내용 뒤에 저장</span><br><span class="line">&lt; 파일의 데이터를 명령어에 입력</span><br><span class="line">&lt;&lt; 지정된 단어까지의 데이터를 입력</span><br></pre></td></tr></table></figure>
-<img width="514" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/541a6cac-ec0e-48eb-95d3-44966c05bc99"></li>
+<li>출력결과를 파일로 저장<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; 기존의 파일 내용을 지우고 저장</span><br><span class="line">&gt;&gt;  기존 파일 내용 뒤에 저장</span><br><span class="line">&lt; 파일의 데이터를 명령어에 입력</span><br><span class="line">&lt;&lt; 지정된 단어까지의 데이터를 입력</span><br></pre></td></tr></table></figure></li>
 </ul>
+<img width="514" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/541a6cac-ec0e-48eb-95d3-44966c05bc99">
 <img width="443" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/1ec7c79f-901b-44d2-997d-7546631a52f4">
 </li>
 <li><p>stdout, stderror</p>
@@ -440,7 +440,28 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1&gt;           : stdout 을 지정된 파일에 저장</span><br><span class="line">2&gt;           : stderror 을 지정된 파일에 저장</span><br><span class="line">2&gt;&amp;1 또는 &amp;&gt;  : stderror 를 stdout에 포함시켜서 저장</span><br><span class="line">&gt; /dev/null  : 출력 결과를 제거</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">find / -name <span class="string">&quot;my*&quot;</span> -maxdepth 5 1&gt; ~/Desktop/stdout.log 2&gt; ~/Desktop/stderror.log</span><br><span class="line"></span><br><span class="line">find / -name <span class="string">&quot;my*&quot;</span> -maxdepth 5 1&gt; ~/Desktop/bothout.log 2&gt;&amp;1</span><br><span class="line"></span><br><span class="line">find / -name <span class="string">&quot;my*&quot;</span> -maxdepth 5 &amp;&gt; ~/Desktop/bothout2.<span class="built_in">log</span></span><br><span class="line"></span><br><span class="line">find / -name <span class="string">&quot;my*&quot;</span> -maxdepth 5 &amp;&gt; /dev/null</span><br></pre></td></tr></table></figure>
-<img width="1010" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/0973f25f-e2a5-47dc-bec3-a9352ae064ce"></li>
+<img width="1010" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/0973f25f-e2a5-47dc-bec3-a9352ae064ce">
+</li>
+<li><p>환경변수</p>
+<ul>
+<li><p>변수에 자주 사용하는 경로를 저장함</p>
+</li>
+<li><p>기존에 있는 변수를 이용한 새로운 변수를 저장 : PATH&#x3D;$PATH:newpath</p>
+<img width="421" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/71c4fcd2-23c6-499a-8f93-8cdbba9aa20e">
+</li>
+<li><p>새 터미널 열때도 계속 동작하게 하려면 : vi ~&#x2F;.bash_profile 수정.<br>단, bash shell 로 접속했을때만 동작. sh 또는 zsh로 접속하면 동작하지 않음</p>
+</li>
+<li><p>환경변수를 모든 유저에게만 영구적으로 적용하고 싶을경우</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/profile</span><br><span class="line"><span class="built_in">export</span> NAME=danny</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$NAME</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>실행명령어 만들기</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">vi mycommand.sh</span><br><span class="line"></span><br><span class="line"><span class="comment">#!/bin/sh</span></span><br><span class="line"><span class="comment">#!/bin/zsh</span></span><br><span class="line"><span class="built_in">echo</span> $*</span><br><span class="line"></span><br><span class="line"><span class="built_in">chmod</span> +x mycommand.sh</span><br><span class="line">sh mycommand.sh good</span><br><span class="line">./mycommand.sh good</span><br><span class="line"></span><br><span class="line"><span class="comment"># 명령문 처럼 이름을 변경</span></span><br><span class="line"><span class="built_in">mv</span> mycommand.sh mycommand</span><br><span class="line"></span><br><span class="line"><span class="comment"># /usr/local/bin 저장</span></span><br><span class="line"><span class="built_in">mv</span> mycommand /usr/local/bin/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 명령어 위치 확인</span></span><br><span class="line"><span class="built_in">which</span> mycommand</span><br></pre></td></tr></table></figure>
+<img width="753" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/11c28707-e8c5-446e-9af9-7ed2d8abd793">
+</li>
+<li><p>보통 만들어진 명령어들은 <strong>&#x2F;usr&#x2F;local&#x2F;bin</strong> 에 저장</p>
+</li>
+</ul>
+</li>
 </ol>
 <h4 id="유용한-명령어"><a href="#유용한-명령어" class="headerlink" title="유용한 명령어"></a>유용한 명령어</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="string">&quot;hello&quot;</span> &gt;&gt; newfile.txt</span><br><span class="line">man find &gt; find.txt         <span class="comment"># find.txt에 find 내용을 넣음 </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># vim 상에서 맨 마지막 이동 : shift + G</span></span><br></pre></td></tr></table></figure>
 
@@ -450,7 +471,7 @@
 
 
 
-    <a data-url="https://kish191919.github.io/2024/02/22/Data-Engineer-2-1-Linux-Basic/" data-id="clt7o1yxp0018ods96rxl1kne" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://kish191919.github.io/2024/02/22/Data-Engineer-2-1-Linux-Basic/" data-id="clt9jd9j0001863s9ftiu6zwm" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -526,7 +547,7 @@
         "genre": "DATA_ENGINEER LINUX",
         "datePublished": "2024-02-22",
         "dateCreated": "2024-02-22",
-        "dateModified": "2024-02-29",
+        "dateModified": "2024-03-01",
         "url": "https://kish191919.github.io/2024/02/22/Data-Engineer-2-1-Linux-Basic/",
         "description": "
 man
@@ -540,7 +561,7 @@ J - 다운, K - 업 , Q - 종료, H - help
 cd
 
 cd .. : 상위 디렉토리로 이",
-        "wordCount": 1082
+        "wordCount": 1219
     }
 </script>
 
