@@ -21,7 +21,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://github.com/kish191919/Python_Project/assets/26552500/2c2f644d-1415-43c4-bbcc-f8c828ce7fcc">
 <meta property="article:published_time" content="2024-02-29T18:38:54.000Z">
-<meta property="article:modified_time" content="2024-03-02T04:08:13.890Z">
+<meta property="article:modified_time" content="2024-03-03T21:04:37.125Z">
 <meta property="article:author" content="Danny">
 <meta property="article:tag" content="linux_basic">
 <meta property="article:tag" content="vi">
@@ -184,7 +184,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2024/02/29/Data-Engineer-2-2-Linux-Basic/" class="article-date">
-     <time datetime="2024-03-02T04:08:13.890Z" itemprop="dateModified">2024-03-01</time>
+     <time datetime="2024-03-03T21:04:37.125Z" itemprop="dateModified">2024-03-03</time>
   </a>
 </div>
 
@@ -255,7 +255,7 @@
 </blockquote>
 </li>
 </ul>
-</li>
+<ol start="2">
 <li><p>shell script</p>
 <ul>
 <li>파일 맨 위에 다음과 같은 표시가 있다면 shell script 파일 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"><span class="comment">#!/bin/zsh </span></span><br><span class="line">   </span><br><span class="line"><span class="comment">#! 는 shebang 이라고 읽음</span></span><br></pre></td></tr></table></figure></li>
@@ -263,11 +263,12 @@
 <li>변수 : 영문, 숫자, _ 만 사용</li>
 <li>변수명은 대문자로 작성</li>
 </ul>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">NAME=eileen</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$NAME</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 변수 할당 제거</span></span><br><span class="line"><span class="comment"># unset NAME</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 변수를 못바 / 읽기 전용 변수 값을 수정하려고 하면 에러 발생</span></span><br><span class="line"><span class="built_in">readonly</span> NAME</span><br><span class="line"></span><br><span class="line">NAME=danny</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$NAME</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">NAME=eileen</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$NAME</span></span><br><span class="line">    </span><br><span class="line"><span class="comment"># 변수 할당 제거</span></span><br><span class="line"><span class="comment"># unset NAME</span></span><br><span class="line">    </span><br><span class="line"><span class="comment"># 변수를 못바 / 읽기 전용 변수 값을 수정하려고 하면 에러 발생</span></span><br><span class="line"><span class="built_in">readonly</span> NAME</span><br><span class="line">    </span><br><span class="line">NAME=danny</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$NAME</span></span><br></pre></td></tr></table></figure>
 <img width="514" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/f2667488-adb5-44f8-a1bc-ce03690ef14c">
 
 <ul>
-<li>특수 목적 변수<ul>
+<li><p>특수 목적 변수</p>
+<ul>
 <li>$ : 현재 shell의 프로세스 아이디</li>
 <li>$0 : 현재 스크립트의 파일 이름</li>
 <li>$n : 스크립트 실행시 넘겨준 n번째 인자</li>
@@ -275,10 +276,24 @@
 <li>$* : 모든 인자를 “”로 감싸서 반환</li>
 <li>$@ : 각 인자를 “”로 감싸서 반환</li>
 <li>$? : 마지막으로 실행된 명령어의 종료 상태</li>
-<li>$! : 마지막 백그라운드 명령어의 프로세스 아이디</li>
 </ul>
 </li>
+<li><p>$! : 마지막 백그라운드 명령어의 프로세스 아이디</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;PID : $$&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;File name : <span class="variable">$0</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;First Param : <span class="variable">$1</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Second Param : <span class="variable">$2</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Quoted Values @: <span class="variable">$@</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Quoted Values *: $*&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Total number of params : <span class="variable">$#</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<img width="525" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/dac57b1a-9650-48bf-b576-88647f8e9497">
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># arg-callee.sh</span></span><br><span class="line"><span class="comment">#!/bin/sh</span></span><br><span class="line"> <span class="built_in">echo</span> <span class="string">&quot;arg1 : <span class="variable">$1</span>&quot;</span></span><br><span class="line"> <span class="built_in">echo</span> <span class="string">&quot;arg2 : <span class="variable">$2</span>&quot;</span></span><br><span class="line"> <span class="built_in">echo</span> <span class="string">&quot;arg3 : <span class="variable">$3</span>&quot;</span></span><br><span class="line"> <span class="built_in">echo</span></span><br><span class="line">  </span><br><span class="line"><span class="comment"># arg-caller.sh</span></span><br><span class="line"><span class="comment">#!/bin/sh</span></span><br><span class="line"> <span class="built_in">echo</span> <span class="string">&#x27;$* without quotes&#x27;</span></span><br><span class="line"> ./arg-callee.sh $*</span><br><span class="line">   </span><br><span class="line"> <span class="built_in">echo</span> <span class="string">&#x27;$@ without quotes&#x27;</span></span><br><span class="line"> ./arg-callee.sh <span class="variable">$@</span></span><br><span class="line">   </span><br><span class="line"> <span class="built_in">echo</span> <span class="string">&#x27;$* with quotes&#x27;</span></span><br><span class="line"> ./arg-callee.sh <span class="string">&quot;$*&quot;</span></span><br><span class="line">   </span><br><span class="line"> <span class="built_in">echo</span> <span class="string">&#x27;$@ with quotes&#x27;</span></span><br><span class="line"> ./arg-callee.sh <span class="string">&quot;<span class="variable">$@</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<img width="658" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/2c2b71cf-d712-4ef0-ae32-df8821bbf631">
+  
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"> ./success.sh</span><br><span class="line"> <span class="keyword">if</span> [ $? -ne 0 ]; <span class="keyword">then</span></span><br><span class="line"> <span class="built_in">echo</span> <span class="string">&quot;failed from sub-command&quot;</span></span><br><span class="line"> <span class="built_in">exit</span> 1</span><br><span class="line"> <span class="keyword">fi</span></span><br><span class="line"> <span class="built_in">echo</span> <span class="string">&quot;next step&quot;</span></span><br></pre></td></tr></table></figure>
+<img width="412" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/25270e0d-6aef-4dfa-89ef-613f65bb96e7"></li>
 </ul>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line">  ./success.sh</span><br><span class="line">  <span class="keyword">if</span> [ $? -ne 0 ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;failed from sub-command&quot;</span></span><br><span class="line">  <span class="built_in">exit</span> 1</span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">  </span><br><span class="line">  <span class="built_in">sleep</span> 100 &amp;</span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;last PID of sub command : $!&quot;</span></span><br><span class="line">      </span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;next step&quot;</span></span><br></pre></td></tr></table></figure>
+  <img width="473" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/134b4dac-1f0f-49f9-9afd-f2f3b03cdb7b">
+ 
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> [ <span class="variable">$1</span> = <span class="string">&quot;danny&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;this is danny&quot;</span></span><br><span class="line">  <span class="keyword">elif</span> [ <span class="variable">$1</span> = <span class="string">&quot;joey&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;this is joey&quot;</span></span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;anonymous&quot;</span></span><br><span class="line">  <span class="keyword">fi</span> </span><br></pre></td></tr></table></figure>
+ <img width="503" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/7d6252b7-60c4-4e68-b8f9-249592f4f293"></li>
+</ol>
 </li>
 </ol>
 
@@ -288,7 +303,7 @@
 
 
 
-    <a data-url="https://kish191919.github.io/2024/02/29/Data-Engineer-2-2-Linux-Basic/" data-id="clt9kcq77001fd8s99u7uainc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://kish191919.github.io/2024/02/29/Data-Engineer-2-2-Linux-Basic/" data-id="cltc05wxd001iu9s9bslk7jme" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -364,7 +379,7 @@
         "genre": "DATA_ENGINEER LINUX",
         "datePublished": "2024-02-29",
         "dateCreated": "2024-02-29",
-        "dateModified": "2024-03-01",
+        "dateModified": "2024-03-03",
         "url": "https://kish191919.github.io/2024/02/29/Data-Engineer-2-2-Linux-Basic/",
         "description": "
 vi
@@ -382,7 +397,7 @@ h : 왼쪽l : 오른쪽j : 아래k : 위w : 다음 단어 첫글자 이동b : �
 행이동
 
 gg : 맨 앞장 첫행으로 이동shift + g : 맨 마지막으로 이동^ : 현재행의 첫 문자로 이동0 : 현재행의 맨 앞으로 이동$ : 현재행의 마지막 문자로 이동:5 : 타이",
-        "wordCount": 410
+        "wordCount": 842
     }
 </script>
 
