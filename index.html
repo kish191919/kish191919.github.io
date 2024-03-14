@@ -179,13 +179,16 @@
     
 
         <p class="article-excerpt">
-            (3)
-spark 유저 생성sudo user add spark -m -s &#x2F;bin&#x2F;bash
-패스워드 변경sudo passed spark
-sudo 권한 부여sudo visudo
-편집모드에 아래 내용 추가spark ALL&#x3D;(ALL) NOPASSWD: ALL
-spark 유저로 바꾸기sudo su - spark
-data 디렉토리 만들기s
+            (1) spark 유저 생성
+1234sudo useradd spark -m -s /bin/bash# 패스워드 변경sudo passwd spark
+
+(2) sudo 권한 부여
+1234sudo visudo# 편집모드에 아래 내용 추가spark ALL=(ALL) NOPASSWD: ALL
+
+(3) spark 유저로 바꾸기
+1sudo su - spark
+
+(4) d
         </p>
     </div>
 </article>
