@@ -10,19 +10,20 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="ec2" />
+    <meta name="keywords" content="ec2,pyspark" />
     
-    <meta name="description" content="(1) spark 유저 생성 1234sudo useradd spark -m -s &#x2F;bin&#x2F;bash# 패스워드 변경sudo passwd spark  (2) sudo 권한 부여 1234sudo visudo# 편집모드에 아래 내용 추가spark ALL&#x3D;(ALL) NOPASSWD: ALL  (3) spark 유저로 바꾸기 1sudo su - spark  (4) d">
+    <meta name="description" content="1. AWS EC2 서버환경 구성(1) spark 유저 생성 1234sudo useradd spark -m -s &#x2F;bin&#x2F;bash# 패스워드 변경sudo passwd spark  (2) sudo 권한 부여 123456789sudo visudo# 편집모드에 아래 내용 추가spark ALL&#x3D;(ALL) NOPASSWD: ALL# 저장 후 나오기Ctrl + xY">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Data_Engineer_10_1_PySpark">
 <meta property="og:url" content="https://kish191919.github.io/2024/03/11/Data-Engineer-10-1-PySpark/index.html">
 <meta property="og:site_name" content="Danny Sweet Home">
-<meta property="og:description" content="(1) spark 유저 생성 1234sudo useradd spark -m -s &#x2F;bin&#x2F;bash# 패스워드 변경sudo passwd spark  (2) sudo 권한 부여 1234sudo visudo# 편집모드에 아래 내용 추가spark ALL&#x3D;(ALL) NOPASSWD: ALL  (3) spark 유저로 바꾸기 1sudo su - spark  (4) d">
+<meta property="og:description" content="1. AWS EC2 서버환경 구성(1) spark 유저 생성 1234sudo useradd spark -m -s &#x2F;bin&#x2F;bash# 패스워드 변경sudo passwd spark  (2) sudo 권한 부여 123456789sudo visudo# 편집모드에 아래 내용 추가spark ALL&#x3D;(ALL) NOPASSWD: ALL# 저장 후 나오기Ctrl + xY">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-03-12T02:19:32.000Z">
-<meta property="article:modified_time" content="2024-03-14T19:28:49.238Z">
+<meta property="article:modified_time" content="2024-03-17T09:34:05.331Z">
 <meta property="article:author" content="Danny">
 <meta property="article:tag" content="ec2">
+<meta property="article:tag" content="pyspark">
 <meta name="twitter:card" content="summary">
     
 
@@ -180,7 +181,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2024/03/11/Data-Engineer-10-1-PySpark/" class="article-date">
-     <time datetime="2024-03-14T19:28:49.238Z" itemprop="dateModified">2024-03-14</time>
+     <time datetime="2024-03-17T09:34:05.331Z" itemprop="dateModified">2024-03-17</time>
   </a>
 </div>
 
@@ -190,7 +191,7 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/ec2/" rel="tag">ec2</a>
+        <a class="tag-link-link" href="/tags/ec2/" rel="tag">ec2</a>, <a class="tag-link-link" href="/tags/pyspark/" rel="tag">pyspark</a>
     </div>
 
                 
@@ -207,11 +208,13 @@
 
             
 
-            <p>(1) spark 유저 생성</p>
+            <h3 id="1-AWS-EC2-서버환경-구성"><a href="#1-AWS-EC2-서버환경-구성" class="headerlink" title="1. AWS EC2 서버환경 구성"></a>1. AWS EC2 서버환경 구성</h3><p>(1) spark 유저 생성</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo useradd spark -m -s /bin/bash</span><br><span class="line"></span><br><span class="line"># 패스워드 변경</span><br><span class="line">sudo passwd spark</span><br></pre></td></tr></table></figure>
 
 <p>(2) sudo 권한 부여</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo visudo</span><br><span class="line"></span><br><span class="line"># 편집모드에 아래 내용 추가</span><br><span class="line">spark ALL=(ALL) NOPASSWD: ALL</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo visudo</span><br><span class="line"></span><br><span class="line"># 편집모드에 아래 내용 추가</span><br><span class="line">spark ALL=(ALL) NOPASSWD: ALL</span><br><span class="line"></span><br><span class="line"># 저장 후 나오기</span><br><span class="line">Ctrl + x</span><br><span class="line">Y (Yes)</span><br><span class="line">Enter</span><br></pre></td></tr></table></figure>
+<p>또는 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/sudoers</span><br><span class="line"></span><br><span class="line"># 편집모드에 아래 내용 추가</span><br><span class="line">spark ALL=(ALL) NOPASSWD: ALL</span><br></pre></td></tr></table></figure>
 
 <p>(3) spark 유저로 바꾸기</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo su - spark</span><br></pre></td></tr></table></figure>
@@ -226,22 +229,68 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install -y wget unzip bzip2 net-tools</span><br></pre></td></tr></table></figure>
 
 <p>(7) 호스트 이름 설정</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo hostnamectl set-hostname spark-master-1</span><br><span class="line">sudo hostnamectl set-hostname spark-worker-1</span><br><span class="line">sudo hostnamectl set-hostname spark-worker-2</span><br><span class="line">sudo hostnamectl set-hostname spark-worker-3</span><br><span class="line"></span><br><span class="line"># 호스트 이름 확인</span><br><span class="line">hostname</span><br><span class="line">or</span><br><span class="line">cat /etc/hostname</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo hostnamectl set-hostname spark-master-1</span><br><span class="line">sudo hostnamectl set-hostname spark-worker-1</span><br><span class="line">sudo hostnamectl set-hostname spark-worker-2</span><br><span class="line">sudo hostnamectl set-hostname spark-worker-3</span><br><span class="line"></span><br><span class="line"># 호스트 이름 확인</span><br><span class="line">hostname</span><br><span class="line">또는</span><br><span class="line">cat /etc/hostname</span><br></pre></td></tr></table></figure>
 
-<p>(8) 프라이빗 IP 주소 확인</p>
+<p>(8) 프라이빗 IP 주소 확인 (각 서버 별로 모두 확인)</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
 
-<p>(9) etc-host 파일 수정</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/hosts</span><br><span class="line"></span><br><span class="line"># 편집모드에 아래 내용 추가</span><br><span class="line">00000000 spark-master-1</span><br><span class="line">00000000 spark-worker-1</span><br><span class="line">00000000 spark-worker-2</span><br><span class="line">00000000 spark-worker-3</span><br></pre></td></tr></table></figure>
+<p>(9) host 파일 편집 (모든 서버별로 동일 내용으로)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/hosts</span><br><span class="line"></span><br><span class="line"># 편집모드에 아래 내용 추가</span><br><span class="line">10.0.5.30 spark-master-1</span><br><span class="line">10.0.3.15 spark-worker-1</span><br><span class="line">10.0.8.20 spark-worker-2</span><br><span class="line">10.0.10.130 spark-worker-3</span><br></pre></td></tr></table></figure>
 
-<p>(10) ssh 키 생성하기</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -P &#x27;&#x27; -f ~/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line"># ssh 파일확인</span><br><span class="line">ls -al ~/.ssh</span><br><span class="line"></span><br><span class="line"># private key 파일 내용확인</span><br><span class="line">cat ~/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line"># pubic key 파일 내용확인</span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br><span class="line"></span><br><span class="line"># Authorized key 파일 생성하면서 퍼블릭 키 등록</span><br><span class="line">cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br><span class="line"></span><br><span class="line"># authorized keys 파일의 권한을 소유자만 읽고 편집할 수 있게 바꾸다</span><br><span class="line">chmod 600 ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+<p>(10) ssh 키 생성하기 (서버간 password 입력없이 SSH 연결 -  RSA Key 기반 인증)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># public / private key pair 생성 </span><br><span class="line">ssh-keygen -t rsa -P &#x27;&#x27; -f ~/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line"># ssh 파일확인</span><br><span class="line">ls -al ~/.ssh</span><br><span class="line"></span><br><span class="line"># private key 파일 내용확인</span><br><span class="line">cat ~/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line"># pubic key 파일 내용확인</span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br><span class="line"></span><br><span class="line"># Authorized key 파일 생성하면서 퍼블릭 키 등록</span><br><span class="line">cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br><span class="line"></span><br><span class="line"># 다른 서버의 public key 내용도 authorized_keys파일에 추가</span><br><span class="line">vi ~/.ssh/authorized_keys</span><br><span class="line"></span><br><span class="line"># authorized keys 파일의 권한을 소유자만 읽고 편집할 수 있게 바꾸다</span><br><span class="line">chmod 600 ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
 
 <p>(11) ssh 명령으로 worker-1에 접근</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh spark-worker-1</span><br></pre></td></tr></table></figure>
 
 <p>(12) 로컬PC의 호스트 파일 수정</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/hosts</span><br><span class="line"></span><br><span class="line"># 아래 퍼블릭 IP와 호스트이름을 추가</span><br><span class="line">000.000.000.000 spark-master-1</span><br><span class="line">000.000.000.000 spark-worker-1</span><br><span class="line">000.000.000.000 spark-worker-2</span><br><span class="line">000.000.000.000 spark-worker-3</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/hosts</span><br><span class="line"></span><br><span class="line"># 아래 퍼블릭 IP와 호스트이름을 추가</span><br><span class="line">54.165.218.151 spark-master-01</span><br><span class="line">54.80.83.134   spark-worker-01</span><br><span class="line">54.211.115.133 spark-worker-02</span><br><span class="line">54.90.110.86   spark-worker-03</span><br></pre></td></tr></table></figure>
+<ul>
+<li>서버의 host name으로 연결<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -i &quot;Used_Car_Price.pem&quot; ubuntu@spark-master-01</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="2-스파크-Local-환경-구성-및-실행"><a href="#2-스파크-Local-환경-구성-및-실행" class="headerlink" title="2. 스파크 Local 환경 구성 및 실행"></a>2. 스파크 Local 환경 구성 및 실행</h3><h4 id="spark-master-1-서버에서-실행"><a href="#spark-master-1-서버에서-실행" class="headerlink" title="spark-master-1 서버에서 실행"></a>spark-master-1 서버에서 실행</h4><p>(1) 스파크 다운로드 - <a target="_blank" rel="noopener" href="https://spark.apache.org/downloads.html">https://spark.apache.org/downloads.html</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /data</span><br><span class="line">wget https://archive.apache.org/dist/spark/spark-3.2.1/spark-3.2.1-bin-hadoop3.2.tgz</span><br><span class="line">tar xvfz spark-3.2.1-bin-hadoop3.2.tgz</span><br><span class="line">mv spark-3.2.1-bin-hadoop3.2 spark3</span><br></pre></td></tr></table></figure>
+
+<p>(2) JAVA 다운로드</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /data</span><br><span class="line">wget https://github.com/ojdkbuild/contrib_jdk8u-ci/releases/download/jdk8u232-b09/jdk-8u232-ojdkbuild-linux-x64.zip</span><br><span class="line">unzip jdk-8u232-ojdkbuild-linux-x64.zip</span><br><span class="line">mv jdk-8u232-ojdkbuild-linux-x64 jdk8</span><br></pre></td></tr></table></figure>
+
+<p>(3) JAVA 환경변수 설정 - spark-env.sh</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /data/spark3/conf</span><br><span class="line">cp spark-env.sh.template spark-env.sh</span><br><span class="line">vi spark-env.sh</span><br><span class="line">JAVA_HOME=/data/jdk8</span><br></pre></td></tr></table></figure>
+
+<p>(4) spark-shell 실행</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd /data/spark3</span><br><span class="line">$ ./bin/spark-shell</span><br><span class="line"></span><br><span class="line">scala&gt; sc</span><br><span class="line">scala&gt; spark</span><br><span class="line">scala&gt; sc.master</span><br><span class="line">scala&gt; sc.uiWebUrl</span><br></pre></td></tr></table></figure>
+
+<p>(5) 프로세스 확인 - 다른 터미널 하나 더 오픈</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/data/jdk8/bin/jps</span><br><span class="line"></span><br><span class="line"># 2800 Jps</span><br><span class="line"># 2692 SparkSubmit -&gt; spark-shell 프로세스.... (Driver 프로세스)</span><br></pre></td></tr></table></figure>
+
+<p>(6) Driver 웹UI 확인 - 방화벽 오픈</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://spark-master-01:4040/">http://spark-master-01:4040</a></li>
+</ul>
+<p>(7) spark-shell 종료</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; (Ctrl + L) </span><br><span class="line">scala&gt; :quit </span><br></pre></td></tr></table></figure>
+
+<p>(8) JPS - PATH에 추가</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.profile</span><br><span class="line"># path 추가</span><br><span class="line">export PATH=/kikang/jdk8/bin:$PATH</span><br><span class="line"></span><br><span class="line">source ~/.profile</span><br><span class="line">jps</span><br><span class="line">java -version</span><br><span class="line">javac -version</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-History-Server-구성"><a href="#3-History-Server-구성" class="headerlink" title="3. History Server 구성"></a>3. History Server 구성</h3><h4 id="spark-master-1-서버에서-실행-1"><a href="#spark-master-1-서버에서-실행-1" class="headerlink" title="spark-master-1 서버에서 실행"></a>spark-master-1 서버에서 실행</h4><p>(1) LogDirectory 설정 - spark-defaults.conf</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd /data/spark3/conf</span><br><span class="line">cp spark-defaults.conf.template spark-defaults.conf</span><br><span class="line"></span><br><span class="line">vi spark-defaults.conf</span><br><span class="line">spark.history.fs.logDirectory file:///data/spark3/history</span><br><span class="line"></span><br><span class="line"># log dir 생성</span><br><span class="line">$ mkdir -p /data/spark3/history</span><br></pre></td></tr></table></figure>
+
+<p>(2) Spark History Server 시작</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># History Server 시작</span><br><span class="line">$ /data/spark3/sbin/start-history-server.sh</span><br><span class="line"></span><br><span class="line"># History Server 프로세스 확인</span><br><span class="line">$ jps</span><br><span class="line">HistoryServer</span><br><span class="line"></span><br><span class="line"># Log 확인 </span><br><span class="line">$ vi /data/spark3/logs/spark-spark-org.apache.spark.deploy.history.HistoryServer-1-spark-master-01.out</span><br><span class="line"></span><br><span class="line"># History Server 웹UI 확인 - 방화벽 오픈</span><br><span class="line">http://spark-master-01:18080</span><br><span class="line">Show incomplete applications 링크 클릭</span><br><span class="line">Back to completed applications 링크 클릭</span><br><span class="line"></span><br><span class="line"># History Server 종료</span><br><span class="line">/data/spark3/sbin/stop-history-server.sh</span><br></pre></td></tr></table></figure>
+
+<p>(3) LogDirectory 추가 설정 - spark-defaults.conf</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># spark-defaults.conf 설정</span><br><span class="line">vi /data/spark3/conf/spark-defaults.conf</span><br><span class="line">spark.eventLog.enabled true</span><br><span class="line">spark.eventLog.dir file:///kikang/spark3/history</span><br><span class="line"></span><br><span class="line"># spark-shell 실행 후 Driver 웹UI와 비교</span><br><span class="line">$ cd /data/spark3</span><br><span class="line">$ ./bin/spark-shell</span><br><span class="line">scala&gt; sc.uiWebUrl</span><br><span class="line"></span><br><span class="line"># history 디렉토리 보기 - 다른 터미널 하나 오픈</span><br><span class="line"># 진행중일때 -&gt; .inprogress 확장자</span><br><span class="line">$ cd /data/spark3/history</span><br><span class="line">$ ls -al</span><br></pre></td></tr></table></figure>
+
+<p>(4) pyspark로 워드카운팅 실행</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># README.md 파일 만들어주기</span><br><span class="line">man find &gt; README.md</span><br><span class="line"></span><br><span class="line"># pyspark 실행 - Word Count</span><br><span class="line">cd /data/spark3</span><br><span class="line">./bin/pyspark</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; rdd = sc.textFile(&quot;README.md&quot;)</span><br><span class="line">&gt;&gt;&gt; rdd_word = rdd.flatMap(lambda line: line.split(&quot; &quot;))</span><br><span class="line">&gt;&gt;&gt; rdd_tuple = rdd_word.map(lambda word: (word, 1))</span><br><span class="line">&gt;&gt;&gt; rdd_wordcount = rdd_tuple.reduceByKey(lambda v1,v2: v1 + v2)</span><br><span class="line">&gt;&gt;&gt; arr_wordcount = rdd_wordcount.collect()</span><br><span class="line">&gt;&gt;&gt; for wc in arr_wordcount[:10]:</span><br><span class="line">...     print(wc)</span><br><span class="line">&gt;&gt;&gt; exit() (-&gt; 종료되면 history의 .inprogress 확장자 사라짐)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
 
         </div>
         <footer class="article-footer">
@@ -249,7 +298,7 @@
 
 
 
-    <a data-url="https://kish191919.github.io/2024/03/11/Data-Engineer-10-1-PySpark/" data-id="cltrmimoi0017w0s99e9ncvzb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://kish191919.github.io/2024/03/11/Data-Engineer-10-1-PySpark/" data-id="cltvbmq48001alws9gs2c7j6f" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -321,23 +370,18 @@
         },
         "headline": "Data_Engineer_10_1_PySpark",
         "image": "https://kish191919.github.io",
-        "keywords": "ec2",
+        "keywords": "ec2 pyspark",
         "genre": "DATA_ENGINEER PYSPARK",
         "datePublished": "2024-03-11",
         "dateCreated": "2024-03-11",
-        "dateModified": "2024-03-14",
+        "dateModified": "2024-03-17",
         "url": "https://kish191919.github.io/2024/03/11/Data-Engineer-10-1-PySpark/",
-        "description": "(1) spark 유저 생성
+        "description": "1. AWS EC2 서버환경 구성(1) spark 유저 생성
 1234sudo useradd spark -m -s /bin/bash# 패스워드 변경sudo passwd spark
 
 (2) sudo 권한 부여
-1234sudo visudo# 편집모드에 아래 내용 추가spark ALL=(ALL) NOPASSWD: ALL
-
-(3) spark 유저로 바꾸기
-1sudo su - spark
-
-(4) d",
-        "wordCount": 307
+123456789sudo visudo# 편집모드에 아래 내용 추가spark ALL=(ALL) NOPASSWD: ALL# 저장 후 나오기Ctrl + xY ",
+        "wordCount": 898
     }
 </script>
 
@@ -386,6 +430,16 @@
         
 <nav id="article-nav">
     
+        <a href="/2024/03/17/Data-Engineer-10-2-PySpark/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Data_Engineer_10_2_PySpark
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
     
         <a href="/2024/03/10/Data-Engineer-3-3-Database/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
@@ -406,7 +460,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/DATABASE/">DATABASE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/GIT/">GIT</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/LINUX/">LINUX</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/">PYTHON</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/ALGORITHM/">ALGORITHM</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/CODING/">CODING</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/PROJECT/">PROJECT</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/QUIZ/">QUIZ</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/RECORD/">RECORD</a><span class="category-list-count">1</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/DATABASE/">DATABASE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/GIT/">GIT</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/LINUX/">LINUX</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/">PYTHON</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/ALGORITHM/">ALGORITHM</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/CODING/">CODING</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/PROJECT/">PROJECT</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/QUIZ/">QUIZ</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/RECORD/">RECORD</a><span class="category-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -416,7 +470,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">12</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">12</span></li></ul>
         </div>
     </div>
 
@@ -426,7 +480,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">tags</h3>
         <div class="widget">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2024/" rel="tag">2024</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-Conquer/" rel="tag">Divide_and_Conquer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-Programming/" rel="tag">Dynamic_Programming</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/" rel="tag">Flask</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy/" rel="tag">Greedy</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash-Table/" rel="tag">Hash_Table</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/" rel="tag">Linked_List</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql/" rel="tag">MySql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/" rel="tag">Queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Recursion/" rel="tag">Recursion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sort/" rel="tag">Sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sorting/" rel="tag">Sorting</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/" rel="tag">Stack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Used-Car/" rel="tag">Used_Car</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ec2/" rel="tag">ec2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-basic/" rel="tag">git_basic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-basic/" rel="tag">linux_basic</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/" rel="tag">mongodb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell-script/" rel="tag">shell_script</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" rel="tag">알고리즘_복잡도</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2024/" rel="tag">2024</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-Conquer/" rel="tag">Divide_and_Conquer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-Programming/" rel="tag">Dynamic_Programming</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/" rel="tag">Flask</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy/" rel="tag">Greedy</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash-Table/" rel="tag">Hash_Table</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/" rel="tag">Linked_List</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql/" rel="tag">MySql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/" rel="tag">Queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Recursion/" rel="tag">Recursion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sort/" rel="tag">Sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sorting/" rel="tag">Sorting</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/" rel="tag">Stack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Used-Car/" rel="tag">Used_Car</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ec2/" rel="tag">ec2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-basic/" rel="tag">git_basic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hdfs/" rel="tag">hdfs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-basic/" rel="tag">linux_basic</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/" rel="tag">mongodb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pyspark/" rel="tag">pyspark</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell-script/" rel="tag">shell_script</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" rel="tag">알고리즘_복잡도</a><span class="tag-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -436,7 +490,7 @@
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/2024/" style="font-size: 10px;">2024</a> <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 10px;">Divide_and_Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 10px;">Dynamic_Programming</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/Greedy/" style="font-size: 15px;">Greedy</a> <a href="/tags/Hash-Table/" style="font-size: 10px;">Hash_Table</a> <a href="/tags/Linked-List/" style="font-size: 20px;">Linked_List</a> <a href="/tags/MySql/" style="font-size: 10px;">MySql</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Recursion/" style="font-size: 10px;">Recursion</a> <a href="/tags/Sort/" style="font-size: 15px;">Sort</a> <a href="/tags/Sorting/" style="font-size: 10px;">Sorting</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Used-Car/" style="font-size: 20px;">Used_Car</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/git-basic/" style="font-size: 10px;">git_basic</a> <a href="/tags/linux-basic/" style="font-size: 15px;">linux_basic</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/shell-script/" style="font-size: 10px;">shell_script</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" style="font-size: 10px;">알고리즘_복잡도</a>
+            <a href="/tags/2024/" style="font-size: 10px;">2024</a> <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 10px;">Divide_and_Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 10px;">Dynamic_Programming</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/Greedy/" style="font-size: 15px;">Greedy</a> <a href="/tags/Hash-Table/" style="font-size: 10px;">Hash_Table</a> <a href="/tags/Linked-List/" style="font-size: 20px;">Linked_List</a> <a href="/tags/MySql/" style="font-size: 10px;">MySql</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Recursion/" style="font-size: 10px;">Recursion</a> <a href="/tags/Sort/" style="font-size: 15px;">Sort</a> <a href="/tags/Sorting/" style="font-size: 10px;">Sorting</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Used-Car/" style="font-size: 20px;">Used_Car</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/git-basic/" style="font-size: 10px;">git_basic</a> <a href="/tags/hdfs/" style="font-size: 10px;">hdfs</a> <a href="/tags/linux-basic/" style="font-size: 15px;">linux_basic</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/pyspark/" style="font-size: 15px;">pyspark</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/shell-script/" style="font-size: 10px;">shell_script</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" style="font-size: 10px;">알고리즘_복잡도</a>
         </div>
     </div>
 
