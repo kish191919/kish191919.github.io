@@ -6,17 +6,27 @@
     
 
     
-    <title>Tag: Divide_and_Conquer | Danny Sweet Home</title>
+    <title>Data_Engineer_10_3_PySpark | Danny Sweet Home</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Danny Sweet Home">
-<meta property="og:url" content="https://kish191919.github.io/tags/Divide-and-Conquer/index.html">
+    <meta name="keywords" content="pyspark,yarn" />
+    
+    <meta name="description" content="1. Spark Standalone mode 설정 Spark 다운로드 완료 Java 다운로드 완료 spark-env.sh 에 JAVA_HOME 설정 완료 Copy ‘jdk8’ spark-worker-01 ~ 03 완료  (1)  workers 설정 - spark-master-01 123456cp &#x2F;data&#x2F;spark3&#x2F;conf&#x2F;workers.template">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data_Engineer_10_3_PySpark">
+<meta property="og:url" content="https://kish191919.github.io/2024/03/17/Data-Engineer-10-3-PySpark/index.html">
 <meta property="og:site_name" content="Danny Sweet Home">
+<meta property="og:description" content="1. Spark Standalone mode 설정 Spark 다운로드 완료 Java 다운로드 완료 spark-env.sh 에 JAVA_HOME 설정 완료 Copy ‘jdk8’ spark-worker-01 ~ 03 완료  (1)  workers 설정 - spark-master-01 123456cp &#x2F;data&#x2F;spark3&#x2F;conf&#x2F;workers.template">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/kish191919/Python_Project/assets/26552500/99fa0305-a28c-4648-b1af-35175bb7ea9f">
+<meta property="article:published_time" content="2024-03-17T18:32:31.000Z">
+<meta property="article:modified_time" content="2024-03-17T19:58:43.752Z">
 <meta property="article:author" content="Danny">
+<meta property="article:tag" content="pyspark">
+<meta property="article:tag" content="yarn">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/kish191919/Python_Project/assets/26552500/99fa0305-a28c-4648-b1af-35175bb7ea9f">
     
 
     
@@ -141,55 +151,205 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-tag"></i>Tag: <em>Divide_and_Conquer</em>
+    <a class="page-title-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            
-
-    
-    
+                            <article id="post-Data-Engineer-10-3-PySpark" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2024" class="archive-year"><i class="icon fa fa-calendar-o"></i>2024</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/PYTHON/">PYTHON</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/PYTHON/CODING/">CODING</a>
-            </div>
-            <div class="date"><time datetime="2024-02-15T13:38:29.000Z" itemprop="datePublished">2024-02-15</time></div>
-        </div>
-        
+            <header class="article-header">
+                
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2024/02/15/Coding-Test-6/">Coding-Test-6</a>
+        Data_Engineer_10_3_PySpark
         </h1>
     
 
-        <p class="article-excerpt">
-            Divide and Conquer : https://leetcode.com/tag/divide-and-conquer/
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2024/03/17/Data-Engineer-10-3-PySpark/" class="article-date">
+       <time datetime="2024-03-17T18:32:31.000Z" itemprop="datePublished">2024-03-17</time>
+    </a>
+  </div>
 
-        </p>
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2024/03/17/Data-Engineer-10-3-PySpark/" class="article-date">
+     <time datetime="2024-03-17T19:58:43.752Z" itemprop="dateModified">2024-03-17</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/pyspark/" rel="tag">pyspark</a>, <a class="tag-link-link" href="/tags/yarn/" rel="tag">yarn</a>
     </div>
-</article>
-    
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h3 id="1-Spark-Standalone-mode-설정"><a href="#1-Spark-Standalone-mode-설정" class="headerlink" title="1. Spark Standalone mode 설정"></a>1. Spark Standalone mode 설정</h3><ul>
+<li>Spark 다운로드 완료</li>
+<li>Java 다운로드 완료</li>
+<li>spark-env.sh 에 JAVA_HOME 설정 완료</li>
+<li>Copy ‘jdk8’ spark-worker-01 ~ 03 완료</li>
+</ul>
+<p>(1)  workers 설정 - spark-master-01</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cp /data/spark3/conf/workers.template /data/spark3/conf/workers</span><br><span class="line">vi /data/spark3/conf/workers</span><br><span class="line"></span><br><span class="line">spark-worker-01</span><br><span class="line">spark-worker-02</span><br><span class="line">spark-worker-03</span><br></pre></td></tr></table></figure>
+
+<p>(2) copy ‘spark3’ to spark-worker-01 ~ 03</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># copy &#x27;spark3&#x27; to spark-worker-01 ~ 03....</span><br><span class="line">scp -r /data/spark3 spark@spark-worker-01:/data/</span><br><span class="line">scp -r /data/spark3 spark@spark-worker-02:/data/</span><br><span class="line">scp -r /data/spark3 spark@spark-worker-03:/data/</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Standalone-Cluster-Manager-시작"><a href="#2-Standalone-Cluster-Manager-시작" class="headerlink" title="2. Standalone Cluster Manager 시작"></a>2. Standalone Cluster Manager 시작</h3><p>(1) Spark standalone cluster manager 시작 - spark-master-01</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># Hadoop 에도 start-all.sh 명령어가 있음</span><br><span class="line">/data/spark3/sbin/start-all.sh</span><br><span class="line"></span><br><span class="line"># master 프로세스 확인 - spark-master-01</span><br><span class="line">jps</span><br><span class="line">=&gt; Master</span><br><span class="line"></span><br><span class="line"># worker 프로세스 확인 - spark-worker-01 ~ 03</span><br><span class="line">jps</span><br><span class="line">=&gt; Worker</span><br><span class="line"></span><br><span class="line"># spark standalone 웹UI 확인 - 방화벽 오픈 Spark Master HTTP, 8080</span><br><span class="line">http://spark-master-01:8080 (-&gt; 보안강화를 위해 port를 8180으로 변경해 보자....)</span><br><span class="line">URL: spark://spark-master-01:7077 (-&gt; 보안강화를 위해 port를 7177로 변경해 보자....)</span><br><span class="line"></span><br><span class="line"># Workers &gt; Worker 개수 3개 확인</span><br><span class="line">-&gt; Address: private_ip:random_port (-&gt; 보안강화를 위해 port를 7178로 변경해 보자....)</span><br><span class="line">-&gt; State: ALIVE</span><br><span class="line">-&gt; Cores (default: all available): 2 (-&gt; hadoop과 동일하게 cores를 8개로 변경해 보자....)</span><br><span class="line"></span><br><span class="line"># 스파크 문서에는 메모리는 실제 메모리에서 1기가 가량 뺀 것으로 할당한다고 함 (OS가 사용할 양을 뺌)</span><br><span class="line">-&gt; Memory (default: machine&#x27;s total RAM minus 1 GiB): 6.5 GiB (-&gt; memory를 8GB로 변경해 보자....)</span><br><span class="line"></span><br><span class="line"># Worker Id 링크를 클릭하여 Worker 상세화면 확인</span><br><span class="line">-&gt; worker url이 private ip로 제공됨(http://private_ip:8081), private_ip로는 연결 안됨.... (-&gt; host_name:8181로 변경해 보자....)</span><br><span class="line">-&gt; private_ip를 호스트 이름으로 변경</span><br></pre></td></tr></table></figure>
+<img width="1677" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/99fa0305-a28c-4648-b1af-35175bb7ea9f">
+
+<p>(2) spark-env.sh 설정 (host_name, port, cores, memory 설정….) - spark-master-01</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">vi /data/spark3/conf/spark-env.sh</span><br><span class="line"></span><br><span class="line">JAVA_HOME=/data/jdk8</span><br><span class="line">SPARK_MASTER_PORT=7177  # default: 7077</span><br><span class="line">SPARK_MASTER_WEBUI_PORT=8180  # default: 8080</span><br><span class="line"></span><br><span class="line">SPARK_WORKER_PORT=7178  # default: random</span><br><span class="line">SPARK_WORKER_WEBUI_PORT=8181  # default: 8081</span><br><span class="line"></span><br><span class="line">SPARK_WORKER_CORES=8  # default: all available</span><br><span class="line">SPARK_WORKER_MEMORY=8G  # default: machine&#x27;s total RAM minus 1 GiB</span><br><span class="line">SPARK_PUBLIC_DNS=$&#123;HOSTNAME&#125;</span><br></pre></td></tr></table></figure>
+
+<p>(3) copy ‘spark-env.sh’ to spark-worker-01 ~ 03</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scp -r /data/spark3/conf/spark-env.sh spark@spark-worker-01:/data/spark3/conf/</span><br><span class="line">scp -r /data/spark3/conf/spark-env.sh spark@spark-worker-02:/data/spark3/conf/</span><br><span class="line">scp -r /data/spark3/conf/spark-env.sh spark@spark-worker-03:/data/spark3/conf/</span><br></pre></td></tr></table></figure>
+
+<p>(4) spark standalone 재기동  + 웹UI 확인</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/data/spark3/sbin/stop-all.sh</span><br><span class="line">/data/spark3/sbin/start-all.sh</span><br></pre></td></tr></table></figure>
+
+<p>(5) spark standalone 웹UI (재)확인 - 방화벽 변경, Spark Master HTTP, 8080 -&gt; 8180</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://spark-master-01:8180/">http://spark-master-01:8180</a></li>
+<li>host_name, port, cores, memory 설정 반영 여부 확인….</li>
+</ul>
+<p>(6) Worker Id 링크를 클릭하여 Worker 상세화면 확인 - 방화벽 오픈, Spark Worker HTTP, 8181</p>
+
         </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://kish191919.github.io/2024/03/17/Data-Engineer-10-3-PySpark/" data-id="cltvxwky7001b9zs9cvqghopv" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Danny"
+        },
+        "headline": "Data_Engineer_10_3_PySpark",
+        "image": "https://kish191919.github.iohttps://github.com/kish191919/Python_Project/assets/26552500/99fa0305-a28c-4648-b1af-35175bb7ea9f",
+        "keywords": "pyspark yarn",
+        "genre": "DATA_ENGINEER PYSPARK",
+        "datePublished": "2024-03-17",
+        "dateCreated": "2024-03-17",
+        "dateModified": "2024-03-17",
+        "url": "https://kish191919.github.io/2024/03/17/Data-Engineer-10-3-PySpark/",
+        "description": "1. Spark Standalone mode 설정
+Spark 다운로드 완료
+Java 다운로드 완료
+spark-env.sh 에 JAVA_HOME 설정 완료
+Copy ‘jdk8’ spark-worker-01 ~ 03 완료
+
+(1)  workers 설정 - spark-master-01
+123456cp /data/spark3/conf/workers.template",
+        "wordCount": 431
+    }
+</script>
+
+</article>
+
+    <section id="comments">
     
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
 
 
-    </div></section>
+    
+    </section>
 
 
 
@@ -219,6 +379,19 @@
             
         </ul>
     </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2024/03/17/Data-Engineer-10-2-PySpark/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Data_Engineer_10_2_PySpark</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
     
     <div class="widgets-container">
         
@@ -303,11 +476,13 @@
     var disqus_shortname = 'DannyBlog';
     
     
+    var disqus_url = 'https://kish191919.github.io/2024/03/17/Data-Engineer-10-3-PySpark/';
+    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>
