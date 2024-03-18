@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Data_Engineer_10_4_PySpark | Danny Sweet Home</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="pyspark" />
+    
+    <meta name="description" content="1. Python 집계 연산[과제1] 2008년 비행기록 데이터에서 월(month) 별 비행회수, 도착지연시간 총합&#x2F;평균&#x2F;최소&#x2F;최대 값[과제2] 과거 모든(1997년 ~ 2008년) 비행기록 데이터에서 연도(year)&#x2F;월(month) 별 비행회수, 도착지연시간 총합&#x2F;평균&#x2F;최소&#x2F;최대 값(1) Py">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data_Engineer_10_4_PySpark">
+<meta property="og:url" content="https://kish191919.github.io/2024/03/18/Data-Engineer-10-4-PySpark/index.html">
+<meta property="og:site_name" content="Danny Sweet Home">
+<meta property="og:description" content="1. Python 집계 연산[과제1] 2008년 비행기록 데이터에서 월(month) 별 비행회수, 도착지연시간 총합&#x2F;평균&#x2F;최소&#x2F;최대 값[과제2] 과거 모든(1997년 ~ 2008년) 비행기록 데이터에서 연도(year)&#x2F;월(month) 별 비행회수, 도착지연시간 총합&#x2F;평균&#x2F;최소&#x2F;최대 값(1) Py">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/kish191919/Python_Project/assets/26552500/c6bc0356-0a0f-4393-a264-b49c7d3de56e">
+<meta property="article:published_time" content="2024-03-18T15:17:51.000Z">
+<meta property="article:modified_time" content="2024-03-18T17:15:54.882Z">
+<meta property="article:author" content="Danny">
+<meta property="article:tag" content="pyspark">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/kish191919/Python_Project/assets/26552500/c6bc0356-0a0f-4393-a264-b49c7d3de56e">
+    
+
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 7.1.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/DATABASE/">DATABASE</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/GIT/">GIT</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/LINUX/">LINUX</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/">PYTHON</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/ALGORITHM/">ALGORITHM</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/CODING/">CODING</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/PROJECT/">PROJECT</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/QUIZ/">QUIZ</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/RECORD/">RECORD</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" target="_blank" rel="noopener" href="https://about.me/dannyki">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Data-Engineer-10-4-PySpark" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Data_Engineer_10_4_PySpark
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2024/03/18/Data-Engineer-10-4-PySpark/" class="article-date">
+       <time datetime="2024-03-18T15:17:51.000Z" itemprop="datePublished">2024-03-18</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2024/03/18/Data-Engineer-10-4-PySpark/" class="article-date">
+     <time datetime="2024-03-18T17:15:54.882Z" itemprop="dateModified">2024-03-18</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/pyspark/" rel="tag">pyspark</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h3 id="1-Python-집계-연산"><a href="#1-Python-집계-연산" class="headerlink" title="1. Python 집계 연산"></a>1. Python 집계 연산</h3><h4 id="과제1-2008년-비행기록-데이터에서-월-month-별-비행회수-도착지연시간-총합-평균-최소-최대-값"><a href="#과제1-2008년-비행기록-데이터에서-월-month-별-비행회수-도착지연시간-총합-평균-최소-최대-값" class="headerlink" title="[과제1] 2008년 비행기록 데이터에서 월(month) 별 비행회수, 도착지연시간 총합&#x2F;평균&#x2F;최소&#x2F;최대 값"></a>[과제1] 2008년 비행기록 데이터에서 월(month) 별 비행회수, 도착지연시간 총합&#x2F;평균&#x2F;최소&#x2F;최대 값</h4><h4 id="과제2-과거-모든-1997년-2008년-비행기록-데이터에서-연도-year-월-month-별-비행회수-도착지연시간-총합-평균-최소-최대-값"><a href="#과제2-과거-모든-1997년-2008년-비행기록-데이터에서-연도-year-월-month-별-비행회수-도착지연시간-총합-평균-최소-최대-값" class="headerlink" title="[과제2] 과거 모든(1997년 ~ 2008년) 비행기록 데이터에서 연도(year)&#x2F;월(month) 별 비행회수, 도착지연시간 총합&#x2F;평균&#x2F;최소&#x2F;최대 값"></a>[과제2] 과거 모든(1997년 ~ 2008년) 비행기록 데이터에서 연도(year)&#x2F;월(month) 별 비행회수, 도착지연시간 총합&#x2F;평균&#x2F;최소&#x2F;최대 값</h4><p>(1) Python 설치</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># pip 설치</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt install -y python3-pip</span><br><span class="line"></span><br><span class="line"># pandas, pandasql 설치</span><br><span class="line">sudo pip install pandas pandasql</span><br><span class="line">sudo pip list</span><br><span class="line"></span><br><span class="line"># python3 실행</span><br><span class="line">python3</span><br><span class="line"></span><br><span class="line"># top 실행 - 별도 spark-master-01 터미널 열기 -&gt; cpu, memory 사용량 확인 </span><br><span class="line"># 1 =&gt; core 별 사용현황</span><br><span class="line"># m =&gt; 메모리 사용률 시각화</span><br><span class="line"># shift + p =&gt; CPU 사용률이 높은 순으로 정렬</span><br><span class="line"># shift + m =&gt; 메모리 사용률이 높은 순으로 정렬</span><br><span class="line"># shift + t =&gt; 수행시간이 긴 프로세스 순으로 정렬 </span><br><span class="line">top</span><br></pre></td></tr></table></figure>
+
+<p>(2) Python 집계 연산 - 과제1 (2008 , DataFrame API , pandas) -&gt; 00:00:05…. -&gt; cpu 1개만 열심히 사용</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">import time</span><br><span class="line">start_time = time.time()</span><br><span class="line">df = pd.read_csv(&quot;/data/source/airline_on_time/2008.csv&quot;)</span><br><span class="line">df.groupby([df.Year, df.Month]).agg(&#123;&#x27;FlightNum&#x27;:&#x27;size&#x27;,&#x27;ArrDelay&#x27;:[&#x27;sum&#x27;,&#x27;mean&#x27;,&#x27;max&#x27;, &#x27;min&#x27;]&#125;)</span><br><span class="line">elapsed_time = time.time() - start_time</span><br><span class="line">print (time.strftime(&quot;%H:%M:%S&quot;, time.gmtime(elapsed_time)))</span><br></pre></td></tr></table></figure>
+
+<p>(2) Python SQL 집계 연산 - 과제1 (2008 , SQL문 , pandasql) -&gt; Killed….</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">import time</span><br><span class="line">from pandasql import sqldf</span><br><span class="line">start_time = time.time()</span><br><span class="line">df = pd.read_csv(&quot;/data/source/airline_on_time/2008.csv&quot;)</span><br><span class="line">sqldf(&quot;select Year, Month, count(FlightNum) as FlightNum_Cnt, sum(ArrDelay) as ArrDelay_Sum, avg(ArrDelay) as ArrDelay_Avg, max(ArrDelay) as ArrDelay_Max, min(ArrDelay) as ArrDelay_Min from df where 1=1 group by Year, Month&quot;, globals())</span><br><span class="line">elapsed_time = time.time() - start_time</span><br><span class="line">print (time.strftime(&quot;%H:%M:%S&quot;, time.gmtime(elapsed_time)))</span><br></pre></td></tr></table></figure>
+<img width="1680" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/c6bc0356-0a0f-4393-a264-b49c7d3de56e">
+
+<p>(3) Python SQL 집계 연산 (데이터 양을 줄임 1000000 ) - 과제1 (2008 , SQL문 , pandasql) -&gt; 00:00:33</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">import time</span><br><span class="line">from pandasql import sqldf</span><br><span class="line">start_time = time.time()</span><br><span class="line">df = pd.read_csv(&quot;/data/source/airline_on_time/2008.csv&quot;)</span><br><span class="line">df.info()</span><br><span class="line">df = df.head(1000000) </span><br><span class="line">sqldf(&quot;select Year, Month, count(FlightNum) as FlightNum_Cnt, sum(ArrDelay) as ArrDelay_Sum, avg(ArrDelay) as ArrDelay_Avg, max(ArrDelay) as ArrDelay_Max, min(ArrDelay) as ArrDelay_Min from df where 1=1 group by Year, Month&quot;, globals())</span><br><span class="line">elapsed_time = time.time() - start_time</span><br><span class="line">print (time.strftime(&quot;%H:%M:%S&quot;, time.gmtime(elapsed_time)))</span><br></pre></td></tr></table></figure>
+
+<p>(4) Python 집계 연산 (모든 데이터) - 과제2 (all , DataFrame API , pandas) -&gt; Killed</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> glob</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">start_time = time.time()</span><br><span class="line">files = glob.glob(<span class="string">&quot;/data/source/airline_on_time/*.csv&quot;</span>)</span><br><span class="line">df = pd.DataFrame()</span><br><span class="line"><span class="keyword">for</span> f <span class="keyword">in</span> files:</span><br><span class="line">    df = df._append(pd.read_csv(f, encoding=<span class="string">&#x27;latin1&#x27;</span>))</span><br><span class="line"></span><br><span class="line">df = df.reset_index(drop=<span class="literal">True</span>)</span><br><span class="line">df.groupby([df.Year, df.Month]).agg(&#123;<span class="string">&#x27;FlightNum&#x27;</span>:<span class="string">&#x27;size&#x27;</span>,<span class="string">&#x27;ArrDelay&#x27;</span>:[<span class="string">&#x27;sum&#x27;</span>,<span class="string">&#x27;mean&#x27;</span>,<span class="string">&#x27;max&#x27;</span>, <span class="string">&#x27;min&#x27;</span>]&#125;)</span><br><span class="line">elapsed_time = time.time() - start_time</span><br><span class="line"><span class="built_in">print</span> (time.strftime(<span class="string">&quot;%H:%M:%S&quot;</span>, time.gmtime(elapsed_time)))</span><br></pre></td></tr></table></figure>
+<img width="1521" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/a782c6e2-cc14-4911-837b-460657e3a68f">
+
+
+<p>(5) PySpark - 집계 연산 (on local[*]) - 과제1 (2008 , DataFrame ) -&gt; cpu 2개 모두 열심히 사용 00:00:05</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/data/spark3/<span class="built_in">bin</span>/pyspark --master local[*]</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pyspark.sql.functions <span class="keyword">as</span> fn</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">start_time = time.time()</span><br><span class="line">df = spark.read.option(<span class="string">&quot;header&quot;</span>, <span class="literal">True</span>).option(<span class="string">&quot;inferSchema&quot;</span>, <span class="literal">False</span>).csv(<span class="string">&quot;/data/source/airline_on_time/2008.csv&quot;</span>)</span><br><span class="line">df.groupBy(df.Year, df.Month).agg(fn.count(df.FlightNum), fn.<span class="built_in">sum</span>(df.ArrDelay), fn.avg(df.ArrDelay), fn.<span class="built_in">max</span>(df.ArrDelay.cast(<span class="string">&quot;double&quot;</span>)), fn.<span class="built_in">min</span>(df.ArrDelay.cast(<span class="string">&quot;double&quot;</span>))).orderBy(df.Year.cast(<span class="string">&quot;integer&quot;</span>).asc(), df.Month.cast(<span class="string">&quot;integer&quot;</span>).asc()).toDF(<span class="string">&quot;Year&quot;</span>, <span class="string">&quot;Month&quot;</span>, <span class="string">&quot;FlightNum_Cnt&quot;</span>, <span class="string">&quot;ArrDelay_Sum&quot;</span>, <span class="string">&quot;ArrDelay_Avg&quot;</span>, <span class="string">&quot;ArrDelay_Max&quot;</span>, <span class="string">&quot;ArrDelay_Min&quot;</span>).show(<span class="number">1000</span>)</span><br><span class="line">elapsed_time = time.time() - start_time</span><br><span class="line"><span class="built_in">print</span> (time.strftime(<span class="string">&quot;%H:%M:%S&quot;</span>, time.gmtime(elapsed_time)))</span><br></pre></td></tr></table></figure>
+
+<p>(6) PySpark - 집계 연산 (on local[*]) - 과제1 (2008 , SQL문 ) -&gt; cpu 2개 모두 열심히 사용  00:00:06</p>
+<ul>
+<li><p>그냥 SQL 문으로 사용할때는 33초 걸렸음</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line">start_time = time.time()</span><br><span class="line">df = spark.read.option(<span class="string">&quot;header&quot;</span>, <span class="literal">True</span>).option(<span class="string">&quot;inferSchema&quot;</span>, <span class="literal">False</span>).csv(<span class="string">&quot;/data/source/airline_on_time/2008.csv&quot;</span>)</span><br><span class="line">df.createOrReplaceTempView(<span class="string">&quot;bigdata&quot;</span>)</span><br><span class="line"><span class="comment">#df.printSchema()</span></span><br><span class="line">sql(<span class="string">&quot;select Year, Month, count(FlightNum) as FlightNum_Cnt, sum(ArrDelay) as ArrDelay_Sum, avg(ArrDelay) as ArrDelay_Avg, max(CAST(ArrDelay AS DOUBLE)) as ArrDelay_Max, min(CAST(ArrDelay AS DOUBLE)) as ArrDelay_Min from bigdata where 1=1 group by Year, Month order by CAST(Year AS INTEGER), CAST(Month AS INTEGER)&quot;</span>).show(<span class="number">1000</span>)</span><br><span class="line">elapsed_time = time.time() - start_time</span><br><span class="line"><span class="built_in">print</span> (time.strftime(<span class="string">&quot;%H:%M:%S&quot;</span>, time.gmtime(elapsed_time)))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>판다스에서는 집계하고자 하는 것을 모두 메모리에 올리기때문에 메모리가 부족</p>
+</li>
+<li><p>파이스파크는 분석하고자 하는 데이터를 전체 메모리에 올리지 않음. 필요한 것만 메모리에 올려서 처리함 &#x3D;&gt; 메모리를 많이 필요하지 않음</p>
+</li>
+</ul>
+<p>(7) PySpark - 집계 연산 (on local[*]) - 과제2 (all , DataFrame API )-&gt; cpu 2개 모두 열심히 사용 00:02:36</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyspark.sql.functions <span class="keyword">as</span> fn</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">start_time = time.time()</span><br><span class="line">df = spark.read.option(<span class="string">&quot;header&quot;</span>, <span class="literal">True</span>).option(<span class="string">&quot;inferSchema&quot;</span>, <span class="literal">False</span>).csv(<span class="string">&quot;/data/source/airline_on_time/*.csv&quot;</span>)</span><br><span class="line">df.groupBy(df.Year, df.Month).agg(fn.count(df.FlightNum), fn.<span class="built_in">sum</span>(df.ArrDelay), fn.avg(df.ArrDelay), fn.<span class="built_in">max</span>(df.ArrDelay.cast(<span class="string">&quot;double&quot;</span>)), fn.<span class="built_in">min</span>(df.ArrDelay.cast(<span class="string">&quot;double&quot;</span>))).orderBy(df.Year.cast(<span class="string">&quot;integer&quot;</span>).asc(), df.Month.cast(<span class="string">&quot;integer&quot;</span>).asc()).toDF(<span class="string">&quot;Year&quot;</span>, <span class="string">&quot;Month&quot;</span>, <span class="string">&quot;FlightNum_Cnt&quot;</span>, <span class="string">&quot;ArrDelay_Sum&quot;</span>, <span class="string">&quot;ArrDelay_Avg&quot;</span>, <span class="string">&quot;ArrDelay_Max&quot;</span>, <span class="string">&quot;ArrDelay_Min&quot;</span>).show(<span class="number">1000</span>)</span><br><span class="line">elapsed_time = time.time() - start_time</span><br><span class="line"><span class="built_in">print</span> (time.strftime(<span class="string">&quot;%H:%M:%S&quot;</span>, time.gmtime(elapsed_time)))</span><br></pre></td></tr></table></figure>
+<img width="1673" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/c0f8d62b-ac26-4052-bbff-537e86322ada">
+
+
+<p>(8) PySpark - 집계 연산 (on local[*]) - 과제2 (all , SQL문 )-&gt; cpu 2개 모두 열심히 사용 00:02:36</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line">start_time = time.time()</span><br><span class="line">df = spark.read.option(<span class="string">&quot;header&quot;</span>, <span class="literal">True</span>).option(<span class="string">&quot;inferSchema&quot;</span>, <span class="literal">False</span>).csv(<span class="string">&quot;/data/source/airline_on_time/*.csv&quot;</span>)</span><br><span class="line">df.createOrReplaceTempView(<span class="string">&quot;bigdata&quot;</span>)</span><br><span class="line"><span class="comment">#df.printSchema()</span></span><br><span class="line">sql(<span class="string">&quot;select Year, Month, count(FlightNum) as FlightNum_Cnt, sum(ArrDelay) as ArrDelay_Sum, avg(ArrDelay) as ArrDelay_Avg, max(CAST(ArrDelay AS DOUBLE)) as ArrDelay_Max, min(CAST(ArrDelay AS DOUBLE)) as ArrDelay_Min from bigdata where 1=1 group by Year, Month order by CAST(Year AS INTEGER), CAST(Month AS INTEGER)&quot;</span>).show(<span class="number">1000</span>)</span><br><span class="line">elapsed_time = time.time() - start_time</span><br><span class="line"><span class="built_in">print</span> (time.strftime(<span class="string">&quot;%H:%M:%S&quot;</span>, time.gmtime(elapsed_time)))</span><br></pre></td></tr></table></figure>
+
+
+<p>(9) PySpark 집계 연산 (cluster with yarn) -과제1 (2008 , DataFrame API)  00:00:03 -&gt; 각 executor의 cpu 2개 모두 열심히 사용</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># hadoop(hdfs, yarn) 실행</span><br><span class="line">/data/hadoop3/sbin/start-all.sh</span><br><span class="line">jps</span><br><span class="line"></span><br><span class="line"># 웹UI 확인....(hdfs, yarn)</span><br><span class="line"></span><br><span class="line"># pyspark 실행</span><br><span class="line">YARN_CONF_DIR=/data/spark3/conf2 /data/spark3/bin/pyspark --master yarn --executor-memory 2g --executor-cores 2 --num-executors 3</span><br><span class="line"></span><br><span class="line">//--top 실행 (별도 spark-worker-01 ~ 03 터미널) (-&gt; cpu, memory 사용량 확인....)</span><br><span class="line">top</span><br><span class="line"></span><br><span class="line">import pyspark.sql.functions as fn</span><br><span class="line">import time</span><br><span class="line">start_time = time.time()</span><br><span class="line">df = spark.read.option(&quot;header&quot;, True).option(&quot;inferSchema&quot;, False).csv(&quot;/data/source/airline_on_time/2008.csv&quot;)</span><br><span class="line">df.groupBy(df.Year, df.Month).agg(fn.count(df.FlightNum), fn.sum(df.ArrDelay), fn.avg(df.ArrDelay), fn.max(df.ArrDelay.cast(&quot;double&quot;)), fn.min(df.ArrDelay.cast(&quot;double&quot;))).orderBy(df.Year.cast(&quot;integer&quot;).asc(), df.Month.cast(&quot;integer&quot;).asc()).toDF(&quot;Year&quot;, &quot;Month&quot;, &quot;FlightNum_Cnt&quot;, &quot;ArrDelay_Sum&quot;, &quot;ArrDelay_Avg&quot;, &quot;ArrDelay_Max&quot;, &quot;ArrDelay_Min&quot;).show(1000)</span><br><span class="line">elapsed_time = time.time() - start_time</span><br><span class="line">print (time.strftime(&quot;%H:%M:%S&quot;, time.gmtime(elapsed_time)))</span><br></pre></td></tr></table></figure>
+
+
+
+<p>(10) PySpark 집계 연산 (cluster with yarn) - 과제1 (2008, SQL문 ) -&gt; 00:00:03 -&gt; 각 executor의 cpu 2개 모두 열심히 사용</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line">start_time = time.time()</span><br><span class="line">df = spark.read.option(&quot;header&quot;, True).option(&quot;inferSchema&quot;, False).csv(&quot;/data/source/airline_on_time/2008.csv&quot;)</span><br><span class="line">df.createOrReplaceTempView(&quot;bigdata&quot;)</span><br><span class="line">#df.printSchema()</span><br><span class="line">sql(&quot;select Year, Month, count(FlightNum) as FlightNum_Cnt, sum(ArrDelay) as ArrDelay_Sum, avg(ArrDelay) as ArrDelay_Avg, max(CAST(ArrDelay AS DOUBLE)) as ArrDelay_Max, min(CAST(ArrDelay AS DOUBLE)) as ArrDelay_Min from bigdata where 1=1 group by Year, Month order by CAST(Year AS INTEGER), CAST(Month AS INTEGER)&quot;).show(1000)</span><br><span class="line">elapsed_time = time.time() - start_time</span><br><span class="line">print (time.strftime(&quot;%H:%M:%S&quot;, time.gmtime(elapsed_time)))</span><br></pre></td></tr></table></figure>
+
+
+<p>(11) PySpark 집계 연산 (cluster with yarn) - 과제2 (all , DataFrame API) -&gt; 00:00:55 -&gt; 각 executor의 cpu 2개 모두 열심히 사용</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import pyspark.sql.functions as fn</span><br><span class="line">import time</span><br><span class="line">start_time = time.time()</span><br><span class="line">df = spark.read.option(&quot;header&quot;, True).option(&quot;inferSchema&quot;, False).csv(&quot;/data/source/airline_on_time/*.csv&quot;)</span><br><span class="line">df.groupBy(df.Year, df.Month).agg(fn.count(df.FlightNum), fn.sum(df.ArrDelay), fn.avg(df.ArrDelay), fn.max(df.ArrDelay.cast(&quot;double&quot;)), fn.min(df.ArrDelay.cast(&quot;double&quot;))).orderBy(df.Year.cast(&quot;integer&quot;).asc(), df.Month.cast(&quot;integer&quot;).asc()).toDF(&quot;Year&quot;, &quot;Month&quot;, &quot;FlightNum_Cnt&quot;, &quot;ArrDelay_Sum&quot;, &quot;ArrDelay_Avg&quot;, &quot;ArrDelay_Max&quot;, &quot;ArrDelay_Min&quot;).show(1000)</span><br><span class="line">elapsed_time = time.time() - start_time</span><br><span class="line">print (time.strftime(&quot;%H:%M:%S&quot;, time.gmtime(elapsed_time)))</span><br></pre></td></tr></table></figure>
+
+
+<p>(12) PySpark 집계 연산 (cluster with yarn) - 과제2 (all , SQL문) -&gt; 00:00:54 -&gt; 각 executor의 cpu 2개 모두 열심히 사용</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line">start_time = time.time()</span><br><span class="line">df = spark.read.option(&quot;header&quot;, True).option(&quot;inferSchema&quot;, False).csv(&quot;/data/source/airline_on_time/*.csv&quot;)</span><br><span class="line">df.createOrReplaceTempView(&quot;bigdata&quot;)</span><br><span class="line">#df.printSchema()</span><br><span class="line">sql(&quot;select Year, Month, count(FlightNum) as FlightNum_Cnt, sum(ArrDelay) as ArrDelay_Sum, avg(ArrDelay) as ArrDelay_Avg, max(CAST(ArrDelay AS DOUBLE)) as ArrDelay_Max, min(CAST(ArrDelay AS DOUBLE)) as ArrDelay_Min from bigdata where 1=1 group by Year, Month order by CAST(Year AS INTEGER), CAST(Month AS INTEGER)&quot;).show(1000)</span><br><span class="line">elapsed_time = time.time() - start_time</span><br><span class="line">print (time.strftime(&quot;%H:%M:%S&quot;, time.gmtime(elapsed_time)))</span><br></pre></td></tr></table></figure>
+
+
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://kish191919.github.io/2024/03/18/Data-Engineer-10-4-PySpark/" data-id="cltx7tx1j001ivus9ahlzg4qj" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Danny"
+        },
+        "headline": "Data_Engineer_10_4_PySpark",
+        "image": "https://kish191919.github.iohttps://github.com/kish191919/Python_Project/assets/26552500/c6bc0356-0a0f-4393-a264-b49c7d3de56e",
+        "keywords": "pyspark",
+        "genre": "DATA_ENGINEER PYSPARK",
+        "datePublished": "2024-03-18",
+        "dateCreated": "2024-03-18",
+        "dateModified": "2024-03-18",
+        "url": "https://kish191919.github.io/2024/03/18/Data-Engineer-10-4-PySpark/",
+        "description": "1. Python 집계 연산[과제1] 2008년 비행기록 데이터에서 월(month) 별 비행회수, 도착지연시간 총합&#x2F;평균&#x2F;최소&#x2F;최대 값[과제2] 과거 모든(1997년 ~ 2008년) 비행기록 데이터에서 연도(year)&#x2F;월(month) 별 비행회수, 도착지연시간 총합&#x2F;평균&#x2F;최소&#x2F;최대 값(1) Py",
+        "wordCount": 1280
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/kish191919" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="linkedin" href="https://www.linkedin.com/in/danny-ki/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-linkedin"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2024/03/17/Data-Engineer-10-3-PySpark/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Data_Engineer_10_3_PySpark</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/DATABASE/">DATABASE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/GIT/">GIT</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/LINUX/">LINUX</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/">PYTHON</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/ALGORITHM/">ALGORITHM</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/CODING/">CODING</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/PROJECT/">PROJECT</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/QUIZ/">QUIZ</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/RECORD/">RECORD</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">12</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2024/" rel="tag">2024</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-Conquer/" rel="tag">Divide_and_Conquer</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-Programming/" rel="tag">Dynamic_Programming</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/" rel="tag">Flask</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy/" rel="tag">Greedy</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash-Table/" rel="tag">Hash_Table</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/" rel="tag">Linked_List</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql/" rel="tag">MySql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/" rel="tag">Queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Recursion/" rel="tag">Recursion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sort/" rel="tag">Sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sorting/" rel="tag">Sorting</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/" rel="tag">Stack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Standalone/" rel="tag">Standalone</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Used-Car/" rel="tag">Used_Car</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ec2/" rel="tag">ec2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-basic/" rel="tag">git_basic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hdfs/" rel="tag">hdfs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-basic/" rel="tag">linux_basic</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/" rel="tag">mongodb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pyspark/" rel="tag">pyspark</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell-script/" rel="tag">shell_script</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yarn/" rel="tag">yarn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" rel="tag">알고리즘_복잡도</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/2024/" style="font-size: 10px;">2024</a> <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 10px;">Divide_and_Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 10px;">Dynamic_Programming</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/Greedy/" style="font-size: 15px;">Greedy</a> <a href="/tags/Hash-Table/" style="font-size: 10px;">Hash_Table</a> <a href="/tags/Linked-List/" style="font-size: 20px;">Linked_List</a> <a href="/tags/MySql/" style="font-size: 10px;">MySql</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Recursion/" style="font-size: 10px;">Recursion</a> <a href="/tags/Sort/" style="font-size: 15px;">Sort</a> <a href="/tags/Sorting/" style="font-size: 10px;">Sorting</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Standalone/" style="font-size: 10px;">Standalone</a> <a href="/tags/Used-Car/" style="font-size: 20px;">Used_Car</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/git-basic/" style="font-size: 10px;">git_basic</a> <a href="/tags/hdfs/" style="font-size: 10px;">hdfs</a> <a href="/tags/linux-basic/" style="font-size: 15px;">linux_basic</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/pyspark/" style="font-size: 20px;">pyspark</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/shell-script/" style="font-size: 10px;">shell_script</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/yarn/" style="font-size: 10px;">yarn</a> <a href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" style="font-size: 10px;">알고리즘_복잡도</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2024 Danny</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'DannyBlog';
+    
+    
+    var disqus_url = 'https://kish191919.github.io/2024/03/18/Data-Engineer-10-4-PySpark/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
