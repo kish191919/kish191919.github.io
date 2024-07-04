@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Data_Engineer_2_1_Linux_Basic | Danny Sweet Home</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="linux_basic" />
+    
+    <meta name="description" content="man  원하는 명령어의 설명 (Manual) 을 볼수 있음 ex) man find : find 명령어 볼수 있음  기본 명령어가 아닌경우 -help, –help의 파라미터로 설명을 제공하는 명령어가 있음 -&gt; 화면에 출력되기때문에 지저분할수 있음 J - 다운, K - 업 , Q - 종료, H - help   cd  cd .. : 상위 디렉토리로 이">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data_Engineer_2_1_Linux_Basic">
+<meta property="og:url" content="https://kish191919.github.io/2024/02/22/Data-Engineer-2-1-Linux-Basic/index.html">
+<meta property="og:site_name" content="Danny Sweet Home">
+<meta property="og:description" content="man  원하는 명령어의 설명 (Manual) 을 볼수 있음 ex) man find : find 명령어 볼수 있음  기본 명령어가 아닌경우 -help, –help의 파라미터로 설명을 제공하는 명령어가 있음 -&gt; 화면에 출력되기때문에 지저분할수 있음 J - 다운, K - 업 , Q - 종료, H - help   cd  cd .. : 상위 디렉토리로 이">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/kish191919/kish191919.github.io/assets/26552500/e4b91071-9747-4ce1-90f4-760734e1f038">
+<meta property="article:published_time" content="2024-02-22T17:38:31.000Z">
+<meta property="article:modified_time" content="2024-07-04T03:45:56.804Z">
+<meta property="article:author" content="Danny">
+<meta property="article:tag" content="linux_basic">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/kish191919/kish191919.github.io/assets/26552500/e4b91071-9747-4ce1-90f4-760734e1f038">
+    
+
+    
+        <link rel="alternate" href="/" title="Danny Sweet Home" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/DATABASE/">DATABASE</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/GIT/">GIT</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/LINUX/">LINUX</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/">PYTHON</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/ALGORITHM/">ALGORITHM</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/CODING/">CODING</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/PROJECT/">PROJECT</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/QUIZ/">QUIZ</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/RECORD/">RECORD</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/DATA-ENGINEER/LINUX/">LINUX</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Data-Engineer-2-1-Linux-Basic" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Data_Engineer_2_1_Linux_Basic
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2024/02/22/Data-Engineer-2-1-Linux-Basic/" class="article-date">
+       <time datetime="2024-02-22T17:38:31.000Z" itemprop="datePublished">2024-02-22</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2024/02/22/Data-Engineer-2-1-Linux-Basic/" class="article-date">
+     <time datetime="2024-07-04T03:45:56.804Z" itemprop="dateModified">2024-07-03</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/linux-basic/" rel="tag">linux_basic</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <ol>
+<li><p>man</p>
+<ul>
+<li>원하는 명령어의 설명 (Manual) 을 볼수 있음</li>
+<li>ex) man find : find 명령어 볼수 있음 </li>
+<li>기본 명령어가 아닌경우 -help, –help의 파라미터로 설명을 제공하는 명령어가 있음 -&gt; 화면에 출력되기때문에 지저분할수 있음</li>
+<li>J - 다운, K - 업 , Q - 종료, H - help</li>
+</ul>
+</li>
+<li><p>cd</p>
+<ul>
+<li>cd .. : 상위 디렉토리로 이동</li>
+<li>cd etc&#x2F; 다음에 탭을 2번 연달아 눌러주면 모든 서브 디렉토리가 표시<img width="682" alt="image" src="https://github.com/kish191919/kish191919.github.io/assets/26552500/e4b91071-9747-4ce1-90f4-760734e1f038"></li>
+<li>cd - : 이전에 갔던 디렉토리로 되돌아감</li>
+</ul>
+</li>
+<li><p>pwd</p>
+<ul>
+<li>절대 경로를 표시</li>
+</ul>
+</li>
+<li><p>ls</p>
+<ul>
+<li>ls -il : 파일 또는 디렉토리의 inode number를 표시</li>
+<li>inode란  리눅스에서 파일 또는 디렉토리의 고유 식별 번호로서 파일 이름이 바뀌어도 유지 </li>
+<li>파일 숨기기 (파일이름 앞에 .을 붙이면 됨) : mv hello.txt .hello.txt</li>
+</ul>
+</li>
+<li><p>df </p>
+<ul>
+<li>df -h : 디스크 공간 정보 , 인간이 읽을 수 있음 (h)</li>
+</ul>
+</li>
+<li><p>du</p>
+<ul>
+<li>du -sh : 해당경로 하위의 총합 (s), 인간이 읽을 수 있음 (h)</li>
+<li>du -h -d 2 : 해당 depth 만큼 보여줌</li>
+</ul>
+</li>
+<li><p>chmod </p>
+<ul>
+<li>chmod +x test.txt : test 파일의 오너, 그룹, other 모두 x 가 추가</li>
+<li>실행 : .&#x2F;test  (앞에 .&#x2F; 를 붙여서 실행)</li>
+</ul>
+<blockquote>
+<p>chmod u+x test.txt : test 파일의 오너만 x 가 추가<br>chmod g+w,o-r test.txt : test 파일의 그룹 w 가 추가, other에게는 r를 제거.<br>chmod 760 test.txt</p>
+</blockquote>
+ <img width="693" alt="image" src="https://github.com/kish191919/kish191919.github.io/assets/26552500/5cf59a37-a313-4d63-ace1-424190f65eac">
+ <img width="1376" alt="image" src="https://github.com/kish191919/kish191919.github.io/assets/26552500/0795d33f-0fb4-4418-8023-3de48a55c57d">
+ <img width="544" alt="image" src="https://github.com/kish191919/kish191919.github.io/assets/26552500/dbd4bcb0-1f7a-49f9-8816-ef09f31ce8a6">
+</li>
+<li><p>head</p>
+<ul>
+<li>head -n 3 : 첫 3줄만 출력</li>
+</ul>
+</li>
+<li><p>tail</p>
+<ul>
+<li>tail -f  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while sleep 1; do echo &quot;hello world&quot; &gt;&gt; example.log;done &amp;</span><br><span class="line">tail -f example.log</span><br><span class="line">ps -ef</span><br><span class="line">kill -9 pid#</span><br></pre></td></tr></table></figure>
+ <img src="https://github.com/kish191919/kish191919.github.io/assets/26552500/f181e1ec-5fcf-4448-88ea-2a2a9d8d5cc1" alt="image"></li>
+</ul>
+</li>
+<li><p>comm</p>
+<ul>
+<li>comm -12 line1.txt line2.txt : line1 과 line2 공통 라인 출력</li>
+<li>comm -3 line1.txt line2.txt : line1 과 line2 다른 라인 출력<img width="590" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/ad402c75-6ae3-44eb-af34-cc261afd2d64"></li>
+</ul>
+</li>
+<li><p>cmp</p>
+<ul>
+<li>두 파일을 바이트 단위로 비교한 결과를 출력<img width="673" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/01dfb654-20e8-4436-885e-b394a5cdc624"></li>
+</ul>
+</li>
+<li><p>diff</p>
+<ul>
+<li>두 파일의 라인별 차이점을 보여줌<blockquote>
+<p>symbol 차이<br>a : add<br>c : change<br>d : delete</p>
+</blockquote>
+</li>
+</ul>
+<img width="544" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/36945681-422a-49c2-9311-1a226c48bf9f">
+</li>
+<li><p>less</p>
+<ul>
+<li>터미널 세션에 프린트하지 않고 파일내용 볼수있음</li>
+<li>보는 부분만 열기때문에, 큰 용량의 파일을 볼때는 vi보다 빠름</li>
+<li>양방향 탐색이 가능하기때문에 more보다 편리</li>
+</ul>
+<blockquote>
+<p>j : down      5j 다섯줄 아래     space : 한 화면씩 아래<br>k : up        5k 다섯줄 위        b    : 한 화면씩 위<br>shift + g : 맨아래<br>h : help </p>
+</blockquote>
+</li>
+<li><p>ln</p>
+<ul>
+<li><p>심볼릭 링크 : 절대경로 또는 상대경로 형태로 된 다른 파일이나 디렉토리에 대한 참조를 포함한 특별한 종류의 파일</p>
+</li>
+<li><p>in -s $원래파일위치 $목표파일위치</p>
+</li>
+<li><p>원래 파일을 삭제하면 심볼릭 링크로 만든 파일에서 에러가 발생</p>
+</li>
+<li><p>파일에 심볼릭 링크 설정</p>
+<img width="764" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/38d61858-a8b7-4f76-a9aa-3220427bbe9b">
+</li>
+<li><p>폴더에 심볼릭 링크 설정</p>
+<img width="572" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/605c0ee9-dbc7-46cf-8b46-8984a2897f1b"></li>
+</ul>
+</li>
+<li><p>alias</p>
+<ul>
+<li>다른 문자열에 대채하는 단어 지정</li>
+<li>주로 복잡한 명령어의 약어로 사용</li>
+<li>환경변수와 다름<img width="701" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/003eb96c-4489-4169-9f5a-30e1cd044eb5"></li>
+</ul>
+</li>
+<li><p>cp</p>
+<ul>
+<li>cp -r 디렉토리 타겟디렉토리 :<img width="471" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/5fb8b83a-6544-4648-987e-cd433e9cb8d3"></li>
+</ul>
+</li>
+<li><p>find</p>
+<ul>
+<li>find . -name 파일이름 : 파일을 찾음</li>
+<li>find . -name ‘정규표현식’<img width="665" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/1251d168-b94f-4bbd-972c-9b273d78e853"></li>
+</ul>
+</li>
+<li><p>which</p>
+<ul>
+<li>$PATH에 등록된 경로중에 주어진 이름의 실행 파일의 위치 보여줌</li>
+<li>사용하는 명령어의 위치 찾음<img width="1109" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/1ae9d1a5-363a-4b52-bbe6-e17a1d6442a3"></li>
+</ul>
+</li>
+<li><p>grep</p>
+<ul>
+<li>grep -rl “[0-9]0{3}“ .  : 현재 디렉토리에서 하위 디렉토리까지 검색하여 맞는 조건의 파일이름만 표기</li>
+<li>grep -n “[0-9]0{1}“ find.txt : 찾는 문자열의 줄번호 표기<img width="945" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/994fca50-137b-4e65-9400-5b9d255be697"></li>
+</ul>
+</li>
+<li><p>sed</p>
+<ul>
+<li>텍스트를 필터링하거나 변환하는 스트림 에디터</li>
+<li>sed <code>s/old_word/new_word/g</code> target_file : 타겟파일에서 old word를 new word 로 교체</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># -e :동시에 여러 표현 변경</span><br><span class="line"># g : 모든 것을 교체</span><br><span class="line">sed -e &#x27;s/find/where/g&#x27; -e &#x27;s/options/gooood/g&#x27; find.txt</span><br><span class="line">sed &#x27;s/find/where/g&#x27; find.txt</span><br><span class="line">  </span><br><span class="line"># -i : 파일자체에서 변경을 적용</span><br><span class="line">sed -i find.txt -e &#x27;s/find/where/g&#x27; find.txt</span><br><span class="line">  </span><br><span class="line"># xargs 앞의 결과물을 인수로 받아서 처리</span><br><span class="line"># sed로 수정하기 위해서는 앞에 grep 명령어에 -l를 붙임</span><br><span class="line">grep -rl &quot;[0-9]0\&#123;1\&#125;&quot; . | xargs sed -i &quot;&quot; &#x27;s/minute (60 seconds)/minute (60111111111 seconds)/g&#x27; </span><br></pre></td></tr></table></figure>
+<img width="1324" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/45b83f90-1f2f-4a74-9ffb-4ab1f5a86a1b">
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 파일의 확장명을 찾아서 일괄적으로 바꾸고 싶을때</span><br><span class="line"># p 원래 파일명을 그대로 유지</span><br><span class="line"># xargs -n2 mv : xargs를 사용하여 각각의 출력된 파일 이름에 대해 mv 명령어를 실행</span><br><span class="line"># xargs는 한 번에 두 개의 인자를 받아들이도록 설정</span><br><span class="line">  </span><br><span class="line">find . -type f -name &#x27;*.txt&#x27; | sed &#x27;p;s/.txt/.pdf/g&#x27; | xargs -n2 mv</span><br></pre></td></tr></table></figure>
+<img width="1071" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/4acd8939-27aa-4be3-bf12-d28e849bca06">
+
+<ul>
+<li>vi에서도 %s&#x2F;old_word&#x2F;new_word&#x2F;g 를 이용하여 단어를 교체<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:%s/where/find/g</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>uname</p>
+<ul>
+<li>이름, 버전, 기타 시스템 정보확인</li>
+<li>-a : 모든정보 표기<img width="1433" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/a077b14c-32e1-4335-bf59-0864f666029a"></li>
+</ul>
+</li>
+<li><p>ps</p>
+<ul>
+<li>현재 실행중인 프로세스 확인</li>
+<li>PID : 프로세스 아이디</li>
+<li>PPID : 부모 프로세스 아이디  </li>
+<li>STIME : 프로세스 시작 시간</li>
+<li>TTY : 프로세스가 실행된 터미널의 종류와 번호. ?는 없다는 의미. </li>
+<li>TIME : 프로세스에 의해 사용된 CPU 시간</li>
+<li>CMD : 실행된 프로세스의 이름 혹은 실행된 명령</li>
+</ul>
+<blockquote>
+<p>-e : 현재 사용자뿐만아니라 다른 사용자들이 구동시킨 모든 프로세스 보여줌<br>-f : 보다 상세한 정보<br>-l : f보다 더 상세산 정보</p>
+</blockquote>
+<ul>
+<li>참고문헌 : <a target="_blank" rel="noopener" href="https://tigris-data-science.tistory.com/entry/Linux-ps-%EB%AA%85%EB%A0%B9%EC%96%B4">https://tigris-data-science.tistory.com/entry/Linux-ps-%EB%AA%85%EB%A0%B9%EC%96%B4</a></li>
+</ul>
+<img width="938" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/71b1c847-15f8-4c03-9ee8-fa875934b0ea">
+
+<ul>
+<li>ps aux : 프로세스 상태들을 cpu와 메모리 사용량을 표시<img width="1075" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/26999262-b5e0-4985-9cb5-e758c28a3881"></li>
+</ul>
+</li>
+<li><p>kill</p>
+<ul>
+<li>process 에 signal을 전달</li>
+</ul>
+<blockquote>
+<p>kill -9 $pid : 프로세스를 강제 종료<br>kill -15 $pid : 종류하겠다는 signal을 보냄. 자동화된 프로세스에서 주로 사용됨 (추가 공부 필요)<br>kill -2 $pid : interrupt를 의미하는 signal. ctrl+c를 누르면 이 signal이 자동으로 전달됨</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="built_in">sleep</span> 1;<span class="keyword">do</span> <span class="built_in">echo</span> <span class="string">&quot;hi <span class="subst">$(date)</span>&quot;</span> &gt;&gt; example.log; <span class="keyword">done</span> &amp;</span><br></pre></td></tr></table></figure>
+<img width="952" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/b606f161-b6a8-4ab7-beef-d18c98977b37">
+<img width="866" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/c8cd7c13-da62-48fb-9a5c-f19ef8a74984">
+</li>
+<li><p>ss (netstat for Mac)</p>
+<ul>
+<li>socket status 의 약어</li>
+<li>네트워크와 소켓의 사용을 쉽게 확인. 주로 열려있는 포트를 확인할때 사용</li>
+<li>내용이 긴 경우 pipe() 해서 less 또는 grep을 사용</li>
+</ul>
+<blockquote>
+<p>ss : 연결이 맺어진 (status &#x3D; ESTAB) 소켓 확인<br>ss -a : 열려있는 모든 소켓<br>ss -l : listening 중인 소켓만 확인<br>ss -t : TCU 소켓만 확인<br>ss -u : UDP 소켓만 확인<br>ss -s : 소켓 상태 통계를 나타냄</p>
+</blockquote>
+<img width="1187" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/e59d73f7-dd57-4eb3-aec9-68f65ed80552">
+<img width="1597" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/f819f6f9-d4cf-4256-8e89-c9168b524469">
+</li>
+<li><p>echo</p>
+<ul>
+<li>터미널 콘솔에 텍스트를 출력</li>
+<li>echo $(명령어) 명령어의 결과를 출력</li>
+<li>파이프와 함께 여러 용도로 사용</li>
+</ul>
+</li>
+<li><p>history</p>
+<ul>
+<li>지나간 명령어 기록을 확인</li>
+<li>history에 확인된 명령어의 숫자를 !number로 다시 사용</li>
+<li>로그아웃 되거나 세션이 종료될때는 다시 history가 안보임 &#x3D;&gt; 그러나 .zsh_history 에 저장이되어 세션이 종료되어도 명령어들을 볼수 있음</li>
+</ul>
+</li>
+<li><p>redirection</p>
+<ul>
+<li>출력결과를 파일로 저장<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; 기존의 파일 내용을 지우고 저장</span><br><span class="line">&gt;&gt;  기존 파일 내용 뒤에 저장</span><br><span class="line">&lt; 파일의 데이터를 명령어에 입력</span><br><span class="line">&lt;&lt; 지정된 단어까지의 데이터를 입력</span><br></pre></td></tr></table></figure></li>
+</ul>
+<img width="514" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/541a6cac-ec0e-48eb-95d3-44966c05bc99">
+<img width="443" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/1ec7c79f-901b-44d2-997d-7546631a52f4">
+</li>
+<li><p>stdout, stderror</p>
+<ul>
+<li>Process 표준 입출력 출력</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1&gt;           : stdout 을 지정된 파일에 저장</span><br><span class="line">2&gt;           : stderror 을 지정된 파일에 저장</span><br><span class="line">2&gt;&amp;1 또는 &amp;&gt;  : stderror 를 stdout에 포함시켜서 저장</span><br><span class="line">&gt; /dev/null  : 출력 결과를 제거</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">find / -name <span class="string">&quot;my*&quot;</span> -maxdepth 5 1&gt; ~/Desktop/stdout.log 2&gt; ~/Desktop/stderror.log</span><br><span class="line"></span><br><span class="line">find / -name <span class="string">&quot;my*&quot;</span> -maxdepth 5 1&gt; ~/Desktop/bothout.log 2&gt;&amp;1</span><br><span class="line"></span><br><span class="line">find / -name <span class="string">&quot;my*&quot;</span> -maxdepth 5 &amp;&gt; ~/Desktop/bothout2.<span class="built_in">log</span></span><br><span class="line"></span><br><span class="line">find / -name <span class="string">&quot;my*&quot;</span> -maxdepth 5 &amp;&gt; /dev/null</span><br></pre></td></tr></table></figure>
+<img width="1010" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/0973f25f-e2a5-47dc-bec3-a9352ae064ce">
+</li>
+<li><p>환경변수</p>
+<ul>
+<li><p>변수에 자주 사용하는 경로를 저장함</p>
+</li>
+<li><p>기존에 있는 변수를 이용한 새로운 변수를 저장 : PATH&#x3D;$PATH:newpath</p>
+<img width="421" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/71c4fcd2-23c6-499a-8f93-8cdbba9aa20e">
+</li>
+<li><p>새 터미널 열때도 계속 동작하게 하려면 : vi ~&#x2F;.bash_profile 수정.<br>단, bash shell 로 접속했을때만 동작. sh 또는 zsh로 접속하면 동작하지 않음</p>
+</li>
+<li><p>환경변수를 모든 유저에게만 영구적으로 적용하고 싶을경우</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/profile</span><br><span class="line"><span class="built_in">export</span> NAME=danny</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$NAME</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>실행명령어 만들기</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">vi mycommand.sh</span><br><span class="line"></span><br><span class="line"><span class="comment">#!/bin/sh</span></span><br><span class="line"><span class="comment">#!/bin/zsh</span></span><br><span class="line"><span class="built_in">echo</span> $*</span><br><span class="line"></span><br><span class="line"><span class="built_in">chmod</span> +x mycommand.sh</span><br><span class="line">sh mycommand.sh good</span><br><span class="line">./mycommand.sh good</span><br><span class="line"></span><br><span class="line"><span class="comment"># 명령문 처럼 이름을 변경</span></span><br><span class="line"><span class="built_in">mv</span> mycommand.sh mycommand</span><br><span class="line"></span><br><span class="line"><span class="comment"># /usr/local/bin 저장</span></span><br><span class="line"><span class="built_in">mv</span> mycommand /usr/local/bin/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 명령어 위치 확인</span></span><br><span class="line"><span class="built_in">which</span> mycommand</span><br></pre></td></tr></table></figure>
+<img width="753" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/11c28707-e8c5-446e-9af9-7ed2d8abd793">
+</li>
+<li><p>보통 만들어진 명령어들은 <strong>&#x2F;usr&#x2F;local&#x2F;bin</strong> 에 저장</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="유용한-명령어"><a href="#유용한-명령어" class="headerlink" title="유용한 명령어"></a>유용한 명령어</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="string">&quot;hello&quot;</span> &gt;&gt; newfile.txt</span><br><span class="line">man find &gt; find.txt         <span class="comment"># find.txt에 find 내용을 넣음 </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># vi 상에서 맨 마지막 이동 : shift + G</span></span><br><span class="line"><span class="comment"># vi 상에서 단어를 바꿀때 : c w </span></span><br></pre></td></tr></table></figure>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://kish191919.github.io/2024/02/22/Data-Engineer-2-1-Linux-Basic/" data-id="cly6sd5fe001znq2la1tz5ucj" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Danny"
+        },
+        "headline": "Data_Engineer_2_1_Linux_Basic",
+        "image": "https://kish191919.github.iohttps://github.com/kish191919/kish191919.github.io/assets/26552500/e4b91071-9747-4ce1-90f4-760734e1f038",
+        "keywords": "linux_basic",
+        "genre": "DATA_ENGINEER LINUX",
+        "datePublished": "2024-02-22",
+        "dateCreated": "2024-02-22",
+        "dateModified": "2024-07-03",
+        "url": "https://kish191919.github.io/2024/02/22/Data-Engineer-2-1-Linux-Basic/",
+        "description": "
+man
+
+원하는 명령어의 설명 (Manual) 을 볼수 있음
+ex) man find : find 명령어 볼수 있음 
+기본 명령어가 아닌경우 -help, –help의 파라미터로 설명을 제공하는 명령어가 있음 -&gt; 화면에 출력되기때문에 지저분할수 있음
+J - 다운, K - 업 , Q - 종료, H - help
+
+
+cd
+
+cd .. : 상위 디렉토리로 이",
+        "wordCount": 1230
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2024/02/29/Data-Engineer-2-2-Linux-Basic/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Data_Engineer_2_2_Linux_Basic
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2024/02/22/Daily-Target-2024/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Daily_Target_2024</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/07/04/Coding-Test-7/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/PYTHON/">PYTHON</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/PYTHON/CODING/">CODING</a></p>
+                            <p class="item-title"><a href="/2024/07/04/Coding-Test-7/" class="title">Coding-Test-7</a></p>
+                            <p class="item-date"><time datetime="2024-07-04T04:13:01.000Z" itemprop="datePublished">2024-07-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/22/Data-Engineer-10-8-PySpark/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a></p>
+                            <p class="item-title"><a href="/2024/03/22/Data-Engineer-10-8-PySpark/" class="title">Data_Engineer_10_8_PySpark</a></p>
+                            <p class="item-date"><time datetime="2024-03-22T18:25:45.000Z" itemprop="datePublished">2024-03-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/20/Data-Engineer-10-7-PySpark/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://github.com/kish191919/Python_Project/assets/26552500/5e5f9cbb-4750-48ec-83a9-1f941fbd834a)" alt="Data_Engineer_10_7_PySpark" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a></p>
+                            <p class="item-title"><a href="/2024/03/20/Data-Engineer-10-7-PySpark/" class="title">Data_Engineer_10_7_PySpark</a></p>
+                            <p class="item-date"><time datetime="2024-03-20T16:10:31.000Z" itemprop="datePublished">2024-03-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/19/Data-Engineer-10-6-PySpark/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://github.com/kish191919/Python_Project/assets/26552500/cbe0114a-b8b5-4302-b8d7-23effd5bfb55)" alt="Data_Engineer_10_6_PySpark" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a></p>
+                            <p class="item-title"><a href="/2024/03/19/Data-Engineer-10-6-PySpark/" class="title">Data_Engineer_10_6_PySpark</a></p>
+                            <p class="item-date"><time datetime="2024-03-19T11:39:08.000Z" itemprop="datePublished">2024-03-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/18/Data-Engineer-10-5-PySpark/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://github.com/kish191919/Python_Project/assets/26552500/4f216d82-aeac-4c9d-b69d-04c9a6c90d27)" alt="Data_Engineer_10_5_PySpark" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a></p>
+                            <p class="item-title"><a href="/2024/03/18/Data-Engineer-10-5-PySpark/" class="title">Data_Engineer_10_5_PySpark</a></p>
+                            <p class="item-date"><time datetime="2024-03-18T20:18:57.000Z" itemprop="datePublished">2024-03-18</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/DATABASE/">DATABASE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/GIT/">GIT</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/LINUX/">LINUX</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/">PYTHON</a><span class="category-list-count">19</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/ALGORITHM/">ALGORITHM</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/CODING/">CODING</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/PROJECT/">PROJECT</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/QUIZ/">QUIZ</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/RECORD/">RECORD</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">12</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2024/" rel="tag">2024</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-Conquer/" rel="tag">Divide_and_Conquer</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-Programming/" rel="tag">Dynamic_Programming</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/" rel="tag">Flask</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy/" rel="tag">Greedy</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash-Table/" rel="tag">Hash_Table</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/" rel="tag">Linked_List</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql/" rel="tag">MySql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/" rel="tag">Queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Recursion/" rel="tag">Recursion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sort/" rel="tag">Sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sorting/" rel="tag">Sorting</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/" rel="tag">Stack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Standalone/" rel="tag">Standalone</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Used-Car/" rel="tag">Used_Car</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ec2/" rel="tag">ec2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-basic/" rel="tag">git_basic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hdfs/" rel="tag">hdfs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jupyter/" rel="tag">jupyter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-basic/" rel="tag">linux_basic</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/" rel="tag">mongodb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pyspark/" rel="tag">pyspark</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scala/" rel="tag">scala</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell-script/" rel="tag">shell_script</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spark/" rel="tag">spark</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yarn/" rel="tag">yarn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zeppelin/" rel="tag">zeppelin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" rel="tag">알고리즘_복잡도</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/2024/" style="font-size: 10px;">2024</a> <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 13.33px;">Divide_and_Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 10px;">Dynamic_Programming</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/Greedy/" style="font-size: 13.33px;">Greedy</a> <a href="/tags/Hash-Table/" style="font-size: 10px;">Hash_Table</a> <a href="/tags/Linked-List/" style="font-size: 16.67px;">Linked_List</a> <a href="/tags/MySql/" style="font-size: 10px;">MySql</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Recursion/" style="font-size: 10px;">Recursion</a> <a href="/tags/Sort/" style="font-size: 13.33px;">Sort</a> <a href="/tags/Sorting/" style="font-size: 10px;">Sorting</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Standalone/" style="font-size: 10px;">Standalone</a> <a href="/tags/Used-Car/" style="font-size: 16.67px;">Used_Car</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/git-basic/" style="font-size: 10px;">git_basic</a> <a href="/tags/hdfs/" style="font-size: 10px;">hdfs</a> <a href="/tags/jupyter/" style="font-size: 10px;">jupyter</a> <a href="/tags/linux-basic/" style="font-size: 13.33px;">linux_basic</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/pyspark/" style="font-size: 20px;">pyspark</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/scala/" style="font-size: 10px;">scala</a> <a href="/tags/shell-script/" style="font-size: 10px;">shell_script</a> <a href="/tags/spark/" style="font-size: 10px;">spark</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/yarn/" style="font-size: 10px;">yarn</a> <a href="/tags/zeppelin/" style="font-size: 10px;">zeppelin</a> <a href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" style="font-size: 10px;">알고리즘_복잡도</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2024 Danny</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://kish191919.github.io/2024/02/22/Data-Engineer-2-1-Linux-Basic/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

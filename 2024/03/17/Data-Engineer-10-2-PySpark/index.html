@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Data_Engineer_10_2_PySpark | Danny Sweet Home</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="pyspark,hdfs,yarn" />
+    
+    <meta name="description" content="1. Hadoop 클러스터 구성spark-master-1 서버에서 실행(1) Hadoop 다운로드 - https:&#x2F;&#x2F;hadoop.apache.org&#x2F;releases.html 1234cd &#x2F;datawget https:&#x2F;&#x2F;archive.apache.org&#x2F;dist&#x2F;hadoop&#x2F;common&#x2F;hadoop-3.3.3&#x2F;hadoop-3.3.3.tar.gztar xvfz">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data_Engineer_10_2_PySpark">
+<meta property="og:url" content="https://kish191919.github.io/2024/03/17/Data-Engineer-10-2-PySpark/index.html">
+<meta property="og:site_name" content="Danny Sweet Home">
+<meta property="og:description" content="1. Hadoop 클러스터 구성spark-master-1 서버에서 실행(1) Hadoop 다운로드 - https:&#x2F;&#x2F;hadoop.apache.org&#x2F;releases.html 1234cd &#x2F;datawget https:&#x2F;&#x2F;archive.apache.org&#x2F;dist&#x2F;hadoop&#x2F;common&#x2F;hadoop-3.3.3&#x2F;hadoop-3.3.3.tar.gztar xvfz">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/kish191919/Python_Project/assets/26552500/60bdc7c7-1283-4872-9482-9b00822981c4">
+<meta property="article:published_time" content="2024-03-17T09:34:29.000Z">
+<meta property="article:modified_time" content="2024-07-04T03:45:56.802Z">
+<meta property="article:author" content="Danny">
+<meta property="article:tag" content="pyspark">
+<meta property="article:tag" content="hdfs">
+<meta property="article:tag" content="yarn">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/kish191919/Python_Project/assets/26552500/60bdc7c7-1283-4872-9482-9b00822981c4">
+    
+
+    
+        <link rel="alternate" href="/" title="Danny Sweet Home" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/DATABASE/">DATABASE</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/GIT/">GIT</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/LINUX/">LINUX</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/">PYTHON</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/ALGORITHM/">ALGORITHM</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/CODING/">CODING</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/PROJECT/">PROJECT</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/QUIZ/">QUIZ</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/RECORD/">RECORD</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Data-Engineer-10-2-PySpark" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Data_Engineer_10_2_PySpark
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2024/03/17/Data-Engineer-10-2-PySpark/" class="article-date">
+       <time datetime="2024-03-17T09:34:29.000Z" itemprop="datePublished">2024-03-17</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2024/03/17/Data-Engineer-10-2-PySpark/" class="article-date">
+     <time datetime="2024-07-04T03:45:56.802Z" itemprop="dateModified">2024-07-03</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/hdfs/" rel="tag">hdfs</a>, <a class="tag-link-link" href="/tags/pyspark/" rel="tag">pyspark</a>, <a class="tag-link-link" href="/tags/yarn/" rel="tag">yarn</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h3 id="1-Hadoop-클러스터-구성"><a href="#1-Hadoop-클러스터-구성" class="headerlink" title="1. Hadoop 클러스터 구성"></a>1. Hadoop 클러스터 구성</h3><h4 id="spark-master-1-서버에서-실행"><a href="#spark-master-1-서버에서-실행" class="headerlink" title="spark-master-1 서버에서 실행"></a>spark-master-1 서버에서 실행</h4><p>(1) Hadoop 다운로드 - <a target="_blank" rel="noopener" href="https://hadoop.apache.org/releases.html">https://hadoop.apache.org/releases.html</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /data</span><br><span class="line">wget https://archive.apache.org/dist/hadoop/common/hadoop-3.3.3/hadoop-3.3.3.tar.gz</span><br><span class="line">tar xvfz hadoop-3.3.3.tar.gz</span><br><span class="line">mv hadoop-3.3.3 hadoop3</span><br></pre></td></tr></table></figure>
+
+<p>(2) JAVA 환경변수 설정 - hadoop-env.sh</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi /data/hadoop3/etc/hadoop/hadoop-env.sh</span><br><span class="line">export JAVA_HOME=/data/jdk8</span><br></pre></td></tr></table></figure>
+
+<p>(3) core-site.xml 설정</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vi /data/hadoop3/etc/hadoop/core-site.xml</span><br><span class="line"></span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;fs.defaultFS&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;hdfs://spark-master-01:9000/&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+
+<p>(4) hdfs-site.xml 설정</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$ vi /data/hadoop3/etc/hadoop/hdfs-site.xml</span><br><span class="line"></span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;file:///data/hadoop3/dfs/name&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;file:///data/hadoop3/dfs/data&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;dfs.namenode.checkpoint.dir&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;file:///data/hadoop3/dfs/namesecondary&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+
+<p>(5) yarn-site.xml 설정</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">vi /data/hadoop3/etc/hadoop/yarn-site.xml</span><br><span class="line"></span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;spark-master-01&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;!-- port 변경이 필요할 경우.... (resourcemanager....) --&gt; &lt;!-- Stop attacks: get-shell(YARN) etc. --&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;yarn.resourcemanager.webapp.address&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;spark-master-01:8188&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+
+<p>(6) workers 설정</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ vi /data/hadoop3/etc/hadoop/workers</span><br><span class="line">spark-worker-01</span><br><span class="line">spark-worker-02</span><br><span class="line">spark-worker-03</span><br></pre></td></tr></table></figure>
+
+<p>(7) copy ‘jdk8’, ‘hadoop3’ to spark-worker-01 ~ 03</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># copy &#x27;jdk8&#x27; to spark-worker-01 ~ 03....</span><br><span class="line">scp -r /data/jdk8 spark@spark-worker-01:/data/</span><br><span class="line">scp -r /data/jdk8 spark@spark-worker-02:/data/</span><br><span class="line">scp -r /data/jdk8 spark@spark-worker-03:/data/</span><br><span class="line"></span><br><span class="line"># copy &#x27;hadoop3&#x27; to spark-worker-01 ~ 03....</span><br><span class="line">scp -r /data/hadoop3 spark@spark-worker-01:/data/</span><br><span class="line">scp -r /data/hadoop3 spark@spark-worker-02:/data/</span><br><span class="line">scp -r /data/hadoop3 spark@spark-worker-03:/data/</span><br><span class="line"></span><br><span class="line"># copy &#x27;~/.bashrc&#x27; to spark-worker-01 ~ 03.... -&gt; JPS 명령어에 대한 PATH 등록</span><br><span class="line">scp -r ~/.bashrc spark@spark-worker-01:~/</span><br><span class="line">scp -r ~/.bashrc spark@spark-worker-02:~/</span><br><span class="line">scp -r ~/.bashrc spark@spark-worker-03:~/</span><br></pre></td></tr></table></figure>
+
+<p>(8) HDFS 포맷</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># HDFS 포맷.... (최초 한번만, 파일시스템 초기화....)</span><br><span class="line">/data/hadoop3/bin/hdfs namenode -format</span><br></pre></td></tr></table></figure>
+
+<p>(9) PATH에 hadoop3&#x2F;sbin 추가</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bashrc</span><br><span class="line">export PATH=/data/jdk8/bin:/data/spark3/bin:/data/hadoop3/sbin:/data/hadoop3/bin:$PATH</span><br><span class="line"></span><br><span class="line">. ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<p>(10) HDFS 시작</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># HDFS 시작 - spark-master-01</span><br><span class="line">start-dfs.sh</span><br><span class="line"></span><br><span class="line"># master 프로세스 확인 - NameNode, SecondaryNameNode</span><br><span class="line">jps </span><br><span class="line"></span><br><span class="line"># worker 프로세스 확인 (on spark-worker-01 ~ 03) - DataNode</span><br><span class="line">jps</span><br><span class="line"></span><br><span class="line"># HDFS 웹UI 확인 - 방화벽 오픈 (HDFS NameNode HTTP, 9870)</span><br><span class="line">http://spark-master-01:9870</span><br><span class="line">Overview 탭 &gt; Summary &gt; Live Nodes 개수 확인.... &gt; Live Nodes 링크 클릭.... &gt; Node 리스트 확인.... &gt; Node의 도메인네임 확인....</span><br><span class="line">Utilities 탭 &gt; Browse the file system &gt; Browse Directory &gt; &#x27;/&#x27; 디렉토리 내용 확인....</span><br><span class="line"></span><br><span class="line">** 만약 웹UI에서 DataNode가 보이지 않는다면? (필요시 방화벽 오픈, VPC INTERNAL, All TCP, 0 - 65535, 10.0.0.0/16)</span><br><span class="line">DataNode 로그 확인 (on spark-worker-01 ~ 03)</span><br><span class="line">$ tail -f /data/hadoop3/logs/hadoop-spark-datanode-spark-worker-01.log</span><br><span class="line">$ tail -f /data/hadoop3/logs/hadoop-spark-datanode-spark-worker-02.log</span><br><span class="line">$ tail -f /data/hadoop3/logs/hadoop-spark-datanode-spark-worker-03.log</span><br><span class="line">Retrying connect to server: spark-master-01/10.0.2.95:9000....</span><br></pre></td></tr></table></figure>
+
+<p>(11) HDFS 종료</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stop-dfs.sh</span><br></pre></td></tr></table></figure>
+
+<p>(12) HDFS 디렉토리 생성 - HDFS 웹 UI</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"># 디렉토리 리스트</span><br><span class="line">HDFS 웹UI &gt; Utilities &gt; Browse the file system</span><br><span class="line"></span><br><span class="line"># 디렉토리 생성....</span><br><span class="line">Create Directory &gt; 디렉토리 이름 입력 &gt; Create</span><br><span class="line"></span><br><span class="line">** 만약 디렉토리 생성 시 에러가 발생 -&gt; core-site.xml에 staticuser 추가, HDFS 재시작) (on spark-master-01)</span><br><span class="line">Permission denied: user=dr.who, access=WRITE, inode=&quot;/&quot;:spark:supergroup:drwxr-xr-x</span><br><span class="line"></span><br><span class="line">vi /data/hadoop3/etc/hadoop/core-site.xml</span><br><span class="line"></span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;fs.defaultFS&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;hdfs://spark-master-01:9000/&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    &lt;!-- static user.... --&gt; &lt;!-- Permission denied: user=dr.who, access=WRITE, inode=&quot;/&quot;:spark:supergroup:drwxr-xr-x --&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;hadoop.http.staticuser.user&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;spark&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">scp /data/hadoop3/etc/hadoop/core-site.xml spark-worker-01:/data/hadoop3/etc/hadoop/</span><br><span class="line">scp /data/hadoop3/etc/hadoop/core-site.xml spark-worker-02:/data/hadoop3/etc/hadoop/</span><br><span class="line">scp /data/hadoop3/etc/hadoop/core-site.xml spark-worker-03:/data/hadoop3/etc/hadoop/</span><br><span class="line"></span><br><span class="line">stop-dfs.sh</span><br><span class="line">start-dfs.sh</span><br></pre></td></tr></table></figure>
+
+<p>(12) 파일 업로드 - HDFS 웹 UI</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 파일 업로드....</span><br><span class="line">Upload Files &gt; 파일 선택 &gt; Upload</span><br><span class="line"></span><br><span class="line">** 만약 파일 업로드가 안된다면? - 방화벽 오픈, HDFS DataNode HTTP, 9864</span><br><span class="line">크롬 브라우저 &gt; 도구 더보기 &gt; 개발자 도구 (Ctrl + Shift + I) &gt; Network &gt; Request URL 포트 확인</span><br><span class="line">Request URL: http://spark-worker-03:9864/webhdfs/v1/....</span><br><span class="line">Request URL: http://spark-worker-02:9864/webhdfs/v1/....</span><br><span class="line">Request URL: http://spark-worker-01:9864/webhdfs/v1/....</span><br><span class="line"></span><br><span class="line"># Download, Head the file (first 32K), Tail the file (last 32K)</span><br><span class="line">파일 Name 링크 &gt; 팝업 &gt; Download</span><br><span class="line">파일 Name 링크 &gt; 팝업 &gt; Head the file (first 32K)</span><br><span class="line">파일 Name 링크 &gt; 팝업 &gt; Tail the file (last 32K)</span><br><span class="line"></span><br><span class="line"># Cut &amp; Pate, Parent Directory, Delete</span><br></pre></td></tr></table></figure>
+
+<p>(13) HDFS CLI Command - spark-master-01, spark-worker-01 ~ 03</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># 디렉토리 리스트</span><br><span class="line">hdfs dfs -ls /</span><br><span class="line"></span><br><span class="line"># 디렉토리 생성 </span><br><span class="line">hdfs dfs -mkdir -p /test1/cli</span><br><span class="line">hdfs dfs -find /</span><br><span class="line"></span><br><span class="line"># 파일 업로드 </span><br><span class="line">hdfs dfs -put -f /data/jdk8 /test1/cli/</span><br><span class="line"></span><br><span class="line"># Download</span><br><span class="line">mkdir /data/test</span><br><span class="line">hdfs dfs -get /test1/cli /data/test</span><br><span class="line"></span><br><span class="line"># Read</span><br><span class="line">hdfs dfs -head /test1/cli/jdk8/THIRD_PARTY_README</span><br><span class="line">hdfs dfs -tail /test1/cli/jdk8/THIRD_PARTY_README</span><br><span class="line"></span><br><span class="line"># Move</span><br><span class="line">hdfs dfs -mv /test1/cli/jdk8/jre /test1/cli/jdk8/../</span><br><span class="line"></span><br><span class="line"># Delete</span><br><span class="line">hdfs dfs -rm /test/find.txt</span><br><span class="line">hdfs dfs -rm -r -f /test1</span><br></pre></td></tr></table></figure>
+
+<p>(14) Airline On Time Data 다운로드</p>
+<ul>
+<li>다운로드 사이트 : <a target="_blank" rel="noopener" href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/HG7NV7">https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/HG7NV7</a></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"># 디렉토리 생성 </span><br><span class="line">mkdir -p /data/source/airline_on_time</span><br><span class="line"></span><br><span class="line"># 다운로드</span><br><span class="line">wget https://dataverse.harvard.edu/api/access/datafile/:persistentId?persistentId=doi:10.7910/DVN/HG7NV7/RUGDRW -O /data/source/airline_on_time/1997.csv.bz2</span><br><span class="line">wget https://dataverse.harvard.edu/api/access/datafile/:persistentId?persistentId=doi:10.7910/DVN/HG7NV7/H07RX8 -O /data/source/airline_on_time/1998.csv.bz2</span><br><span class="line">wget https://dataverse.harvard.edu/api/access/datafile/:persistentId?persistentId=doi:10.7910/DVN/HG7NV7/IP6BL3 -O /data/source/airline_on_time/1999.csv.bz2</span><br><span class="line">wget https://dataverse.harvard.edu/api/access/datafile/:persistentId?persistentId=doi:10.7910/DVN/HG7NV7/YGU3TD -O /data/source/airline_on_time/2000.csv.bz2</span><br><span class="line">wget https://dataverse.harvard.edu/api/access/datafile/:persistentId?persistentId=doi:10.7910/DVN/HG7NV7/CI5CEM -O /data/source/airline_on_time/2001.csv.bz2</span><br><span class="line">wget https://dataverse.harvard.edu/api/access/datafile/:persistentId?persistentId=doi:10.7910/DVN/HG7NV7/OWJXH3 -O /data/source/airline_on_time/2002.csv.bz2</span><br><span class="line">wget https://dataverse.harvard.edu/api/access/datafile/:persistentId?persistentId=doi:10.7910/DVN/HG7NV7/KM2QOA -O /data/source/airline_on_time/2003.csv.bz2</span><br><span class="line">wget https://dataverse.harvard.edu/api/access/datafile/:persistentId?persistentId=doi:10.7910/DVN/HG7NV7/CCAZGT -O /data/source/airline_on_time/2004.csv.bz2</span><br><span class="line">wget https://dataverse.harvard.edu/api/access/datafile/:persistentId?persistentId=doi:10.7910/DVN/HG7NV7/JTFT25 -O /data/source/airline_on_time/2005.csv.bz2</span><br><span class="line">wget https://dataverse.harvard.edu/api/access/datafile/:persistentId?persistentId=doi:10.7910/DVN/HG7NV7/EPIFFT -O /data/source/airline_on_time/2006.csv.bz2</span><br><span class="line">wget https://dataverse.harvard.edu/api/access/datafile/:persistentId?persistentId=doi:10.7910/DVN/HG7NV7/2BHLWK -O /data/source/airline_on_time/2007.csv.bz2</span><br><span class="line">wget https://dataverse.harvard.edu/api/access/datafile/:persistentId?persistentId=doi:10.7910/DVN/HG7NV7/EIR0RA -O /data/source/airline_on_time/2008.csv.bz2</span><br><span class="line"></span><br><span class="line"># 압축해제</span><br><span class="line">bzip2 -d /data/source/airline_on_time/1997.csv.bz2</span><br><span class="line">bzip2 -d /data/source/airline_on_time/1998.csv.bz2</span><br><span class="line">bzip2 -d /data/source/airline_on_time/1999.csv.bz2</span><br><span class="line">bzip2 -d /data/source/airline_on_time/2000.csv.bz2</span><br><span class="line">bzip2 -d /data/source/airline_on_time/2001.csv.bz2</span><br><span class="line">bzip2 -d /data/source/airline_on_time/2002.csv.bz2</span><br><span class="line">bzip2 -d /data/source/airline_on_time/2003.csv.bz2</span><br><span class="line">bzip2 -d /data/source/airline_on_time/2004.csv.bz2</span><br><span class="line">bzip2 -d /data/source/airline_on_time/2005.csv.bz2</span><br><span class="line">bzip2 -d /data/source/airline_on_time/2006.csv.bz2</span><br><span class="line">bzip2 -d /data/source/airline_on_time/2007.csv.bz2</span><br><span class="line">bzip2 -d /data/source/airline_on_time/2008.csv.bz2</span><br><span class="line"></span><br><span class="line"># 확인.... (/data/source/airline_on_time/1997.csv~2008.csv) (총 12개 csv 파일....)</span><br><span class="line">ls -alh /data/source/airline_on_time</span><br><span class="line">du -sh /data/source/airline_on_time</span><br></pre></td></tr></table></figure>
+
+<p>(15) Airline On Time Data 업로드</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># HDFS 디렉토리 생성</span><br><span class="line">hdfs dfs -mkdir -p /data</span><br><span class="line"></span><br><span class="line"># HDFS 업로드.... (-put)</span><br><span class="line">hdfs dfs -put -f /data/source /data/</span><br><span class="line"></span><br><span class="line"># HDFS 확인.... (/data/source/airline_on_time/1997.csv~2008.csv) (총 12개 csv 파일....)</span><br><span class="line">hdfs dfs -ls -h /data/source/airline_on_time</span><br><span class="line">hdfs dfs -du -s -h /data/source/airline_on_time</span><br><span class="line">6.4 G  19.3 G  /data/source/airline_on_time  (-&gt; 6.4 G: 원본 총합, 19.3 G: Replica 총합) </span><br><span class="line"></span><br><span class="line"># HDFS 웹UI확인.... (List, Head, Tail, Blocks)</span><br><span class="line">http://spark-master-01:9870/</span><br><span class="line">HDFS 웹UI &gt; Utilities &gt; Browse the file system &gt; 경로 이동(/data/source/airline_on_time) &gt; 1997.csv~2008.csv (총 12개 csv 파일....)</span><br><span class="line">파일 Name 링크 &gt; 팝업 &gt; Head the file (first 32K), Tail the file (last 32K), Block information (파일원본크기/Block크기128MB -&gt; Block 개수, Block 당 Replica 3개)</span><br><span class="line">ex) 1997.csv (515.32 MB) -&gt; 515.32 MB/128 MB = 4.0259375 (5개 Block) -&gt; Block 0 ~ 3 size 134217728 (128 MB) x 4개 + Block 4 size 3476949 (3.32 MB) = 515.32 MB</span><br></pre></td></tr></table></figure>
+
+<p>(16) YARN 시작 - spark-master-01</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">start-yarn.sh</span><br><span class="line"></span><br><span class="line"># master 프로세스 확인 - spark-master-01</span><br><span class="line">jps</span><br><span class="line">=&gt; ResourceManager</span><br><span class="line"></span><br><span class="line"># worker 프로세스 확인 - spark-worker-01 ~ 03</span><br><span class="line">jps</span><br><span class="line">=&gt; NodeManager</span><br><span class="line"></span><br><span class="line"># YARN 웹UI 확인 - 방화벽 오픈, YARN ResourceManager HTTP, 8188 / YARN NodeManager HTTP, 8042</span><br><span class="line">http://spark-master-01:8188 (-&gt; default port: 8088)</span><br><span class="line">Cluster &gt; Nodes &gt; Active Nodes 개수 및 Nodes 목록 확인.... &gt; Node State, Mem Avail, VCores Avail 확인....</span><br><span class="line">Cluster &gt; Nodes &gt; Node Address &gt; Node 간 내부 통신을 위한 포트는 이미 열려 있음 (필요시 방화벽 확인, VPC INTERNAL, All TCP, 0 - 65535, 10.0.0.0/16)</span><br><span class="line">Cluster &gt; Nodes &gt; Node HTTP Address &gt; Node HTTP 링크 클릭.... &gt; Node Information, List of Applications, List of Containers 확인....</span><br></pre></td></tr></table></figure>
+
+<p>(17) YARN 종료 - spark-master-01</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stop-yarn.sh</span><br></pre></td></tr></table></figure>
+
+<p>(18) YARN 설정파일 구성</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"># spark-shell 실행.... (w/ --master yarn)</span><br><span class="line">spark-shell --master yarn</span><br><span class="line">=&gt; Exception in thread &quot;main&quot; org.apache.spark.SparkException: When running with master &#x27;yarn&#x27; either HADOOP_CONF_DIR or YARN_CONF_DIR must be set in the environment.</span><br><span class="line"></span><br><span class="line"># CONF2 디렉토리 생성 - HADOOP_CONF_DIR / YARN_CONF_DIR</span><br><span class="line">mkdir -p /data/spark3/conf2</span><br><span class="line"></span><br><span class="line"># core-site.xml 설정.... (under /data/spark3/conf2/)</span><br><span class="line">vi /data/spark3/conf2/core-site.xml</span><br><span class="line"></span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;fs.defaultFS&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;hdfs://spark-master-01:9000/&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># yarn-site.xml 설정.... (under /data/spark3/conf2/)</span><br><span class="line">vi /data/spark3/conf2/yarn-site.xml</span><br><span class="line"></span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;spark-master-01&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+
+<p>(18) YARN 테스트</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"># spark-shell 실행.... (w/ --master yarn) (w/ YARN_CONF_DIR=/data/spark3/conf2)</span><br><span class="line">YARN_CONF_DIR=/data/spark3/conf2 spark-shell --master yarn </span><br><span class="line"></span><br><span class="line"># spark-shell 확인....</span><br><span class="line">scala&gt; sc</span><br><span class="line">scala&gt; spark</span><br><span class="line">scala&gt; sc.master</span><br><span class="line">res2: String = yarn</span><br><span class="line">scala&gt; sc.uiWebUrl</span><br><span class="line">res3: Option[String] = Some(http://spark-master-01:4040)</span><br><span class="line"></span><br><span class="line"># Spark App 웹UI 확인....</span><br><span class="line">http://spark-master-01:4040</span><br><span class="line">-&gt; url redirect (http://spark-master-01:8088/proxy/redirect/application_1654391540349_0001/)</span><br><span class="line">-&gt; 8088???? (YARN ResourceManager HTTP Default Port 8088)</span><br><span class="line">-&gt; 보안 강화를 위해 우리는 8188로 변경했다! (through 8088 http port -&gt; attacks: get-shell(YARN) etc.)</span><br><span class="line">-&gt; Spark App에게 Prot가 8188로 변경되었음을 알려주자....</span><br><span class="line"></span><br><span class="line">** 잠깐!, YARN 웹UI의 Tracking UI/URL(ApplicationMaster)은?</span><br><span class="line">-&gt; http://spark-master-01:8188/proxy/application_1654391540349_0001/</span><br><span class="line">-&gt; 당연히 변경된 Port 8188로 되어 있음. 잘 보여짐!</span><br><span class="line"></span><br><span class="line"># yarn-site.xml (추가) 설정.... (under /data/spark3/conf2/)</span><br><span class="line"># spark3 가 참조하는 yarn을 바꿨기 때문에 따로 yarn을 다시 재기동 할 필요없고, spark 만 다시 재가동 하면 됨</span><br><span class="line">$ vi /data/spark3/conf2/yarn-site.xml</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;spark-master-01&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;!-- port 변경이 필요할 경우.... (resourcemanager....) --&gt; &lt;!-- Stop attacks: get-shell(YARN) etc. --&gt;</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;yarn.resourcemanager.webapp.address&lt;/name&gt;</span><br><span class="line">        &lt;value&gt;spark-master-01:8188&lt;/value&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br><span class="line"></span><br><span class="line"># spakr-shell (재)실행.... (w/ --master yarn) (w/ YARN_CONF_DIR=/data/spark3/conf2)</span><br><span class="line">YARN_CONF_DIR=/data/spark3/conf2 spark-shell --master yarn</span><br><span class="line"></span><br><span class="line">scala&gt; sc.uiWebUrl</span><br><span class="line">res3: Option[String] = Some(http://spark-master-01:4040)</span><br><span class="line"></span><br><span class="line">//--Spark App 웹UI (재)확인....</span><br><span class="line">http://spark-master-01:4040</span><br><span class="line">-&gt; url redirect (http://spark-master-01:8188/proxy/redirect/application_1654391540349_0002/)</span><br><span class="line">-&gt; 변경된 Port 8188로 잘 연결됨!</span><br><span class="line"></span><br><span class="line">Executors &gt; executor 2개 할당된 것 확인.... (only executor 2개 ????) (only 1 core ????)</span><br><span class="line">=&gt; 예전에 yarn으로 실행하지 않을때는 Driver만 있었음.</span><br><span class="line">=&gt; 워커 1개가 않보이고 core가 각각 1개밖에 배분되어 있음</span><br><span class="line">=&gt; 왜냐하면 Yarn 디폴트로는 executer 2개에 코어가 1개이기때문</span><br><span class="line"></span><br><span class="line">Miscellaneous Process &gt; yarn-am 확인....</span><br><span class="line">=&gt; Yarn 은 어플리케이션 마스터를 띄우면서 Excutor들은 yarn의 컨테이너 안에 띄움</span><br></pre></td></tr></table></figure>
+
+<p>(18) YARN의 Executor 메모리, core, 갯수 설정</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"># spark-shell 도움말 보기....</span><br><span class="line">spark-shell --help  (-&gt; --executor-memory, --executor-cores, --num-executors 옵션 확인....)</span><br><span class="line">  --executor-memory MEM       Memory per executor (e.g. 1000M, 2G) (Default: 1G). </span><br><span class="line"></span><br><span class="line"> Spark standalone, YARN and Kubernetes only:</span><br><span class="line">  --executor-cores NUM        Number of cores used by each executor. (Default: 1 in</span><br><span class="line">                              YARN and K8S modes, or all available cores on the worker</span><br><span class="line">                              in standalone mode =&gt; spark cluster manager )</span><br><span class="line"></span><br><span class="line"> Spark on YARN and Kubernetes only:</span><br><span class="line">  --num-executors NUM         Number of executors to launch (Default: 2).</span><br><span class="line">                              If dynamic allocation is enabled, the initial number of</span><br><span class="line">                              executors will be at least NUM.</span><br><span class="line"></span><br><span class="line"># spark-shell 실행.... (w/ --master yarn) (w/ YARN_CONF_DIR=/data/spark3/conf2) (w/ memory,cores,num 옵션)</span><br><span class="line">YARN_CONF_DIR=/data/spark3/conf2 spark-shell --master yarn --executor-memory 4G --executor-cores 4 --num-executors 3</span><br><span class="line"></span><br><span class="line"># Spark App 웹UI 확인.... (-&gt; executor 3개, cores 4개 Good!!!!)</span><br><span class="line">http://spark-master-01:4040</span><br><span class="line">Executors &gt; executor 3개 할당된 것 확인.... executor 당 cores 4개 할당된 것 확인....</span><br><span class="line"></span><br><span class="line"># YARN 웹UI(에서도) (재)확인.... (-&gt; executor 3개, cores 1개???? Bad!!!!)</span><br><span class="line">http://spark-master-01:8188</span><br><span class="line">Cluster &gt; Applications &gt; ID 링크 &gt; Attempt ID 링크 &gt; Container ID</span><br><span class="line">AM Container (1개): 1024 Memory, 1 VCores (-&gt; Default Resource, OK!)</span><br><span class="line">Executor Container (3개): 5120 Memory, 1 VCores (-&gt; 1GB Memory Overhead! OK!, But 1 VCores???? executor 당 cores 4개 요청했는데????)</span><br><span class="line"></span><br><span class="line"># YARN의 capacity-scheduler.xml 설정.... (DefaultResourceCalculator -&gt; DominantResourceCalculator) (on spark-master-01)</span><br><span class="line">vi /data/hadoop3/etc/hadoop/capacity-scheduler.xml</span><br><span class="line"></span><br><span class="line">&lt;configuration&gt;</span><br><span class="line">....</span><br><span class="line">    &lt;property&gt;</span><br><span class="line">        &lt;name&gt;yarn.scheduler.capacity.resource-calculator&lt;/name&gt;</span><br><span class="line">        &lt;!--&lt;value&gt;org.apache.hadoop.yarn.util.resource.DefaultResourceCalculator&lt;/value&gt;--&gt;</span><br><span class="line">        &lt;value&gt;org.apache.hadoop.yarn.util.resource.DominantResourceCalculator&lt;/value&gt;</span><br><span class="line">        &lt;description&gt;</span><br><span class="line">	The ResourceCalculator implementation to be used to compare</span><br><span class="line">	Resources in the scheduler.</span><br><span class="line">	The default i.e. DefaultResourceCalculator only uses Memory while</span><br><span class="line">	DominantResourceCalculator uses dominant-resource to compare</span><br><span class="line">	multi-dimensional resources such as Memory, CPU etc.</span><br><span class="line">        &lt;/description&gt;</span><br><span class="line">    &lt;/property&gt;</span><br><span class="line">....</span><br><span class="line">&lt;/configuration&gt;</span><br><span class="line"></span><br><span class="line"># copy &#x27;capacity-scheduler.xml&#x27; to spark-worker-01 ~ 03.... (on spark-master-01)</span><br><span class="line">scp -r /data/hadoop3/etc/hadoop/capacity-scheduler.xml spark@spark-worker-01:/data/hadoop3/etc/hadoop/</span><br><span class="line">scp -r /data/hadoop3/etc/hadoop/capacity-scheduler.xml spark@spark-worker-02:/data/hadoop3/etc/hadoop/</span><br><span class="line">scp -r /data/hadoop3/etc/hadoop/capacity-scheduler.xml spark@spark-worker-03:/data/hadoop3/etc/hadoop/</span><br><span class="line"></span><br><span class="line"># YARN 재시작 - spark-master-01</span><br><span class="line">stop-yarn.sh</span><br><span class="line">start-yarn.sh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># spakr-shell (재)실행.... (w/ --master yarn) (w/ YARN_CONF_DIR=/data/spark3/conf2) (w/ memory,cores,num 옵션)</span><br><span class="line">YARN_CONF_DIR=/data/spark3/conf2 ./bin/spark-shell --master yarn --executor-memory 4G --executor-cores 4 --num-executors 3</span><br><span class="line"></span><br><span class="line"># Spark App 웹UI 확인.... (-&gt; executor 3개, cores 4개 Good!!!!)</span><br><span class="line">http://spark-master-01:4040</span><br><span class="line">Executors &gt; executor 3개 할당된 것 확인.... executor 당 cores 4개 할당된 것 확인....</span><br><span class="line"></span><br><span class="line"># YARN 웹UI(에서도) (재)확인.... (-&gt; executor 3개, cores 4개 Good!!!!)</span><br><span class="line">http://spark-master-01:8188</span><br><span class="line">Cluster &gt; Applications &gt; ID 링크 &gt; Attempt ID 링크 &gt; Container ID</span><br><span class="line">AM Container (1개): 1024 Memory, 1 VCores (-&gt; Default Resource, OK!)</span><br><span class="line">Executor Container (3개): 5120 Memory, 4 VCores (-&gt; 1GB Memory Overhead! OK!, 4 VCores, OK!)</span><br><span class="line"></span><br><span class="line"># driver 프로세스 확인 - spark-master-01</span><br><span class="line">jps</span><br><span class="line">=&gt; SparkSubmit</span><br><span class="line"></span><br><span class="line"># executor(3개), am(1개) 프로세스 확인 - spark-worker-01 ~ 03</span><br><span class="line">jps</span><br><span class="line">=&gt; ExecutorLauncher  -&gt; am 프로세스....</span><br><span class="line">=&gt; YarnCoarseGrainedExecutorBackend  -&gt; executor 프로세스....</span><br><span class="line"></span><br><span class="line">** YARN 웹UI에서 AM Container 위치(Node정보)와 프로세스 이름(Logs링크/launch_container.sh)을 확인.... </span><br><span class="line">** Spark App 웹UI에서(도) AM Container 위치(Executors &gt; Miscellaneous Process)를 확인....</span><br><span class="line"></span><br><span class="line">//--HDFS의 .sparkStaging 디렉토리 확인.... (YARN 웹UI)</span><br><span class="line">/user/spark/.sparkStaging/&lt;application_id&gt;</span><br><span class="line">__spark_conf__.zip</span><br><span class="line">__spark_libs__xxxxxxx.zip</span><br></pre></td></tr></table></figure>
+
+<p>(19) YARN 테스트 실행 - Word Count</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"># spakr-shell 실행.... (w/ --master yarn) (w/ YARN_CONF_DIR=/data/spark3/conf2) (w/ memory,cores,num 옵션)</span><br><span class="line"></span><br><span class="line">YARN_CONF_DIR=/data/spark3/conf2 ./bin/spark-shell --master yarn --executor-memory 4G --executor-cores 4 --num-executors 3</span><br><span class="line"></span><br><span class="line"># 디폴트로 HDFS 경로로 인식... (by core-site.xml)</span><br><span class="line">scala&gt; val rdd_wc = sc.textFile(&quot;README.md&quot;).flatMap(_.split(&quot; &quot;)).map((_,1)).reduceByKey(_+_)</span><br><span class="line">=&gt; spark3 경로가 아닌 hdfs에 있는 파일을 찾으려고함</span><br><span class="line">=&gt; org.apache.hadoop.mapred.InvalidInputException: Input path does not exist: hdfs://spark-master-01:9000/user/spark/README.md</span><br><span class="line"></span><br><span class="line"># 로컬FileSystem 경로로 지정.... driver입장에서는 파일이 있다....</span><br><span class="line">scala&gt; val rdd_wc = sc.textFile(&quot;file:///data/spark3/README.md&quot;).flatMap(_.split(&quot; &quot;)).map((_,1)).reduceByKey(_+_)</span><br><span class="line">rdd_wc: org.apache.spark.rdd.RDD[(String, Int)] = ShuffledRDD[8] at reduceByKey at &lt;console&gt;:23</span><br><span class="line"></span><br><span class="line"># driver 로컬FS에는 있는데, executor가 구동중인 노드의 로컬FS에는 없다????</span><br><span class="line"># executor가 돌아가는 서버안에 로컬 FS에 파일이 없음</span><br><span class="line"># 한 Task에 4번 실패하게되면 작업이 끝남</span><br><span class="line">scala&gt; rdd_wc.collect.take(10).foreach(println)</span><br><span class="line">WARN TaskSetManager: Lost task 0.0 in stage 0.0 (TID 0) (spark-worker-01 executor 1): java.io.FileNotFoundException: File file:/data/spark3/README.md does not exist</span><br><span class="line">....</span><br><span class="line">ERROR TaskSetManager: Task 0 in stage 0.0 failed 4 times; aborting job</span><br><span class="line">org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 0.0 failed 4 times, most recent failure: Lost task 0.3 in stage 0.0 (TID 6) (spark-worker-01 executor 1): java.io.FileNotFoundException: File file:/data/spark3/README.md does not exist</span><br><span class="line"></span><br><span class="line">** Spark App 웹UI 확인....</span><br><span class="line">Jobs &gt; Failed Jobs &gt; Failed Stages &gt; Tasks &gt; Index (0, 1).... Task ID (0 ~ 6).... Status (FAILED / KILLED).... Executor ID / Host.... Errors (java.io.FileNotFoundException / Stage cancelled)....</span><br><span class="line"></span><br><span class="line"># driver 노드와 executor 노드 모두에 있는 Hadoop의 README.txt 파일로 TRY.</span><br><span class="line">scala&gt; val rdd_wc = sc.textFile(&quot;file:///data/hadoop3/README.txt&quot;).flatMap(_.split(&quot; &quot;)).map((_,1)).reduceByKey(_+_)</span><br><span class="line">rdd_wc: org.apache.spark.rdd.RDD[(String, Int)] = ShuffledRDD[37] at reduceByKey at &lt;console&gt;:23</span><br><span class="line"></span><br><span class="line"># 액션 수행 -&gt; 성공</span><br><span class="line">scala&gt; rdd_wc.collect.foreach(println)</span><br><span class="line">(information,1)</span><br><span class="line">(http://hadoop.apache.org/,1)</span><br><span class="line">(our,2)</span><br><span class="line">(,9)</span><br><span class="line">(wiki,,1)</span><br><span class="line">(please,1)</span><br><span class="line">(For,1)</span><br><span class="line">(visit,1)</span><br><span class="line">(about,1)</span><br><span class="line">(website,1)</span><br><span class="line">(Hadoop,,1)</span><br><span class="line">(https://cwiki.apache.org/confluence/display/HADOOP/,1)</span><br><span class="line">(at:,2)</span><br><span class="line">(and,1)</span><br><span class="line">(latest,1)</span><br><span class="line">(the,1)</span><br><span class="line"></span><br><span class="line">** Spark App 웹UI 확인....</span><br><span class="line">Jobs &gt; Completed Jobs &gt; Completed Stages &gt; Tasks &gt; Index (0, 1).... Task ID (7 ~ 8).... Attempt (0).... Status (SUCCESS).... Executor ID / Host.... Input Size / Records.... Shuffle Write Size / Records....</span><br><span class="line"></span><br><span class="line">** Hadoop의 README.txt 파일 확인.... (웹UI의 Task별 Input Records와 Shuffle Records를 실제 파일내용과 비교하여 추정해 보자....)</span><br><span class="line">$ vi /data/hadoop3/README.txt (-&gt; key별로 1개의 Shuffle Record에 모두 write 함.... ex) Shuffle Records가 6개이면, 6개의 unique key가 있음을 의미....)</span><br><span class="line"></span><br><span class="line"># 이번엔, 파티션 1개로 읽어 Task 1개만 실행 =&gt; 반드시 1개의 Task로 되지 않을 수도 있음</span><br><span class="line">scala&gt; val rdd_wc2 = sc.textFile(&quot;file:///data/hadoop3/README.txt&quot;, 1).flatMap(_.split(&quot; &quot;)).map((_,1)).reduceByKey(_+_)</span><br><span class="line">rdd_wc2: org.apache.spark.rdd.RDD[(String, Int)] = ShuffledRDD[9] at reduceByKey at &lt;console&gt;:23</span><br><span class="line"></span><br><span class="line"># 액션 수행 성공 </span><br><span class="line">scala&gt; rdd_wc2.collect.foreach(println)</span><br><span class="line">(For,1)</span><br><span class="line">(visit,1)</span><br><span class="line">(about,1)</span><br><span class="line">(website,1)</span><br><span class="line">(information,1)</span><br><span class="line">(Hadoop,,1)</span><br><span class="line">(our,2)</span><br><span class="line">(http://hadoop.apache.org/,1)</span><br><span class="line">(,9)</span><br><span class="line">(https://cwiki.apache.org/confluence/display/HADOOP/,1)</span><br><span class="line">(wiki,,1)</span><br><span class="line">(please,1)</span><br><span class="line">(at:,2)</span><br><span class="line">(and,1)</span><br><span class="line">(latest,1)</span><br><span class="line">(the,1)</span><br><span class="line"></span><br><span class="line">** Spark App 웹UI 확인....</span><br><span class="line">Task 1개, Input Records 7개, Shuffle Write Records 16개 (-&gt; key에 해당하는 word가 16개임....)</span><br><span class="line"></span><br><span class="line">//--key(word) 개수 확인....</span><br><span class="line">scala&gt; rdd_wc2.count()</span><br><span class="line">res2: Long = 16</span><br><span class="line"></span><br><span class="line">scala&gt; :q</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/kish191919/Python_Project/assets/26552500/60bdc7c7-1283-4872-9482-9b00822981c4" alt="image"></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://kish191919.github.io/2024/03/17/Data-Engineer-10-2-PySpark/" data-id="cly6sd5fc001fnq2lgv0j09uz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Danny"
+        },
+        "headline": "Data_Engineer_10_2_PySpark",
+        "image": "https://kish191919.github.iohttps://github.com/kish191919/Python_Project/assets/26552500/60bdc7c7-1283-4872-9482-9b00822981c4",
+        "keywords": "pyspark hdfs yarn",
+        "genre": "DATA_ENGINEER PYSPARK",
+        "datePublished": "2024-03-17",
+        "dateCreated": "2024-03-17",
+        "dateModified": "2024-07-03",
+        "url": "https://kish191919.github.io/2024/03/17/Data-Engineer-10-2-PySpark/",
+        "description": "1. Hadoop 클러스터 구성spark-master-1 서버에서 실행(1) Hadoop 다운로드 - https://hadoop.apache.org/releases.html
+1234cd /datawget https://archive.apache.org/dist/hadoop/common/hadoop-3.3.3/hadoop-3.3.3.tar.gztar xvfz",
+        "wordCount": 3284
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2024/03/17/Data-Engineer-10-3-PySpark/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Data_Engineer_10_3_PySpark
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2024/03/11/Data-Engineer-10-1-PySpark/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Data_Engineer_10_1_PySpark</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/07/04/Coding-Test-7/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/PYTHON/">PYTHON</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/PYTHON/CODING/">CODING</a></p>
+                            <p class="item-title"><a href="/2024/07/04/Coding-Test-7/" class="title">Coding-Test-7</a></p>
+                            <p class="item-date"><time datetime="2024-07-04T04:13:01.000Z" itemprop="datePublished">2024-07-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/22/Data-Engineer-10-8-PySpark/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a></p>
+                            <p class="item-title"><a href="/2024/03/22/Data-Engineer-10-8-PySpark/" class="title">Data_Engineer_10_8_PySpark</a></p>
+                            <p class="item-date"><time datetime="2024-03-22T18:25:45.000Z" itemprop="datePublished">2024-03-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/20/Data-Engineer-10-7-PySpark/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://github.com/kish191919/Python_Project/assets/26552500/5e5f9cbb-4750-48ec-83a9-1f941fbd834a)" alt="Data_Engineer_10_7_PySpark" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a></p>
+                            <p class="item-title"><a href="/2024/03/20/Data-Engineer-10-7-PySpark/" class="title">Data_Engineer_10_7_PySpark</a></p>
+                            <p class="item-date"><time datetime="2024-03-20T16:10:31.000Z" itemprop="datePublished">2024-03-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/19/Data-Engineer-10-6-PySpark/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://github.com/kish191919/Python_Project/assets/26552500/cbe0114a-b8b5-4302-b8d7-23effd5bfb55)" alt="Data_Engineer_10_6_PySpark" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a></p>
+                            <p class="item-title"><a href="/2024/03/19/Data-Engineer-10-6-PySpark/" class="title">Data_Engineer_10_6_PySpark</a></p>
+                            <p class="item-date"><time datetime="2024-03-19T11:39:08.000Z" itemprop="datePublished">2024-03-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/18/Data-Engineer-10-5-PySpark/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://github.com/kish191919/Python_Project/assets/26552500/4f216d82-aeac-4c9d-b69d-04c9a6c90d27)" alt="Data_Engineer_10_5_PySpark" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a></p>
+                            <p class="item-title"><a href="/2024/03/18/Data-Engineer-10-5-PySpark/" class="title">Data_Engineer_10_5_PySpark</a></p>
+                            <p class="item-date"><time datetime="2024-03-18T20:18:57.000Z" itemprop="datePublished">2024-03-18</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/DATABASE/">DATABASE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/GIT/">GIT</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/LINUX/">LINUX</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/">PYTHON</a><span class="category-list-count">19</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/ALGORITHM/">ALGORITHM</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/CODING/">CODING</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/PROJECT/">PROJECT</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/QUIZ/">QUIZ</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/RECORD/">RECORD</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">12</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2024/" rel="tag">2024</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-Conquer/" rel="tag">Divide_and_Conquer</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-Programming/" rel="tag">Dynamic_Programming</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/" rel="tag">Flask</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy/" rel="tag">Greedy</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash-Table/" rel="tag">Hash_Table</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/" rel="tag">Linked_List</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql/" rel="tag">MySql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/" rel="tag">Queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Recursion/" rel="tag">Recursion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sort/" rel="tag">Sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sorting/" rel="tag">Sorting</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/" rel="tag">Stack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Standalone/" rel="tag">Standalone</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Used-Car/" rel="tag">Used_Car</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ec2/" rel="tag">ec2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-basic/" rel="tag">git_basic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hdfs/" rel="tag">hdfs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jupyter/" rel="tag">jupyter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-basic/" rel="tag">linux_basic</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/" rel="tag">mongodb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pyspark/" rel="tag">pyspark</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scala/" rel="tag">scala</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell-script/" rel="tag">shell_script</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spark/" rel="tag">spark</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yarn/" rel="tag">yarn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zeppelin/" rel="tag">zeppelin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" rel="tag">알고리즘_복잡도</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/2024/" style="font-size: 10px;">2024</a> <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 13.33px;">Divide_and_Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 10px;">Dynamic_Programming</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/Greedy/" style="font-size: 13.33px;">Greedy</a> <a href="/tags/Hash-Table/" style="font-size: 10px;">Hash_Table</a> <a href="/tags/Linked-List/" style="font-size: 16.67px;">Linked_List</a> <a href="/tags/MySql/" style="font-size: 10px;">MySql</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Recursion/" style="font-size: 10px;">Recursion</a> <a href="/tags/Sort/" style="font-size: 13.33px;">Sort</a> <a href="/tags/Sorting/" style="font-size: 10px;">Sorting</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Standalone/" style="font-size: 10px;">Standalone</a> <a href="/tags/Used-Car/" style="font-size: 16.67px;">Used_Car</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/git-basic/" style="font-size: 10px;">git_basic</a> <a href="/tags/hdfs/" style="font-size: 10px;">hdfs</a> <a href="/tags/jupyter/" style="font-size: 10px;">jupyter</a> <a href="/tags/linux-basic/" style="font-size: 13.33px;">linux_basic</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/pyspark/" style="font-size: 20px;">pyspark</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/scala/" style="font-size: 10px;">scala</a> <a href="/tags/shell-script/" style="font-size: 10px;">shell_script</a> <a href="/tags/spark/" style="font-size: 10px;">spark</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/yarn/" style="font-size: 10px;">yarn</a> <a href="/tags/zeppelin/" style="font-size: 10px;">zeppelin</a> <a href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" style="font-size: 10px;">알고리즘_복잡도</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2024 Danny</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://kish191919.github.io/2024/03/17/Data-Engineer-10-2-PySpark/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

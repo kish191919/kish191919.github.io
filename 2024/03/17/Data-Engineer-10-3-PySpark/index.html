@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Data_Engineer_10_3_PySpark | Danny Sweet Home</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Standalone" />
+    
+    <meta name="description" content="1. Spark Standalone mode 설정 Spark 다운로드 완료 Java 다운로드 완료 spark-env.sh 에 JAVA_HOME 설정 완료 Copy ‘jdk8’ spark-worker-01 ~ 03 완료  (1)  workers 설정 - spark-master-01 123456cp &#x2F;data&#x2F;spark3&#x2F;conf&#x2F;workers.template">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data_Engineer_10_3_PySpark">
+<meta property="og:url" content="https://kish191919.github.io/2024/03/17/Data-Engineer-10-3-PySpark/index.html">
+<meta property="og:site_name" content="Danny Sweet Home">
+<meta property="og:description" content="1. Spark Standalone mode 설정 Spark 다운로드 완료 Java 다운로드 완료 spark-env.sh 에 JAVA_HOME 설정 완료 Copy ‘jdk8’ spark-worker-01 ~ 03 완료  (1)  workers 설정 - spark-master-01 123456cp &#x2F;data&#x2F;spark3&#x2F;conf&#x2F;workers.template">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/kish191919/Python_Project/assets/26552500/99fa0305-a28c-4648-b1af-35175bb7ea9f">
+<meta property="article:published_time" content="2024-03-17T18:32:31.000Z">
+<meta property="article:modified_time" content="2024-07-04T03:45:56.803Z">
+<meta property="article:author" content="Danny">
+<meta property="article:tag" content="Standalone">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/kish191919/Python_Project/assets/26552500/99fa0305-a28c-4648-b1af-35175bb7ea9f">
+    
+
+    
+        <link rel="alternate" href="/" title="Danny Sweet Home" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/DATABASE/">DATABASE</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/GIT/">GIT</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/LINUX/">LINUX</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/">PYTHON</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/ALGORITHM/">ALGORITHM</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/CODING/">CODING</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/PROJECT/">PROJECT</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/QUIZ/">QUIZ</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/RECORD/">RECORD</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Data-Engineer-10-3-PySpark" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Data_Engineer_10_3_PySpark
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2024/03/17/Data-Engineer-10-3-PySpark/" class="article-date">
+       <time datetime="2024-03-17T18:32:31.000Z" itemprop="datePublished">2024-03-17</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2024/03/17/Data-Engineer-10-3-PySpark/" class="article-date">
+     <time datetime="2024-07-04T03:45:56.803Z" itemprop="dateModified">2024-07-03</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Standalone/" rel="tag">Standalone</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h3 id="1-Spark-Standalone-mode-설정"><a href="#1-Spark-Standalone-mode-설정" class="headerlink" title="1. Spark Standalone mode 설정"></a>1. Spark Standalone mode 설정</h3><ul>
+<li>Spark 다운로드 완료</li>
+<li>Java 다운로드 완료</li>
+<li>spark-env.sh 에 JAVA_HOME 설정 완료</li>
+<li>Copy ‘jdk8’ spark-worker-01 ~ 03 완료</li>
+</ul>
+<p>(1)  workers 설정 - spark-master-01</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cp /data/spark3/conf/workers.template /data/spark3/conf/workers</span><br><span class="line">vi /data/spark3/conf/workers</span><br><span class="line"></span><br><span class="line">spark-worker-01</span><br><span class="line">spark-worker-02</span><br><span class="line">spark-worker-03</span><br></pre></td></tr></table></figure>
+
+<p>(2) copy ‘spark3’ to spark-worker-01 ~ 03</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># copy &#x27;spark3&#x27; to spark-worker-01 ~ 03....</span><br><span class="line">scp -r /data/spark3 spark@spark-worker-01:/data/</span><br><span class="line">scp -r /data/spark3 spark@spark-worker-02:/data/</span><br><span class="line">scp -r /data/spark3 spark@spark-worker-03:/data/</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Standalone-Cluster-Manager-시작"><a href="#2-Standalone-Cluster-Manager-시작" class="headerlink" title="2. Standalone Cluster Manager 시작"></a>2. Standalone Cluster Manager 시작</h3><p>(1) Spark standalone cluster manager 시작 - spark-master-01</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># Hadoop 에도 start-all.sh 명령어가 있음</span><br><span class="line">/data/spark3/sbin/start-all.sh</span><br><span class="line"></span><br><span class="line"># master 프로세스 확인 - spark-master-01</span><br><span class="line">jps</span><br><span class="line">=&gt; Master</span><br><span class="line"></span><br><span class="line"># worker 프로세스 확인 - spark-worker-01 ~ 03</span><br><span class="line">jps</span><br><span class="line">=&gt; Worker</span><br><span class="line"></span><br><span class="line"># spark standalone 웹UI 확인 - 방화벽 오픈 Spark Master HTTP, 8080</span><br><span class="line">http://spark-master-01:8080 (-&gt; 보안강화를 위해 port를 8180으로 변경해 보자....)</span><br><span class="line">URL: spark://spark-master-01:7077 (-&gt; 보안강화를 위해 port를 7177로 변경해 보자....)</span><br><span class="line"></span><br><span class="line"># Workers &gt; Worker 개수 3개 확인</span><br><span class="line">-&gt; Address: private_ip:random_port (-&gt; 보안강화를 위해 port를 7178로 변경해 보자....)</span><br><span class="line">-&gt; State: ALIVE</span><br><span class="line">-&gt; Cores (default: all available): 2 (-&gt; hadoop과 동일하게 cores를 8개로 변경해 보자....)</span><br><span class="line"></span><br><span class="line"># 스파크 문서에는 메모리는 실제 메모리에서 1기가 가량 뺀 것으로 할당한다고 함 (OS가 사용할 양을 뺌)</span><br><span class="line">-&gt; Memory (default: machine&#x27;s total RAM minus 1 GiB): 6.5 GiB (-&gt; memory를 8GB로 변경해 보자....)</span><br><span class="line"></span><br><span class="line"># Worker Id 링크를 클릭하여 Worker 상세화면 확인</span><br><span class="line">-&gt; worker url이 private ip로 제공됨(http://private_ip:8081), private_ip로는 연결 안됨.... (-&gt; host_name:8181로 변경해 보자....)</span><br><span class="line">-&gt; private_ip를 호스트 이름으로 변경</span><br></pre></td></tr></table></figure>
+<img width="1677" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/99fa0305-a28c-4648-b1af-35175bb7ea9f">
+
+<p>(2) spark-env.sh 설정 (host_name, port, cores, memory 설정….) - spark-master-01</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">vi /data/spark3/conf/spark-env.sh</span><br><span class="line"></span><br><span class="line">JAVA_HOME=/data/jdk8</span><br><span class="line">SPARK_MASTER_PORT=7177  # default: 7077</span><br><span class="line">SPARK_MASTER_WEBUI_PORT=8180  # default: 8080</span><br><span class="line"></span><br><span class="line">SPARK_WORKER_PORT=7178  # default: random</span><br><span class="line">SPARK_WORKER_WEBUI_PORT=8181  # default: 8081</span><br><span class="line"></span><br><span class="line">SPARK_WORKER_CORES=2  # default: all available</span><br><span class="line">SPARK_WORKER_MEMORY=8G  # default: machine&#x27;s total RAM minus 1 GiB</span><br><span class="line">SPARK_PUBLIC_DNS=$&#123;HOSTNAME&#125;</span><br></pre></td></tr></table></figure>
+
+<p>(3) copy ‘spark-env.sh’ to spark-worker-01 ~ 03</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># scp란 Secure Copy의 약자로 로컬서버에서 리모트(원격)서버로 파일을 복사해서 올리거나 내려받을 때 사용하는 unix계열 utility</span><br><span class="line"># 여러파일을 포함할 경우 옵션 -r 사용</span><br><span class="line">scp -r /data/spark3/conf/spark-env.sh spark@spark-worker-01:/data/spark3/conf/</span><br><span class="line">scp -r /data/spark3/conf/spark-env.sh spark@spark-worker-02:/data/spark3/conf/</span><br><span class="line">scp -r /data/spark3/conf/spark-env.sh spark@spark-worker-03:/data/spark3/conf/</span><br></pre></td></tr></table></figure>
+
+<p>(4) spark standalone 재기동  + 웹UI 확인</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/data/spark3/sbin/stop-all.sh</span><br><span class="line">/data/spark3/sbin/start-all.sh</span><br></pre></td></tr></table></figure>
+
+<p>(5) spark standalone 웹UI (재)확인 - 방화벽 변경, Spark Master HTTP, 8080 -&gt; 8180</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://spark-master-01:8180/">http://spark-master-01:8180</a></li>
+<li>host_name, port, cores, memory 설정 반영 여부 확인….</li>
+</ul>
+<p>(6) Worker Id 링크를 클릭하여 Worker 상세화면 확인 - 방화벽 오픈, Spark Worker HTTP, 8181</p>
+<p>(7) Standalone ‘Master’만 시작 &#x2F; 종료 - spark-master-01</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/data/spark3/sbin/start-master.sh</span><br><span class="line">/data/spark3/sbin/start-master.sh --port 7177 --webui-port 8180 --host $&#123;HOSTNAME&#125;</span><br><span class="line"></span><br><span class="line">/data/spark3/sbin/stop-master.sh</span><br></pre></td></tr></table></figure>
+<img width="1675" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/9fcf86f2-9c52-40de-8aef-e9fba639388c">
+
+<p>(8) Standalone ‘Worker’를 추가 - spark-worker-01 ~ 03</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/data/spark3/sbin/start-worker.sh spark://spark-master-01:7177 --cores 2 --memory 8G  --host $&#123;HOSTNAME&#125;</span><br><span class="line">/data/spark3/sbin/stop-worker.sh</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>spark-worker01를 추가할 경우</li>
+</ul>
+<img width="1679" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/238427b9-91b7-4d24-a380-9ff24976ba2a">
+
+<ul>
+<li>이렇게 하나씩 띄우고 삭제하는 이유는 워커서버가 고장났을 경우, 하나씩 따로 내리고 다시 올릴 수 있음</li>
+<li>Private IP address에 Spark-worker-01:7178로 나타남 (–host ${HOSTNAME} 를 줬기때문임)</li>
+<li>7178 포트 설정은 명령어에 없는 설정이기때문에 &#x2F;data&#x2F;spark3&#x2F;conf&#x2F;spark-env.sh 에서 갖고옴</li>
+<li>worker를 정지할 경우, 마스터 UI에서 그 Worker의 상태는 ‘DEAD’로 표시됨</li>
+</ul>
+<img width="1665" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/dbb75b83-49a0-4022-857c-4df7354cc2e3">
+
+<h3 id="3-1-Standalone-Cluster-Manager-테스트-1"><a href="#3-1-Standalone-Cluster-Manager-테스트-1" class="headerlink" title="3-1. Standalone Cluster Manager 테스트 1"></a>3-1. Standalone Cluster Manager 테스트 1</h3><p>(1) 모든 워커 시작</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/data/spark3/sbin/start-worker.sh spark://spark-master-01:7177 --cores 8 --memory 8G  --host $&#123;HOSTNAME&#125;</span><br></pre></td></tr></table></figure>
+
+<p>(2) spark-shell 실행</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># spark-shell 도움말 확인</span><br><span class="line">spark-shell --help </span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  --master MASTER_URL         spark://host:port, mesos://host:port, yarn,</span><br><span class="line">                              k8s://https://host:port, or local (Default: local[*]).</span><br><span class="line"></span><br><span class="line"># spark-shell 실행.... (w/ --master spark://host:port)</span><br><span class="line">spark-shell --master spark://spark-master-01:7177</span><br></pre></td></tr></table></figure>
+
+<p>(3) spark-shell 확인</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; sc</span><br><span class="line">scala&gt; spark</span><br><span class="line">scala&gt; sc.master</span><br><span class="line">res2: String = spark://spark-master-01:7177</span><br><span class="line">scala&gt; sc.uiWebUrl</span><br><span class="line">res3: Option[String] = Some(http://spark-master-01:4040)</span><br></pre></td></tr></table></figure>
+
+<p>(4) Spark App 웹UI 확인….</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://spark-master-01:4040/">http://spark-master-01:4040</a></li>
+<li>Executors &gt; executor 3개 할당된 것 확인  (-&gt; Cores 8, ALL Cores) &#x3D;&gt; 클러스터의 모든 core 할당 받음</li>
+</ul>
+<img width="1662" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/c1277a81-7c4c-4cab-a65f-a164fe26e5fd">
+
+
+<p>(5) Standalone 웹UI 확인….</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://spark-master-01:8180/">http://spark-master-01:8180</a></li>
+<li>Running Applications &gt; (Name &#x2F; Cores &#x2F; Memory per Executor 확인) &#x3D;&gt; 8 cores 모두 사용되고 메모리는 1기가만 부여됨</li>
+</ul>
+<img width="1668" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/a459729a-1c96-4a2b-893f-735df6fd6b43">
+
+
+<ul>
+<li>Running Applications &gt; Application ID &gt; Executor Summary &gt; (ExecutorID &#x2F; Cores &#x2F; Memory 확인….) (-&gt; Cores 8, ALL Cores ????) (-&gt; Memory 1024, only 1024.0 MiB ????)</li>
+<li>Running Applications &gt; Application ID &gt; Executor Summary &gt; Worker &gt; (Master URL &#x2F; Cores &#x2F; Memory 확인….)</li>
+</ul>
+<img width="1677" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/bb05d141-6172-4809-b493-89236efdf91b">
+
+<ul>
+<li>Running Applications &gt; Application ID &gt; Executor Summary &gt; Worker &gt; Running Executors &gt; (Cores &#x2F; Memory &#x2F; Job Details 확인….)</li>
+</ul>
+<img width="1666" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/d239a555-caaa-479f-8a24-353131c72f4a">
+
+
+<h3 id="3-2-Standalone-Cluster-Manager-테스트-2"><a href="#3-2-Standalone-Cluster-Manager-테스트-2" class="headerlink" title="3-2. Standalone Cluster Manager 테스트 2"></a>3-2. Standalone Cluster Manager 테스트 2</h3><p>(1) 기존 spark-shell 닫기</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; :q</span><br></pre></td></tr></table></figure>
+<img width="1668" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/e35bf43d-3b6f-4f31-a9ae-430ba2b73fb3">
+
+
+<p>(2) spark-shell 실행</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># spark-shell 도움말 확인</span><br><span class="line">spark-shell --help </span><br><span class="line">=&gt; --executor-memory, --executor-cores, --num-executors, --total-executor-cores 옵션 확인</span><br><span class="line"></span><br><span class="line">  --executor-memory MEM       Memory per executor (e.g. 1000M, 2G) (Default: 1G). </span><br><span class="line"></span><br><span class="line"> Spark standalone, YARN and Kubernetes only:</span><br><span class="line">  --executor-cores NUM        Number of cores used by each executor. (Default: 1 in</span><br><span class="line">                              YARN and K8S modes, or all available cores on the worker</span><br><span class="line">                              in standalone mode).</span><br><span class="line"></span><br><span class="line"> Spark on YARN and Kubernetes only:</span><br><span class="line">  --num-executors NUM         Number of executors to launch (Default: 2).</span><br><span class="line">                              If dynamic allocation is enabled, the initial number of</span><br><span class="line">                              executors will be at least NUM.</span><br><span class="line"></span><br><span class="line"> Spark standalone, Mesos and Kubernetes only:</span><br><span class="line">  --total-executor-cores NUM  Total cores for all executors.</span><br><span class="line"></span><br><span class="line"># spark-shell 실행.... (w/ --master spark://host:port) (w/ memory,cores,total 옵션)</span><br><span class="line"># executor가 6개가 작동됨</span><br><span class="line">spark-shell --master spark://spark-master-01:7177 --executor-memory 2G --executor-cores 2 --total-executor-cores 12</span><br></pre></td></tr></table></figure>
+
+<p>(3) Standalone 웹UI(에서도) (재)확인…. (-&gt; executor 6개, cores 2개 Good!!!!)</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://spark-master-01:8180/">http://spark-master-01:8180</a></li>
+<li>Running Applications &gt; (Name &#x2F; Cores &#x2F; Memory per Executor 확인….)</li>
+<li>Running Applications &gt; Application ID &gt; Executor Summary &gt; (ExecutorID &#x2F; Cores &#x2F; Memory 확인….) (-&gt; Cores 2, OK!) (-&gt; Memory 2048, OK!)</li>
+</ul>
+<img width="1671" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/6046c088-5bad-4724-b48c-b7ab1db74412">
+
+<ul>
+<li>Running Applications &gt; Application ID &gt; Executor Summary &gt; Worker &gt; (Master URL &#x2F; Cores &#x2F; Memory 확인….)</li>
+<li>Running Applications &gt; Application ID &gt; Executor Summary &gt; Worker &gt; Running Executors &gt; (Cores &#x2F; Memory &#x2F; Job Details 확인….)</li>
+</ul>
+<img width="1669" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/56b2d2eb-36ba-4d7b-8e5e-9d869e646072">
+
+<p>(4) Spark App 웹UI 확인…. (-&gt; executor 6개, cores 2개 Good!!!!)</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://spark-master-01:4040/">http://spark-master-01:4040</a></li>
+<li>Executors &gt; executor 6개 할당된 것 확인…. executor 당 cores 2개 할당된 것 확인….</li>
+</ul>
+<img width="1653" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/ea82d72e-f6e5-470e-a7d4-be9e56eb89b5">
+
+<p>(5) driver 프로세스 확인 - spark-master-01</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh spark-master-01 &#x27;/data/jdk8/bin/jps&#x27;</span><br><span class="line">=&gt; SparkSubmit</span><br></pre></td></tr></table></figure>
+
+<p>(6) executor(6개) 프로세스 확인 - spark-worker-01 ~ 03</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh spark-worker-01 &#x27;/data/jdk8/bin/jps&#x27;</span><br><span class="line">=&gt; CoarseGrainedExecutorBackend -&gt; executor 프로세스....</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-Standalone-Cluster-Manager-디폴트-설정-모든-리소스-쓰지-않도록-함"><a href="#4-Standalone-Cluster-Manager-디폴트-설정-모든-리소스-쓰지-않도록-함" class="headerlink" title="4. Standalone Cluster Manager 디폴트 설정 -&gt; 모든 리소스 쓰지 않도록 함"></a>4. Standalone Cluster Manager 디폴트 설정 -&gt; 모든 리소스 쓰지 않도록 함</h3><p>(1) spark-env.sh 설정 - spark-master-01 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">vi /data/spark3/conf/spark-env.sh</span><br><span class="line"></span><br><span class="line">JAVA_HOME=/data/jdk8</span><br><span class="line">SPARK_MASTER_PORT=7177  # default: 7077</span><br><span class="line">SPARK_MASTER_WEBUI_PORT=8180  # default: 8080</span><br><span class="line">SPARK_WORKER_PORT=7178  # default: random</span><br><span class="line">SPARK_WORKER_WEBUI_PORT=8181  # default: 8081</span><br><span class="line">SPARK_WORKER_CORES=8  # default: all available</span><br><span class="line">SPARK_WORKER_MEMORY=8G  # default: machine&#x27;s total RAM minus 1 GiB</span><br><span class="line">SPARK_PUBLIC_DNS=$&#123;HOSTNAME&#125;</span><br><span class="line">SPARK_MASTER_OPTS=&quot;-Dspark.deploy.defaultCores=5&quot;    (-&gt; 특별한 요청이 없다면 Total Core 5개를 할당하겠다!)</span><br></pre></td></tr></table></figure>
+
+<p>(2) copy ‘spark-env.sh’ to spark-worker-01 ~ 03….</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scp -r /data/spark3/conf/spark-env.sh spark@spark-worker-01:/data/spark3/conf/</span><br><span class="line">scp -r /data/spark3/conf/spark-env.sh spark@spark-worker-02:/data/spark3/conf/</span><br><span class="line">scp -r /data/spark3/conf/spark-env.sh spark@spark-worker-03:/data/spark3/conf/</span><br></pre></td></tr></table></figure>
+
+<p>(3) spark standalone 재기동…. + 웹UI 확인….</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/data/spark3/sbin/stop-all.sh</span><br><span class="line">/data/spark3/sbin/start-all.sh</span><br></pre></td></tr></table></figure>
+
+<p>(4) spark-shell 실행…. (w&#x2F; –master spark:&#x2F;&#x2F;host:port) (w&#x2F;o memory,cores,total 옵션)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark-shell --master spark://spark-master-01:7177</span><br></pre></td></tr></table></figure>
+<img width="1671" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/d3cb36ee-44e5-49d3-872d-4fb11477e8eb">
+
+
+
+<p>(5) spark-shell (동시에) 실행….#2 (w&#x2F; –master spark:&#x2F;&#x2F;host:port) (w&#x2F; memory,cores 옵션) (w&#x2F;o total 옵션)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark-shell --master spark://spark-master-01:7177 --executor-memory 2G --executor-cores 2</span><br></pre></td></tr></table></figure>
+
+<p>(6) Standalone 웹UI 확인…. (-&gt; NO ALL Cores, Good!!!!) (-&gt; –total-executor-cores(&#x3D;spark.cores.max) 옵션을 깜빡해도 이제 어느정도 안전하다 ^^)</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://spark-master-01:8180/">http://spark-master-01:8180</a></li>
+<li>Running Applications &gt; Application ID &gt; Executor Summary &gt; (ExecutorID &#x2F; Cores &#x2F; Memory 확인….)</li>
+<li>Total Core는 디폴트 값에 의해서 5개 안에서 해결해야 함으로 Executor는 2개만 할당받음</li>
+</ul>
+<img width="1674" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/836b5d94-c30b-42fa-87a6-f2928d1a9deb">
+
+
+<h3 id="5-RDD나-셔플-정보를-로컬에-저장할-장소-설정-02-32"><a href="#5-RDD나-셔플-정보를-로컬에-저장할-장소-설정-02-32" class="headerlink" title="5. RDD나 셔플 정보를 로컬에 저장할 장소 설정 - 02-32"></a>5. RDD나 셔플 정보를 로컬에 저장할 장소 설정 - 02-32</h3><p>(1) spark-env.sh 설정….#2 (SPARK_LOCAL_DIRS&#x3D;&#x2F;data&#x2F;spark3&#x2F;local 설정….) - spark-master-01</p>
+<ul>
+<li>디폴트 “&#x2F;tmp” 에 셔플과 케쉬데이터가 있을경우, 서버가 재기동 될때 모두 사라짐</li>
+<li>확인을 위해서 위치를 바꿈</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">vi /data/spark3/conf/spark-env.sh</span><br><span class="line"></span><br><span class="line">JAVA_HOME=/data/jdk8</span><br><span class="line">SPARK_MASTER_PORT=7177  # default: 7077</span><br><span class="line">SPARK_MASTER_WEBUI_PORT=8180  # default: 8080</span><br><span class="line">SPARK_WORKER_PORT=7178  # default: random</span><br><span class="line">SPARK_WORKER_WEBUI_PORT=8181  # default: 8081</span><br><span class="line">SPARK_WORKER_CORES=8  # default: all available</span><br><span class="line">SPARK_WORKER_MEMORY=8G  # default: machine&#x27;s total RAM minus 1 GiB</span><br><span class="line">SPARK_PUBLIC_DNS=$&#123;HOSTNAME&#125;</span><br><span class="line">SPARK_MASTER_OPTS=&quot;-Dspark.deploy.defaultCores=5&quot;</span><br><span class="line">SPARK_LOCAL_DIRS=/data/spark3/local    (-&gt; 디폴트 &quot;/tmp&quot; -&gt; 위치를 바꿔서 shuffle data, cached rdd block 확인을 좀 쉽게 하자....)</span><br></pre></td></tr></table></figure>
+
+<p>(2) copy ‘spark-env.sh’ to spark-worker-01 ~ 03….</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scp -r /data/spark3/conf/spark-env.sh spark@spark-worker-01:/data/spark3/conf/</span><br><span class="line">scp -r /data/spark3/conf/spark-env.sh spark@spark-worker-02:/data/spark3/conf/</span><br><span class="line">scp -r /data/spark3/conf/spark-env.sh spark@spark-worker-03:/data/spark3/conf/</span><br></pre></td></tr></table></figure>
+
+<p>(3) spark standalone 재기동…. + 웹UI 확인….</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/data/spark3/sbin/stop-all.sh</span><br><span class="line">/data/spark3/sbin/start-all.sh</span><br></pre></td></tr></table></figure>
+
+<p>(4) spark-shell 실행…. (w&#x2F; –master spark:&#x2F;&#x2F;host:port) (w&#x2F;o memory,cores,total 옵션)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark-shell --master spark://spark-master-01:7177</span><br></pre></td></tr></table></figure>
+
+<p>(5) Word Count 코드 작성…. (Shuffle Data Write&#x2F;Read….)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; val rdd_wc = sc.textFile(&quot;file:///data/spark3/README.md&quot;).flatMap(_.split(&quot; &quot;)).map((_,1)).reduceByKey(_+_)</span><br><span class="line">scala&gt; rdd_wc.collect.take(10).foreach(println)</span><br></pre></td></tr></table></figure>
+
+<p>(6) LOCAL_DIRS 확인 (&#x2F;data&#x2F;spark3&#x2F;local) - spark-master-01 &amp; spark-worker-01 ~ 03</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">find /data/spark3/local</span><br><span class="line">ssh spark-worker-01 &#x27;find /data/spark3/local/spark*/executor*/blockmgr*&#x27;</span><br><span class="line">ssh spark-worker-02 &#x27;find /data/spark3/local/spark*/executor*/blockmgr*&#x27;</span><br><span class="line">ssh spark-worker-03 &#x27;find /data/spark3/local/spark*/executor*/blockmgr*&#x27;</span><br><span class="line"></span><br><span class="line">ls -al /data/spark3/local/spark*/executor*/blockmgr*/*  (-&gt; Spark App 웹UI &gt; Storage &gt; RDD Name &gt; Block Name 확인....)</span><br></pre></td></tr></table></figure>
+
+<p>(7) RDD Cache (on Disk) (Spark App 웹UI &gt; Storage &gt; RDD Name &gt; Block Name 확인….)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; rdd_wc.persist(org.apache.spark.storage.StorageLevel.DISK_ONLY)</span><br><span class="line">scala&gt; rdd_wc.count()</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://kish191919.github.io/2024/03/17/Data-Engineer-10-3-PySpark/" data-id="cly6sd5fd001inq2l262bb7s7" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Danny"
+        },
+        "headline": "Data_Engineer_10_3_PySpark",
+        "image": "https://kish191919.github.iohttps://github.com/kish191919/Python_Project/assets/26552500/99fa0305-a28c-4648-b1af-35175bb7ea9f",
+        "keywords": "Standalone",
+        "genre": "DATA_ENGINEER PYSPARK",
+        "datePublished": "2024-03-17",
+        "dateCreated": "2024-03-17",
+        "dateModified": "2024-07-03",
+        "url": "https://kish191919.github.io/2024/03/17/Data-Engineer-10-3-PySpark/",
+        "description": "1. Spark Standalone mode 설정
+Spark 다운로드 완료
+Java 다운로드 완료
+spark-env.sh 에 JAVA_HOME 설정 완료
+Copy ‘jdk8’ spark-worker-01 ~ 03 완료
+
+(1)  workers 설정 - spark-master-01
+123456cp /data/spark3/conf/workers.template",
+        "wordCount": 1798
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2024/03/18/Data-Engineer-10-4-PySpark/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Data_Engineer_10_4_PySpark
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2024/03/17/Data-Engineer-10-2-PySpark/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Data_Engineer_10_2_PySpark</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/07/04/Coding-Test-7/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/PYTHON/">PYTHON</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/PYTHON/CODING/">CODING</a></p>
+                            <p class="item-title"><a href="/2024/07/04/Coding-Test-7/" class="title">Coding-Test-7</a></p>
+                            <p class="item-date"><time datetime="2024-07-04T04:13:01.000Z" itemprop="datePublished">2024-07-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/22/Data-Engineer-10-8-PySpark/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a></p>
+                            <p class="item-title"><a href="/2024/03/22/Data-Engineer-10-8-PySpark/" class="title">Data_Engineer_10_8_PySpark</a></p>
+                            <p class="item-date"><time datetime="2024-03-22T18:25:45.000Z" itemprop="datePublished">2024-03-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/20/Data-Engineer-10-7-PySpark/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://github.com/kish191919/Python_Project/assets/26552500/5e5f9cbb-4750-48ec-83a9-1f941fbd834a)" alt="Data_Engineer_10_7_PySpark" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a></p>
+                            <p class="item-title"><a href="/2024/03/20/Data-Engineer-10-7-PySpark/" class="title">Data_Engineer_10_7_PySpark</a></p>
+                            <p class="item-date"><time datetime="2024-03-20T16:10:31.000Z" itemprop="datePublished">2024-03-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/19/Data-Engineer-10-6-PySpark/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://github.com/kish191919/Python_Project/assets/26552500/cbe0114a-b8b5-4302-b8d7-23effd5bfb55)" alt="Data_Engineer_10_6_PySpark" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a></p>
+                            <p class="item-title"><a href="/2024/03/19/Data-Engineer-10-6-PySpark/" class="title">Data_Engineer_10_6_PySpark</a></p>
+                            <p class="item-date"><time datetime="2024-03-19T11:39:08.000Z" itemprop="datePublished">2024-03-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/18/Data-Engineer-10-5-PySpark/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://github.com/kish191919/Python_Project/assets/26552500/4f216d82-aeac-4c9d-b69d-04c9a6c90d27)" alt="Data_Engineer_10_5_PySpark" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a></p>
+                            <p class="item-title"><a href="/2024/03/18/Data-Engineer-10-5-PySpark/" class="title">Data_Engineer_10_5_PySpark</a></p>
+                            <p class="item-date"><time datetime="2024-03-18T20:18:57.000Z" itemprop="datePublished">2024-03-18</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/DATABASE/">DATABASE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/GIT/">GIT</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/LINUX/">LINUX</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/">PYTHON</a><span class="category-list-count">19</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/ALGORITHM/">ALGORITHM</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/CODING/">CODING</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/PROJECT/">PROJECT</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/QUIZ/">QUIZ</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/RECORD/">RECORD</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">12</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2024/" rel="tag">2024</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-Conquer/" rel="tag">Divide_and_Conquer</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-Programming/" rel="tag">Dynamic_Programming</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/" rel="tag">Flask</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy/" rel="tag">Greedy</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash-Table/" rel="tag">Hash_Table</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/" rel="tag">Linked_List</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql/" rel="tag">MySql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/" rel="tag">Queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Recursion/" rel="tag">Recursion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sort/" rel="tag">Sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sorting/" rel="tag">Sorting</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/" rel="tag">Stack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Standalone/" rel="tag">Standalone</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Used-Car/" rel="tag">Used_Car</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ec2/" rel="tag">ec2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-basic/" rel="tag">git_basic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hdfs/" rel="tag">hdfs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jupyter/" rel="tag">jupyter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-basic/" rel="tag">linux_basic</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/" rel="tag">mongodb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pyspark/" rel="tag">pyspark</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scala/" rel="tag">scala</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell-script/" rel="tag">shell_script</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spark/" rel="tag">spark</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yarn/" rel="tag">yarn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zeppelin/" rel="tag">zeppelin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" rel="tag">알고리즘_복잡도</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/2024/" style="font-size: 10px;">2024</a> <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 13.33px;">Divide_and_Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 10px;">Dynamic_Programming</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/Greedy/" style="font-size: 13.33px;">Greedy</a> <a href="/tags/Hash-Table/" style="font-size: 10px;">Hash_Table</a> <a href="/tags/Linked-List/" style="font-size: 16.67px;">Linked_List</a> <a href="/tags/MySql/" style="font-size: 10px;">MySql</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Recursion/" style="font-size: 10px;">Recursion</a> <a href="/tags/Sort/" style="font-size: 13.33px;">Sort</a> <a href="/tags/Sorting/" style="font-size: 10px;">Sorting</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Standalone/" style="font-size: 10px;">Standalone</a> <a href="/tags/Used-Car/" style="font-size: 16.67px;">Used_Car</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/git-basic/" style="font-size: 10px;">git_basic</a> <a href="/tags/hdfs/" style="font-size: 10px;">hdfs</a> <a href="/tags/jupyter/" style="font-size: 10px;">jupyter</a> <a href="/tags/linux-basic/" style="font-size: 13.33px;">linux_basic</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/pyspark/" style="font-size: 20px;">pyspark</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/scala/" style="font-size: 10px;">scala</a> <a href="/tags/shell-script/" style="font-size: 10px;">shell_script</a> <a href="/tags/spark/" style="font-size: 10px;">spark</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/yarn/" style="font-size: 10px;">yarn</a> <a href="/tags/zeppelin/" style="font-size: 10px;">zeppelin</a> <a href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" style="font-size: 10px;">알고리즘_복잡도</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2024 Danny</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://kish191919.github.io/2024/03/17/Data-Engineer-10-3-PySpark/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

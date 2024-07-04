@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Algorithm_4 | Danny Sweet Home</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Linked_List" />
+    
+    <meta name="description" content="링크드 리스트 (Linked List)1. 링크드 리스트 구조 연결 리스트라고 함 배열은 순차적으로 연결된 공간에 데이터를 나열하는 데이터 구조 링크드 리스트는 떨어진 곳에 존재하는 데이터를 화살표로 연결해서 관리하는 데이터 구조 본래 C언어에서는 주요한 데이터 구조이지만, 파이썬은 리스트 타입이 링크드 리스트의 기능을 모두 지원 링크드 리스트의 기본 구조">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Algorithm_4">
+<meta property="og:url" content="https://kish191919.github.io/2024/01/23/Algorithm-4/index.html">
+<meta property="og:site_name" content="Danny Sweet Home">
+<meta property="og:description" content="링크드 리스트 (Linked List)1. 링크드 리스트 구조 연결 리스트라고 함 배열은 순차적으로 연결된 공간에 데이터를 나열하는 데이터 구조 링크드 리스트는 떨어진 곳에 존재하는 데이터를 화살표로 연결해서 관리하는 데이터 구조 본래 C언어에서는 주요한 데이터 구조이지만, 파이썬은 리스트 타입이 링크드 리스트의 기능을 모두 지원 링크드 리스트의 기본 구조">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://www.fun-coding.org/00_Images/linkedlist.png">
+<meta property="article:published_time" content="2024-01-23T14:12:41.000Z">
+<meta property="article:modified_time" content="2024-07-04T03:45:56.801Z">
+<meta property="article:author" content="Danny">
+<meta property="article:tag" content="Linked_List">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.fun-coding.org/00_Images/linkedlist.png">
+    
+
+    
+        <link rel="alternate" href="/" title="Danny Sweet Home" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/DATABASE/">DATABASE</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/GIT/">GIT</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/LINUX/">LINUX</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/">PYTHON</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/ALGORITHM/">ALGORITHM</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/CODING/">CODING</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/PROJECT/">PROJECT</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/QUIZ/">QUIZ</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/RECORD/">RECORD</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/PYTHON/">PYTHON</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/PYTHON/ALGORITHM/">ALGORITHM</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Algorithm-4" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Algorithm_4
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2024/01/23/Algorithm-4/" class="article-date">
+       <time datetime="2024-01-23T14:12:41.000Z" itemprop="datePublished">2024-01-23</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2024/01/23/Algorithm-4/" class="article-date">
+     <time datetime="2024-07-04T03:45:56.801Z" itemprop="dateModified">2024-07-03</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Linked-List/" rel="tag">Linked_List</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <h2 id="링크드-리스트-Linked-List"><a href="#링크드-리스트-Linked-List" class="headerlink" title="링크드 리스트 (Linked List)"></a>링크드 리스트 (Linked List)</h2><h3 id="1-링크드-리스트-구조"><a href="#1-링크드-리스트-구조" class="headerlink" title="1. 링크드 리스트 구조"></a>1. 링크드 리스트 구조</h3><ul>
+<li>연결 리스트라고 함</li>
+<li>배열은 순차적으로 연결된 공간에 데이터를 나열하는 데이터 구조</li>
+<li>링크드 리스트는 떨어진 곳에 존재하는 데이터를 화살표로 연결해서 관리하는 데이터 구조</li>
+<li>본래 C언어에서는 주요한 데이터 구조이지만, 파이썬은 리스트 타입이 링크드 리스트의 기능을 모두 지원</li>
+<li>링크드 리스트의 기본 구조와 용어<ul>
+<li>노드(Node) : 데이터 저장 단위 (데이터값, 포인터)로 구성</li>
+<li>포인터(Pointer) : 각 노드 안에서, 다음이나 이전의 노드와의 연결 정보를 가지고 있는 공간</li>
+<li>일반적인 링크드 리스트 형태  <img src="https://www.fun-coding.org/00_Images/linkedlist.png" />
+  (출처: wikipedia, https://en.wikipedia.org/wiki/Linked_list)</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-링크드-리스트-예시"><a href="#2-링크드-리스트-예시" class="headerlink" title="2. 링크드 리스트 예시"></a>2. 링크드 리스트 예시</h3><h4 id="Node-구현"><a href="#Node-구현" class="headerlink" title="Node 구현"></a>Node 구현</h4><ul>
+<li>보통 파이썬에서 링크드 리스트 구현시, 파이썬 클래스를 활용함<ul>
+<li>파이썬 객체지향 문법 이해 필요</li>
+<li>참고 : <a target="_blank" rel="noopener" href="https://www.fun-coding.org/PL&OOP1-3.html">https://www.fun-coding.org/PL&amp;OOP1-3.html</a><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Node</span>:</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, data</span>):</span><br><span class="line">      self.data = data</span><br><span class="line">      self.<span class="built_in">next</span> = <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Class Node:</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, data, <span class="built_in">next</span>=<span class="literal">None</span></span>):</span><br><span class="line">      self.data = data</span><br><span class="line">      self.<span class="built_in">next</span> = <span class="built_in">next</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h4 id="Node와-Node-연결하기-포인터-활용"><a href="#Node와-Node-연결하기-포인터-활용" class="headerlink" title="Node와 Node 연결하기 (포인터 활용)"></a>Node와 Node 연결하기 (포인터 활용)</h4>  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">node1 = Node(<span class="number">1</span>)</span><br><span class="line">node2 = Node(<span class="number">2</span>)</span><br><span class="line">node1.<span class="built_in">next</span> = node2</span><br><span class="line">head = node1</span><br></pre></td></tr></table></figure>
+<h4 id="링크드-리스트로-데이터-추가하기"><a href="#링크드-리스트로-데이터-추가하기" class="headerlink" title="링크드 리스트로 데이터 추가하기"></a>링크드 리스트로 데이터 추가하기</h4>  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Node</span>:</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, data <span class="built_in">next</span>=<span class="literal">None</span></span>):</span><br><span class="line">      self.data = data</span><br><span class="line">      self.<span class="built_in">next</span> = <span class="built_in">next</span></span><br><span class="line">      </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">data</span>):</span><br><span class="line">  node = head</span><br><span class="line">  <span class="keyword">while</span> node.<span class="built_in">next</span>:</span><br><span class="line">      node = node.<span class="built_in">next</span></span><br><span class="line">  node.<span class="built_in">next</span> = Node(data)</span><br></pre></td></tr></table></figure>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">node1 = Node(<span class="number">1</span>)</span><br><span class="line">head = node1</span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>,<span class="number">10</span>):</span><br><span class="line">  add(index)</span><br></pre></td></tr></table></figure>
+<h4 id="링크드-리스트-데이터-출력하기-검색하기"><a href="#링크드-리스트-데이터-출력하기-검색하기" class="headerlink" title="링크드 리스트 데이터 출력하기 (검색하기)"></a>링크드 리스트 데이터 출력하기 (검색하기)</h4>  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">node = head</span><br><span class="line"><span class="keyword">while</span> node.<span class="built_in">next</span>:</span><br><span class="line">  <span class="built_in">print</span>(node.data)</span><br><span class="line">  node = node.<span class="built_in">next</span></span><br><span class="line"><span class="built_in">print</span>(node.data)              <span class="comment"># 1 2 3 4 5 6 7 8 9</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-링크드-리스트의-장단점-전통적인-C언어에서의-배열과-링크드-리스트"><a href="#3-링크드-리스트의-장단점-전통적인-C언어에서의-배열과-링크드-리스트" class="headerlink" title="3. 링크드 리스트의 장단점 (전통적인 C언어에서의 배열과 링크드 리스트)"></a>3. 링크드 리스트의 장단점 (전통적인 C언어에서의 배열과 링크드 리스트)</h3><ul>
+<li>장점<ul>
+<li>미리 데이터 공간을 할당하지 않아도 됨<ul>
+<li>배열은 <strong>미리 데이터 공간을 할당</strong> 해야함</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>단점<ul>
+<li>연결을 위한 별도 데이터 공간이 필요하므로, 저장공간 효율이 높지 않음</li>
+<li>연결 정보를 찾는 시간이 필요하므로 접근 속도가 느림</li>
+<li>중간 데이터 삭제시, 앞뒤 데이터의 연결을 재구성해야 하는 부가적인 작업 필요</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-링크드-리스트의-복잡한-기능1-링크드-리스트-데이터-사이에-데이터를-추가"><a href="#4-링크드-리스트의-복잡한-기능1-링크드-리스트-데이터-사이에-데이터를-추가" class="headerlink" title="4. 링크드 리스트의 복잡한 기능1 (링크드 리스트 데이터 사이에 데이터를 추가)"></a>4. 링크드 리스트의 복잡한 기능1 (링크드 리스트 데이터 사이에 데이터를 추가)</h3><ul>
+<li>링크드 리스트는 유지 관리에 부가적인 구현이 필요함<img src="https://www.fun-coding.org/00_Images/linkedlistadd.png" />
+(출처: wikipedia, https://en.wikipedia.org/wiki/Linked_list)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">node3 = Node(<span class="number">1.5</span>)</span><br><span class="line"></span><br><span class="line">node = head</span><br><span class="line">search = <span class="literal">True</span></span><br><span class="line"><span class="keyword">while</span> search:</span><br><span class="line">    <span class="keyword">if</span> node.data == <span class="number">1</span>:</span><br><span class="line">        search = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        node = node.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">node_next = node.<span class="built_in">next</span></span><br><span class="line">node.<span class="built_in">next</span> = node3</span><br><span class="line">node3.<span class="built_in">next</span> = node_next</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">node = head</span><br><span class="line"><span class="keyword">while</span> node.<span class="built_in">next</span>:</span><br><span class="line">    <span class="built_in">print</span>(node.data)</span><br><span class="line">    node = node.<span class="built_in">next</span></span><br><span class="line"><span class="built_in">print</span>(node.data)            <span class="comment"># 1 1.5 2 3 4 5 6 7 8 9</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-파이썬-객체지향-프로그래밍으로-링크드-리스트-구현하기"><a href="#5-파이썬-객체지향-프로그래밍으로-링크드-리스트-구현하기" class="headerlink" title="5. 파이썬 객체지향 프로그래밍으로 링크드 리스트 구현하기"></a>5. 파이썬 객체지향 프로그래밍으로 링크드 리스트 구현하기</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Node</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, data, <span class="built_in">next</span> = <span class="literal">None</span></span>):</span><br><span class="line">        self.data = data</span><br><span class="line">        self.<span class="built_in">next</span> = <span class="built_in">next</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">NodeMgmt</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, data</span>):</span><br><span class="line">        self.head = Node(data)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">self, data</span>):</span><br><span class="line">        <span class="keyword">if</span> self.head == <span class="string">&#x27;&#x27;</span>:</span><br><span class="line">            self.head = Node(data)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            node = self.head</span><br><span class="line">            <span class="keyword">while</span> node.<span class="built_in">next</span>:</span><br><span class="line">                node = node.<span class="built_in">next</span></span><br><span class="line">            node.<span class="built_in">next</span> = Node(data)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">desc</span>(<span class="params">self</span>):</span><br><span class="line">        node = self.head</span><br><span class="line">        <span class="keyword">while</span> node:</span><br><span class="line">            <span class="built_in">print</span>(node.data)</span><br><span class="line">            node = node.<span class="built_in">next</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">linkedlist1 = NodeMgmt(<span class="number">0</span>)</span><br><span class="line">linkedlist1.desc()          <span class="comment"># 0</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> data <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">    linkedlist1.add(data)</span><br><span class="line">linkedlist1.desc()          <span class="comment"># 0 1 2 3 4 5 6 7 8 9 </span></span><br></pre></td></tr></table></figure>
+
+<h3 id="6-링크드-리스트의-복잡한-기능-2-특정-노드를-삭제"><a href="#6-링크드-리스트의-복잡한-기능-2-특정-노드를-삭제" class="headerlink" title="6. 링크드 리스트의 복잡한 기능 2 (특정 노드를 삭제)"></a>6. 링크드 리스트의 복잡한 기능 2 (특정 노드를 삭제)</h3><ul>
+<li>다음 코드는 위의 코드에서 delete 메서드만 추가한 것이므로 해당 메서드만 확인하면 됨</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">NodeMgmt</span>:</span><br><span class="line">    ...</span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">delete</span>(<span class="params">self, data</span>):</span><br><span class="line">        <span class="keyword">if</span> self.head == <span class="string">&#x27;&#x27;</span>:</span><br><span class="line">            <span class="built_in">print</span> (<span class="string">&quot;해당 값을 가진 노드가 없습니다.&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> self.head.data == data:       <span class="comment"># 경우의 수1: self.head를 삭제해야할 경우 - self.head를 바꿔줘야 함</span></span><br><span class="line">            temp = self.head             <span class="comment"># self.head 객체를 삭제하기 위해, 임시로 temp에 담아서 객체를 삭제했음</span></span><br><span class="line">            self.head = self.head.<span class="built_in">next</span>   <span class="comment"># 만약 self.head 객체를 삭제하면, 이 코드가 실행이 안되기 때문!</span></span><br><span class="line">            <span class="keyword">del</span> temp</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            node = self.head</span><br><span class="line">            <span class="keyword">while</span> node.<span class="built_in">next</span>:              <span class="comment"># 경우의 수2: self.head가 아닌 노드를 삭제해야할 경우</span></span><br><span class="line">                <span class="keyword">if</span> node.<span class="built_in">next</span>.data == data:</span><br><span class="line">                    temp = node.<span class="built_in">next</span></span><br><span class="line">                    node.<span class="built_in">next</span> = node.<span class="built_in">next</span>.<span class="built_in">next</span></span><br><span class="line">                    <span class="keyword">del</span> temp</span><br><span class="line">                    <span class="keyword">pass</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    node = node.<span class="built_in">next</span></span><br></pre></td></tr></table></figure>
+<h4 id="테스트를-위해-1개의-노드를-만듬"><a href="#테스트를-위해-1개의-노드를-만듬" class="headerlink" title="테스트를 위해 1개의 노드를 만듬"></a>테스트를 위해 1개의 노드를 만듬</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">linkedlist1 = NodeMgmt(<span class="number">0</span>)</span><br><span class="line">listedlist1.desc()           <span class="comment"># 0</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="head-가-살아-있음을-확인"><a href="#head-가-살아-있음을-확인" class="headerlink" title="head 가 살아 있음을 확인"></a>head 가 살아 있음을 확인</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">linkedlist1.head             <span class="comment"># &lt;__main__.Node at 0x7f7c652d3f40&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="head를-지워봄-위에-언급한-경우의-수-1"><a href="#head를-지워봄-위에-언급한-경우의-수-1" class="headerlink" title="head를 지워봄 (위에 언급한 경우의 수 1)"></a>head를 지워봄 (위에 언급한 경우의 수 1)</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">linkedlist1.delete(<span class="number">0</span>)</span><br><span class="line">linkedlist1.head              <span class="comment"># 아무것도 안나온다는 것은 정상적으로 삭제가 되었다는 뜻</span></span><br></pre></td></tr></table></figure>
+<h4 id="다시-하나의-노드를-만듬"><a href="#다시-하나의-노드를-만듬" class="headerlink" title="다시 하나의 노드를 만듬"></a>다시 하나의 노드를 만듬</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">linkedlist1 = NodeMgmt(<span class="number">0</span>)</span><br><span class="line">listedlist1.desc()           <span class="comment"># 0</span></span><br></pre></td></tr></table></figure>
+<h4 id="여러-노드를-더-추가해봄"><a href="#여러-노드를-더-추가해봄" class="headerlink" title="여러 노드를 더 추가해봄"></a>여러 노드를 더 추가해봄</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> data <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">10</span>):</span><br><span class="line">    listedlist1.add(data)</span><br><span class="line">linkedlist1.desc()           <span class="comment"># 0 1 2 3 4 5 6 7 8 9</span></span><br></pre></td></tr></table></figure>
+<h4 id="노드-중-한개를-삭제"><a href="#노드-중-한개를-삭제" class="headerlink" title="노드 중 한개를 삭제"></a>노드 중 한개를 삭제</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">linkedlist1.delete(<span class="number">4</span>)</span><br><span class="line">linkedlist1.desc()           <span class="comment"># 0 1 2 3 5 6 7 8 9</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="7-링크드-리스트의-복잡한-기능-3-특정-노드를-찾아서-출력"><a href="#7-링크드-리스트의-복잡한-기능-3-특정-노드를-찾아서-출력" class="headerlink" title="7. 링크드 리스트의 복잡한 기능 3 (특정 노드를 찾아서 출력)"></a>7. 링크드 리스트의 복잡한 기능 3 (특정 노드를 찾아서 출력)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">NodeMgmt</span>:</span><br><span class="line">    ...</span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">search_node</span>(<span class="params">self, data</span>):</span><br><span class="line">        node = self.head</span><br><span class="line">        <span class="keyword">while</span> node:</span><br><span class="line">            <span class="keyword">if</span> node.data == data:</span><br><span class="line">                <span class="keyword">return</span> node</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                node = node.<span class="built_in">next</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 테스트</span></span><br><span class="line">node_mgmt = NodeMgmt(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">for</span> data <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">  node_mgmt.add(data)</span><br><span class="line"></span><br><span class="line">node = node_mgmt.search_node(<span class="number">4</span>)     </span><br><span class="line"><span class="built_in">print</span>(node.data)                  <span class="comment"># 4</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="8-다양한-링크드-리스트-구조"><a href="#8-다양한-링크드-리스트-구조" class="headerlink" title="8. 다양한 링크드 리스트 구조"></a>8. 다양한 링크드 리스트 구조</h3><ul>
+<li>더블 링크드 리슽 (Double linked list) 기본 구조<ul>
+<li>이중 연결 리스트라고함</li>
+<li>장점: 양방향으로 연결되어 있어서 노드 탐색이 양쪽으로 모두 가능<img src="https://www.fun-coding.org/00_Images/doublelinkedlist.png" />
+(출처: wikipedia, https://en.wikipedia.org/wiki/Linked_list)</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Node</span>:</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, data, prev=<span class="literal">None</span>, <span class="built_in">next</span>=<span class="literal">None</span></span>):</span><br><span class="line">      self.prev = prev</span><br><span class="line">      self.<span class="built_in">next</span> = <span class="built_in">next</span></span><br><span class="line">      self.data = data</span><br><span class="line">    </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">NodeMgmt</span>:</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, data</span>):</span><br><span class="line">      self.head = Node(data)</span><br><span class="line">      self.tail = self.head</span><br><span class="line">    </span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">insert</span>(<span class="params">self, data</span>):</span><br><span class="line">      <span class="keyword">if</span> self.head == <span class="literal">None</span>:</span><br><span class="line">          self.head = Node(data)</span><br><span class="line">          self.tail = self.head</span><br><span class="line">      </span><br><span class="line">      <span class="keyword">else</span>:</span><br><span class="line">          node = self.head</span><br><span class="line">          <span class="keyword">while</span> node.<span class="built_in">next</span>:</span><br><span class="line">              node = node.<span class="built_in">next</span></span><br><span class="line">          new = Node(data)</span><br><span class="line">          node.<span class="built_in">next</span> = new</span><br><span class="line">          node.prev = node</span><br><span class="line">          self.tail = new</span><br><span class="line">          </span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">desc</span>(<span class="params">self</span>):</span><br><span class="line">      node = self.head</span><br><span class="line">      <span class="keyword">while</span> node:</span><br><span class="line">          <span class="built_in">print</span>(node.data)</span><br><span class="line">          node = node.<span class="built_in">next</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">double_linked_list = NodeMgmt(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">for</span> data <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">10</span>):</span><br><span class="line">    double_linked_list.insert(data)</span><br><span class="line">double_linked_list.desc()             <span class="comment"># 0 1 2 3 4 5 6 7 8 9</span></span><br></pre></td></tr></table></figure>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://kish191919.github.io/2024/01/23/Algorithm-4/" data-id="cly6sd5f60005nq2lcpba51qf" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Danny"
+        },
+        "headline": "Algorithm_4",
+        "image": "https://kish191919.github.iohttps://www.fun-coding.org/00_Images/linkedlist.png",
+        "keywords": "Linked_List",
+        "genre": "PYTHON ALGORITHM",
+        "datePublished": "2024-01-23",
+        "dateCreated": "2024-01-23",
+        "dateModified": "2024-07-03",
+        "url": "https://kish191919.github.io/2024/01/23/Algorithm-4/",
+        "description": "링크드 리스트 (Linked List)1. 링크드 리스트 구조
+연결 리스트라고 함
+배열은 순차적으로 연결된 공간에 데이터를 나열하는 데이터 구조
+링크드 리스트는 떨어진 곳에 존재하는 데이터를 화살표로 연결해서 관리하는 데이터 구조
+본래 C언어에서는 주요한 데이터 구조이지만, 파이썬은 리스트 타입이 링크드 리스트의 기능을 모두 지원
+링크드 리스트의 기본 구조",
+        "wordCount": 2418
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2024/01/24/Coding-Test-1/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Coding-Test-1
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2024/01/23/Algorithm-3/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Algorithm_3</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/07/04/Coding-Test-7/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/PYTHON/">PYTHON</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/PYTHON/CODING/">CODING</a></p>
+                            <p class="item-title"><a href="/2024/07/04/Coding-Test-7/" class="title">Coding-Test-7</a></p>
+                            <p class="item-date"><time datetime="2024-07-04T04:13:01.000Z" itemprop="datePublished">2024-07-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/22/Data-Engineer-10-8-PySpark/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a></p>
+                            <p class="item-title"><a href="/2024/03/22/Data-Engineer-10-8-PySpark/" class="title">Data_Engineer_10_8_PySpark</a></p>
+                            <p class="item-date"><time datetime="2024-03-22T18:25:45.000Z" itemprop="datePublished">2024-03-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/20/Data-Engineer-10-7-PySpark/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://github.com/kish191919/Python_Project/assets/26552500/5e5f9cbb-4750-48ec-83a9-1f941fbd834a)" alt="Data_Engineer_10_7_PySpark" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a></p>
+                            <p class="item-title"><a href="/2024/03/20/Data-Engineer-10-7-PySpark/" class="title">Data_Engineer_10_7_PySpark</a></p>
+                            <p class="item-date"><time datetime="2024-03-20T16:10:31.000Z" itemprop="datePublished">2024-03-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/19/Data-Engineer-10-6-PySpark/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://github.com/kish191919/Python_Project/assets/26552500/cbe0114a-b8b5-4302-b8d7-23effd5bfb55)" alt="Data_Engineer_10_6_PySpark" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a></p>
+                            <p class="item-title"><a href="/2024/03/19/Data-Engineer-10-6-PySpark/" class="title">Data_Engineer_10_6_PySpark</a></p>
+                            <p class="item-date"><time datetime="2024-03-19T11:39:08.000Z" itemprop="datePublished">2024-03-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/18/Data-Engineer-10-5-PySpark/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://github.com/kish191919/Python_Project/assets/26552500/4f216d82-aeac-4c9d-b69d-04c9a6c90d27)" alt="Data_Engineer_10_5_PySpark" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a></p>
+                            <p class="item-title"><a href="/2024/03/18/Data-Engineer-10-5-PySpark/" class="title">Data_Engineer_10_5_PySpark</a></p>
+                            <p class="item-date"><time datetime="2024-03-18T20:18:57.000Z" itemprop="datePublished">2024-03-18</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/DATABASE/">DATABASE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/GIT/">GIT</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/LINUX/">LINUX</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/">PYTHON</a><span class="category-list-count">19</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/ALGORITHM/">ALGORITHM</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/CODING/">CODING</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/PROJECT/">PROJECT</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/QUIZ/">QUIZ</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/RECORD/">RECORD</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">12</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2024/" rel="tag">2024</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-Conquer/" rel="tag">Divide_and_Conquer</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-Programming/" rel="tag">Dynamic_Programming</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/" rel="tag">Flask</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy/" rel="tag">Greedy</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash-Table/" rel="tag">Hash_Table</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/" rel="tag">Linked_List</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql/" rel="tag">MySql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/" rel="tag">Queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Recursion/" rel="tag">Recursion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sort/" rel="tag">Sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sorting/" rel="tag">Sorting</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/" rel="tag">Stack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Standalone/" rel="tag">Standalone</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Used-Car/" rel="tag">Used_Car</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ec2/" rel="tag">ec2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-basic/" rel="tag">git_basic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hdfs/" rel="tag">hdfs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jupyter/" rel="tag">jupyter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-basic/" rel="tag">linux_basic</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/" rel="tag">mongodb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pyspark/" rel="tag">pyspark</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scala/" rel="tag">scala</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell-script/" rel="tag">shell_script</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spark/" rel="tag">spark</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yarn/" rel="tag">yarn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zeppelin/" rel="tag">zeppelin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" rel="tag">알고리즘_복잡도</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/2024/" style="font-size: 10px;">2024</a> <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 13.33px;">Divide_and_Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 10px;">Dynamic_Programming</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/Greedy/" style="font-size: 13.33px;">Greedy</a> <a href="/tags/Hash-Table/" style="font-size: 10px;">Hash_Table</a> <a href="/tags/Linked-List/" style="font-size: 16.67px;">Linked_List</a> <a href="/tags/MySql/" style="font-size: 10px;">MySql</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Recursion/" style="font-size: 10px;">Recursion</a> <a href="/tags/Sort/" style="font-size: 13.33px;">Sort</a> <a href="/tags/Sorting/" style="font-size: 10px;">Sorting</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Standalone/" style="font-size: 10px;">Standalone</a> <a href="/tags/Used-Car/" style="font-size: 16.67px;">Used_Car</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/git-basic/" style="font-size: 10px;">git_basic</a> <a href="/tags/hdfs/" style="font-size: 10px;">hdfs</a> <a href="/tags/jupyter/" style="font-size: 10px;">jupyter</a> <a href="/tags/linux-basic/" style="font-size: 13.33px;">linux_basic</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/pyspark/" style="font-size: 20px;">pyspark</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/scala/" style="font-size: 10px;">scala</a> <a href="/tags/shell-script/" style="font-size: 10px;">shell_script</a> <a href="/tags/spark/" style="font-size: 10px;">spark</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/yarn/" style="font-size: 10px;">yarn</a> <a href="/tags/zeppelin/" style="font-size: 10px;">zeppelin</a> <a href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" style="font-size: 10px;">알고리즘_복잡도</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2024 Danny</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://kish191919.github.io/2024/01/23/Algorithm-4/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

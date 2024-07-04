@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Data_Engineer_2_2_Linux_Basic | Danny Sweet Home</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="linux_basic,vi,shell_script" />
+    
+    <meta name="description" content="vi  set number  set nonumber   방향키  h : 왼쪽l : 오른쪽j : 아래k : 위w : 다음 단어 첫글자 이동b : 이전 단어 첫글자 이동   행이동  gg : 맨 앞장 첫행으로 이동shift + g : 맨 마지막으로 이동^ : 현재행의 첫 문자로 이동0 : 현재행의 맨 앞으로 이동$ : 현재행의 마지막 문자로 이동:5 : 타이">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data_Engineer_2_2_Linux_Basic">
+<meta property="og:url" content="https://kish191919.github.io/2024/02/29/Data-Engineer-2-2-Linux-Basic/index.html">
+<meta property="og:site_name" content="Danny Sweet Home">
+<meta property="og:description" content="vi  set number  set nonumber   방향키  h : 왼쪽l : 오른쪽j : 아래k : 위w : 다음 단어 첫글자 이동b : 이전 단어 첫글자 이동   행이동  gg : 맨 앞장 첫행으로 이동shift + g : 맨 마지막으로 이동^ : 현재행의 첫 문자로 이동0 : 현재행의 맨 앞으로 이동$ : 현재행의 마지막 문자로 이동:5 : 타이">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/kish191919/Python_Project/assets/26552500/2c2f644d-1415-43c4-bbcc-f8c828ce7fcc">
+<meta property="article:published_time" content="2024-02-29T18:38:54.000Z">
+<meta property="article:modified_time" content="2024-07-04T03:45:56.804Z">
+<meta property="article:author" content="Danny">
+<meta property="article:tag" content="linux_basic">
+<meta property="article:tag" content="vi">
+<meta property="article:tag" content="shell_script">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/kish191919/Python_Project/assets/26552500/2c2f644d-1415-43c4-bbcc-f8c828ce7fcc">
+    
+
+    
+        <link rel="alternate" href="/" title="Danny Sweet Home" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/DATABASE/">DATABASE</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/GIT/">GIT</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/LINUX/">LINUX</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/">PYTHON</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/ALGORITHM/">ALGORITHM</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/CODING/">CODING</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/PROJECT/">PROJECT</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/PYTHON/QUIZ/">QUIZ</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/RECORD/">RECORD</a></li></ul>
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/DATA-ENGINEER/LINUX/">LINUX</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Data-Engineer-2-2-Linux-Basic" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Data_Engineer_2_2_Linux_Basic
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2024/02/29/Data-Engineer-2-2-Linux-Basic/" class="article-date">
+       <time datetime="2024-02-29T18:38:54.000Z" itemprop="datePublished">2024-02-29</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2024/02/29/Data-Engineer-2-2-Linux-Basic/" class="article-date">
+     <time datetime="2024-07-04T03:45:56.804Z" itemprop="dateModified">2024-07-03</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/linux-basic/" rel="tag">linux_basic</a>, <a class="tag-link-link" href="/tags/shell-script/" rel="tag">shell_script</a>, <a class="tag-link-link" href="/tags/vi/" rel="tag">vi</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <ol>
+<li><p>vi</p>
+<ul>
+<li><p>set number</p>
+</li>
+<li><p>set nonumber</p>
+<img width="433" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/2c2f644d-1415-43c4-bbcc-f8c828ce7fcc">
+<img width="404" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/4992ca3f-8c51-4a10-9489-e5e4651b4c0d"></li>
+<li><p>방향키</p>
+<blockquote>
+<p>h : 왼쪽<br>l : 오른쪽<br>j : 아래<br>k : 위<br>w : 다음 단어 첫글자 이동<br>b : 이전 단어 첫글자 이동</p>
+</blockquote>
+</li>
+<li><p>행이동</p>
+<blockquote>
+<p>gg : 맨 앞장 첫행으로 이동<br>shift + g : 맨 마지막으로 이동<br>^ : 현재행의 첫 문자로 이동<br>0 : 현재행의 맨 앞으로 이동<br>$ : 현재행의 마지막 문자로 이동<br>:5 : 타이핑한 숫자행으로 이동<br>숫자 타이핑하고 shift + g : 타이핑한 숫자행으로 이동 (위와 동일)<br>숫자 타이핑하고 엔터 : 해당숫자만큼 아래로 이동</p>
+</blockquote>
+</li>
+<li><p>문자 검색을 이용한 이동 (정규식 이용 가능)</p>
+<blockquote>
+<p>&#x2F;문자열 : 현재 위치에서 문자열을 검색하고 이동<br>?문자열 : 현재 위치에서 이전부분으로 문자열을 검색하고 이동<br>n : 위에 명령어를 반복해서 실행<br>N : 역방향으로 반복해서 실행</p>
+</blockquote>
+</li>
+<li><p>입력</p>
+<blockquote>
+<p>i : 현재 커서 위치에서 글자 삽입 가능<br>a : 현재 커서 다음 위치에 추가 (append 의미)<br>I : 현재 줄 처음 글자에 삽입<br>A : 현재 줄 마지막 글자에 추가<br>o : 아랫 줄에 추가<br>O : 윗줄에 추가<br>s : 현재 커서 글자 지우고 입력모드로 전환<br>r : 현재 커서 글자 지우고 한 글자 입력 받아 바꾼뒤 이동 모드로 변경 </p>
+</blockquote>
+</li>
+<li><p>삭제</p>
+<blockquote>
+<p>x : 현재 커서 위치 문자 삭제<br>X : 현재 커서 위치 이전 문자 삭제<br>dw : 현재 커서 위치 단어 삭제<br>db : 현재 커서 이전 단어 삭제<br>dd : 현재 커서 위치 줄 삭제<br>d^ : 현재 줄에서 현재 커서 위치 이전 문자열 모두 삭제<br>d0 : 위의 명령어와 동일 그러나 컬럼 0번째 자리까지 삭제<br>d$ : 현재 커서 위치에서 줄의 마지막 까지 삭제</p>
+</blockquote>
+</li>
+<li><p>복사 </p>
+<blockquote>
+<p>y : 복사<br>yw : 현재 커서 이후 단어 복사<br>yb : 현재 이전 단어 복사<br>yy : 현재 줄 복사<br>p : 붙여넣기<br>P : 커서 위치 이전에 붙여넣기 </p>
+</blockquote>
+</li>
+<li><p>되돌리기</p>
+<blockquote>
+<p>u : undo<br>Ctrl + r : redo</p>
+</blockquote>
+</li>
+</ul>
+<ol start="2">
+<li><p>shell script</p>
+<ul>
+<li>파일 맨 위에 다음과 같은 표시가 있다면 shell script 파일 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"><span class="comment">#!/bin/zsh </span></span><br><span class="line">   </span><br><span class="line"><span class="comment">#! 는 shebang 이라고 읽음</span></span><br></pre></td></tr></table></figure></li>
+<li>실행방법 :  .&#x2F;$Filename 을 이용, 만약 안된다면 chmod +x 로 권한 주기</li>
+<li>변수 : 영문, 숫자, _ 만 사용</li>
+<li>변수명은 대문자로 작성</li>
+</ul>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">NAME=eileen</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$NAME</span></span><br><span class="line">    </span><br><span class="line"><span class="comment"># 변수 할당 제거</span></span><br><span class="line"><span class="comment"># unset NAME</span></span><br><span class="line">    </span><br><span class="line"><span class="comment"># 변수를 못바 / 읽기 전용 변수 값을 수정하려고 하면 에러 발생</span></span><br><span class="line"><span class="built_in">readonly</span> NAME</span><br><span class="line">    </span><br><span class="line">NAME=danny</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$NAME</span></span><br></pre></td></tr></table></figure>
+<img width="514" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/f2667488-adb5-44f8-a1bc-ce03690ef14c">
+
+<ul>
+<li><p>특수 목적 변수</p>
+<ul>
+<li>$ : 현재 shell의 프로세스 아이디</li>
+<li>$0 : 현재 스크립트의 파일 이름</li>
+<li>$n : 스크립트 실행시 넘겨준 n번째 인자</li>
+<li>$# : 스크립트에 넣어준 인자의 개수</li>
+<li>$* : 모든 인자를 “”로 감싸서 반환</li>
+<li>$@ : 각 인자를 “”로 감싸서 반환</li>
+<li>$? : 마지막으로 실행된 명령어의 종료 상태</li>
+</ul>
+</li>
+<li><p>$! : 마지막 백그라운드 명령어의 프로세스 아이디</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;PID : $$&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;File name : <span class="variable">$0</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;First Param : <span class="variable">$1</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Second Param : <span class="variable">$2</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Quoted Values @: <span class="variable">$@</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Quoted Values *: $*&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Total number of params : <span class="variable">$#</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<img width="525" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/dac57b1a-9650-48bf-b576-88647f8e9497">
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># arg-callee.sh</span></span><br><span class="line"><span class="comment">#!/bin/sh</span></span><br><span class="line"> <span class="built_in">echo</span> <span class="string">&quot;arg1 : <span class="variable">$1</span>&quot;</span></span><br><span class="line"> <span class="built_in">echo</span> <span class="string">&quot;arg2 : <span class="variable">$2</span>&quot;</span></span><br><span class="line"> <span class="built_in">echo</span> <span class="string">&quot;arg3 : <span class="variable">$3</span>&quot;</span></span><br><span class="line"> <span class="built_in">echo</span></span><br><span class="line">  </span><br><span class="line"><span class="comment"># arg-caller.sh</span></span><br><span class="line"><span class="comment">#!/bin/sh</span></span><br><span class="line"> <span class="built_in">echo</span> <span class="string">&#x27;$* without quotes&#x27;</span></span><br><span class="line"> ./arg-callee.sh $*</span><br><span class="line">   </span><br><span class="line"> <span class="built_in">echo</span> <span class="string">&#x27;$@ without quotes&#x27;</span></span><br><span class="line"> ./arg-callee.sh <span class="variable">$@</span></span><br><span class="line">   </span><br><span class="line"> <span class="built_in">echo</span> <span class="string">&#x27;$* with quotes&#x27;</span></span><br><span class="line"> ./arg-callee.sh <span class="string">&quot;$*&quot;</span></span><br><span class="line">   </span><br><span class="line"> <span class="built_in">echo</span> <span class="string">&#x27;$@ with quotes&#x27;</span></span><br><span class="line"> ./arg-callee.sh <span class="string">&quot;<span class="variable">$@</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<img width="658" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/2c2b71cf-d712-4ef0-ae32-df8821bbf631">
+  
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"> ./success.sh</span><br><span class="line"> <span class="keyword">if</span> [ $? -ne 0 ]; <span class="keyword">then</span></span><br><span class="line"> <span class="built_in">echo</span> <span class="string">&quot;failed from sub-command&quot;</span></span><br><span class="line"> <span class="built_in">exit</span> 1</span><br><span class="line"> <span class="keyword">fi</span></span><br><span class="line"> <span class="built_in">echo</span> <span class="string">&quot;next step&quot;</span></span><br></pre></td></tr></table></figure>
+<img width="412" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/25270e0d-6aef-4dfa-89ef-613f65bb96e7"></li>
+</ul>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line">  ./success.sh</span><br><span class="line">  <span class="keyword">if</span> [ $? -ne 0 ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;failed from sub-command&quot;</span></span><br><span class="line">  <span class="built_in">exit</span> 1</span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">  </span><br><span class="line">  <span class="built_in">sleep</span> 100 &amp;</span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;last PID of sub command : $!&quot;</span></span><br><span class="line">      </span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;next step&quot;</span></span><br></pre></td></tr></table></figure>
+  <img width="473" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/134b4dac-1f0f-49f9-9afd-f2f3b03cdb7b">
+ 
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> [ <span class="variable">$1</span> = <span class="string">&quot;danny&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;this is danny&quot;</span></span><br><span class="line">  <span class="keyword">elif</span> [ <span class="variable">$1</span> = <span class="string">&quot;joey&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;this is joey&quot;</span></span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;anonymous&quot;</span></span><br><span class="line">  <span class="keyword">fi</span> </span><br></pre></td></tr></table></figure>
+ <img width="503" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/7d6252b7-60c4-4e68-b8f9-249592f4f293">
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line">  OPTION=<span class="variable">$1</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">case</span> <span class="variable">$OPTION</span> <span class="keyword">in</span></span><br><span class="line">      -f) FILE=<span class="variable">$2</span></span><br><span class="line">      <span class="built_in">echo</span> <span class="string">&quot;File name is <span class="variable">$FILE</span>&quot;</span></span><br><span class="line">      ;;</span><br><span class="line">      -d) DIR=<span class="variable">$2</span></span><br><span class="line">      <span class="built_in">echo</span> <span class="string">&quot;Dir name is <span class="variable">$DIR</span>&quot;</span></span><br><span class="line">      ;;</span><br><span class="line">      [0-9]) NUM=<span class="variable">$1</span></span><br><span class="line">      <span class="built_in">echo</span> <span class="string">&quot;Number is <span class="variable">$NUM</span>&quot;</span></span><br><span class="line">      ;;</span><br><span class="line">      *)</span><br><span class="line">      <span class="built_in">echo</span> <span class="string">&quot;`basename <span class="variable">$0</span>` : usage : [-f File] | [-d Directory]&quot;</span></span><br><span class="line">      <span class="built_in">exit</span> -1</span><br><span class="line">      ;;</span><br><span class="line">  <span class="keyword">esac</span></span><br></pre></td></tr></table></figure>
+<img width="532" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/c71b31ae-ade4-4a4f-b947-bef5f812c544">
+ 
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;param <span class="variable">$1</span> is A and param <span class="variable">$2</span> is B&quot;</span></span><br><span class="line">  A=<span class="variable">$1</span></span><br><span class="line">  B=<span class="variable">$2</span></span><br><span class="line">  </span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot; A + B : <span class="subst">$(expr $A + $B)</span> &quot;</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot; A - B : <span class="subst">$(expr $A - $B)</span> &quot;</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot; A * B : <span class="subst">$(expr $A \* $B)</span> &quot;</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot; A / B : <span class="subst">$(expr $A / $B)</span> &quot;</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot; A % B : <span class="subst">$(expr $A % $B)</span> &quot;</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> [ <span class="variable">$A</span> = <span class="variable">$B</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;A == B&quot;</span></span><br><span class="line">  <span class="keyword">elif</span> [ <span class="variable">$A</span> != <span class="variable">$B</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;a != b&quot;</span></span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> [ <span class="variable">$A</span> -eq <span class="variable">$B</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$1</span> is equal to <span class="variable">$2</span>&quot;</span></span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> [ <span class="variable">$A</span> -ne <span class="variable">$B</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$A</span> is not equal to <span class="variable">$B</span>&quot;</span></span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> [ <span class="variable">$A</span> -gt <span class="variable">$B</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$A</span> is greater than <span class="variable">$B</span>&quot;</span></span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> [ <span class="variable">$A</span> -lt <span class="variable">$B</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$A</span> is less than <span class="variable">$B</span>&quot;</span></span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> [ <span class="variable">$A</span> -ge <span class="variable">$B</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$A</span> is greater than or equal to <span class="variable">$B</span>&quot;</span></span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> [ <span class="variable">$A</span> -le <span class="variable">$B</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$A</span> is less than or equal to <span class="variable">$B</span>&quot;</span></span><br><span class="line">  <span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<img width="474" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/ca7aaba4-b121-403f-8d8c-93393cec65c5">
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">  <span class="keyword">if</span> [ !<span class="literal">false</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;Not false is True&quot;</span></span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> [ <span class="variable">$1</span> -gt <span class="variable">$2</span> -o <span class="variable">$1</span> -eq <span class="variable">$2</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$1</span> is greater than or equal to <span class="variable">$2</span>&quot;</span></span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> [ <span class="variable">$1</span> -lt <span class="variable">$2</span> -a <span class="variable">$1</span> = 10 ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$1</span> is less than <span class="variable">$2</span> and <span class="variable">$1</span> is 10&quot;</span></span><br><span class="line">  <span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<img width="538" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/e240bef2-01e3-4ab5-8859-c05a7a82780b">
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">  a=0</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">while</span> [ <span class="variable">$a</span> -lt 10 ]</span><br><span class="line">  <span class="keyword">do</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$a</span>&quot;</span></span><br><span class="line">  a=$(<span class="built_in">expr</span> <span class="variable">$a</span> + 1)</span><br><span class="line">  <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<img width="463" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/cd816230-4d37-42d2-97c7-ab393570dee7"></li>
+</ol>
+<ul>
+<li><p>메타 캐릭터</p>
+<img width="1123" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/6fe8972c-5e95-4c70-a884-3725f3cacba7">
+<img width="1190" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/38dd5b26-5a22-429c-aa73-35c4176f1aa0">
+<img width="924" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/17428e21-1b99-42cf-93ff-d05b22887b3e">
+</li>
+<li><p>함수</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">myfunc</span></span>()&#123;</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$1</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$2</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$1</span> + <span class="variable">$2</span> = `expr <span class="variable">$1</span> + <span class="variable">$2</span>`&quot;</span></span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">myfunc <span class="variable">$1</span> <span class="variable">$2</span></span><br></pre></td></tr></table></figure>
+  <img width="548" alt="image" src="https://github.com/kish191919/Python_Project/assets/26552500/ed3633fb-8c90-4d18-abc1-04b7e27ee3ba"></li>
+</ul>
+</li>
+</ol>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://kish191919.github.io/2024/02/29/Data-Engineer-2-2-Linux-Basic/" data-id="cly6sd5fe0023nq2l829xbqy0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Danny"
+        },
+        "headline": "Data_Engineer_2_2_Linux_Basic",
+        "image": "https://kish191919.github.iohttps://github.com/kish191919/Python_Project/assets/26552500/2c2f644d-1415-43c4-bbcc-f8c828ce7fcc",
+        "keywords": "linux_basic vi shell_script",
+        "genre": "DATA_ENGINEER LINUX",
+        "datePublished": "2024-02-29",
+        "dateCreated": "2024-02-29",
+        "dateModified": "2024-07-03",
+        "url": "https://kish191919.github.io/2024/02/29/Data-Engineer-2-2-Linux-Basic/",
+        "description": "
+vi
+
+set number
+
+set nonumber
+
+
+방향키
+
+h : 왼쪽l : 오른쪽j : 아래k : 위w : 다음 단어 첫글자 이동b : 이전 단어 첫글자 이동
+
+
+행이동
+
+gg : 맨 앞장 첫행으로 이동shift + g : 맨 마지막으로 이동^ : 현재행의 첫 문자로 이동0 : 현재행의 맨 앞으로 이동$ : 현재행의 마지막 문자로 이동:5 : 타이",
+        "wordCount": 1698
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2024/03/03/Data-Engineer-3-1-Database/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Data_Engineer_3_1_Database
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2024/02/22/Data-Engineer-2-1-Linux-Basic/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Data_Engineer_2_1_Linux_Basic</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/07/04/Coding-Test-7/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/PYTHON/">PYTHON</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/PYTHON/CODING/">CODING</a></p>
+                            <p class="item-title"><a href="/2024/07/04/Coding-Test-7/" class="title">Coding-Test-7</a></p>
+                            <p class="item-date"><time datetime="2024-07-04T04:13:01.000Z" itemprop="datePublished">2024-07-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/22/Data-Engineer-10-8-PySpark/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a></p>
+                            <p class="item-title"><a href="/2024/03/22/Data-Engineer-10-8-PySpark/" class="title">Data_Engineer_10_8_PySpark</a></p>
+                            <p class="item-date"><time datetime="2024-03-22T18:25:45.000Z" itemprop="datePublished">2024-03-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/20/Data-Engineer-10-7-PySpark/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://github.com/kish191919/Python_Project/assets/26552500/5e5f9cbb-4750-48ec-83a9-1f941fbd834a)" alt="Data_Engineer_10_7_PySpark" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a></p>
+                            <p class="item-title"><a href="/2024/03/20/Data-Engineer-10-7-PySpark/" class="title">Data_Engineer_10_7_PySpark</a></p>
+                            <p class="item-date"><time datetime="2024-03-20T16:10:31.000Z" itemprop="datePublished">2024-03-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/19/Data-Engineer-10-6-PySpark/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://github.com/kish191919/Python_Project/assets/26552500/cbe0114a-b8b5-4302-b8d7-23effd5bfb55)" alt="Data_Engineer_10_6_PySpark" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a></p>
+                            <p class="item-title"><a href="/2024/03/19/Data-Engineer-10-6-PySpark/" class="title">Data_Engineer_10_6_PySpark</a></p>
+                            <p class="item-date"><time datetime="2024-03-19T11:39:08.000Z" itemprop="datePublished">2024-03-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2024/03/18/Data-Engineer-10-5-PySpark/" class="thumbnail">
+    
+    
+        <span style="background-image:url(https://github.com/kish191919/Python_Project/assets/26552500/4f216d82-aeac-4c9d-b69d-04c9a6c90d27)" alt="Data_Engineer_10_5_PySpark" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a></p>
+                            <p class="item-title"><a href="/2024/03/18/Data-Engineer-10-5-PySpark/" class="title">Data_Engineer_10_5_PySpark</a></p>
+                            <p class="item-date"><time datetime="2024-03-18T20:18:57.000Z" itemprop="datePublished">2024-03-18</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/">DATA_ENGINEER</a><span class="category-list-count">14</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/DATABASE/">DATABASE</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/GIT/">GIT</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/LINUX/">LINUX</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/DATA-ENGINEER/PYSPARK/">PYSPARK</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/">PYTHON</a><span class="category-list-count">19</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/ALGORITHM/">ALGORITHM</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/CODING/">CODING</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/PROJECT/">PROJECT</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PYTHON/QUIZ/">QUIZ</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/RECORD/">RECORD</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/01/">January 2024</a><span class="archive-list-count">12</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2024/" rel="tag">2024</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Array/" rel="tag">Array</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Divide-and-Conquer/" rel="tag">Divide_and_Conquer</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-Programming/" rel="tag">Dynamic_Programming</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flask/" rel="tag">Flask</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy/" rel="tag">Greedy</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash-Table/" rel="tag">Hash_Table</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linked-List/" rel="tag">Linked_List</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql/" rel="tag">MySql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Queue/" rel="tag">Queue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Recursion/" rel="tag">Recursion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sort/" rel="tag">Sort</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sorting/" rel="tag">Sorting</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/" rel="tag">Stack</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Standalone/" rel="tag">Standalone</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Used-Car/" rel="tag">Used_Car</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ec2/" rel="tag">ec2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git-basic/" rel="tag">git_basic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hdfs/" rel="tag">hdfs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jupyter/" rel="tag">jupyter</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-basic/" rel="tag">linux_basic</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/" rel="tag">mongodb</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pyspark/" rel="tag">pyspark</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/scala/" rel="tag">scala</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell-script/" rel="tag">shell_script</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spark/" rel="tag">spark</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vi/" rel="tag">vi</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/yarn/" rel="tag">yarn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zeppelin/" rel="tag">zeppelin</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" rel="tag">알고리즘_복잡도</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/2024/" style="font-size: 10px;">2024</a> <a href="/tags/Array/" style="font-size: 10px;">Array</a> <a href="/tags/Divide-and-Conquer/" style="font-size: 13.33px;">Divide_and_Conquer</a> <a href="/tags/Dynamic-Programming/" style="font-size: 10px;">Dynamic_Programming</a> <a href="/tags/Flask/" style="font-size: 10px;">Flask</a> <a href="/tags/Greedy/" style="font-size: 13.33px;">Greedy</a> <a href="/tags/Hash-Table/" style="font-size: 10px;">Hash_Table</a> <a href="/tags/Linked-List/" style="font-size: 16.67px;">Linked_List</a> <a href="/tags/MySql/" style="font-size: 10px;">MySql</a> <a href="/tags/Queue/" style="font-size: 10px;">Queue</a> <a href="/tags/Recursion/" style="font-size: 10px;">Recursion</a> <a href="/tags/Sort/" style="font-size: 13.33px;">Sort</a> <a href="/tags/Sorting/" style="font-size: 10px;">Sorting</a> <a href="/tags/Stack/" style="font-size: 10px;">Stack</a> <a href="/tags/Standalone/" style="font-size: 10px;">Standalone</a> <a href="/tags/Used-Car/" style="font-size: 16.67px;">Used_Car</a> <a href="/tags/ec2/" style="font-size: 10px;">ec2</a> <a href="/tags/git-basic/" style="font-size: 10px;">git_basic</a> <a href="/tags/hdfs/" style="font-size: 10px;">hdfs</a> <a href="/tags/jupyter/" style="font-size: 10px;">jupyter</a> <a href="/tags/linux-basic/" style="font-size: 13.33px;">linux_basic</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/tags/pyspark/" style="font-size: 20px;">pyspark</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/scala/" style="font-size: 10px;">scala</a> <a href="/tags/shell-script/" style="font-size: 10px;">shell_script</a> <a href="/tags/spark/" style="font-size: 10px;">spark</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/yarn/" style="font-size: 10px;">yarn</a> <a href="/tags/zeppelin/" style="font-size: 10px;">zeppelin</a> <a href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B3%B5%EC%9E%A1%EB%8F%84/" style="font-size: 10px;">알고리즘_복잡도</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2024 Danny</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://kish191919.github.io/2024/02/29/Data-Engineer-2-2-Linux-Basic/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
