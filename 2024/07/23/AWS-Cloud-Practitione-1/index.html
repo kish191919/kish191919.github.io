@@ -20,7 +20,7 @@
 <meta property="og:description" content="AWS Budgets : AWS Budgets gives you the ability to set custom budgets that alert you when your costs or usage exceed (or are forecasted to exceed) your budgeted amount. AWS Budgets gives the ability t">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-07-23T13:14:45.000Z">
-<meta property="article:modified_time" content="2024-07-23T20:27:33.975Z">
+<meta property="article:modified_time" content="2024-07-26T02:28:16.950Z">
 <meta property="article:author" content="Danny">
 <meta property="article:tag" content="Cloud_Practitioner">
 <meta name="twitter:card" content="summary">
@@ -180,7 +180,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2024/07/23/AWS-Cloud-Practitione-1/" class="article-date">
-     <time datetime="2024-07-23T20:27:33.975Z" itemprop="dateModified">2024-07-23</time>
+     <time datetime="2024-07-26T02:28:16.950Z" itemprop="dateModified">2024-07-25</time>
   </a>
 </div>
 
@@ -240,7 +240,7 @@
 </ul>
 <h3 id="AWS-Trusted-Advisor"><a href="#AWS-Trusted-Advisor" class="headerlink" title="AWS Trusted Advisor :"></a>AWS Trusted Advisor :</h3><ul>
 <li>AWS Trusted Advisor is an online tool that provides real-time guidance to help provision your resources following AWS best practices. Whether establishing new workflows, developing applications, or as part of ongoing improvement, recommendations provided by AWS Trusted Advisor regularly help keep your solutions provisioned optimally. AWS Trusted Advisor analyzes your AWS environment and provides best practice recommendations in five categories: Cost Optimization, Performance, Security, Fault Tolerance, Service Limits.</li>
-<li>AWS Trusted Advisor is an online tool that provides you real-time guidance to help you provision your resources following AWS best practices on cost optimization, security, fault tolerance, service limits, and performance improvement.</li>
+<li>AWS Trusted Advisor is an online tool that provides you real-time guidance to help you provision your resources following AWS best practices on cost optimization, security, fault tolerance, service limits, and performance improvement. Whether establishing new workflows, developing applications, or as part of ongoing improvement, recommendations provided by Trusted Advisor regularly help keep your solutions provisioned optimally.</li>
 </ul>
 <h3 id="Amazon-Inspector"><a href="#Amazon-Inspector" class="headerlink" title="Amazon Inspector"></a>Amazon Inspector</h3><ul>
 <li>Amazon Inspector is an automated security assessment service that helps improve the security and compliance of applications deployed on AWS. Amazon Inspector automatically assesses applications for exposure, vulnerabilities, and deviations from best practices.</li>
@@ -260,6 +260,9 @@
 <li>AWS Shield Standard is activated for all AWS customers, by default. For higher levels of protection against attacks, you can subscribe to AWS Shield Advanced. With Shield Advanced, you also have exclusive access to advanced, real-time metrics and reports for extensive visibility into attacks on your AWS resources. With the assistance of the DRT (DDoS response team), AWS Shield Advanced includes intelligent DDoS attack detection and mitigation for not only for network layer (layer 3) and transport layer (layer 4) attacks but also for application layer (layer 7) attacks.</li>
 <li>AWS Shield Advanced provides expanded DDoS attack protection for web applications running on the following resources: Amazon Elastic Compute Cloud, Elastic Load Balancing (ELB), Amazon CloudFront, Amazon Route 53, AWS Global Accelerator.</li>
 </ul>
+<h3 id="AWS-Auto-Scaling"><a href="#AWS-Auto-Scaling" class="headerlink" title="AWS Auto Scaling"></a>AWS Auto Scaling</h3><ul>
+<li>AWS Auto Scaling is helpful during a DDoS attack, as it can scale out resources fast.</li>
+</ul>
 <h3 id="Amazon-GuardDuty"><a href="#Amazon-GuardDuty" class="headerlink" title="Amazon GuardDuty"></a>Amazon GuardDuty</h3><ul>
 <li>Amazon GuardDuty is a threat detection service that monitors malicious activity and unauthorized behavior to protect your AWS account. GuardDuty analyzes billions of events across your AWS accounts from AWS CloudTrail (AWS user and API activity in your accounts), Amazon VPC Flow Logs (network traffic data), and DNS Logs (name query patterns). This service is for AWS account level access, not for instance-level management like an EC2. GuardDuty cannot be used to check OS vulnerabilities.</li>
 </ul>
@@ -277,8 +280,11 @@
 <li>The Compute Optimizer recommendation engine delivers recommendations to help customers identify optimal EC2 instance types for their workloads</li>
 </ul>
 <h3 id="AWS-Config"><a href="#AWS-Config" class="headerlink" title="AWS Config"></a>AWS Config</h3><ul>
-<li>AWS Config is a service that enables you to assess, audit, and evaluate the configurations of your AWS resources. Config continuously monitors and records your AWS resource configurations and allows you to automate the evaluation of recorded configurations against desired configurations.</li>
-<li>AWS Config is a service that enables you to assess, audit, and evaluate the configurations of your AWS resources. Config continuously monitors and records your AWS resource configurations and allows you to automate the evaluation of recorded configurations against desired configurations.</li>
+<li>AWS Config is a service that enables you to assess, audit, and evaluate the configurations of your AWS resources. Config continuously monitors and records your AWS resource configurations and allows you to automate the evaluation of recorded configurations against desired configurations. Think resource-specific history, audit, and compliance; think Config.</li>
+<li>With AWS Config, you can do the following: 1. Evaluate your AWS resource configurations for desired settings. 2. Get a snapshot of the current configurations of the supported resources that are associated with your AWS account. 3. Retrieve configurations of one or more resources that exist in your account. 4. Retrieve historical configurations of one or more resources. 5. Receive a notification whenever a resource is created, modified, or deleted. 6.View relationships between resources. For example, you might want to find all resources that use a particular security group.</li>
+</ul>
+<h3 id="AWS-Service-Catalog"><a href="#AWS-Service-Catalog" class="headerlink" title="AWS Service Catalog"></a>AWS Service Catalog</h3><ul>
+<li>AWS Service Catalog allows organizations to create and manage catalogs of IT services that are approved for use on AWS. These IT services can include everything from virtual machine images, servers, software, and databases to complete multi-tier application architectures.</li>
 </ul>
 <h3 id="AWS-X-Ray"><a href="#AWS-X-Ray" class="headerlink" title="AWS X-Ray"></a>AWS X-Ray</h3><ul>
 <li>You can use AWS X-Ray to analyze and debug serverless and distributed applications such as those built using a microservices architecture. With X-Ray, you can understand how your application and its underlying services are performing to identify and troubleshoot the root cause of performance issues and errors.</li>
@@ -291,6 +297,7 @@
 </ul>
 <h3 id="AWS-CloudFormation"><a href="#AWS-CloudFormation" class="headerlink" title="AWS CloudFormation"></a>AWS CloudFormation</h3><ul>
 <li>AWS CloudFormation allows you to use programming languages or a simple text file to model and provision, in an automated and secure manner, all the resources needed for your applications across all Regions and accounts. Think infrastructure as code; think CloudFormation</li>
+<li>AWS CloudFormation provides a common language to model and provision AWS and third-party application resources in your cloud environment. AWS CloudFormation allows you to use programming languages or a simple text file to model and provision, in an automated and secure manner, all the resources needed for your applications across all Regions and accounts. Think infrastructure as code; think CloudFormation.</li>
 </ul>
 <h3 id="AWS-Cloud-Adoption-Framework-AWS-CAF"><a href="#AWS-Cloud-Adoption-Framework-AWS-CAF" class="headerlink" title="AWS Cloud Adoption Framework (AWS CAF)"></a>AWS Cloud Adoption Framework (AWS CAF)</h3><ul>
 <li>The AWS Cloud Adoption Framework (AWS CAF) leverages AWS experience and best practices to help you digitally transform and accelerate your business outcomes through innovative use of AWS. AWS CAF identifies specific organizational capabilities that underpin successful cloud transformations. These capabilities provide best practice guidance that helps you improve your cloud readiness. AWS CAF groups its capabilities in six perspectives: Business, People, Governance, Platform, Security, and Operations.</li>
@@ -348,6 +355,7 @@
 <h3 id="AWS-Secrets-Manager"><a href="#AWS-Secrets-Manager" class="headerlink" title="AWS Secrets Manager"></a>AWS Secrets Manager</h3><ul>
 <li>AWS Secrets Manager helps you protect secrets needed to access your applications, services, and IT resources. The service enables you to easily rotate, manage, and retrieve database credentials, API keys, and other secrets throughout their lifecycle.</li>
 <li>With Secrets Manager, you pay based on the number of secrets stored and API calls made.</li>
+<li>Users and applications retrieve secrets with a call to Secrets Manager APIs, eliminating the need to hardcode sensitive information in plain text.</li>
 </ul>
 <h3 id="VPC"><a href="#VPC" class="headerlink" title="VPC"></a>VPC</h3><ul>
 <li>A VPC endpoint enables you to privately connect your VPC to supported AWS services and VPC endpoint services powered by AWS PrivateLink without requiring an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection. Instances in your VPC do not require public IP addresses to communicate with resources in the service. Traffic between your VPC and the other service does not leave the Amazon network.</li>
@@ -359,9 +367,19 @@
 </ul>
 </li>
 </ul>
+<h3 id="AWS-CloudHSM"><a href="#AWS-CloudHSM" class="headerlink" title="AWS CloudHSM"></a>AWS CloudHSM</h3><ul>
+<li>AWS CloudHSM is a cloud-based Hardware Security Module (HSM) that enables you to easily generate and use your encryption keys on the AWS Cloud. With CloudHSM, you can manage your encryption keys using FIPS 140-2 Level 3 validated HSMs. It is a fully-managed service that automates time-consuming administrative tasks for you, such as hardware provisioning, software patching, high-availability, and backups.</li>
+</ul>
 <h3 id="Amazon-Route-53"><a href="#Amazon-Route-53" class="headerlink" title="Amazon Route 53"></a>Amazon Route 53</h3><ul>
 <li>Amazon Route 53 is a highly available and scalable cloud Domain Name System (DNS) web service. It is designed to give developers and businesses an extremely reliable and cost-effective way to route end users to Internet applications by translating names like <a target="_blank" rel="noopener" href="http://www.example.com/">www.example.com</a> into the numeric IP addresses like 192.0.2.1 that computers use to connect to each other.</li>
 <li>Weighted routing lets you associate multiple resources with a single domain name (example.com) or subdomain name (acme.example.com) and choose how much traffic is routed to each resource. This can be useful for a variety of purposes, including load balancing and testing new versions of software. To configure weighted routing, you create records that have the same name and type for each of your resources. You assign each record a relative weight that corresponds with how much traffic you want to send to each resource. Amazon Route 53 sends traffic to a resource based on the weight that you assign to the record as a proportion of the total weight for all records in the group.</li>
+<li>If your application is hosted in multiple AWS Regions, you can use latency-based routing policy to improve the performance for your users by serving their requests from the AWS Region that provides the lowest latency. To use latency-based routing, you create latency records for your resources in multiple AWS Regions. When Amazon Route 53 receives a DNS query for your domain or subdomain (example.com or acme.example.com), it determines which AWS Regions you’ve created latency records for, determines which region gives the user the lowest latency, and then selects a latency record for that region. Amazon Route 53 responds with the value from the selected record, such as the IP address for a web server.</li>
+<li>Failover routing - This routing policy is used when you want to configure active-passive failover.</li>
+<li>Weighted routing - This routing policy is used to route traffic to multiple resources in proportions that you specify.</li>
+<li>Simple routing - With simple routing, you typically route traffic to a single resource, for example, to a web server for your website.</li>
+</ul>
+<h3 id="Shared-responsibility-between-AWS-and-the-customer"><a href="#Shared-responsibility-between-AWS-and-the-customer" class="headerlink" title="Shared responsibility between AWS and the customer"></a>Shared responsibility between AWS and the customer</h3><ul>
+<li>Database encryption - Under the AWS Shared Responsibility Model, customers are responsible for managing their data, including data encryption.</li>
 </ul>
 <h3 id="Amazon-Elastic-Compute-Cloud-Amazon-EC2"><a href="#Amazon-Elastic-Compute-Cloud-Amazon-EC2" class="headerlink" title="Amazon Elastic Compute Cloud (Amazon EC2)"></a>Amazon Elastic Compute Cloud (Amazon EC2)</h3><ul>
 <li>Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides secure, resizable compute capacity in the AWS cloud. You can use EC2 to provision virtual servers on AWS Cloud.</li>
@@ -402,7 +420,7 @@
 <h3 id="Amazon-OpenSearch-Service"><a href="#Amazon-OpenSearch-Service" class="headerlink" title="Amazon OpenSearch Service"></a>Amazon OpenSearch Service</h3><ul>
 <li>Amazon OpenSearch Service makes it easy for you to perform interactive log analytics, real-time application monitoring, website search, and more. OpenSearch is an open source, distributed search and analytics suite derived from Elasticsearch.</li>
 </ul>
-<h3 id="AWS-Auto-Scaling"><a href="#AWS-Auto-Scaling" class="headerlink" title="AWS Auto Scaling"></a>AWS Auto Scaling</h3><ul>
+<h3 id="AWS-Auto-Scaling-1"><a href="#AWS-Auto-Scaling-1" class="headerlink" title="AWS Auto Scaling"></a>AWS Auto Scaling</h3><ul>
 <li>AWS Auto Scaling monitors your applications and automatically adjusts capacity to maintain steady, predictable performance at the lowest possible cost. Using AWS Auto Scaling, it’s easy to setup application scaling for multiple resources across multiple services in minutes. This is a scaling service that helps you spin up resources as and when you need them and scale down when the high demand reduces. Auto Scaling can be used with Elastic Load Balacing to build high performance applications.</li>
 </ul>
 <h3 id="AWS-Glue"><a href="#AWS-Glue" class="headerlink" title="AWS Glue :"></a>AWS Glue :</h3><ul>
@@ -445,6 +463,19 @@
 <h3 id="Instance-Store"><a href="#Instance-Store" class="headerlink" title="Instance Store"></a>Instance Store</h3><ul>
 <li>An instance store provides temporary block-level storage for your instance. This storage is located on disks that are physically attached to the host computer. This is a good option when you need storage with very low latency, but you don’t need the data to persist when the instance terminates or you can take advantage of fault-tolerant architectures. For this use-case, the computation application itself has a fault tolerant architecture, so it can automatically handle any failures of Instance Store volumes.</li>
 </ul>
+<h3 id="AWS-OpsWorks"><a href="#AWS-OpsWorks" class="headerlink" title="AWS OpsWorks"></a>AWS OpsWorks</h3><ul>
+<li>AWS OpsWorks is a configuration management service that provides managed instances of Chef and Puppet. OpsWorks lets you use Chef and Puppet to automate how servers are configured, deployed and managed across your Amazon EC2 instances or on-premises compute environments.</li>
+</ul>
+<h3 id="AWS-Global-Accelerator"><a href="#AWS-Global-Accelerator" class="headerlink" title="AWS Global Accelerator"></a>AWS Global Accelerator</h3><ul>
+<li>AWS Global Accelerator is a service that improves the availability and performance of your applications with local or global users. It provides static IP addresses that act as a fixed entry point to your application endpoints in a single or multiple AWS Regions, such as your Application Load Balancers, Network Load Balancers, or Amazon EC2 instances. AWS Global Accelerator uses the AWS global network to optimize the path from your users to your applications, improving the performance of your traffic by as much as 60%.</li>
+<li>AWS Global Accelerator improves performance for a wide range of applications over TCP or UDP by proxying packets at the edge to applications running in one or more AWS Regions. AWS Global Accelerator is a good fit for non-HTTP use cases, such as gaming (UDP), IoT (MQTT), or Voice over IP, as well as for HTTP use cases that specifically require static IP addresses or deterministic, fast regional failover.</li>
+</ul>
+<h3 id="Amazon-Eventbridge"><a href="#Amazon-Eventbridge" class="headerlink" title="Amazon Eventbridge"></a>Amazon Eventbridge</h3><ul>
+<li>Amazon EventBridge is a service that provides real-time access to changes in data in AWS services, your own applications, and software as a service (SaaS) applications without writing code. Amazon EventBridge Scheduler is a serverless task scheduler that simplifies creating, executing, and managing millions of schedules across AWS services without provisioning or managing underlying infrastructure.</li>
+</ul>
+<h3 id="Amazon-Lightsail"><a href="#Amazon-Lightsail" class="headerlink" title="Amazon Lightsail"></a>Amazon Lightsail</h3><ul>
+<li>Amazon Lightsail is an easy-to-use cloud platform that offers you everything needed to build an application or website, plus a cost-effective, monthly plan. Amazon Lightsail offers several preconfigured, one-click-to-launch operating systems, development stacks, and web applications, including Linux, Windows OS, and WordPress. Amazon Lightsail comes with monthly payment plans and does not support per second billing</li>
+</ul>
 <h1 id="Database"><a href="#Database" class="headerlink" title="Database"></a>Database</h1><h3 id="Amazon-Redshift"><a href="#Amazon-Redshift" class="headerlink" title="Amazon Redshift :"></a>Amazon Redshift :</h3><ul>
 <li>Amazon Redshift is a fully-managed petabyte-scale cloud-based data warehouse product designed for large scale data set storage and analysis.</li>
 </ul>
@@ -455,12 +486,19 @@
 <li>Amazon Elastic File System (Amazon EFS) provides a simple, scalable, fully managed elastic NFS file system for use with AWS Cloud services and on-premises resources. It is built to scale on-demand to petabytes without disrupting applications, growing and shrinking automatically as you add and remove files, eliminating the need to provision and manage capacity to accommodate growth.</li>
 <li>The service is designed to be highly scalable, highly available, and highly durable. Amazon EFS file systems store data and metadata across multiple Availability Zones (AZ) in an AWS Region. EFS file system can be mounted on instances across multiple Availability Zones (AZ).</li>
 </ul>
+<h3 id="Amazon-DynamoDB"><a href="#Amazon-DynamoDB" class="headerlink" title="Amazon DynamoDB"></a>Amazon DynamoDB</h3><ul>
+<li>Amazon DynamoDB is a key-value and document database that delivers sub-millisecond performance at any scale. Amazon DynamoDB enables customers to offload the administrative burdens of operating and scaling distributed databases to AWS so that they don’t have to worry about hardware provisioning, setup and configuration, throughput capacity planning, replication, software patching, or cluster scaling.</li>
+<li>You can use Amazon DynamoDB to store recommendation results with the LEAST operational overhead for any scale.</li>
+</ul>
 <h3 id="Amazon-DynamoDB-with-global-tables"><a href="#Amazon-DynamoDB-with-global-tables" class="headerlink" title="Amazon DynamoDB with global tables"></a>Amazon DynamoDB with global tables</h3><ul>
 <li>Amazon DynamoDB is a fully managed, serverless, key-value NoSQL database designed to run high-performance applications at any scale. DynamoDB offers built-in security, continuous backups, automated multi-region replication, in-memory caching, and data export tools.</li>
 <li>DynamoDB global tables replicate data automatically across your choice of AWS Regions and automatically scale capacity to accommodate your workloads. With global tables, your globally distributed applications can access data locally in the selected regions to get single-digit millisecond read and write performance. DynamoDB offers active-active cross-region support that is needed for the company.</li>
 </ul>
 <h3 id="Amazon-DynamoDB-with-DynamoDB-Accelerator"><a href="#Amazon-DynamoDB-with-DynamoDB-Accelerator" class="headerlink" title="Amazon DynamoDB with DynamoDB Accelerator"></a>Amazon DynamoDB with DynamoDB Accelerator</h3><ul>
 <li>DynamoDB Accelerator (DAX) is an in-memory cache that delivers fast read performance for your tables at scale by enabling you to use a fully managed in-memory cache. Using DAX, you can improve the read performance of your DynamoDB tables by up to 10 times—taking the time required for reads from milliseconds to microseconds, even at millions of requests per second</li>
+</ul>
+<h3 id="Amazon-Neptune"><a href="#Amazon-Neptune" class="headerlink" title="Amazon Neptune"></a>Amazon Neptune</h3><ul>
+<li>Amazon Neptune is a fully managed database service built for the cloud that makes it easier to build and run graph applications</li>
 </ul>
 <h3 id="Amazon-Aurora-with-multi-master-clusters"><a href="#Amazon-Aurora-with-multi-master-clusters" class="headerlink" title="Amazon Aurora with multi-master clusters"></a>Amazon Aurora with multi-master clusters</h3><ul>
 <li>Amazon Aurora (Aurora) is a fully managed relational database engine that’s compatible with MySQL and PostgreSQL. With some workloads, Aurora can deliver up to five times the throughput of MySQL and up to three times the throughput of PostgreSQL without requiring changes to most of your existing applications. In a multi-master cluster, all DB instances have read&#x2F;write capability.</li>
@@ -473,6 +511,12 @@
 </ul>
 <h3 id="RDS-Read-replicas"><a href="#RDS-Read-replicas" class="headerlink" title="RDS - Read replicas"></a>RDS - Read replicas</h3><ul>
 <li>For RDS, Read replicas allow you to create read-only copies that are synchronized with your master database. There is no standby available while using read replicas</li>
+</ul>
+<h3 id="Amazon-Elastic-Container-Service-Amazon-ECS-Fargate-launch-type"><a href="#Amazon-Elastic-Container-Service-Amazon-ECS-Fargate-launch-type" class="headerlink" title="Amazon Elastic Container Service (Amazon ECS) - Fargate launch type"></a>Amazon Elastic Container Service (Amazon ECS) - Fargate launch type</h3><ul>
+<li>AWS Fargate is a serverless compute engine for containers. It works with both Amazon Elastic Container Service (Amazon ECS) and Amazon Elastic Kubernetes Service (Amazon EKS). AWS Fargate makes it easy for you to focus on building your applications. AWS Fargate removes the need to provision and manage servers, lets you specify and pay for resources per application, and improves security through application isolation by design. AWS Fargate allocates the right amount of compute, eliminating the need to choose instances and scale cluster capacity. You only pay for the resources required to run your containers, so there is no over-provisioning and paying for additional servers. AWS Fargate runs each task or pod in its kernel providing the tasks and pods their own isolated compute environment. This enables your application to have workload isolation and improved security by design.</li>
+</ul>
+<h3 id="Root-User-Account"><a href="#Root-User-Account" class="headerlink" title="Root User Account"></a>Root User Account</h3><ul>
+<li>The Email address and the password used for signing up for AWS services are the AWS root user account credentials. Root user account, therefore, has full permissions on all AWS resources under that account. Restricting root user account access is not possible. As a best practice, Multi-Factor Authentication (MFA) should be set on the root user account. The root user account password can be changed after account creation. For all employees performing various administrative jobs, create individual user accounts using AWS IAM, and give administrative permissions as needed.</li>
 </ul>
 <h3 id="Three-fundamental-drivers-of-cost-with-AWS"><a href="#Three-fundamental-drivers-of-cost-with-AWS" class="headerlink" title="Three fundamental drivers of cost with AWS"></a>Three fundamental drivers of cost with AWS</h3><ul>
 <li>compute, storage, and outbound data transfer. In most cases, there is no charge for inbound data transfer or data transfer between other AWS services within the same region. Outbound data transfer is aggregated across services and then charged at the outbound data transfer rate. Per AWS pricing, data transfer between S3 and EC2 instances within the same region is not charged,</li>
@@ -501,6 +545,7 @@
 </ul>
 <h3 id="Security-group"><a href="#Security-group" class="headerlink" title="Security group"></a>Security group</h3><ul>
 <li>A security group acts as a virtual firewall for your instance to control inbound and outbound traffic. Security groups act at the instance level, not at the subnet level. You can specify allow rules, but not deny rules. You can specify separate rules for inbound and outbound traffic</li>
+<li>When you launch an instance in a VPC, you can assign up to five security groups to the instance. Security groups act at the instance level, not the subnet level. A network access control list (network ACL) is an optional layer of security for your VPC that acts as a firewall for controlling traffic in and out of one or more subnets (i.e. it works at subnet level).</li>
 </ul>
 <h3 id="Network-ACL"><a href="#Network-ACL" class="headerlink" title="Network ACL"></a>Network ACL</h3><ul>
 <li>A network access control list (network ACL) is an optional layer of security for your VPC that acts as a firewall for controlling traffic in and out of one or more subnets (i.e. it works at subnet level). A network ACL has separate inbound and outbound rules, and each rule can either allow or deny traffic.</li>
@@ -645,12 +690,12 @@
         "genre": "DATA_ENGINEER AWS",
         "datePublished": "2024-07-23",
         "dateCreated": "2024-07-23",
-        "dateModified": "2024-07-23",
+        "dateModified": "2024-07-25",
         "url": "https://kish191919.github.io/2024/07/23/AWS-Cloud-Practitione-1/",
         "description": "AWS Budgets :
 AWS Budgets gives you the ability to set custom budgets that alert you when your costs or usage exceed (or are forecasted to exceed) your budgeted amount.
 AWS Budgets gives the ability t",
-        "wordCount": 8611
+        "wordCount": 9855
     }
 </script>
 
