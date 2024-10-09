@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="Used_Car,MySql" />
     
-    <meta name="description" content="1. 우분투에 Mysql 설치하기 MySQL을 설치하려면 터미널 프롬프트에서 다음 명령을 실행  (1) 우분투 서버 업데이트 12sudo apt-get updatesudo apt upgrade  (2) Mmysql-server와 mysql-client를 apt로 설치 1234sudo apt install mysql-server mysql-client# pi">
+    <meta name="description" content="1. 우분투에 Mysql 설치하기 MySQL을 설치하려면 터미널 프롬프트에서 다음 명령을 실행  (1) 우분투 서버 업데이트 12sudo apt-get updatesudo apt upgrade  (2) Mmysql-server와 mysql-client를 apt로 설치 12345sudo apt install mysql-server mysql-client# p">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Predicting Used Car Prices in VA 2">
 <meta property="og:url" content="https://kish191919.github.io/2024/02/01/Predicting-Used-Car-Prices-in-VA-2/index.html">
 <meta property="og:site_name" content="Danny Sweet Home">
-<meta property="og:description" content="1. 우분투에 Mysql 설치하기 MySQL을 설치하려면 터미널 프롬프트에서 다음 명령을 실행  (1) 우분투 서버 업데이트 12sudo apt-get updatesudo apt upgrade  (2) Mmysql-server와 mysql-client를 apt로 설치 1234sudo apt install mysql-server mysql-client# pi">
+<meta property="og:description" content="1. 우분투에 Mysql 설치하기 MySQL을 설치하려면 터미널 프롬프트에서 다음 명령을 실행  (1) 우분투 서버 업데이트 12sudo apt-get updatesudo apt upgrade  (2) Mmysql-server와 mysql-client를 apt로 설치 12345sudo apt install mysql-server mysql-client# p">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://github.com/kish191919/Python_Project/assets/26552500/accecd8d-ed9d-49f3-a8dc-c35658ccc52f">
 <meta property="article:published_time" content="2024-02-01T22:44:19.000Z">
-<meta property="article:modified_time" content="2024-08-19T17:00:53.873Z">
+<meta property="article:modified_time" content="2024-10-09T21:22:00.723Z">
 <meta property="article:author" content="Danny">
 <meta property="article:tag" content="Used_Car">
 <meta property="article:tag" content="MySql">
@@ -183,7 +183,7 @@
 <div class="article-date">
   <i class="fa fa-calendar-plus-o"></i>
   <a href="/2024/02/01/Predicting-Used-Car-Prices-in-VA-2/" class="article-date">
-     <time datetime="2024-08-19T17:00:53.873Z" itemprop="dateModified">2024-08-19</time>
+     <time datetime="2024-10-09T21:22:00.723Z" itemprop="dateModified">2024-10-09</time>
   </a>
 </div>
 
@@ -217,10 +217,10 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
 
 <p>(2) Mmysql-server와 mysql-client를 apt로 설치</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install mysql-server mysql-client</span><br><span class="line"></span><br><span class="line"># </span><br><span class="line">pip install mysql-connector-python  # mysql.connector.errors.NotSupportedError: Authentication plugin 방지</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install mysql-server mysql-client</span><br><span class="line"></span><br><span class="line"># </span><br><span class="line">pip install mysql-connector-python  # mysql.connector.errors.NotSupportedError: Authentication plugin 방지</span><br><span class="line">conda install -c anaconda mysql-connector-python</span><br></pre></td></tr></table></figure>
 
 <p>(3) mysql 보안과 관련된 설정</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mysql_secure_installation # n n y n y</span><br><span class="line"></span><br><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mysql_secure_installation # n n y n y</span><br><span class="line"></span><br><span class="line">sudo mysql -u root -p</span><br></pre></td></tr></table></figure>
 
 <p>(4) Mysql 사용법</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># mysql 시작</span><br><span class="line">sudo systemctl start mysql</span><br><span class="line"></span><br><span class="line"># mysql 종료</span><br><span class="line">sudo systemctl stop mysql</span><br><span class="line"></span><br><span class="line"># mysql 재시작</span><br><span class="line">sudo systemctl restart mysql.service</span><br><span class="line"></span><br><span class="line"># mysql 상태확인</span><br><span class="line">sudo systemctl status mysql.service</span><br></pre></td></tr></table></figure>
@@ -232,7 +232,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># mysql 설정파일</span><br><span class="line">sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf</span><br><span class="line"></span><br><span class="line">bind-address = 0.0.0.0  # 수정</span><br></pre></td></tr></table></figure>
 
 <p>(7) 외부접속 허용하도록 mysql설정</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br><span class="line"></span><br><span class="line">mysql&gt; USE mysql;</span><br><span class="line">mysql&gt; SELECT User, Host, plugin FROM mysql.user;</span><br><span class="line">mysql&gt; ALTER USER &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;6868&#x27;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br><span class="line"></span><br><span class="line">mysql&gt; USE mysql;</span><br><span class="line">mysql&gt; SELECT User, Host, plugin FROM mysql.user;</span><br><span class="line">mysql&gt; ALTER USER &#x27;root&#x27;@&#x27;localhost&#x27; IDENTIFIED WITH mysql_native_password BY &#x27;6868&#x27;;</span><br><span class="line">mysql&gt; UPDATE mysql.user SET Host = &#x27;%&#x27; WHERE User = &#x27;root&#x27; AND Host = &#x27;localhost&#x27;;</span><br><span class="line">mysql&gt; SELECT User, Host, plugin FROM mysql.user;</span><br><span class="line">mysql&gt; FLUSH PRIVILEGES;</span><br><span class="line"></span><br><span class="line"># 재시작</span><br><span class="line">sudo systemctl restart mysql.service</span><br></pre></td></tr></table></figure>
 <p><img src="https://github.com/kish191919/Python_Project/assets/26552500/accecd8d-ed9d-49f3-a8dc-c35658ccc52f" alt="image"></p>
 <p>(8) AWS port를 3306을 오픈한 이후 접속확인</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -h ec2-54-210-208-150.compute-1.amazonaws.com -p</span><br></pre></td></tr></table></figure>
@@ -285,7 +285,7 @@
 
 
 
-    <a data-url="https://kish191919.github.io/2024/02/01/Predicting-Used-Car-Prices-in-VA-2/" data-id="cm0fjtv2z0009k62lbq419bb8" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://kish191919.github.io/2024/02/01/Predicting-Used-Car-Prices-in-VA-2/" data-id="cm22dlexb0009go2lfglp7xcr" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -361,7 +361,7 @@
         "genre": "PYTHON PROJECT",
         "datePublished": "2024-02-01",
         "dateCreated": "2024-02-01",
-        "dateModified": "2024-08-19",
+        "dateModified": "2024-10-09",
         "url": "https://kish191919.github.io/2024/02/01/Predicting-Used-Car-Prices-in-VA-2/",
         "description": "1. 우분투에 Mysql 설치하기
 MySQL을 설치하려면 터미널 프롬프트에서 다음 명령을 실행
@@ -370,8 +370,8 @@ MySQL을 설치하려면 터미널 프롬프트에서 다음 명령을 실행
 12sudo apt-get updatesudo apt upgrade
 
 (2) Mmysql-server와 mysql-client를 apt로 설치
-1234sudo apt install mysql-server mysql-client# pi",
-        "wordCount": 608
+12345sudo apt install mysql-server mysql-client# p",
+        "wordCount": 651
     }
 </script>
 
