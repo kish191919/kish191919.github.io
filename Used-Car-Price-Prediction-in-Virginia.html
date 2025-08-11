@@ -1,0 +1,299 @@
+<!DOCTYPE html><html lang="[&quot;en&quot;,&quot;ko&quot;,&quot;default&quot;]" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Used-Car-Price-Prediction-in-Virginia | Danny's Blog</title><meta name="author" content="Danny Ki"><meta name="copyright" content="Danny Ki"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="This project demonstrates an end-to-end machine learning pipeline to predict used car prices in Virginia using structured tabular data, regression models, and advanced feature engineering.  📓 Jupyter">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Used-Car-Price-Prediction-in-Virginia">
+<meta property="og:url" content="https://kish191919.github.io/Used-Car-Price-Prediction-in-Virginia.html">
+<meta property="og:site_name" content="Danny&#39;s Blog">
+<meta property="og:description" content="This project demonstrates an end-to-end machine learning pipeline to predict used car prices in Virginia using structured tabular data, regression models, and advanced feature engineering.  📓 Jupyter">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kish191919.github.io/img/my_pic.jpeg">
+<meta property="article:published_time" content="2025-07-24T23:31:06.000Z">
+<meta property="article:modified_time" content="2025-07-25T16:56:01.858Z">
+<meta property="article:author" content="Danny Ki">
+<meta property="article:tag" content="Machine Learning">
+<meta property="article:tag" content="XGBoost">
+<meta property="article:tag" content="Regression">
+<meta property="article:tag" content="Data Science">
+<meta property="article:tag" content="EDA">
+<meta property="article:tag" content="MLOps">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kish191919.github.io/img/my_pic.jpeg"><script type="application/ld+json"></script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kish191919.github.io/Used-Car-Price-Prediction-in-Virginia.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=GTM-N66KNRNW"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'GTM-N66KNRNW')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'GTM-N66KNRNW', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Used-Car-Price-Prediction-in-Virginia',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'page'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">0</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/study/"><i class="fa-fw fas fa-book"></i><span> Study</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-code"></i><span> Dev</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/dev/ai/"><i class="fa-fw fas fa-robot"></i><span> AI</span></a></li><li><a class="site-page child" href="/dev/data-engineer/"><i class="fa-fw fas fa-database"></i><span> Data Engineer</span></a></li><li><a class="site-page child" href="/dev/algorithm/"><i class="fa-fw fas fa-project-diagram"></i><span> Algorithm</span></a></li><li><a class="site-page child" href="/dev/coding-quiz/"><i class="fa-fw fas fa-question"></i><span> Coding Quiz</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Danny's Blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/study/"><i class="fa-fw fas fa-book"></i><span> Study</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-code"></i><span> Dev</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/dev/ai/"><i class="fa-fw fas fa-robot"></i><span> AI</span></a></li><li><a class="site-page child" href="/dev/data-engineer/"><i class="fa-fw fas fa-database"></i><span> Data Engineer</span></a></li><li><a class="site-page child" href="/dev/algorithm/"><i class="fa-fw fas fa-project-diagram"></i><span> Algorithm</span></a></li><li><a class="site-page child" href="/dev/coding-quiz/"><i class="fa-fw fas fa-question"></i><span> Coding Quiz</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">Used-Car-Price-Prediction-in-Virginia</h1></div></header><main class="layout" id="content-inner"><div id="page"><div class="container" id="article-container"><p>This project demonstrates an end-to-end machine learning pipeline to predict used car prices in Virginia using structured tabular data, regression models, and advanced feature engineering.</p>
+<blockquote>
+<p>📓 <strong>Jupyter Notebook View</strong><br>👉 <a target="_blank" rel="noopener" href="https://nbviewer.org/github/yesmanki81/Portfolio_Projects/blob/master/Predict_Used_Car_Price_by_Python/Data_analysis_and_machine_learning_model.ipynb">Click here to view the full notebook on GitHub</a></p>
+</blockquote>
+<hr>
+<h1 id="📊-Project-Overview"><a href="#📊-Project-Overview" class="headerlink" title="📊 Project Overview"></a>📊 Project Overview</h1><p>Using a real-world dataset containing <strong>over 46,000 used car listings</strong>, the system is built on an AWS EC2 instance with the following key components:</p>
+<h3 id="🔹-Data-Collection-Ingestion"><a href="#🔹-Data-Collection-Ingestion" class="headerlink" title="🔹 Data Collection &amp; Ingestion"></a>🔹 Data Collection &amp; Ingestion</h3><ul>
+<li>Data was crawled and stored in an AWS-hosted <strong>MySQL database</strong></li>
+<li>Loaded via <strong>Python</strong> and served using <strong>Flask</strong></li>
+</ul>
+<h3 id="🔹-Feature-Engineering-Preprocessing"><a href="#🔹-Feature-Engineering-Preprocessing" class="headerlink" title="🔹 Feature Engineering &amp; Preprocessing"></a>🔹 Feature Engineering &amp; Preprocessing</h3><ul>
+<li>Structured features: <code>mileage</code>, <code>model</code>, <code>year</code>, <code>transmission</code>, <code>fuel type</code>, etc.</li>
+<li>Handled missing data, transformed categorical variables, and removed outliers using IQR</li>
+<li>Applied log transformation and normalization for skewed features</li>
+</ul>
+<h3 id="🔹-Exploratory-Data-Analysis-EDA"><a href="#🔹-Exploratory-Data-Analysis-EDA" class="headerlink" title="🔹 Exploratory Data Analysis (EDA)"></a>🔹 Exploratory Data Analysis (EDA)</h3><ul>
+<li>Visualized distributions, outliers, and correlations using Seaborn &amp; Matplotlib</li>
+<li>Performed correlation analysis and VIF calculation to reduce redundancy</li>
+<li>Found that year and mileage are most correlated with price</li>
+</ul>
+<hr>
+<h1 id="🧠-Model-Development-Evaluation"><a href="#🧠-Model-Development-Evaluation" class="headerlink" title="🧠 Model Development &amp; Evaluation"></a>🧠 Model Development &amp; Evaluation</h1><p>A variety of regression models were trained and evaluated:</p>
+<ul>
+<li><strong>Linear Regression</strong></li>
+<li><strong>Decision Tree</strong></li>
+<li><strong>Random Forest</strong></li>
+<li><strong>Support Vector Regression (SVR)</strong></li>
+<li><strong>XGBoost Regressor</strong></li>
+</ul>
+<h3 id="📈-Evaluation-Metrics"><a href="#📈-Evaluation-Metrics" class="headerlink" title="📈 Evaluation Metrics"></a>📈 Evaluation Metrics</h3><ul>
+<li>Mean Absolute Error (MAE)</li>
+<li>Root Mean Squared Error (RMSE)</li>
+<li>R² Score (coefficient of determination)</li>
+</ul>
+<p>✅ <strong>XGBoost Regressor</strong> outperformed all models with:</p>
+<ul>
+<li><strong>R² ≈ 0.84</strong></li>
+<li><strong>RMSE ≈ 6950</strong></li>
+</ul>
+<h3 id="🧪-Key-Learnings"><a href="#🧪-Key-Learnings" class="headerlink" title="🧪 Key Learnings"></a>🧪 Key Learnings</h3><ul>
+<li>Normalization and log transformation improved model performance</li>
+<li>GridSearchCV significantly optimized tree-based model results</li>
+<li>Tree models handle high-dimensional categorical variables better</li>
+</ul>
+<hr>
+<h2 id="📌-Results-Summary"><a href="#📌-Results-Summary" class="headerlink" title="📌 Results Summary"></a>📌 Results Summary</h2><table>
+<thead>
+<tr>
+<th>Model</th>
+<th>R² Score</th>
+<th>RMSE</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Linear Regression</td>
+<td>0.58</td>
+<td>14085</td>
+</tr>
+<tr>
+<td>Decision Tree</td>
+<td>0.71</td>
+<td>9800</td>
+</tr>
+<tr>
+<td>Random Forest</td>
+<td>0.84</td>
+<td>7021</td>
+</tr>
+<tr>
+<td>Support Vector Reg.</td>
+<td>0.60</td>
+<td>10000</td>
+</tr>
+<tr>
+<td><strong>XGBoost</strong></td>
+<td><strong>0.84</strong></td>
+<td><strong>6950</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="🔍-Feature-Importance-Real-World-Prediction"><a href="#🔍-Feature-Importance-Real-World-Prediction" class="headerlink" title="🔍 Feature Importance &amp; Real-World Prediction"></a>🔍 Feature Importance &amp; Real-World Prediction</h1><ul>
+<li>Used XGBoost feature importance to select top features (<code>Year</code>, <code>Mileage</code>, <code>Drivetrain</code>, <code>Engine</code>, etc.)</li>
+<li>Removed low-impact features like color and model name from final model</li>
+<li>Conducted real-world test: Predicted price for <strong>2016 Honda Odyssey</strong>: <code>$18,738</code> → matched expectations from dataset comparison</li>
+</ul>
+<hr>
+<h1 id="🚀-Deployment"><a href="#🚀-Deployment" class="headerlink" title="🚀 Deployment"></a>🚀 Deployment</h1><ul>
+<li>Final XGBoost model was <strong>serialized using Pickle</strong></li>
+<li>Served via a lightweight <strong>Flask API</strong> for real-time inference</li>
+<li>A simplified version using only 4 features: <strong>Year, Mileage, Brand, Model</strong> was also created for web app integration</li>
+</ul>
+<hr>
+<h1 id="🧩-Technologies-Used"><a href="#🧩-Technologies-Used" class="headerlink" title="🧩 Technologies Used"></a>🧩 Technologies Used</h1><table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Tech</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Data Source</td>
+<td>AWS MySQL</td>
+</tr>
+<tr>
+<td>Backend</td>
+<td>Python, Flask</td>
+</tr>
+<tr>
+<td>Modeling</td>
+<td>scikit-learn, XGBoost</td>
+</tr>
+<tr>
+<td>Deployment</td>
+<td>Pickle, REST API</td>
+</tr>
+<tr>
+<td>Platform</td>
+<td>AWS EC2 (Ubuntu 22.04)</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="💡-Takeaways"><a href="#💡-Takeaways" class="headerlink" title="💡 Takeaways"></a>💡 Takeaways</h1><ul>
+<li>Log transformation significantly improves skewed regression targets</li>
+<li>Tree-based models like RandomForest and XGBoost are robust with mixed data types</li>
+<li>Feature importance enables smart dimensionality reduction</li>
+<li>Even with limited features, real-time price estimation is possible and accurate</li>
+</ul>
+<hr>
+<h1 id="🌐-Web-App-Ready"><a href="#🌐-Web-App-Ready" class="headerlink" title="🌐 Web App Ready"></a>🌐 Web App Ready</h1><ul>
+<li>A lightweight model (trained with only 4 fields) powers the prediction backend</li>
+<li>Efficient enough for integration into Flask or Streamlit apps for public use</li>
+</ul>
+<p align="center">
+  <img src="/images/portfolio/project1_1.png" alt="Web App" width="60%">
+</p>
+
+<hr>
+<p>📎 Full Notebook: <a target="_blank" rel="noopener" href="https://nbviewer.org/github/yesmanki81/Portfolio_Projects/blob/master/Predict_Used_Car_Price_by_Python/Data_analysis_and_machine_learning_model.ipynb">GitHub nbviewer Link</a></p>
+<p>📬 For questions or collaboration inquiries, feel free to reach out!</p>
+</div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Danny Ki</div><div class="author-info-description">A data engineer's journey in coding, analytics, and building real-world systems.</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">0</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kish191919"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/kish191919" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"></div></div><div class="card-widget card-archives"></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Website Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article Count :</div><div class="item-count">0</div></div><div class="webinfo-item"><div class="item-name">Unique Visitors :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Page Views :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-08-11T20:14:21.087Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By Danny Ki</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
