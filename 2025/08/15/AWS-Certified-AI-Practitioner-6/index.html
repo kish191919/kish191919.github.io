@@ -1,0 +1,369 @@
+<!DOCTYPE html><html lang="[&quot;en&quot;,&quot;ko&quot;,&quot;default&quot;]" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>AWS-Certified-AI-Practitioner(6) | Danny's Blog</title><meta name="author" content="Danny Ki"><meta name="copyright" content="Danny Ki"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="📚 Amazon Bedrock – RAG &amp; Knowledge Base1. 🔍 What is RAG?RAG (Retrieval-Augmented Generation) &#x3D;    Retrieve information from an external data source → Augment the prompt → Generate a more ac">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AWS-Certified-AI-Practitioner(6)">
+<meta property="og:url" content="https://kish191919.github.io/2025/08/15/AWS-Certified-AI-Practitioner-6/index.html">
+<meta property="og:site_name" content="Danny&#39;s Blog">
+<meta property="og:description" content="📚 Amazon Bedrock – RAG &amp; Knowledge Base1. 🔍 What is RAG?RAG (Retrieval-Augmented Generation) &#x3D;    Retrieve information from an external data source → Augment the prompt → Generate a more ac">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kish191919.github.io/img/my_pic.jpeg">
+<meta property="article:published_time" content="2025-08-15T20:21:28.000Z">
+<meta property="article:modified_time" content="2025-08-15T21:07:12.986Z">
+<meta property="article:author" content="Danny Ki">
+<meta property="article:tag" content="AWS">
+<meta property="article:tag" content="Certification">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kish191919.github.io/img/my_pic.jpeg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AWS-Certified-AI-Practitioner(6)",
+  "url": "https://kish191919.github.io/2025/08/15/AWS-Certified-AI-Practitioner-6/",
+  "image": "https://kish191919.github.io/img/my_pic.jpeg",
+  "datePublished": "2025-08-15T20:21:28.000Z",
+  "dateModified": "2025-08-15T21:07:12.986Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Danny Ki",
+      "url": "https://kish191919.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kish191919.github.io/2025/08/15/AWS-Certified-AI-Practitioner-6/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="UfZT9jGVnwcVj8z_sCj9LyqnWho6ubHg1Q7o_bvXfKs"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=GTM-N66KNRNW"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'GTM-N66KNRNW')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'GTM-N66KNRNW', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'AWS-Certified-AI-Practitioner(6)',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://kish191919.github.io/",
+  "name": "Danny's Blog",
+  "inLanguage": "en"
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Danny's Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-code"></i><span> Dev</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/dev/ai/"><i class="fa-fw fas fa-robot"></i><span> AI</span></a></li><li><a class="site-page child" href="/dev/data-engineer/"><i class="fa-fw fas fa-database"></i><span> Data Engineer</span></a></li><li><a class="site-page child" href="/dev/algorithm/"><i class="fa-fw fas fa-project-diagram"></i><span> Algorithm</span></a></li><li><a class="site-page child" href="/dev/coding-quiz/"><i class="fa-fw fas fa-question"></i><span> Coding Quiz</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Danny's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">AWS-Certified-AI-Practitioner(6)</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-code"></i><span> Dev</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/dev/ai/"><i class="fa-fw fas fa-robot"></i><span> AI</span></a></li><li><a class="site-page child" href="/dev/data-engineer/"><i class="fa-fw fas fa-database"></i><span> Data Engineer</span></a></li><li><a class="site-page child" href="/dev/algorithm/"><i class="fa-fw fas fa-project-diagram"></i><span> Algorithm</span></a></li><li><a class="site-page child" href="/dev/coding-quiz/"><i class="fa-fw fas fa-question"></i><span> Coding Quiz</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">AWS-Certified-AI-Practitioner(6)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-08-15T20:21:28.000Z" title="Created 2025-08-15 16:21:28">2025-08-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-08-15T21:07:12.986Z" title="Updated 2025-08-15 17:07:12">2025-08-15</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Dev/">Dev</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Dev/AI/">AI</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="📚-Amazon-Bedrock-–-RAG-Knowledge-Base"><a href="#📚-Amazon-Bedrock-–-RAG-Knowledge-Base" class="headerlink" title="📚 Amazon Bedrock – RAG &amp; Knowledge Base"></a>📚 Amazon Bedrock – RAG &amp; Knowledge Base</h1><h2 id="1-🔍-What-is-RAG"><a href="#1-🔍-What-is-RAG" class="headerlink" title="1. 🔍 What is RAG?"></a>1. 🔍 What is RAG?</h2><p><strong>RAG (Retrieval-Augmented Generation)</strong> &#x3D;  </p>
+<blockquote>
+<p><strong>Retrieve</strong> information from an external data source → <strong>Augment</strong> the prompt → <strong>Generate</strong> a more accurate answer.</p>
+</blockquote>
+<ul>
+<li><strong>Retrieval</strong>: Searches for latest or domain-specific data outside the model’s training set.</li>
+<li><strong>Augmented Generation</strong>: Combines retrieved data with the original query before sending it to the model.</li>
+<li><strong>No Fine-tuning Required</strong>: Can inject up-to-date information without retraining the model.</li>
+</ul>
+<hr>
+<h2 id="2-🏗-How-It-Works-Step-by-Step"><a href="#2-🏗-How-It-Works-Step-by-Step" class="headerlink" title="2. 🏗 How It Works (Step-by-Step)"></a>2. 🏗 How It Works (Step-by-Step)</h2><ol>
+<li><strong>Data Storage</strong><ul>
+<li>Store documents in Amazon S3, Confluence, SharePoint, Salesforce, webpages, etc.</li>
+</ul>
+</li>
+<li><strong>Vector Embedding Creation</strong><ul>
+<li>Bedrock automatically chunks data into smaller parts.</li>
+<li>Uses embedding models like Amazon Titan or Cohere to convert text into vectors.</li>
+</ul>
+</li>
+<li><strong>Vector Database Storage</strong><ul>
+<li>Stores embeddings in a vector database (e.g., OpenSearch, Aurora, Neptune, S3 Vectors).</li>
+</ul>
+</li>
+<li><strong>Query Processing</strong><ul>
+<li>User enters a question → RAG searches for semantically similar vectors in the DB.</li>
+</ul>
+</li>
+<li><strong>Prompt Augmentation</strong><ul>
+<li>Search results are combined with the original query → <strong>Augmented Prompt</strong>.</li>
+</ul>
+</li>
+<li><strong>Answer Generation</strong><ul>
+<li>A Foundation Model (Claude, Titan Text, Llama, etc.) generates a final answer with citations.</li>
+</ul>
+</li>
+</ol>
+  <p align="center">
+  <img src="/images/aws_basic_27.png" width="100%">
+  </p>
+
+<hr>
+<h2 id="3-🛠-Key-Components"><a href="#3-🛠-Key-Components" class="headerlink" title="3. 🛠 Key Components"></a>3. 🛠 Key Components</h2><table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Description</th>
+<th>AWS &#x2F; External Options</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Data Source</strong></td>
+<td>Location where source data is stored</td>
+<td>Amazon S3, Confluence, SharePoint, Salesforce, webpages</td>
+</tr>
+<tr>
+<td><strong>Embedding Model</strong></td>
+<td>Converts text into vector embeddings</td>
+<td>Amazon Titan, Cohere</td>
+</tr>
+<tr>
+<td><strong>Vector Database</strong></td>
+<td>Stores and retrieves vector data</td>
+<td><strong>AWS:</strong> OpenSearch, Aurora, Neptune Analytics, S3 Vectors<br><strong>External:</strong> MongoDB, Redis, Pinecone</td>
+</tr>
+<tr>
+<td><strong>Foundation Model</strong></td>
+<td>Generates the final answer</td>
+<td>Claude, Titan Text, Llama, etc.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="4-📊-AWS-Vector-Database-Comparison-Exam-Focused"><a href="#4-📊-AWS-Vector-Database-Comparison-Exam-Focused" class="headerlink" title="4. 📊 AWS Vector Database Comparison (Exam-Focused)"></a>4. 📊 AWS Vector Database Comparison (Exam-Focused)</h2><table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Key Features</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Amazon OpenSearch Service</strong></td>
+<td>Real-time search, KNN, serverless&#x2F;managed modes</td>
+<td>Large-scale real-time search &amp; analytics</td>
+</tr>
+<tr>
+<td><strong>Aurora PostgreSQL</strong></td>
+<td>Relational DB with vector search</td>
+<td>Integrating RAG into RDBMS systems</td>
+</tr>
+<tr>
+<td><strong>Neptune Analytics</strong></td>
+<td>Graph-based RAG (GraphRAG)</td>
+<td>Relationship-focused or graph analytics</td>
+</tr>
+<tr>
+<td><strong>S3 Vectors</strong></td>
+<td>Low cost, high durability, sub-second queries</td>
+<td>Cost-effective, long-term storage</td>
+</tr>
+</tbody></table>
+  <p align="center">
+  <img src="/images/aws_basic_28.png" width="100%">
+  </p>
+
+<hr>
+<h2 id="5-📈-Data-Flow-Example"><a href="#5-📈-Data-Flow-Example" class="headerlink" title="5. 📈 Data Flow Example"></a>5. 📈 Data Flow Example</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    A[📂 Data Source&lt;br/&gt;Amazon S3 / Confluence / SharePoint / Salesforce / Webpages]</span><br><span class="line">    B[🔹 Chunking &amp; Embedding Creation&lt;br/&gt;Split docs + Generate vector embeddings&lt;br/&gt;(Amazon Titan, Cohere)]</span><br><span class="line">    C[🗄 Vector Database Storage&lt;br/&gt;OpenSearch / Aurora / Neptune / S3 Vectors]</span><br><span class="line">    D[🔍 Similarity Search&lt;br/&gt;Convert query to vector &amp; run KNN search]</span><br><span class="line">    E[📑 Relevant Documents Retrieved]</span><br><span class="line">    F[📝 Augmented Prompt Creation&lt;br/&gt;Merge query + retrieved content]</span><br><span class="line">    G[🤖 Foundation Model Generates Answer&lt;br/&gt;Context-aware response with citations]</span><br><span class="line"></span><br><span class="line">    A --&gt; B --&gt; C --&gt; D --&gt; E --&gt; F --&gt; G</span><br></pre></td></tr></table></figure>
+
+<h2 id="📌-Why-KNN-Search-Appears-in-the-RAG-Data-Flow"><a href="#📌-Why-KNN-Search-Appears-in-the-RAG-Data-Flow" class="headerlink" title="📌 Why KNN Search Appears in the RAG Data Flow"></a>📌 Why KNN Search Appears in the RAG Data Flow</h2><p>In Amazon Bedrock’s RAG workflow, <strong>KNN (k-Nearest Neighbors) search</strong> is used because it is the core method for retrieving the most relevant documents from a vector database.</p>
+<h3 id="1-Vector-Embeddings"><a href="#1-Vector-Embeddings" class="headerlink" title="1) Vector Embeddings"></a>1) Vector Embeddings</h3><ul>
+<li>Documents and queries are converted into <strong>vector embeddings</strong> (arrays of numbers) using an embedding model such as <strong>Amazon Titan</strong> or <strong>Cohere</strong>.</li>
+<li>Each vector represents the semantic meaning of the text.</li>
+</ul>
+<h3 id="2-Similarity-Comparison"><a href="#2-Similarity-Comparison" class="headerlink" title="2) Similarity Comparison"></a>2) Similarity Comparison</h3><ul>
+<li>To find the most relevant document for a query, the system compares the <strong>query vector</strong> with <strong>document vectors</strong> stored in the database.</li>
+<li><strong>Distance metrics</strong> (e.g., Cosine Similarity, Euclidean Distance) measure how close two vectors are in the vector space.</li>
+</ul>
+<h3 id="3-KNN-Search"><a href="#3-KNN-Search" class="headerlink" title="3) KNN Search"></a>3) KNN Search</h3><ul>
+<li><strong>KNN (k-Nearest Neighbors)</strong> search retrieves the top <strong>k</strong> most similar vectors to the query vector.</li>
+<li>“Nearest” means smallest distance (highest similarity score).</li>
+<li>This step ensures the retrieved documents are the most contextually relevant to the user’s question.</li>
+</ul>
+<h3 id="4-AWS-External-Database-Support"><a href="#4-AWS-External-Database-Support" class="headerlink" title="4) AWS &amp; External Database Support"></a>4) AWS &amp; External Database Support</h3><ul>
+<li><strong>AWS Native</strong>: Amazon OpenSearch Service (supports Approximate k-NN), Aurora PostgreSQL (with pgvector), Neptune Analytics, S3 Vectors.</li>
+<li><strong>External</strong>: Pinecone, MongoDB with Atlas Vector Search, Redis with Vector capabilities.</li>
+</ul>
+<h3 id="5-Exam-Tip"><a href="#5-Exam-Tip" class="headerlink" title="5) Exam Tip"></a>5) Exam Tip</h3><ul>
+<li>In AWS exam contexts, if you see “vector similarity search” or “semantic search” mentioned, it usually refers to <strong>k-NN search</strong>.</li>
+<li>OpenSearch Service’s <strong>Approximate k-NN</strong> is often the recommended choice for large-scale, real-time semantic search in RAG architectures.</li>
+</ul>
+<p><strong>Summary</strong>:<br>KNN search is in the RAG workflow because it’s the standard method for <strong>finding the most semantically relevant documents</strong> from a vector database before augmenting the prompt for the foundation model.</p>
+<hr>
+<h2 id="6-💡-Common-Use-Cases"><a href="#6-💡-Common-Use-Cases" class="headerlink" title="6. 💡 Common Use Cases"></a>6. 💡 Common Use Cases</h2><ol>
+<li><strong>Customer Service Chatbot</strong><ul>
+<li>KB: Product manuals, FAQs, troubleshooting guides</li>
+<li>Retrieves and answers product-related queries</li>
+</ul>
+</li>
+<li><strong>Legal Research</strong><ul>
+<li>KB: Laws, case precedents, regulations</li>
+<li>Answers legal questions with precise citations</li>
+</ul>
+</li>
+<li><strong>Healthcare Q&amp;A</strong><ul>
+<li>KB: Diseases, treatments, research papers</li>
+<li>Provides medical information based on trusted documents</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="7-🧪-Hands-On-Example-–-Chat-with-Your-Document"><a href="#7-🧪-Hands-On-Example-–-Chat-with-Your-Document" class="headerlink" title="7. 🧪 Hands-On Example – Chat with Your Document"></a>7. 🧪 Hands-On Example – Chat with Your Document</h2><ul>
+<li><p><strong>Goal</strong>: Build a Q&amp;A system based on uploaded documents</p>
+</li>
+<li><p><strong>Steps</strong></p>
+<ol>
+<li>Navigate to <strong>Builder Tools → Knowledge Bases</strong></li>
+<li>Select <strong>Chat with your document</strong></li>
+<li>Upload a document</li>
+<li>Ask a question:  <ul>
+<li><em>Example:</em> “Who invented the World Wide Web?”</li>
+</ul>
+</li>
+<li>The model searches the document, finds relevant chunks, and generates a response with citations</li>
+</ol>
+</li>
+<li><p><strong>Error Handling</strong>: If the document doesn’t contain relevant info, the model should respond with “I cannot find the answer in the provided data.”</p>
+<p align="center">
+<img src="/images/aws_basic_29.png" width="100%">
+</p>
+
+  <p align="center">
+<img src="/images/aws_basic_30.png" width="100%">
+</p></li>
+</ul>
+<hr>
+<h2 id="8-📌-Key-Points-for-the-Exam"><a href="#8-📌-Key-Points-for-the-Exam" class="headerlink" title="8. 📌 Key Points for the Exam"></a>8. 📌 Key Points for the Exam</h2><ul>
+<li><strong>Definition</strong>: RAG &#x3D; Retrieve external data + augment the prompt → better answers</li>
+<li><strong>Bedrock’s Role</strong>: Automates embedding creation, KB management, and FM connection</li>
+<li><strong>AWS Vector DB Options</strong>: OpenSearch, Aurora, Neptune, S3 Vectors</li>
+<li><strong>Data Sources</strong>: Amazon S3, Confluence, SharePoint, Salesforce, webpages</li>
+<li><strong>Use Cases</strong>: Chatbots, legal research, healthcare Q&amp;A</li>
+<li><strong>Practice Tip</strong>: Use “Chat with your document” to understand KB operations</li>
+</ul>
+<hr>
+<p>✅ <strong>Extra Exam Tip</strong>  </p>
+<ul>
+<li><strong>OpenSearch</strong> → large-scale search &amp; analytics  </li>
+<li><strong>Neptune</strong> → relationship&#x2F;graph-based data  </li>
+<li><strong>S3 Vectors</strong> → low cost &amp; durability  </li>
+<li>Bedrock allows <strong>real-time data integration without fine-tuning</strong></li>
+</ul>
+<hr>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://kish191919.github.io">Danny Ki</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://kish191919.github.io/2025/08/15/AWS-Certified-AI-Practitioner-6/">https://kish191919.github.io/2025/08/15/AWS-Certified-AI-Practitioner-6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/AWS/">AWS</a><a class="post-meta__tags" href="/tags/Certification/">Certification</a></div><div class="post-share"><div class="social-share" data-image="/img/my_pic.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/08/15/AWS-Certified-AI-Practitioner-7/" title="AWS Certified AI Practitioner(7)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">Previous</div><div class="info-item-2">AWS Certified AI Practitioner(7)</div></div><div class="info-2"><div class="info-item-1">📚 Amazon Bedrock – Setting up RAG &amp; Knowledge Base (Hands-on)This guide explains how to set up a Retrieval-Augmented Generation (RAG) pipeline and a Knowledge Base in Amazon Bedrock, using Amazon S3 for storage and Amazon OpenSearch Serverless as the vector database.  1. 🔍 Prerequisites IAM User (not root user) Administrator Access policy for the IAM user AWS services: Amazon Bedrock Amazon S3 Amazon OpenSearch Serverless (or external vector DB)   PDF or text document to upload (e.g., e...</div></div></div></a><a class="pagination-related" href="/2025/08/15/AWS-Certified-AI-Practitioner-5/" title="AWS Certified AI Practitioner(5)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">AWS Certified AI Practitioner(5)</div></div><div class="info-2"><div class="info-item-1">📊 Amazon Bedrock – Model Evaluation GuideEvaluating a Foundation Model (FM) is essential for quality control, business impact measurement, and bias detection. Amazon Bedrock offers multiple ways to evaluate models—both automatically and through human feedback—along with technical and business metrics.  1. 🔄 Automatic EvaluationAmazon Bedrock can automatically score a model’s performance on predefined tasks. Built-in Task Types  Text summarization Question answering Text classification Open-...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/08/14/AWS-Certified-AI-Practitioner-1/" title="AWS Certified AI Practitioner(1)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-14</div><div class="info-item-2">AWS Certified AI Practitioner(1)</div></div><div class="info-2"><div class="info-item-1">📚 IT &amp; AWS Basics Summary1. Basic IT Terms Network: A connection of cables, routers, and servers.   Router: A device that decides where to send data packets over the internet.   Switch: Sends a packet to the correct server or client within the network.         2. Five Key Characteristics of Cloud Computing On-demand self service – Instantly get resources without human help.   Broad network access – Access resources from different devices via the internet.   Multi-tenancy &amp; Resource p...</div></div></div></a><a class="pagination-related" href="/2025/08/14/AWS-Certified-AI-Practitioner-2/" title="AWS Certified AI Practitioner(2)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-14</div><div class="info-item-2">AWS Certified AI Practitioner(2)</div></div><div class="info-2"><div class="info-item-1">💰 AWS Cost and Budget Setup (Simplified)1. Access for IAM Users To let an IAM user view Billing and Cost Management,the administrator must enable:“IAM user and role access to Billing information”.       ---  2. Key Billing Tools Bills: Shows a detailed breakdown of usage and charges.   Free Tier: Displays remaining Free Tier usage on a dashboard.   Budgets: Sends email alerts if your spending exceeds the set budget.       </div></div></div></a><a class="pagination-related" href="/2025/08/14/AWS-Certified-AI-Practitioner-3/" title="AWS Certified AI Practitioner(3)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-14</div><div class="info-item-2">AWS Certified AI Practitioner(3)</div></div><div class="info-2"><div class="info-item-1">🧠 Generative AI &amp; Amazon Bedrock – Simple Summary1. What is Generative AI? Generative AI (Gen-AI): A type of deep learning that creates new data similar to what it learned. Can generate: Text Images Audio Code Video   Example: ChatGPT generating human-like text.   2. Foundation Models (FM) Large AI models trained on diverse datasets. Expensive to build (can cost tens of millions of dollars). Examples: OpenAI (GPT-4o) Meta (LLaMA) Google (BERT) Amazon (Titan) Anthropic (Claude)   Some are...</div></div></div></a><a class="pagination-related" href="/2025/08/14/AWS-Certified-AI-Practitioner-4/" title="AWS Certified AI Practitioner(4)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-14</div><div class="info-item-2">AWS Certified AI Practitioner(4)</div></div><div class="info-2"><div class="info-item-1">📚 Amazon Bedrock Fine-Tuning &amp; Model Selection 1. Different Providers &amp; Model Capabilities Providers: Anthropic, Amazon, DeepSeek, Stability AI, etc. Models vary in strengths: Claude 3.5 Haiku → Best for text tasks. Amazon Nova Reel → Text-to-video &#x2F; Image-to-video.   Exam Tip: You will not be tested on which is best, only on what each can or cannot do.   2. Comparing Models Compare Mode: Test models side-by-side in Bedrock playground. Compare by: ✅ Capabilities (text, image, vi...</div></div></div></a><a class="pagination-related" href="/2025/08/15/AWS-Certified-AI-Practitioner-5/" title="AWS Certified AI Practitioner(5)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-15</div><div class="info-item-2">AWS Certified AI Practitioner(5)</div></div><div class="info-2"><div class="info-item-1">📊 Amazon Bedrock – Model Evaluation GuideEvaluating a Foundation Model (FM) is essential for quality control, business impact measurement, and bias detection. Amazon Bedrock offers multiple ways to evaluate models—both automatically and through human feedback—along with technical and business metrics.  1. 🔄 Automatic EvaluationAmazon Bedrock can automatically score a model’s performance on predefined tasks. Built-in Task Types  Text summarization Question answering Text classification Open-...</div></div></div></a><a class="pagination-related" href="/2025/08/15/AWS-Certified-AI-Practitioner-7/" title="AWS Certified AI Practitioner(7)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-15</div><div class="info-item-2">AWS Certified AI Practitioner(7)</div></div><div class="info-2"><div class="info-item-1">📚 Amazon Bedrock – Setting up RAG &amp; Knowledge Base (Hands-on)This guide explains how to set up a Retrieval-Augmented Generation (RAG) pipeline and a Knowledge Base in Amazon Bedrock, using Amazon S3 for storage and Amazon OpenSearch Serverless as the vector database.  1. 🔍 Prerequisites IAM User (not root user) Administrator Access policy for the IAM user AWS services: Amazon Bedrock Amazon S3 Amazon OpenSearch Serverless (or external vector DB)   PDF or text document to upload (e.g., e...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Danny Ki</div><div class="author-info-description">A data engineer's journey in coding, analytics, and building real-world systems.</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kish191919"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/kish191919" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%F0%9F%93%9A-Amazon-Bedrock-%E2%80%93-RAG-Knowledge-Base"><span class="toc-number">1.</span> <span class="toc-text">📚 Amazon Bedrock – RAG &amp; Knowledge Base</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%F0%9F%94%8D-What-is-RAG"><span class="toc-number">1.1.</span> <span class="toc-text">1. 🔍 What is RAG?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%F0%9F%8F%97-How-It-Works-Step-by-Step"><span class="toc-number">1.2.</span> <span class="toc-text">2. 🏗 How It Works (Step-by-Step)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%F0%9F%9B%A0-Key-Components"><span class="toc-number">1.3.</span> <span class="toc-text">3. 🛠 Key Components</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%F0%9F%93%8A-AWS-Vector-Database-Comparison-Exam-Focused"><span class="toc-number">1.4.</span> <span class="toc-text">4. 📊 AWS Vector Database Comparison (Exam-Focused)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%F0%9F%93%88-Data-Flow-Example"><span class="toc-number">1.5.</span> <span class="toc-text">5. 📈 Data Flow Example</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%8C-Why-KNN-Search-Appears-in-the-RAG-Data-Flow"><span class="toc-number">1.6.</span> <span class="toc-text">📌 Why KNN Search Appears in the RAG Data Flow</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Vector-Embeddings"><span class="toc-number">1.6.1.</span> <span class="toc-text">1) Vector Embeddings</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Similarity-Comparison"><span class="toc-number">1.6.2.</span> <span class="toc-text">2) Similarity Comparison</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-KNN-Search"><span class="toc-number">1.6.3.</span> <span class="toc-text">3) KNN Search</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-AWS-External-Database-Support"><span class="toc-number">1.6.4.</span> <span class="toc-text">4) AWS &amp; External Database Support</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Exam-Tip"><span class="toc-number">1.6.5.</span> <span class="toc-text">5) Exam Tip</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%F0%9F%92%A1-Common-Use-Cases"><span class="toc-number">1.7.</span> <span class="toc-text">6. 💡 Common Use Cases</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%F0%9F%A7%AA-Hands-On-Example-%E2%80%93-Chat-with-Your-Document"><span class="toc-number">1.8.</span> <span class="toc-text">7. 🧪 Hands-On Example – Chat with Your Document</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%F0%9F%93%8C-Key-Points-for-the-Exam"><span class="toc-number">1.9.</span> <span class="toc-text">8. 📌 Key Points for the Exam</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/15/AWS-Certified-AI-Practitioner-8/" title="AWS-Certified-AI-Practitioner(8)">AWS-Certified-AI-Practitioner(8)</a><time datetime="2025-08-15T22:37:17.000Z" title="Created 2025-08-15 18:37:17">2025-08-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/15/AWS-Certified-AI-Practitioner-7/" title="AWS Certified AI Practitioner(7)">AWS Certified AI Practitioner(7)</a><time datetime="2025-08-15T21:07:36.000Z" title="Created 2025-08-15 17:07:36">2025-08-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/15/AWS-Certified-AI-Practitioner-6/" title="AWS-Certified-AI-Practitioner(6)">AWS-Certified-AI-Practitioner(6)</a><time datetime="2025-08-15T20:21:28.000Z" title="Created 2025-08-15 16:21:28">2025-08-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/15/AWS-Certified-AI-Practitioner-5/" title="AWS Certified AI Practitioner(5)">AWS Certified AI Practitioner(5)</a><time datetime="2025-08-15T19:09:05.000Z" title="Created 2025-08-15 15:09:05">2025-08-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/14/AWS-Certified-AI-Practitioner-4/" title="AWS Certified AI Practitioner(4)">AWS Certified AI Practitioner(4)</a><time datetime="2025-08-15T00:12:51.000Z" title="Created 2025-08-14 20:12:51">2025-08-14</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By Danny Ki</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

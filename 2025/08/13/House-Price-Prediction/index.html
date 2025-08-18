@@ -1,0 +1,305 @@
+<!DOCTYPE html><html lang="[&quot;en&quot;,&quot;ko&quot;,&quot;default&quot;]" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>House Price Prediction | Danny's Blog</title><meta name="author" content="Danny Ki"><meta name="copyright" content="Danny Ki"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="🏠 House Price Prediction in Ames, IowaPredicting real estate prices using advanced regression techniques  “Accurate home valuation — powered by data.”  📎 Full Analysis:👉 View Jupyter Notebook on Gi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="House Price Prediction">
+<meta property="og:url" content="https://kish191919.github.io/2025/08/13/House-Price-Prediction/index.html">
+<meta property="og:site_name" content="Danny&#39;s Blog">
+<meta property="og:description" content="🏠 House Price Prediction in Ames, IowaPredicting real estate prices using advanced regression techniques  “Accurate home valuation — powered by data.”  📎 Full Analysis:👉 View Jupyter Notebook on Gi">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kish191919.github.io/img/my_pic.jpeg">
+<meta property="article:published_time" content="2025-08-14T00:20:03.000Z">
+<meta property="article:modified_time" content="2025-08-14T00:27:45.889Z">
+<meta property="article:author" content="Danny Ki">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Machine Learning">
+<meta property="article:tag" content="Regression">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kish191919.github.io/img/my_pic.jpeg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "House Price Prediction",
+  "url": "https://kish191919.github.io/2025/08/13/House-Price-Prediction/",
+  "image": "https://kish191919.github.io/img/my_pic.jpeg",
+  "datePublished": "2025-08-14T00:20:03.000Z",
+  "dateModified": "2025-08-14T00:27:45.889Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Danny Ki",
+      "url": "https://kish191919.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kish191919.github.io/2025/08/13/House-Price-Prediction/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="UfZT9jGVnwcVj8z_sCj9LyqnWho6ubHg1Q7o_bvXfKs"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=GTM-N66KNRNW"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'GTM-N66KNRNW')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'GTM-N66KNRNW', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'House Price Prediction',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://kish191919.github.io/",
+  "name": "Danny's Blog",
+  "inLanguage": "en"
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Danny's Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-code"></i><span> Dev</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/dev/ai/"><i class="fa-fw fas fa-robot"></i><span> AI</span></a></li><li><a class="site-page child" href="/dev/data-engineer/"><i class="fa-fw fas fa-database"></i><span> Data Engineer</span></a></li><li><a class="site-page child" href="/dev/algorithm/"><i class="fa-fw fas fa-project-diagram"></i><span> Algorithm</span></a></li><li><a class="site-page child" href="/dev/coding-quiz/"><i class="fa-fw fas fa-question"></i><span> Coding Quiz</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Danny's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">House Price Prediction</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-code"></i><span> Dev</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/dev/ai/"><i class="fa-fw fas fa-robot"></i><span> AI</span></a></li><li><a class="site-page child" href="/dev/data-engineer/"><i class="fa-fw fas fa-database"></i><span> Data Engineer</span></a></li><li><a class="site-page child" href="/dev/algorithm/"><i class="fa-fw fas fa-project-diagram"></i><span> Algorithm</span></a></li><li><a class="site-page child" href="/dev/coding-quiz/"><i class="fa-fw fas fa-question"></i><span> Coding Quiz</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">House Price Prediction</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-08-14T00:20:03.000Z" title="Created 2025-08-13 20:20:03">2025-08-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-08-14T00:27:45.889Z" title="Updated 2025-08-13 20:27:45">2025-08-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Showcase/">Showcase</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="🏠-House-Price-Prediction-in-Ames-Iowa"><a href="#🏠-House-Price-Prediction-in-Ames-Iowa" class="headerlink" title="🏠 House Price Prediction in Ames, Iowa"></a>🏠 House Price Prediction in Ames, Iowa</h2><p><em>Predicting real estate prices using advanced regression techniques</em></p>
+<blockquote>
+<p>“Accurate home valuation — powered by data.”</p>
+</blockquote>
+<p>📎 <strong>Full Analysis</strong>:<br><a target="_blank" rel="noopener" href="https://nbviewer.org/github/kish191919/House_Price_Project_by_Python/blob/master/House_Prediction_Project_OLS_Model.ipynb">👉 View Jupyter Notebook on GitHub</a></p>
+<p>📎 <strong>Competition Source</strong>:<br><a target="_blank" rel="noopener" href="https://www.kaggle.com/c/house-prices-advanced-regression-techniques">👉 Kaggle: House Prices - Advanced Regression Techniques</a></p>
+<p align="center">
+  <img src="/images/portfolio/House_Price.png" alt="House Price Prediction" width="60%">
+</p>
+
+<hr>
+<h3 id="📌-One-Line-Summary"><a href="#📌-One-Line-Summary" class="headerlink" title="📌 One-Line Summary"></a>📌 One-Line Summary</h3><p>This project predicts house prices in <strong>Ames, Iowa</strong> using <strong>81 property features</strong> such as area, location, condition, and building type.<br>It applies <strong>data preprocessing</strong>, <strong>feature engineering</strong>, and <strong>regression modeling</strong> to estimate realistic sale prices.</p>
+<hr>
+<h2 id="1️⃣-How-It-Was-Built"><a href="#1️⃣-How-It-Was-Built" class="headerlink" title="1️⃣ How It Was Built"></a>1️⃣ How It Was Built</h2><h3 id="1-Data-Collection"><a href="#1-Data-Collection" class="headerlink" title="1. Data Collection"></a><strong>1. Data Collection</strong></h3><ul>
+<li><strong>Train Data</strong>: 1,460 records, 81 features  </li>
+<li><strong>Test Data</strong>: 1,459 records, 80 features (SalePrice excluded)  </li>
+<li>Total: <strong>2,919 property listings</strong></li>
+<li>Data from Kaggle competition dataset</li>
+</ul>
+<hr>
+<h3 id="2-Data-Preparation"><a href="#2-Data-Preparation" class="headerlink" title="2. Data Preparation"></a><strong>2. Data Preparation</strong></h3><ul>
+<li>Checked missing values (e.g., <code>LotFrontage</code>, <code>MasVnrArea</code>)</li>
+<li>Filled missing values using median or mode depending on the feature type</li>
+<li>Removed outliers (e.g., extreme <code>GrLivArea</code> values)</li>
+<li>Applied <strong>log transformation</strong> to <code>SalePrice</code> to normalize skewed distribution</li>
+<li>Converted categorical features into numerical form using one-hot encoding</li>
+</ul>
+<hr>
+<h3 id="3-Exploratory-Data-Analysis-EDA"><a href="#3-Exploratory-Data-Analysis-EDA" class="headerlink" title="3. Exploratory Data Analysis (EDA)"></a><strong>3. Exploratory Data Analysis (EDA)</strong></h3><ul>
+<li><strong>Numerical features</strong>: Plotted scatter graphs with <code>SalePrice</code> to detect trends<br>→ Found <code>GrLivArea</code> has strong linear correlation with price</li>
+<li><strong>Categorical features</strong>: Compared median prices across categories (e.g., neighborhood)</li>
+<li>Observed that <strong>larger living area</strong> and <strong>better overall quality</strong> strongly increase house price</li>
+</ul>
+<hr>
+<h3 id="4-Feature-Engineering"><a href="#4-Feature-Engineering" class="headerlink" title="4. Feature Engineering"></a><strong>4. Feature Engineering</strong></h3><ul>
+<li>Created new features such as:<ul>
+<li><code>TotalSF</code> &#x3D; Total square footage (basement + 1st floor + 2nd floor)</li>
+<li><code>Age</code> &#x3D; Years since construction</li>
+</ul>
+</li>
+<li>Dropped low-impact or highly correlated redundant features</li>
+</ul>
+<hr>
+<h3 id="5-Model-Training-OLS-Regression"><a href="#5-Model-Training-OLS-Regression" class="headerlink" title="5. Model Training (OLS Regression)"></a><strong>5. Model Training (OLS Regression)</strong></h3><ul>
+<li>Used <strong>Ordinary Least Squares (OLS)</strong> regression to predict prices</li>
+<li>Checked multicollinearity using Variance Inflation Factor (VIF)</li>
+<li>Selected final set of features after removing high-VIF variables</li>
+</ul>
+<p>📊 <strong>Evaluation Metric</strong>:  </p>
+<ul>
+<li><strong>Root Mean Squared Error (RMSE)</strong> used for performance check  </li>
+<li>Final RMSE (log-transformed target): <strong>~0.12</strong> on validation set</li>
+</ul>
+<hr>
+<h3 id="6-Results"><a href="#6-Results" class="headerlink" title="6. Results"></a><strong>6. Results</strong></h3><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Impact on Price</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>OverallQual</code></td>
+<td>Very High</td>
+</tr>
+<tr>
+<td><code>GrLivArea</code></td>
+<td>High</td>
+</tr>
+<tr>
+<td><code>GarageCars</code></td>
+<td>High</td>
+</tr>
+<tr>
+<td><code>TotalSF</code></td>
+<td>High</td>
+</tr>
+<tr>
+<td><code>Neighborhood</code></td>
+<td>Moderate</td>
+</tr>
+</tbody></table>
+<p>Example Prediction:  </p>
+<ul>
+<li><strong>House</strong>: 2-story, built in 2005, 2,000 sqft, good neighborhood  </li>
+<li><strong>Predicted Price</strong>: ~$197,500</li>
+</ul>
+<hr>
+<h2 id="2️⃣-Real-World-Use"><a href="#2️⃣-Real-World-Use" class="headerlink" title="2️⃣ Real-World Use"></a>2️⃣ Real-World Use</h2><ul>
+<li>The OLS model can be used by real estate agencies to <strong>estimate property prices</strong></li>
+<li>Buyers &amp; sellers can check if a listing is <strong>fairly priced</strong></li>
+<li>Government agencies can use it for <strong>property tax assessment</strong></li>
+</ul>
+<hr>
+<h2 id="🛠-Technologies-Used"><a href="#🛠-Technologies-Used" class="headerlink" title="🛠 Technologies Used"></a>🛠 Technologies Used</h2><table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Technology</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Data Storage</td>
+<td>CSV (Kaggle Dataset)</td>
+</tr>
+<tr>
+<td>Model Dev</td>
+<td>Python, Pandas, NumPy, statsmodels</td>
+</tr>
+<tr>
+<td>Visualization</td>
+<td>Matplotlib, Seaborn</td>
+</tr>
+<tr>
+<td>Environment</td>
+<td>Jupyter Notebook</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="💡-Key-Learnings"><a href="#💡-Key-Learnings" class="headerlink" title="💡 Key Learnings"></a>💡 Key Learnings</h2><ul>
+<li>Log-transforming skewed price data improves model performance</li>
+<li>Removing multicollinear features increases stability of regression coefficients</li>
+<li>Even simple linear models can perform well with good feature engineering</li>
+</ul>
+<hr>
+<h2 id="🔗-GitHub-Repository"><a href="#🔗-GitHub-Repository" class="headerlink" title="🔗 GitHub Repository"></a>🔗 GitHub Repository</h2><p>📂 <a target="_blank" rel="noopener" href="https://github.com/kish191919/House_Price_Project_by_Python">View Project on GitHub</a></p>
+<hr>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://kish191919.github.io">Danny Ki</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://kish191919.github.io/2025/08/13/House-Price-Prediction/">https://kish191919.github.io/2025/08/13/House-Price-Prediction/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Python/">Python</a><a class="post-meta__tags" href="/tags/Machine-Learning/">Machine Learning</a><a class="post-meta__tags" href="/tags/Regression/">Regression</a></div><div class="post-share"><div class="social-share" data-image="/img/my_pic.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/08/13/News-Keyword-Trend-Analyzer/" title="News Keyword Trend Analyzer"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">Previous</div><div class="info-item-2">News Keyword Trend Analyzer</div></div><div class="info-2"><div class="info-item-1">📰 Real-Time News Keyword Trend AnalyzerTracking trending keywords in news articles using real-time datapipelines  “See the world’s breaking news trends — live.”         📌 One-Line SummaryA real-time news keyword trend analyzer that collects live newsheadlines, processes them to extract popular keywords, and visualizestheir trends in real time using Kafka, Apache Flink, Elasticsearch,and Kibana.  1️⃣ How It Works1. Data Collection — Kafka Producer (news_producer.py) Fetches top news headline...</div></div></div></a><a class="pagination-related" href="/2025/08/10/AI-Stock-Analysis-App/" title="AI Stock Analysis App"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">AI Stock Analysis App</div></div><div class="info-2"><div class="info-item-1">📈 AI Stock Analysis AppAI-powered iOS app for real-time stock market insights  “Real-time stock prices meet AI-powered analysis — in your language.”  📎 Demo Video:          Your browser does not support the video tag.     📌 One-Line SummaryAn iPhone app that collects real-time stock data and uses AI to provide clear investment insights in multiple languages.It also stores your past analyses so you can track trends over time.  1️⃣ How It Works1. Live Stock Data Pulls stock prices from Yahoo...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/07/24/Used-Car-Price-Prediction-in-Virginia/" title="Used Car Price Prediction"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-24</div><div class="info-item-2">Used Car Price Prediction</div></div><div class="info-2"><div class="info-item-1">🚗 Used Car Price Prediction in VirginiaPredicting the price of used cars with AI and data analysis    “Don’t guess the price — let the data tell you.”  📎 Full Analysis:👉 View Jupyter Notebook on GitHub        📌 One-Line SummaryThis project predicts the prices of used cars in Virginia using a dataset of over 46,000 listings.By analyzing details like year, mileage, brand, and fuel type, the AI model can estimate a realistic market price.  1️⃣ How It Was Built1. Data Collection Collected rea...</div></div></div></a><a class="pagination-related" href="/2025/07/21/Algorithm-Bubble-Sort/" title="[Algorithm] Bubble Sort — Can Life Be Sorted Too?"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-21</div><div class="info-item-2">[Algorithm] Bubble Sort — Can Life Be Sorted Too?</div></div><div class="info-2"><div class="info-item-1">🫧 What’s the Big Deal About Bubble Sort? “It’s the little differences that make the big difference.” – Napoleon Hill        In the programming world, there are moments when small changes lead to big outcomes—just as Napoleon Hill said.One of the best examples of this is Bubble Sort.   At first glance, it’s so simple that it’s easy to dismiss. But behind its simplicity lies a surprisingly meaningful lesson. Bubble Sort works by scanning a list from start to finish, comparing two neighboring e...</div></div></div></a><a class="pagination-related" href="/2025/07/22/Algorithm-Dynamic-Programming/" title="[Algorithm] Dynamic Programming — Trusting Your Past Self"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-22</div><div class="info-item-2">[Algorithm] Dynamic Programming — Trusting Your Past Self</div></div><div class="info-2"><div class="info-item-1">🔁 What’s the Big Deal About Dynamic Programming? “Memory is the treasury and guardian of all things.” – William Shakespeare        In life, there are moments when we need to remember and refer to past experiencesto avoid making the same mistakes again.   Whether in studying, exercising, or love—the ability to remember and use what we’ve learned shapes our future.   There’s an algorithm in programming that reflects this very philosophy:Dynamic Programming (DP).  🧠 The Philosophy Behind ItDyn...</div></div></div></a><a class="pagination-related" href="/2025/07/22/Algorithm-Insert-Sort/" title="[Algorithm] Insertion Sort — Quiet but Steady Growth"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-22</div><div class="info-item-2">[Algorithm] Insertion Sort — Quiet but Steady Growth</div></div><div class="info-2"><div class="info-item-1">🧩 What’s the Big Deal About Insertion Sort? “It does not matter how slowly you go as long as you do not stop.” – Confucius        In life, there are those who don’t seek the spotlight but quietly find their own place.In the world of algorithms, there’s a counterpart to such people — Insertion Sort. As its name suggests, Insertion Sort works by inserting each new elementinto the correct position within an already sorted portion of the list. It doesn’t sort everything in one flashy move,but in...</div></div></div></a><a class="pagination-related" href="/2025/07/22/Algorithm-Selection-Sort/" title="[Algorithm] Selection Sort — The Power of Choosing"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-22</div><div class="info-item-2">[Algorithm] Selection Sort — The Power of Choosing</div></div><div class="info-2"><div class="info-item-1">🔍 What’s the Big Deal About Selection Sort? “Destiny is not a matter of chance, it is a matter of choice.” – William Jennings Bryan        In life, we constantly face moments of choice.Who will you walk with? What will you do first?Ultimately, these choices shape the course of your life. In programming, there’s an algorithm that embodies this same idea —Selection Sort. Selection Sort repeatedly finds the smallest value in the list,and moves it to the front, step by step, until the entire lis...</div></div></div></a><a class="pagination-related" href="/2025/07/24/Algorithm-Quick-Sort/" title="[Algorithm] Quick Sort — Divide and Conquer!"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-24</div><div class="info-item-2">[Algorithm] Quick Sort — Divide and Conquer!</div></div><div class="info-2"><div class="info-item-1">⚡ Quick Sort: Divide and Conquer! “Divide each difficulty into as many parts as is feasible and necessary to resolve it.”— René Descartes        In life, as in sorting algorithms, you don’t have to solve a complex problem all at once.Break it down into smaller pieces, and it becomes much easier to handle.Quick Sort is an algorithm built exactly on that philosophy. Imagine organizing your bookshelf.You pick one book in the middle as a reference point —thinner books go to the left, thicker book...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Danny Ki</div><div class="author-info-description">A data engineer's journey in coding, analytics, and building real-world systems.</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">22</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kish191919"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/kish191919" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8F%A0-House-Price-Prediction-in-Ames-Iowa"><span class="toc-number">1.</span> <span class="toc-text">🏠 House Price Prediction in Ames, Iowa</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%8C-One-Line-Summary"><span class="toc-number">1.1.</span> <span class="toc-text">📌 One-Line Summary</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1%EF%B8%8F%E2%83%A3-How-It-Was-Built"><span class="toc-number">2.</span> <span class="toc-text">1️⃣ How It Was Built</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Data-Collection"><span class="toc-number">2.1.</span> <span class="toc-text">1. Data Collection</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Data-Preparation"><span class="toc-number">2.2.</span> <span class="toc-text">2. Data Preparation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Exploratory-Data-Analysis-EDA"><span class="toc-number">2.3.</span> <span class="toc-text">3. Exploratory Data Analysis (EDA)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Feature-Engineering"><span class="toc-number">2.4.</span> <span class="toc-text">4. Feature Engineering</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Model-Training-OLS-Regression"><span class="toc-number">2.5.</span> <span class="toc-text">5. Model Training (OLS Regression)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Results"><span class="toc-number">2.6.</span> <span class="toc-text">6. Results</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%EF%B8%8F%E2%83%A3-Real-World-Use"><span class="toc-number">3.</span> <span class="toc-text">2️⃣ Real-World Use</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9B%A0-Technologies-Used"><span class="toc-number">4.</span> <span class="toc-text">🛠 Technologies Used</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%92%A1-Key-Learnings"><span class="toc-number">5.</span> <span class="toc-text">💡 Key Learnings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%94%97-GitHub-Repository"><span class="toc-number">6.</span> <span class="toc-text">🔗 GitHub Repository</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/15/AWS-Certified-AI-Practitioner-8/" title="AWS-Certified-AI-Practitioner(8)">AWS-Certified-AI-Practitioner(8)</a><time datetime="2025-08-15T22:37:17.000Z" title="Created 2025-08-15 18:37:17">2025-08-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/15/AWS-Certified-AI-Practitioner-7/" title="AWS Certified AI Practitioner(7)">AWS Certified AI Practitioner(7)</a><time datetime="2025-08-15T21:07:36.000Z" title="Created 2025-08-15 17:07:36">2025-08-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/15/AWS-Certified-AI-Practitioner-6/" title="AWS-Certified-AI-Practitioner(6)">AWS-Certified-AI-Practitioner(6)</a><time datetime="2025-08-15T20:21:28.000Z" title="Created 2025-08-15 16:21:28">2025-08-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/15/AWS-Certified-AI-Practitioner-5/" title="AWS Certified AI Practitioner(5)">AWS Certified AI Practitioner(5)</a><time datetime="2025-08-15T19:09:05.000Z" title="Created 2025-08-15 15:09:05">2025-08-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/14/AWS-Certified-AI-Practitioner-4/" title="AWS Certified AI Practitioner(4)">AWS Certified AI Practitioner(4)</a><time datetime="2025-08-15T00:12:51.000Z" title="Created 2025-08-14 20:12:51">2025-08-14</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By Danny Ki</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
