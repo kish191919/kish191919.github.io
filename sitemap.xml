@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://kish191919.github.io/2025/08/19/AWS-Certified-AI-Practitioner-10/</loc>
+    
+    <lastmod>2025-08-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://kish191919.github.io/2025/08/19/AWS-Certified-AI-Practitioner-9/</loc>
     
     <lastmod>2025-08-19</lastmod>
@@ -356,7 +365,35 @@
   </url>
   
   <url>
+    <loc>https://kish191919.github.io/tags/Machine-Learning/</loc>
+    <lastmod>2025-08-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://kish191919.github.io/tags/Regression/</loc>
+    <lastmod>2025-08-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://kish191919.github.io/tags/Apache-Flink/</loc>
+    <lastmod>2025-08-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://kish191919.github.io/tags/Kafka/</loc>
+    <lastmod>2025-08-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://kish191919.github.io/tags/Elasticsearch/</loc>
     <lastmod>2025-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -377,41 +414,6 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/tags/Machine-Learning/</loc>
-    <lastmod>2025-08-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://kish191919.github.io/tags/Regression/</loc>
-    <lastmod>2025-08-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://kish191919.github.io/tags/XGBoost/</loc>
-    <lastmod>2025-08-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://kish191919.github.io/tags/Apache-Flink/</loc>
-    <lastmod>2025-08-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://kish191919.github.io/tags/Elasticsearch/</loc>
-    <lastmod>2025-08-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://kish191919.github.io/tags/NLP/</loc>
     <lastmod>2025-08-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -420,6 +422,13 @@
   
   <url>
     <loc>https://kish191919.github.io/tags/Kaggle/</loc>
+    <lastmod>2025-08-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://kish191919.github.io/tags/XGBoost/</loc>
     <lastmod>2025-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
