@@ -6,7 +6,7 @@
   <link href="https://kish191919.github.io/atom.xml" rel="self"/>
   
   <link href="https://kish191919.github.io/"/>
-  <updated>2025-08-15T22:45:17.194Z</updated>
+  <updated>2025-08-19T10:55:35.586Z</updated>
   <id>https://kish191919.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AWS-Certified-AI-Practitioner(9)</title>
+    <link href="https://kish191919.github.io/2025/08/19/AWS-Certified-AI-Practitioner-9/"/>
+    <id>https://kish191919.github.io/2025/08/19/AWS-Certified-AI-Practitioner-9/</id>
+    <published>2025-08-19T10:53:35.000Z</published>
+    <updated>2025-08-19T10:55:35.586Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="🛡️-Amazon-Bedrock-–-Guardrails"><a href="#🛡️-Amazon-Bedrock-–-Guardrails" class="headerlink" title="🛡️ Amazon Bedrock – Guardrails"></a>🛡️ Amazon Bedrock – Guardrails</h1><h2 id="📌-What-Are-Guardrails"><a href="#📌-What-Are-Guardrails" class="headerlink" title="📌 What Are Guardrails?"></a>📌 What Are Guardrails?</h2><p>Guardrails in <strong>Amazon Bedrock</strong> are a way to control and filter interactions between users and Foundation Models (FMs).<br>They help ensure that AI responses are <strong>safe, reliable, and compliant</strong> with your requirements.</p><p align="center">  <img src="/images/aws_basic_62.png" width="80%"></p><hr><h2 id="🔑-Key-Features-of-Guardrails"><a href="#🔑-Key-Features-of-Guardrails" class="headerlink" title="🔑 Key Features of Guardrails"></a>🔑 Key Features of Guardrails</h2><ul><li><strong>Filter harmful content</strong>: Block hate speech, insults, sexual, violent, or misconduct content.  </li><li><strong>Block specific topics</strong>: Deny responses related to sensitive or restricted subjects (e.g., recipes, medical advice).  </li><li><strong>Protect privacy</strong>: Automatically detect and remove <strong>PII (Personally Identifiable Information)</strong> such as emails, phone numbers, or addresses.  </li><li><strong>Reduce hallucinations</strong>: Add contextual grounding so the model gives <strong>factual and relevant answers</strong>.  </li><li><strong>Custom word filters</strong>: Upload your own list of banned words or phrases.  </li><li><strong>Multiple guardrails</strong>: Apply different guardrails for different use cases and stack them together.  </li><li><strong>Monitoring &amp; analysis</strong>: Track user inputs that violate guardrails to improve system safety.</li></ul><hr><h2 id="⚙️-Example-Use-Cases"><a href="#⚙️-Example-Use-Cases" class="headerlink" title="⚙️ Example Use Cases"></a>⚙️ Example Use Cases</h2><h3 id="1-Block-Restricted-Topics"><a href="#1-Block-Restricted-Topics" class="headerlink" title="1. Block Restricted Topics"></a>1. Block Restricted Topics</h3><ul><li><strong>Scenario</strong>: You don’t want your model to answer food recipe requests.  </li><li><strong>User prompt</strong>: “Suggest me something to cook tonight.”  </li><li><strong>Guardrail response</strong>: “Sorry, this is a restricted topic.”</li></ul><h3 id="2-Mask-PII-Privacy-Protection"><a href="#2-Mask-PII-Privacy-Protection" class="headerlink" title="2. Mask PII (Privacy Protection)"></a>2. Mask PII (Privacy Protection)</h3><ul><li><strong>User prompt</strong>: “Draft an email to <a href="mailto:&#x73;&#x74;&#x65;&#x70;&#x68;&#x61;&#110;&#101;&#x40;&#x65;&#x78;&#97;&#109;&#112;&#x6c;&#x65;&#x2e;&#x63;&#111;&#109;">stephane@example.com</a> and cc <a href="mailto:&#x6a;&#111;&#104;&#110;&#x40;&#101;&#120;&#x61;&#x6d;&#x70;&#108;&#x65;&#46;&#x63;&#x6f;&#x6d;">john@example.com</a>.”  </li><li><strong>Guardrail action</strong>: Automatically masks emails →<br>To: [PII Removed], CC: [PII Removed]</li></ul><p>This ensures <strong>user privacy is protected</strong>.</p><hr><h2 id="🛠️-How-to-Configure-a-Guardrail"><a href="#🛠️-How-to-Configure-a-Guardrail" class="headerlink" title="🛠️ How to Configure a Guardrail"></a>🛠️ How to Configure a Guardrail</h2><ol><li><strong>Create Guardrail</strong> – Define a name and blocked message (e.g., <em>“Sorry, the model cannot answer this question.”</em>).  </li><li><strong>Set Filters</strong>  <ul><li>Content filters: hate, insults, sexual, violence, misconduct.  </li><li>Denied topics: e.g., recipes, sensitive domains.  </li><li>Word filters: add custom banned terms.  </li><li>PII filters: mask emails, phone numbers, etc.  </li><li>Regex filters: remove any pattern-based info (like credit card numbers).  </li><li>Grounding: reduce hallucinations by checking answer relevance.</li></ul></li><li><strong>Test the Guardrail</strong> – Run a prompt and see if it blocks or masks correctly.  </li><li><strong>Apply to Models</strong> – You can assign guardrails to any supported Foundation Model (e.g., Anthropic, Sonnet).  </li><li><strong>Stack Multiple Guardrails</strong> – Combine several guardrails for stricter control.</li></ol><hr><h2 id="✅-Why-Use-Guardrails"><a href="#✅-Why-Use-Guardrails" class="headerlink" title="✅ Why Use Guardrails?"></a>✅ Why Use Guardrails?</h2><ul><li>Ensure <strong>responsible AI</strong> usage.  </li><li>Protect your business from <strong>legal, ethical, and compliance risks</strong>.  </li><li>Enhance <strong>user trust</strong> by safeguarding privacy and filtering harmful content.  </li><li>Maintain <strong>high-quality, relevant, and safe outputs</strong> from AI models.</li></ul><p>👉 <strong>In summary:</strong><br>Amazon Bedrock Guardrails are like <strong>safety rules for your AI</strong>, helping you filter content, protect privacy, and keep AI responses accurate and responsible.</p><hr><h2 id="📝-Amazon-Bedrock-Guardrails-Summary-Table"><a href="#📝-Amazon-Bedrock-Guardrails-Summary-Table" class="headerlink" title="📝 Amazon Bedrock Guardrails Summary Table"></a>📝 Amazon Bedrock Guardrails Summary Table</h2><table><thead><tr><th>Category</th><th>Explanation</th><th>Example</th></tr></thead><tbody><tr><td><strong>Purpose</strong></td><td>Control and filter interactions between users and Foundation Models (FMs)</td><td>Prevent AI from producing unsafe or irrelevant outputs</td></tr><tr><td><strong>Content Filtering</strong></td><td>Blocks harmful categories (hate, violence, sexual, misconduct, insults)</td><td>User asks: “Write a violent story.” → Response blocked</td></tr><tr><td><strong>Denied Topics</strong></td><td>Restrict responses on specific topics you define</td><td>Recipes, medical advice, legal guidance</td></tr><tr><td><strong>PII Protection</strong></td><td>Detect and remove Personally Identifiable Information</td><td>Emails, phone numbers, credit cards masked</td></tr><tr><td><strong>Word Filters</strong></td><td>Custom banned words&#x2F;phrases can be uploaded</td><td>Block profanity or sensitive business terms</td></tr><tr><td><strong>Regex Patterns</strong></td><td>Remove data that matches a specific structure</td><td>Mask credit card numbers: 1234-5678-9012-3456</td></tr><tr><td><strong>Grounding (Reduce Hallucinations)</strong></td><td>Ensures responses are relevant and fact-based</td><td>Prevents AI from “making up” answers</td></tr><tr><td><strong>Multiple Guardrails</strong></td><td>You can stack several guardrails together for stricter control</td><td>One for PII + one for harmful content</td></tr><tr><td><strong>Monitoring</strong></td><td>Logs violations to analyze and improve system safety</td><td>Track how often guardrails are triggered</td></tr><tr><td><strong>Blocked Response Message</strong></td><td>Customizable message shown when prompt is blocked</td><td>“Sorry, this question cannot be answered.”</td></tr></tbody></table><hr><h2 id="✅-Key-Benefits"><a href="#✅-Key-Benefits" class="headerlink" title="✅ Key Benefits"></a>✅ Key Benefits</h2><ul><li><strong>Responsible AI</strong> → Prevents harmful or irrelevant responses  </li><li><strong>Enhanced Privacy</strong> → Removes PII and sensitive data  </li><li><strong>Trust &amp; Compliance</strong> → Keeps outputs aligned with regulations and ethics  </li><li><strong>Flexibility</strong> → You can tailor guardrails to your business needs</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;🛡️-Amazon-Bedrock-–-Guardrails&quot;&gt;&lt;a href=&quot;#🛡️-Amazon-Bedrock-–-Guardrails&quot; class=&quot;headerlink&quot; title=&quot;🛡️ Amazon Bedrock – Guardrail</summary>
+      
+    
+    
+    
+    <category term="Dev" scheme="https://kish191919.github.io/categories/Dev/"/>
+    
+    <category term="AI" scheme="https://kish191919.github.io/categories/Dev/AI/"/>
+    
+    
+    <category term="AWS" scheme="https://kish191919.github.io/tags/AWS/"/>
+    
+    <category term="Certification" scheme="https://kish191919.github.io/tags/Certification/"/>
+    
+  </entry>
   
   <entry>
     <title>AWS-Certified-AI-Practitioner(8)</title>
@@ -290,9 +318,9 @@
     
     <category term="Python" scheme="https://kish191919.github.io/tags/Python/"/>
     
-    <category term="Apache_Flink" scheme="https://kish191919.github.io/tags/Apache-Flink/"/>
-    
     <category term="Kafka" scheme="https://kish191919.github.io/tags/Kafka/"/>
+    
+    <category term="Apache_Flink" scheme="https://kish191919.github.io/tags/Apache-Flink/"/>
     
     <category term="Elasticsearch" scheme="https://kish191919.github.io/tags/Elasticsearch/"/>
     
