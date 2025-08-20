@@ -1,0 +1,264 @@
+<!DOCTYPE html><html lang="[&quot;en&quot;,&quot;ko&quot;,&quot;default&quot;]" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>(KO)AWS-Certified-AI-Practitioner(1) | Danny's Blog</title><meta name="author" content="Danny Ki"><meta name="copyright" content="Danny Ki"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="📚 IT &amp; AWS 기초 요약1. 기본 IT 용어 네트워크(Network): 케이블, 라우터, 서버 등이 연결되어 데이터가 오가는 길.   라우터(Router): 인터넷에서 데이터를 어디로 보낼지 길잡이 역할을 하는 장치.   스위치(Switch): 네트워크 안에서 데이터가 정확한 서버나 컴퓨터로 가도록 도와주는 장치.         2. 클라우드">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(KO)AWS-Certified-AI-Practitioner(1)">
+<meta property="og:url" content="https://kish191919.github.io/2025/08/20/KO-AWS-Certified-AI-Practitioner-1/index.html">
+<meta property="og:site_name" content="Danny&#39;s Blog">
+<meta property="og:description" content="📚 IT &amp; AWS 기초 요약1. 기본 IT 용어 네트워크(Network): 케이블, 라우터, 서버 등이 연결되어 데이터가 오가는 길.   라우터(Router): 인터넷에서 데이터를 어디로 보낼지 길잡이 역할을 하는 장치.   스위치(Switch): 네트워크 안에서 데이터가 정확한 서버나 컴퓨터로 가도록 도와주는 장치.         2. 클라우드">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kish191919.github.io/img/my_pic.jpeg">
+<meta property="article:published_time" content="2025-08-20T22:54:12.000Z">
+<meta property="article:modified_time" content="2025-08-20T22:59:51.560Z">
+<meta property="article:author" content="Danny Ki">
+<meta property="article:tag" content="AWS">
+<meta property="article:tag" content="Certification">
+<meta property="article:tag" content="Korean">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kish191919.github.io/img/my_pic.jpeg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "(KO)AWS-Certified-AI-Practitioner(1)",
+  "url": "https://kish191919.github.io/2025/08/20/KO-AWS-Certified-AI-Practitioner-1/",
+  "image": "https://kish191919.github.io/img/my_pic.jpeg",
+  "datePublished": "2025-08-20T22:54:12.000Z",
+  "dateModified": "2025-08-20T22:59:51.560Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Danny Ki",
+      "url": "https://kish191919.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kish191919.github.io/2025/08/20/KO-AWS-Certified-AI-Practitioner-1/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="UfZT9jGVnwcVj8z_sCj9LyqnWho6ubHg1Q7o_bvXfKs"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=GTM-N66KNRNW"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'GTM-N66KNRNW')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'GTM-N66KNRNW', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '(KO)AWS-Certified-AI-Practitioner(1)',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://kish191919.github.io/",
+  "name": "Danny's Blog",
+  "inLanguage": "en"
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Danny's Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">33</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-code"></i><span> Dev</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/dev/ai/"><i class="fa-fw fas fa-robot"></i><span> AI</span></a></li><li><a class="site-page child" href="/dev/data-engineer/"><i class="fa-fw fas fa-database"></i><span> Data Engineer</span></a></li><li><a class="site-page child" href="/dev/algorithm/"><i class="fa-fw fas fa-project-diagram"></i><span> Algorithm</span></a></li><li><a class="site-page child" href="/dev/coding-quiz/"><i class="fa-fw fas fa-question"></i><span> Coding Quiz</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Danny's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">(KO)AWS-Certified-AI-Practitioner(1)</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-code"></i><span> Dev</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/dev/ai/"><i class="fa-fw fas fa-robot"></i><span> AI</span></a></li><li><a class="site-page child" href="/dev/data-engineer/"><i class="fa-fw fas fa-database"></i><span> Data Engineer</span></a></li><li><a class="site-page child" href="/dev/algorithm/"><i class="fa-fw fas fa-project-diagram"></i><span> Algorithm</span></a></li><li><a class="site-page child" href="/dev/coding-quiz/"><i class="fa-fw fas fa-question"></i><span> Coding Quiz</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">(KO)AWS-Certified-AI-Practitioner(1)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-08-20T22:54:12.000Z" title="Created 2025-08-20 18:54:12">2025-08-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-08-20T22:59:51.560Z" title="Updated 2025-08-20 18:59:51">2025-08-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Dev/">Dev</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Dev/AI/">AI</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="📚-IT-AWS-기초-요약"><a href="#📚-IT-AWS-기초-요약" class="headerlink" title="📚 IT &amp; AWS 기초 요약"></a>📚 IT &amp; AWS 기초 요약</h1><h2 id="1-기본-IT-용어"><a href="#1-기본-IT-용어" class="headerlink" title="1. 기본 IT 용어"></a>1. 기본 IT 용어</h2><ul>
+<li><strong>네트워크(Network)</strong>: 케이블, 라우터, 서버 등이 연결되어 데이터가 오가는 길.  </li>
+<li><strong>라우터(Router)</strong>: 인터넷에서 데이터를 어디로 보낼지 길잡이 역할을 하는 장치.  </li>
+<li><strong>스위치(Switch)</strong>: 네트워크 안에서 데이터가 정확한 서버나 컴퓨터로 가도록 도와주는 장치.</li>
+</ul>
+<p align="center">
+  <img src="/images/aws_basic_1.png" width="60%">
+</p>
+
+<hr>
+<h2 id="2-클라우드-컴퓨팅의-5가지-핵심-특징"><a href="#2-클라우드-컴퓨팅의-5가지-핵심-특징" class="headerlink" title="2. 클라우드 컴퓨팅의 5가지 핵심 특징"></a>2. 클라우드 컴퓨팅의 5가지 핵심 특징</h2><ol>
+<li><strong>즉시 자원 사용(On-demand self service)</strong> → 필요한 자원을 바로 얻을 수 있음.  </li>
+<li><strong>넓은 네트워크 접근(Broad network access)</strong> → 인터넷만 있으면 여러 기기에서 접근 가능.  </li>
+<li><strong>자원 공유(Multi-tenancy &amp; Resource pooling)</strong> → 여러 사용자가 안전하게 같은 자원 공유.  </li>
+<li><strong>빠른 확장성(Rapid elasticity &amp; Scalability)</strong> → 필요에 따라 서버나 자원을 늘리거나 줄일 수 있음.  </li>
+<li><strong>사용량 기반 과금(Measured service)</strong> → 쓴 만큼만 비용 지불.</li>
+</ol>
+<hr>
+<h2 id="3-클라우드의-6가지-장점"><a href="#3-클라우드의-6가지-장점" class="headerlink" title="3. 클라우드의 6가지 장점"></a>3. 클라우드의 6가지 장점</h2><ul>
+<li>하드웨어 구매 필요 없음 → 사용한 만큼만 지불.  </li>
+<li>대규모 운영으로 비용 절감.  </li>
+<li>실제 사용량에 따라 자동 확장 가능.  </li>
+<li>개발과 배포가 훨씬 빨라짐.  </li>
+<li>직접 데이터 센터를 운영·관리할 필요 없음.  </li>
+<li>전 세계 어디든 빠르게 서비스 제공 가능.</li>
+</ul>
+<hr>
+<h2 id="4-클라우드가-해결하는-문제들"><a href="#4-클라우드가-해결하는-문제들" class="headerlink" title="4. 클라우드가 해결하는 문제들"></a>4. 클라우드가 해결하는 문제들</h2><ul>
+<li><strong>유연성</strong>: 자원의 종류나 크기를 쉽게 변경 가능.  </li>
+<li><strong>비용 효율성</strong>: 사용량 기반 결제 (Pay-as-you-go).  </li>
+<li><strong>확장성(Scalability)</strong>: 트래픽이 늘어나면 서버&#x2F;하드웨어 추가 가능.  </li>
+<li><strong>탄력성(Elasticity)</strong>: 필요할 때 늘리고 줄이는 자동 조정.  </li>
+<li><strong>고가용성 &amp; 장애 대응</strong>: 여러 데이터 센터에 분산되어 있어 안정적.  </li>
+<li><strong>민첩성(Agility)</strong>: 빠른 개발과 서비스 출시 가능.</li>
+</ul>
+<hr>
+<h2 id="5-클라우드-서비스-종류와-예시"><a href="#5-클라우드-서비스-종류와-예시" class="headerlink" title="5. 클라우드 서비스 종류와 예시"></a>5. 클라우드 서비스 종류와 예시</h2><ul>
+<li><strong>IaaS (Infrastructure as a Service)</strong>: 기본 인프라 제공 → AWS EC2, GCP, Azure  </li>
+<li><strong>PaaS (Platform as a Service)</strong>: 개발 환경 제공 → AWS Elastic Beanstalk, Heroku  </li>
+<li><strong>SaaS (Software as a Service)</strong>: 소프트웨어 자체 제공 → Gmail, Dropbox, Zoom</li>
+</ul>
+<p align="center">
+  <img src="/images/aws_basic_2.png" width="60%">
+</p>
+
+<hr>
+<h2 id="6-AWS-요금-기본-개념"><a href="#6-AWS-요금-기본-개념" class="headerlink" title="6. AWS 요금 기본 개념"></a>6. AWS 요금 기본 개념</h2><ul>
+<li><strong>컴퓨팅(Compute)</strong>: 서버를 사용한 시간만큼 비용 지불.  </li>
+<li><strong>스토리지(Storage)</strong>: 클라우드에 저장된 데이터 용량에 따라 과금.  </li>
+<li><strong>데이터 전송(Data Transfer)</strong>: 클라우드 <strong>밖으로 나가는 데이터</strong>만 비용 발생 (들어오는 건 무료).</li>
+</ul>
+<p>💡 <strong>Tip</strong>: AWS 요금은 주로 <em>사용한 만큼만 내는 구조</em>라서 불필요한 리소스를 꺼두는 습관이 중요합니다.  </p>
+<hr>
+<h2 id="7-AWS-리전-Region"><a href="#7-AWS-리전-Region" class="headerlink" title="7. AWS 리전(Region)"></a>7. AWS 리전(Region)</h2><ul>
+<li><strong>리전(Region)</strong> &#x3D; 전 세계에 있는 데이터 센터 묶음.  </li>
+<li>선택 기준:<ul>
+<li>법적·규제 준수  </li>
+<li>고객과의 거리 (지연 시간 ↓)  </li>
+<li>리전마다 제공되는 서비스 여부  </li>
+<li>가격 차이</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="8-AWS-가용-영역-Availability-Zone-AZ"><a href="#8-AWS-가용-영역-Availability-Zone-AZ" class="headerlink" title="8. AWS 가용 영역(Availability Zone, AZ)"></a>8. AWS 가용 영역(Availability Zone, AZ)</h2><ul>
+<li>한 리전 안에는 보통 3~6개의 독립된 데이터 센터가 존재.  </li>
+<li>각각 전력, 네트워크가 중복 구성되어 있어 장애에 강함.  </li>
+<li>서로 떨어져 있지만 고속 네트워크로 연결되어 있음.</li>
+</ul>
+<hr>
+<h2 id="9-AWS-엣지-로케이션-Edge-Locations"><a href="#9-AWS-엣지-로케이션-Edge-Locations" class="headerlink" title="9. AWS 엣지 로케이션(Edge Locations)"></a>9. AWS 엣지 로케이션(Edge Locations)</h2><ul>
+<li>전 세계 40여 개국, 90여 도시, 400개 이상의 엣지 위치 운영.  </li>
+<li>주로 <strong>콘텐츠 전송(CDN, CloudFront)</strong> 에 사용 → 사용자에게 더 빠르게 서비스 제공.</li>
+</ul>
+<hr>
+<h2 id="10-AWS-서비스-범위"><a href="#10-AWS-서비스-범위" class="headerlink" title="10. AWS 서비스 범위"></a>10. AWS 서비스 범위</h2><ul>
+<li><strong>전 세계(Global) 서비스</strong>: IAM, Route 53, CloudFront, WAF  </li>
+<li><strong>리전별 서비스(Region-specific)</strong>: EC2, Elastic Beanstalk, Lambda, Rekognition</li>
+</ul>
+<hr>
+<h3 id="✅-추가로-알아두면-좋은-점"><a href="#✅-추가로-알아두면-좋은-점" class="headerlink" title="✅ 추가로 알아두면 좋은 점"></a>✅ 추가로 알아두면 좋은 점</h3><ul>
+<li><strong>Cloud vs On-Premise 차이</strong>: 클라우드는 필요할 때만 자원 쓰고 꺼둘 수 있지만, 온프레미스는 서버를 직접 사고 관리해야 함.  </li>
+<li><strong>Cloud 비용 관리 팁</strong>: CloudWatch, Budgets 같은 AWS 도구를 활용해 실시간으로 비용을 추적하고 경고 설정 가능.</li>
+</ul>
+<hr>
+<p>👉 이렇게 보면 클라우드는 “필요할 때 쓰고, 쓰는 만큼만 내고, 어디서든 빠르게 확장할 수 있는 IT 인프라” 라고 이해하면 됩니다.  </p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://kish191919.github.io">Danny Ki</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://kish191919.github.io/2025/08/20/KO-AWS-Certified-AI-Practitioner-1/">https://kish191919.github.io/2025/08/20/KO-AWS-Certified-AI-Practitioner-1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/AWS/">AWS</a><a class="post-meta__tags" href="/tags/Certification/">Certification</a><a class="post-meta__tags" href="/tags/Korean/">Korean</a></div><div class="post-share"><div class="social-share" data-image="/img/my_pic.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-2/" title="(KO)AWS-Certified-AI-Practitioner(2)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">Previous</div><div class="info-item-2">(KO)AWS-Certified-AI-Practitioner(2)</div></div><div class="info-2"><div class="info-item-1">💰 AWS 비용 &amp; 예산 관리 (쉽게 설명)1. IAM 사용자 접근 설정 AWS에서 비용과 결제(Billing &amp; Cost Management) 화면을 보려면,단순히 계정만 있다고 바로 볼 수 있는 게 아니에요.   관리자(Admin) 가 먼저 설정에서👉 “IAM 사용자 및 역할이 Billing 정보에 접근할 수 있도록 허용” 옵션을 켜줘야 합니다.   이렇게 해야 IAM 사용자도 비용 내역을 확인할 수 있습니다.         2. 주요 비용 관리 도구 Bills (청구서)→ 매달 AWS가 어떤 서비스에서 얼마를 썼는지 상세 내역을 보여줍니다.    Free Tier (프리 티어)→ 신규 계정에 제공되는 무료 사용량이 얼마나 남았는지 확인할 수 있습니다.💡 예: EC2 750시간 무료, S3 5GB 저장 무료 등    Budgets (예산 관리)→ 내가 설정한 금액을 초과하면 이메일로 알림을 줍니다.💡 예: 한 달 예산을 10달러로 정해두고, 예상 사용량...</div></div></div></a><a class="pagination-related" href="/2025/08/20/AWS-Certified-AI-Practitioner-12/" title="AWS-Certified-AI-Practitioner(12)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">AWS-Certified-AI-Practitioner(12)</div></div><div class="info-2"><div class="info-item-1">📘 Amazon Bedrock – Pricing &amp; Model Improvement1️⃣ Pricing Options🔹 On-Demand (Pay-as-you-go) How it works: Pay only for what you use, like an electricity bill.   Pricing basis   Text Models → Input&#x2F;Output token count   Embedding Models → Input token count   Image Models → Number of images generated   Available Models: Base Models only   ✅ Pros: Flexible, good for unpredictable workloads   ❌ Cons: Can become expensive if used continuously over time   🔹 Batch Mode (Bulk processing, ...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-12/" title="(KO)AWS-Certified-AI-Practitioner(12)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(KO)AWS-Certified-AI-Practitioner(12)</div></div><div class="info-2"><div class="info-item-1">📘 Amazon Bedrock – Pricing &amp; Model Improvement1️⃣ Pricing Options🔹 On-Demand (즉시 사용, 사용량만큼 결제) 방식: 전기요금처럼 쓴 만큼만 지불 (Pay-as-you-go)   요금 기준   텍스트 모델 → 입력&#x2F;출력 토큰 수   임베딩 모델 → 입력 토큰 수   이미지 모델 → 생성된 이미지 수   사용 가능 모델: Base Models 전용   ✅ 장점: 유연성, 사용량 예측이 어려운 경우 적합   ❌ 단점: 장기간 사용 시 비용 부담 ↑   🔹 Batch Mode (묶음 처리, 최대 50% 할인) 방식: 여러 요청을 한 번에 묶어서 처리 → 결과는 Amazon S3에 단일 파일 저장   할인 혜택: 최대 50% 저렴   ✅ 장점: 대량 처리에 유리, 비용 절감 효과 큼   ❌ 단점: 실시간 응답 불가, 결과 지연 발생   적합 상황: 즉각적인 응답 필요 없고, 대량 요청을 처리할 때   🔹...</div></div></div></a><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-2/" title="(KO)AWS-Certified-AI-Practitioner(2)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(KO)AWS-Certified-AI-Practitioner(2)</div></div><div class="info-2"><div class="info-item-1">💰 AWS 비용 &amp; 예산 관리 (쉽게 설명)1. IAM 사용자 접근 설정 AWS에서 비용과 결제(Billing &amp; Cost Management) 화면을 보려면,단순히 계정만 있다고 바로 볼 수 있는 게 아니에요.   관리자(Admin) 가 먼저 설정에서👉 “IAM 사용자 및 역할이 Billing 정보에 접근할 수 있도록 허용” 옵션을 켜줘야 합니다.   이렇게 해야 IAM 사용자도 비용 내역을 확인할 수 있습니다.         2. 주요 비용 관리 도구 Bills (청구서)→ 매달 AWS가 어떤 서비스에서 얼마를 썼는지 상세 내역을 보여줍니다.    Free Tier (프리 티어)→ 신규 계정에 제공되는 무료 사용량이 얼마나 남았는지 확인할 수 있습니다.💡 예: EC2 750시간 무료, S3 5GB 저장 무료 등    Budgets (예산 관리)→ 내가 설정한 금액을 초과하면 이메일로 알림을 줍니다.💡 예: 한 달 예산을 10달러로 정해두고, 예상 사용량...</div></div></div></a><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-4/" title="(KO)AWS-Certified-AI-Practitioner(4)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(KO)AWS-Certified-AI-Practitioner(4)</div></div><div class="info-2"><div class="info-item-1">📚 Amazon Bedrock 파인튜닝 &amp; 모델 선택1. 다양한 제공자와 모델 특징 대표 제공자(Providers): Anthropic, Amazon, DeepSeek, Stability AI 등   각 모델마다 잘하는 분야가 다름:   Claude 3.5 Haiku → 텍스트 처리에 최적화   Amazon Nova Reel → 텍스트-영상, 이미지-영상 변환   💡 시험 포인트: 시험에서 “어떤 모델이 제일 좋은가?”를 묻지 않음 → 각 모델이 할 수 있는 것과 못 하는 것만 구분   2. 모델 비교하기 Bedrock Playground에서 여러 모델을 나란히 테스트 가능   비교 기준:   ✅ 지원 기능 (텍스트, 이미지, 비디오)   ✅ 출력 스타일&#x2F;형식   ✅ 속도(지연 시간)   ✅ 비용(토큰 사용량)   예시:   Nova Micro → 이미지 업로드 불가 ❌, 대신 빠르고 간단한 답변   Claude 3.5 Sonnet → 이미지 지원 가능 ✅,...</div></div></div></a><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-3/" title="(KO)AWS-Certified-AI-Practitioner(3)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(KO)AWS-Certified-AI-Practitioner(3)</div></div><div class="info-2"><div class="info-item-1">🧠 생성형 AI &amp; Amazon Bedrock – 쉽게 이해하기 (시험 대비 요약 포함)1. 생성형 AI란? Generative AI (생성형 AI): 학습한 데이터를 바탕으로 새로운 데이터를 만들어내는 AI.   만들 수 있는 것들: 텍스트, 이미지, 오디오, 코드, 비디오   예시: ChatGPT가 사람처럼 대화 문장을 만들어내는 것.   2. 파운데이션 모델(Foundation Models, FM) 대규모 데이터로 학습된 초거대 AI 모델.   개발 비용이 매우 큼 (수백억~수천억 원).   대표 모델: OpenAI → GPT 시리즈   Meta → LLaMA   Google → BERT, Gemini   Amazon → Titan   Anthropic → Claude   오픈소스(무료)와 상용(유료) 모델이 있음.   3. 대규모 언어 모델(LLM) 텍스트 생성에 특화된 AI.   수십억 개 이상의 파라미터.   활용: 번역, 요약, Q&amp;A, 글쓰기   ...</div></div></div></a><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-5/" title="(KO)AWS-Certified-AI-Practitioner(5)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(KO)AWS-Certified-AI-Practitioner(5)</div></div><div class="info-2"><div class="info-item-1">📊 Amazon Bedrock – 모델 평가 가이드 (쉽게 이해하기)Amazon Bedrock에서 Foundation Model (FM) 을 평가하는 과정은 단순히 성능 확인을 넘어서,👉 품질 관리, 👉 비즈니스 효과 측정, 👉 편향성(bias) 탐지 를 위해 꼭 필요합니다.   Bedrock은 크게 자동 평가와 사람에 의한 평가 두 가지 방식을 제공하며,평가 시에는 기술적인 지표(ROUGE, BLEU 등) 와 비즈니스 지표(만족도, 매출 등) 를 함께 고려해야 합니다.    1. 🔄 자동 평가 (Automatic Evaluation)Bedrock이 직접 모델의 성능을 점수화해주는 방식입니다.   지원되는 기본 과제(Task)  텍스트 요약 (Summarization)   질문–답변 (Q&amp;A)   텍스트 분류 (Classification)   자유 텍스트 생성 (Open-ended Generation)  작동 방식  평가용 데이터셋 준비   AWS가 제공하는 벤...</div></div></div></a><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-6/" title="(KO)AWS-Certified-AI-Practitioner(6)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(KO)AWS-Certified-AI-Practitioner(6)</div></div><div class="info-2"><div class="info-item-1">📚 Amazon Bedrock – RAG &amp; Knowledge Base1. 🔍 RAG란 무엇일까?RAG (Retrieval-Augmented Generation) 은    외부 데이터에서 정보를 검색(Retrieve) 하고 → 이를 프롬프트에 추가(Augment) 하여 → 모델이 더 정확한 답변을 생성(Generate) 하는 방법이에요.   검색(Retrieval): 모델이 학습하지 못한 최신 데이터나 특정 도메인 데이터를 가져와요.   증강(Augmentation): 검색한 데이터를 질문과 합쳐서 모델에 전달해요.   장점: 모델을 새로 학습(Fine-tuning)하지 않고도 최신 지식을 반영할 수 있어요.   2. 🏗 동작 방식 (Step-by-Step) 데이터 저장소   Amazon S3, Confluence, SharePoint, Salesforce, 웹사이트 등에 문서를 저장   벡터 임베딩 생성   Bedrock이 문서를 작은 조각으로 나누고   Amaz...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Danny Ki</div><div class="author-info-description">A data engineer's journey in coding, analytics, and building real-world systems.</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">33</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kish191919"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/kish191919" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%F0%9F%93%9A-IT-AWS-%EA%B8%B0%EC%B4%88-%EC%9A%94%EC%95%BD"><span class="toc-number">1.</span> <span class="toc-text">📚 IT &amp; AWS 기초 요약</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%EA%B8%B0%EB%B3%B8-IT-%EC%9A%A9%EC%96%B4"><span class="toc-number">1.1.</span> <span class="toc-text">1. 기본 IT 용어</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%BB%B4%ED%93%A8%ED%8C%85%EC%9D%98-5%EA%B0%80%EC%A7%80-%ED%95%B5%EC%8B%AC-%ED%8A%B9%EC%A7%95"><span class="toc-number">1.2.</span> <span class="toc-text">2. 클라우드 컴퓨팅의 5가지 핵심 특징</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%EC%9D%98-6%EA%B0%80%EC%A7%80-%EC%9E%A5%EC%A0%90"><span class="toc-number">1.3.</span> <span class="toc-text">3. 클라우드의 6가지 장점</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%EA%B0%80-%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94-%EB%AC%B8%EC%A0%9C%EB%93%A4"><span class="toc-number">1.4.</span> <span class="toc-text">4. 클라우드가 해결하는 문제들</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%A2%85%EB%A5%98%EC%99%80-%EC%98%88%EC%8B%9C"><span class="toc-number">1.5.</span> <span class="toc-text">5. 클라우드 서비스 종류와 예시</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-AWS-%EC%9A%94%EA%B8%88-%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90"><span class="toc-number">1.6.</span> <span class="toc-text">6. AWS 요금 기본 개념</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-AWS-%EB%A6%AC%EC%A0%84-Region"><span class="toc-number">1.7.</span> <span class="toc-text">7. AWS 리전(Region)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-AWS-%EA%B0%80%EC%9A%A9-%EC%98%81%EC%97%AD-Availability-Zone-AZ"><span class="toc-number">1.8.</span> <span class="toc-text">8. AWS 가용 영역(Availability Zone, AZ)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-AWS-%EC%97%A3%EC%A7%80-%EB%A1%9C%EC%BC%80%EC%9D%B4%EC%85%98-Edge-Locations"><span class="toc-number">1.9.</span> <span class="toc-text">9. AWS 엣지 로케이션(Edge Locations)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-AWS-%EC%84%9C%EB%B9%84%EC%8A%A4-%EB%B2%94%EC%9C%84"><span class="toc-number">1.10.</span> <span class="toc-text">10. AWS 서비스 범위</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-%EC%B6%94%EA%B0%80%EB%A1%9C-%EC%95%8C%EC%95%84%EB%91%90%EB%A9%B4-%EC%A2%8B%EC%9D%80-%EC%A0%90"><span class="toc-number">1.10.1.</span> <span class="toc-text">✅ 추가로 알아두면 좋은 점</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-9/" title="(KO)AWS-Certified-AI-Practitioner(9)">(KO)AWS-Certified-AI-Practitioner(9)</a><time datetime="2025-08-20T23:47:31.000Z" title="Created 2025-08-20 19:47:31">2025-08-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-8/" title="(KO)AWS-Certified-AI-Practitioner(8)">(KO)AWS-Certified-AI-Practitioner(8)</a><time datetime="2025-08-20T23:41:40.000Z" title="Created 2025-08-20 19:41:40">2025-08-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-7/" title="(KO)AWS-Certified-AI-Practitioner(7)">(KO)AWS-Certified-AI-Practitioner(7)</a><time datetime="2025-08-20T23:32:18.000Z" title="Created 2025-08-20 19:32:18">2025-08-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-6/" title="(KO)AWS-Certified-AI-Practitioner(6)">(KO)AWS-Certified-AI-Practitioner(6)</a><time datetime="2025-08-20T23:27:08.000Z" title="Created 2025-08-20 19:27:08">2025-08-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-5/" title="(KO)AWS-Certified-AI-Practitioner(5)">(KO)AWS-Certified-AI-Practitioner(5)</a><time datetime="2025-08-20T23:21:35.000Z" title="Created 2025-08-20 19:21:35">2025-08-20</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By Danny Ki</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
