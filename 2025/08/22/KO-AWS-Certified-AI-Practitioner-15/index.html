@@ -1,0 +1,307 @@
+<!DOCTYPE html><html lang="[&quot;en&quot;,&quot;ko&quot;,&quot;default&quot;]" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>(한국어) AWS Certified AI Practitioner (15) - LLM에서 텍스트 생성 과정 &amp; 프롬프트 최적화 | Danny's Blog</title><meta name="author" content="Danny Ki"><meta name="copyright" content="Danny Ki"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="📖 LLM에서 텍스트 생성 과정 &amp; 프롬프트 최적화1️⃣ 텍스트 생성 원리LLM(대규모 언어 모델)은 다음 단어가 무엇일지 확률적으로 계산해서 문장을 만들어 갑니다.예를 들어,“After the rain, the streets were …” 뒤에 올 수 있는 후보 단어와 확률이 있다고 할 때:  wet (0.40)   flooded (0.25)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(한국어) AWS Certified AI Practitioner (15) - LLM에서 텍스트 생성 과정 &amp; 프롬프트 최적화">
+<meta property="og:url" content="https://kish191919.github.io/2025/08/22/KO-AWS-Certified-AI-Practitioner-15/index.html">
+<meta property="og:site_name" content="Danny&#39;s Blog">
+<meta property="og:description" content="📖 LLM에서 텍스트 생성 과정 &amp; 프롬프트 최적화1️⃣ 텍스트 생성 원리LLM(대규모 언어 모델)은 다음 단어가 무엇일지 확률적으로 계산해서 문장을 만들어 갑니다.예를 들어,“After the rain, the streets were …” 뒤에 올 수 있는 후보 단어와 확률이 있다고 할 때:  wet (0.40)   flooded (0.25)">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kish191919.github.io/img/my_pic.jpeg">
+<meta property="article:published_time" content="2025-08-22T22:22:03.000Z">
+<meta property="article:modified_time" content="2025-08-22T22:47:49.876Z">
+<meta property="article:author" content="Danny Ki">
+<meta property="article:tag" content="AWS">
+<meta property="article:tag" content="AWS_AI_PRACTITIONER">
+<meta property="article:tag" content="KOREAN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kish191919.github.io/img/my_pic.jpeg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "(한국어) AWS Certified AI Practitioner (15) - LLM에서 텍스트 생성 과정 & 프롬프트 최적화",
+  "url": "https://kish191919.github.io/2025/08/22/KO-AWS-Certified-AI-Practitioner-15/",
+  "image": "https://kish191919.github.io/img/my_pic.jpeg",
+  "datePublished": "2025-08-22T22:22:03.000Z",
+  "dateModified": "2025-08-22T22:47:49.876Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Danny Ki",
+      "url": "https://kish191919.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kish191919.github.io/2025/08/22/KO-AWS-Certified-AI-Practitioner-15/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="UfZT9jGVnwcVj8z_sCj9LyqnWho6ubHg1Q7o_bvXfKs"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=GTM-N66KNRNW"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'GTM-N66KNRNW')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'GTM-N66KNRNW', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '(한국어) AWS Certified AI Practitioner (15) - LLM에서 텍스트 생성 과정 & 프롬프트 최적화',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://kish191919.github.io/",
+  "name": "Danny's Blog",
+  "inLanguage": "en"
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Danny's Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Danny's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">(한국어) AWS Certified AI Practitioner (15) - LLM에서 텍스트 생성 과정 &amp; 프롬프트 최적화</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">(한국어) AWS Certified AI Practitioner (15) - LLM에서 텍스트 생성 과정 &amp; 프롬프트 최적화</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-08-22T22:22:03.000Z" title="Created 2025-08-22 18:22:03">2025-08-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-08-22T22:47:49.876Z" title="Updated 2025-08-22 18:47:49">2025-08-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CERTIFICATION/">CERTIFICATION</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CERTIFICATION/AWS-AI-PRACTITIONER-KR/">AWS_AI_PRACTITIONER_KR</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="📖-LLM에서-텍스트-생성-과정-프롬프트-최적화"><a href="#📖-LLM에서-텍스트-생성-과정-프롬프트-최적화" class="headerlink" title="📖 LLM에서 텍스트 생성 과정 &amp; 프롬프트 최적화"></a>📖 LLM에서 텍스트 생성 과정 &amp; 프롬프트 최적화</h1><h2 id="1️⃣-텍스트-생성-원리"><a href="#1️⃣-텍스트-생성-원리" class="headerlink" title="1️⃣ 텍스트 생성 원리"></a>1️⃣ 텍스트 생성 원리</h2><p>LLM(대규모 언어 모델)은 <strong>다음 단어가 무엇일지 확률적으로 계산</strong>해서 문장을 만들어 갑니다.<br>예를 들어,<br>“After the rain, the streets were …” 뒤에 올 수 있는 후보 단어와 확률이 있다고 할 때:</p>
+<ul>
+<li>wet (0.40)  </li>
+<li>flooded (0.25)  </li>
+<li>slippery (0.15)  </li>
+<li>empty (0.10)  </li>
+<li>muddy (0.05)</li>
+</ul>
+<p>모델은 이 확률을 기반으로 <strong>무작위 선택(random sampling)</strong> 하여 다음 단어를 생성합니다.<br>즉, LLM의 출력은 항상 확률적이므로, 같은 질문을 여러 번 해도 결과가 조금씩 달라질 수 있습니다.</p>
+<hr>
+<h2 id="2️⃣-프롬프트-성능-최적화-Prompt-Performance-Optimization"><a href="#2️⃣-프롬프트-성능-최적화-Prompt-Performance-Optimization" class="headerlink" title="2️⃣ 프롬프트 성능 최적화 (Prompt Performance Optimization)"></a>2️⃣ 프롬프트 성능 최적화 (Prompt Performance Optimization)</h2><p>Amazon Bedrock 같은 서비스에서는 <strong>출력 품질</strong>을 조절할 수 있는 여러 파라미터를 제공합니다.</p>
+<h3 id="🔹-System-Prompt"><a href="#🔹-System-Prompt" class="headerlink" title="🔹 System Prompt"></a>🔹 System Prompt</h3><ul>
+<li>모델이 <strong>어떤 역할을 해야 하는지</strong> 미리 정의합니다.  </li>
+<li>예: <em>“너는 AWS 클라우드 선생님처럼 대답해줘.”</em>  </li>
+<li>톤과 답변 스타일을 설정할 수 있어, 일관된 답변을 얻는 데 유용합니다.</li>
+</ul>
+<p align="center">
+  <img src="/images/aws_basic_70.png" width="90%">
+</p>
+
+<hr>
+<h3 id="🔹-Temperature-0-1"><a href="#🔹-Temperature-0-1" class="headerlink" title="🔹 Temperature (0~1)"></a>🔹 Temperature (0~1)</h3><ul>
+<li><strong>창의성(랜덤성)</strong> 조절  </li>
+<li>낮음 (예: 0.2) → 보수적, 반복적, 가장 가능성 높은 답변 선택  </li>
+<li>높음 (예: 1.0) → 다양하고 창의적인 답변, 하지만 가끔은 덜 일관적일 수 있음</li>
+</ul>
+<p>👉 <strong>시험 포인트:</strong> Temperature 값이 낮으면 일관성↑, 높으면 창의성↑</p>
+<hr>
+<h3 id="🔹-Top-P-Nucleus-Sampling"><a href="#🔹-Top-P-Nucleus-Sampling" class="headerlink" title="🔹 Top P (Nucleus Sampling)"></a>🔹 Top P (Nucleus Sampling)</h3><ul>
+<li><strong>확률 분포 상위 몇 %의 단어만 고려할지</strong> 정하는 값  </li>
+<li>Low P (0.25) → 상위 25% 단어만 선택 → 더 일관적  </li>
+<li>High P (0.99) → 거의 모든 단어 고려 → 더 다양하고 창의적</li>
+</ul>
+<p>👉 <strong>시험 포인트:</strong> Top P는 <strong>확률 누적 기준(percentile)</strong>  </p>
+<hr>
+<h3 id="🔹-Top-K"><a href="#🔹-Top-K" class="headerlink" title="🔹 Top K"></a>🔹 Top K</h3><ul>
+<li><strong>몇 개의 후보 단어만 고려할지</strong> 숫자로 제한  </li>
+<li>Low K (10) → 상위 10개 단어만 → 더 예측 가능, 안정적  </li>
+<li>High K (500) → 상위 500개 단어 고려 → 더 다양하고 창의적</li>
+</ul>
+<p>👉 <strong>시험 포인트:</strong> Top P는 비율(%), Top K는 개수(N)</p>
+<hr>
+<h3 id="🔹-Length"><a href="#🔹-Length" class="headerlink" title="🔹 Length"></a>🔹 Length</h3><ul>
+<li>생성되는 답변의 <strong>최대 길이</strong> 제한</li>
+</ul>
+<h3 id="🔹-Stop-Sequences"><a href="#🔹-Stop-Sequences" class="headerlink" title="🔹 Stop Sequences"></a>🔹 Stop Sequences</h3><ul>
+<li>특정 토큰(문자열)을 만나면 <strong>생성을 중단</strong></li>
+</ul>
+<hr>
+<h2 id="3️⃣-프롬프트-지연시간-Prompt-Latency"><a href="#3️⃣-프롬프트-지연시간-Prompt-Latency" class="headerlink" title="3️⃣ 프롬프트 지연시간 (Prompt Latency)"></a>3️⃣ 프롬프트 지연시간 (Prompt Latency)</h2><p><strong>Latency &#x3D; 모델이 응답하는 속도</strong>  </p>
+<p>영향 받는 요소:  </p>
+<ul>
+<li>모델 크기 (큰 모델일수록 느림)  </li>
+<li>모델 종류 (예: LLaMA vs Claude → 성능 차이 있음)  </li>
+<li>입력 토큰 수 (입력이 길면 느려짐)  </li>
+<li>출력 토큰 수 (많이 생성할수록 느려짐)</li>
+</ul>
+<p>👉 <strong>시험 포인트:</strong>  </p>
+<ul>
+<li><strong>Latency에 영향을 주지 않는 것:</strong> Temperature, Top P, Top K</li>
+</ul>
+<hr>
+<h2 id="4️⃣-정리-표"><a href="#4️⃣-정리-표" class="headerlink" title="4️⃣ 정리 표"></a>4️⃣ 정리 표</h2><table>
+<thead>
+<tr>
+<th>파라미터</th>
+<th>의미</th>
+<th>낮은 값</th>
+<th>높은 값</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>System Prompt</strong></td>
+<td>모델 역할 지정</td>
+<td>제한적 답변</td>
+<td>유연한 답변 가능</td>
+</tr>
+<tr>
+<td><strong>Temperature</strong></td>
+<td>창의성</td>
+<td>보수적, 일관적</td>
+<td>다양, 창의적</td>
+</tr>
+<tr>
+<td><strong>Top P</strong></td>
+<td>확률 누적 비율</td>
+<td>일관성↑</td>
+<td>창의성↑</td>
+</tr>
+<tr>
+<td><strong>Top K</strong></td>
+<td>후보 단어 개수</td>
+<td>안정적</td>
+<td>다양, 창의적</td>
+</tr>
+<tr>
+<td><strong>Length</strong></td>
+<td>최대 출력 길이</td>
+<td>짧은 답변</td>
+<td>긴 답변</td>
+</tr>
+<tr>
+<td><strong>Stop Sequences</strong></td>
+<td>생성 중단 조건</td>
+<td>필요 시 제어</td>
+<td>필요 시 제어</td>
+</tr>
+<tr>
+<td><strong>Latency 영향 요소</strong></td>
+<td>속도 결정</td>
+<td>모델 크기, 토큰 수</td>
+<td>동일</td>
+</tr>
+<tr>
+<td><strong>Latency 비영향 요소</strong></td>
+<td>속도와 무관</td>
+<td>Temp, Top P, Top K</td>
+<td>동일</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="5️⃣-시험에-자주-나오는-포인트"><a href="#5️⃣-시험에-자주-나오는-포인트" class="headerlink" title="5️⃣ 시험에 자주 나오는 포인트"></a>5️⃣ 시험에 자주 나오는 포인트</h2><ul>
+<li><strong>Temperature &#x2F; Top P &#x2F; Top K 차이점</strong> (시험에서 자주 비교 문제 나옴)  </li>
+<li><strong>Latency에 영향을 주는 요소 vs 주지 않는 요소</strong>  </li>
+<li><strong>System Prompt</strong>는 모델의 역할과 톤을 지정할 수 있음  </li>
+<li><strong>Length &#x2F; Stop Sequence</strong>는 출력 제어 방법으로 자주 언급됨</li>
+</ul>
+<hr>
+<p>👉 요약하자면,<br>LLM의 텍스트 생성은 확률적 과정이며,<br><strong>Temperature, Top P, Top K</strong> 같은 설정으로 <strong>창의성과 일관성을 조절</strong>할 수 있습니다.<br>또한 <strong>Latency</strong>는 모델 크기와 토큰 수에 따라 달라지지만,<br><strong>Sampling 관련 파라미터(Temp, Top P, Top K)</strong> 에는 영향을 받지 않습니다.  </p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://kish191919.github.io">Danny Ki</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://kish191919.github.io/2025/08/22/KO-AWS-Certified-AI-Practitioner-15/">https://kish191919.github.io/2025/08/22/KO-AWS-Certified-AI-Practitioner-15/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/AWS/">AWS</a><a class="post-meta__tags" href="/tags/AWS-AI-PRACTITIONER/">AWS_AI_PRACTITIONER</a><a class="post-meta__tags" href="/tags/KOREAN/">KOREAN</a></div><div class="post-share"><div class="social-share" data-image="/img/my_pic.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/08/22/AWS-Certified-AI-Practitioner-15/" title="AWS Certified AI Practitioner(15) - LLM Text Generation &amp; Prompt Optimizatio"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">Previous</div><div class="info-item-2">AWS Certified AI Practitioner(15) - LLM Text Generation & Prompt Optimizatio</div></div><div class="info-2"><div class="info-item-1">🤖 LLM Text Generation &amp; Prompt Optimization1. How Text is Generated in an LLMWhen a model generates text, it predicts the next word based on probabilities. Example:“After the rain, the streets were…”Possible next words and probabilities:    wet (0.40)   flooded (0.25)   slippery (0.15)   empty (0.10)   muddy (0.05)   clean (0.03)   blocked (0.02)  The model randomly selects a word according to these probabilities.    2. Prompt Performance Optimization🔹 System Prompts Define how the mode...</div></div></div></a><a class="pagination-related" href="/2025/08/22/AWS-Certified-AI-Practitioner-14/" title="AWS Certified AI Practitioner(14) - Prompt Engineering"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">AWS Certified AI Practitioner(14) - Prompt Engineering</div></div><div class="info-2"><div class="info-item-1">📘 Prompt EngineeringWhat is Prompt Engineering?Prompt Engineering is the process of designing, refining, andoptimizing prompts to guide a foundation model (FM) or large languagemodel (LLM) toward producing the best possible output for your needs. A naïve prompt gives little guidance and leaves interpretation up tothe model.Example: “Summarize what is AWS.”This works, but the answer may not be clear or focused. By contrast, Prompt Engineering uses a structured approach toimprove results.  Com...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-1/" title="(한국어) AWS Certified AI Practitioner (1) - IT &amp; AWS 기초"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (1) - IT &amp; AWS 기초</div></div><div class="info-2"><div class="info-item-1">📚 IT &amp; AWS 기초 요약1. 기본 IT 용어 네트워크(Network): 케이블, 라우터, 서버 등이 연결되어 데이터가 오가는 길.   라우터(Router): 인터넷에서 데이터를 어디로 보낼지 길잡이 역할을 하는 장치.   스위치(Switch): 네트워크 안에서 데이터가 정확한 서버나 컴퓨터로 가도록 도와주는 장치.         2. 클라우드 컴퓨팅의 5가지 핵심 특징 즉시 자원 사용(On-demand self service) → 필요한 자원을 바로 얻을 수 있음.   넓은 네트워크 접근(Broad network access) → 인터넷만 있으면 여러 기기에서 접근 가능.   자원 공유(Multi-tenancy &amp; Resource pooling) → 여러 사용자가 안전하게 같은 자원 공유.   빠른 확장성(Rapid elasticity &amp; Scalability) → 필요에 따라 서버나 자원을 늘리거나 줄일 수 있음.   사용량 기반 과금(Measur...</div></div></div></a><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-10/" title="(한국어) AWS Certified AI Practitioner (10) - Agents (에이전트)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (10) - Agents (에이전트)</div></div><div class="info-2"><div class="info-item-1">🤖 Amazon Bedrock – Agents (에이전트)📌 에이전트란?Amazon Bedrock의 에이전트(Agents) 는 단순히 질문에 답변하는 모델이 아니라, 여러 단계를 계획하고 실행할 수 있는 고급 기능입니다.즉, 사람이 “생각하고 → 계획하고 → 행동하는” 과정을 흉내 내서 실제 작업까지 자동으로 수행할 수 있습니다.   에이전트는 단순 텍스트 생성 외에도 다음과 같은 일을 할 수 있습니다:  AWS 인프라 생성 (서버, S3, Lambda 등) 애플리케이션 배포 자동화 데이터베이스&#x2F;시스템 작업 수행 외부 API 및 사내 시스템 연동   🔑 Bedrock Agents 주요 특징 멀티스텝 작업 실행: 단순 질의응답이 아니라, 여러 단계를 거쳐 복잡한 업무를 수행   작업 순서 제어: 각 단계가 올바른 순서로 실행되고, 데이터가 단계 간 잘 전달됨   액션 그룹(Action Groups): API, Lambda 함수 등 미리 정의된 작업 단위를 사용   ...</div></div></div></a><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-11/" title="(한국어) AWS Certified AI Practitioner (11) - CloudWatch"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (11) - CloudWatch</div></div><div class="info-2"><div class="info-item-1">📊 Amazon Bedrock &amp; CloudWatch📌 CloudWatch란?Amazon CloudWatch는 AWS 리소스와 애플리케이션을 모니터링하는 서비스입니다.CloudWatch는 다음과 같은 기능을 제공합니다:  Logs (로그) → 이벤트나 요청 내역을 기록 (디버깅에 유용)   Metrics (지표) → 시스템 성능을 수치로 모니터링   Alarms (알람) → 특정 기준을 넘었을 때 알림 전송   Dashboards (대시보드) → 모니터링 정보를 시각화  👉 시험에 자주 나오는 포인트:    CloudWatch Logs: 이벤트·로그 기록   CloudWatch Metrics: CPU, 메모리, 지연 시간 같은 성능 수치   CloudWatch Alarms: 기준치 초과 시 알림   CloudWatch Dashboards: 모니터링 결과 시각화   🔑 Bedrock + CloudWatch 연동1. 모델 호출(Invocation) 로깅 Bedrock...</div></div></div></a><a class="pagination-related" href="/2025/08/22/KO-AWS-Certified-AI-Practitioner-14/" title="(한국어) AWS Certified AI Practitioner (14) - Prompt Engineering"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-22</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (14) - Prompt Engineering</div></div><div class="info-2"><div class="info-item-1">📝 프롬프트 엔지니어링 (Prompt Engineering)프롬프트 엔지니어링은 AI 모델이 더 정확하고 원하는 답변을 내도록 질문(프롬프트)을 설계하고 최적화하는 기술을 말합니다.단순히 “AWS를 요약해줘” 같은 질문을 던지는 것보다, 구체적으로 지시, 맥락, 입력 데이터, 출력 형식을 포함하면 훨씬 좋은 결과를 얻을 수 있습니다.  1. 기본 개념 (Naïve Prompt vs. 개선된 Prompt) Naïve Prompt (단순 프롬프트)예: “AWS를 요약해줘.”👉 모델이 알아서 답하긴 하지만, 원하는 수준의 답변이 아닐 수 있음.  Prompt Engineering (프롬프트 엔지니어링)👉 프롬프트를 설계하고 개선하여 원하는 답변을 얻는 방법.👉 4가지 핵심 요소:  Instructions (지시사항) – 모델이 어떤 일을 해야 하는지 (예: “요약문 작성”)   Context (맥락) – 모델이 참고할 추가 정보 (예: “AWS 초보자를 가르치는 상황”)   ...</div></div></div></a><a class="pagination-related" href="/2025/08/22/KO-AWS-Certified-AI-Practitioner-16/" title="(한국어) AWS Certified AI Practitioner (16) - 프롬프트 엔지니어링 기법"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-22</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (16) - 프롬프트 엔지니어링 기법</div></div><div class="info-2"><div class="info-item-1">🎯 프롬프트 엔지니어링 기법 (Prompt Engineering Techniques)프롬프트 엔지니어링은 **생성형 AI(LLM)**이 원하는 방식으로 답변을 하도록 유도하는 핵심 기술입니다. 단순히 질문을 던지는 것이 아니라, 프롬프트를 설계·최적화하여 모델이 더 정확하고 일관된 결과를 내도록 만드는 과정이죠.   AWS 자격증 시험에서도 종종 프롬프트 엔지니어링 기법(Zero-Shot, Few-Shot, Chain-of-Thought, RAG 등)이 언급되므로 꼭 이해해 두어야 합니다.    1️⃣ Zero-Shot Prompting (제로샷 프롬프트) 정의: 예시를 전혀 주지 않고, 모델의 일반 지식만 활용해 답변을 얻는 방식.   예시   프롬프트: “개가 미스터리를 해결하는 짧은 이야기를 써줘.”   응답: 모델이 스스로 개연성 있는 이야기를 생성.    👉 특징    대형 언어모델(LLM, Foundation Model)일수록 좋은 결과가 나옴.   시험 포인트:...</div></div></div></a><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-2/" title="(한국어) AWS Certified AI Practitioner (2) - AWS 비용 &amp; 예산 관리"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (2) - AWS 비용 &amp; 예산 관리</div></div><div class="info-2"><div class="info-item-1">💰 AWS 비용 &amp; 예산 관리1. IAM 사용자 접근 설정 AWS에서 비용과 결제(Billing &amp; Cost Management) 화면을 보려면,단순히 계정만 있다고 바로 볼 수 있는 게 아니에요.   관리자(Admin) 가 먼저 설정에서👉 “IAM 사용자 및 역할이 Billing 정보에 접근할 수 있도록 허용” 옵션을 켜줘야 합니다.   이렇게 해야 IAM 사용자도 비용 내역을 확인할 수 있습니다.         2. 주요 비용 관리 도구 Bills (청구서)→ 매달 AWS가 어떤 서비스에서 얼마를 썼는지 상세 내역을 보여줍니다.    Free Tier (프리 티어)→ 신규 계정에 제공되는 무료 사용량이 얼마나 남았는지 확인할 수 있습니다.💡 예: EC2 750시간 무료, S3 5GB 저장 무료 등    Budgets (예산 관리)→ 내가 설정한 금액을 초과하면 이메일로 알림을 줍니다.💡 예: 한 달 예산을 10달러로 정해두고, 예상 사용량이 10달러를 ...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Danny Ki</div><div class="author-info-description">A data engineer's journey in coding, analytics, and building real-world systems.</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">43</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kish191919"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/kish191919" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%F0%9F%93%96-LLM%EC%97%90%EC%84%9C-%ED%85%8D%EC%8A%A4%ED%8A%B8-%EC%83%9D%EC%84%B1-%EA%B3%BC%EC%A0%95-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8-%EC%B5%9C%EC%A0%81%ED%99%94"><span class="toc-number">1.</span> <span class="toc-text">📖 LLM에서 텍스트 생성 과정 &amp; 프롬프트 최적화</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%EF%B8%8F%E2%83%A3-%ED%85%8D%EC%8A%A4%ED%8A%B8-%EC%83%9D%EC%84%B1-%EC%9B%90%EB%A6%AC"><span class="toc-number">1.1.</span> <span class="toc-text">1️⃣ 텍스트 생성 원리</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%EF%B8%8F%E2%83%A3-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8-%EC%84%B1%EB%8A%A5-%EC%B5%9C%EC%A0%81%ED%99%94-Prompt-Performance-Optimization"><span class="toc-number">1.2.</span> <span class="toc-text">2️⃣ 프롬프트 성능 최적화 (Prompt Performance Optimization)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%B9-System-Prompt"><span class="toc-number">1.2.1.</span> <span class="toc-text">🔹 System Prompt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%B9-Temperature-0-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">🔹 Temperature (0~1)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%B9-Top-P-Nucleus-Sampling"><span class="toc-number">1.2.3.</span> <span class="toc-text">🔹 Top P (Nucleus Sampling)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%B9-Top-K"><span class="toc-number">1.2.4.</span> <span class="toc-text">🔹 Top K</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%B9-Length"><span class="toc-number">1.2.5.</span> <span class="toc-text">🔹 Length</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%B9-Stop-Sequences"><span class="toc-number">1.2.6.</span> <span class="toc-text">🔹 Stop Sequences</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%EF%B8%8F%E2%83%A3-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8-%EC%A7%80%EC%97%B0%EC%8B%9C%EA%B0%84-Prompt-Latency"><span class="toc-number">1.3.</span> <span class="toc-text">3️⃣ 프롬프트 지연시간 (Prompt Latency)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%EF%B8%8F%E2%83%A3-%EC%A0%95%EB%A6%AC-%ED%91%9C"><span class="toc-number">1.4.</span> <span class="toc-text">4️⃣ 정리 표</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%EF%B8%8F%E2%83%A3-%EC%8B%9C%ED%97%98%EC%97%90-%EC%9E%90%EC%A3%BC-%EB%82%98%EC%98%A4%EB%8A%94-%ED%8F%AC%EC%9D%B8%ED%8A%B8"><span class="toc-number">1.5.</span> <span class="toc-text">5️⃣ 시험에 자주 나오는 포인트</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/22/KO-AWS-Certified-AI-Practitioner-16/" title="(한국어) AWS Certified AI Practitioner (16) - 프롬프트 엔지니어링 기법">(한국어) AWS Certified AI Practitioner (16) - 프롬프트 엔지니어링 기법</a><time datetime="2025-08-22T22:40:34.658Z" title="Created 2025-08-22 18:40:34">2025-08-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/22/AWS-Certified-AI-Practitioner-16/" title="AWS Certified AI Practitioner(15) - Prompt Engineering Techniques">AWS Certified AI Practitioner(15) - Prompt Engineering Techniques</a><time datetime="2025-08-22T22:40:29.000Z" title="Created 2025-08-22 18:40:29">2025-08-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/22/AWS-Certified-AI-Practitioner-15/" title="AWS Certified AI Practitioner(15) - LLM Text Generation &amp; Prompt Optimizatio">AWS Certified AI Practitioner(15) - LLM Text Generation &amp; Prompt Optimizatio</a><time datetime="2025-08-22T22:22:07.000Z" title="Created 2025-08-22 18:22:07">2025-08-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/22/KO-AWS-Certified-AI-Practitioner-15/" title="(한국어) AWS Certified AI Practitioner (15) - LLM에서 텍스트 생성 과정 &amp; 프롬프트 최적화">(한국어) AWS Certified AI Practitioner (15) - LLM에서 텍스트 생성 과정 &amp; 프롬프트 최적화</a><time datetime="2025-08-22T22:22:03.000Z" title="Created 2025-08-22 18:22:03">2025-08-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/22/AWS-Certified-AI-Practitioner-14/" title="AWS Certified AI Practitioner(14) - Prompt Engineering">AWS Certified AI Practitioner(14) - Prompt Engineering</a><time datetime="2025-08-22T22:01:33.000Z" title="Created 2025-08-22 18:01:33">2025-08-22</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By Danny Ki</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
