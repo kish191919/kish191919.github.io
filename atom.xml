@@ -6,7 +6,7 @@
   <link href="https://kish191919.github.io/atom.xml" rel="self"/>
   
   <link href="https://kish191919.github.io/"/>
-  <updated>2025-08-22T23:06:39.254Z</updated>
+  <updated>2025-08-22T23:07:05.125Z</updated>
   <id>https://kish191919.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>KO-AWS-Certified-AI-Practitioner(18)</title>
+    <link href="https://kish191919.github.io/2025/08/22/KO-AWS-Certified-AI-Practitioner-18/"/>
+    <id>https://kish191919.github.io/2025/08/22/KO-AWS-Certified-AI-Practitioner-18/</id>
+    <published>2025-08-22T23:07:05.000Z</published>
+    <updated>2025-08-22T23:07:05.125Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>AWS-Certified-AI-Practitioner(18)</title>
+    <link href="https://kish191919.github.io/2025/08/22/AWS-Certified-AI-Practitioner-18/"/>
+    <id>https://kish191919.github.io/2025/08/22/AWS-Certified-AI-Practitioner-18/</id>
+    <published>2025-08-22T23:06:59.000Z</published>
+    <updated>2025-08-22T23:06:59.634Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>AWS Certified AI Practitioner(17) - Prompt Templates &amp; Injection</title>
@@ -365,7 +391,7 @@
     <published>2025-08-20T23:47:31.000Z</published>
     <updated>2025-08-21T04:38:32.194Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="🛡️-Amazon-Bedrock-–-Guardrails-가드레일"><a href="#🛡️-Amazon-Bedrock-–-Guardrails-가드레일" class="headerlink" title="🛡️ Amazon Bedrock – Guardrails (가드레일)"></a>🛡️ Amazon Bedrock – Guardrails (가드레일)</h1><h2 id="📌-Guardrails란-무엇인가"><a href="#📌-Guardrails란-무엇인가" class="headerlink" title="📌 Guardrails란 무엇인가?"></a>📌 Guardrails란 무엇인가?</h2><p>Amazon Bedrock의 <strong>Guardrails(가드레일)</strong> 은 사용자가 입력한 내용과 모델이 생성하는 답변을 <strong>필터링하고 제어하는 안전장치</strong>입니다.<br>즉, AI가 잘못된 답변이나 위험한 내용을 내놓지 않도록 <strong>보호막 역할</strong>을 합니다.</p><p align="center">  <img src="/images/aws_basic_62.png" width="80%"></p><hr><h2 id="🔑-Guardrails-주요-기능"><a href="#🔑-Guardrails-주요-기능" class="headerlink" title="🔑 Guardrails 주요 기능"></a>🔑 Guardrails 주요 기능</h2><ul><li><strong>유해 콘텐츠 차단</strong><br>욕설, 혐오 표현, 성적인 내용, 폭력적인 내용 등을 자동으로 차단</li><li><strong>특정 주제 제한</strong><br>민감하거나 허용하지 않은 주제(예: 의료 조언, 법률 상담, 레시피 등)는 답변하지 않도록 설정</li><li><strong>개인정보 보호(PII)</strong><br>이메일, 전화번호, 주소 같은 개인정보를 자동 감지 후 마스킹 처리</li><li><strong>환각(Hallucination) 줄이기</strong><br>모델이 근거 없는 답변을 하지 않도록 맥락 기반 사실 확인(grounding) 적용</li><li><strong>금지어(Word Filter)</strong><br>직접 정의한 특정 단어·문구를 차단</li><li><strong>정규식(Regex) 필터</strong><br>예: 신용카드 번호, 주민번호 등 특정 패턴 데이터 차단 가능</li><li><strong>다중 가드레일</strong><br>상황별로 여러 가드레일을 동시에 적용 가능</li><li><strong>모니터링</strong><br>위반 로그를 저장해 추후 분석 및 정책 강화 가능</li></ul><hr><h2 id="⚙️-사용-사례-예시"><a href="#⚙️-사용-사례-예시" class="headerlink" title="⚙️ 사용 사례 예시"></a>⚙️ 사용 사례 예시</h2><h3 id="1-제한된-주제-차단"><a href="#1-제한된-주제-차단" class="headerlink" title="1. 제한된 주제 차단"></a>1. 제한된 주제 차단</h3><ul><li><strong>사용자 요청</strong>: “오늘 저녁에 먹을 요리 레시피 추천해줘.”</li><li><strong>Guardrail 동작</strong>: “죄송하지만, 이 주제는 답변할 수 없습니다.”</li></ul><h3 id="2-개인정보-마스킹"><a href="#2-개인정보-마스킹" class="headerlink" title="2. 개인정보 마스킹"></a>2. 개인정보 마스킹</h3><ul><li><strong>사용자 요청</strong>: “<a href="mailto:&#100;&#97;&#110;&#110;&#121;&#64;&#101;&#120;&#97;&#109;&#112;&#108;&#x65;&#46;&#x63;&#x6f;&#109;">danny@example.com</a> 으로 메일을 보내줘.”</li><li><strong>Guardrail 동작</strong>: 이메일 주소를 <code>[PII 제거됨]</code> 으로 자동 변환</li></ul><hr><h2 id="🛠️-Guardrails-설정-방법"><a href="#🛠️-Guardrails-설정-방법" class="headerlink" title="🛠️ Guardrails 설정 방법"></a>🛠️ Guardrails 설정 방법</h2><ol><li><strong>가드레일 생성</strong> – 이름과 차단 메시지 설정<br>(예: <em>“죄송하지만, 해당 질문에는 답변할 수 없습니다.”</em>)</li><li><strong>필터 규칙 설정</strong>  <ul><li>콘텐츠 필터: 욕설, 성적, 폭력, 혐오 표현 등  </li><li>금지 주제: 의료, 법률, 요리 레시피 등  </li><li>금지 단어&#x2F;정규식: 특정 단어, 신용카드 번호 등  </li><li>PII 필터: 이메일, 전화번호 등 개인정보 마스킹  </li><li>Grounding: 모델 답변이 실제 문서와 일치하는지 검증</li></ul></li><li><strong>테스트</strong> – 입력 프롬프트로 가드레일이 제대로 작동하는지 확인</li><li><strong>모델에 적용</strong> – Anthropic, Claude, Sonnet 등 지원되는 FM(기초 모델)에 연결</li><li><strong>다중 적용 가능</strong> – 여러 가드레일을 동시에 사용해 강화된 제어 가능</li></ol><hr><h2 id="✅-Guardrails를-사용하는-이유"><a href="#✅-Guardrails를-사용하는-이유" class="headerlink" title="✅ Guardrails를 사용하는 이유"></a>✅ Guardrails를 사용하는 이유</h2><ul><li><strong>책임 있는 AI</strong>: 위험하거나 불필요한 답변을 차단  </li><li><strong>개인정보 보호</strong>: 민감한 사용자 정보 자동 제거  </li><li><strong>법적·윤리적 리스크 방지</strong>: 규제 준수 및 기업 신뢰 확보  </li><li><strong>출력 품질 개선</strong>: 더 정확하고 신뢰할 수 있는 응답 제공</li></ul><p>👉 한마디로, Guardrails는 <strong>AI 안전벨트</strong> 역할을 합니다.<br>사용자와 기업 모두를 보호하면서 <strong>안전하고 신뢰할 수 있는 AI 서비스</strong>를 운영할 수 있습니다.  </p><hr><h2 id="📝-Guardrails-요약표"><a href="#📝-Guardrails-요약표" class="headerlink" title="📝 Guardrails 요약표"></a>📝 Guardrails 요약표</h2><table><thead><tr><th>구분</th><th>설명</th><th>예시</th></tr></thead><tbody><tr><td><strong>목적</strong></td><td>모델과 사용자 간 상호작용 제어</td><td>잘못된 답변 방지</td></tr><tr><td><strong>콘텐츠 필터</strong></td><td>혐오, 욕설, 성적, 폭력 차단</td><td>“폭력적인 이야기” 요청 → 차단</td></tr><tr><td><strong>금지 주제</strong></td><td>특정 주제 제한</td><td>의료&#x2F;법률 상담, 레시피</td></tr><tr><td><strong>PII 보호</strong></td><td>개인정보 자동 마스킹</td><td>이메일, 전화번호 제거</td></tr><tr><td><strong>금지어 필터</strong></td><td>특정 단어&#x2F;문구 차단</td><td>비속어 차단</td></tr><tr><td><strong>정규식 필터</strong></td><td>패턴 기반 정보 차단</td><td>신용카드 번호</td></tr><tr><td><strong>Grounding</strong></td><td>답변의 사실성 확인</td><td>근거 없는 생성 방지</td></tr><tr><td><strong>다중 가드레일</strong></td><td>여러 규칙을 함께 적용</td><td>개인정보+유해콘텐츠 동시 필터링</td></tr><tr><td><strong>모니터링</strong></td><td>위반 로그 기록</td><td>보안 정책 강화</td></tr><tr><td><strong>차단 메시지</strong></td><td>사용자에게 보여줄 문구 설정</td><td>“답변할 수 없습니다.”</td></tr></tbody></table><hr><h2 id="✅-시험-대비-포인트-AWS-자격증"><a href="#✅-시험-대비-포인트-AWS-자격증" class="headerlink" title="✅ 시험 대비 포인트 (AWS 자격증)"></a>✅ 시험 대비 포인트 (AWS 자격증)</h2><ul><li><strong>Bedrock Guardrails 핵심</strong>:<br>콘텐츠 필터링 + 개인정보 보호(PII) + Grounding(환각 방지)  </li><li><strong>PII</strong> → 이메일, 전화번호, 주소, 신용카드 등 자동 마스킹  </li><li><strong>Grounding</strong> → “AI가 지어낸 답변(hallucination)을 줄이는 기능”  </li><li><strong>실무 적용</strong>: Guardrails는 <strong>다중 적용 가능</strong>하며 <strong>로그 모니터링</strong> 지원  </li><li><strong>시험 문제 유형 예시</strong>  <blockquote><p>“Bedrock 모델이 사용자의 이메일 주소를 그대로 출력하지 않게 하려면 어떤 기능을 사용해야 하는가?”<br>정답 → <strong>Guardrails의 PII Protection</strong></p></blockquote></li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="🛡️-Amazon-Bedrock-–-Guardrails-가드레일"><a href="#🛡️-Amazon-Bedrock-–-Guardrails-가드레일" class="headerlink" title="🛡️ Amazon Bedrock – Guardrails (가드레일)"></a>🛡️ Amazon Bedrock – Guardrails (가드레일)</h1><h2 id="📌-Guardrails란-무엇인가"><a href="#📌-Guardrails란-무엇인가" class="headerlink" title="📌 Guardrails란 무엇인가?"></a>📌 Guardrails란 무엇인가?</h2><p>Amazon Bedrock의 <strong>Guardrails(가드레일)</strong> 은 사용자가 입력한 내용과 모델이 생성하는 답변을 <strong>필터링하고 제어하는 안전장치</strong>입니다.<br>즉, AI가 잘못된 답변이나 위험한 내용을 내놓지 않도록 <strong>보호막 역할</strong>을 합니다.</p><p align="center">  <img src="/images/aws_basic_62.png" width="80%"></p><hr><h2 id="🔑-Guardrails-주요-기능"><a href="#🔑-Guardrails-주요-기능" class="headerlink" title="🔑 Guardrails 주요 기능"></a>🔑 Guardrails 주요 기능</h2><ul><li><strong>유해 콘텐츠 차단</strong><br>욕설, 혐오 표현, 성적인 내용, 폭력적인 내용 등을 자동으로 차단</li><li><strong>특정 주제 제한</strong><br>민감하거나 허용하지 않은 주제(예: 의료 조언, 법률 상담, 레시피 등)는 답변하지 않도록 설정</li><li><strong>개인정보 보호(PII)</strong><br>이메일, 전화번호, 주소 같은 개인정보를 자동 감지 후 마스킹 처리</li><li><strong>환각(Hallucination) 줄이기</strong><br>모델이 근거 없는 답변을 하지 않도록 맥락 기반 사실 확인(grounding) 적용</li><li><strong>금지어(Word Filter)</strong><br>직접 정의한 특정 단어·문구를 차단</li><li><strong>정규식(Regex) 필터</strong><br>예: 신용카드 번호, 주민번호 등 특정 패턴 데이터 차단 가능</li><li><strong>다중 가드레일</strong><br>상황별로 여러 가드레일을 동시에 적용 가능</li><li><strong>모니터링</strong><br>위반 로그를 저장해 추후 분석 및 정책 강화 가능</li></ul><hr><h2 id="⚙️-사용-사례-예시"><a href="#⚙️-사용-사례-예시" class="headerlink" title="⚙️ 사용 사례 예시"></a>⚙️ 사용 사례 예시</h2><h3 id="1-제한된-주제-차단"><a href="#1-제한된-주제-차단" class="headerlink" title="1. 제한된 주제 차단"></a>1. 제한된 주제 차단</h3><ul><li><strong>사용자 요청</strong>: “오늘 저녁에 먹을 요리 레시피 추천해줘.”</li><li><strong>Guardrail 동작</strong>: “죄송하지만, 이 주제는 답변할 수 없습니다.”</li></ul><h3 id="2-개인정보-마스킹"><a href="#2-개인정보-마스킹" class="headerlink" title="2. 개인정보 마스킹"></a>2. 개인정보 마스킹</h3><ul><li><strong>사용자 요청</strong>: “<a href="mailto:&#x64;&#97;&#x6e;&#x6e;&#x79;&#64;&#101;&#x78;&#x61;&#x6d;&#x70;&#108;&#x65;&#46;&#x63;&#x6f;&#109;">danny@example.com</a> 으로 메일을 보내줘.”</li><li><strong>Guardrail 동작</strong>: 이메일 주소를 <code>[PII 제거됨]</code> 으로 자동 변환</li></ul><hr><h2 id="🛠️-Guardrails-설정-방법"><a href="#🛠️-Guardrails-설정-방법" class="headerlink" title="🛠️ Guardrails 설정 방법"></a>🛠️ Guardrails 설정 방법</h2><ol><li><strong>가드레일 생성</strong> – 이름과 차단 메시지 설정<br>(예: <em>“죄송하지만, 해당 질문에는 답변할 수 없습니다.”</em>)</li><li><strong>필터 규칙 설정</strong>  <ul><li>콘텐츠 필터: 욕설, 성적, 폭력, 혐오 표현 등  </li><li>금지 주제: 의료, 법률, 요리 레시피 등  </li><li>금지 단어&#x2F;정규식: 특정 단어, 신용카드 번호 등  </li><li>PII 필터: 이메일, 전화번호 등 개인정보 마스킹  </li><li>Grounding: 모델 답변이 실제 문서와 일치하는지 검증</li></ul></li><li><strong>테스트</strong> – 입력 프롬프트로 가드레일이 제대로 작동하는지 확인</li><li><strong>모델에 적용</strong> – Anthropic, Claude, Sonnet 등 지원되는 FM(기초 모델)에 연결</li><li><strong>다중 적용 가능</strong> – 여러 가드레일을 동시에 사용해 강화된 제어 가능</li></ol><hr><h2 id="✅-Guardrails를-사용하는-이유"><a href="#✅-Guardrails를-사용하는-이유" class="headerlink" title="✅ Guardrails를 사용하는 이유"></a>✅ Guardrails를 사용하는 이유</h2><ul><li><strong>책임 있는 AI</strong>: 위험하거나 불필요한 답변을 차단  </li><li><strong>개인정보 보호</strong>: 민감한 사용자 정보 자동 제거  </li><li><strong>법적·윤리적 리스크 방지</strong>: 규제 준수 및 기업 신뢰 확보  </li><li><strong>출력 품질 개선</strong>: 더 정확하고 신뢰할 수 있는 응답 제공</li></ul><p>👉 한마디로, Guardrails는 <strong>AI 안전벨트</strong> 역할을 합니다.<br>사용자와 기업 모두를 보호하면서 <strong>안전하고 신뢰할 수 있는 AI 서비스</strong>를 운영할 수 있습니다.  </p><hr><h2 id="📝-Guardrails-요약표"><a href="#📝-Guardrails-요약표" class="headerlink" title="📝 Guardrails 요약표"></a>📝 Guardrails 요약표</h2><table><thead><tr><th>구분</th><th>설명</th><th>예시</th></tr></thead><tbody><tr><td><strong>목적</strong></td><td>모델과 사용자 간 상호작용 제어</td><td>잘못된 답변 방지</td></tr><tr><td><strong>콘텐츠 필터</strong></td><td>혐오, 욕설, 성적, 폭력 차단</td><td>“폭력적인 이야기” 요청 → 차단</td></tr><tr><td><strong>금지 주제</strong></td><td>특정 주제 제한</td><td>의료&#x2F;법률 상담, 레시피</td></tr><tr><td><strong>PII 보호</strong></td><td>개인정보 자동 마스킹</td><td>이메일, 전화번호 제거</td></tr><tr><td><strong>금지어 필터</strong></td><td>특정 단어&#x2F;문구 차단</td><td>비속어 차단</td></tr><tr><td><strong>정규식 필터</strong></td><td>패턴 기반 정보 차단</td><td>신용카드 번호</td></tr><tr><td><strong>Grounding</strong></td><td>답변의 사실성 확인</td><td>근거 없는 생성 방지</td></tr><tr><td><strong>다중 가드레일</strong></td><td>여러 규칙을 함께 적용</td><td>개인정보+유해콘텐츠 동시 필터링</td></tr><tr><td><strong>모니터링</strong></td><td>위반 로그 기록</td><td>보안 정책 강화</td></tr><tr><td><strong>차단 메시지</strong></td><td>사용자에게 보여줄 문구 설정</td><td>“답변할 수 없습니다.”</td></tr></tbody></table><hr><h2 id="✅-시험-대비-포인트-AWS-자격증"><a href="#✅-시험-대비-포인트-AWS-자격증" class="headerlink" title="✅ 시험 대비 포인트 (AWS 자격증)"></a>✅ 시험 대비 포인트 (AWS 자격증)</h2><ul><li><strong>Bedrock Guardrails 핵심</strong>:<br>콘텐츠 필터링 + 개인정보 보호(PII) + Grounding(환각 방지)  </li><li><strong>PII</strong> → 이메일, 전화번호, 주소, 신용카드 등 자동 마스킹  </li><li><strong>Grounding</strong> → “AI가 지어낸 답변(hallucination)을 줄이는 기능”  </li><li><strong>실무 적용</strong>: Guardrails는 <strong>다중 적용 가능</strong>하며 <strong>로그 모니터링</strong> 지원  </li><li><strong>시험 문제 유형 예시</strong>  <blockquote><p>“Bedrock 모델이 사용자의 이메일 주소를 그대로 출력하지 않게 하려면 어떤 기능을 사용해야 하는가?”<br>정답 → <strong>Guardrails의 PII Protection</strong></p></blockquote></li></ul>]]></content>
     
     
       
@@ -521,66 +547,6 @@
       
       
     <summary type="html">&lt;h1 id=&quot;📚-Amazon-Bedrock-파인튜닝-모델-선택&quot;&gt;&lt;a href=&quot;#📚-Amazon-Bedrock-파인튜닝-모델-선택&quot; class=&quot;headerlink&quot; title=&quot;📚 Amazon Bedrock 파인튜닝 &amp;amp; 모델 선택&quot;&gt;</summary>
-      
-    
-    
-    
-    <category term="CERTIFICATION" scheme="https://kish191919.github.io/categories/CERTIFICATION/"/>
-    
-    <category term="AWS_AI_PRACTITIONER_KR" scheme="https://kish191919.github.io/categories/CERTIFICATION/AWS-AI-PRACTITIONER-KR/"/>
-    
-    
-    <category term="AWS" scheme="https://kish191919.github.io/tags/AWS/"/>
-    
-    <category term="AWS_AI_PRACTITIONER" scheme="https://kish191919.github.io/tags/AWS-AI-PRACTITIONER/"/>
-    
-    <category term="KOREAN" scheme="https://kish191919.github.io/tags/KOREAN/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>(한국어) AWS Certified AI Practitioner (3) - 생성형 AI &amp; Amazon Bedrock</title>
-    <link href="https://kish191919.github.io/2025/08/20/KO-AWS-Certified-AI-Practitioner-3/"/>
-    <id>https://kish191919.github.io/2025/08/20/KO-AWS-Certified-AI-Practitioner-3/</id>
-    <published>2025-08-20T23:02:20.000Z</published>
-    <updated>2025-08-21T04:38:32.220Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="🧠-생성형-AI-Amazon-Bedrock"><a href="#🧠-생성형-AI-Amazon-Bedrock" class="headerlink" title="🧠 생성형 AI &amp; Amazon Bedrock"></a>🧠 생성형 AI &amp; Amazon Bedrock</h1><h2 id="1-생성형-AI란"><a href="#1-생성형-AI란" class="headerlink" title="1. 생성형 AI란?"></a>1. 생성형 AI란?</h2><ul><li><strong>Generative AI (생성형 AI)</strong>: 학습한 데이터를 바탕으로 <strong>새로운 데이터</strong>를 만들어내는 AI.  </li><li>만들 수 있는 것들: 텍스트, 이미지, 오디오, 코드, 비디오  </li><li>예시: ChatGPT가 사람처럼 대화 문장을 만들어내는 것.</li></ul><hr><h2 id="2-파운데이션-모델-Foundation-Models-FM"><a href="#2-파운데이션-모델-Foundation-Models-FM" class="headerlink" title="2. 파운데이션 모델(Foundation Models, FM)"></a>2. 파운데이션 모델(Foundation Models, FM)</h2><ul><li>대규모 데이터로 학습된 초거대 AI 모델.  </li><li>개발 비용이 매우 큼 (수백억~수천억 원).  </li><li>대표 모델:<ul><li>OpenAI → GPT 시리즈  </li><li>Meta → LLaMA  </li><li>Google → BERT, Gemini  </li><li>Amazon → Titan  </li><li>Anthropic → Claude</li></ul></li><li>오픈소스(무료)와 상용(유료) 모델이 있음.</li></ul><hr><h2 id="3-대규모-언어-모델-LLM"><a href="#3-대규모-언어-모델-LLM" class="headerlink" title="3. 대규모 언어 모델(LLM)"></a>3. 대규모 언어 모델(LLM)</h2><ul><li>텍스트 생성에 특화된 AI.  </li><li>수십억 개 이상의 파라미터.  </li><li>활용: 번역, 요약, Q&amp;A, 글쓰기</li></ul><hr><h2 id="4-언어-모델-동작-방식"><a href="#4-언어-모델-동작-방식" class="headerlink" title="4. 언어 모델 동작 방식"></a>4. 언어 모델 동작 방식</h2><ol><li>사용자가 <strong>프롬프트 입력</strong>  </li><li>모델이 확률적으로 <strong>다음 단어 예측</strong>  </li><li>문장 출력  </li><li>같은 입력이라도 답변이 달라질 수 있음 → <strong>비결정적 특성</strong></li></ol><p>💡 시험 포인트: LLM은 <strong>확률 기반 모델</strong>이라는 점!  </p><hr><h2 id="5-Amazon-Bedrock-개요"><a href="#5-Amazon-Bedrock-개요" class="headerlink" title="5. Amazon Bedrock 개요"></a>5. Amazon Bedrock 개요</h2><ul><li>AWS의 생성형 AI 서비스  </li><li><strong>완전 관리형</strong> → 서버 관리 불필요  </li><li><strong>사용량 기반 과금(On-Demand)</strong>  </li><li>하나의 API로 여러 파운데이션 모델 사용 가능  </li><li>제공 기능:<ul><li>RAG (검색 + 생성 결합)  </li><li>LLM Agents (자동화 지원)</li></ul></li><li>보안·프라이버시·책임 있는 AI 강조</li></ul><p align="center">  <img src="/images/aws_basic_5.png" width="100%"></p><hr><h2 id="6-Bedrock과-파운데이션-모델"><a href="#6-Bedrock과-파운데이션-모델" class="headerlink" title="6. Bedrock과 파운데이션 모델"></a>6. Bedrock과 파운데이션 모델</h2><ul><li>개인 전용 환경에서 모델 사용 → 데이터가 공유되지 않음  </li><li>내 데이터로 파인튜닝 가능  </li><li>내 데이터는 공용 모델 학습에 쓰이지 않음  </li><li><strong>Amazon Titan</strong>:<ul><li>텍스트, 이미지, 멀티모달 지원  </li><li>맞춤화 가능  </li><li>작은 모델 선택 시 비용 절감</li></ul></li></ul><hr><h2 id="7-Bedrock-사용-방법"><a href="#7-Bedrock-사용-방법" class="headerlink" title="7. Bedrock 사용 방법"></a>7. Bedrock 사용 방법</h2><ol><li>모델 접근 권한 신청</li></ol><p align="center">  <img src="/images/aws_basic_6.png" width="70%"></p><ol start="2"><li>프롬프트 테스트</li></ol><p align="center">  <img src="/images/aws_basic_7.png" width="70%"></p><p align="center">  <img src="/images/aws_basic_8.png" width="70%"></p><ol start="3"><li>이미지 생성 플레이그라운드 활용</li></ol><p align="center">  <img src="/images/aws_basic_9.png" width="70%"></p><hr><h2 id="8-제공-모델-예시"><a href="#8-제공-모델-예시" class="headerlink" title="8. 제공 모델 예시"></a>8. 제공 모델 예시</h2><ul><li>Amazon Titan  </li><li>Meta LLaMA  </li><li>Anthropic Claude  </li><li>Stable Diffusion (이미지 생성)</li></ul><p align="center">  <img src="/images/aws_basic_10.png" width="70%"></p><hr><h2 id="✅-시험-대비-요약표"><a href="#✅-시험-대비-요약표" class="headerlink" title="✅ 시험 대비 요약표"></a>✅ 시험 대비 요약표</h2><table><thead><tr><th>구분</th><th>핵심 포인트</th></tr></thead><tbody><tr><td><strong>Gen AI</strong></td><td>데이터를 바탕으로 새 콘텐츠 생성 (텍스트, 이미지, 오디오 등)</td></tr><tr><td><strong>FM (Foundation Models)</strong></td><td>대규모 학습 모델, 오픈소스&#x2F;상용 모두 존재</td></tr><tr><td><strong>LLM</strong></td><td>텍스트 특화, 번역·요약·Q&amp;A 가능</td></tr><tr><td><strong>LLM 동작 원리</strong></td><td>확률 기반 예측 → 같은 입력도 다른 출력 가능</td></tr><tr><td><strong>Bedrock 특징</strong></td><td>완전 관리형, 서버리스, 여러 FM을 API로 통합 제공</td></tr><tr><td><strong>보안&#x2F;데이터</strong></td><td>내 데이터는 공용 학습에 사용되지 않음</td></tr><tr><td><strong>제공 기능</strong></td><td>RAG, LLM Agents</td></tr><tr><td><strong>비용 모델</strong></td><td>On-Demand (사용량 기반)</td></tr><tr><td><strong>Amazon Titan</strong></td><td>텍스트·이미지·멀티모달, 커스터마이징 가능</td></tr></tbody></table><hr><p>👉 결론: <strong>Amazon Bedrock &#x3D; 다양한 생성형 AI 모델을 보안적으로 안전하게, 서버 관리 없이, 비용 효율적으로 활용할 수 있는 서비스</strong>  </p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;🧠-생성형-AI-Amazon-Bedrock&quot;&gt;&lt;a href=&quot;#🧠-생성형-AI-Amazon-Bedrock&quot; class=&quot;headerlink&quot; title=&quot;🧠 생성형 AI &amp;amp; Amazon Bedrock&quot;&gt;&lt;/a&gt;🧠 생성형 A</summary>
-      
-    
-    
-    
-    <category term="CERTIFICATION" scheme="https://kish191919.github.io/categories/CERTIFICATION/"/>
-    
-    <category term="AWS_AI_PRACTITIONER_KR" scheme="https://kish191919.github.io/categories/CERTIFICATION/AWS-AI-PRACTITIONER-KR/"/>
-    
-    
-    <category term="AWS" scheme="https://kish191919.github.io/tags/AWS/"/>
-    
-    <category term="AWS_AI_PRACTITIONER" scheme="https://kish191919.github.io/tags/AWS-AI-PRACTITIONER/"/>
-    
-    <category term="KOREAN" scheme="https://kish191919.github.io/tags/KOREAN/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>(한국어) AWS Certified AI Practitioner (2) - AWS 비용 &amp; 예산 관리</title>
-    <link href="https://kish191919.github.io/2025/08/20/KO-AWS-Certified-AI-Practitioner-2/"/>
-    <id>https://kish191919.github.io/2025/08/20/KO-AWS-Certified-AI-Practitioner-2/</id>
-    <published>2025-08-20T23:00:05.000Z</published>
-    <updated>2025-08-21T04:38:32.220Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="💰-AWS-비용-예산-관리"><a href="#💰-AWS-비용-예산-관리" class="headerlink" title="💰 AWS 비용 &amp; 예산 관리"></a>💰 AWS 비용 &amp; 예산 관리</h1><h2 id="1-IAM-사용자-접근-설정"><a href="#1-IAM-사용자-접근-설정" class="headerlink" title="1. IAM 사용자 접근 설정"></a>1. IAM 사용자 접근 설정</h2><ul><li>AWS에서 <strong>비용과 결제(Billing &amp; Cost Management)</strong> 화면을 보려면,<br>단순히 계정만 있다고 바로 볼 수 있는 게 아니에요.  </li><li><strong>관리자(Admin)</strong> 가 먼저 설정에서<br>👉 <strong>“IAM 사용자 및 역할이 Billing 정보에 접근할 수 있도록 허용”</strong> 옵션을 켜줘야 합니다.  </li><li>이렇게 해야 IAM 사용자도 비용 내역을 확인할 수 있습니다.</li></ul><p align="center">  <img src="/images/aws_basic_3.png" width="100%"></p><hr><h2 id="2-주요-비용-관리-도구"><a href="#2-주요-비용-관리-도구" class="headerlink" title="2. 주요 비용 관리 도구"></a>2. 주요 비용 관리 도구</h2><ul><li><p><strong>Bills (청구서)</strong><br>→ 매달 AWS가 어떤 서비스에서 얼마를 썼는지 <strong>상세 내역</strong>을 보여줍니다.  </p></li><li><p><strong>Free Tier (프리 티어)</strong><br>→ 신규 계정에 제공되는 <strong>무료 사용량</strong>이 얼마나 남았는지 확인할 수 있습니다.<br>💡 <em>예: EC2 750시간 무료, S3 5GB 저장 무료 등</em>  </p></li><li><p><strong>Budgets (예산 관리)</strong><br>→ 내가 설정한 금액을 초과하면 <strong>이메일로 알림</strong>을 줍니다.<br>💡 <em>예: 한 달 예산을 10달러로 정해두고, 예상 사용량이 10달러를 넘으면 경고 메일 받기</em></p></li></ul><p align="center">  <img src="/images/aws_basic_4.png" width="100%"></p><hr><h2 id="✅-추가로-알아두면-좋은-점"><a href="#✅-추가로-알아두면-좋은-점" class="headerlink" title="✅ 추가로 알아두면 좋은 점"></a>✅ 추가로 알아두면 좋은 점</h2><ul><li><strong>Cost Explorer</strong>: 서비스별, 날짜별로 얼마나 썼는지 그래프로 확인 가능 → 비용 추세 파악에 유용.  </li><li><strong>알림 설정</strong>: Budgets와 SNS(알림 서비스)를 연동하면 <strong>문자·푸시 알림</strong>도 받을 수 있음.  </li><li><strong>Tip</strong>: AWS 비용은 <strong>끄지 않은 리소스(EC2, RDS 등)</strong> 때문에 많이 새어나가는 경우가 많아요. 사용하지 않으면 꼭 꺼두는 습관이 필요합니다.</li></ul><hr><p>👉 정리하면,<br>AWS 비용 관리의 핵심은 <strong>“청구서 확인(Bills) → 무료 혜택 확인(Free Tier) → 예산 알림 설정(Budgets)”</strong> 순서로 관리하는 것입니다.  </p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;💰-AWS-비용-예산-관리&quot;&gt;&lt;a href=&quot;#💰-AWS-비용-예산-관리&quot; class=&quot;headerlink&quot; title=&quot;💰 AWS 비용 &amp;amp; 예산 관리&quot;&gt;&lt;/a&gt;💰 AWS 비용 &amp;amp; 예산 관리&lt;/h1&gt;&lt;h2 id=&quot;1</summary>
       
     
     
