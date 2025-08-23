@@ -6,7 +6,7 @@
   <link href="https://kish191919.github.io/atom.xml" rel="self"/>
   
   <link href="https://kish191919.github.io/"/>
-  <updated>2025-08-23T00:33:59.841Z</updated>
+  <updated>2025-08-23T12:38:08.965Z</updated>
   <id>https://kish191919.github.io/</id>
   
   <author>
@@ -15,6 +15,64 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AWS Certified AI Practitioner(21) - PartyRock</title>
+    <link href="https://kish191919.github.io/2025/08/23/AWS-Certified-AI-Practitioner-21/"/>
+    <id>https://kish191919.github.io/2025/08/23/AWS-Certified-AI-Practitioner-21/</id>
+    <published>2025-08-23T12:25:02.000Z</published>
+    <updated>2025-08-23T12:38:08.965Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="🎉-PartyRock-–-GenAI-Playground"><a href="#🎉-PartyRock-–-GenAI-Playground" class="headerlink" title="🎉 PartyRock – GenAI Playground"></a>🎉 PartyRock – GenAI Playground</h1><h2 id="📌-What-is-PartyRock"><a href="#📌-What-is-PartyRock" class="headerlink" title="📌 What is PartyRock?"></a>📌 What is PartyRock?</h2><ul><li>PartyRock is a <strong>Generative AI app-building playground</strong> powered by <strong>Amazon Bedrock</strong>.  </li><li>It allows you to experiment with creating <strong>GenAI apps</strong> using various Foundation Models (FMs).  </li><li>No coding or AWS account is required.  </li><li>The <strong>UI is very similar to Amazon Q Apps</strong>, but requires less setup.</li></ul><p>👉 Link: <a href="https://partyrock.aws/home">PartyRock</a></p><p align="center">  <img src="/images/aws_basic_91.png" width="80%"></p><hr><h2 id="🔑-Key-Features"><a href="#🔑-Key-Features" class="headerlink" title="🔑 Key Features"></a>🔑 Key Features</h2><ul><li>Build GenAI apps without coding  </li><li>Use natural language prompts to create applications  </li><li>Experiment with different widgets (inputs, outputs, templates)  </li><li>Try out text generation, image generation, or chatbot creation  </li><li>Great for <strong>learning Bedrock concepts</strong> without needing an AWS account</li></ul><hr><h2 id="🛠-Example-–-Restaurant-Recommendation-App"><a href="#🛠-Example-–-Restaurant-Recommendation-App" class="headerlink" title="🛠 Example – Restaurant Recommendation App"></a>🛠 Example – Restaurant Recommendation App</h2><ol><li><p>User provides input:  </p><ul><li>Location: <em>Las Vegas, Nevada</em>  </li><li>Cuisine: <em>American Burgers</em>  </li><li>Meal type: <em>Dinner</em></li></ul></li><li><p>PartyRock uses prompt templates:  </p><ul><li><em>“Recommend a great restaurant in [location] for [cuisine] at [meal].”</em>  </li><li>Generates a <strong>list of restaurants</strong>.</li></ul></li><li><p>Output can be chained into another widget, such as a <strong>Restaurant Guide</strong>, which gives more details about the recommendations.</p></li></ol><hr><h2 id="🧪-Example-–-Recipe-Generator-App"><a href="#🧪-Example-–-Recipe-Generator-App" class="headerlink" title="🧪 Example – Recipe Generator App"></a>🧪 Example – Recipe Generator App</h2><ol><li>User input: <em>Tomato, cucumber, raclette cheese, olives</em>  </li><li>PartyRock generates:  <ul><li>A <strong>recipe idea</strong> using these ingredients  </li><li>An <strong>AI-generated image</strong> of the dish (powered by <em>Stable Diffusion XL</em>)</li></ul></li></ol><p>This demonstrates how <strong>multiple widgets</strong> (ingredients → recipe text → recipe image) can be linked together.</p><p align="center">  <img src="/images/aws_basic_92.png" width="80%"></p><p align="center">  <img src="/images/aws_basic_93.png" width="80%"></p><p align="center">  <img src="/images/aws_basic_94.png" width="80%"></p><p align="center">  <img src="/images/aws_basic_95.png" width="80%"></p><hr><h2 id="📌-Available-Widgets"><a href="#📌-Available-Widgets" class="headerlink" title="📌 Available Widgets"></a>📌 Available Widgets</h2><ul><li><strong>User Input</strong> – text fields where users provide values  </li><li><strong>Static Text &#x2F; Documents</strong> – fixed inputs  </li><li><strong>Generators</strong> – text, image, chatbot outputs</li></ul><hr><h2 id="📝-Why-PartyRock-Matters-Exam-Tip"><a href="#📝-Why-PartyRock-Matters-Exam-Tip" class="headerlink" title="📝 Why PartyRock Matters (Exam Tip)"></a>📝 Why PartyRock Matters (Exam Tip)</h2><ul><li>PartyRock is <strong>NOT a production AWS service</strong>, but it is mentioned in AWS exam materials.  </li><li>It is mainly a <strong>learning playground</strong> to showcase how Bedrock can be used to build apps.  </li><li>Think of it as a <strong>lightweight version of Amazon Q Apps</strong>, designed for experimentation.</li></ul><p>👉 <strong>Exam Reminder</strong>: PartyRock &#x3D; Playground for Bedrock-based GenAI apps, no coding required, no AWS account required.</p><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;🎉-PartyRock-–-GenAI-Playground&quot;&gt;&lt;a href=&quot;#🎉-PartyRock-–-GenAI-Playground&quot; class=&quot;headerlink&quot; title=&quot;🎉 PartyRock – GenAI Playgroun</summary>
+      
+    
+    
+    
+    <category term="CERTIFICATION" scheme="https://kish191919.github.io/categories/CERTIFICATION/"/>
+    
+    <category term="AWS_AI_PRACTITIONER" scheme="https://kish191919.github.io/categories/CERTIFICATION/AWS-AI-PRACTITIONER/"/>
+    
+    
+    <category term="AWS" scheme="https://kish191919.github.io/tags/AWS/"/>
+    
+    <category term="AWS_AI_PRACTITIONER" scheme="https://kish191919.github.io/tags/AWS-AI-PRACTITIONER/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>(한국어) AWS Certified AI Practitioner (21) - PartyRock</title>
+    <link href="https://kish191919.github.io/2025/08/23/KO-AWS-Certified-AI-Practitioner-21/"/>
+    <id>https://kish191919.github.io/2025/08/23/KO-AWS-Certified-AI-Practitioner-21/</id>
+    <published>2025-08-23T12:24:51.000Z</published>
+    <updated>2025-08-23T12:38:08.967Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="🎉-PartyRock-정리"><a href="#🎉-PartyRock-정리" class="headerlink" title="🎉 PartyRock 정리"></a>🎉 PartyRock 정리</h1><h2 id="1-PartyRock이란"><a href="#1-PartyRock이란" class="headerlink" title="1. PartyRock이란?"></a>1. PartyRock이란?</h2><ul><li><strong>PartyRock</strong>은 AWS에서 제공하는 <strong>생성형 AI 앱 제작 실습 공간(Playground)</strong> 입니다.  </li><li><strong>Amazon Bedrock 기반</strong>으로 동작하지만, 실제 AWS 서비스는 아니며 시험 대비용으로만 알아두면 됩니다.  </li><li><strong>특징</strong>:<ul><li>AWS 계정 없이 사용 가능 (로그인만으로 체험 가능)  </li><li>코딩 불필요 → 누구나 자연어 입력만으로 AI 앱 제작 가능  </li><li>UI(화면 구성)는 <strong>Amazon Q Apps</strong>와 비슷하지만, 더 간단하고 빠르게 시작 가능</li></ul></li></ul><p>👉 <strong>시험 포인트</strong>: PartyRock은 <em>Bedrock 기반의 체험용 Playground</em> 이며, <strong>AWS 공식 서비스가 아니다</strong>.</p><p><a href="https://partyrock.aws/home">PartyRock 바로가기</a></p><p align="center">  <img src="/images/aws_basic_91.png" width="80%"></p>---<h2 id="2-PartyRock의-기능"><a href="#2-PartyRock의-기능" class="headerlink" title="2. PartyRock의 기능"></a>2. PartyRock의 기능</h2><ul><li><strong>GenAI 앱 만들기</strong>  <ul><li>사용자가 원하는 앱을 자연어로 설명하면 자동으로 앱 생성  </li><li>예: “재료를 입력하면 레시피와 음식 이미지를 생성하는 앱”</li></ul></li></ul><p align="center">  <img src="/images/aws_basic_92.png" width="80%"></p><ul><li><strong>위젯(Widget) 기반 구성</strong>  <ul><li>입력 위젯(Input) → 위치, 음식 종류, 시간대 등 사용자 입력  </li><li>출력 위젯(Output) → 추천 결과, 이미지 생성, 텍스트 응답 등</li></ul></li><li><strong>모델 연동</strong>  <ul><li>텍스트 생성: Claude, Titan, Llama 등  </li><li>이미지 생성: <strong>Stable Diffusion XL</strong></li></ul></li><li><strong>체험 예시</strong>  <ul><li>“Las Vegas, American Burgers, Dinner” → 레스토랑 추천 + 상세 가이드 제공  </li><li>“Tomato, Cucumber, Cheese, Olives” → 레시피와 음식 이미지 자동 생성</li></ul></li></ul><p align="center">  <img src="/images/aws_basic_93.png" width="80%"></p><p align="center">  <img src="/images/aws_basic_94.png" width="80%"></p><p align="center">  <img src="/images/aws_basic_95.png" width="80%"></p><hr><h2 id="3-PartyRock과-Amazon-Q-Apps-비교"><a href="#3-PartyRock과-Amazon-Q-Apps-비교" class="headerlink" title="3. PartyRock과 Amazon Q Apps 비교"></a>3. PartyRock과 Amazon Q Apps 비교</h2><table><thead><tr><th>구분</th><th>PartyRock</th><th>Amazon Q Apps</th></tr></thead><tbody><tr><td>목적</td><td>학습&#x2F;체험용 Playground</td><td>실제 기업용 앱 제작</td></tr><tr><td>AWS 계정 필요 여부</td><td>❌ 필요 없음</td><td>✅ 필요</td></tr><tr><td>데이터 활용</td><td>공개 예제 위주</td><td><strong>기업 내부 데이터</strong> + 플러그인 활용</td></tr><tr><td>난이도</td><td>쉽고 빠름</td><td>설정이 조금 더 복잡</td></tr></tbody></table><p>👉 <strong>시험 대비 포인트</strong>  </p><ul><li>PartyRock &#x3D; <strong>Bedrock 체험용</strong> (기업 내부 데이터 ❌)  </li><li>Q Apps &#x3D; <strong>실제 업무용</strong> (기업 내부 데이터 ✅)</li></ul><hr><h2 id="4-시험-대비-핵심-정리"><a href="#4-시험-대비-핵심-정리" class="headerlink" title="4. 시험 대비 핵심 정리"></a>4. 시험 대비 핵심 정리</h2><ul><li><strong>PartyRock &#x3D; AWS Bedrock 기반 Playground</strong>  </li><li><strong>AWS 계정 불필요, 코딩 불필요</strong>  </li><li><strong>Amazon Q Apps와 유사한 UI</strong> → 하지만 실제 기업 데이터 활용은 불가  </li><li><strong>Stable Diffusion XL</strong> 같은 모델을 통해 이미지 생성 가능  </li><li><strong>시험에 자주 등장</strong>: “PartyRock은 AWS 정식 서비스가 아니라, Bedrock 기반 체험용 앱 빌더이다.”</li></ul><hr><p>👉 <strong>한 줄 요약:</strong><br><strong>PartyRock은 AWS Bedrock 기반의 생성형 AI 실습 도구</strong>로, AWS 계정 없이도 쉽게 AI 앱을 만들어볼 수 있는 Playground이다. 시험에서는 “정식 서비스가 아닌 체험용”이라는 점이 핵심 포인트다.  </p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;🎉-PartyRock-정리&quot;&gt;&lt;a href=&quot;#🎉-PartyRock-정리&quot; class=&quot;headerlink&quot; title=&quot;🎉 PartyRock 정리&quot;&gt;&lt;/a&gt;🎉 PartyRock 정리&lt;/h1&gt;&lt;h2 id=&quot;1-PartyRock이란</summary>
+      
+    
+    
+    
+    <category term="CERTIFICATION" scheme="https://kish191919.github.io/categories/CERTIFICATION/"/>
+    
+    <category term="AWS_AI_PRACTITIONER_KR" scheme="https://kish191919.github.io/categories/CERTIFICATION/AWS-AI-PRACTITIONER-KR/"/>
+    
+    
+    <category term="AWS" scheme="https://kish191919.github.io/tags/AWS/"/>
+    
+    <category term="AWS_AI_PRACTITIONER" scheme="https://kish191919.github.io/tags/AWS-AI-PRACTITIONER/"/>
+    
+    <category term="KOREAN" scheme="https://kish191919.github.io/tags/KOREAN/"/>
+    
+  </entry>
   
   <entry>
     <title>(한국어) AWS Certified AI Practitioner (20) - Amazon Q – 서비스별 활용 정리</title>
@@ -523,66 +581,6 @@
       
       
     <summary type="html">&lt;h1 id=&quot;🤖-Amazon-Bedrock-–-Agents-에이전트&quot;&gt;&lt;a href=&quot;#🤖-Amazon-Bedrock-–-Agents-에이전트&quot; class=&quot;headerlink&quot; title=&quot;🤖 Amazon Bedrock – Agents (에이</summary>
-      
-    
-    
-    
-    <category term="CERTIFICATION" scheme="https://kish191919.github.io/categories/CERTIFICATION/"/>
-    
-    <category term="AWS_AI_PRACTITIONER_KR" scheme="https://kish191919.github.io/categories/CERTIFICATION/AWS-AI-PRACTITIONER-KR/"/>
-    
-    
-    <category term="AWS" scheme="https://kish191919.github.io/tags/AWS/"/>
-    
-    <category term="AWS_AI_PRACTITIONER" scheme="https://kish191919.github.io/tags/AWS-AI-PRACTITIONER/"/>
-    
-    <category term="KOREAN" scheme="https://kish191919.github.io/tags/KOREAN/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>(한국어) AWS Certified AI Practitioner (9) - Guardrails (가드레일)</title>
-    <link href="https://kish191919.github.io/2025/08/20/KO-AWS-Certified-AI-Practitioner-9/"/>
-    <id>https://kish191919.github.io/2025/08/20/KO-AWS-Certified-AI-Practitioner-9/</id>
-    <published>2025-08-20T23:47:31.000Z</published>
-    <updated>2025-08-21T04:38:32.194Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="🛡️-Amazon-Bedrock-–-Guardrails-가드레일"><a href="#🛡️-Amazon-Bedrock-–-Guardrails-가드레일" class="headerlink" title="🛡️ Amazon Bedrock – Guardrails (가드레일)"></a>🛡️ Amazon Bedrock – Guardrails (가드레일)</h1><h2 id="📌-Guardrails란-무엇인가"><a href="#📌-Guardrails란-무엇인가" class="headerlink" title="📌 Guardrails란 무엇인가?"></a>📌 Guardrails란 무엇인가?</h2><p>Amazon Bedrock의 <strong>Guardrails(가드레일)</strong> 은 사용자가 입력한 내용과 모델이 생성하는 답변을 <strong>필터링하고 제어하는 안전장치</strong>입니다.<br>즉, AI가 잘못된 답변이나 위험한 내용을 내놓지 않도록 <strong>보호막 역할</strong>을 합니다.</p><p align="center">  <img src="/images/aws_basic_62.png" width="80%"></p><hr><h2 id="🔑-Guardrails-주요-기능"><a href="#🔑-Guardrails-주요-기능" class="headerlink" title="🔑 Guardrails 주요 기능"></a>🔑 Guardrails 주요 기능</h2><ul><li><strong>유해 콘텐츠 차단</strong><br>욕설, 혐오 표현, 성적인 내용, 폭력적인 내용 등을 자동으로 차단</li><li><strong>특정 주제 제한</strong><br>민감하거나 허용하지 않은 주제(예: 의료 조언, 법률 상담, 레시피 등)는 답변하지 않도록 설정</li><li><strong>개인정보 보호(PII)</strong><br>이메일, 전화번호, 주소 같은 개인정보를 자동 감지 후 마스킹 처리</li><li><strong>환각(Hallucination) 줄이기</strong><br>모델이 근거 없는 답변을 하지 않도록 맥락 기반 사실 확인(grounding) 적용</li><li><strong>금지어(Word Filter)</strong><br>직접 정의한 특정 단어·문구를 차단</li><li><strong>정규식(Regex) 필터</strong><br>예: 신용카드 번호, 주민번호 등 특정 패턴 데이터 차단 가능</li><li><strong>다중 가드레일</strong><br>상황별로 여러 가드레일을 동시에 적용 가능</li><li><strong>모니터링</strong><br>위반 로그를 저장해 추후 분석 및 정책 강화 가능</li></ul><hr><h2 id="⚙️-사용-사례-예시"><a href="#⚙️-사용-사례-예시" class="headerlink" title="⚙️ 사용 사례 예시"></a>⚙️ 사용 사례 예시</h2><h3 id="1-제한된-주제-차단"><a href="#1-제한된-주제-차단" class="headerlink" title="1. 제한된 주제 차단"></a>1. 제한된 주제 차단</h3><ul><li><strong>사용자 요청</strong>: “오늘 저녁에 먹을 요리 레시피 추천해줘.”</li><li><strong>Guardrail 동작</strong>: “죄송하지만, 이 주제는 답변할 수 없습니다.”</li></ul><h3 id="2-개인정보-마스킹"><a href="#2-개인정보-마스킹" class="headerlink" title="2. 개인정보 마스킹"></a>2. 개인정보 마스킹</h3><ul><li><strong>사용자 요청</strong>: “<a href="mailto:&#x64;&#97;&#x6e;&#x6e;&#121;&#64;&#x65;&#120;&#97;&#109;&#x70;&#108;&#x65;&#46;&#x63;&#111;&#109;">danny@example.com</a> 으로 메일을 보내줘.”</li><li><strong>Guardrail 동작</strong>: 이메일 주소를 <code>[PII 제거됨]</code> 으로 자동 변환</li></ul><hr><h2 id="🛠️-Guardrails-설정-방법"><a href="#🛠️-Guardrails-설정-방법" class="headerlink" title="🛠️ Guardrails 설정 방법"></a>🛠️ Guardrails 설정 방법</h2><ol><li><strong>가드레일 생성</strong> – 이름과 차단 메시지 설정<br>(예: <em>“죄송하지만, 해당 질문에는 답변할 수 없습니다.”</em>)</li><li><strong>필터 규칙 설정</strong>  <ul><li>콘텐츠 필터: 욕설, 성적, 폭력, 혐오 표현 등  </li><li>금지 주제: 의료, 법률, 요리 레시피 등  </li><li>금지 단어&#x2F;정규식: 특정 단어, 신용카드 번호 등  </li><li>PII 필터: 이메일, 전화번호 등 개인정보 마스킹  </li><li>Grounding: 모델 답변이 실제 문서와 일치하는지 검증</li></ul></li><li><strong>테스트</strong> – 입력 프롬프트로 가드레일이 제대로 작동하는지 확인</li><li><strong>모델에 적용</strong> – Anthropic, Claude, Sonnet 등 지원되는 FM(기초 모델)에 연결</li><li><strong>다중 적용 가능</strong> – 여러 가드레일을 동시에 사용해 강화된 제어 가능</li></ol><hr><h2 id="✅-Guardrails를-사용하는-이유"><a href="#✅-Guardrails를-사용하는-이유" class="headerlink" title="✅ Guardrails를 사용하는 이유"></a>✅ Guardrails를 사용하는 이유</h2><ul><li><strong>책임 있는 AI</strong>: 위험하거나 불필요한 답변을 차단  </li><li><strong>개인정보 보호</strong>: 민감한 사용자 정보 자동 제거  </li><li><strong>법적·윤리적 리스크 방지</strong>: 규제 준수 및 기업 신뢰 확보  </li><li><strong>출력 품질 개선</strong>: 더 정확하고 신뢰할 수 있는 응답 제공</li></ul><p>👉 한마디로, Guardrails는 <strong>AI 안전벨트</strong> 역할을 합니다.<br>사용자와 기업 모두를 보호하면서 <strong>안전하고 신뢰할 수 있는 AI 서비스</strong>를 운영할 수 있습니다.  </p><hr><h2 id="📝-Guardrails-요약표"><a href="#📝-Guardrails-요약표" class="headerlink" title="📝 Guardrails 요약표"></a>📝 Guardrails 요약표</h2><table><thead><tr><th>구분</th><th>설명</th><th>예시</th></tr></thead><tbody><tr><td><strong>목적</strong></td><td>모델과 사용자 간 상호작용 제어</td><td>잘못된 답변 방지</td></tr><tr><td><strong>콘텐츠 필터</strong></td><td>혐오, 욕설, 성적, 폭력 차단</td><td>“폭력적인 이야기” 요청 → 차단</td></tr><tr><td><strong>금지 주제</strong></td><td>특정 주제 제한</td><td>의료&#x2F;법률 상담, 레시피</td></tr><tr><td><strong>PII 보호</strong></td><td>개인정보 자동 마스킹</td><td>이메일, 전화번호 제거</td></tr><tr><td><strong>금지어 필터</strong></td><td>특정 단어&#x2F;문구 차단</td><td>비속어 차단</td></tr><tr><td><strong>정규식 필터</strong></td><td>패턴 기반 정보 차단</td><td>신용카드 번호</td></tr><tr><td><strong>Grounding</strong></td><td>답변의 사실성 확인</td><td>근거 없는 생성 방지</td></tr><tr><td><strong>다중 가드레일</strong></td><td>여러 규칙을 함께 적용</td><td>개인정보+유해콘텐츠 동시 필터링</td></tr><tr><td><strong>모니터링</strong></td><td>위반 로그 기록</td><td>보안 정책 강화</td></tr><tr><td><strong>차단 메시지</strong></td><td>사용자에게 보여줄 문구 설정</td><td>“답변할 수 없습니다.”</td></tr></tbody></table><hr><h2 id="✅-시험-대비-포인트-AWS-자격증"><a href="#✅-시험-대비-포인트-AWS-자격증" class="headerlink" title="✅ 시험 대비 포인트 (AWS 자격증)"></a>✅ 시험 대비 포인트 (AWS 자격증)</h2><ul><li><strong>Bedrock Guardrails 핵심</strong>:<br>콘텐츠 필터링 + 개인정보 보호(PII) + Grounding(환각 방지)  </li><li><strong>PII</strong> → 이메일, 전화번호, 주소, 신용카드 등 자동 마스킹  </li><li><strong>Grounding</strong> → “AI가 지어낸 답변(hallucination)을 줄이는 기능”  </li><li><strong>실무 적용</strong>: Guardrails는 <strong>다중 적용 가능</strong>하며 <strong>로그 모니터링</strong> 지원  </li><li><strong>시험 문제 유형 예시</strong>  <blockquote><p>“Bedrock 모델이 사용자의 이메일 주소를 그대로 출력하지 않게 하려면 어떤 기능을 사용해야 하는가?”<br>정답 → <strong>Guardrails의 PII Protection</strong></p></blockquote></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;🛡️-Amazon-Bedrock-–-Guardrails-가드레일&quot;&gt;&lt;a href=&quot;#🛡️-Amazon-Bedrock-–-Guardrails-가드레일&quot; class=&quot;headerlink&quot; title=&quot;🛡️ Amazon Bedrock –</summary>
-      
-    
-    
-    
-    <category term="CERTIFICATION" scheme="https://kish191919.github.io/categories/CERTIFICATION/"/>
-    
-    <category term="AWS_AI_PRACTITIONER_KR" scheme="https://kish191919.github.io/categories/CERTIFICATION/AWS-AI-PRACTITIONER-KR/"/>
-    
-    
-    <category term="AWS" scheme="https://kish191919.github.io/tags/AWS/"/>
-    
-    <category term="AWS_AI_PRACTITIONER" scheme="https://kish191919.github.io/tags/AWS-AI-PRACTITIONER/"/>
-    
-    <category term="KOREAN" scheme="https://kish191919.github.io/tags/KOREAN/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>(한국어) AWS Certified AI Practitioner (8) - 토큰화, 컨텍스트 윈도우, 임베딩</title>
-    <link href="https://kish191919.github.io/2025/08/20/KO-AWS-Certified-AI-Practitioner-8/"/>
-    <id>https://kish191919.github.io/2025/08/20/KO-AWS-Certified-AI-Practitioner-8/</id>
-    <published>2025-08-20T23:41:40.000Z</published>
-    <updated>2025-08-21T04:38:32.185Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="📚-생성형-AI-핵심-개념-–-토큰화-컨텍스트-윈도우-임베딩"><a href="#📚-생성형-AI-핵심-개념-–-토큰화-컨텍스트-윈도우-임베딩" class="headerlink" title="📚 생성형 AI 핵심 개념 – 토큰화, 컨텍스트 윈도우, 임베딩"></a>📚 생성형 AI 핵심 개념 – 토큰화, 컨텍스트 윈도우, 임베딩</h1><p>이 세 가지는 <strong>생성형 AI(GenAI)의 기본 개념</strong>으로, 시험 문제에도 자주 등장하고 LLM(대규모 언어 모델)을 이해하는 데 꼭 필요합니다.  </p><hr><h2 id="1-🔹-토큰화-Tokenization"><a href="#1-🔹-토큰화-Tokenization" class="headerlink" title="1. 🔹 토큰화(Tokenization)"></a>1. 🔹 토큰화(Tokenization)</h2><p><strong>정의</strong><br>텍스트를 모델이 이해할 수 있는 작은 단위인 <strong>토큰(token)</strong> 으로 쪼개는 과정입니다.<br>모델은 단어가 아니라 <strong>토큰 단위</strong>로 학습하고 추론합니다.  </p><p><strong>종류</strong></p><ol><li><strong>단어 단위 토큰화 (Word-based)</strong>  <ul><li>문장을 단어 단위로 분리  </li><li>예: <code>&quot;The cat sat&quot;</code> → <code>[&quot;The&quot;, &quot;cat&quot;, &quot;sat&quot;]</code></li></ul></li><li><strong>서브워드 단위 토큰화 (Subword-based)</strong>  <ul><li>긴 단어나 잘 안 쓰이는 단어를 더 작은 의미 단위로 분리  </li><li>예: <code>&quot;unacceptable&quot;</code> → <code>&quot;un&quot;</code> + <code>&quot;acceptable&quot;</code></li></ul></li></ol><p><strong>중요한 이유</strong></p><ul><li>모델은 <strong>텍스트가 아닌 숫자(토큰 ID)</strong> 로 동작합니다.  </li><li>토큰 개수 &#x3D; <strong>비용과 성능에 직접적인 영향</strong><br>→ 토큰이 많으면 <strong>컨텍스트 윈도우를 빨리 소모</strong>하고 비용도 올라갑니다.  </li><li>구두점, 공백, 심지어 이모지도 각각 토큰입니다.</li></ul><p><strong>예시</strong><br>문장 : <code>&quot;Danny, Good job!! Learning AI technology is incredibly difficult, but it&#39;s worth it.&quot;</code>  </p><ul><li><code>&quot;Danny&quot;</code> &#x3D; 토큰  </li><li><code>&quot;,&quot;</code> &#x3D; 토큰  </li><li><code>&quot;Good&quot;</code> &#x3D; 토큰</li></ul><p align="center">  <img src="/images/aws_basic_58.png" width="80%"></p><p>📌 <strong>시험 포인트</strong>  </p><ul><li>“LLM은 단어 단위가 아니라 토큰 단위로 처리한다” → 정답 키워드  </li><li>토큰 수 계산 연습: <a href="https://platform.openai.com/tokenizer">OpenAI Tokenizer</a></li></ul><hr><h2 id="2-🔹-컨텍스트-윈도우-Context-Window"><a href="#2-🔹-컨텍스트-윈도우-Context-Window" class="headerlink" title="2. 🔹 컨텍스트 윈도우(Context Window)"></a>2. 🔹 컨텍스트 윈도우(Context Window)</h2><p><strong>정의</strong><br>LLM이 한 번에 처리할 수 있는 <strong>최대 토큰 수(입력 + 출력)</strong> 를 의미합니다.  </p><p><strong>왜 중요한가?</strong></p><ul><li>컨텍스트 윈도우가 클수록 많은 정보를 넣을 수 있어 더 정확한 답변을 얻을 수 있습니다.  </li><li>하지만 클수록 <strong>메모리·비용 증가</strong> → 최적화 필요</li></ul><p><strong>대표 모델별 컨텍스트 윈도우</strong></p><table><thead><tr><th>모델</th><th>지원 토큰 수</th><th>대략적인 단어 수</th></tr></thead><tbody><tr><td>GPT-4 Turbo</td><td>128,000</td><td>약 96,000 단어</td></tr><tr><td>Claude 2.1</td><td>200,000</td><td>약 150,000 단어</td></tr><tr><td>Google Gemini 1.5 Pro</td><td>1,000,000</td><td>약 700,000 단어</td></tr></tbody></table><p><strong>체감 예시</strong>  </p><ul><li><strong>100만 토큰</strong> ≈ 책 3~4권, 코드 3만 줄, 오디오 11시간 분량</li></ul><p align="center">  <img src="/images/aws_basic_59.png" width="60%"></p><p>📌 <strong>시험 포인트</strong>  </p><ul><li>“모델을 선택할 때 가장 먼저 고려해야 하는 요소는?” → <strong>컨텍스트 윈도우 크기</strong></li></ul><hr><h2 id="3-🔹-임베딩-Embeddings"><a href="#3-🔹-임베딩-Embeddings" class="headerlink" title="3. 🔹 임베딩(Embeddings)"></a>3. 🔹 임베딩(Embeddings)</h2><p><strong>정의</strong><br>텍스트·이미지·오디오 같은 데이터를 <strong>수치 벡터(vector)</strong> 로 변환한 표현 방식입니다.  </p><p><strong>처리 과정</strong></p><ol><li>텍스트를 <strong>토큰화</strong>  </li><li>토큰에 <strong>ID 부여</strong>  </li><li>임베딩 모델이 각 토큰을 <strong>다차원 벡터</strong>로 변환</li></ol><p>예: <code>&quot;cat&quot;</code> → <code>[0.025, -0.12, 0.33, ...]</code> (보통 100차원 이상)  </p><p align="center">  <img src="/images/aws_basic_60.png" width="80%"></p><p><strong>왜 고차원 벡터?</strong>  </p><ul><li>단어의 여러 특징을 동시에 담을 수 있음  <ul><li>의미(semantic)  </li><li>문법적 역할(syntax)  </li><li>감정(sentiment)</li></ul></li><li>비슷한 단어일수록 벡터 공간에서 <strong>가까이 위치</strong></li></ul><p><strong>시각화 예시 (2D)</strong>  </p><ul><li><code>&quot;dog&quot;</code> ↔ <code>&quot;puppy&quot;</code> → 가까움  </li><li><code>&quot;dog&quot;</code> ↔ <code>&quot;cat&quot;</code> → 비슷한 범주  </li><li><code>&quot;dog&quot;</code> ↔ <code>&quot;house&quot;</code> → 멀리 떨어짐</li></ul><p align="center">  <img src="/images/aws_basic_61.png" width="80%"></p><hr><h3 id="3-1-RAG-검색에서의-임베딩-활용"><a href="#3-1-RAG-검색에서의-임베딩-활용" class="headerlink" title="3.1. RAG &amp; 검색에서의 임베딩 활용"></a>3.1. RAG &amp; 검색에서의 임베딩 활용</h3><ul><li>임베딩은 <strong>벡터 데이터베이스</strong>(예: OpenSearch, Pinecone, FAISS, Redis Vector)에 저장  </li><li>검색 시 쿼리도 벡터로 변환 → <strong>KNN(k-Nearest Neighbors) 검색</strong>으로 가장 가까운 의미를 가진 데이터 반환</li></ul><p>📌 <strong>시험 포인트</strong>  </p><ul><li>“벡터 유사도 검색(vector similarity search)” &#x3D; <strong>KNN 검색</strong>  </li><li>AWS에서는 <strong>OpenSearch Serverless</strong> + <strong>pgvector(Aurora)</strong> 자주 언급</li></ul><hr><h2 id="4-📌-요약-표"><a href="#4-📌-요약-표" class="headerlink" title="4. 📌 요약 표"></a>4. 📌 요약 표</h2><table><thead><tr><th>개념</th><th>설명</th><th>중요한 이유</th><th>예시</th></tr></thead><tbody><tr><td>토큰화</td><td>텍스트를 토큰으로 분리</td><td>모델은 토큰 단위로 처리, 비용·성능에 영향</td><td><code>&quot;unacceptable&quot;</code> → <code>&quot;un&quot;</code>, <code>&quot;acceptable&quot;</code></td></tr><tr><td>컨텍스트 윈도우</td><td>모델이 한 번에 처리 가능한 토큰 수</td><td>클수록 더 많은 문맥 가능, 하지만 비용↑</td><td>GPT-4 Turbo &#x3D; 128k 토큰</td></tr><tr><td>임베딩</td><td>데이터를 숫자 벡터로 변환</td><td>의미·문법·감정을 반영해 검색&#x2F;추천에 활용</td><td><code>&quot;dog&quot;</code> 벡터 ↔ <code>&quot;puppy&quot;</code> 벡터 가까움</td></tr></tbody></table><hr><p>✅ <strong>AWS 시험 핵심 포인트 정리</strong></p><ul><li>토큰 &#x3D; 모델의 최소 단위 (단어가 아님, 구두점도 포함됨).  </li><li>컨텍스트 윈도우 &#x3D; 입력+출력 전체 토큰 수.  </li><li>임베딩 &#x3D; 벡터 표현, <strong>RAG에서 필수</strong>.  </li><li>유사도 검색 &#x3D; <strong>KNN (코사인 유사도&#x2F;유클리드 거리)</strong>.  </li><li>AWS에서 벡터 검색 &#x3D; <strong>OpenSearch</strong> &#x2F; <strong>Aurora(pgvector)</strong> &#x2F; <strong>Neptune Analytics</strong> &#x2F; <strong>S3 Vectors</strong>.</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;📚-생성형-AI-핵심-개념-–-토큰화-컨텍스트-윈도우-임베딩&quot;&gt;&lt;a href=&quot;#📚-생성형-AI-핵심-개념-–-토큰화-컨텍스트-윈도우-임베딩&quot; class=&quot;headerlink&quot; title=&quot;📚 생성형 AI 핵심 개념 – 토큰화, 컨</summary>
       
     
     
