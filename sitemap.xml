@@ -2,7 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://kish191919.github.io/2025/08/23/AWS-Certified-AI-Practitioner-23/</loc>
+    <loc>https://kish191919.github.io/2025/08/23/AWS-Certified-AI-Practitioner-22/</loc>
+    
+    <lastmod>2025-08-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://kish191919.github.io/2025/08/23/KO-AWS-Certified-AI-Practitioner-22/</loc>
     
     <lastmod>2025-08-23</lastmod>
     
@@ -20,16 +29,7 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/2025/08/23/AWS-Certified-AI-Practitioner-22/</loc>
-    
-    <lastmod>2025-08-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://kish191919.github.io/2025/08/23/KO-AWS-Certified-AI-Practitioner-22/</loc>
+    <loc>https://kish191919.github.io/2025/08/23/AWS-Certified-AI-Practitioner-23/</loc>
     
     <lastmod>2025-08-23</lastmod>
     
@@ -155,7 +155,7 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/2025/08/22/AWS-Certified-AI-Practitioner-16/</loc>
+    <loc>https://kish191919.github.io/2025/08/22/AWS-Certified-AI-Practitioner-17/</loc>
     
     <lastmod>2025-08-22</lastmod>
     
@@ -164,7 +164,7 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/2025/08/22/AWS-Certified-AI-Practitioner-17/</loc>
+    <loc>https://kish191919.github.io/2025/08/22/AWS-Certified-AI-Practitioner-16/</loc>
     
     <lastmod>2025-08-22</lastmod>
     
@@ -209,15 +209,6 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/2025/08/14/AWS-Certified-AI-Practitioner-3/</loc>
-    
-    <lastmod>2025-08-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://kish191919.github.io/2025/08/14/AWS-Certified-AI-Practitioner-4/</loc>
     
     <lastmod>2025-08-21</lastmod>
@@ -227,7 +218,7 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/2025/08/15/AWS-Certified-AI-Practitioner-6/</loc>
+    <loc>https://kish191919.github.io/2025/08/14/AWS-Certified-AI-Practitioner-3/</loc>
     
     <lastmod>2025-08-21</lastmod>
     
@@ -237,6 +228,15 @@
   
   <url>
     <loc>https://kish191919.github.io/2025/08/15/AWS-Certified-AI-Practitioner-5/</loc>
+    
+    <lastmod>2025-08-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://kish191919.github.io/2025/08/15/AWS-Certified-AI-Practitioner-6/</loc>
     
     <lastmod>2025-08-21</lastmod>
     
@@ -272,7 +272,7 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/2025/08/19/AWS-Certified-AI-Practitioner-10/</loc>
+    <loc>https://kish191919.github.io/2025/08/19/AWS-Certified-AI-Practitioner-11/</loc>
     
     <lastmod>2025-08-21</lastmod>
     
@@ -281,7 +281,7 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/2025/08/19/AWS-Certified-AI-Practitioner-11/</loc>
+    <loc>https://kish191919.github.io/2025/08/19/AWS-Certified-AI-Practitioner-10/</loc>
     
     <lastmod>2025-08-21</lastmod>
     
@@ -380,7 +380,7 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/2025/08/20/KO-AWS-Certified-AI-Practitioner-10/</loc>
+    <loc>https://kish191919.github.io/2025/08/20/KO-AWS-Certified-AI-Practitioner-12/</loc>
     
     <lastmod>2025-08-21</lastmod>
     
@@ -398,7 +398,7 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/2025/08/20/KO-AWS-Certified-AI-Practitioner-12/</loc>
+    <loc>https://kish191919.github.io/2025/08/20/KO-AWS-Certified-AI-Practitioner-10/</loc>
     
     <lastmod>2025-08-21</lastmod>
     
@@ -560,20 +560,6 @@
 
   
   <url>
-    <loc>https://kish191919.github.io/tags/AWS/</loc>
-    <lastmod>2025-08-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://kish191919.github.io/tags/AWS-AI-PRACTITIONER/</loc>
-    <lastmod>2025-08-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://kish191919.github.io/tags/OpenAI/</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -582,6 +568,20 @@
   
   <url>
     <loc>https://kish191919.github.io/tags/Swift/</loc>
+    <lastmod>2025-08-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://kish191919.github.io/tags/AWS/</loc>
+    <lastmod>2025-08-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://kish191919.github.io/tags/AWS-AI-PRACTITIONER/</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -686,6 +686,13 @@
   </url>
   
   <url>
+    <loc>https://kish191919.github.io/tags/XGBoost/</loc>
+    <lastmod>2025-08-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://kish191919.github.io/tags/Apache-Flink/</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -713,24 +720,17 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>https://kish191919.github.io/tags/XGBoost/</loc>
-    <lastmod>2025-08-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
   
   <url>
-    <loc>https://kish191919.github.io/categories/CERTIFICATION/</loc>
+    <loc>https://kish191919.github.io/categories/Showcase/</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/categories/Showcase/</loc>
+    <loc>https://kish191919.github.io/categories/CERTIFICATION/</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -751,14 +751,14 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/categories/Dev/Algorithm/</loc>
+    <loc>https://kish191919.github.io/categories/CERTIFICATION/AWS-AI-PRACTITIONER-KR/</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/categories/CERTIFICATION/AWS-AI-PRACTITIONER-KR/</loc>
+    <loc>https://kish191919.github.io/categories/Dev/Algorithm/</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
