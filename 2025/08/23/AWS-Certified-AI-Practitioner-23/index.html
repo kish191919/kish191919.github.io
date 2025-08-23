@@ -1,0 +1,361 @@
+<!DOCTYPE html><html lang="[&quot;en&quot;,&quot;ko&quot;,&quot;default&quot;]" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>AWS Certified AI Practitioner(23) - Training Data &amp; Feature Engineering | Danny's Blog</title><meta name="author" content="Danny Ki"><meta name="copyright" content="Danny Ki"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="📘 Training Data &amp; Feature EngineeringWhy Training Data Matters To build a reliable ML model, you need good quality data.\ Principle: Garbage In → Garbage Out. If your input data is messyor incorr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AWS Certified AI Practitioner(23) - Training Data &amp; Feature Engineering">
+<meta property="og:url" content="https://kish191919.github.io/2025/08/23/AWS-Certified-AI-Practitioner-23/index.html">
+<meta property="og:site_name" content="Danny&#39;s Blog">
+<meta property="og:description" content="📘 Training Data &amp; Feature EngineeringWhy Training Data Matters To build a reliable ML model, you need good quality data.\ Principle: Garbage In → Garbage Out. If your input data is messyor incorr">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kish191919.github.io/img/my_pic.jpeg">
+<meta property="article:published_time" content="2025-08-23T13:50:14.000Z">
+<meta property="article:modified_time" content="2025-08-23T14:08:31.634Z">
+<meta property="article:author" content="Danny Ki">
+<meta property="article:tag" content="AWS">
+<meta property="article:tag" content="AWS_AI_PRACTITIONER">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kish191919.github.io/img/my_pic.jpeg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AWS Certified AI Practitioner(23) - Training Data & Feature Engineering",
+  "url": "https://kish191919.github.io/2025/08/23/AWS-Certified-AI-Practitioner-23/",
+  "image": "https://kish191919.github.io/img/my_pic.jpeg",
+  "datePublished": "2025-08-23T13:50:14.000Z",
+  "dateModified": "2025-08-23T14:08:31.634Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Danny Ki",
+      "url": "https://kish191919.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kish191919.github.io/2025/08/23/AWS-Certified-AI-Practitioner-23/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="UfZT9jGVnwcVj8z_sCj9LyqnWho6ubHg1Q7o_bvXfKs"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=GTM-N66KNRNW"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'GTM-N66KNRNW')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'GTM-N66KNRNW', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'AWS Certified AI Practitioner(23) - Training Data & Feature Engineering',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://kish191919.github.io/",
+  "name": "Danny's Blog",
+  "inLanguage": "en"
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Danny's Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">57</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Danny's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">AWS Certified AI Practitioner(23) - Training Data &amp; Feature Engineering</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">AWS Certified AI Practitioner(23) - Training Data &amp; Feature Engineering</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-08-23T13:50:14.000Z" title="Created 2025-08-23 09:50:14">2025-08-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-08-23T14:08:31.634Z" title="Updated 2025-08-23 10:08:31">2025-08-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CERTIFICATION/">CERTIFICATION</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CERTIFICATION/AWS-AI-PRACTITIONER/">AWS_AI_PRACTITIONER</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="📘-Training-Data-Feature-Engineering"><a href="#📘-Training-Data-Feature-Engineering" class="headerlink" title="📘 Training Data &amp; Feature Engineering"></a>📘 Training Data &amp; Feature Engineering</h1><h2 id="Why-Training-Data-Matters"><a href="#Why-Training-Data-Matters" class="headerlink" title="Why Training Data Matters"></a>Why Training Data Matters</h2><ul>
+<li>To build a reliable ML model, you need <strong>good quality data</strong>.\</li>
+<li>Principle: <strong>Garbage In → Garbage Out</strong>. If your input data is messy<br>or incorrect, your model will produce poor predictions.\</li>
+<li>Data preparation is the <strong>most critical stage</strong> of ML.\</li>
+<li>The way you model your data (e.g., labeled&#x2F;unlabeled,<br>structured&#x2F;unstructured) directly impacts which algorithms you can<br>use.</li>
+</ul>
+<p>👉 <strong>Exam Tip</strong>: Expect questions about <em>labeled vs. unlabeled</em> and<br><em>structured vs. unstructured data</em>.</p>
+<hr>
+<h2 id="Labeled-vs-Unlabeled-Data"><a href="#Labeled-vs-Unlabeled-Data" class="headerlink" title="Labeled vs. Unlabeled Data"></a>Labeled vs. Unlabeled Data</h2><h3 id="🔹-Labeled-Data"><a href="#🔹-Labeled-Data" class="headerlink" title="🔹 Labeled Data"></a>🔹 Labeled Data</h3><ul>
+<li>Contains <strong>both input features</strong> and <strong>output labels</strong>.\</li>
+<li>Example: Animal images labeled as “cat” or “dog.”\</li>
+<li>Used in <strong>Supervised Learning</strong> → the model learns to map inputs to<br>outputs.\</li>
+<li>Strong but expensive → requires manual labeling.</li>
+</ul>
+<p align="center">
+  <img src="/images/aws_basic_107.png" width="80%">
+</p>
+
+
+<h3 id="🔹-Unlabeled-Data"><a href="#🔹-Unlabeled-Data" class="headerlink" title="🔹 Unlabeled Data"></a>🔹 Unlabeled Data</h3><ul>
+<li>Contains <strong>only input features</strong>, with no labels.\</li>
+<li>Example: A folder of animal pictures with no tags.\</li>
+<li>Used in <strong>Unsupervised Learning</strong> → the model finds hidden patterns<br>or clusters.\</li>
+<li>Cheaper and more abundant, but harder to interpret.</li>
+</ul>
+<p align="center">
+  <img src="/images/aws_basic_108.png" width="80%">
+</p>
+
+<hr>
+<h2 id="Structured-vs-Unstructured-Data"><a href="#Structured-vs-Unstructured-Data" class="headerlink" title="Structured vs. Unstructured Data"></a>Structured vs. Unstructured Data</h2><h3 id="🔹-Structured-Data"><a href="#🔹-Structured-Data" class="headerlink" title="🔹 Structured Data"></a>🔹 Structured Data</h3><p>Organized into rows&#x2F;columns (like Excel or databases).\</p>
+<ul>
+<li><strong>Tabular Data</strong>: Customer DB (Name, Age, Purchase Amount).\</li>
+</ul>
+<p align="center">
+  <img src="/images/aws_basic_109.png" width="80%">
+</p>
+
+<ul>
+<li><strong>Time Series Data</strong>: Stock prices collected daily.</li>
+</ul>
+<p align="center">
+  <img src="/images/aws_basic_110.png" width="80%">
+</p>
+
+<h3 id="🔹-Unstructured-Data"><a href="#🔹-Unstructured-Data" class="headerlink" title="🔹 Unstructured Data"></a>🔹 Unstructured Data</h3><p>Doesn’t follow a set format, often text-heavy or media-rich.\</p>
+<ul>
+<li><strong>Text Data</strong>: Articles, social posts, product reviews.\</li>
+<li><strong>Image Data</strong>: Photos, medical scans, etc.</li>
+</ul>
+<p>👉 <strong>Exam Tip</strong>: AWS might test you on which algorithm handles<br><strong>structured (tabular, time-series)</strong> vs. <strong>unstructured (text, image)</strong><br>data.</p>
+<hr>
+<h2 id="Supervised-Learning"><a href="#Supervised-Learning" class="headerlink" title="Supervised Learning"></a>Supervised Learning</h2><ul>
+<li>Learns a <strong>mapping function</strong>: predicts output for unseen inputs.\</li>
+<li>Requires <strong>labeled data</strong>.\</li>
+<li>Types: <strong>Regression</strong> (continuous values) and <strong>Classification</strong><br>(categories).</li>
+</ul>
+<h3 id="🔹-Regression"><a href="#🔹-Regression" class="headerlink" title="🔹 Regression"></a>🔹 Regression</h3><ul>
+<li>Predicts numeric values.\</li>
+<li>Examples:<ul>
+<li>House prices (based on size, location).\</li>
+<li>Stock price forecasting.\</li>
+<li>Weather prediction (temperature).\</li>
+</ul>
+</li>
+<li>Output &#x3D; continuous (any real value).</li>
+</ul>
+<p align="center">
+  <img src="/images/aws_basic_112.png" width="80%">
+</p>
+
+<h3 id="🔹-Classification"><a href="#🔹-Classification" class="headerlink" title="🔹 Classification"></a>🔹 Classification</h3><ul>
+<li>Predicts discrete categories.\</li>
+<li>Examples:<ul>
+<li>Binary: Spam vs. Not Spam.\</li>
+<li>Multi-class: Mammal, Bird, Reptile.\</li>
+<li>Multi-label: A movie labeled as <em>Action + Comedy</em>.\</li>
+</ul>
+</li>
+<li>Common Algorithm: <strong>k-NN (k-Nearest Neighbors)</strong>.</li>
+</ul>
+<p align="center">
+  <img src="/images/aws_basic_113.png" width="80%">
+</p>
+
+<p align="center">
+  <img src="/images/aws_basic_111.png" width="80%">
+</p>
+------------------------------------------------------------------------
+
+<h2 id="Splitting-the-Dataset"><a href="#Splitting-the-Dataset" class="headerlink" title="Splitting the Dataset"></a>Splitting the Dataset</h2><ul>
+<li><strong>Training Set</strong>: 60–80% (used to train).\</li>
+<li><strong>Validation Set</strong>: 10–20% (used to tune hyperparameters).\</li>
+<li><strong>Test Set</strong>: 10–20% (used to evaluate final performance).</li>
+</ul>
+<p>👉 <strong>Exam Tip</strong>:\</p>
+<ul>
+<li>Training &#x3D; learning.\</li>
+<li>Validation &#x3D; tuning.\</li>
+<li>Test &#x3D; evaluation.</li>
+</ul>
+<p align="center">
+  <img src="/images/aws_basic_114.png" width="80%">
+</p>
+
+<hr>
+<h2 id="Feature-Engineering"><a href="#Feature-Engineering" class="headerlink" title="Feature Engineering"></a>Feature Engineering</h2><p>Transforming raw data into useful features → improves model accuracy.</p>
+<h3 id="Techniques"><a href="#Techniques" class="headerlink" title="Techniques"></a>Techniques</h3><ul>
+<li><strong>Feature Extraction</strong>: Convert raw values into meaningful ones.<ul>
+<li>Example: From birth date → calculate age.\</li>
+</ul>
+</li>
+<li><strong>Feature Selection</strong>: Keep only the most relevant features.<ul>
+<li>Example: House price prediction → keep location &amp; size, drop<br>irrelevant columns.\</li>
+</ul>
+</li>
+<li><strong>Feature Transformation</strong>: Normalize or scale data to improve<br>convergence.</li>
+</ul>
+<p align="center">
+  <img src="/images/aws_basic_115.png" width="80%">
+</p>
+
+<hr>
+<h2 id="Feature-Engineering-Examples"><a href="#Feature-Engineering-Examples" class="headerlink" title="Feature Engineering Examples"></a>Feature Engineering Examples</h2><h3 id="🔹-On-Structured-Data"><a href="#🔹-On-Structured-Data" class="headerlink" title="🔹 On Structured Data"></a>🔹 On Structured Data</h3><ul>
+<li>Predicting house prices:<ul>
+<li>Create <em>price per square foot</em>.\</li>
+<li>Normalize features like size and income.</li>
+</ul>
+</li>
+</ul>
+<h3 id="🔹-On-Unstructured-Data"><a href="#🔹-On-Unstructured-Data" class="headerlink" title="🔹 On Unstructured Data"></a>🔹 On Unstructured Data</h3><ul>
+<li><strong>Text</strong>: Convert reviews into numbers using TF-IDF or word<br>embeddings.\</li>
+<li><strong>Images</strong>: Use CNNs to extract edges, shapes, or textures.</li>
+</ul>
+<p>👉 <strong>Exam Tip</strong>: Know that <strong>feature engineering &#x3D; boosting model<br>performance by transforming data.</strong></p>
+<hr>
+<h1 id="✅-Quick-Recap-for-Exam"><a href="#✅-Quick-Recap-for-Exam" class="headerlink" title="✅ Quick Recap for Exam"></a>✅ Quick Recap for Exam</h1><ol>
+<li><strong>Good data is critical</strong> – Garbage In, Garbage Out.\</li>
+<li><strong>Labeled → Supervised | Unlabeled → Unsupervised.</strong>\</li>
+<li><strong>Structured vs. Unstructured</strong>: Tables vs. Text&#x2F;Images.\</li>
+<li><strong>Regression</strong> &#x3D; numeric predictions, <strong>Classification</strong> &#x3D;<br>categories.\</li>
+<li><strong>Data split</strong>: Train (learn), Validate (tune), Test (evaluate).\</li>
+<li><strong>Feature Engineering</strong> improves accuracy through extraction,<br>selection, transformation.</li>
+</ol>
+<hr>
+<p>👉 <strong>One-Liner Exam Tip</strong>:<br>Most AWS exam questions on ML basics test whether you can correctly<br><strong>match the data type with the ML method</strong> (e.g., <em>time-series →<br>supervised regression</em>, <em>unlabeled images → unsupervised clustering</em>).</p>
+<h2 id="Additional-📌-What-is-TF-IDF"><a href="#Additional-📌-What-is-TF-IDF" class="headerlink" title="(Additional) 📌 What is TF-IDF?"></a>(Additional) 📌 What is TF-IDF?</h2><p>TF-IDF is a statistical method used in <strong>Natural Language Processing (NLP)</strong> to evaluate how important a word is within a document relative to a collection of documents (called a corpus).<br>It is widely used in <strong>search engines, information retrieval, and text mining</strong>.</p>
+<hr>
+<h2 id="Additional-⚡-How-It-Works"><a href="#Additional-⚡-How-It-Works" class="headerlink" title="(Additional)  ⚡ How It Works"></a>(Additional)  ⚡ How It Works</h2><h3 id="1-Term-Frequency-TF"><a href="#1-Term-Frequency-TF" class="headerlink" title="1. Term Frequency (TF)"></a>1. Term Frequency (TF)</h3><ul>
+<li>Measures how often a word appears in a document.</li>
+<li>Formula:<br>( TF(t, d) &#x3D; \frac{\text{Number of times term t appears in document d}}{\text{Total terms in document d}} )</li>
+</ul>
+<p>👉 Example: If the word <strong>“AI”</strong> appears 5 times in a 100-word document,<br>( TF(AI) &#x3D; 5 &#x2F; 100 &#x3D; 0.05 ).</p>
+<hr>
+<h3 id="2-Inverse-Document-Frequency-IDF"><a href="#2-Inverse-Document-Frequency-IDF" class="headerlink" title="2. Inverse Document Frequency (IDF)"></a>2. Inverse Document Frequency (IDF)</h3><ul>
+<li>Measures how important a word is across all documents in the corpus.</li>
+<li>Common words (like “the”, “is”, “and”) get lower scores, while rare words get higher scores.</li>
+<li>Formula:<br>( IDF(t) &#x3D; \log\frac{N}{1 + df(t)} )<br>where:  <ul>
+<li>(N) &#x3D; total number of documents  </li>
+<li>(df(t)) &#x3D; number of documents containing the term t</li>
+</ul>
+</li>
+</ul>
+<p>👉 Example: If the word <strong>“AI”</strong> appears in 2 out of 10 documents,<br>( IDF(AI) &#x3D; \log(10 &#x2F; (1+2)) ≈ 1.20 ).</p>
+<hr>
+<h3 id="3-TF-IDF-Score"><a href="#3-TF-IDF-Score" class="headerlink" title="3. TF-IDF Score"></a>3. TF-IDF Score</h3><ul>
+<li>Combines TF and IDF to measure the importance of a term in a document relative to the whole corpus.</li>
+<li>Formula:<br>( TF\text{-}IDF(t, d) &#x3D; TF(t, d) \times IDF(t) )</li>
+</ul>
+<p>👉 Example:<br>Using the previous numbers, ( TF(AI) &#x3D; 0.05 ) and ( IDF(AI) &#x3D; 1.20 ).<br>So, ( TF\text{-}IDF(AI) &#x3D; 0.05 \times 1.20 &#x3D; 0.06 ).</p>
+<hr>
+<h2 id="🎯-Why-Is-TF-IDF-Useful"><a href="#🎯-Why-Is-TF-IDF-Useful" class="headerlink" title="🎯 Why Is TF-IDF Useful?"></a>🎯 Why Is TF-IDF Useful?</h2><ul>
+<li><strong>Search Engines</strong>: Helps rank documents by relevance to a query.  </li>
+<li><strong>Text Mining</strong>: Identifies key terms in large text datasets.  </li>
+<li><strong>Spam Filtering</strong>: Detects suspicious terms often used in spam messages.  </li>
+<li><strong>Recommendation Systems</strong>: Finds similarities between documents or user profiles.</li>
+</ul>
+<hr>
+<h2 id="📝-Summary"><a href="#📝-Summary" class="headerlink" title="📝 Summary"></a>📝 Summary</h2><ul>
+<li><strong>TF</strong> → Frequency of a word in a document.  </li>
+<li><strong>IDF</strong> → Importance of a word across all documents.  </li>
+<li><strong>TF-IDF</strong> → Highlights words that are frequent in one document but rare across the corpus.</li>
+</ul>
+<p>👉 In AWS or AI-related exams, TF-IDF often comes up as a <strong>classic feature extraction technique</strong> for text data before applying ML algorithms.</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://kish191919.github.io">Danny Ki</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://kish191919.github.io/2025/08/23/AWS-Certified-AI-Practitioner-23/">https://kish191919.github.io/2025/08/23/AWS-Certified-AI-Practitioner-23/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/AWS/">AWS</a><a class="post-meta__tags" href="/tags/AWS-AI-PRACTITIONER/">AWS_AI_PRACTITIONER</a></div><div class="post-share"><div class="social-share" data-image="/img/my_pic.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/08/23/KO-AWS-Certified-AI-Practitioner-23/" title="(한국어) AWS Certified AI Practitioner (23) - 머신러닝 학습 데이터 정리"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (23) - 머신러닝 학습 데이터 정리</div></div><div class="info-2"><div class="info-item-1">📊 머신러닝 학습 데이터 정리1. 학습 데이터(Training Data)의 중요성 좋은 데이터를 가져야 좋은 모델을 만들 수 있음   Garbage In → Garbage Out : 잘못된 데이터를 넣으면 결과도 잘못됨   가장 중요한 단계 &#x3D; 데이터를 깨끗하게 준비하는 것   데이터의 종류에 따라 사용할 수 있는 알고리즘도 달라짐   2. 라벨링 데이터 vs 비라벨링 데이터🔹 라벨링 데이터 (Labeled Data) 입력값(Input) + 정답(Output Label)이 함께 있는 데이터   예: 고양이, 강아지 이미지와 각각의 라벨이 함께 있음   사용 사례: 지도학습(Supervised Learning)        🔹 비라벨링 데이터 (Unlabeled Data) 입력값만 있고 정답 라벨이 없음   예: 고양이&#x2F;강아지 사진만 있고 라벨이 없는 경우   사용 사례: 비지도학습(Unsupervised Learning) → 패턴이나 군집 찾기  👉 시...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/08/14/AWS-Certified-AI-Practitioner-1/" title="AWS Certified AI Practitioner(1) - IT &amp; AWS Basics"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-14</div><div class="info-item-2">AWS Certified AI Practitioner(1) - IT &amp; AWS Basics</div></div><div class="info-2"><div class="info-item-1">📚 IT &amp; AWS Basics Summary1. Basic IT Terms Network: A connection of cables, routers, and servers.   Router: A device that decides where to send data packets over the internet.   Switch: Sends a packet to the correct server or client within the network.         2. Five Key Characteristics of Cloud Computing On-demand self service – Instantly get resources without human help.   Broad network access – Access resources from different devices via the internet.   Multi-tenancy &amp; Resource p...</div></div></div></a><a class="pagination-related" href="/2025/08/19/AWS-Certified-AI-Practitioner-10/" title="AWS Certified AI Practitioner(10) - Agents"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-19</div><div class="info-item-2">AWS Certified AI Practitioner(10) - Agents</div></div><div class="info-2"><div class="info-item-1">🤖 Amazon Bedrock – Agents📌 What Are Agents?Agents in Amazon Bedrock are advanced components that can think, plan, and act on multi-step tasks.Unlike regular models that only provide answers, agents can perform real actions such as:  Provisioning infrastructure   Deploying applications   Executing operations on systems   Interacting with APIs, databases, and knowledge bases          🔑 Key Features of Bedrock Agents Multi-step task execution: Agents can follow a sequence of steps to complete...</div></div></div></a><a class="pagination-related" href="/2025/08/20/AWS-Certified-AI-Practitioner-12/" title="AWS Certified AI Practitioner(12) - Pricing &amp; Model Improvement"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">AWS Certified AI Practitioner(12) - Pricing &amp; Model Improvement</div></div><div class="info-2"><div class="info-item-1">📘 Amazon Bedrock – Pricing &amp; Model Improvement1️⃣ Pricing Options🔹 On-Demand (Pay-as-you-go) How it works: Pay only for what you use, like an electricity bill.   Pricing basis   Text Models → Input&#x2F;Output token count   Embedding Models → Input token count   Image Models → Number of images generated   Available Models: Base Models only   ✅ Pros: Flexible, good for unpredictable workloads   ❌ Cons: Can become expensive if used continuously over time   🔹 Batch Mode (Bulk processing, ...</div></div></div></a><a class="pagination-related" href="/2025/08/19/AWS-Certified-AI-Practitioner-11/" title="AWS Certified AI Practitioner(11) - Agents"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-19</div><div class="info-item-2">AWS Certified AI Practitioner(11) - Agents</div></div><div class="info-2"><div class="info-item-1">📊 Amazon Bedrock &amp; CloudWatch📌 What is CloudWatch?Amazon CloudWatch is a monitoring service for AWS resources and applications.It provides:  Logs – Detailed records of events and invocations   Metrics – Numerical measurements of system performance   Alarms – Notifications when thresholds are crossed   Dashboards – Visualizations for monitoring   🔑 Bedrock &amp; CloudWatch Integration1. Model Invocation Logging Logs all inputs and outputs from Bedrock model invocations.   Data can inclu...</div></div></div></a><a class="pagination-related" href="/2025/08/20/AWS-Certified-AI-Practitioner-13/" title="AWS Certified AI Practitioner(13) - End-to-End Use Case (AI Stylist Demo)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">AWS Certified AI Practitioner(13) - End-to-End Use Case (AI Stylist Demo)</div></div><div class="info-2"><div class="info-item-1">👗 Amazon Bedrock End-to-End Use Case (AI Stylist Demo)📌 Why This Demo MattersSo far, we’ve explored many features of Amazon Bedrock. But in reality, using Bedrock isn’t just about clicking around in the console.To build a real-world application, you need to make API calls to Bedrock and integrate those capabilities directly into your service.   To demonstrate this, AWS provides an AI Stylist demo application.This demo shows how end users actually experience an application built on top of Be...</div></div></div></a><a class="pagination-related" href="/2025/08/22/AWS-Certified-AI-Practitioner-14/" title="AWS Certified AI Practitioner(14) - Prompt Engineering"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-22</div><div class="info-item-2">AWS Certified AI Practitioner(14) - Prompt Engineering</div></div><div class="info-2"><div class="info-item-1">📘 Prompt EngineeringWhat is Prompt Engineering?Prompt Engineering is the process of designing, refining, andoptimizing prompts to guide a foundation model (FM) or large languagemodel (LLM) toward producing the best possible output for your needs. A naïve prompt gives little guidance and leaves interpretation up tothe model.Example: “Summarize what is AWS.”This works, but the answer may not be clear or focused. By contrast, Prompt Engineering uses a structured approach toimprove results.  Com...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Danny Ki</div><div class="author-info-description">A data engineer's journey in coding, analytics, and building real-world systems.</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">57</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kish191919"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/kish191919" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%F0%9F%93%98-Training-Data-Feature-Engineering"><span class="toc-number">1.</span> <span class="toc-text">📘 Training Data &amp; Feature Engineering</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-Training-Data-Matters"><span class="toc-number">1.1.</span> <span class="toc-text">Why Training Data Matters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Labeled-vs-Unlabeled-Data"><span class="toc-number">1.2.</span> <span class="toc-text">Labeled vs. Unlabeled Data</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%B9-Labeled-Data"><span class="toc-number">1.2.1.</span> <span class="toc-text">🔹 Labeled Data</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%B9-Unlabeled-Data"><span class="toc-number">1.2.2.</span> <span class="toc-text">🔹 Unlabeled Data</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Structured-vs-Unstructured-Data"><span class="toc-number">1.3.</span> <span class="toc-text">Structured vs. Unstructured Data</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%B9-Structured-Data"><span class="toc-number">1.3.1.</span> <span class="toc-text">🔹 Structured Data</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%B9-Unstructured-Data"><span class="toc-number">1.3.2.</span> <span class="toc-text">🔹 Unstructured Data</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Supervised-Learning"><span class="toc-number">1.4.</span> <span class="toc-text">Supervised Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%B9-Regression"><span class="toc-number">1.4.1.</span> <span class="toc-text">🔹 Regression</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%B9-Classification"><span class="toc-number">1.4.2.</span> <span class="toc-text">🔹 Classification</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Splitting-the-Dataset"><span class="toc-number">1.5.</span> <span class="toc-text">Splitting the Dataset</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Feature-Engineering"><span class="toc-number">1.6.</span> <span class="toc-text">Feature Engineering</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Techniques"><span class="toc-number">1.6.1.</span> <span class="toc-text">Techniques</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Feature-Engineering-Examples"><span class="toc-number">1.7.</span> <span class="toc-text">Feature Engineering Examples</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%B9-On-Structured-Data"><span class="toc-number">1.7.1.</span> <span class="toc-text">🔹 On Structured Data</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%B9-On-Unstructured-Data"><span class="toc-number">1.7.2.</span> <span class="toc-text">🔹 On Unstructured Data</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E2%9C%85-Quick-Recap-for-Exam"><span class="toc-number">2.</span> <span class="toc-text">✅ Quick Recap for Exam</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Additional-%F0%9F%93%8C-What-is-TF-IDF"><span class="toc-number">2.1.</span> <span class="toc-text">(Additional) 📌 What is TF-IDF?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Additional-%E2%9A%A1-How-It-Works"><span class="toc-number">2.2.</span> <span class="toc-text">(Additional)  ⚡ How It Works</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Term-Frequency-TF"><span class="toc-number">2.2.1.</span> <span class="toc-text">1. Term Frequency (TF)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Inverse-Document-Frequency-IDF"><span class="toc-number">2.2.2.</span> <span class="toc-text">2. Inverse Document Frequency (IDF)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-TF-IDF-Score"><span class="toc-number">2.2.3.</span> <span class="toc-text">3. TF-IDF Score</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8E%AF-Why-Is-TF-IDF-Useful"><span class="toc-number">2.3.</span> <span class="toc-text">🎯 Why Is TF-IDF Useful?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%9D-Summary"><span class="toc-number">2.4.</span> <span class="toc-text">📝 Summary</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/23/AWS-Certified-AI-Practitioner-23/" title="AWS Certified AI Practitioner(23) - Training Data &amp; Feature Engineering">AWS Certified AI Practitioner(23) - Training Data &amp; Feature Engineering</a><time datetime="2025-08-23T13:50:14.000Z" title="Created 2025-08-23 09:50:14">2025-08-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/23/KO-AWS-Certified-AI-Practitioner-23/" title="(한국어) AWS Certified AI Practitioner (23) - 머신러닝 학습 데이터 정리">(한국어) AWS Certified AI Practitioner (23) - 머신러닝 학습 데이터 정리</a><time datetime="2025-08-23T13:50:09.000Z" title="Created 2025-08-23 09:50:09">2025-08-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/23/KO-AWS-Certified-AI-Practitioner-22/" title="(한국어) AWS Certified AI Practitioner (22) - 공지능(AI), 머신러닝(ML), 딥러닝(DL), 생성형 AI (GenAI) 정리">(한국어) AWS Certified AI Practitioner (22) - 공지능(AI), 머신러닝(ML), 딥러닝(DL), 생성형 AI (GenAI) 정리</a><time datetime="2025-08-23T13:01:55.000Z" title="Created 2025-08-23 09:01:55">2025-08-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/23/AWS-Certified-AI-Practitioner-22/" title="AWS Certified AI Practitioner(22) - Understanding AI, ML, DL, and GenAI">AWS Certified AI Practitioner(22) - Understanding AI, ML, DL, and GenAI</a><time datetime="2025-08-23T13:01:51.000Z" title="Created 2025-08-23 09:01:51">2025-08-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/23/AWS-Certified-AI-Practitioner-21/" title="AWS Certified AI Practitioner(21) - PartyRock">AWS Certified AI Practitioner(21) - PartyRock</a><time datetime="2025-08-23T12:25:02.000Z" title="Created 2025-08-23 08:25:02">2025-08-23</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By Danny Ki</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
