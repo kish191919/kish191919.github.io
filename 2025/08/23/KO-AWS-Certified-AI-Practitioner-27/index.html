@@ -1,0 +1,318 @@
+<!DOCTYPE html><html lang="[&quot;en&quot;,&quot;ko&quot;,&quot;default&quot;]" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>(한국어) AWS Certified AI Practitioner (27) - 이진 분류와 혼동 행렬 (Confusion Matrix) | Danny's Blog</title><meta name="author" content="Danny Ki"><meta name="copyright" content="Danny Ki"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="📊 Model Evaluation in Machine Learning머신러닝 모델을 만들었을 때, 성능이 잘 나오는지를 확인하는 과정이 필요합니다.이때 분류(Classification) 모델과 회귀(Regression) 모델의 평가 방식이 다르므로 구분해서 알아두어야 합니다.  🔹 이진 분류 (Binary Classification)와 혼동 행렬 (Co">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(한국어) AWS Certified AI Practitioner (27) - 이진 분류와 혼동 행렬 (Confusion Matrix)">
+<meta property="og:url" content="https://kish191919.github.io/2025/08/23/KO-AWS-Certified-AI-Practitioner-27/index.html">
+<meta property="og:site_name" content="Danny&#39;s Blog">
+<meta property="og:description" content="📊 Model Evaluation in Machine Learning머신러닝 모델을 만들었을 때, 성능이 잘 나오는지를 확인하는 과정이 필요합니다.이때 분류(Classification) 모델과 회귀(Regression) 모델의 평가 방식이 다르므로 구분해서 알아두어야 합니다.  🔹 이진 분류 (Binary Classification)와 혼동 행렬 (Co">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kish191919.github.io/img/my_pic.jpeg">
+<meta property="article:published_time" content="2025-08-24T00:55:08.000Z">
+<meta property="article:modified_time" content="2025-08-24T01:05:14.597Z">
+<meta property="article:author" content="Danny Ki">
+<meta property="article:tag" content="AWS">
+<meta property="article:tag" content="AWS_AI_PRACTITIONER">
+<meta property="article:tag" content="KOREAN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kish191919.github.io/img/my_pic.jpeg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "(한국어) AWS Certified AI Practitioner (27) - 이진 분류와 혼동 행렬 (Confusion Matrix)",
+  "url": "https://kish191919.github.io/2025/08/23/KO-AWS-Certified-AI-Practitioner-27/",
+  "image": "https://kish191919.github.io/img/my_pic.jpeg",
+  "datePublished": "2025-08-24T00:55:08.000Z",
+  "dateModified": "2025-08-24T01:05:14.597Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Danny Ki",
+      "url": "https://kish191919.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kish191919.github.io/2025/08/23/KO-AWS-Certified-AI-Practitioner-27/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="UfZT9jGVnwcVj8z_sCj9LyqnWho6ubHg1Q7o_bvXfKs"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=GTM-N66KNRNW"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'GTM-N66KNRNW')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'GTM-N66KNRNW', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '(한국어) AWS Certified AI Practitioner (27) - 이진 분류와 혼동 행렬 (Confusion Matrix)',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://kish191919.github.io/",
+  "name": "Danny's Blog",
+  "inLanguage": "en"
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Danny's Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">65</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Danny's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">(한국어) AWS Certified AI Practitioner (27) - 이진 분류와 혼동 행렬 (Confusion Matrix)</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">(한국어) AWS Certified AI Practitioner (27) - 이진 분류와 혼동 행렬 (Confusion Matrix)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-08-24T00:55:08.000Z" title="Created 2025-08-23 20:55:08">2025-08-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-08-24T01:05:14.597Z" title="Updated 2025-08-23 21:05:14">2025-08-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CERTIFICATION/">CERTIFICATION</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CERTIFICATION/AWS-AI-PRACTITIONER-KR/">AWS_AI_PRACTITIONER_KR</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="📊-Model-Evaluation-in-Machine-Learning"><a href="#📊-Model-Evaluation-in-Machine-Learning" class="headerlink" title="📊 Model Evaluation in Machine Learning"></a>📊 Model Evaluation in Machine Learning</h1><p>머신러닝 모델을 만들었을 때, <strong>성능이 잘 나오는지</strong>를 확인하는 과정이 필요합니다.<br>이때 <strong>분류(Classification)</strong> 모델과 <strong>회귀(Regression)</strong> 모델의 평가 방식이 다르므로 구분해서 알아두어야 합니다.</p>
+<hr>
+<h2 id="🔹-이진-분류-Binary-Classification-와-혼동-행렬-Confusion-Matrix"><a href="#🔹-이진-분류-Binary-Classification-와-혼동-행렬-Confusion-Matrix" class="headerlink" title="🔹 이진 분류 (Binary Classification)와 혼동 행렬 (Confusion Matrix)"></a>🔹 이진 분류 (Binary Classification)와 혼동 행렬 (Confusion Matrix)</h2><h3 id="Confusion-Matrix란"><a href="#Confusion-Matrix란" class="headerlink" title="Confusion Matrix란?"></a>Confusion Matrix란?</h3><ul>
+<li>실제 정답(라벨)과 모델 예측값을 비교해서 성능을 평가하는 도구  </li>
+<li>네 가지 값으로 나뉩니다:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>실제 Positive</th>
+<th>실제 Negative</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>예측 Positive</td>
+<td><strong>True Positive (TP)</strong></td>
+<td><strong>False Positive (FP)</strong></td>
+</tr>
+<tr>
+<td>예측 Negative</td>
+<td><strong>False Negative (FN)</strong></td>
+<td><strong>True Negative (TN)</strong></td>
+</tr>
+</tbody></table>
+<p>👉 목표: <strong>TP와 TN을 최대화</strong>하고, <strong>FP와 FN을 최소화</strong>하는 것.</p>
+<p align="center">
+  <img src="/images/aws_basic_135.png" width="80%">
+</p>
+
+<hr>
+<h3 id="주요-평가-지표-Classification-Metrics"><a href="#주요-평가-지표-Classification-Metrics" class="headerlink" title="주요 평가 지표 (Classification Metrics)"></a>주요 평가 지표 (Classification Metrics)</h3><ul>
+<li><p><strong>Precision (정밀도)</strong>  </p>
+<ul>
+<li>공식: TP &#x2F; (TP + FP)  </li>
+<li>“Positive라고 예측한 것 중에서, 실제로 Positive인 비율”  </li>
+<li>**False Positive(잘못된 양성 예측)**이 치명적인 경우 중요  </li>
+<li>예: 스팸 필터에서 정상 메일을 스팸으로 잘못 분류하면 안 됨</li>
+</ul>
+</li>
+<li><p><strong>Recall (재현율, 민감도)</strong>  </p>
+<ul>
+<li>공식: TP &#x2F; (TP + FN)  </li>
+<li>“실제 Positive 중에서, 제대로 맞춘 비율”  </li>
+<li>**False Negative(놓친 케이스)**가 치명적인 경우 중요  </li>
+<li>예: 암 진단 모델에서 환자를 “정상”으로 잘못 분류하면 안 됨</li>
+</ul>
+</li>
+<li><p><strong>F1 Score</strong>  </p>
+<ul>
+<li>공식: 2 × (Precision × Recall) &#x2F; (Precision + Recall)  </li>
+<li>Precision과 Recall의 <strong>균형을 평가</strong>  </li>
+<li>특히 **데이터가 불균형(imbalanced dataset)**할 때 유용</li>
+</ul>
+</li>
+<li><p><strong>Accuracy (정확도)</strong>  </p>
+<ul>
+<li>공식: (TP + TN) &#x2F; 전체 데이터  </li>
+<li>단순히 “얼마나 맞췄는가”  </li>
+<li>데이터가 <strong>균형 잡힌 경우</strong>에만 의미 있음  </li>
+<li>예: 95%가 Negative인 데이터에서 Accuracy 95% → 쓸모없는 지표</li>
+</ul>
+</li>
+</ul>
+<p>📌 <strong>시험 팁</strong>:  </p>
+<ul>
+<li><strong>Precision → FP가 비쌀 때</strong>  </li>
+<li><strong>Recall → FN이 비쌀 때</strong>  </li>
+<li><strong>F1 → 불균형 데이터셋에서 균형 평가</strong>  </li>
+<li><strong>Accuracy → 데이터가 균형일 때만</strong></li>
+</ul>
+<p align="center">
+  <img src="/images/aws_basic_136.png" width="80%">
+</p>
+
+<hr>
+<h2 id="🔹-AUC-ROC-Area-Under-the-Curve-Receiver-Operating-Characteristic"><a href="#🔹-AUC-ROC-Area-Under-the-Curve-Receiver-Operating-Characteristic" class="headerlink" title="🔹 AUC-ROC (Area Under the Curve - Receiver Operating Characteristic)"></a>🔹 AUC-ROC (Area Under the Curve - Receiver Operating Characteristic)</h2><ul>
+<li><strong>0 ~ 1 사이 값</strong>, 1에 가까울수록 완벽한 모델  </li>
+<li>축:  <ul>
+<li>X축 → False Positive Rate (1 - Specificity)  </li>
+<li>Y축 → True Positive Rate (Sensitivity, Recall)</li>
+</ul>
+</li>
+<li>여러 Threshold(임계값)를 기준으로 Confusion Matrix를 만들고 곡선을 그림  </li>
+<li>AUC &#x3D; ROC Curve 아래 면적</li>
+</ul>
+<p>👉 <strong>시험 포인트</strong>:  </p>
+<ul>
+<li>AUC가 클수록 모델이 좋은 것  </li>
+<li>다양한 임계값을 비교할 때 활용</li>
+</ul>
+<p align="center">
+  <img src="/images/aws_basic_137.png" width="80%">
+</p>
+
+<hr>
+<h2 id="🔹-회귀-모델-평가-지표-Regression-Metrics"><a href="#🔹-회귀-모델-평가-지표-Regression-Metrics" class="headerlink" title="🔹 회귀 모델 평가 지표 (Regression Metrics)"></a>🔹 회귀 모델 평가 지표 (Regression Metrics)</h2><p>회귀 모델은 <strong>연속적인 값</strong>을 예측하기 때문에 평가 방식이 다릅니다.</p>
+<ul>
+<li><p><strong>MAE (Mean Absolute Error)</strong>  </p>
+<ul>
+<li>예측값과 실제값 차이의 절댓값 평균  </li>
+<li>직관적이고 해석하기 쉬움  </li>
+<li>예: MAE &#x3D; 5 → 평균적으로 5점 차이 발생</li>
+</ul>
+</li>
+<li><p><strong>MAPE (Mean Absolute Percentage Error)</strong>  </p>
+<ul>
+<li>퍼센트 기준 오차율  </li>
+<li>값의 크기가 다양할 때 상대적 오류를 보려면 사용</li>
+</ul>
+</li>
+<li><p><strong>RMSE (Root Mean Squared Error)</strong>  </p>
+<ul>
+<li>오차를 제곱 후 평균 내고 제곱근을 취함  </li>
+<li>큰 오차에 더 민감 → 모델 안정성 평가에 유용</li>
+</ul>
+</li>
+<li><p><strong>R² (R-Squared, 결정계수)</strong>  </p>
+<ul>
+<li>모델이 데이터를 얼마나 설명할 수 있는지를 나타냄  </li>
+<li>값이 1에 가까울수록 좋은 모델  </li>
+<li>예: R² &#x3D; 0.8 → 모델이 80%를 설명, 나머지 20%는 다른 요인</li>
+</ul>
+</li>
+</ul>
+<p align="center">
+  <img src="/images/aws_basic_138.png" width="80%">
+</p>
+
+<p>📌 <strong>시험 팁</strong>:  </p>
+<ul>
+<li>분류(Classification) → Precision, Recall, F1, Accuracy, AUC-ROC  </li>
+<li>회귀(Regression) → MAE, MAPE, RMSE, R²</li>
+</ul>
+<hr>
+<h1 id="✅-정리-시험-대비-핵심"><a href="#✅-정리-시험-대비-핵심" class="headerlink" title="✅ 정리 (시험 대비 핵심)"></a>✅ 정리 (시험 대비 핵심)</h1><ul>
+<li><strong>Classification 평가 지표</strong>: Confusion Matrix, Precision, Recall, F1, Accuracy, AUC-ROC  </li>
+<li><strong>Regression 평가 지표</strong>: MAE, MAPE, RMSE, R²  </li>
+<li><strong>Precision ↔ Recall Trade-off</strong> 기억하기 (특히 시험에 자주 출제)</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://kish191919.github.io">Danny Ki</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://kish191919.github.io/2025/08/23/KO-AWS-Certified-AI-Practitioner-27/">https://kish191919.github.io/2025/08/23/KO-AWS-Certified-AI-Practitioner-27/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/AWS/">AWS</a><a class="post-meta__tags" href="/tags/AWS-AI-PRACTITIONER/">AWS_AI_PRACTITIONER</a><a class="post-meta__tags" href="/tags/KOREAN/">KOREAN</a></div><div class="post-share"><div class="social-share" data-image="/img/my_pic.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/08/23/AWS-Certified-AI-Practitioner-27/" title="AWS Certified AI Practitioner(27) - Model Evaluation - Classification &amp; Regression"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">Previous</div><div class="info-item-2">AWS Certified AI Practitioner(27) - Model Evaluation - Classification & Regression</div></div><div class="info-2"><div class="info-item-1">📊 Model Evaluation – Classification &amp; RegressionWhen building ML models, it’s not enough to just train them—you alsoneed to evaluate how good they are. Different problems (classificationvs regression) use different metrics. Let’s break it down.  🔹 Binary Classification Example – Confusion MatrixA confusion matrix compares actual labels (truth) with the model’spredictions.  True Positive (TP): predicted positive, actually positive\ False Positive (FP): predicted positive, actually negati...</div></div></div></a><a class="pagination-related" href="/2025/08/23/KO-AWS-Certified-AI-Practitioner-26/" title="(한국어) AWS Certified AI Practitioner (26) - 모델 적합도와 편향 &amp; 분산"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (26) - 모델 적합도와 편향 & 분산</div></div><div class="info-2"><div class="info-item-1">🤖 모델 적합도(Model Fit)와 편향(Bias) · 분산(Variance)1. 모델 적합도(Model Fit)머신러닝 모델이 제대로 동작하지 않을 때는 모델의 적합도(Fit) 를 살펴봐야 합니다.모델이 데이터를 얼마나 잘 설명하는지가 핵심입니다.    과적합(Overfitting)    훈련 데이터에서는 성능이 매우 좋음   새로운 데이터(검증&#x2F;테스트 데이터)에서는 성능이 나쁨   원인: 모델이 데이터의 노이즈까지 학습해서 일반화가 안 됨   📌 예시: 훈련 데이터 점 하나하나에 맞게 선을 구부려 만든 복잡한 곡선   과소적합(Underfitting)    훈련 데이터에서도 성능이 나쁨   원인: 모델이 너무 단순하거나, 특징(Feature)이 부족함   📌 예시: 복잡한 곡선 데이터에 단순 직선을 억지로 적용   균형(Balanced)    과적합도, 과소적합도 아닌 상태   어느 정도 오차는 있지만, 데이터의 전체적인 패턴을 잘 따름   📌 가장 이상적...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-1/" title="(한국어) AWS Certified AI Practitioner (1) - IT &amp; AWS 기초"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (1) - IT &amp; AWS 기초</div></div><div class="info-2"><div class="info-item-1">📚 IT &amp; AWS 기초 요약1. 기본 IT 용어 네트워크(Network): 케이블, 라우터, 서버 등이 연결되어 데이터가 오가는 길.   라우터(Router): 인터넷에서 데이터를 어디로 보낼지 길잡이 역할을 하는 장치.   스위치(Switch): 네트워크 안에서 데이터가 정확한 서버나 컴퓨터로 가도록 도와주는 장치.         2. 클라우드 컴퓨팅의 5가지 핵심 특징 즉시 자원 사용(On-demand self service) → 필요한 자원을 바로 얻을 수 있음.   넓은 네트워크 접근(Broad network access) → 인터넷만 있으면 여러 기기에서 접근 가능.   자원 공유(Multi-tenancy &amp; Resource pooling) → 여러 사용자가 안전하게 같은 자원 공유.   빠른 확장성(Rapid elasticity &amp; Scalability) → 필요에 따라 서버나 자원을 늘리거나 줄일 수 있음.   사용량 기반 과금(Measur...</div></div></div></a><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-11/" title="(한국어) AWS Certified AI Practitioner (11) - CloudWatch"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (11) - CloudWatch</div></div><div class="info-2"><div class="info-item-1">📊 Amazon Bedrock &amp; CloudWatch📌 CloudWatch란?Amazon CloudWatch는 AWS 리소스와 애플리케이션을 모니터링하는 서비스입니다.CloudWatch는 다음과 같은 기능을 제공합니다:  Logs (로그) → 이벤트나 요청 내역을 기록 (디버깅에 유용)   Metrics (지표) → 시스템 성능을 수치로 모니터링   Alarms (알람) → 특정 기준을 넘었을 때 알림 전송   Dashboards (대시보드) → 모니터링 정보를 시각화  👉 시험에 자주 나오는 포인트:    CloudWatch Logs: 이벤트·로그 기록   CloudWatch Metrics: CPU, 메모리, 지연 시간 같은 성능 수치   CloudWatch Alarms: 기준치 초과 시 알림   CloudWatch Dashboards: 모니터링 결과 시각화   🔑 Bedrock + CloudWatch 연동1. 모델 호출(Invocation) 로깅 Bedrock...</div></div></div></a><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-12/" title="(한국어) AWS Certified AI Practitioner (12) - Pricing &amp; Model Improvement"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (12) - Pricing &amp; Model Improvement</div></div><div class="info-2"><div class="info-item-1">📘 Amazon Bedrock – Pricing &amp; Model Improvement1️⃣ Pricing Options🔹 On-Demand (즉시 사용, 사용량만큼 결제) 방식: 전기요금처럼 쓴 만큼만 지불 (Pay-as-you-go)   요금 기준   텍스트 모델 → 입력&#x2F;출력 토큰 수   임베딩 모델 → 입력 토큰 수   이미지 모델 → 생성된 이미지 수   사용 가능 모델: Base Models 전용   ✅ 장점: 유연성, 사용량 예측이 어려운 경우 적합   ❌ 단점: 장기간 사용 시 비용 부담 ↑   🔹 Batch Mode (묶음 처리, 최대 50% 할인) 방식: 여러 요청을 한 번에 묶어서 처리 → 결과는 Amazon S3에 단일 파일 저장   할인 혜택: 최대 50% 저렴   ✅ 장점: 대량 처리에 유리, 비용 절감 효과 큼   ❌ 단점: 실시간 응답 불가, 결과 지연 발생   적합 상황: 즉각적인 응답 필요 없고, 대량 요청을 처리할 때   🔹...</div></div></div></a><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-13/" title="(한국어) AWS Certified AI Practitioner (13) - AI Stylist Demo"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (13) - AI Stylist Demo</div></div><div class="info-2"><div class="info-item-1">👗 Amazon Bedrock End-to-End Use Case (AI Stylist Demo)📌 왜 이 데모가 중요한가?앞에서 Amazon Bedrock의 여러 기능을 살펴봤지만, 실제로는 콘솔에서 클릭만 하는 것으로 끝나지 않습니다.실제 애플리케이션에서 Bedrock을 활용하려면 API 호출을 통해 Bedrock 기능을 불러오고, 이를 기반으로 서비스를 만들어야 합니다.   AWS에서는 이를 보여주기 위해 AI Stylist라는 데모 애플리케이션을 제공합니다.이 데모를 통해 실제 사용자가 어떻게 Bedrock 기반 앱을 경험하는지 확인할 수 있습니다.   🔗 Try the AI Stylist Demo 📎 Demo Video:          Your browser does not support the video tag.     👠 AI Stylist 동작 방식 사용자가 질문을 입력합니다.   예: “저는 컨설턴트인데, 다음 주 뉴욕 출장을 가는데 첫 출근 날 무슨...</div></div></div></a><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-10/" title="(한국어) AWS Certified AI Practitioner (10) - Agents (에이전트)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (10) - Agents (에이전트)</div></div><div class="info-2"><div class="info-item-1">🤖 Amazon Bedrock – Agents (에이전트)📌 에이전트란?Amazon Bedrock의 에이전트(Agents) 는 단순히 질문에 답변하는 모델이 아니라, 여러 단계를 계획하고 실행할 수 있는 고급 기능입니다.즉, 사람이 “생각하고 → 계획하고 → 행동하는” 과정을 흉내 내서 실제 작업까지 자동으로 수행할 수 있습니다.   에이전트는 단순 텍스트 생성 외에도 다음과 같은 일을 할 수 있습니다:  AWS 인프라 생성 (서버, S3, Lambda 등) 애플리케이션 배포 자동화 데이터베이스&#x2F;시스템 작업 수행 외부 API 및 사내 시스템 연동   🔑 Bedrock Agents 주요 특징 멀티스텝 작업 실행: 단순 질의응답이 아니라, 여러 단계를 거쳐 복잡한 업무를 수행   작업 순서 제어: 각 단계가 올바른 순서로 실행되고, 데이터가 단계 간 잘 전달됨   액션 그룹(Action Groups): API, Lambda 함수 등 미리 정의된 작업 단위를 사용   ...</div></div></div></a><a class="pagination-related" href="/2025/08/22/KO-AWS-Certified-AI-Practitioner-14/" title="(한국어) AWS Certified AI Practitioner (14) - 프롬프트 엔지니어링"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-22</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (14) - 프롬프트 엔지니어링</div></div><div class="info-2"><div class="info-item-1">📝 프롬프트 엔지니어링 (Prompt Engineering)프롬프트 엔지니어링은 AI 모델이 더 정확하고 원하는 답변을 내도록 질문(프롬프트)을 설계하고 최적화하는 기술을 말합니다.단순히 “AWS를 요약해줘” 같은 질문을 던지는 것보다, 구체적으로 지시, 맥락, 입력 데이터, 출력 형식을 포함하면 훨씬 좋은 결과를 얻을 수 있습니다.  1. 기본 개념 (Naïve Prompt vs. 개선된 Prompt) Naïve Prompt (단순 프롬프트)예: “AWS를 요약해줘.”👉 모델이 알아서 답하긴 하지만, 원하는 수준의 답변이 아닐 수 있음.  Prompt Engineering (프롬프트 엔지니어링)👉 프롬프트를 설계하고 개선하여 원하는 답변을 얻는 방법.👉 4가지 핵심 요소:  Instructions (지시사항) – 모델이 어떤 일을 해야 하는지 (예: “요약문 작성”)   Context (맥락) – 모델이 참고할 추가 정보 (예: “AWS 초보자를 가르치는 상황”)   ...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Danny Ki</div><div class="author-info-description">A data engineer's journey in coding, analytics, and building real-world systems.</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">65</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kish191919"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/kish191919" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%F0%9F%93%8A-Model-Evaluation-in-Machine-Learning"><span class="toc-number">1.</span> <span class="toc-text">📊 Model Evaluation in Machine Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%94%B9-%EC%9D%B4%EC%A7%84-%EB%B6%84%EB%A5%98-Binary-Classification-%EC%99%80-%ED%98%BC%EB%8F%99-%ED%96%89%EB%A0%AC-Confusion-Matrix"><span class="toc-number">1.1.</span> <span class="toc-text">🔹 이진 분류 (Binary Classification)와 혼동 행렬 (Confusion Matrix)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Confusion-Matrix%EB%9E%80"><span class="toc-number">1.1.1.</span> <span class="toc-text">Confusion Matrix란?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%A3%BC%EC%9A%94-%ED%8F%89%EA%B0%80-%EC%A7%80%ED%91%9C-Classification-Metrics"><span class="toc-number">1.1.2.</span> <span class="toc-text">주요 평가 지표 (Classification Metrics)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%94%B9-AUC-ROC-Area-Under-the-Curve-Receiver-Operating-Characteristic"><span class="toc-number">1.2.</span> <span class="toc-text">🔹 AUC-ROC (Area Under the Curve - Receiver Operating Characteristic)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%94%B9-%ED%9A%8C%EA%B7%80-%EB%AA%A8%EB%8D%B8-%ED%8F%89%EA%B0%80-%EC%A7%80%ED%91%9C-Regression-Metrics"><span class="toc-number">1.3.</span> <span class="toc-text">🔹 회귀 모델 평가 지표 (Regression Metrics)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E2%9C%85-%EC%A0%95%EB%A6%AC-%EC%8B%9C%ED%97%98-%EB%8C%80%EB%B9%84-%ED%95%B5%EC%8B%AC"><span class="toc-number">2.</span> <span class="toc-text">✅ 정리 (시험 대비 핵심)</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/23/AWS-Certified-AI-Practitioner-27/" title="AWS Certified AI Practitioner(27) - Model Evaluation - Classification &amp; Regression">AWS Certified AI Practitioner(27) - Model Evaluation - Classification &amp; Regression</a><time datetime="2025-08-24T00:55:13.000Z" title="Created 2025-08-23 20:55:13">2025-08-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/23/KO-AWS-Certified-AI-Practitioner-27/" title="(한국어) AWS Certified AI Practitioner (27) - 이진 분류와 혼동 행렬 (Confusion Matrix)">(한국어) AWS Certified AI Practitioner (27) - 이진 분류와 혼동 행렬 (Confusion Matrix)</a><time datetime="2025-08-24T00:55:08.000Z" title="Created 2025-08-23 20:55:08">2025-08-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/23/KO-AWS-Certified-AI-Practitioner-26/" title="(한국어) AWS Certified AI Practitioner (26) - 모델 적합도와 편향 &amp; 분산">(한국어) AWS Certified AI Practitioner (26) - 모델 적합도와 편향 &amp; 분산</a><time datetime="2025-08-24T00:39:04.000Z" title="Created 2025-08-23 20:39:04">2025-08-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/23/AWS-Certified-AI-Practitioner-26/" title="AWS Certified AI Practitioner(26) - Model Fit, Bias, and Variance">AWS Certified AI Practitioner(26) - Model Fit, Bias, and Variance</a><time datetime="2025-08-24T00:39:00.000Z" title="Created 2025-08-23 20:39:00">2025-08-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/23/AWS-Certified-AI-Practitioner-25/" title="AWS Certified AI Practitioner(25) - Reinforcement Learning">AWS Certified AI Practitioner(25) - Reinforcement Learning</a><time datetime="2025-08-24T00:17:27.000Z" title="Created 2025-08-23 20:17:27">2025-08-23</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By Danny Ki</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
