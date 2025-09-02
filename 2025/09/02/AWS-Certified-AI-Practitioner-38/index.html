@@ -1,0 +1,336 @@
+<!DOCTYPE html><html lang="[&quot;en&quot;,&quot;ko&quot;,&quot;default&quot;]" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>AWS Certified AI Practitioner(38) - ML Governance &amp; Productivity | Danny's Blog</title><meta name="author" content="Danny Ki"><meta name="copyright" content="Danny Ki"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Amazon SageMaker – ML Governance &amp; Productivity (Exam-friendly Guide)This rewrite keeps things simple, adds missing context, and highlights what typically shows up on AWS exams.  Why “ML Governanc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AWS Certified AI Practitioner(38) - ML Governance &amp; Productivity">
+<meta property="og:url" content="https://kish191919.github.io/2025/09/02/AWS-Certified-AI-Practitioner-38/index.html">
+<meta property="og:site_name" content="Danny&#39;s Blog">
+<meta property="og:description" content="Amazon SageMaker – ML Governance &amp; Productivity (Exam-friendly Guide)This rewrite keeps things simple, adds missing context, and highlights what typically shows up on AWS exams.  Why “ML Governanc">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kish191919.github.io/img/my_pic.jpeg">
+<meta property="article:published_time" content="2025-09-02T18:34:17.000Z">
+<meta property="article:modified_time" content="2025-09-02T18:54:53.776Z">
+<meta property="article:author" content="Danny Ki">
+<meta property="article:tag" content="AWS">
+<meta property="article:tag" content="AWS_AI_PRACTITIONER">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kish191919.github.io/img/my_pic.jpeg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AWS Certified AI Practitioner(38) - ML Governance & Productivity",
+  "url": "https://kish191919.github.io/2025/09/02/AWS-Certified-AI-Practitioner-38/",
+  "image": "https://kish191919.github.io/img/my_pic.jpeg",
+  "datePublished": "2025-09-02T18:34:17.000Z",
+  "dateModified": "2025-09-02T18:54:53.776Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Danny Ki",
+      "url": "https://kish191919.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kish191919.github.io/2025/09/02/AWS-Certified-AI-Practitioner-38/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="UfZT9jGVnwcVj8z_sCj9LyqnWho6ubHg1Q7o_bvXfKs"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=GTM-N66KNRNW"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'GTM-N66KNRNW')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'GTM-N66KNRNW', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'AWS Certified AI Practitioner(38) - ML Governance & Productivity',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://kish191919.github.io/",
+  "name": "Danny's Blog",
+  "inLanguage": "en"
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Danny's Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">87</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Danny's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">AWS Certified AI Practitioner(38) - ML Governance &amp; Productivity</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">AWS Certified AI Practitioner(38) - ML Governance &amp; Productivity</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-09-02T18:34:17.000Z" title="Created 2025-09-02 14:34:17">2025-09-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-09-02T18:54:53.776Z" title="Updated 2025-09-02 14:54:53">2025-09-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CERTIFICATION/">CERTIFICATION</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CERTIFICATION/AWS-AI-PRACTITIONER/">AWS_AI_PRACTITIONER</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="Amazon-SageMaker-–-ML-Governance-Productivity-Exam-friendly-Guide"><a href="#Amazon-SageMaker-–-ML-Governance-Productivity-Exam-friendly-Guide" class="headerlink" title="Amazon SageMaker – ML Governance &amp; Productivity (Exam-friendly Guide)"></a>Amazon SageMaker – ML Governance &amp; Productivity (Exam-friendly Guide)</h1><p>This rewrite keeps things simple, adds missing context, and highlights what typically shows up on AWS exams.</p>
+<hr>
+<h2 id="Why-“ML-Governance”-matters"><a href="#Why-“ML-Governance”-matters" class="headerlink" title="Why “ML Governance” matters"></a>Why “ML Governance” matters</h2><p>Once a model is in production, you need to <strong>know what it does, who can touch it, how it’s behaving, and how it changes over time</strong>. SageMaker gives you a set of tools to do exactly that.</p>
+<hr>
+<h2 id="Model-documentation-visibility"><a href="#Model-documentation-visibility" class="headerlink" title="Model documentation &amp; visibility"></a>Model documentation &amp; visibility</h2><h3 id="SageMaker-Model-Cards"><a href="#SageMaker-Model-Cards" class="headerlink" title="SageMaker Model Cards"></a>SageMaker <strong>Model Cards</strong></h3><ul>
+<li>A living document for each model: <strong>intended use</strong>, <strong>risk rating</strong>, <strong>training data &amp; method</strong>, <strong>evaluation metrics</strong>, and <strong>owners</strong>.</li>
+<li>Think of it as “README + audit sheet” for compliance and handoffs.</li>
+</ul>
+<p><strong>Exam tip:</strong> If a question mentions <em>“documenting model intent, risks, and lineage for auditors”</em>, the answer is <strong>Model Cards</strong>.</p>
+<p align="center">
+  <img src="/images/aws_basic_187.png" width="80%">
+</p> 
+
+<hr>
+<h3 id="SageMaker-Model-Dashboard"><a href="#SageMaker-Model-Dashboard" class="headerlink" title="SageMaker Model Dashboard"></a>SageMaker <strong>Model Dashboard</strong></h3><ul>
+<li>A <strong>central place</strong> to <strong>view, search, and explore</strong> every model across accounts&#x2F;teams (from the SageMaker console).</li>
+<li>Lets you <strong>track which models are deployed</strong> to endpoints.</li>
+<li>Surfaces <strong>warnings</strong> when thresholds are breached (data quality, model quality, bias, explainability drift).</li>
+</ul>
+<p><strong>Use it for:</strong> “Which models are live?” “Which ones are failing data-quality checks?”</p>
+<p align="center">
+  <img src="/images/aws_basic_188.png" width="80%">
+</p> 
+
+<hr>
+<h3 id="SageMaker-Role-Manager"><a href="#SageMaker-Role-Manager" class="headerlink" title="SageMaker Role Manager"></a>SageMaker <strong>Role Manager</strong></h3><ul>
+<li>Define <strong>least-privilege roles</strong> by <strong>persona</strong> (e.g., <em>data scientist</em>, <em>MLOps engineer</em>).</li>
+<li>Speeds up secure access setup for Studio, training jobs, endpoints, registries, etc.</li>
+</ul>
+<p><strong>Exam tip:</strong> If you see <em>“quickly provision SageMaker permissions for different job functions”</em>, pick <strong>Role Manager</strong>.</p>
+<hr>
+<h2 id="Model-quality-lifecycle"><a href="#Model-quality-lifecycle" class="headerlink" title="Model quality &amp; lifecycle"></a>Model quality &amp; lifecycle</h2><h3 id="SageMaker-Model-Monitor"><a href="#SageMaker-Model-Monitor" class="headerlink" title="SageMaker Model Monitor"></a>SageMaker <strong>Model Monitor</strong></h3><ul>
+<li>Continuously or on a schedule, checks <strong>data drift</strong> (inputs no longer look like training data), <strong>model drift</strong> (performance drops), <strong>bias&#x2F;explainability drift</strong>, and <strong>data quality</strong>.</li>
+<li>Sends <strong>alerts</strong> so you can <strong>fix pipelines</strong> or <strong>retrain</strong>.</li>
+</ul>
+<p><strong>Example:</strong> A loan-approval model starts approving borrowers below the target credit score—Model Monitor flags drift → you retrain with recent data.</p>
+<p><strong>Exam tip:</strong> <em>Detecting drift in production</em> → <strong>Model Monitor</strong>.</p>
+<p align="center">
+  <img src="/images/aws_basic_189.png" width="80%">
+</p>
+
+<hr>
+<h3 id="SageMaker-Model-Registry"><a href="#SageMaker-Model-Registry" class="headerlink" title="SageMaker Model Registry"></a>SageMaker <strong>Model Registry</strong></h3><ul>
+<li>Central repo to <strong>catalog, version, approve, deploy, and share</strong> models.</li>
+<li>Supports <strong>approval states</strong> (e.g., <em>Pending</em>, <em>Approved</em>, <em>Rejected</em>), <strong>metadata</strong>, and <strong>automated deployments</strong> from the registry.</li>
+</ul>
+<p><strong>Exam tip:</strong> <em>Model versioning + approval workflow + promotion to prod</em> → <strong>Model Registry</strong>.</p>
+<p align="center">
+  <img src="/images/aws_basic_190.png" width="80%">
+</p>
+
+<hr>
+<h2 id="CI-CD-for-ML"><a href="#CI-CD-for-ML" class="headerlink" title="CI&#x2F;CD for ML"></a>CI&#x2F;CD for ML</h2><h3 id="SageMaker-Pipelines"><a href="#SageMaker-Pipelines" class="headerlink" title="SageMaker Pipelines"></a>SageMaker <strong>Pipelines</strong></h3><p>Automates the path from data to deployment (MLOps). A pipeline is built from <strong>Steps</strong>:</p>
+<ul>
+<li><strong>Processing</strong> – data prep&#x2F;feature engineering (Data Wrangler&#x2F;processing jobs).</li>
+<li><strong>Training</strong> – train a model.</li>
+<li><strong>Tuning</strong> – hyperparameter optimization (HPO).</li>
+<li><strong>AutoML</strong> – train automatically with Autopilot.</li>
+<li><strong>Model</strong> – create&#x2F;register a SageMaker Model (often into <strong>Model Registry</strong>).</li>
+<li><strong>ClarifyCheck</strong> – bias&#x2F;explainability checks vs baselines.</li>
+<li><strong>QualityCheck</strong> – data&#x2F;model quality checks vs baselines.</li>
+</ul>
+<p><strong>Why Pipelines:</strong> Reproducible, faster iterations, fewer manual errors, and easy promotion Dev → Staging → Prod.</p>
+<p><strong>Exam tip:</strong> <em>“Automate build&#x2F;train&#x2F;test&#x2F;deploy and attach gates for quality checks”</em> → <strong>Pipelines</strong> (+ <strong>ClarifyCheck&#x2F;QualityCheck</strong> steps).</p>
+<p align="center">
+  <img src="/images/aws_basic_191.png" width="80%">
+</p>
+
+<hr>
+<h2 id="Build-faster-with-prebuilt-models-no-code-tools"><a href="#Build-faster-with-prebuilt-models-no-code-tools" class="headerlink" title="Build faster with prebuilt models &amp; no-code tools"></a>Build faster with prebuilt models &amp; no-code tools</h2><h3 id="SageMaker-JumpStart"><a href="#SageMaker-JumpStart" class="headerlink" title="SageMaker JumpStart"></a>SageMaker <strong>JumpStart</strong></h3><ul>
+<li>An <strong>ML Hub</strong> of pre-trained <strong>foundation models (FMs)</strong> and task models (CV&#x2F;NLP) from providers like <strong>Hugging Face, Meta, Stability AI, Databricks</strong>, etc.</li>
+<li>You can <strong>fine-tune on your data</strong>, then <strong>deploy on SageMaker</strong> with full control (instance types, autoscaling, serverless, etc.).</li>
+<li>Also includes <strong>prebuilt solutions</strong> (demand forecasting, fraud detection, credit scoring, computer vision).</li>
+</ul>
+<p><strong>When to use:</strong> You need a strong baseline fast, or a packaged solution to customize.</p>
+<p align="center">
+  <img src="/images/aws_basic_192.png" width="80%">
+</p>
+
+<p align="center">
+  <img src="/images/aws_basic_193.png" width="80%">
+</p>
+
+<hr>
+<h3 id="SageMaker-Canvas-No-code"><a href="#SageMaker-Canvas-No-code" class="headerlink" title="SageMaker Canvas (No-code)"></a>SageMaker <strong>Canvas</strong> (No-code)</h3><ul>
+<li><strong>Visual interface</strong> to build models (classification, regression, forecasting) without writing code.</li>
+<li>Can use <strong>Autopilot (AutoML)</strong> under the hood.</li>
+<li>Integrates with <strong>Data Wrangler</strong> for prep and can <strong>pull ready-to-use models</strong> from <strong>Bedrock&#x2F;JumpStart</strong>.</li>
+<li><strong>Ready-to-use models:</strong> Comprehend (sentiment, entities), Rekognition (vision), Textract (document OCR).</li>
+</ul>
+<p><strong>Use it for:</strong> Analysts and business users who want predictions without Python.</p>
+<p><strong>Exam tip:</strong> <em>“No-code model building for business teams”</em> → <strong>Canvas</strong>.</p>
+<p align="center">
+  <img src="/images/aws_basic_194.png" width="80%">
+</p>
+
+<p align="center">
+  <img src="/images/aws_basic_195.png" width="80%">
+</p>
+
+<hr>
+<h2 id="Responsible-AI-explainability"><a href="#Responsible-AI-explainability" class="headerlink" title="Responsible AI &amp; explainability"></a>Responsible AI &amp; explainability</h2><h3 id="SageMaker-Clarify"><a href="#SageMaker-Clarify" class="headerlink" title="SageMaker Clarify"></a>SageMaker <strong>Clarify</strong></h3><ul>
+<li><strong>Bias detection</strong> (dataset &amp; model), <strong>explainability</strong> (global + per-prediction), and <strong>foundation-model evaluations</strong> (e.g., tone, helpfulness).</li>
+<li>Works both <strong>pre-deployment</strong> (validate) and <strong>post-deployment</strong> (debug).</li>
+</ul>
+<p><strong>Typical questions:</strong><br>“Why was this loan denied?” → use Clarify <strong>SHAP-based</strong> explanations to rank influential features.<br>“Detect bias in a dataset&#x2F;model” → <strong>Clarify</strong> with statistical metrics.</p>
+<p><strong>Bias types to recognize (human context):</strong> - <strong>Sampling bias</strong> – training data isn’t representative. - <strong>Measurement bias</strong> – flawed or skewed instrumentation&#x2F;labels. - <strong>Observer bias</strong> – human annotators influence labels. - <strong>Confirmation bias</strong> – interpreting data to fit expectations.</p>
+<hr>
+<h2 id="Human-in-the-loop-HITL"><a href="#Human-in-the-loop-HITL" class="headerlink" title="Human-in-the-loop (HITL)"></a>Human-in-the-loop (HITL)</h2><h3 id="SageMaker-Ground-Truth-and-Ground-Truth-Plus"><a href="#SageMaker-Ground-Truth-and-Ground-Truth-Plus" class="headerlink" title="SageMaker Ground Truth (and Ground Truth Plus)"></a>SageMaker <strong>Ground Truth</strong> (and Ground Truth Plus)</h3><ul>
+<li><strong>Human feedback for ML</strong>: high-quality <strong>data labeling</strong>, <strong>model evaluation</strong>, and <strong>preference alignment</strong>.</li>
+<li>Reviewers: <strong>your employees</strong>, <strong>vetted vendors</strong>, or <strong>Amazon Mechanical Turk</strong>.</li>
+<li><strong>RLHF</strong> (Reinforcement Learning from Human Feedback) support: human preferences contribute to a <strong>reward</strong> signal for model alignment.</li>
+<li><strong>Plus</strong> adds managed, expert labeling teams and project management.</li>
+</ul>
+<p><strong>Exam tip:</strong> <em>“Collect labeled data at scale with human reviewers”</em> → <strong>Ground Truth</strong> (or <strong>Ground Truth Plus</strong> if fully managed).</p>
+<hr>
+<h2 id="Open-source-tracking"><a href="#Open-source-tracking" class="headerlink" title="Open-source tracking"></a>Open-source tracking</h2><h3 id="MLflow-on-SageMaker"><a href="#MLflow-on-SageMaker" class="headerlink" title="MLflow on SageMaker"></a><strong>MLflow on SageMaker</strong></h3><ul>
+<li>Launch <strong>MLflow Tracking Servers</strong> from Studio to <strong>track experiments&#x2F;runs</strong>, metrics, and artifacts.</li>
+<li>Fully integrated with SageMaker resources.</li>
+</ul>
+<p><strong>When to use:</strong> Your team already uses MLflow but wants AWS-managed infra around it.</p>
+<hr>
+<h2 id="Extra-features-that-show-up-on-exams"><a href="#Extra-features-that-show-up-on-exams" class="headerlink" title="Extra features that show up on exams"></a>Extra features that show up on exams</h2><ul>
+<li><p><strong>Network Isolation mode</strong><br>Run training&#x2F;inference <strong>containers without any outbound internet</strong> (no S3&#x2F;VPC&#x2F;Internet). Use this for <strong>strict data-exfiltration controls</strong>.<br><strong>Keyword:</strong> “<strong>No egress</strong>, fully isolated job”.</p>
+</li>
+<li><p><strong>DeepAR</strong> (built-in algorithm) For <strong>time-series forecasting</strong>, based on <strong>RNNs</strong>.<br><strong>Keyword match:</strong> “<strong>forecast time series</strong>“ → <strong>DeepAR</strong>.</p>
+</li>
+</ul>
+<hr>
+<h2 id="One-page-cheat-sheet-what-to-pick-when"><a href="#One-page-cheat-sheet-what-to-pick-when" class="headerlink" title="One-page cheat sheet (what to pick when)"></a>One-page cheat sheet (what to pick when)</h2><ul>
+<li><strong>Document model purpose &amp; risks</strong> → <em>Model Cards</em></li>
+<li><strong>See&#x2F;search all models, find violations</strong> → <em>Model Dashboard</em></li>
+<li><strong>Detect drift&#x2F;quality issues in prod</strong> → <em>Model Monitor</em></li>
+<li><strong>Versioning, approvals, promote to prod</strong> → <em>Model Registry</em></li>
+<li><strong>Automate build→train→test→deploy</strong> → <em>Pipelines</em> (+Clarify&#x2F;Quality checks)</li>
+<li><strong>Pretrained models &amp; packaged solutions</strong> → <em>JumpStart</em></li>
+<li><strong>No-code model building</strong> → <em>Canvas</em> (uses Autopilot, integrates with Bedrock&#x2F;JumpStart)</li>
+<li><strong>Bias &amp; explainability</strong> → <em>Clarify</em></li>
+<li><strong>Human labeling&#x2F;evaluation&#x2F;RLHF</strong> → <em>Ground Truth &#x2F; Ground Truth Plus</em></li>
+<li><strong>Strict security (no outbound)</strong> → <em>Network Isolation</em></li>
+<li><strong>Time-series forecasting</strong> → <em>DeepAR</em></li>
+</ul>
+<hr>
+<h2 id="Mini-scenario-practice-exam-style"><a href="#Mini-scenario-practice-exam-style" class="headerlink" title="Mini scenario practice (exam-style)"></a>Mini scenario practice (exam-style)</h2><ol>
+<li><p><strong>“Auditors request one place to see each model’s purpose, training details, and risk.”</strong><br>→ <strong>Model Cards</strong></p>
+</li>
+<li><p><strong>“Alert when live model inputs diverge from training data distribution.”</strong><br>→ <strong>Model Monitor</strong> (data drift)</p>
+</li>
+<li><p><strong>“Promote a tested model from Staging to Prod with an approval gate.”</strong><br>→ <strong>Model Registry</strong> + <strong>Pipelines</strong></p>
+</li>
+<li><p><strong>“Business analysts want to build predictions with no code.”</strong><br>→ <strong>Canvas</strong> (Autopilot)</p>
+</li>
+<li><p><strong>“Fine-tune a foundation model and deploy on SageMaker.”</strong><br>→ <strong>JumpStart</strong></p>
+</li>
+<li><p><strong>“Ensure training job cannot reach the internet or S3.”</strong><br>→ <strong>Network Isolation mode</strong></p>
+</li>
+<li><p><strong>“Forecast sales for the next 30 days.”</strong><br>→ <strong>DeepAR</strong></p>
+</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://kish191919.github.io">Danny Ki</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://kish191919.github.io/2025/09/02/AWS-Certified-AI-Practitioner-38/">https://kish191919.github.io/2025/09/02/AWS-Certified-AI-Practitioner-38/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/AWS/">AWS</a><a class="post-meta__tags" href="/tags/AWS-AI-PRACTITIONER/">AWS_AI_PRACTITIONER</a></div><div class="post-share"><div class="social-share" data-image="/img/my_pic.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/09/02/KO-AWS-Certified-AI-Practitioner-38/" title="(한국어) AWS Certified AI Practitioner (38) - SageMaker ML 거버넌스 및 확장 기능"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (38) - SageMaker ML 거버넌스 및 확장 기능</div></div><div class="info-2"><div class="info-item-1">SageMaker – ML 거버넌스 및 확장 기능SageMaker 거버넌스 도구머신러닝 모델을 실제 서비스에 배포했다면, 거버넌스(Governance) 가 필수적입니다. SageMaker는 이를 위해 다양한 도구를 제공합니다. 1. SageMaker Model Cards 모델의 필수 정보를 문서화하는 카드 형식 예시: 모델의 의도된 사용 목적 모델 리스크 등급 학습 데이터 및 훈련 과정 상세   시험 포인트: “Model Cards &#x3D; 모델 문서화”          2. SageMaker Model Dashboard 모든 모델을 중앙에서 조회·검색·탐색할 수 있는 포털 예시: 어떤 모델이 현재 배포되어 추론(Inference)에 사용되는지 추적 가능   품질 관리: 데이터 품질, 모델 품질, 편향(Bias), 설명 가능성(Explainability) 위반 여부 확인   시험 포인트: “중앙 대시보드, 품질 및 편향 모니터링”        -----------------...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/08/14/AWS-Certified-AI-Practitioner-1/" title="AWS Certified AI Practitioner(1) - IT &amp; AWS Basics"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-14</div><div class="info-item-2">AWS Certified AI Practitioner(1) - IT &amp; AWS Basics</div></div><div class="info-2"><div class="info-item-1">📚 IT &amp; AWS Basics Summary1. Basic IT Terms Network: A connection of cables, routers, and servers.   Router: A device that decides where to send data packets over the internet.   Switch: Sends a packet to the correct server or client within the network.         2. Five Key Characteristics of Cloud Computing On-demand self service – Instantly get resources without human help.   Broad network access – Access resources from different devices via the internet.   Multi-tenancy &amp; Resource p...</div></div></div></a><a class="pagination-related" href="/2025/08/19/AWS-Certified-AI-Practitioner-10/" title="AWS Certified AI Practitioner(10) - Agents"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-19</div><div class="info-item-2">AWS Certified AI Practitioner(10) - Agents</div></div><div class="info-2"><div class="info-item-1">🤖 Amazon Bedrock – Agents📌 What Are Agents?Agents in Amazon Bedrock are advanced components that can think, plan, and act on multi-step tasks.Unlike regular models that only provide answers, agents can perform real actions such as:  Provisioning infrastructure   Deploying applications   Executing operations on systems   Interacting with APIs, databases, and knowledge bases          🔑 Key Features of Bedrock Agents Multi-step task execution: Agents can follow a sequence of steps to complete...</div></div></div></a><a class="pagination-related" href="/2025/08/19/AWS-Certified-AI-Practitioner-11/" title="AWS Certified AI Practitioner(11) - Agents"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-19</div><div class="info-item-2">AWS Certified AI Practitioner(11) - Agents</div></div><div class="info-2"><div class="info-item-1">📊 Amazon Bedrock &amp; CloudWatch📌 What is CloudWatch?Amazon CloudWatch is a monitoring service for AWS resources and applications.It provides:  Logs – Detailed records of events and invocations   Metrics – Numerical measurements of system performance   Alarms – Notifications when thresholds are crossed   Dashboards – Visualizations for monitoring   🔑 Bedrock &amp; CloudWatch Integration1. Model Invocation Logging Logs all inputs and outputs from Bedrock model invocations.   Data can inclu...</div></div></div></a><a class="pagination-related" href="/2025/08/20/AWS-Certified-AI-Practitioner-12/" title="AWS Certified AI Practitioner(12) - Pricing &amp; Model Improvement"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">AWS Certified AI Practitioner(12) - Pricing &amp; Model Improvement</div></div><div class="info-2"><div class="info-item-1">📘 Amazon Bedrock – Pricing &amp; Model Improvement1️⃣ Pricing Options🔹 On-Demand (Pay-as-you-go) How it works: Pay only for what you use, like an electricity bill.   Pricing basis   Text Models → Input&#x2F;Output token count   Embedding Models → Input token count   Image Models → Number of images generated   Available Models: Base Models only   ✅ Pros: Flexible, good for unpredictable workloads   ❌ Cons: Can become expensive if used continuously over time   🔹 Batch Mode (Bulk processing, ...</div></div></div></a><a class="pagination-related" href="/2025/08/20/AWS-Certified-AI-Practitioner-13/" title="AWS Certified AI Practitioner(13) - End-to-End Use Case (AI Stylist Demo)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">AWS Certified AI Practitioner(13) - End-to-End Use Case (AI Stylist Demo)</div></div><div class="info-2"><div class="info-item-1">👗 Amazon Bedrock End-to-End Use Case (AI Stylist Demo)📌 Why This Demo MattersSo far, we’ve explored many features of Amazon Bedrock. But in reality, using Bedrock isn’t just about clicking around in the console.To build a real-world application, you need to make API calls to Bedrock and integrate those capabilities directly into your service.   To demonstrate this, AWS provides an AI Stylist demo application.This demo shows how end users actually experience an application built on top of Be...</div></div></div></a><a class="pagination-related" href="/2025/08/22/AWS-Certified-AI-Practitioner-14/" title="AWS Certified AI Practitioner(14) - Prompt Engineering"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-22</div><div class="info-item-2">AWS Certified AI Practitioner(14) - Prompt Engineering</div></div><div class="info-2"><div class="info-item-1">📘 Prompt EngineeringWhat is Prompt Engineering?Prompt Engineering is the process of designing, refining, andoptimizing prompts to guide a foundation model (FM) or large languagemodel (LLM) toward producing the best possible output for your needs. A naïve prompt gives little guidance and leaves interpretation up tothe model.Example: “Summarize what is AWS.”This works, but the answer may not be clear or focused. By contrast, Prompt Engineering uses a structured approach toimprove results.  Com...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Danny Ki</div><div class="author-info-description">A data engineer's journey in coding, analytics, and building real-world systems.</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">87</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kish191919"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/kish191919" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Amazon-SageMaker-%E2%80%93-ML-Governance-Productivity-Exam-friendly-Guide"><span class="toc-number">1.</span> <span class="toc-text">Amazon SageMaker – ML Governance &amp; Productivity (Exam-friendly Guide)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-%E2%80%9CML-Governance%E2%80%9D-matters"><span class="toc-number">1.1.</span> <span class="toc-text">Why “ML Governance” matters</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Model-documentation-visibility"><span class="toc-number">1.2.</span> <span class="toc-text">Model documentation &amp; visibility</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SageMaker-Model-Cards"><span class="toc-number">1.2.1.</span> <span class="toc-text">SageMaker Model Cards</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SageMaker-Model-Dashboard"><span class="toc-number">1.2.2.</span> <span class="toc-text">SageMaker Model Dashboard</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SageMaker-Role-Manager"><span class="toc-number">1.2.3.</span> <span class="toc-text">SageMaker Role Manager</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Model-quality-lifecycle"><span class="toc-number">1.3.</span> <span class="toc-text">Model quality &amp; lifecycle</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SageMaker-Model-Monitor"><span class="toc-number">1.3.1.</span> <span class="toc-text">SageMaker Model Monitor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SageMaker-Model-Registry"><span class="toc-number">1.3.2.</span> <span class="toc-text">SageMaker Model Registry</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CI-CD-for-ML"><span class="toc-number">1.4.</span> <span class="toc-text">CI&#x2F;CD for ML</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SageMaker-Pipelines"><span class="toc-number">1.4.1.</span> <span class="toc-text">SageMaker Pipelines</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Build-faster-with-prebuilt-models-no-code-tools"><span class="toc-number">1.5.</span> <span class="toc-text">Build faster with prebuilt models &amp; no-code tools</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SageMaker-JumpStart"><span class="toc-number">1.5.1.</span> <span class="toc-text">SageMaker JumpStart</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SageMaker-Canvas-No-code"><span class="toc-number">1.5.2.</span> <span class="toc-text">SageMaker Canvas (No-code)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Responsible-AI-explainability"><span class="toc-number">1.6.</span> <span class="toc-text">Responsible AI &amp; explainability</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SageMaker-Clarify"><span class="toc-number">1.6.1.</span> <span class="toc-text">SageMaker Clarify</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Human-in-the-loop-HITL"><span class="toc-number">1.7.</span> <span class="toc-text">Human-in-the-loop (HITL)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SageMaker-Ground-Truth-and-Ground-Truth-Plus"><span class="toc-number">1.7.1.</span> <span class="toc-text">SageMaker Ground Truth (and Ground Truth Plus)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Open-source-tracking"><span class="toc-number">1.8.</span> <span class="toc-text">Open-source tracking</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MLflow-on-SageMaker"><span class="toc-number">1.8.1.</span> <span class="toc-text">MLflow on SageMaker</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Extra-features-that-show-up-on-exams"><span class="toc-number">1.9.</span> <span class="toc-text">Extra features that show up on exams</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#One-page-cheat-sheet-what-to-pick-when"><span class="toc-number">1.10.</span> <span class="toc-text">One-page cheat sheet (what to pick when)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mini-scenario-practice-exam-style"><span class="toc-number">1.11.</span> <span class="toc-text">Mini scenario practice (exam-style)</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/02/AWS-Certified-AI-Practitioner-38/" title="AWS Certified AI Practitioner(38) - ML Governance &amp; Productivity">AWS Certified AI Practitioner(38) - ML Governance &amp; Productivity</a><time datetime="2025-09-02T18:34:17.000Z" title="Created 2025-09-02 14:34:17">2025-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/02/KO-AWS-Certified-AI-Practitioner-38/" title="(한국어) AWS Certified AI Practitioner (38) - SageMaker ML 거버넌스 및 확장 기능">(한국어) AWS Certified AI Practitioner (38) - SageMaker ML 거버넌스 및 확장 기능</a><time datetime="2025-09-02T18:34:11.000Z" title="Created 2025-09-02 14:34:11">2025-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/02/KO-AWS-Certified-AI-Practitioner-37/" title="(한국어) AWS Certified AI Practitioner (37) - SageMaker 데이터 준비 및 모델 신뢰성 도구">(한국어) AWS Certified AI Practitioner (37) - SageMaker 데이터 준비 및 모델 신뢰성 도구</a><time datetime="2025-09-02T18:04:41.000Z" title="Created 2025-09-02 14:04:41">2025-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/02/AWS-Certified-AI-Practitioner-37/" title="AWS Certified AI Practitioner(37) - SageMaker Data Tools and Model Evaluation">AWS Certified AI Practitioner(37) - SageMaker Data Tools and Model Evaluation</a><time datetime="2025-09-02T18:04:37.000Z" title="Created 2025-09-02 14:04:37">2025-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/02/AWS-Certified-AI-Practitioner-36/" title="AWS Certified AI Practitioner(36) - SageMaker (AI)">AWS Certified AI Practitioner(36) - SageMaker (AI)</a><time datetime="2025-09-02T17:14:15.000Z" title="Created 2025-09-02 13:14:15">2025-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By Danny Ki</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
