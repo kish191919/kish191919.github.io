@@ -1,0 +1,282 @@
+<!DOCTYPE html><html lang="[&quot;en&quot;,&quot;ko&quot;,&quot;default&quot;]" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>AWS Certified AI Practitioner(33) - Lex, Personalize, Textract, Kendra | Danny's Blog</title><meta name="author" content="Danny Ki"><meta name="copyright" content="Danny Ki"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Amazon LexWhat it isAmazon Lex lets you build conversational chatbots quickly using voice or text. Think pizza-ordering bots, hotel-booking bots, or customer support assistants. It supports multiple l">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AWS Certified AI Practitioner(33) - Lex, Personalize, Textract, Kendra">
+<meta property="og:url" content="https://kish191919.github.io/2025/09/02/AWS-Certified-AI-Practitioner-33/index.html">
+<meta property="og:site_name" content="Danny&#39;s Blog">
+<meta property="og:description" content="Amazon LexWhat it isAmazon Lex lets you build conversational chatbots quickly using voice or text. Think pizza-ordering bots, hotel-booking bots, or customer support assistants. It supports multiple l">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kish191919.github.io/img/my_pic.jpeg">
+<meta property="article:published_time" content="2025-09-02T16:33:22.000Z">
+<meta property="article:modified_time" content="2025-09-02T16:49:18.056Z">
+<meta property="article:author" content="Danny Ki">
+<meta property="article:tag" content="AWS">
+<meta property="article:tag" content="AWS_AI_PRACTITIONER">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kish191919.github.io/img/my_pic.jpeg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AWS Certified AI Practitioner(33) - Lex, Personalize, Textract, Kendra",
+  "url": "https://kish191919.github.io/2025/09/02/AWS-Certified-AI-Practitioner-33/",
+  "image": "https://kish191919.github.io/img/my_pic.jpeg",
+  "datePublished": "2025-09-02T16:33:22.000Z",
+  "dateModified": "2025-09-02T16:49:18.056Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Danny Ki",
+      "url": "https://kish191919.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kish191919.github.io/2025/09/02/AWS-Certified-AI-Practitioner-33/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="UfZT9jGVnwcVj8z_sCj9LyqnWho6ubHg1Q7o_bvXfKs"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=GTM-N66KNRNW"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'GTM-N66KNRNW')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'GTM-N66KNRNW', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'AWS Certified AI Practitioner(33) - Lex, Personalize, Textract, Kendra',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://kish191919.github.io/",
+  "name": "Danny's Blog",
+  "inLanguage": "en"
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Danny's Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">77</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Danny's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">AWS Certified AI Practitioner(33) - Lex, Personalize, Textract, Kendra</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">AWS Certified AI Practitioner(33) - Lex, Personalize, Textract, Kendra</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-09-02T16:33:22.000Z" title="Created 2025-09-02 12:33:22">2025-09-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-09-02T16:49:18.056Z" title="Updated 2025-09-02 12:49:18">2025-09-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CERTIFICATION/">CERTIFICATION</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CERTIFICATION/AWS-AI-PRACTITIONER/">AWS_AI_PRACTITIONER</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="Amazon-Lex"><a href="#Amazon-Lex" class="headerlink" title="Amazon Lex"></a>Amazon Lex</h1><h2 id="What-it-is"><a href="#What-it-is" class="headerlink" title="What it is"></a>What it is</h2><p><strong>Amazon Lex</strong> lets you build conversational chatbots quickly using <strong>voice or text</strong>. Think pizza-ordering bots, hotel-booking bots, or customer support assistants. It supports <strong>multiple languages</strong> and integrates tightly with <strong>AWS Lambda, Amazon Connect, Comprehend, and<br>Kendra</strong>.</p>
+<h2 id="How-it-works-simple-flow"><a href="#How-it-works-simple-flow" class="headerlink" title="How it works (simple flow)"></a>How it works (simple flow)</h2><ol>
+<li><strong>User utterance</strong>: “I want to book a hotel.”</li>
+<li><strong>Intent detection</strong>: Lex matches this to the <strong>BookHotel</strong> intent.</li>
+<li><strong>Slot collection</strong>: Lex asks for required <strong>slots</strong> (city, check-in date, nights, room type).</li>
+<li><strong>Fulfillment</strong>: When all slots are filled, Lex triggers a <strong>Lambda</strong> function to complete the action (e.g., create a reservation).</li>
+<li><strong>Response</strong>: “Your reservation is confirmed.”</li>
+</ol>
+<h2 id="Key-terms-exam-ready"><a href="#Key-terms-exam-ready" class="headerlink" title="Key terms (exam-ready)"></a>Key terms (exam-ready)</h2><ul>
+<li><strong>Intent</strong>: What the user wants (e.g., BookHotel).</li>
+<li><strong>Utterances</strong>: Example phrases that trigger an intent.</li>
+<li><strong>Slots</strong>: Input parameters Lex must collect to fulfill an intent.</li>
+<li><strong>Fulfillment</strong>: Often a <strong>Lambda</strong> function that performs the action.</li>
+<li><strong>Connect integration</strong>: Use Lex in contact centers for IVR and agent assist.</li>
+<li><strong>Generative builder</strong> (with Bedrock): Option to bootstrap bots using GenAI.</li>
+</ul>
+<p><strong>Exam tips</strong> - When you see <strong>chatbot + intents&#x2F;slots + Lambda</strong>, think <strong>Lex</strong>.</p>
+<ul>
+<li>For <strong>call center</strong>&#x2F;IVR use cases → <strong>Lex + Amazon Connect</strong>.</li>
+<li>Entity extraction&#x2F;semantic understanding in the conversation → consider <strong>Comprehend</strong> with Lex.</li>
+</ul>
+<p align="center">
+  <img src="/images/aws_basic_157.png" width="80%">
+</p> 
+
+<hr>
+<h1 id="Amazon-Personalize"><a href="#Amazon-Personalize" class="headerlink" title="Amazon Personalize"></a>Amazon Personalize</h1><h2 id="What-it-is-1"><a href="#What-it-is-1" class="headerlink" title="What it is"></a>What it is</h2><p><strong>Amazon Personalize</strong> is a fully managed ML service for <strong>real-time, personalized recommendations</strong> (no need to build&#x2F;train&#x2F;deploy models yourself). It’s the same tech used on <strong>Amazon.com</strong> and can be integrated into <strong>websites, apps, email, SMS</strong>, and more—<strong>in days, not months</strong>.</p>
+<p align="center">
+  <img src="/images/aws_basic_158.png" width="80%">
+</p> 
+
+<h2 id="Typical-use-cases"><a href="#Typical-use-cases" class="headerlink" title="Typical use cases"></a>Typical use cases</h2><ul>
+<li>Personalized product recommendations</li>
+<li>Re-ranking lists for each user</li>
+<li>Targeted campaigns (email&#x2F;SMS&#x2F;push)</li>
+<li>Media&#x2F;content suggestions</li>
+</ul>
+<h2 id="Data-integration"><a href="#Data-integration" class="headerlink" title="Data &amp; integration"></a>Data &amp; integration</h2><ul>
+<li>Historical&#x2F;real-time interaction data via <strong>Amazon S3</strong> and <strong>Personalize APIs</strong>.</li>
+<li>The service exposes <strong>real-time inference APIs</strong> for your app to call.</li>
+</ul>
+<h2 id="Recipes-algorithm-templates"><a href="#Recipes-algorithm-templates" class="headerlink" title="Recipes (algorithm templates)"></a>Recipes (algorithm templates)</h2><ul>
+<li><strong>USER_PERSONALIZATION</strong> → <em>User-Personalization-v2</em>: Personalized item recommendations.</li>
+<li><strong>PERSONALIZED_RANKING</strong> → <em>Personalized-Ranking-v2</em>: Re-rank a given list for a user.</li>
+<li><strong>POPULAR_ITEMS</strong> → <em>Trending-Now</em>, <em>Popularity-Count</em>: Popular or trending content.</li>
+<li><strong>RELATED_ITEMS</strong> → <em>Similar-Items</em>: “Because you watched&#x2F;bought…”.</li>
+<li><strong>PERSONALIZED_ACTIONS</strong> → <em>Next-Best-Action</em>: Suggest the next optimal step.</li>
+<li><strong>USER_SEGMENTATION</strong> → <em>Item-Affinity</em>: Build user segments by affinity.</li>
+</ul>
+<p><strong>Exam tips</strong> - “We need <strong>recommendations</strong>“ → <strong>Personalize</strong>.</p>
+<ul>
+<li>Recipes are <strong>for recommendation use cases</strong> (not forecasting).</li>
+<li><strong>Real-time personalization</strong> and <strong>re-ranking</strong> are strong signals for Personalize.</li>
+</ul>
+<hr>
+<h1 id="Amazon-Textract"><a href="#Amazon-Textract" class="headerlink" title="Amazon Textract"></a>Amazon Textract</h1><h2 id="What-it-is-2"><a href="#What-it-is-2" class="headerlink" title="What it is"></a>What it is</h2><p><strong>Amazon Textract</strong> extracts <strong>text, handwriting, and structured data</strong> from scanned documents, PDFs, and images—<strong>beyond basic OCR</strong>. It understands <strong>forms (key–value pairs)</strong> and <strong>tables</strong>.</p>
+<p align="center">
+  <img src="/images/aws_basic_159.png" width="80%">
+</p> 
+
+<h2 id="Capabilities"><a href="#Capabilities" class="headerlink" title="Capabilities"></a>Capabilities</h2><ul>
+<li><strong>Text extraction</strong> from images&#x2F;PDFs</li>
+<li><strong>Form extraction</strong>: Detects keys&#x2F;values (e.g., “DOB → 2008-07-18”)</li>
+<li><strong>Table extraction</strong>: Preserves rows&#x2F;columns&#x2F;headers</li>
+<li><strong>Queries</strong>: Ask targeted questions (“What is YTD gross pay?”)</li>
+<li><strong>ID&#x2F;receipt parsing</strong>: Extracts standardized fields</li>
+</ul>
+<h2 id="Use-cases"><a href="#Use-cases" class="headerlink" title="Use cases"></a>Use cases</h2><ul>
+<li><strong>Financial services</strong>: Invoices, statements</li>
+<li><strong>Healthcare</strong>: Medical records, insurance claims</li>
+<li><strong>Public sector</strong>: Tax forms, IDs, passports</li>
+</ul>
+<p><strong>Exam tips</strong> - “Extract text and <strong>structured</strong> fields from documents” → <strong>Textract</strong>.</p>
+<ul>
+<li>If the question is about <strong>document layout</strong> (tables&#x2F;forms), Textract is the right fit (not just simple OCR).</li>
+</ul>
+<hr>
+<h1 id="Amazon-Kendra"><a href="#Amazon-Kendra" class="headerlink" title="Amazon Kendra"></a>Amazon Kendra</h1><h2 id="What-it-is-3"><a href="#What-it-is-3" class="headerlink" title="What it is"></a>What it is</h2><p><strong>Amazon Kendra</strong> is a fully managed, <strong>ML-powered enterprise search</strong> service. It supports <strong>natural language queries</strong> and returns <strong>relevant passages&#x2F;answers from documents</strong> (PDF, Word, HTML, PPT, FAQs, etc.).</p>
+<p align="center">
+  <img src="/images/aws_basic_160.png" width="80%">
+</p> 
+
+<h2 id="Why-it’s-useful"><a href="#Why-it’s-useful" class="headerlink" title="Why it’s useful"></a>Why it’s useful</h2><ul>
+<li>Users can ask <strong>natural language</strong> questions (“Where is the IT support desk?”) and get direct answers (“1st floor”).</li>
+<li>Learns from clicks&#x2F;feedback (<strong>incremental learning</strong>) to improve ranking.</li>
+<li>Admins can <strong>manually tune relevance</strong> (boost freshness, source, metadata).</li>
+</ul>
+<p><strong>Exam tips</strong> - “We need to <strong>search</strong> across many document types and return answers” → <strong>Kendra</strong>.</p>
+<ul>
+<li><strong>Kendra vs Textract</strong>: Kendra is for <strong>search and Q&amp;A</strong>; Textract is for <strong>data extraction</strong> from documents.</li>
+</ul>
+<hr>
+<h2 id="Quick-Certification-Checkpoints"><a href="#Quick-Certification-Checkpoints" class="headerlink" title="Quick Certification Checkpoints"></a>Quick Certification Checkpoints</h2><ul>
+<li><strong>Lex</strong>: Conversational AI with <strong>intents&#x2F;slots</strong> and <strong>Lambda</strong> fulfillment; integrates with <strong>Connect</strong> (IVR) and <strong>Comprehend</strong> (NLP).</li>
+<li><strong>Personalize</strong>: <strong>Recommendations</strong> service; choose a <strong>recipe</strong> matching the use case; supports <strong>real-time</strong> inference and <strong>re-ranking</strong>.</li>
+<li><strong>Textract</strong>: OCR <strong>plus</strong> structure—<strong>forms, tables, queries</strong>, ID&#x2F;receipt extraction.</li>
+<li><strong>Kendra</strong>: Enterprise <strong>search</strong> with <strong>natural language</strong> Q&amp;A and tunable relevance.</li>
+</ul>
+<hr>
+<h2 id="Architecture-Selection-Hints-good-for-scenario-questions"><a href="#Architecture-Selection-Hints-good-for-scenario-questions" class="headerlink" title="Architecture &amp; Selection Hints (good for scenario questions)"></a>Architecture &amp; Selection Hints (good for scenario questions)</h2><ul>
+<li><strong>Need a voice&#x2F;text bot that collects parameters and acts?</strong> → <strong>Lex + Lambda</strong> (maybe Connect for phone).</li>
+<li><strong>Need to recommend products&#x2F;content in real time?</strong> → <strong>Personalize</strong> (pick the right <strong>recipe</strong>).</li>
+<li><strong>Need to parse scanned documents into structured fields?</strong> → <strong>Textract</strong>.</li>
+<li><strong>Need to search across knowledge bases and return direct answers?</strong> → <strong>Kendra</strong>.</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://kish191919.github.io">Danny Ki</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://kish191919.github.io/2025/09/02/AWS-Certified-AI-Practitioner-33/">https://kish191919.github.io/2025/09/02/AWS-Certified-AI-Practitioner-33/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/AWS/">AWS</a><a class="post-meta__tags" href="/tags/AWS-AI-PRACTITIONER/">AWS_AI_PRACTITIONER</a></div><div class="post-share"><div class="social-share" data-image="/img/my_pic.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/09/02/KO-AWS-Certified-AI-Practitioner-33/" title="(한국어) AWS Certified AI Practitioner (33) - Lex, Personalize, Textract, Kendra"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (33) - Lex, Personalize, Textract, Kendra</div></div><div class="info-2"><div class="info-item-1">Amazon Lex기본 개념 Amazon Lex는 음성이나 텍스트로 대화형 챗봇을 빠르게 만들 수 있는 서비스입니다. 예시: 고객이 호텔 예약을 하거나 피자를 주문할 수 있는 챗봇. 여러 언어를 지원하며, AWS Lambda, Amazon Connect, Comprehend, Kendra와 통합됩니다. 사용자의 의도(Intent)를 자동으로 파악해 알맞은 Lambda 함수를 호출하여 요청을 처리합니다. 필요한 경우 챗봇이 사용자에게 추가 정보를 요청하는데, 이를 **Slot(입력 매개변수)**라고 부릅니다.  동작 방식 사용자가 “호텔 예약하고 싶어요”라고 입력. Lex는 미리 정의된 **Intent(호텔 예약)**를 인식. 필요한 Slot(도시, 체크인 날짜, 숙박일수 등)을 질문하여 채움. 모든 Slot이 채워지면 Lambda 함수를 호출해 예약 처리. 결과를 사용자에게 응답 (“예약이 완료되었습니다”).  시험 포인트 Intent: 사용자가 원하는 목적(예: 호텔 예약)....</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/08/14/AWS-Certified-AI-Practitioner-1/" title="AWS Certified AI Practitioner(1) - IT &amp; AWS Basics"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-14</div><div class="info-item-2">AWS Certified AI Practitioner(1) - IT &amp; AWS Basics</div></div><div class="info-2"><div class="info-item-1">📚 IT &amp; AWS Basics Summary1. Basic IT Terms Network: A connection of cables, routers, and servers.   Router: A device that decides where to send data packets over the internet.   Switch: Sends a packet to the correct server or client within the network.         2. Five Key Characteristics of Cloud Computing On-demand self service – Instantly get resources without human help.   Broad network access – Access resources from different devices via the internet.   Multi-tenancy &amp; Resource p...</div></div></div></a><a class="pagination-related" href="/2025/08/19/AWS-Certified-AI-Practitioner-10/" title="AWS Certified AI Practitioner(10) - Agents"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-19</div><div class="info-item-2">AWS Certified AI Practitioner(10) - Agents</div></div><div class="info-2"><div class="info-item-1">🤖 Amazon Bedrock – Agents📌 What Are Agents?Agents in Amazon Bedrock are advanced components that can think, plan, and act on multi-step tasks.Unlike regular models that only provide answers, agents can perform real actions such as:  Provisioning infrastructure   Deploying applications   Executing operations on systems   Interacting with APIs, databases, and knowledge bases          🔑 Key Features of Bedrock Agents Multi-step task execution: Agents can follow a sequence of steps to complete...</div></div></div></a><a class="pagination-related" href="/2025/08/19/AWS-Certified-AI-Practitioner-11/" title="AWS Certified AI Practitioner(11) - Agents"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-19</div><div class="info-item-2">AWS Certified AI Practitioner(11) - Agents</div></div><div class="info-2"><div class="info-item-1">📊 Amazon Bedrock &amp; CloudWatch📌 What is CloudWatch?Amazon CloudWatch is a monitoring service for AWS resources and applications.It provides:  Logs – Detailed records of events and invocations   Metrics – Numerical measurements of system performance   Alarms – Notifications when thresholds are crossed   Dashboards – Visualizations for monitoring   🔑 Bedrock &amp; CloudWatch Integration1. Model Invocation Logging Logs all inputs and outputs from Bedrock model invocations.   Data can inclu...</div></div></div></a><a class="pagination-related" href="/2025/08/20/AWS-Certified-AI-Practitioner-12/" title="AWS Certified AI Practitioner(12) - Pricing &amp; Model Improvement"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">AWS Certified AI Practitioner(12) - Pricing &amp; Model Improvement</div></div><div class="info-2"><div class="info-item-1">📘 Amazon Bedrock – Pricing &amp; Model Improvement1️⃣ Pricing Options🔹 On-Demand (Pay-as-you-go) How it works: Pay only for what you use, like an electricity bill.   Pricing basis   Text Models → Input&#x2F;Output token count   Embedding Models → Input token count   Image Models → Number of images generated   Available Models: Base Models only   ✅ Pros: Flexible, good for unpredictable workloads   ❌ Cons: Can become expensive if used continuously over time   🔹 Batch Mode (Bulk processing, ...</div></div></div></a><a class="pagination-related" href="/2025/08/22/AWS-Certified-AI-Practitioner-14/" title="AWS Certified AI Practitioner(14) - Prompt Engineering"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-22</div><div class="info-item-2">AWS Certified AI Practitioner(14) - Prompt Engineering</div></div><div class="info-2"><div class="info-item-1">📘 Prompt EngineeringWhat is Prompt Engineering?Prompt Engineering is the process of designing, refining, andoptimizing prompts to guide a foundation model (FM) or large languagemodel (LLM) toward producing the best possible output for your needs. A naïve prompt gives little guidance and leaves interpretation up tothe model.Example: “Summarize what is AWS.”This works, but the answer may not be clear or focused. By contrast, Prompt Engineering uses a structured approach toimprove results.  Com...</div></div></div></a><a class="pagination-related" href="/2025/08/22/AWS-Certified-AI-Practitioner-15/" title="AWS Certified AI Practitioner(15) - LLM Text Generation &amp; Prompt Optimizatio"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-22</div><div class="info-item-2">AWS Certified AI Practitioner(15) - LLM Text Generation &amp; Prompt Optimizatio</div></div><div class="info-2"><div class="info-item-1">🤖 LLM Text Generation &amp; Prompt Optimization1. How Text is Generated in an LLMWhen a model generates text, it predicts the next word based on probabilities. Example:“After the rain, the streets were…”Possible next words and probabilities:    wet (0.40)   flooded (0.25)   slippery (0.15)   empty (0.10)   muddy (0.05)   clean (0.03)   blocked (0.02)  The model randomly selects a word according to these probabilities.    2. Prompt Performance Optimization🔹 System Prompts Define how the mode...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Danny Ki</div><div class="author-info-description">A data engineer's journey in coding, analytics, and building real-world systems.</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">77</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kish191919"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/kish191919" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Amazon-Lex"><span class="toc-number">1.</span> <span class="toc-text">Amazon Lex</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-it-is"><span class="toc-number">1.1.</span> <span class="toc-text">What it is</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-it-works-simple-flow"><span class="toc-number">1.2.</span> <span class="toc-text">How it works (simple flow)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Key-terms-exam-ready"><span class="toc-number">1.3.</span> <span class="toc-text">Key terms (exam-ready)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Amazon-Personalize"><span class="toc-number">2.</span> <span class="toc-text">Amazon Personalize</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-it-is-1"><span class="toc-number">2.1.</span> <span class="toc-text">What it is</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Typical-use-cases"><span class="toc-number">2.2.</span> <span class="toc-text">Typical use cases</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-integration"><span class="toc-number">2.3.</span> <span class="toc-text">Data &amp; integration</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Recipes-algorithm-templates"><span class="toc-number">2.4.</span> <span class="toc-text">Recipes (algorithm templates)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Amazon-Textract"><span class="toc-number">3.</span> <span class="toc-text">Amazon Textract</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-it-is-2"><span class="toc-number">3.1.</span> <span class="toc-text">What it is</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Capabilities"><span class="toc-number">3.2.</span> <span class="toc-text">Capabilities</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Use-cases"><span class="toc-number">3.3.</span> <span class="toc-text">Use cases</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Amazon-Kendra"><span class="toc-number">4.</span> <span class="toc-text">Amazon Kendra</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-it-is-3"><span class="toc-number">4.1.</span> <span class="toc-text">What it is</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-it%E2%80%99s-useful"><span class="toc-number">4.2.</span> <span class="toc-text">Why it’s useful</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Certification-Checkpoints"><span class="toc-number">4.3.</span> <span class="toc-text">Quick Certification Checkpoints</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Architecture-Selection-Hints-good-for-scenario-questions"><span class="toc-number">4.4.</span> <span class="toc-text">Architecture &amp; Selection Hints (good for scenario questions)</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/02/AWS-Certified-AI-Practitioner-33/" title="AWS Certified AI Practitioner(33) - Lex, Personalize, Textract, Kendra">AWS Certified AI Practitioner(33) - Lex, Personalize, Textract, Kendra</a><time datetime="2025-09-02T16:33:22.000Z" title="Created 2025-09-02 12:33:22">2025-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/02/KO-AWS-Certified-AI-Practitioner-33/" title="(한국어) AWS Certified AI Practitioner (33) - Lex, Personalize, Textract, Kendra">(한국어) AWS Certified AI Practitioner (33) - Lex, Personalize, Textract, Kendra</a><time datetime="2025-09-02T16:33:16.000Z" title="Created 2025-09-02 12:33:16">2025-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/02/AWS-Certified-AI-Practitioner-32/" title="AWS Certified AI Practitioner(32) - Amazon Polly &amp; Rekognition">AWS Certified AI Practitioner(32) - Amazon Polly &amp; Rekognition</a><time datetime="2025-09-02T16:13:59.000Z" title="Created 2025-09-02 12:13:59">2025-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/02/KO-AWS-Certified-AI-Practitioner-32/" title="(한국어) AWS Certified AI Practitioner (32) - Amazon Polly &amp; Rekognition">(한국어) AWS Certified AI Practitioner (32) - Amazon Polly &amp; Rekognition</a><time datetime="2025-09-02T16:13:52.000Z" title="Created 2025-09-02 12:13:52">2025-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/26/KO-AWS-Certified-AI-Practitioner-31/" title="(한국어) AWS Certified AI Practitioner (31) - AWS AI 관리형 서비스">(한국어) AWS Certified AI Practitioner (31) - AWS AI 관리형 서비스</a><time datetime="2025-08-26T19:37:13.000Z" title="Created 2025-08-26 15:37:13">2025-08-26</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By Danny Ki</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
