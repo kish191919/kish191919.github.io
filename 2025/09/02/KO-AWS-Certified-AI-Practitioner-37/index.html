@@ -1,0 +1,319 @@
+<!DOCTYPE html><html lang="[&quot;en&quot;,&quot;ko&quot;,&quot;default&quot;]" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>(한국어) AWS Certified AI Practitioner (37) - SageMaker 데이터 준비 및 모델 신뢰성 도구 | Danny's Blog</title><meta name="author" content="Danny Ki"><meta name="copyright" content="Danny Ki"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="SageMaker – 데이터 준비 및 모델 신뢰성 도구1. SageMaker Data Wrangler머신러닝을 하기 전에 가장 중요한 단계는 데이터 준비입니다. SageMaker Data Wrangler는 표 형식 데이터(tabular)와 이미지 데이터를 손쉽게 준비할 수 있는 도구입니다. 주요 기능: - 데이터 선택, 정제, 탐색, 시각화, 처리까지 단일">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(한국어) AWS Certified AI Practitioner (37) - SageMaker 데이터 준비 및 모델 신뢰성 도구">
+<meta property="og:url" content="https://kish191919.github.io/2025/09/02/KO-AWS-Certified-AI-Practitioner-37/index.html">
+<meta property="og:site_name" content="Danny&#39;s Blog">
+<meta property="og:description" content="SageMaker – 데이터 준비 및 모델 신뢰성 도구1. SageMaker Data Wrangler머신러닝을 하기 전에 가장 중요한 단계는 데이터 준비입니다. SageMaker Data Wrangler는 표 형식 데이터(tabular)와 이미지 데이터를 손쉽게 준비할 수 있는 도구입니다. 주요 기능: - 데이터 선택, 정제, 탐색, 시각화, 처리까지 단일">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kish191919.github.io/img/my_pic.jpeg">
+<meta property="article:published_time" content="2025-09-02T18:04:41.000Z">
+<meta property="article:modified_time" content="2025-09-02T18:28:14.402Z">
+<meta property="article:author" content="Danny Ki">
+<meta property="article:tag" content="AWS">
+<meta property="article:tag" content="AWS_AI_PRACTITIONER">
+<meta property="article:tag" content="KOREAN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kish191919.github.io/img/my_pic.jpeg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "(한국어) AWS Certified AI Practitioner (37) - SageMaker 데이터 준비 및 모델 신뢰성 도구",
+  "url": "https://kish191919.github.io/2025/09/02/KO-AWS-Certified-AI-Practitioner-37/",
+  "image": "https://kish191919.github.io/img/my_pic.jpeg",
+  "datePublished": "2025-09-02T18:04:41.000Z",
+  "dateModified": "2025-09-02T18:28:14.402Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Danny Ki",
+      "url": "https://kish191919.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kish191919.github.io/2025/09/02/KO-AWS-Certified-AI-Practitioner-37/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="UfZT9jGVnwcVj8z_sCj9LyqnWho6ubHg1Q7o_bvXfKs"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=GTM-N66KNRNW"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'GTM-N66KNRNW')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'GTM-N66KNRNW', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '(한국어) AWS Certified AI Practitioner (37) - SageMaker 데이터 준비 및 모델 신뢰성 도구',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://kish191919.github.io/",
+  "name": "Danny's Blog",
+  "inLanguage": "en"
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Danny's Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">85</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Danny's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">(한국어) AWS Certified AI Practitioner (37) - SageMaker 데이터 준비 및 모델 신뢰성 도구</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">(한국어) AWS Certified AI Practitioner (37) - SageMaker 데이터 준비 및 모델 신뢰성 도구</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-09-02T18:04:41.000Z" title="Created 2025-09-02 14:04:41">2025-09-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-09-02T18:28:14.402Z" title="Updated 2025-09-02 14:28:14">2025-09-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CERTIFICATION/">CERTIFICATION</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CERTIFICATION/AWS-AI-PRACTITIONER-KR/">AWS_AI_PRACTITIONER_KR</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="SageMaker-–-데이터-준비-및-모델-신뢰성-도구"><a href="#SageMaker-–-데이터-준비-및-모델-신뢰성-도구" class="headerlink" title="SageMaker – 데이터 준비 및 모델 신뢰성 도구"></a>SageMaker – 데이터 준비 및 모델 신뢰성 도구</h1><h2 id="1-SageMaker-Data-Wrangler"><a href="#1-SageMaker-Data-Wrangler" class="headerlink" title="1. SageMaker Data Wrangler"></a>1. SageMaker Data Wrangler</h2><p>머신러닝을 하기 전에 가장 중요한 단계는 <strong>데이터 준비</strong>입니다. SageMaker Data Wrangler는 표 형식 데이터(tabular)와 이미지 데이터를 손쉽게 준비할 수 있는 도구입니다.</p>
+<p>주요 기능: - 데이터 선택, 정제, 탐색, 시각화, 처리까지 <strong>단일 인터페이스</strong>에서 수행</p>
+<ul>
+<li>데이터 변환 및 <strong>피처 엔지니어링(feature engineering)</strong> 지원</li>
+<li>SQL 쿼리 지원 → 데이터 분석 경험이 있는 사람에게 친숙</li>
+<li>데이터 품질(Data Quality) 도구 제공 → 결측치, 잘못된 포맷 탐지</li>
+</ul>
+<p align="center">
+  <img src="/images/aws_basic_174.png" width="80%">
+</p> 
+
+<p>활용 단계: </p>
+<ol>
+<li><strong>데이터 불러오기 (Import)</strong> → S3, Redshift 등 다양한 소스에서 불러오기</li>
+</ol>
+<p align="center">
+  <img src="/images/aws_basic_175.png" width="80%">
+</p> 
+
+<ol start="2">
+<li><strong>데이터 미리보기 (Preview)</strong> → 열 이름, 타입 확인</li>
+</ol>
+<p align="center">
+  <img src="/images/aws_basic_176.png" width="80%">
+</p> 
+
+<ol start="3">
+<li><strong>데이터 시각화 (Visualize)</strong> → 분포도, 상관관계 그래프 생성</li>
+</ol>
+<p align="center">
+  <img src="/images/aws_basic_177.png" width="80%">
+</p> 
+
+<ol start="4">
+<li><strong>데이터 변환 (Transform)</strong> → 불필요한 열 삭제, 새로운 열 추가 등</li>
+</ol>
+<p align="center">
+  <img src="/images/aws_basic_178.png" width="80%">
+</p> 
+
+<ol start="5">
+<li><strong>빠른 모델 확인 (Quick Model)</strong> → 간단히 학습시켜 성능 미리 점검</li>
+</ol>
+<p align="center">
+  <img src="/images/aws_basic_179.png" width="80%">
+</p> 
+
+<ol start="6">
+<li><strong>데이터 플로우 내보내기 (Export Flow)</strong> → 파이프라인에 통합 가능</li>
+</ol>
+<p align="center">
+  <img src="/images/aws_basic_180.png" width="80%">
+</p> 
+
+<p>👉 <strong>시험 포인트</strong>: 데이터 전처리 및 피처 엔지니어링 도구로 <strong>SageMaker Data Wrangler</strong>가 주로 언급됨.</p>
+<hr>
+<h2 id="2-ML-Feature란"><a href="#2-ML-Feature란" class="headerlink" title="2. ML Feature란?"></a>2. ML Feature란?</h2><p>**피처(Feature)**는 머신러닝 모델이 학습하거나 추론할 때 사용하는<br><strong>입력값</strong>입니다.<br>예: 음악 추천 데이터셋 → 노래 평점, 청취 시간, 사용자 연령&#x2F;성별 등</p>
+<p>특징: - 원시 데이터를 그대로 쓰기보다는 <strong>가공된 값</strong>이 효과적임.</p>
+<ul>
+<li>예: 생년월일 → <strong>나이(age)</strong> 로 변환하면 숫자형 피처로 활용 가능.</li>
+<li>회사 차원에서 <strong>표준화된 피처 저장소</strong>가 있으면 재사용성이 높아짐.</li>
+</ul>
+<p align="center">
+  <img src="/images/aws_basic_181.png" width="80%">
+</p> 
+
+<hr>
+<h2 id="3-SageMaker-Feature-Store"><a href="#3-SageMaker-Feature-Store" class="headerlink" title="3. SageMaker Feature Store"></a>3. SageMaker Feature Store</h2><p><strong>Feature Store</strong>는 여러 소스에서 수집한 피처를 저장, 관리, 검색할 수<br>있는 중앙 저장소입니다.</p>
+<p>특징: - 다양한 소스에서 피처를 수집(Ingest)</p>
+<ul>
+<li>Data Wrangler에서 만든 피처를 바로 Feature Store로 저장 가능</li>
+<li>SageMaker Studio 내에서 쉽게 검색·활용 가능</li>
+</ul>
+<p>👉 <strong>시험 포인트</strong>: Feature Store &#x3D; <strong>재사용 가능한 피처를 저장·공유하는<br>중앙 저장소</strong></p>
+<p align="center">
+  <img src="/images/aws_basic_182.png" width="80%">
+</p> 
+------------------------------------------------------------------------
+
+<h2 id="4-SageMaker-Clarify"><a href="#4-SageMaker-Clarify" class="headerlink" title="4. SageMaker Clarify"></a>4. SageMaker Clarify</h2><p>모델이 공정하고 투명하게 작동하는지 평가하는 도구입니다.</p>
+<h3 id="1-모델-평가"><a href="#1-모델-평가" class="headerlink" title="(1) 모델 평가"></a>(1) 모델 평가</h3><ul>
+<li>파운데이션 모델(예: 모델 A vs 모델 B)의 성능 비교</li>
+<li>인간적인 요소(친근함, 유머 등)도 평가 가능</li>
+<li>AWS 제공 팀, 사내 직원, 또는 직접 준비한 데이터셋 활용</li>
+</ul>
+<p align="center">
+  <img src="/images/aws_basic_183.png" width="80%">
+</p> 
+
+<h3 id="2-모델-설명력-Explainability"><a href="#2-모델-설명력-Explainability" class="headerlink" title="(2) 모델 설명력 (Explainability)"></a>(2) 모델 설명력 (Explainability)</h3><ul>
+<li><strong>모델이 왜 이런 예측을 내렸는지</strong> 설명하는 기능</li>
+<li>모델 배포 전 전체 특성을 이해하거나, 배포 후 예측 결과를 디버깅할 때<br>활용</li>
+<li>예: 대출 거절 예측 → 어떤 입력값(소득, 대출 금액, 신용 등급)이 가장<br>큰 영향을 미쳤는지 분석</li>
+</ul>
+<p>👉 <strong>시험 포인트</strong>: 모델의 신뢰성과 투명성 확보 → <strong>Clarify의<br>Explainability 기능</strong></p>
+<p align="center">
+  <img src="/images/aws_basic_184.png" width="80%">
+</p> 
+
+<h3 id="3-편향-탐지-Bias-Detection"><a href="#3-편향-탐지-Bias-Detection" class="headerlink" title="(3) 편향 탐지 (Bias Detection)"></a>(3) 편향 탐지 (Bias Detection)</h3><ul>
+<li>데이터셋과 모델 내 <strong>편향(bias)</strong> 자동 탐지</li>
+<li>통계적 지표를 활용해 불균형 확인</li>
+</ul>
+<p>주요 편향 유형: - <strong>샘플링 편향(Sampling Bias)</strong>: 데이터셋이 전체 집단을<br>대표하지 못함</p>
+<ul>
+<li><strong>측정 편향(Measurement Bias)</strong>: 데이터 수집 도구가 왜곡</li>
+<li><strong>관찰자 편향(Observer Bias)</strong>: 수집자의 주관적 해석이 반영됨</li>
+<li><strong>확증 편향(Confirmation Bias)</strong>: 기존 믿음을 뒷받침하는 데이터만 강조</li>
+</ul>
+<p>예: 특정 인종 집단만 주로 ‘부적합’으로 분류된다면 심각한 <strong>편향</strong> 발생</p>
+<p>👉 <strong>시험 포인트</strong>: Clarify &#x3D; <strong>Bias 탐지 + Explainability 제공</strong></p>
+<p align="center">
+  <img src="/images/aws_basic_185.png" width="80%">
+</p> 
+
+<hr>
+<h2 id="5-SageMaker-Ground-Truth"><a href="#5-SageMaker-Ground-Truth" class="headerlink" title="5. SageMaker Ground Truth"></a>5. SageMaker Ground Truth</h2><p>Ground Truth는 <strong>데이터 라벨링과 RLHF(Reinforcement Learning from Human<br>Feedback)</strong> 를 위한 서비스입니다.</p>
+<p>주요 기능: - <strong>데이터 라벨링</strong>: 이미지, 텍스트, 오디오 등에 정답(레이블)<br>붙이기</p>
+<ul>
+<li><strong>인간 피드백 기반 강화학습(RLHF)</strong>: 모델의 출력에 대해 사람의<br>피드백을 반영 → 모델이 인간의 선호도와 맞도록 학습</li>
+<li>리뷰어(라벨러):</li>
+<li>Amazon Mechanical Turk 작업자</li>
+<li>사내 직원</li>
+<li>제3자 벤더</li>
+</ul>
+<p>추가 기능:</p>
+<ul>
+<li><strong>Ground Truth Plus</strong> → AWS가 제공하는 관리형 라벨링 서비스</li>
+</ul>
+<p>👉 <strong>시험 포인트</strong>: 시험에서 <strong>RLHF</strong>라는 키워드가 나오면 → <strong>SageMaker<br>Ground Truth</strong></p>
+<p align="center">
+  <img src="/images/aws_basic_186.png" width="80%">
+</p> 
+
+<hr>
+<h1 id="요약"><a href="#요약" class="headerlink" title="요약"></a>요약</h1><ul>
+<li><strong>Data Wrangler</strong>: 데이터 전처리, 피처 엔지니어링 도구</li>
+<li><strong>Feature Store</strong>: 표준화된 피처 저장&#x2F;재사용</li>
+<li><strong>Clarify</strong>: 모델 설명력(Explainability) + 편향 탐지(Bias<br>Detection)</li>
+<li><strong>Ground Truth</strong>: 데이터 라벨링 + RLHF</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://kish191919.github.io">Danny Ki</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://kish191919.github.io/2025/09/02/KO-AWS-Certified-AI-Practitioner-37/">https://kish191919.github.io/2025/09/02/KO-AWS-Certified-AI-Practitioner-37/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/AWS/">AWS</a><a class="post-meta__tags" href="/tags/AWS-AI-PRACTITIONER/">AWS_AI_PRACTITIONER</a><a class="post-meta__tags" href="/tags/KOREAN/">KOREAN</a></div><div class="post-share"><div class="social-share" data-image="/img/my_pic.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/09/02/AWS-Certified-AI-Practitioner-37/" title="AWS Certified AI Practitioner(37) - SageMaker Data Tools and Model Evaluation"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">AWS Certified AI Practitioner(37) - SageMaker Data Tools and Model Evaluation</div></div><div class="info-2"><div class="info-item-1">Amazon SageMaker Data Tools and Model EvaluationSageMaker Data WranglerSageMaker Data Wrangler is a tool designed to make data preparation easier before building machine learning (ML) models. With Data Wrangler, you can: - Prepare tabular and image data for ML  Perform data preparation, transformation, and feature engineering Use a single interface for: - Data selection - Cleansing - Exploration - Visualization - Processing Run SQL queries directly Use the Data Quality tool to check for missa...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-1/" title="(한국어) AWS Certified AI Practitioner (1) - IT &amp; AWS 기초"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (1) - IT &amp; AWS 기초</div></div><div class="info-2"><div class="info-item-1">📚 IT &amp; AWS 기초 요약1. 기본 IT 용어 네트워크(Network): 케이블, 라우터, 서버 등이 연결되어 데이터가 오가는 길.   라우터(Router): 인터넷에서 데이터를 어디로 보낼지 길잡이 역할을 하는 장치.   스위치(Switch): 네트워크 안에서 데이터가 정확한 서버나 컴퓨터로 가도록 도와주는 장치.         2. 클라우드 컴퓨팅의 5가지 핵심 특징 즉시 자원 사용(On-demand self service) → 필요한 자원을 바로 얻을 수 있음.   넓은 네트워크 접근(Broad network access) → 인터넷만 있으면 여러 기기에서 접근 가능.   자원 공유(Multi-tenancy &amp; Resource pooling) → 여러 사용자가 안전하게 같은 자원 공유.   빠른 확장성(Rapid elasticity &amp; Scalability) → 필요에 따라 서버나 자원을 늘리거나 줄일 수 있음.   사용량 기반 과금(Measur...</div></div></div></a><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-10/" title="(한국어) AWS Certified AI Practitioner (10) - Agents (에이전트)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (10) - Agents (에이전트)</div></div><div class="info-2"><div class="info-item-1">🤖 Amazon Bedrock – Agents (에이전트)📌 에이전트란?Amazon Bedrock의 에이전트(Agents) 는 단순히 질문에 답변하는 모델이 아니라, 여러 단계를 계획하고 실행할 수 있는 고급 기능입니다.즉, 사람이 “생각하고 → 계획하고 → 행동하는” 과정을 흉내 내서 실제 작업까지 자동으로 수행할 수 있습니다.   에이전트는 단순 텍스트 생성 외에도 다음과 같은 일을 할 수 있습니다:  AWS 인프라 생성 (서버, S3, Lambda 등) 애플리케이션 배포 자동화 데이터베이스&#x2F;시스템 작업 수행 외부 API 및 사내 시스템 연동   🔑 Bedrock Agents 주요 특징 멀티스텝 작업 실행: 단순 질의응답이 아니라, 여러 단계를 거쳐 복잡한 업무를 수행   작업 순서 제어: 각 단계가 올바른 순서로 실행되고, 데이터가 단계 간 잘 전달됨   액션 그룹(Action Groups): API, Lambda 함수 등 미리 정의된 작업 단위를 사용   ...</div></div></div></a><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-11/" title="(한국어) AWS Certified AI Practitioner (11) - CloudWatch"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (11) - CloudWatch</div></div><div class="info-2"><div class="info-item-1">📊 Amazon Bedrock &amp; CloudWatch📌 CloudWatch란?Amazon CloudWatch는 AWS 리소스와 애플리케이션을 모니터링하는 서비스입니다.CloudWatch는 다음과 같은 기능을 제공합니다:  Logs (로그) → 이벤트나 요청 내역을 기록 (디버깅에 유용)   Metrics (지표) → 시스템 성능을 수치로 모니터링   Alarms (알람) → 특정 기준을 넘었을 때 알림 전송   Dashboards (대시보드) → 모니터링 정보를 시각화  👉 시험에 자주 나오는 포인트:    CloudWatch Logs: 이벤트·로그 기록   CloudWatch Metrics: CPU, 메모리, 지연 시간 같은 성능 수치   CloudWatch Alarms: 기준치 초과 시 알림   CloudWatch Dashboards: 모니터링 결과 시각화   🔑 Bedrock + CloudWatch 연동1. 모델 호출(Invocation) 로깅 Bedrock...</div></div></div></a><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-12/" title="(한국어) AWS Certified AI Practitioner (12) - Pricing &amp; Model Improvement"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (12) - Pricing &amp; Model Improvement</div></div><div class="info-2"><div class="info-item-1">📘 Amazon Bedrock – Pricing &amp; Model Improvement1️⃣ Pricing Options🔹 On-Demand (즉시 사용, 사용량만큼 결제) 방식: 전기요금처럼 쓴 만큼만 지불 (Pay-as-you-go)   요금 기준   텍스트 모델 → 입력&#x2F;출력 토큰 수   임베딩 모델 → 입력 토큰 수   이미지 모델 → 생성된 이미지 수   사용 가능 모델: Base Models 전용   ✅ 장점: 유연성, 사용량 예측이 어려운 경우 적합   ❌ 단점: 장기간 사용 시 비용 부담 ↑   🔹 Batch Mode (묶음 처리, 최대 50% 할인) 방식: 여러 요청을 한 번에 묶어서 처리 → 결과는 Amazon S3에 단일 파일 저장   할인 혜택: 최대 50% 저렴   ✅ 장점: 대량 처리에 유리, 비용 절감 효과 큼   ❌ 단점: 실시간 응답 불가, 결과 지연 발생   적합 상황: 즉각적인 응답 필요 없고, 대량 요청을 처리할 때   🔹...</div></div></div></a><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-13/" title="(한국어) AWS Certified AI Practitioner (13) - AI Stylist Demo"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (13) - AI Stylist Demo</div></div><div class="info-2"><div class="info-item-1">👗 Amazon Bedrock End-to-End Use Case (AI Stylist Demo)📌 왜 이 데모가 중요한가?앞에서 Amazon Bedrock의 여러 기능을 살펴봤지만, 실제로는 콘솔에서 클릭만 하는 것으로 끝나지 않습니다.실제 애플리케이션에서 Bedrock을 활용하려면 API 호출을 통해 Bedrock 기능을 불러오고, 이를 기반으로 서비스를 만들어야 합니다.   AWS에서는 이를 보여주기 위해 AI Stylist라는 데모 애플리케이션을 제공합니다.이 데모를 통해 실제 사용자가 어떻게 Bedrock 기반 앱을 경험하는지 확인할 수 있습니다.   🔗 Try the AI Stylist Demo 📎 Demo Video:          Your browser does not support the video tag.     👠 AI Stylist 동작 방식 사용자가 질문을 입력합니다.   예: “저는 컨설턴트인데, 다음 주 뉴욕 출장을 가는데 첫 출근 날 무슨...</div></div></div></a><a class="pagination-related" href="/2025/08/22/KO-AWS-Certified-AI-Practitioner-14/" title="(한국어) AWS Certified AI Practitioner (14) - 프롬프트 엔지니어링"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-22</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (14) - 프롬프트 엔지니어링</div></div><div class="info-2"><div class="info-item-1">📝 프롬프트 엔지니어링 (Prompt Engineering)프롬프트 엔지니어링은 AI 모델이 더 정확하고 원하는 답변을 내도록 질문(프롬프트)을 설계하고 최적화하는 기술을 말합니다.단순히 “AWS를 요약해줘” 같은 질문을 던지는 것보다, 구체적으로 지시, 맥락, 입력 데이터, 출력 형식을 포함하면 훨씬 좋은 결과를 얻을 수 있습니다.  1. 기본 개념 (Naïve Prompt vs. 개선된 Prompt) Naïve Prompt (단순 프롬프트)예: “AWS를 요약해줘.”👉 모델이 알아서 답하긴 하지만, 원하는 수준의 답변이 아닐 수 있음.  Prompt Engineering (프롬프트 엔지니어링)👉 프롬프트를 설계하고 개선하여 원하는 답변을 얻는 방법.👉 4가지 핵심 요소:  Instructions (지시사항) – 모델이 어떤 일을 해야 하는지 (예: “요약문 작성”)   Context (맥락) – 모델이 참고할 추가 정보 (예: “AWS 초보자를 가르치는 상황”)   ...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Danny Ki</div><div class="author-info-description">A data engineer's journey in coding, analytics, and building real-world systems.</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">85</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kish191919"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/kish191919" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SageMaker-%E2%80%93-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A4%80%EB%B9%84-%EB%B0%8F-%EB%AA%A8%EB%8D%B8-%EC%8B%A0%EB%A2%B0%EC%84%B1-%EB%8F%84%EA%B5%AC"><span class="toc-number">1.</span> <span class="toc-text">SageMaker – 데이터 준비 및 모델 신뢰성 도구</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-SageMaker-Data-Wrangler"><span class="toc-number">1.1.</span> <span class="toc-text">1. SageMaker Data Wrangler</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-ML-Feature%EB%9E%80"><span class="toc-number">1.2.</span> <span class="toc-text">2. ML Feature란?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-SageMaker-Feature-Store"><span class="toc-number">1.3.</span> <span class="toc-text">3. SageMaker Feature Store</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-SageMaker-Clarify"><span class="toc-number">1.4.</span> <span class="toc-text">4. SageMaker Clarify</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%EB%AA%A8%EB%8D%B8-%ED%8F%89%EA%B0%80"><span class="toc-number">1.4.1.</span> <span class="toc-text">(1) 모델 평가</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%EB%AA%A8%EB%8D%B8-%EC%84%A4%EB%AA%85%EB%A0%A5-Explainability"><span class="toc-number">1.4.2.</span> <span class="toc-text">(2) 모델 설명력 (Explainability)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%ED%8E%B8%ED%96%A5-%ED%83%90%EC%A7%80-Bias-Detection"><span class="toc-number">1.4.3.</span> <span class="toc-text">(3) 편향 탐지 (Bias Detection)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-SageMaker-Ground-Truth"><span class="toc-number">1.5.</span> <span class="toc-text">5. SageMaker Ground Truth</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EC%9A%94%EC%95%BD"><span class="toc-number">2.</span> <span class="toc-text">요약</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/02/KO-AWS-Certified-AI-Practitioner-37/" title="(한국어) AWS Certified AI Practitioner (37) - SageMaker 데이터 준비 및 모델 신뢰성 도구">(한국어) AWS Certified AI Practitioner (37) - SageMaker 데이터 준비 및 모델 신뢰성 도구</a><time datetime="2025-09-02T18:04:41.000Z" title="Created 2025-09-02 14:04:41">2025-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/02/AWS-Certified-AI-Practitioner-37/" title="AWS Certified AI Practitioner(37) - SageMaker Data Tools and Model Evaluation">AWS Certified AI Practitioner(37) - SageMaker Data Tools and Model Evaluation</a><time datetime="2025-09-02T18:04:37.000Z" title="Created 2025-09-02 14:04:37">2025-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/02/AWS-Certified-AI-Practitioner-36/" title="AWS Certified AI Practitioner(36) - SageMaker (AI)">AWS Certified AI Practitioner(36) - SageMaker (AI)</a><time datetime="2025-09-02T17:14:15.000Z" title="Created 2025-09-02 13:14:15">2025-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/02/KO-AWS-Certified-AI-Practitioner-36/" title="(한국어) AWS Certified AI Practitioner (36) - SageMaker (AI)">(한국어) AWS Certified AI Practitioner (36) - SageMaker (AI)</a><time datetime="2025-09-02T17:14:09.000Z" title="Created 2025-09-02 13:14:09">2025-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/02/KO-AWS-Certified-AI-Practitioner-35/" title="(한국어) AWS Certified AI Practitioner (35) - EC2">(한국어) AWS Certified AI Practitioner (35) - EC2</a><time datetime="2025-09-02T17:05:35.000Z" title="Created 2025-09-02 13:05:35">2025-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By Danny Ki</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
