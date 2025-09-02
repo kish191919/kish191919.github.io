@@ -1,0 +1,389 @@
+<!DOCTYPE html><html lang="[&quot;en&quot;,&quot;ko&quot;,&quot;default&quot;]" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>(한국어) AWS Certified AI Practitioner (40) | Danny's Blog</title><meta name="author" content="Danny Ki"><meta name="copyright" content="Danny Ki"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="생성형 AI의 역량과 과제 (시험 포인트 포함)아래 내용은 강의자료와 대본을 바탕으로 쉽고 자연스럽게 정리&#x2F;확장한 것입니다. 특히 AWS 자격증(특히 AWS Certified AI Practitioner,ML–Specialty, SAP&#x2F;Architect) 대비에 유리하도록 시험에 자주 나오는 개념과 실무 팁을 함께 넣었습니다.  1) 생성">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(한국어) AWS Certified AI Practitioner (40)">
+<meta property="og:url" content="https://kish191919.github.io/2025/09/02/KO-AWS-Certified-AI-Practitioner-40/index.html">
+<meta property="og:site_name" content="Danny&#39;s Blog">
+<meta property="og:description" content="생성형 AI의 역량과 과제 (시험 포인트 포함)아래 내용은 강의자료와 대본을 바탕으로 쉽고 자연스럽게 정리&#x2F;확장한 것입니다. 특히 AWS 자격증(특히 AWS Certified AI Practitioner,ML–Specialty, SAP&#x2F;Architect) 대비에 유리하도록 시험에 자주 나오는 개념과 실무 팁을 함께 넣었습니다.  1) 생성">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kish191919.github.io/img/my_pic.jpeg">
+<meta property="article:published_time" content="2025-09-02T19:05:54.000Z">
+<meta property="article:modified_time" content="2025-09-02T19:29:34.719Z">
+<meta property="article:author" content="Danny Ki">
+<meta property="article:tag" content="AWS">
+<meta property="article:tag" content="AWS_AI_PRACTITIONER">
+<meta property="article:tag" content="KOREAN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kish191919.github.io/img/my_pic.jpeg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "(한국어) AWS Certified AI Practitioner (40)",
+  "url": "https://kish191919.github.io/2025/09/02/KO-AWS-Certified-AI-Practitioner-40/",
+  "image": "https://kish191919.github.io/img/my_pic.jpeg",
+  "datePublished": "2025-09-02T19:05:54.000Z",
+  "dateModified": "2025-09-02T19:29:34.719Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Danny Ki",
+      "url": "https://kish191919.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kish191919.github.io/2025/09/02/KO-AWS-Certified-AI-Practitioner-40/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="UfZT9jGVnwcVj8z_sCj9LyqnWho6ubHg1Q7o_bvXfKs"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=GTM-N66KNRNW"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'GTM-N66KNRNW')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'GTM-N66KNRNW', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '(한국어) AWS Certified AI Practitioner (40)',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://kish191919.github.io/",
+  "name": "Danny's Blog",
+  "inLanguage": "en"
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Danny's Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">91</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Danny's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">(한국어) AWS Certified AI Practitioner (40)</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">(한국어) AWS Certified AI Practitioner (40)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-09-02T19:05:54.000Z" title="Created 2025-09-02 15:05:54">2025-09-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-09-02T19:29:34.719Z" title="Updated 2025-09-02 15:29:34">2025-09-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CERTIFICATION/">CERTIFICATION</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CERTIFICATION/AWS-AI-PRACTITIONER-KR/">AWS_AI_PRACTITIONER_KR</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="생성형-AI의-역량과-과제-시험-포인트-포함"><a href="#생성형-AI의-역량과-과제-시험-포인트-포함" class="headerlink" title="생성형 AI의 역량과 과제 (시험 포인트 포함)"></a>생성형 AI의 역량과 과제 (시험 포인트 포함)</h1><p>아래 내용은 강의자료와 대본을 바탕으로 <strong>쉽고 자연스럽게</strong> 정리&#x2F;확장한 것입니다. 특히 <strong>AWS 자격증(특히 AWS Certified AI Practitioner,ML–Specialty, SAP&#x2F;Architect)</strong> 대비에 유리하도록 <strong>시험에 자주 나오는 개념</strong>과 <strong>실무 팁</strong>을 함께 넣었습니다.</p>
+<hr>
+<h2 id="1-생성형-AI가-잘하는-것-Capabilities"><a href="#1-생성형-AI가-잘하는-것-Capabilities" class="headerlink" title="1) 생성형 AI가 잘하는 것 (Capabilities)"></a>1) 생성형 AI가 잘하는 것 (Capabilities)</h2><ul>
+<li><strong>적응성(Adaptability)</strong>: 다양한 도메인과 태스크로 빠르게 전이·적용 가능</li>
+<li><strong>반응성(Responsiveness)</strong>: 프롬프트에 즉시 응답, 대화형 인터페이스에 적합</li>
+<li><strong>단순성(Simplicity)</strong>: 사용자 입장에선 프롬프트만 잘 쓰면 복잡한 작업도 가능</li>
+<li><strong>창의성·탐색(Creativity &amp; Exploration)</strong>: 아이디어 발산, 초안&#x2F;프로토타이핑에 강함</li>
+<li><strong>데이터 효율(Data Efficiency)</strong>: 사전학습 덕분에 비교적 적은 추가 데이터로도 튜닝 가능</li>
+<li><strong>개인화(Personalization)</strong>: 프롬프트&#x2F;세션&#x2F;미세조정으로 사용자 맥락 반영</li>
+<li><strong>확장성(Scalability)</strong>: 서버리스&#x2F;오토스케일링 조합으로 대규모 트래픽 처리 용이</li>
+</ul>
+<blockquote>
+<p><strong>시험 포인트</strong><br>“생성형 AI의 장점”을 묻는 문항에서는 <em>창의성, 적응성, 개인화, 확장성</em> 등을 키워드로 기억하세요.</p>
+</blockquote>
+<hr>
+<h2 id="2-생성형-AI의-주요-과제-Challenges"><a href="#2-생성형-AI의-주요-과제-Challenges" class="headerlink" title="2) 생성형 AI의 주요 과제 (Challenges)"></a>2) 생성형 AI의 주요 과제 (Challenges)</h2><ul>
+<li><strong>규제 위반</strong>: 산업 규제(금융, 의료 등)와 지역 규정(GDPR 등) 미준수 위험</li>
+<li><strong>사회적 리스크</strong>: 허위정보 확산, 차별&#x2F;편향 강화, 저작권 분쟁 등</li>
+<li><strong>데이터 보안·개인정보</strong>: 프롬프트·로그·학습데이터에서의 PII 노출</li>
+<li><strong>유해성(Toxicity)</strong>: 공격적·부적절한 발화 생성</li>
+<li><strong>환각(Hallucination)</strong>: 그럴듯하지만 사실이 아닌 내용 생성</li>
+<li><strong>해석가능성(Interpretability)</strong> 부족</li>
+<li><strong>비결정성(Nondeterminism)</strong>: 같은 입력에도 출력이 매번 달라짐</li>
+<li><strong>표절·부정행위</strong>: 에세이 대필, 코드 부정 사용 등</li>
+</ul>
+<blockquote>
+<p><strong>시험 포인트</strong><br>“환각” 정의와 <strong>대응책(RAG, 출처명시, 검증 프로세스)</strong>, “비결정성” 제어(온도&#x2F;탑P&#x2F;디터미니스틱 디코딩) 같은 실무적 완화책을 자주 물어봅니다.</p>
+</blockquote>
+<hr>
+<h2 id="3-유해성-Toxicity"><a href="#3-유해성-Toxicity" class="headerlink" title="3) 유해성(Toxicity)"></a>3) 유해성(Toxicity)</h2><ul>
+<li><strong>문제</strong>: 공격적&#x2F;불쾌&#x2F;부적절 콘텐츠 생성. 인용(quote) 허용 여부 등 경계가 모호.</li>
+<li><strong>대응</strong><ul>
+<li><strong>데이터 정제</strong>: 학습·튜닝 데이터에서 유해표현 제거&#x2F;완화</li>
+<li><strong>가드레일</strong>: <strong>Guardrails for Amazon Bedrock</strong>로 주제 차단, 욕설&#x2F;증오표현 필터, PII 마스킹</li>
+<li><strong>휴먼 리뷰</strong>: <strong>Amazon A2I</strong>로 저신뢰 결과의 인간 검수</li>
+</ul>
+</li>
+</ul>
+<p align="center">
+  <img src="/images/aws_basic_200.png" width="80%">
+</p>
+------------------------------------------------------------------------
+
+<h2 id="4-환각-Hallucinations"><a href="#4-환각-Hallucinations" class="headerlink" title="4) 환각(Hallucinations)"></a>4) 환각(Hallucinations)</h2><ul>
+<li><strong>정의</strong>: 그럴듯하지만 <strong>사실이 아닌 주장</strong>을 생성(LLM의 확률적 샘플링 특성).</li>
+<li><strong>대응</strong><ul>
+<li><strong>RAG</strong>(Retrieval-Augmented Generation): <strong>벡터 검색 + 인용</strong>으로 최신·정확 근거 제시</li>
+<li><strong>출력에 출처 표기&#x2F;“미검증(Needs Verification)” 라벨</strong></li>
+<li>**온도(temperature)↓, 탑P↓**로 <strong>보수적 디코딩</strong></li>
+<li><strong>중요 응답은 2차 검증(외부 소스&#x2F;사람)</strong></li>
+<li><strong>SageMaker Clarify</strong>로 <strong>정확도&#x2F;강건성</strong> 평가 및 드리프트 감시</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>시험 포인트</strong><br>“환각을 줄이는 방법?” → <strong>RAG, 가드레일, 디코딩 파라미터 튜닝, 출처표기, 휴먼 검증</strong>.</p>
+</blockquote>
+<p align="center">
+  <img src="/images/aws_basic_201.png" width="80%">
+</p>
+
+<hr>
+<h2 id="5-표절·부정행위"><a href="#5-표절·부정행위" class="headerlink" title="5) 표절·부정행위"></a>5) 표절·부정행위</h2><ul>
+<li><strong>이슈</strong>: 과제 대필, 작성 샘플 위조, 출처 추적 어려움</li>
+<li><strong>대응</strong><ul>
+<li><strong>출처 요구</strong>(참고문헌&#x2F;링크 의무화)</li>
+<li><strong>검출기 병행</strong>(완벽하진 않음) + <strong>프로세스 기반 평가</strong>(면담·구술·버전관리)</li>
+<li><strong>가드레일</strong>로 시험·채점 맥락에서 과도한 자동화 방지</li>
+</ul>
+</li>
+</ul>
+<p align="center">
+  <img src="/images/aws_basic_202.png" width="80%">
+</p>
+
+<hr>
+<h2 id="6-프롬프트-오남용-공격-유형과-방어"><a href="#6-프롬프트-오남용-공격-유형과-방어" class="headerlink" title="6) 프롬프트 오남용(공격) 유형과 방어"></a>6) 프롬프트 오남용(공격) 유형과 방어</h2><h3 id="6-1-공격-유형"><a href="#6-1-공격-유형" class="headerlink" title="6-1) 공격 유형"></a>6-1) 공격 유형</h3><ul>
+<li><strong>데이터 중독(Training&#x2F;Prompt Poisoning)</strong>: 악성·편향 데이터 주입</li>
+<li><strong>프롬프트 인젝션&#x2F;하이재킹</strong>: 은밀 지시문으로 모델 행태 왜곡(허위정보, 악성코드 유도)</li>
+</ul>
+<p align="center">
+  <img src="/images/aws_basic_203.png" width="80%">
+</p>
+
+<ul>
+<li><strong>노출(Exposure)</strong>: 훈련·추론 중 민감정보 노출</li>
+</ul>
+<p align="center">
+  <img src="/images/aws_basic_204.png" width="80%">
+</p>
+
+<ul>
+<li><strong>프롬프트 리킹</strong>: 내부 프롬프트&#x2F;시스템 지침 유출</li>
+</ul>
+<p align="center">
+  <img src="/images/aws_basic_205.png" width="80%">
+</p>
+
+<ul>
+<li><strong>탈옥(Jailbreaking)</strong>: 안전장치 우회(다중 예시 “many-shot” 등 기법 활용)</li>
+</ul>
+<p align="center">
+  <img src="/images/aws_basic_206.png" width="80%">
+</p>
+
+<h3 id="6-2-방어-전략-AWS-관점"><a href="#6-2-방어-전략-AWS-관점" class="headerlink" title="6-2) 방어 전략 (AWS 관점)"></a>6-2) 방어 전략 (AWS 관점)</h3><ul>
+<li><strong>Bedrock Guardrails</strong>: 금지 주제&#x2F;욕설&#x2F;PII 필터, 톤·스타일 규칙</li>
+<li><strong>네트워크·암호화</strong>: <strong>VPC 엔드포인트</strong>, <strong>AWS KMS</strong>로 저장&#x2F;전송 암호화</li>
+<li><strong>최소권한(IAM)</strong> &amp; <strong>SageMaker Role Manager</strong>로 역할 기반 접근</li>
+<li><strong>입력 정화</strong>: 시스템 프롬프트 분리, “<strong>지시보다 안전정책 우선</strong>“ 규칙 삽입</li>
+<li><strong>출력 검증</strong>: 콘텐츠 필터, <strong>A2I 휴먼리뷰</strong></li>
+<li><strong>로깅·감사</strong>: <strong>CloudWatch&#x2F;CloudTrail</strong>로 추적, 이상 징후 알림</li>
+<li><strong>데이터 격리</strong>: <strong>SageMaker 네트워크 격리 모드</strong>(아웃바운드 차단), 민감 데이터 비노출</li>
+</ul>
+<blockquote>
+<p><strong>시험 포인트</strong><br>“프롬프트 인젝션 대응책” → <strong>가드레일, 입력 정화, 최소권한, VPC·KMS, 로깅&#x2F;감사, 휴먼 리뷰</strong>.</p>
+</blockquote>
+<hr>
+<h2 id="7-규제-대상-워크로드-Regulated-Workloads"><a href="#7-규제-대상-워크로드-Regulated-Workloads" class="headerlink" title="7) 규제 대상 워크로드(Regulated Workloads)"></a>7) 규제 대상 워크로드(Regulated Workloads)</h2><ul>
+<li><strong>산업</strong>: 금융, 의료, 항공우주 등은 <strong>추가 규제&#x2F;감사&#x2F;보관&#x2F;보안요건</strong> 필요</li>
+<li><strong>예시</strong>: 신용·대출 심사 결과(모델 출력)가 규제 대상 → <strong>결정근거 보관·설명 가능성</strong> 필수</li>
+</ul>
+<blockquote>
+<p><strong>시험 포인트</strong><br><strong>공유 책임 모델</strong>(Shared Responsibility Model) 기억:</p>
+<ul>
+<li><strong>AWS</strong>: 클라우드 “<strong>of</strong>“ 보안(데이터센터·하드웨어·기본 서비스)</li>
+<li><strong>고객</strong>: 클라우드 “<strong>in</strong>“ 보안(데이터 분류, 접근통제, 암호화 설정, 모델 거버넌스)</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="8-AI-표준·컴플라이언스-과제"><a href="#8-AI-표준·컴플라이언스-과제" class="headerlink" title="8) AI 표준·컴플라이언스 과제"></a>8) AI 표준·컴플라이언스 과제</h2><ul>
+<li><strong>복잡성·불투명성</strong>: 의사결정 경로 감사 난이도</li>
+<li><strong>동적 변화</strong>: 모델·데이터가 시간에 따라 변함(버전관리&#x2F;추적 필요)</li>
+<li><strong>예기치 못한 능력</strong>: 의도치 않은 활용 가능성</li>
+<li><strong>고유 위험</strong>: 알고리즘 편향, 프라이버시 침해, 허위정보</li>
+<li><strong>책임성</strong>: <strong>설명가능성</strong> 요구(모델 내부&#x2F;외부 설명, 출력 근거 제공)</li>
+<li><strong>규제 트렌드</strong>: EU <strong>AI Act</strong>, 미국(주·도시별) 규정 등 → <strong>공정·비차별·인권</strong> 강조</li>
+</ul>
+<p align="center">
+  <img src="/images/aws_basic_207.png" width="80%">
+</p>
+
+<h3 id="AWS-컴플라이언스-생태계-대표"><a href="#AWS-컴플라이언스-생태계-대표" class="headerlink" title="AWS 컴플라이언스 생태계(대표)"></a>AWS 컴플라이언스 생태계(대표)</h3><ul>
+<li><strong>ISO&#x2F;NIST&#x2F;ENISA&#x2F;SOC&#x2F;HIPAA&#x2F;GDPR&#x2F;PCI DSS</strong> 등 다수 인증(서비스별 지원 범위 상이)</li>
+<li><strong>해야 할 일</strong>: 서비스 인증 확인 + <strong>자체 워크로드에 대한 추가 통제&#x2F;감사</strong> 설계</li>
+</ul>
+<hr>
+<h2 id="9-해석가능성-vs-설명가능성"><a href="#9-해석가능성-vs-설명가능성" class="headerlink" title="9) 해석가능성 vs 설명가능성"></a>9) 해석가능성 vs 설명가능성</h2><ul>
+<li><strong>해석가능성(Interpretability)</strong>: “<strong>왜&#x2F;어떻게</strong> 그 결정이 나왔는가”를 <strong>모델 구조 자체</strong>로 이해<ul>
+<li>높을수록 보통 <strong>성능은 단순</strong>(선형&#x2F;의사결정나무 등)</li>
+</ul>
+</li>
+<li><strong>설명가능성(Explainability)</strong>: 내부를 몰라도 <strong>입출력 관계 설명</strong>(특성 중요도, 부분의존 등)<ul>
+<li><strong>SageMaker Clarify</strong>: <strong>SHAP 기반</strong> 중요도, 바이어스 측정·설명 제공</li>
+<li><strong>PDP(Partial Dependence Plot)</strong>: 하나의 특성이 예측에 미치는 평균적 영향 시각화</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>시험 포인트</strong><br><strong>Clarify &#x3D; 바이어스 탐지 + 설명가능성 도구(특성기여&#x2F;SHAP, 데이터·모델 편향 측정)</strong>.</p>
+</blockquote>
+<hr>
+<h2 id="10-모델-카드-서비스-카드"><a href="#10-모델-카드-서비스-카드" class="headerlink" title="10) 모델 카드 &amp; 서비스 카드"></a>10) 모델 카드 &amp; 서비스 카드</h2><ul>
+<li><strong>모델 카드(Model Cards)</strong>: 모델의 <strong>의도된 사용, 위험등급, 데이터 출처&#x2F;라이선스&#x2F;편향, 학습·평가 지표</strong> 문서화<ul>
+<li><strong>SageMaker Model Cards</strong>로 중앙화 관리 → <strong>감사·규제 대응</strong>에 유리</li>
+</ul>
+</li>
+<li><strong>AWS AI Service Cards</strong>: Bedrock·Textract·Rekognition 등 <strong>서비스 수준의 책임감 있는 설계·한계·권장 사용</strong> 문서</li>
+</ul>
+<blockquote>
+<p><strong>시험 포인트</strong><br>“감사 준비&#x2F;규제 대응 문서화?” → <strong>SageMaker Model Cards &#x2F; AWS AI Service Cards</strong>.</p>
+</blockquote>
+<p align="center">
+  <img src="/images/aws_basic_208.png" width="80%">
+</p>
+
+<hr>
+<h2 id="11-운영-중-품질·거버넌스"><a href="#11-운영-중-품질·거버넌스" class="headerlink" title="11) 운영 중 품질·거버넌스"></a>11) 운영 중 품질·거버넌스</h2><ul>
+<li><strong>SageMaker Model Monitor</strong>: 데이터&#x2F;품질 드리프트 감시, 임계치 위반 알림 → <strong>재학습 트리거</strong></li>
+<li><strong>SageMaker Model Registry</strong>: 모델 <strong>버전·메타데이터·승인 상태</strong> 관리, <strong>배포 자동화</strong> 연계</li>
+<li><strong>SageMaker Pipelines</strong>: ML CI&#x2F;CD(처리→학습→튜닝→검증→등록→배포) 자동화</li>
+<li><strong>SageMaker Role Manager</strong>: 페르소나(DS&#x2F;ML Ops 등)별 최소권한 설계</li>
+</ul>
+<hr>
+<h2 id="12-데이터·편향-다루기"><a href="#12-데이터·편향-다루기" class="headerlink" title="12) 데이터·편향 다루기"></a>12) 데이터·편향 다루기</h2><ul>
+<li><strong>SageMaker Data Wrangler</strong>: 전처리·시각화·품질점검, <strong>언더리프레젠티드 그룹 보강</strong>(데이터 증강)</li>
+<li><strong>SageMaker Feature Store</strong>: 재사용 가능한 <strong>고품질 피처 카탈로그</strong>로 일관성 확보</li>
+<li><strong>Clarify 바이어스 지표</strong>: 샘플링 편향·라벨 편향·성능 편향 등<br><strong>통계적 측정</strong></li>
+</ul>
+<hr>
+<h2 id="13-실무-체크리스트-요약"><a href="#13-실무-체크리스트-요약" class="headerlink" title="13) 실무 체크리스트 (요약)"></a>13) 실무 체크리스트 (요약)</h2><ol>
+<li><strong>요건 파악</strong>: 규제&#x2F;감사&#x2F;데이터 국외반출&#x2F;보관기간</li>
+<li><strong>아키텍처 보안</strong>: VPC, KMS, 프라이빗 서브넷, 엔드포인트 정책</li>
+<li><strong>가드레일</strong>: Bedrock Guardrails(주제&#x2F;PII&#x2F;톤), 콘텐츠 필터</li>
+<li><strong>RAG</strong>: 최신성·정확성·출처 확보, <strong>“미검증” 라벨</strong></li>
+<li><strong>로깅&#x2F;감사</strong>: CloudWatch&#x2F;CloudTrail, 프롬프트&#x2F;응답 감사 가능성</li>
+<li><strong>거버넌스</strong>: Model Cards, Registry, Pipelines, Model Monitor</li>
+<li><strong>설명가능성</strong>: Clarify(SHAP, 편향), PDP&#x2F;특성중요도 보고</li>
+<li><strong>휴먼 인더루프</strong>: 저신뢰 케이스 A2I 라우팅</li>
+<li><strong>비결정성 제어</strong>: temperature&#x2F;top-p&#x2F;beam 재현성 가이드(완전 결정적 보장은 어려움)</li>
+<li><strong>교육</strong>: 사용자에게 환각·저작권·보안 인지 교육</li>
+</ol>
+<hr>
+<h2 id="14-미니-퀴즈-시험-대비"><a href="#14-미니-퀴즈-시험-대비" class="headerlink" title="14) 미니 퀴즈(시험 대비)"></a>14) 미니 퀴즈(시험 대비)</h2><ol>
+<li><p><strong>환각을 줄이는 가장 효과적인 아키텍처 패턴은?</strong><br>→ <strong>RAG + 출처표기 + 저온도 디코딩 + 휴먼검증</strong></p>
+</li>
+<li><p><strong>규제 산업에서 모델 결정을 설명·감사하려면 어떤 AWS 기능을 조합?</strong><br>→ <strong>Model Cards + Clarify(설명&#x2F;편향) + Model Monitor(드리프트) + Registry(버전&#x2F;승인)</strong></p>
+</li>
+<li><p><strong>프롬프트 인젝션&#x2F;탈옥 방지책 3가지?</strong><br>→ <strong>Guardrails</strong>, <strong>입력 정화·시스템프롬프트 보호</strong>, <strong>IAM 최소권한·VPC&#x2F;KMS</strong>, (필요 시 <strong>A2I</strong>)</p>
+</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://kish191919.github.io">Danny Ki</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://kish191919.github.io/2025/09/02/KO-AWS-Certified-AI-Practitioner-40/">https://kish191919.github.io/2025/09/02/KO-AWS-Certified-AI-Practitioner-40/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/AWS/">AWS</a><a class="post-meta__tags" href="/tags/AWS-AI-PRACTITIONER/">AWS_AI_PRACTITIONER</a><a class="post-meta__tags" href="/tags/KOREAN/">KOREAN</a></div><div class="post-share"><div class="social-share" data-image="/img/my_pic.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/09/02/AWS-Certified-AI-Practitioner-40/" title="AWS Certified AI Practitioner(40) - Generative AI Capabilities, Challenges, and Compliance"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">Previous</div><div class="info-item-2">AWS Certified AI Practitioner(40) - Generative AI Capabilities, Challenges, and Compliance</div></div><div class="info-2"><div class="info-item-1">Generative AI: Capabilities, Challenges, and ComplianceCapabilities of Generative AIGenerative AI (GenAI) has several strengths that make it powerful and attractive for businesses:  Adaptability – can quickly adjust to new tasks and domains.   Responsiveness – provides real-time answers and interactions.   Simplicity – users can interact with natural language prompts instead of coding.   Creativity &amp; Exploration – useful for brainstorming, content creation, and generating novel ideas.   D...</div></div></div></a><a class="pagination-related" href="/2025/09/02/KO-AWS-Certified-AI-Practitioner-39/" title="(한국어) AWS Certified AI Practitioner (39) - Responsible AI &amp; Security"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (39) - Responsible AI & Security</div></div><div class="info-2"><div class="info-item-1">Responsible AI &amp; Security (책임 있는 AI와 보안)1. Responsible AI (책임 있는 AI) 목표: AI 시스템이 투명성과 신뢰성을 가지도록 설계   중요성: 사용자가 결과를 신뢰하고, 부정적 결과나 위험을 줄일 수 있음   적용 범위: AI 전체 라이프사이클   설계(Design) → 개발(Development) → 배포(Deployment) → 모니터링(Monitoring) → 평가(Evaluation)    2. Security (보안) 3대 원칙: CIA 원칙   Confidentiality (기밀성): 민감한 데이터 보호   Integrity (무결성): 데이터가 변조되지 않도록 보장   Availability (가용성): 필요한 사람이 필요한 시점에 데이터 접근 가능   적용 대상: 조직의 데이터, 정보 자산, IT 인프라 전반   Governance &amp; Compliance1. Governance (거버넌스) 목적: 리스크...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-1/" title="(한국어) AWS Certified AI Practitioner (1) - IT &amp; AWS 기초"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (1) - IT &amp; AWS 기초</div></div><div class="info-2"><div class="info-item-1">📚 IT &amp; AWS 기초 요약1. 기본 IT 용어 네트워크(Network): 케이블, 라우터, 서버 등이 연결되어 데이터가 오가는 길.   라우터(Router): 인터넷에서 데이터를 어디로 보낼지 길잡이 역할을 하는 장치.   스위치(Switch): 네트워크 안에서 데이터가 정확한 서버나 컴퓨터로 가도록 도와주는 장치.         2. 클라우드 컴퓨팅의 5가지 핵심 특징 즉시 자원 사용(On-demand self service) → 필요한 자원을 바로 얻을 수 있음.   넓은 네트워크 접근(Broad network access) → 인터넷만 있으면 여러 기기에서 접근 가능.   자원 공유(Multi-tenancy &amp; Resource pooling) → 여러 사용자가 안전하게 같은 자원 공유.   빠른 확장성(Rapid elasticity &amp; Scalability) → 필요에 따라 서버나 자원을 늘리거나 줄일 수 있음.   사용량 기반 과금(Measur...</div></div></div></a><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-10/" title="(한국어) AWS Certified AI Practitioner (10) - Agents (에이전트)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (10) - Agents (에이전트)</div></div><div class="info-2"><div class="info-item-1">🤖 Amazon Bedrock – Agents (에이전트)📌 에이전트란?Amazon Bedrock의 에이전트(Agents) 는 단순히 질문에 답변하는 모델이 아니라, 여러 단계를 계획하고 실행할 수 있는 고급 기능입니다.즉, 사람이 “생각하고 → 계획하고 → 행동하는” 과정을 흉내 내서 실제 작업까지 자동으로 수행할 수 있습니다.   에이전트는 단순 텍스트 생성 외에도 다음과 같은 일을 할 수 있습니다:  AWS 인프라 생성 (서버, S3, Lambda 등) 애플리케이션 배포 자동화 데이터베이스&#x2F;시스템 작업 수행 외부 API 및 사내 시스템 연동   🔑 Bedrock Agents 주요 특징 멀티스텝 작업 실행: 단순 질의응답이 아니라, 여러 단계를 거쳐 복잡한 업무를 수행   작업 순서 제어: 각 단계가 올바른 순서로 실행되고, 데이터가 단계 간 잘 전달됨   액션 그룹(Action Groups): API, Lambda 함수 등 미리 정의된 작업 단위를 사용   ...</div></div></div></a><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-11/" title="(한국어) AWS Certified AI Practitioner (11) - CloudWatch"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (11) - CloudWatch</div></div><div class="info-2"><div class="info-item-1">📊 Amazon Bedrock &amp; CloudWatch📌 CloudWatch란?Amazon CloudWatch는 AWS 리소스와 애플리케이션을 모니터링하는 서비스입니다.CloudWatch는 다음과 같은 기능을 제공합니다:  Logs (로그) → 이벤트나 요청 내역을 기록 (디버깅에 유용)   Metrics (지표) → 시스템 성능을 수치로 모니터링   Alarms (알람) → 특정 기준을 넘었을 때 알림 전송   Dashboards (대시보드) → 모니터링 정보를 시각화  👉 시험에 자주 나오는 포인트:    CloudWatch Logs: 이벤트·로그 기록   CloudWatch Metrics: CPU, 메모리, 지연 시간 같은 성능 수치   CloudWatch Alarms: 기준치 초과 시 알림   CloudWatch Dashboards: 모니터링 결과 시각화   🔑 Bedrock + CloudWatch 연동1. 모델 호출(Invocation) 로깅 Bedrock...</div></div></div></a><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-12/" title="(한국어) AWS Certified AI Practitioner (12) - Pricing &amp; Model Improvement"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (12) - Pricing &amp; Model Improvement</div></div><div class="info-2"><div class="info-item-1">📘 Amazon Bedrock – Pricing &amp; Model Improvement1️⃣ Pricing Options🔹 On-Demand (즉시 사용, 사용량만큼 결제) 방식: 전기요금처럼 쓴 만큼만 지불 (Pay-as-you-go)   요금 기준   텍스트 모델 → 입력&#x2F;출력 토큰 수   임베딩 모델 → 입력 토큰 수   이미지 모델 → 생성된 이미지 수   사용 가능 모델: Base Models 전용   ✅ 장점: 유연성, 사용량 예측이 어려운 경우 적합   ❌ 단점: 장기간 사용 시 비용 부담 ↑   🔹 Batch Mode (묶음 처리, 최대 50% 할인) 방식: 여러 요청을 한 번에 묶어서 처리 → 결과는 Amazon S3에 단일 파일 저장   할인 혜택: 최대 50% 저렴   ✅ 장점: 대량 처리에 유리, 비용 절감 효과 큼   ❌ 단점: 실시간 응답 불가, 결과 지연 발생   적합 상황: 즉각적인 응답 필요 없고, 대량 요청을 처리할 때   🔹...</div></div></div></a><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-13/" title="(한국어) AWS Certified AI Practitioner (13) - AI Stylist Demo"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (13) - AI Stylist Demo</div></div><div class="info-2"><div class="info-item-1">👗 Amazon Bedrock End-to-End Use Case (AI Stylist Demo)📌 왜 이 데모가 중요한가?앞에서 Amazon Bedrock의 여러 기능을 살펴봤지만, 실제로는 콘솔에서 클릭만 하는 것으로 끝나지 않습니다.실제 애플리케이션에서 Bedrock을 활용하려면 API 호출을 통해 Bedrock 기능을 불러오고, 이를 기반으로 서비스를 만들어야 합니다.   AWS에서는 이를 보여주기 위해 AI Stylist라는 데모 애플리케이션을 제공합니다.이 데모를 통해 실제 사용자가 어떻게 Bedrock 기반 앱을 경험하는지 확인할 수 있습니다.   🔗 Try the AI Stylist Demo 📎 Demo Video:          Your browser does not support the video tag.     👠 AI Stylist 동작 방식 사용자가 질문을 입력합니다.   예: “저는 컨설턴트인데, 다음 주 뉴욕 출장을 가는데 첫 출근 날 무슨...</div></div></div></a><a class="pagination-related" href="/2025/08/22/KO-AWS-Certified-AI-Practitioner-15/" title="(한국어) AWS Certified AI Practitioner (15) - LLM에서 텍스트 생성 과정 &amp; 프롬프트 최적화"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-22</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (15) - LLM에서 텍스트 생성 과정 &amp; 프롬프트 최적화</div></div><div class="info-2"><div class="info-item-1">📖 LLM에서 텍스트 생성 과정 &amp; 프롬프트 최적화1️⃣ 텍스트 생성 원리LLM(대규모 언어 모델)은 다음 단어가 무엇일지 확률적으로 계산해서 문장을 만들어 갑니다.예를 들어,“After the rain, the streets were …” 뒤에 올 수 있는 후보 단어와 확률이 있다고 할 때:  wet (0.40)   flooded (0.25)   slippery (0.15)   empty (0.10)   muddy (0.05)  모델은 이 확률을 기반으로 무작위 선택(random sampling) 하여 다음 단어를 생성합니다.즉, LLM의 출력은 항상 확률적이므로, 같은 질문을 여러 번 해도 결과가 조금씩 달라질 수 있습니다.  2️⃣ 프롬프트 성능 최적화 (Prompt Performance Optimization)Amazon Bedrock 같은 서비스에서는 출력 품질을 조절할 수 있는 여러 파라미터를 제공합니다. 🔹 System Prompt 모델이 어떤 역할을 해...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Danny Ki</div><div class="author-info-description">A data engineer's journey in coding, analytics, and building real-world systems.</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">91</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kish191919"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/kish191919" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%EC%83%9D%EC%84%B1%ED%98%95-AI%EC%9D%98-%EC%97%AD%EB%9F%89%EA%B3%BC-%EA%B3%BC%EC%A0%9C-%EC%8B%9C%ED%97%98-%ED%8F%AC%EC%9D%B8%ED%8A%B8-%ED%8F%AC%ED%95%A8"><span class="toc-number">1.</span> <span class="toc-text">생성형 AI의 역량과 과제 (시험 포인트 포함)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%EC%83%9D%EC%84%B1%ED%98%95-AI%EA%B0%80-%EC%9E%98%ED%95%98%EB%8A%94-%EA%B2%83-Capabilities"><span class="toc-number">1.1.</span> <span class="toc-text">1) 생성형 AI가 잘하는 것 (Capabilities)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%EC%83%9D%EC%84%B1%ED%98%95-AI%EC%9D%98-%EC%A3%BC%EC%9A%94-%EA%B3%BC%EC%A0%9C-Challenges"><span class="toc-number">1.2.</span> <span class="toc-text">2) 생성형 AI의 주요 과제 (Challenges)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%EC%9C%A0%ED%95%B4%EC%84%B1-Toxicity"><span class="toc-number">1.3.</span> <span class="toc-text">3) 유해성(Toxicity)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%ED%99%98%EA%B0%81-Hallucinations"><span class="toc-number">1.4.</span> <span class="toc-text">4) 환각(Hallucinations)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%ED%91%9C%EC%A0%88%C2%B7%EB%B6%80%EC%A0%95%ED%96%89%EC%9C%84"><span class="toc-number">1.5.</span> <span class="toc-text">5) 표절·부정행위</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8-%EC%98%A4%EB%82%A8%EC%9A%A9-%EA%B3%B5%EA%B2%A9-%EC%9C%A0%ED%98%95%EA%B3%BC-%EB%B0%A9%EC%96%B4"><span class="toc-number">1.6.</span> <span class="toc-text">6) 프롬프트 오남용(공격) 유형과 방어</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%EA%B3%B5%EA%B2%A9-%EC%9C%A0%ED%98%95"><span class="toc-number">1.6.1.</span> <span class="toc-text">6-1) 공격 유형</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%EB%B0%A9%EC%96%B4-%EC%A0%84%EB%9E%B5-AWS-%EA%B4%80%EC%A0%90"><span class="toc-number">1.6.2.</span> <span class="toc-text">6-2) 방어 전략 (AWS 관점)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%EA%B7%9C%EC%A0%9C-%EB%8C%80%EC%83%81-%EC%9B%8C%ED%81%AC%EB%A1%9C%EB%93%9C-Regulated-Workloads"><span class="toc-number">1.7.</span> <span class="toc-text">7) 규제 대상 워크로드(Regulated Workloads)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-AI-%ED%91%9C%EC%A4%80%C2%B7%EC%BB%B4%ED%94%8C%EB%9D%BC%EC%9D%B4%EC%96%B8%EC%8A%A4-%EA%B3%BC%EC%A0%9C"><span class="toc-number">1.8.</span> <span class="toc-text">8) AI 표준·컴플라이언스 과제</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AWS-%EC%BB%B4%ED%94%8C%EB%9D%BC%EC%9D%B4%EC%96%B8%EC%8A%A4-%EC%83%9D%ED%83%9C%EA%B3%84-%EB%8C%80%ED%91%9C"><span class="toc-number">1.8.1.</span> <span class="toc-text">AWS 컴플라이언스 생태계(대표)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%ED%95%B4%EC%84%9D%EA%B0%80%EB%8A%A5%EC%84%B1-vs-%EC%84%A4%EB%AA%85%EA%B0%80%EB%8A%A5%EC%84%B1"><span class="toc-number">1.9.</span> <span class="toc-text">9) 해석가능성 vs 설명가능성</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%EB%AA%A8%EB%8D%B8-%EC%B9%B4%EB%93%9C-%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%B9%B4%EB%93%9C"><span class="toc-number">1.10.</span> <span class="toc-text">10) 모델 카드 &amp; 서비스 카드</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%EC%9A%B4%EC%98%81-%EC%A4%91-%ED%92%88%EC%A7%88%C2%B7%EA%B1%B0%EB%B2%84%EB%84%8C%EC%8A%A4"><span class="toc-number">1.11.</span> <span class="toc-text">11) 운영 중 품질·거버넌스</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-%EB%8D%B0%EC%9D%B4%ED%84%B0%C2%B7%ED%8E%B8%ED%96%A5-%EB%8B%A4%EB%A3%A8%EA%B8%B0"><span class="toc-number">1.12.</span> <span class="toc-text">12) 데이터·편향 다루기</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-%EC%8B%A4%EB%AC%B4-%EC%B2%B4%ED%81%AC%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%9A%94%EC%95%BD"><span class="toc-number">1.13.</span> <span class="toc-text">13) 실무 체크리스트 (요약)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-%EB%AF%B8%EB%8B%88-%ED%80%B4%EC%A6%88-%EC%8B%9C%ED%97%98-%EB%8C%80%EB%B9%84"><span class="toc-number">1.14.</span> <span class="toc-text">14) 미니 퀴즈(시험 대비)</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/02/AWS-Certified-AI-Practitioner-40/" title="AWS Certified AI Practitioner(40) - Generative AI Capabilities, Challenges, and Compliance">AWS Certified AI Practitioner(40) - Generative AI Capabilities, Challenges, and Compliance</a><time datetime="2025-09-02T19:05:58.000Z" title="Created 2025-09-02 15:05:58">2025-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/02/KO-AWS-Certified-AI-Practitioner-40/" title="(한국어) AWS Certified AI Practitioner (40)">(한국어) AWS Certified AI Practitioner (40)</a><time datetime="2025-09-02T19:05:54.000Z" title="Created 2025-09-02 15:05:54">2025-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/02/KO-AWS-Certified-AI-Practitioner-39/" title="(한국어) AWS Certified AI Practitioner (39) - Responsible AI &amp; Security">(한국어) AWS Certified AI Practitioner (39) - Responsible AI &amp; Security</a><time datetime="2025-09-02T18:55:18.000Z" title="Created 2025-09-02 14:55:18">2025-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/02/AWS-Certified-AI-Practitioner-39/" title="AWS Certified AI Practitioner(39) - Responsible AI, Security, Governance, and Compliance">AWS Certified AI Practitioner(39) - Responsible AI, Security, Governance, and Compliance</a><time datetime="2025-09-02T18:55:14.000Z" title="Created 2025-09-02 14:55:14">2025-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/02/AWS-Certified-AI-Practitioner-38/" title="AWS Certified AI Practitioner(38) - ML Governance &amp; Productivity">AWS Certified AI Practitioner(38) - ML Governance &amp; Productivity</a><time datetime="2025-09-02T18:34:17.000Z" title="Created 2025-09-02 14:34:17">2025-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By Danny Ki</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html><html lang="[&quot;en&quot;,&quot;ko&quot;,&quot;default&quot;]" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>AWS Certified AI Practitioner(40) - Generative AI Capabilities, Challenges, and Compliance | Danny's Blog</title><meta name="author" content="Danny Ki"><meta name="copyright" content="Danny Ki"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Generative AI: Capabilities, Challenges, and ComplianceCapabilities of Generative AIGenerative AI (GenAI) has several strengths that make it powerful and attractive for businesses:  Adaptability – can">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AWS Certified AI Practitioner(40) - Generative AI Capabilities, Challenges, and Compliance">
+<meta property="og:url" content="https://kish191919.github.io/2025/09/02/AWS-Certified-AI-Practitioner-40/index.html">
+<meta property="og:site_name" content="Danny&#39;s Blog">
+<meta property="og:description" content="Generative AI: Capabilities, Challenges, and ComplianceCapabilities of Generative AIGenerative AI (GenAI) has several strengths that make it powerful and attractive for businesses:  Adaptability – can">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kish191919.github.io/img/my_pic.jpeg">
+<meta property="article:published_time" content="2025-09-02T19:05:58.000Z">
+<meta property="article:modified_time" content="2025-09-02T19:29:34.719Z">
+<meta property="article:author" content="Danny Ki">
+<meta property="article:tag" content="AWS">
+<meta property="article:tag" content="AWS_AI_PRACTITIONER">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kish191919.github.io/img/my_pic.jpeg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AWS Certified AI Practitioner(40) - Generative AI Capabilities, Challenges, and Compliance",
+  "url": "https://kish191919.github.io/2025/09/02/AWS-Certified-AI-Practitioner-40/",
+  "image": "https://kish191919.github.io/img/my_pic.jpeg",
+  "datePublished": "2025-09-02T19:05:58.000Z",
+  "dateModified": "2025-09-02T19:29:34.719Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Danny Ki",
+      "url": "https://kish191919.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kish191919.github.io/2025/09/02/AWS-Certified-AI-Practitioner-40/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="UfZT9jGVnwcVj8z_sCj9LyqnWho6ubHg1Q7o_bvXfKs"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=GTM-N66KNRNW"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'GTM-N66KNRNW')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'GTM-N66KNRNW', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'AWS Certified AI Practitioner(40) - Generative AI Capabilities, Challenges, and Compliance',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://kish191919.github.io/",
+  "name": "Danny's Blog",
+  "inLanguage": "en"
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Danny's Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">91</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Danny's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">AWS Certified AI Practitioner(40) - Generative AI Capabilities, Challenges, and Compliance</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">AWS Certified AI Practitioner(40) - Generative AI Capabilities, Challenges, and Compliance</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-09-02T19:05:58.000Z" title="Created 2025-09-02 15:05:58">2025-09-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-09-02T19:29:34.719Z" title="Updated 2025-09-02 15:29:34">2025-09-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CERTIFICATION/">CERTIFICATION</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CERTIFICATION/AWS-AI-PRACTITIONER/">AWS_AI_PRACTITIONER</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="Generative-AI-Capabilities-Challenges-and-Compliance"><a href="#Generative-AI-Capabilities-Challenges-and-Compliance" class="headerlink" title="Generative AI: Capabilities, Challenges, and Compliance"></a>Generative AI: Capabilities, Challenges, and Compliance</h1><h2 id="Capabilities-of-Generative-AI"><a href="#Capabilities-of-Generative-AI" class="headerlink" title="Capabilities of Generative AI"></a>Capabilities of Generative AI</h2><p>Generative AI (GenAI) has several strengths that make it powerful and attractive for businesses:</p>
+<ul>
+<li><strong>Adaptability</strong> – can quickly adjust to new tasks and domains.  </li>
+<li><strong>Responsiveness</strong> – provides real-time answers and interactions.  </li>
+<li><strong>Simplicity</strong> – users can interact with natural language prompts instead of coding.  </li>
+<li><strong>Creativity &amp; Exploration</strong> – useful for brainstorming, content creation, and generating novel ideas.  </li>
+<li><strong>Data Efficiency</strong> – can extract insights even from smaller datasets if pretrained well.  </li>
+<li><strong>Personalization</strong> – adapts to individual user needs, preferences, or styles.  </li>
+<li><strong>Scalability</strong> – works across millions of queries and users simultaneously.</li>
+</ul>
+<p>👉 <em>Exam tip</em>: Expect questions about how businesses benefit from these capabilities—especially scalability, personalization, and adaptability.</p>
+<hr>
+<h2 id="Challenges-of-Generative-AI"><a href="#Challenges-of-Generative-AI" class="headerlink" title="Challenges of Generative AI"></a>Challenges of Generative AI</h2><p>Despite its strengths, GenAI comes with risks:</p>
+<ul>
+<li><strong>Regulatory violations</strong> – hard to ensure compliance with laws (GDPR, HIPAA, etc.).  </li>
+<li><strong>Social risks</strong> – spread of misinformation or harmful content.  </li>
+<li><strong>Data security &amp; privacy</strong> – sensitive data may be leaked or misused.  </li>
+<li><strong>Toxicity</strong> – generating offensive or inappropriate outputs.  </li>
+<li><strong>Hallucinations</strong> – generating content that <em>sounds</em> correct but is false.  </li>
+<li><strong>Interpretability</strong> – difficult to understand <em>why</em> the model produced an output.  </li>
+<li><strong>Nondeterminism</strong> – the same prompt may return different results each time.  </li>
+<li><strong>Plagiarism &amp; cheating</strong> – students or professionals misusing AI for essays, tests, or applications.</li>
+</ul>
+<p>👉 <em>Exam tip</em>: Be familiar with “hallucinations,” “toxicity,” and “nondeterminism” as common weaknesses of large language models.</p>
+<hr>
+<h2 id="Toxicity"><a href="#Toxicity" class="headerlink" title="Toxicity"></a>Toxicity</h2><ul>
+<li><strong>Definition</strong>: AI generates content that is offensive, disturbing, or inappropriate.  </li>
+<li><strong>Challenge</strong>: Deciding what counts as “toxic” vs. “free expression.” Even quoting harmful text can raise issues.  </li>
+<li><strong>Mitigation</strong>:<ul>
+<li>Curate training datasets to remove offensive content.  </li>
+<li>Use <strong>guardrails</strong> (like <em>Guardrails for Amazon Bedrock</em>) to filter harmful or unwanted outputs.</li>
+</ul>
+</li>
+</ul>
+<p align="center">
+  <img src="/images/aws_basic_200.png" width="80%">
+</p>
+
+<hr>
+<h2 id="Hallucinations"><a href="#Hallucinations" class="headerlink" title="Hallucinations"></a>Hallucinations</h2><ul>
+<li><strong>Definition</strong>: Model produces content that <em>sounds correct</em> but is wrong.  </li>
+<li><strong>Cause</strong>: Next-word probability sampling in LLMs.  </li>
+<li><strong>Example</strong>: Claiming an author wrote books they never wrote.  </li>
+<li><strong>Mitigation</strong>:<ul>
+<li>Educate users: AI outputs must be verified.  </li>
+<li>Cross-check with independent sources.  </li>
+<li>Label outputs as <strong>“unverified.”</strong></li>
+</ul>
+</li>
+</ul>
+<p align="center">
+  <img src="/images/aws_basic_201.png" width="80%">
+</p>
+
+<hr>
+<h2 id="Plagiarism-Cheating"><a href="#Plagiarism-Cheating" class="headerlink" title="Plagiarism &amp; Cheating"></a>Plagiarism &amp; Cheating</h2><ul>
+<li><strong>Concern</strong>: GenAI used to write essays, job applications, or exams.  </li>
+<li><strong>Debate</strong>: Should this be embraced as new tech or banned?  </li>
+<li><strong>Mitigation</strong>: Detection tools are being developed to identify AI-generated text.</li>
+</ul>
+<p align="center">
+  <img src="/images/aws_basic_202.png" width="80%">
+</p>
+
+<hr>
+<h2 id="Prompt-Misuses"><a href="#Prompt-Misuses" class="headerlink" title="Prompt Misuses"></a>Prompt Misuses</h2><ol>
+<li><strong>Poisoning</strong> – malicious or biased data injected into training → harmful outputs.  <ul>
+<li>Example: model suggests eating rocks due to poisoned data.</li>
+</ul>
+</li>
+<li><strong>Hijacking &#x2F; Prompt Injection</strong> – attacker embeds hidden instructions in prompts.  <ul>
+<li>Example: “Generate a Python script to delete files.”</li>
+</ul>
+</li>
+</ol>
+<p align="center">
+  <img src="/images/aws_basic_203.png" width="80%">
+</p>
+
+<ol start="3">
+<li><strong>Exposure</strong> – risk of revealing private or sensitive data in outputs.</li>
+</ol>
+<p align="center">
+  <img src="/images/aws_basic_204.png" width="80%">
+</p>
+
+<ol start="4">
+<li><strong>Prompt Leaking</strong> – model unintentionally exposes previous prompts or confidential information.</li>
+</ol>
+<p align="center">
+  <img src="/images/aws_basic_205.png" width="80%">
+</p>
+
+<ol start="5">
+<li><strong>Jailbreaking</strong> – bypassing safety constraints to force restricted outputs.  <ul>
+<li><strong>Many-shot jailbreaking</strong> (providing many examples) has been shown to trick models.</li>
+</ul>
+</li>
+</ol>
+<p align="center">
+  <img src="/images/aws_basic_206.png" width="80%">
+</p>
+
+<p>👉 <em>Exam tip</em>: Know the definitions of <strong>prompt injection, jailbreaking, and poisoning</strong>. These are hot topics in AI security.</p>
+<hr>
+<h2 id="Regulated-Workloads"><a href="#Regulated-Workloads" class="headerlink" title="Regulated Workloads"></a>Regulated Workloads</h2><p>Some industries have stricter compliance requirements:</p>
+<ul>
+<li><strong>Financial services</strong> – mortgage, credit scoring.  </li>
+<li><strong>Healthcare</strong> – patient records, diagnostics.  </li>
+<li><strong>Aerospace &amp; defense</strong> – sensitive designs, federal oversight.</li>
+</ul>
+<p>👉 <em>Regulated workload</em> &#x3D; requires audits, reporting, or special security requirements.</p>
+<hr>
+<h2 id="Compliance-Challenges"><a href="#Compliance-Challenges" class="headerlink" title="Compliance Challenges"></a>Compliance Challenges</h2><p>AI compliance is difficult because:</p>
+<ul>
+<li><strong>Complexity &amp; opacity</strong> – hard to audit AI decision-making.  </li>
+<li><strong>Dynamism</strong> – AI models evolve over time.  </li>
+<li><strong>Emergent capabilities</strong> – models may do things they weren’t trained for.  </li>
+<li><strong>Unique risks</strong> – bias, misinformation, privacy violations.  </li>
+<li><strong>Algorithmic bias</strong> – skewed training data leads to discrimination.  </li>
+<li><strong>Human bias</strong> – developers themselves can introduce bias.  </li>
+<li><strong>Accountability</strong> – algorithms must be explainable, but often aren’t.</li>
+</ul>
+<h3 id="Regulatory-frameworks"><a href="#Regulatory-frameworks" class="headerlink" title="Regulatory frameworks"></a>Regulatory frameworks</h3><ul>
+<li><strong>EU</strong>: <em>Artificial Intelligence Act</em> – fairness, human rights, non-discrimination.  </li>
+<li><strong>US</strong>: Several states&#x2F;cities have their own AI regulations.</li>
+</ul>
+<p align="center">
+  <img src="/images/aws_basic_207.png" width="80%">
+</p>
+
+<hr>
+<h2 id="AWS-Compliance"><a href="#AWS-Compliance" class="headerlink" title="AWS Compliance"></a>AWS Compliance</h2><p>AWS supports compliance with <strong>140+ standards and certifications</strong>, including:  </p>
+<ul>
+<li><strong>NIST</strong> (National Institute of Standards and Technology)  </li>
+<li><strong>ENISA</strong> (EU cybersecurity)  </li>
+<li><strong>ISO</strong> (International Organization for Standardization)  </li>
+<li><strong>SOC</strong> (System and Organization Controls)  </li>
+<li><strong>HIPAA</strong> (healthcare)  </li>
+<li><strong>GDPR</strong> (EU data privacy)  </li>
+<li><strong>PCI DSS</strong> (payment card data)</li>
+</ul>
+<p>👉 <em>Exam tip</em>: AWS provides compliance-ready infrastructure, but <strong>you (the customer) are responsible</strong> for compliance of your applications (Shared Responsibility Model).</p>
+<hr>
+<h2 id="Model-Cards-AWS-AI-Service-Cards"><a href="#Model-Cards-AWS-AI-Service-Cards" class="headerlink" title="Model Cards &amp; AWS AI Service Cards"></a>Model Cards &amp; AWS AI Service Cards</h2><ul>
+<li><strong>Model Cards</strong> &#x3D; standardized documentation for ML models.  <ul>
+<li>Include datasets, sources, biases, training details, intended use, and risk ratings.  </li>
+<li><em>Example</em>: SageMaker Model Cards help with audits.</li>
+</ul>
+</li>
+<li><strong>AWS AI Service Cards</strong> &#x3D; AWS documentation about responsible AI practices in its services (e.g., Rekognition, Textract).</li>
+</ul>
+<p>👉 These improve <strong>transparency, trust, and accountability</strong>.</p>
+<p align="center">
+  <img src="/images/aws_basic_208.png" width="80%">
+</p>
+
+<hr>
+<h2 id="Key-Takeaways-for-the-Exam"><a href="#Key-Takeaways-for-the-Exam" class="headerlink" title="Key Takeaways for the Exam"></a>Key Takeaways for the Exam</h2><ul>
+<li>Understand <strong>capabilities vs. challenges</strong> of GenAI.  </li>
+<li>Be able to explain <strong>toxicity, hallucinations, plagiarism, nondeterminism</strong>.  </li>
+<li>Know <strong>prompt misuse techniques</strong> (poisoning, injection, exposure, jailbreaking).  </li>
+<li>Be familiar with <strong>regulated workloads</strong> and compliance frameworks (HIPAA, GDPR, PCI DSS).  </li>
+<li>Recognize <strong>Model Cards</strong> and <strong>AWS AI Service Cards</strong> as governance tools.</li>
+</ul>
+<hr>
+<p>✅ With this, you’ll be ready for questions on <strong>responsible AI, compliance, and GenAI risks</strong> in AWS certification exams.  </p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://kish191919.github.io">Danny Ki</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://kish191919.github.io/2025/09/02/AWS-Certified-AI-Practitioner-40/">https://kish191919.github.io/2025/09/02/AWS-Certified-AI-Practitioner-40/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/AWS/">AWS</a><a class="post-meta__tags" href="/tags/AWS-AI-PRACTITIONER/">AWS_AI_PRACTITIONER</a></div><div class="post-share"><div class="social-share" data-image="/img/my_pic.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/09/02/KO-AWS-Certified-AI-Practitioner-40/" title="(한국어) AWS Certified AI Practitioner (40)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (40)</div></div><div class="info-2"><div class="info-item-1">생성형 AI의 역량과 과제 (시험 포인트 포함)아래 내용은 강의자료와 대본을 바탕으로 쉽고 자연스럽게 정리&#x2F;확장한 것입니다. 특히 AWS 자격증(특히 AWS Certified AI Practitioner,ML–Specialty, SAP&#x2F;Architect) 대비에 유리하도록 시험에 자주 나오는 개념과 실무 팁을 함께 넣었습니다.  1) 생성형 AI가 잘하는 것 (Capabilities) 적응성(Adaptability): 다양한 도메인과 태스크로 빠르게 전이·적용 가능 반응성(Responsiveness): 프롬프트에 즉시 응답, 대화형 인터페이스에 적합 단순성(Simplicity): 사용자 입장에선 프롬프트만 잘 쓰면 복잡한 작업도 가능 창의성·탐색(Creativity &amp; Exploration): 아이디어 발산, 초안&#x2F;프로토타이핑에 강함 데이터 효율(Data Efficiency): 사전학습 덕분에 비교적 적은 추가 데이터로도 튜닝 가능 개인화(Pe...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/08/14/AWS-Certified-AI-Practitioner-1/" title="AWS Certified AI Practitioner(1) - IT &amp; AWS Basics"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-14</div><div class="info-item-2">AWS Certified AI Practitioner(1) - IT &amp; AWS Basics</div></div><div class="info-2"><div class="info-item-1">📚 IT &amp; AWS Basics Summary1. Basic IT Terms Network: A connection of cables, routers, and servers.   Router: A device that decides where to send data packets over the internet.   Switch: Sends a packet to the correct server or client within the network.         2. Five Key Characteristics of Cloud Computing On-demand self service – Instantly get resources without human help.   Broad network access – Access resources from different devices via the internet.   Multi-tenancy &amp; Resource p...</div></div></div></a><a class="pagination-related" href="/2025/08/19/AWS-Certified-AI-Practitioner-10/" title="AWS Certified AI Practitioner(10) - Agents"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-19</div><div class="info-item-2">AWS Certified AI Practitioner(10) - Agents</div></div><div class="info-2"><div class="info-item-1">🤖 Amazon Bedrock – Agents📌 What Are Agents?Agents in Amazon Bedrock are advanced components that can think, plan, and act on multi-step tasks.Unlike regular models that only provide answers, agents can perform real actions such as:  Provisioning infrastructure   Deploying applications   Executing operations on systems   Interacting with APIs, databases, and knowledge bases          🔑 Key Features of Bedrock Agents Multi-step task execution: Agents can follow a sequence of steps to complete...</div></div></div></a><a class="pagination-related" href="/2025/08/20/AWS-Certified-AI-Practitioner-12/" title="AWS Certified AI Practitioner(12) - Pricing &amp; Model Improvement"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">AWS Certified AI Practitioner(12) - Pricing &amp; Model Improvement</div></div><div class="info-2"><div class="info-item-1">📘 Amazon Bedrock – Pricing &amp; Model Improvement1️⃣ Pricing Options🔹 On-Demand (Pay-as-you-go) How it works: Pay only for what you use, like an electricity bill.   Pricing basis   Text Models → Input&#x2F;Output token count   Embedding Models → Input token count   Image Models → Number of images generated   Available Models: Base Models only   ✅ Pros: Flexible, good for unpredictable workloads   ❌ Cons: Can become expensive if used continuously over time   🔹 Batch Mode (Bulk processing, ...</div></div></div></a><a class="pagination-related" href="/2025/08/19/AWS-Certified-AI-Practitioner-11/" title="AWS Certified AI Practitioner(11) - Agents"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-19</div><div class="info-item-2">AWS Certified AI Practitioner(11) - Agents</div></div><div class="info-2"><div class="info-item-1">📊 Amazon Bedrock &amp; CloudWatch📌 What is CloudWatch?Amazon CloudWatch is a monitoring service for AWS resources and applications.It provides:  Logs – Detailed records of events and invocations   Metrics – Numerical measurements of system performance   Alarms – Notifications when thresholds are crossed   Dashboards – Visualizations for monitoring   🔑 Bedrock &amp; CloudWatch Integration1. Model Invocation Logging Logs all inputs and outputs from Bedrock model invocations.   Data can inclu...</div></div></div></a><a class="pagination-related" href="/2025/08/20/AWS-Certified-AI-Practitioner-13/" title="AWS Certified AI Practitioner(13) - End-to-End Use Case (AI Stylist Demo)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">AWS Certified AI Practitioner(13) - End-to-End Use Case (AI Stylist Demo)</div></div><div class="info-2"><div class="info-item-1">👗 Amazon Bedrock End-to-End Use Case (AI Stylist Demo)📌 Why This Demo MattersSo far, we’ve explored many features of Amazon Bedrock. But in reality, using Bedrock isn’t just about clicking around in the console.To build a real-world application, you need to make API calls to Bedrock and integrate those capabilities directly into your service.   To demonstrate this, AWS provides an AI Stylist demo application.This demo shows how end users actually experience an application built on top of Be...</div></div></div></a><a class="pagination-related" href="/2025/08/22/AWS-Certified-AI-Practitioner-14/" title="AWS Certified AI Practitioner(14) - Prompt Engineering"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-22</div><div class="info-item-2">AWS Certified AI Practitioner(14) - Prompt Engineering</div></div><div class="info-2"><div class="info-item-1">📘 Prompt EngineeringWhat is Prompt Engineering?Prompt Engineering is the process of designing, refining, andoptimizing prompts to guide a foundation model (FM) or large languagemodel (LLM) toward producing the best possible output for your needs. A naïve prompt gives little guidance and leaves interpretation up tothe model.Example: “Summarize what is AWS.”This works, but the answer may not be clear or focused. By contrast, Prompt Engineering uses a structured approach toimprove results.  Com...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Danny Ki</div><div class="author-info-description">A data engineer's journey in coding, analytics, and building real-world systems.</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">91</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">23</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kish191919"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/kish191919" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Generative-AI-Capabilities-Challenges-and-Compliance"><span class="toc-number">1.</span> <span class="toc-text">Generative AI: Capabilities, Challenges, and Compliance</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Capabilities-of-Generative-AI"><span class="toc-number">1.1.</span> <span class="toc-text">Capabilities of Generative AI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Challenges-of-Generative-AI"><span class="toc-number">1.2.</span> <span class="toc-text">Challenges of Generative AI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Toxicity"><span class="toc-number">1.3.</span> <span class="toc-text">Toxicity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hallucinations"><span class="toc-number">1.4.</span> <span class="toc-text">Hallucinations</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Plagiarism-Cheating"><span class="toc-number">1.5.</span> <span class="toc-text">Plagiarism &amp; Cheating</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Prompt-Misuses"><span class="toc-number">1.6.</span> <span class="toc-text">Prompt Misuses</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Regulated-Workloads"><span class="toc-number">1.7.</span> <span class="toc-text">Regulated Workloads</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Compliance-Challenges"><span class="toc-number">1.8.</span> <span class="toc-text">Compliance Challenges</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Regulatory-frameworks"><span class="toc-number">1.8.1.</span> <span class="toc-text">Regulatory frameworks</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AWS-Compliance"><span class="toc-number">1.9.</span> <span class="toc-text">AWS Compliance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Model-Cards-AWS-AI-Service-Cards"><span class="toc-number">1.10.</span> <span class="toc-text">Model Cards &amp; AWS AI Service Cards</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Key-Takeaways-for-the-Exam"><span class="toc-number">1.11.</span> <span class="toc-text">Key Takeaways for the Exam</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/02/AWS-Certified-AI-Practitioner-40/" title="AWS Certified AI Practitioner(40) - Generative AI Capabilities, Challenges, and Compliance">AWS Certified AI Practitioner(40) - Generative AI Capabilities, Challenges, and Compliance</a><time datetime="2025-09-02T19:05:58.000Z" title="Created 2025-09-02 15:05:58">2025-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/02/KO-AWS-Certified-AI-Practitioner-40/" title="(한국어) AWS Certified AI Practitioner (40)">(한국어) AWS Certified AI Practitioner (40)</a><time datetime="2025-09-02T19:05:54.000Z" title="Created 2025-09-02 15:05:54">2025-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/02/KO-AWS-Certified-AI-Practitioner-39/" title="(한국어) AWS Certified AI Practitioner (39) - Responsible AI &amp; Security">(한국어) AWS Certified AI Practitioner (39) - Responsible AI &amp; Security</a><time datetime="2025-09-02T18:55:18.000Z" title="Created 2025-09-02 14:55:18">2025-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/02/AWS-Certified-AI-Practitioner-39/" title="AWS Certified AI Practitioner(39) - Responsible AI, Security, Governance, and Compliance">AWS Certified AI Practitioner(39) - Responsible AI, Security, Governance, and Compliance</a><time datetime="2025-09-02T18:55:14.000Z" title="Created 2025-09-02 14:55:14">2025-09-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/02/AWS-Certified-AI-Practitioner-38/" title="AWS Certified AI Practitioner(38) - ML Governance &amp; Productivity">AWS Certified AI Practitioner(38) - ML Governance &amp; Productivity</a><time datetime="2025-09-02T18:34:17.000Z" title="Created 2025-09-02 14:34:17">2025-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By Danny Ki</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

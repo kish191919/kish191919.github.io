@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://kish191919.github.io/2025/09/02/AWS-Certified-AI-Practitioner-40/</loc>
+    
+    <lastmod>2025-09-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://kish191919.github.io/2025/09/02/KO-AWS-Certified-AI-Practitioner-40/</loc>
+    
+    <lastmod>2025-09-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://kish191919.github.io/2025/09/02/AWS-Certified-AI-Practitioner-39/</loc>
     
     <lastmod>2025-09-02</lastmod>
@@ -146,7 +164,7 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/2025/08/26/KO-AWS-Certified-AI-Practitioner-30/</loc>
+    <loc>https://kish191919.github.io/2025/08/26/KO-AWS-Certified-AI-Practitioner-31/</loc>
     
     <lastmod>2025-08-27</lastmod>
     
@@ -155,7 +173,7 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/2025/08/26/KO-AWS-Certified-AI-Practitioner-31/</loc>
+    <loc>https://kish191919.github.io/2025/08/26/KO-AWS-Certified-AI-Practitioner-30/</loc>
     
     <lastmod>2025-08-27</lastmod>
     
@@ -353,7 +371,7 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/2025/08/22/KO-AWS-Certified-AI-Practitioner-14/</loc>
+    <loc>https://kish191919.github.io/2025/08/22/KO-AWS-Certified-AI-Practitioner-15/</loc>
     
     <lastmod>2025-08-23</lastmod>
     
@@ -362,7 +380,7 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/2025/08/22/KO-AWS-Certified-AI-Practitioner-15/</loc>
+    <loc>https://kish191919.github.io/2025/08/22/KO-AWS-Certified-AI-Practitioner-14/</loc>
     
     <lastmod>2025-08-23</lastmod>
     
@@ -569,7 +587,7 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/2025/08/19/AWS-Certified-AI-Practitioner-11/</loc>
+    <loc>https://kish191919.github.io/2025/08/20/AWS-Certified-AI-Practitioner-12/</loc>
     
     <lastmod>2025-08-21</lastmod>
     
@@ -578,7 +596,7 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/2025/08/20/AWS-Certified-AI-Practitioner-12/</loc>
+    <loc>https://kish191919.github.io/2025/08/19/AWS-Certified-AI-Practitioner-11/</loc>
     
     <lastmod>2025-08-21</lastmod>
     
@@ -876,14 +894,14 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/tags/Sorting/</loc>
+    <loc>https://kish191919.github.io/tags/Dynamic-Programming/</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/tags/Bubble-Sort/</loc>
+    <loc>https://kish191919.github.io/tags/DP/</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -897,14 +915,14 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/tags/Dynamic-Programming/</loc>
+    <loc>https://kish191919.github.io/tags/Sorting/</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/tags/DP/</loc>
+    <loc>https://kish191919.github.io/tags/Bubble-Sort/</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -988,6 +1006,13 @@
   </url>
   
   <url>
+    <loc>https://kish191919.github.io/tags/XGBoost/</loc>
+    <lastmod>2025-09-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://kish191919.github.io/tags/NLP/</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -996,13 +1021,6 @@
   
   <url>
     <loc>https://kish191919.github.io/tags/Kaggle/</loc>
-    <lastmod>2025-09-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://kish191919.github.io/tags/XGBoost/</loc>
     <lastmod>2025-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
