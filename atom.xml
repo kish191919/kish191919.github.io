@@ -6,7 +6,7 @@
   <link href="https://kish191919.github.io/atom.xml" rel="self"/>
   
   <link href="https://kish191919.github.io/"/>
-  <updated>2025-09-02T19:55:57.955Z</updated>
+  <updated>2025-09-14T21:05:52.193Z</updated>
   <id>https://kish191919.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>(한국어) AWS ML Associate (1) - AWS ML 엔지니어 어소시에이트(MLA-C01) 한눈에 보기</title>
+    <link href="https://kish191919.github.io/2025/09/14/KO-AWS-ML-Associate-1/"/>
+    <id>https://kish191919.github.io/2025/09/14/KO-AWS-ML-Associate-1/</id>
+    <published>2025-09-14T20:54:26.000Z</published>
+    <updated>2025-09-14T21:05:52.193Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="AWS-ML-엔지니어-어소시에이트-MLA-C01-한눈에-보기"><a href="#AWS-ML-엔지니어-어소시에이트-MLA-C01-한눈에-보기" class="headerlink" title="AWS ML 엔지니어 어소시에이트(MLA-C01) 한눈에 보기"></a>AWS ML 엔지니어 어소시에이트(MLA-C01) 한눈에 보기</h1><p>이 과정에서는 <strong>데이터 수집→변환&#x2F;특징공학→모델 학습&#x2F;튜닝&#x2F;평가→생성형 AI→MLOps→보안&#x2F;거버넌스</strong>까지 실무 흐름을 따라가며, <strong>SageMaker 중심</strong>으로 AWS 서비스들을 연결해 이해합니다.</p><blockquote><h3 id="시험-포인트"><a href="#시험-포인트" class="headerlink" title="시험 포인트"></a>시험 포인트</h3><ul><li><strong>SageMaker 전반</strong>(Processing&#x2F;Training&#x2F;Inference&#x2F;Deployment)</li><li><strong>Glue, EMR, Kinesis, S3, EFS, EBS</strong> 활용</li><li><strong>데이터 변환·특징공학 기법</strong> (결측치, 이상치, 불균형 데이터 처리)</li><li><strong>기본 ML 알고리즘</strong> (XGBoost, Linear Learner 등 SageMaker 내장 알고리즘)</li><li><strong>성능 측정 지표</strong> (Precision, Recall, F1-score, Accuracy 등)</li><li><strong>하이퍼파라미터 튜닝</strong> (SageMaker Automatic Model Tuning)</li><li><strong>Bedrock, Jumpstart, RAG, Guardrails</strong> 등 생성형 AI 관련 신기능</li><li><strong>MLOps</strong> (CI&#x2F;CD, 파이프라인, 버전 관리, 모니터링, 재학습)</li><li><strong>보안·컴플라이언스</strong> (IAM, KMS, VPC, CloudTrail, Config 등)</li></ul></blockquote><hr><h2 id="1-데이터-수집-저장"><a href="#1-데이터-수집-저장" class="headerlink" title="1. 데이터 수집 &amp; 저장"></a>1. 데이터 수집 &amp; 저장</h2><ul><li><strong>형식</strong>: 정형&#x2F;비정형 데이터 (CSV, JSON, 이미지, 로그 등)</li><li><strong>저장소</strong>: <ul><li><strong>데이터 웨어하우스</strong>: Redshift</li><li><strong>데이터 레이크</strong>: S3</li><li><strong>데이터 레이크하우스</strong>: Lake Formation</li></ul></li><li><strong>스트리밍</strong>: Amazon Kinesis</li><li><strong>파일 스토리지</strong>: EFS, FSx</li><li><strong>블록 스토리지</strong>: EBS</li></ul><hr><h2 id="2-데이터-변환-특징공학"><a href="#2-데이터-변환-특징공학" class="headerlink" title="2. 데이터 변환 &amp; 특징공학"></a>2. 데이터 변환 &amp; 특징공학</h2><ul><li><strong>EMR</strong>: Hadoop, Spark 기반 대규모 데이터 처리</li><li><strong>결측치&#x2F;이상치 처리, 불균형 데이터 처리</strong></li><li><strong>SageMaker Processing, Data Wrangler</strong> 활용</li><li><strong>AWS Glue</strong>: ETL 파이프라인 자동화</li></ul><hr><h2 id="3-모델-학습-튜닝-평가"><a href="#3-모델-학습-튜닝-평가" class="headerlink" title="3. 모델 학습 &amp; 튜닝 &amp; 평가"></a>3. 모델 학습 &amp; 튜닝 &amp; 평가</h2><ul><li><strong>내장 알고리즘</strong>: XGBoost, Linear Learner, K-means, PCA 등</li><li><strong>딥러닝 기초</strong>: 뉴럴 네트워크, 옵티마이저, 학습률, 활성화 함수</li><li><strong>성능 지표</strong>: Precision, Recall, F1-score, Accuracy</li><li><strong>튜닝</strong>: SageMaker Automatic Model Tuning (Hyperparameter Optimization)</li></ul><hr><h2 id="4-생성형-AI"><a href="#4-생성형-AI" class="headerlink" title="4. 생성형 AI"></a>4. 생성형 AI</h2><ul><li><strong>Bedrock</strong>: 여러 파운데이션 모델 API 제공</li><li><strong>RAG (Retrieval Augmented Generation)</strong>: 외부 데이터 결합, 벡터 DB 활용</li><li><strong>Jumpstart</strong>: 사전 학습된 모델 빠른 활용</li><li><strong>Guardrails</strong>: 유해 콘텐츠 차단, PII 보호</li><li><strong>LLM Agent</strong>: 사용자 정의 툴과 코드 연동</li></ul><hr><h2 id="5-MLOps"><a href="#5-MLOps" class="headerlink" title="5. MLOps"></a>5. MLOps</h2><ul><li><strong>버전 관리</strong>: 데이터, 코드, 모델</li><li><strong>자동화</strong>: 데이터 수집, 전처리, 학습, 배포 파이프라인</li><li><strong>CI&#x2F;CD</strong>: CodePipeline, CodeBuild, CodeDeploy</li><li><strong>컨테이너화</strong>: EKS, ECR</li><li><strong>모니터링</strong>: CloudWatch, Model Monitor</li><li><strong>재학습</strong>: 지속적인 데이터 반영</li></ul><hr><h2 id="6-보안-거버넌스"><a href="#6-보안-거버넌스" class="headerlink" title="6. 보안 &amp; 거버넌스"></a>6. 보안 &amp; 거버넌스</h2><ul><li><strong>Shared Responsibility Model</strong><ul><li>AWS: 클라우드 인프라 보안</li><li>고객: 데이터, 접근 제어, 암호화</li></ul></li><li><strong>보안 서비스</strong>: IAM, KMS, Secrets Manager, Macie, WAF, Shield</li><li><strong>네트워크 보안</strong>: VPC, PrivateLink</li><li><strong>거버넌스 &amp; 비용 관리</strong>: CloudTrail, Config, Trusted Advisor, Budgets, Cost Explorer</li><li><strong>Well-Architected ML Lens</strong>: 모범 아키텍처 가이드라인</li></ul><hr><h2 id="시험-준비-팁"><a href="#시험-준비-팁" class="headerlink" title="시험 준비 팁"></a>시험 준비 팁</h2><ul><li>기출 및 유사 시험: <strong>ML Specialty, Data Engineer Associate</strong>와 겹치는 부분 많음</li><li>실제 경험 없어도 **핸즈온 랩(SageMaker Notebooks)**을 활용해 체험 필수</li><li>핵심 서비스: <strong>SageMaker, Bedrock, Glue, EMR, Kinesis, S3</strong></li><li>ML 기본기 (알고리즘, 지표, 전처리 기법) 반드시 숙지</li></ul><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;AWS-ML-엔지니어-어소시에이트-MLA-C01-한눈에-보기&quot;&gt;&lt;a href=&quot;#AWS-ML-엔지니어-어소시에이트-MLA-C01-한눈에-보기&quot; class=&quot;headerlink&quot; title=&quot;AWS ML 엔지니어 어소시에이트(MLA-C01</summary>
+      
+    
+    
+    
+    <category term="CERTIFICATION" scheme="https://kish191919.github.io/categories/CERTIFICATION/"/>
+    
+    <category term="AWS_ML_ASSOCIATE_KR" scheme="https://kish191919.github.io/categories/CERTIFICATION/AWS-ML-ASSOCIATE-KR/"/>
+    
+    
+    <category term="AWS" scheme="https://kish191919.github.io/tags/AWS/"/>
+    
+    <category term="KOREAN" scheme="https://kish191919.github.io/tags/KOREAN/"/>
+    
+    <category term="AWS_ML_ASSOCIATE" scheme="https://kish191919.github.io/tags/AWS-ML-ASSOCIATE/"/>
+    
+  </entry>
   
   <entry>
     <title>(한국어) AWS Certified AI Practitioner (41) - 거버넌스 &amp; 컴플라이언스의 중요성</title>
@@ -564,36 +594,6 @@
     <category term="AWS" scheme="https://kish191919.github.io/tags/AWS/"/>
     
     <category term="AWS_AI_PRACTITIONER" scheme="https://kish191919.github.io/tags/AWS-AI-PRACTITIONER/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>(한국어) AWS Certified AI Practitioner (32) - Amazon Polly &amp; Rekognition</title>
-    <link href="https://kish191919.github.io/2025/09/02/KO-AWS-Certified-AI-Practitioner-32/"/>
-    <id>https://kish191919.github.io/2025/09/02/KO-AWS-Certified-AI-Practitioner-32/</id>
-    <published>2025-09-02T16:13:52.000Z</published>
-    <updated>2025-09-02T16:28:04.169Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Amazon-Polly"><a href="#Amazon-Polly" class="headerlink" title="Amazon Polly"></a>Amazon Polly</h1><h3 id="기본-개념"><a href="#기본-개념" class="headerlink" title="기본 개념"></a>기본 개념</h3><ul><li><strong>Amazon Polly</strong>는 텍스트를 사람처럼 자연스러운 음성으로 바꿔주는 서비스입니다.</li><li><strong>딥러닝 기반 음성 합성(TTS, Text-to-Speech)</strong> 기술을 사용해 실제 사람 목소리처럼 들리게 합니다.</li><li>이 기능을 활용하면 “말하는 애플리케이션”을 만들 수 있습니다. 예: 뉴스 읽기 앱, 시각장애인용 리더, 고객센터 챗봇 등.</li></ul><p align="center">  <img src="/images/aws_basic_153.png" width="80%"></p> <h3 id="주요-기능"><a href="#주요-기능" class="headerlink" title="주요 기능"></a>주요 기능</h3><ol><li><strong>Lexicon (발음 사전)</strong><ul><li>특정 단어를 원하는 방식으로 읽도록 설정 가능.</li><li>예: <code>AWS</code> → <em>Amazon Web Services</em>, <code>W3C</code> → <em>World Wide Web Consortium</em>.</li></ul></li><li><strong>SSML (Speech Synthesis Markup Language)</strong><ul><li>발음·억양·속도·강세 등을 조정하는 마크업 언어.</li><li>예: <code>&quot;Hello, &lt;break time=&#39;1s&#39;/&gt; how are you?&quot;</code> → “헬로” 후 1초 쉬고 “하우 아 유?”</li><li>시험 포인트: <strong>Polly에서 발음을 제어하려면 SSML 사용</strong>.</li></ul></li><li><strong>Voice Engine 종류</strong><ul><li><strong>Standard</strong>: 기본 엔진, 가장 오래됨.</li><li><strong>Neural</strong>: 사람 목소리에 더 가까운 고품질 엔진.</li><li><strong>Long-form</strong>: 긴 콘텐츠(예: 오디오북)에 최적화.</li><li><strong>Generative</strong>: 최신 Gen AI 기반, 가장 자연스럽고 감정 표현 가능.</li></ul></li><li><strong>Speech Marks</strong><ul><li>오디오에서 단어·문장이 시작&#x2F;끝나는 위치를 표시.</li><li><strong>활용 사례</strong>: 입 모양과 싱크 맞추기(lip-sync), 자막이나 단어 하이라이팅.</li></ul></li></ol><p>👉 <strong>시험에 자주 나오는 포인트</strong></p><ul><li>Polly &#x3D; TTS(Text-to-Speech), Transcribe &#x3D; STT(Speech-to-Text).</li><li>발음을 제어하는 방법 → <strong>Lexicon &#x2F; SSML</strong>.</li><li>음성 엔진 종류 차이 (Standard vs Neural vs Generative).</li></ul><hr><h1 id="Amazon-Rekognition"><a href="#Amazon-Rekognition" class="headerlink" title="Amazon Rekognition"></a>Amazon Rekognition</h1><h3 id="기본-개념-1"><a href="#기본-개념-1" class="headerlink" title="기본 개념"></a>기본 개념</h3><ul><li>이미지와 동영상을 분석하는 서비스.</li><li><strong>머신러닝 기반</strong>으로 객체, 사람, 텍스트, 장면 등을 인식합니다.</li><li>얼굴 분석(성별, 나이대, 감정), 얼굴 검색(유사 인물 찾기), 셀러브리티 인식 등이 가능.</li></ul><p align="center">  <img src="/images/aws_basic_154.png" width="80%"></p> <h3 id="주요-기능-시험에서-잘-나옴"><a href="#주요-기능-시험에서-잘-나옴" class="headerlink" title="주요 기능 (시험에서 잘 나옴)"></a>주요 기능 (시험에서 잘 나옴)</h3><ol><li><strong>라벨링(Labeling)</strong><ul><li>사진·영상에서 객체나 장면을 자동 인식 (예: 사람, 자동차, 건물).</li></ul></li><li><strong>텍스트 탐지(Text Detection)</strong><ul><li>이미지 안의 글자 추출 (예: 차량 번호판, 간판 텍스트).</li></ul></li><li><strong>얼굴 분석(Face Analysis)</strong><ul><li>나이대, 성별, 감정(웃음, 눈뜸 여부 등).</li></ul></li><li><strong>얼굴 검색&#x2F;비교(Face Search &amp; Verification)</strong><ul><li>데이터베이스에 있는 얼굴과 비교 → 본인 인증이나 중복 인식에 활용.</li></ul></li><li><strong>셀러브리티 인식(Celebrity Recognition)</strong><ul><li>유명인 얼굴을 자동으로 인식 (예: Jeff Bezos, Andy Jassy).</li></ul></li><li><strong>경로 추적(Pathing)</strong><ul><li>스포츠 경기에서 선수·공의 움직임 추적.</li></ul></li><li><strong>PPE(개인 보호 장비) 감지</strong><ul><li>마스크, 안전모, 장갑 착용 여부 확인 → 산업&#x2F;보안 환경에서 사용.</li></ul></li></ol><hr><h3 id="고급-기능"><a href="#고급-기능" class="headerlink" title="고급 기능"></a>고급 기능</h3><ol><li><strong>Custom Labels (맞춤 라벨링)</strong><ul><li>기본 제공 라벨 외에, 기업이 직접 원하는 객체&#x2F;로고 인식 가능.</li><li>예: NFL → 경기 사진에서 NFL 로고 자동 탐지.</li><li>방법:<ul><li>학습용 이미지(S3에 저장) 업로드 → Rekognition이 맞춤 모델 생성.</li><li>수백 장 이하의 이미지로도 가능.</li></ul></li></ul></li><li><strong>Content Moderation (콘텐츠 필터링)</strong><ul><li>부적절하거나 유해한 이미지·영상 자동 탐지.</li><li>예: SNS, 광고, 방송 콘텐츠에서 유해 콘텐츠 필터링.</li><li><strong>사람이 직접 검토해야 하는 양을 1~5% 수준으로 줄임.</strong></li><li>**Amazon A2I(Augmented AI)**와 통합 → AI가 불확실할 때 사람에게 검토 요청.</li><li><strong>Custom Moderation Adapter</strong> 사용 → 기업 맞춤형 콘텐츠 필터링 가능.</li></ul></li></ol><p align="center">  <img src="/images/aws_basic_155.png" width="80%"></p> <p align="center">  <img src="/images/aws_basic_156.png" width="80%"></p> <hr><h3 id="시험-포인트-정리"><a href="#시험-포인트-정리" class="headerlink" title="시험 포인트 정리"></a>시험 포인트 정리</h3><ul><li><strong>Polly vs Transcribe</strong> → Polly는 TTS, Transcribe는 STT.</li><li><strong>Polly 주요 기능</strong> → Lexicon, SSML, Speech Marks, Neural&#x2F;Standard 엔진.</li><li><strong>Rekognition 주요 기능</strong> → 라벨링, 얼굴 분석&#x2F;검색, 텍스트 탐지, 콘텐츠 필터링, Custom Labels.</li><li><strong>Rekognition Content Moderation</strong> → 부적절 콘텐츠 자동 감지, A2I와 연계.</li><li><strong>Custom Labels</strong> → 소수의 이미지 데이터만으로 기업 맞춤형 객체 인식 가능.</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;Amazon-Polly&quot;&gt;&lt;a href=&quot;#Amazon-Polly&quot; class=&quot;headerlink&quot; title=&quot;Amazon Polly&quot;&gt;&lt;/a&gt;Amazon Polly&lt;/h1&gt;&lt;h3 id=&quot;기본-개념&quot;&gt;&lt;a href=&quot;#기본-개념&quot; c</summary>
-      
-    
-    
-    
-    <category term="CERTIFICATION" scheme="https://kish191919.github.io/categories/CERTIFICATION/"/>
-    
-    <category term="AWS_AI_PRACTITIONER_KR" scheme="https://kish191919.github.io/categories/CERTIFICATION/AWS-AI-PRACTITIONER-KR/"/>
-    
-    
-    <category term="AWS" scheme="https://kish191919.github.io/tags/AWS/"/>
-    
-    <category term="AWS_AI_PRACTITIONER" scheme="https://kish191919.github.io/tags/AWS-AI-PRACTITIONER/"/>
-    
-    <category term="KOREAN" scheme="https://kish191919.github.io/tags/KOREAN/"/>
     
   </entry>
   
