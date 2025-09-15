@@ -6,7 +6,7 @@
   <link href="https://kish191919.github.io/atom.xml" rel="self"/>
   
   <link href="https://kish191919.github.io/"/>
-  <updated>2025-09-15T04:13:20.934Z</updated>
+  <updated>2025-09-15T20:57:53.356Z</updated>
   <id>https://kish191919.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Databricks CV Anomaly Detection</title>
+    <link href="https://kish191919.github.io/2025/09/15/Databricks-CV-Anomaly-Detection/"/>
+    <id>https://kish191919.github.io/2025/09/15/Databricks-CV-Anomaly-Detection/</id>
+    <published>2025-09-15T20:40:23.000Z</published>
+    <updated>2025-09-15T20:57:53.356Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="👁️-Databricks-Computer-Vision-Anomaly-Detection-Model-Deployment"><a href="#👁️-Databricks-Computer-Vision-Anomaly-Detection-Model-Deployment" class="headerlink" title="👁️ Databricks + Computer Vision Anomaly Detection &amp; Model Deployment"></a>👁️ Databricks + Computer Vision Anomaly Detection &amp; Model Deployment</h2><p><em>A complete guide to anomaly detection with Databricks and Apache Spark</em>  </p><blockquote><p>“From data ingestion to real-time serving — build and deploy scalable computer vision anomaly detection models.”</p></blockquote><p>📎 <strong>Full Project</strong>:<br><a href="https://github.com/kish191919/Databricks_CV_Anomaly_Detection">👉 View Jupyter Notebooks on GitHub</a></p><p align="center">  <img src="/images/CA_Anomaly_Detection.png" width="80%"></p><hr><h3 id="📌-One-Line-Summary"><a href="#📌-One-Line-Summary" class="headerlink" title="📌 One-Line Summary"></a>📌 One-Line Summary</h3><p>This project provides a full pipeline for <strong>computer vision–based anomaly detection</strong>, covering <strong>data ingestion, preprocessing, model training, deployment, and REST API serving</strong> — all within <strong>Databricks</strong> and powered by <strong>Apache Spark</strong>.</p><hr><h2 id="1️⃣-How-It-Was-Built"><a href="#1️⃣-How-It-Was-Built" class="headerlink" title="1️⃣ How It Was Built"></a>1️⃣ How It Was Built</h2><h3 id="1-Utilities-00-utils-ipynb"><a href="#1-Utilities-00-utils-ipynb" class="headerlink" title="1. Utilities (00_utils.ipynb)"></a><strong>1. Utilities (00_utils.ipynb)</strong></h3><ul><li>Common helper functions for preprocessing and visualization  </li><li>Reusable utilities to streamline workflows</li></ul><hr><h3 id="2-Data-Ingestion-ETL-01-Ingestion-ETL-ipynb"><a href="#2-Data-Ingestion-ETL-01-Ingestion-ETL-ipynb" class="headerlink" title="2. Data Ingestion &amp; ETL (01_Ingestion_ETL.ipynb)"></a><strong>2. Data Ingestion &amp; ETL (01_Ingestion_ETL.ipynb)</strong></h3><ul><li>Ingested large-scale image datasets into Databricks  </li><li>Implemented Spark-based ETL for scalability  </li><li>Optimized storage and partitioning for performance and cost efficiency </li><li>Image Processing Visualization</li></ul><p align="center">  <img src="/images/image_processing_visualization.png" width="80%"></p><hr><h3 id="3-Deep-Learning-Training-02-HF-Deep-Learning-ipynb"><a href="#3-Deep-Learning-Training-02-HF-Deep-Learning-ipynb" class="headerlink" title="3. Deep Learning Training (02_HF_Deep_Learning.ipynb)"></a><strong>3. Deep Learning Training (02_HF_Deep_Learning.ipynb)</strong></h3><ul><li>Applied image preprocessing and augmentation  </li><li>Trained models using <strong>PyTorch + Hugging Face</strong>  </li><li>Evaluated performance with metrics like <strong>Accuracy</strong>, <strong>Loss</strong>, and <strong>PR-AUC</strong></li></ul><hr><h3 id="4-Model-Deployment-03-Model-Deployment-ipynb"><a href="#4-Model-Deployment-03-Model-Deployment-ipynb" class="headerlink" title="4. Model Deployment (03_Model_Deployment.ipynb)"></a><strong>4. Model Deployment (03_Model_Deployment.ipynb)</strong></h3><ul><li>Registered trained models in <strong>MLflow</strong>  </li><li>Managed versions for reproducibility  </li><li>Optimized inference pipelines for deployment</li></ul><hr><h3 id="5-Model-Serving-04-Model-Serving-ipynb"><a href="#5-Model-Serving-04-Model-Serving-ipynb" class="headerlink" title="5. Model Serving (04_Model_Serving.ipynb)"></a><strong>5. Model Serving (04_Model_Serving.ipynb)</strong></h3><ul><li>Deployed models with <strong>Databricks Model Serving</strong>  </li><li>Exposed REST API endpoints for real-time predictions  </li><li>Integrated anomaly detection into external systems</li></ul><hr><h2 id="2️⃣-Optimization-Best-Practices"><a href="#2️⃣-Optimization-Best-Practices" class="headerlink" title="2️⃣ Optimization &amp; Best Practices"></a>2️⃣ Optimization &amp; Best Practices</h2><ul><li>Spark optimizations for large-scale image data  </li><li>Databricks cluster configuration for <strong>cost efficiency</strong>  </li><li>Strategies for balancing performance and resource usage</li></ul><hr><h2 id="🛠-Technologies-Used"><a href="#🛠-Technologies-Used" class="headerlink" title="🛠 Technologies Used"></a>🛠 Technologies Used</h2><table><thead><tr><th>Step</th><th>Technology</th></tr></thead><tbody><tr><td>Data Processing</td><td>Apache Spark, Databricks</td></tr><tr><td>Deep Learning</td><td>PyTorch, Hugging Face</td></tr><tr><td>Experiment Mgmt</td><td>MLflow</td></tr><tr><td>Deployment</td><td>Databricks Model Registry</td></tr><tr><td>Serving</td><td>REST API, Databricks Serving</td></tr></tbody></table><hr><h2 id="💡-Key-Learnings"><a href="#💡-Key-Learnings" class="headerlink" title="💡 Key Learnings"></a>💡 Key Learnings</h2><ul><li>Full lifecycle ML on Databricks: ingestion → training → deployment → serving  </li><li>How to optimize Databricks for <strong>low-cost, high-performance workflows</strong>  </li><li>Practical experience with model versioning, reproducibility, and API integration</li></ul><hr><h2 id="🔗-GitHub-Repository"><a href="#🔗-GitHub-Repository" class="headerlink" title="🔗 GitHub Repository"></a>🔗 GitHub Repository</h2><p>📂 <a href="https://github.com/kish191919/Databricks_CV_Anomaly_Detection">View Project on GitHub</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;👁️-Databricks-Computer-Vision-Anomaly-Detection-Model-Deployment&quot;&gt;&lt;a href=&quot;#👁️-Databricks-Computer-Vision-Anomaly-Detection-Model-</summary>
+      
+    
+    
+    
+    <category term="Showcase" scheme="https://kish191919.github.io/categories/Showcase/"/>
+    
+    
+    <category term="Databricks" scheme="https://kish191919.github.io/tags/Databricks/"/>
+    
+    <category term="Apache Spark" scheme="https://kish191919.github.io/tags/Apache-Spark/"/>
+    
+    <category term="Computer Vision" scheme="https://kish191919.github.io/tags/Computer-Vision/"/>
+    
+    <category term="Deep Learning" scheme="https://kish191919.github.io/tags/Deep-Learning/"/>
+    
+    <category term="MLflow" scheme="https://kish191919.github.io/tags/MLflow/"/>
+    
+  </entry>
   
   <entry>
     <title>(한국어) AWS ML Associate (6) - Amazon S3 핵심 정리</title>
@@ -573,34 +605,6 @@
     <category term="AWS_AI_PRACTITIONER" scheme="https://kish191919.github.io/tags/AWS-AI-PRACTITIONER/"/>
     
     <category term="KOREAN" scheme="https://kish191919.github.io/tags/KOREAN/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>AWS Certified AI Practitioner(35) - EC2</title>
-    <link href="https://kish191919.github.io/2025/09/02/AWS-Certified-AI-Practitioner-35/"/>
-    <id>https://kish191919.github.io/2025/09/02/AWS-Certified-AI-Practitioner-35/</id>
-    <published>2025-09-02T17:05:29.000Z</published>
-    <updated>2025-09-02T17:13:50.788Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Amazon-EC2-Elastic-Compute-Cloud"><a href="#Amazon-EC2-Elastic-Compute-Cloud" class="headerlink" title="Amazon EC2 (Elastic Compute Cloud)"></a>Amazon EC2 (Elastic Compute Cloud)</h1><h3 id="What-it-is"><a href="#What-it-is" class="headerlink" title="What it is"></a>What it is</h3><ul><li><strong>EC2 &#x3D; Elastic Compute Cloud</strong> → AWS’s most popular <strong>IaaS (Infrastructure as a Service)</strong> offering.</li><li>With EC2, you can:<ul><li><strong>Rent virtual machines</strong> (instances).</li><li><strong>Attach storage</strong> with EBS (Elastic Block Store) or EFS.</li><li><strong>Distribute traffic</strong> with ELB (Elastic Load Balancing).</li><li><strong>Scale automatically</strong> with Auto Scaling Groups (ASG).</li></ul></li><li><strong>Why it matters:</strong> Understanding EC2 is fundamental to understanding the AWS Cloud.</li></ul><hr><h1 id="EC2-Sizing-Configuration-Options"><a href="#EC2-Sizing-Configuration-Options" class="headerlink" title="EC2 Sizing &amp; Configuration Options"></a>EC2 Sizing &amp; Configuration Options</h1><p>When launching an EC2 instance, you configure:</p><ul><li><strong>Operating System (OS):</strong> Linux, Windows, or macOS.</li><li><strong>CPU:</strong> Number of vCPUs and compute power.</li><li><strong>Memory (RAM):</strong> Amount of memory allocated.</li><li><strong>Storage Options:</strong><ul><li><strong>Network-attached storage:</strong> EBS or EFS.</li><li><strong>Instance Store (local hardware):</strong> Temporary but very fast.</li></ul></li><li><strong>Networking:</strong> Network card bandwidth, public IP address.</li><li><strong>Firewall:</strong> Security Groups control inbound&#x2F;outbound traffic.</li><li><strong>Bootstrap Scripts:</strong> EC2 <strong>User Data</strong> can configure the instance at first launch (e.g., install packages, run setup commands).</li></ul><p>💡 <strong>Exam Tip:</strong></p><ul><li><em>Security Groups &#x3D; virtual firewalls.</em></li><li><em>EC2 User Data &#x3D; automation at first boot.</em></li></ul><hr><h1 id="Amazon’s-Hardware-for-AI-ML"><a href="#Amazon’s-Hardware-for-AI-ML" class="headerlink" title="Amazon’s Hardware for AI &amp; ML"></a>Amazon’s Hardware for AI &amp; ML</h1><p>For <strong>machine learning workloads</strong>, AWS offers specialized EC2 families and custom silicon:</p><h3 id="GPU-Instances"><a href="#GPU-Instances" class="headerlink" title="GPU Instances"></a>GPU Instances</h3><ul><li><strong>P-series (P3, P4, P5):</strong> Optimized for deep learning training.</li><li><strong>G-series (G3–G6):</strong> Graphics, inference, and virtual desktops.</li></ul><h3 id="AWS-Trainium"><a href="#AWS-Trainium" class="headerlink" title="AWS Trainium"></a>AWS Trainium</h3><ul><li>Custom <strong>ML training chip</strong> designed for <strong>deep learning models with 100B+ parameters</strong>.</li><li><strong>Trn1 instances</strong> have up to <strong>16 Trainium accelerators</strong>.</li><li><strong>50% lower training cost</strong> compared to GPU-based instances.</li></ul><h3 id="AWS-Inferentia"><a href="#AWS-Inferentia" class="headerlink" title="AWS Inferentia"></a>AWS Inferentia</h3><ul><li>Custom <strong>inference chip</strong> optimized for performance and cost.</li><li>Powers <strong>Inf1 and Inf2 instances</strong>.</li><li>Provides <strong>up to 4x throughput</strong> and <strong>70% cost savings</strong> over GPUs.</li></ul><p>👉 <strong>Exam Tip:</strong></p><ul><li><strong>Trainium (Trn1) &#x3D; Training at scale, lower cost.</strong></li><li><strong>Inferentia (Inf1&#x2F;Inf2) &#x3D; High-performance, low-cost inference.</strong></li><li>Both have <strong>lowest environmental footprint</strong> → “green AI hardware.”</li></ul><hr><h1 id="Key-Takeaways-for-the-Exam"><a href="#Key-Takeaways-for-the-Exam" class="headerlink" title="Key Takeaways for the Exam"></a>Key Takeaways for the Exam</h1><ul><li><strong>EC2 &#x3D; Virtual servers in the cloud</strong>.</li><li><strong>Storage</strong>: EBS&#x2F;EFS for persistent storage, Instance Store for temporary high-speed storage.</li><li><strong>ELB &amp; ASG</strong>: Scaling and load balancing.</li><li><strong>Security Group</strong>: Acts as firewall.</li><li><strong>User Data</strong>: Automates setup at instance launch.</li><li><strong>AI Workloads</strong>:<ul><li><strong>GPU Instances (P, G series)</strong> for ML&#x2F;DL.</li><li><strong>Trainium (Trn1)</strong> for training.</li><li><strong>Inferentia (Inf1&#x2F;Inf2)</strong> for inference.</li></ul></li></ul><p>💡 <strong>Common Exam Question Patterns:</strong></p><ul><li><em>“Which instance type is best for large-scale ML model training?” → Trn1 (Trainium).</em></li><li><em>“Which service provides cost-effective inference at scale?” → Inferentia.</em></li><li><em>“Where do you configure startup scripts for EC2?” → EC2 User Data.</em></li></ul><p align="center">  <img src="/images/aws_basic_165.png" width="80%"></p> ]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;Amazon-EC2-Elastic-Compute-Cloud&quot;&gt;&lt;a href=&quot;#Amazon-EC2-Elastic-Compute-Cloud&quot; class=&quot;headerlink&quot; title=&quot;Amazon EC2 (Elastic Compute </summary>
-      
-    
-    
-    
-    <category term="CERTIFICATION" scheme="https://kish191919.github.io/categories/CERTIFICATION/"/>
-    
-    <category term="AWS_AI_PRACTITIONER" scheme="https://kish191919.github.io/categories/CERTIFICATION/AWS-AI-PRACTITIONER/"/>
-    
-    
-    <category term="AWS" scheme="https://kish191919.github.io/tags/AWS/"/>
-    
-    <category term="AWS_AI_PRACTITIONER" scheme="https://kish191919.github.io/tags/AWS-AI-PRACTITIONER/"/>
     
   </entry>
   
