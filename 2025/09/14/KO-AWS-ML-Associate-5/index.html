@@ -1,0 +1,418 @@
+<!DOCTYPE html><html lang="[&quot;en&quot;,&quot;ko&quot;,&quot;default&quot;]" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>(한국어) AWS ML Associate (5) - Amazon S3 핵심 정리 | Danny's Blog</title><meta name="author" content="Danny Ki"><meta name="copyright" content="Danny Ki"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Amazon S3 핵심 정리 왜 중요한가?Amazon S3(Simple Storage Service)는 AWS의 핵심 스토리지 서비스로, “사실상 무한대(virtually unlimited)” 확장성을 제공하는 객체 스토리지(Object Storage) 입니다. 대부분의 데이터&#x2F;AI 워크로드가 S3를 중심으로 연결되며, 다른 AWS 서비스와의 통합">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(한국어) AWS ML Associate (5) - Amazon S3 핵심 정리">
+<meta property="og:url" content="https://kish191919.github.io/2025/09/14/KO-AWS-ML-Associate-5/index.html">
+<meta property="og:site_name" content="Danny&#39;s Blog">
+<meta property="og:description" content="Amazon S3 핵심 정리 왜 중요한가?Amazon S3(Simple Storage Service)는 AWS의 핵심 스토리지 서비스로, “사실상 무한대(virtually unlimited)” 확장성을 제공하는 객체 스토리지(Object Storage) 입니다. 대부분의 데이터&#x2F;AI 워크로드가 S3를 중심으로 연결되며, 다른 AWS 서비스와의 통합">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kish191919.github.io/img/my_pic.jpeg">
+<meta property="article:published_time" content="2025-09-15T02:33:24.000Z">
+<meta property="article:modified_time" content="2025-09-15T03:49:06.877Z">
+<meta property="article:author" content="Danny Ki">
+<meta property="article:tag" content="AWS">
+<meta property="article:tag" content="KOREAN">
+<meta property="article:tag" content="AWS_ML_ASSOCIATE">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kish191919.github.io/img/my_pic.jpeg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "(한국어) AWS ML Associate (5) - Amazon S3 핵심 정리",
+  "url": "https://kish191919.github.io/2025/09/14/KO-AWS-ML-Associate-5/",
+  "image": "https://kish191919.github.io/img/my_pic.jpeg",
+  "datePublished": "2025-09-15T02:33:24.000Z",
+  "dateModified": "2025-09-15T03:49:06.877Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Danny Ki",
+      "url": "https://kish191919.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kish191919.github.io/2025/09/14/KO-AWS-ML-Associate-5/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="UfZT9jGVnwcVj8z_sCj9LyqnWho6ubHg1Q7o_bvXfKs"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=GTM-N66KNRNW"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'GTM-N66KNRNW')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'GTM-N66KNRNW', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '(한국어) AWS ML Associate (5) - Amazon S3 핵심 정리',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://kish191919.github.io/",
+  "name": "Danny's Blog",
+  "inLanguage": "en"
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Danny's Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">98</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">24</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Danny's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">(한국어) AWS ML Associate (5) - Amazon S3 핵심 정리</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">(한국어) AWS ML Associate (5) - Amazon S3 핵심 정리</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-09-15T02:33:24.000Z" title="Created 2025-09-14 22:33:24">2025-09-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-09-15T03:49:06.877Z" title="Updated 2025-09-14 23:49:06">2025-09-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CERTIFICATION/">CERTIFICATION</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CERTIFICATION/AWS-ML-ASSOCIATE-KR/">AWS_ML_ASSOCIATE_KR</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="Amazon-S3-핵심-정리"><a href="#Amazon-S3-핵심-정리" class="headerlink" title="Amazon S3 핵심 정리"></a>Amazon S3 핵심 정리</h1><blockquote>
+<p><strong>왜 중요한가?</strong><br>Amazon S3(Simple Storage Service)는 AWS의 핵심 스토리지 서비스로, “사실상 무한대(virtually unlimited)” 확장성을 제공하는 <strong>객체 스토리지(Object Storage)</strong> 입니다. 대부분의 데이터&#x2F;AI 워크로드가 S3를 중심으로 연결되며, 다른 AWS 서비스와의 통합성이 매우 뛰어납니다.</p>
+</blockquote>
+<hr>
+<h2 id="1-S3가-쓰이는-곳-Use-Cases"><a href="#1-S3가-쓰이는-곳-Use-Cases" class="headerlink" title="1) S3가 쓰이는 곳 (Use Cases)"></a>1) S3가 쓰이는 곳 (Use Cases)</h2><ul>
+<li><strong>백업 &amp; 스토리지(Backup &amp; Storage)</strong>: 장기 보관, 스냅샷 저장.</li>
+<li><strong>재해복구(Disaster Recovery, DR)</strong>: 다른 <strong>리전(Region)</strong> 으로 복제해 RTO&#x2F;RPO 개선.</li>
+<li><strong>아카이브(Archive)</strong>: 저비용 보관(<strong>S3 Glacier</strong> 계열) 후 필요 시 복원.</li>
+<li><strong>하이브리드 스토리지(Hybrid Cloud Storage)</strong>: 온프레미스 + 클라우드 연동.</li>
+<li><strong>애플리케이션&#x2F;미디어 호스팅(App&#x2F;Media Hosting)</strong>: 이미지&#x2F;동영상&#x2F;정적 파일 제공.</li>
+<li><strong>데이터 레이크(Data Lake) &amp; 빅데이터 분석(Big Data Analytics)</strong>: 원천 데이터 저장 후 <strong>Athena&#x2F;Glue&#x2F;Lake Formation</strong> 등으로 분석.</li>
+<li><strong>소프트웨어 배포(Software Delivery)</strong>: 설치 파일, 모델 아티팩트 배포.</li>
+<li><strong>정적 웹사이트(Static Website)</strong>: 정적 호스팅 + <strong>CloudFront(CDN)</strong> 로 가속.</li>
+</ul>
+<blockquote>
+<p><strong>MLA-C01 포인트</strong>: S3는 <strong>SageMaker</strong>와 함께 자주 출제됩니다. 학습&#x2F;추론 데이터 저장, 모델 아티팩트 저장, <strong>Athena&#x2F;Glue</strong>와 연계한 피처 추출 파이프라인 등. S3 경로 표기(<strong>S3 URI</strong>)와 권한 모델을 익히세요.</p>
+</blockquote>
+<hr>
+<h2 id="2-버킷-Bucket-—-최상위-네임스페이스"><a href="#2-버킷-Bucket-—-최상위-네임스페이스" class="headerlink" title="2) 버킷(Bucket) — 최상위 네임스페이스"></a>2) 버킷(Bucket) — 최상위 네임스페이스</h2><ul>
+<li><strong>정의</strong>: 객체(파일)를 담는 <strong>컨테이너</strong>. UI가 폴더처럼 보여도, 실제로는 <strong>버킷&#x2F;키(key)</strong> 기반의 평면 구조.</li>
+<li><strong>글로벌 유니크 이름(Global Unique Name)</strong>: <strong>전 세계 모든 계정&#x2F;리전에서 유일</strong>해야 함.</li>
+<li><strong>리전 범위(Region-scoped)</strong>: 버킷은 <strong>특정 리전</strong>에 생성됩니다. (S3가 글로벌처럼 보여도 생성 위치는 리전)</li>
+<li><strong>네이밍 규칙(Naming Rules)</strong> (대표 규칙만 발췌)<ul>
+<li>영문 소문자&#x2F;숫자&#x2F;하이픈만 사용, <strong>대문자&#x2F;언더스코어 불가</strong></li>
+<li>길이 3~63자</li>
+<li>IP 형태 금지(예: <code>192.168.0.1</code>)</li>
+<li><code>xn--</code> 로 시작 금지, <code>-s3alias</code> 로 끝 금지</li>
+</ul>
+</li>
+<li><strong>권장 초기 설정</strong><ul>
+<li><strong>ACL 비활성화(ACLs disabled, Bucket owner enforced)</strong>  </li>
+<li><strong>퍼블릭 접근 차단(Block Public Access)</strong>: 기본 on  </li>
+<li><strong>서버사이드 암호화(Server-Side Encryption, SSE)</strong>: 기본 <strong>SSE-S3</strong> 또는 <strong>SSE-KMS</strong></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>시험 포인트</strong>  </p>
+<ul>
+<li>“버킷 이름 글로벌 유일”과 “버킷은 리전에 종속”을 구분하세요.  </li>
+<li>보안 기본값: <strong>Block Public Access &#x3D; ON</strong>, <strong>ACL 비권장</strong>, <strong>SSE 적용</strong>.</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="3-객체-Object-키-Key"><a href="#3-객체-Object-키-Key" class="headerlink" title="3) 객체(Object) &amp; 키(Key)"></a>3) 객체(Object) &amp; 키(Key)</h2><ul>
+<li><strong>키(Key) &#x3D; 전체 경로(Full Path)</strong>  <ul>
+<li>예: <code>s3://my-bucket/my_folder1/another_folder/my_file.txt</code>  </li>
+<li><strong>Prefix + Object Name</strong> 조합 (디렉터리 개념은 UI 편의일 뿐, 실제로는 긴 문자열 경로)</li>
+</ul>
+</li>
+<li><strong>크기 제한(Size Limits)</strong><ul>
+<li><strong>최대 5TB</strong></li>
+<li><strong>5GB 초과 업로드는 반드시 <em>멀티파트 업로드(Multi-part Upload)</em></strong> 사용</li>
+</ul>
+</li>
+<li><strong>메타데이터(Metadata)</strong>: 시스템&#x2F;사용자 정의 Key-Value</li>
+<li><strong>태그(Tags)</strong>: 최대 10쌍, 비용&#x2F;수명주기&#x2F;보안 정책에 유용</li>
+<li><strong>버전 ID(Version ID)</strong>: <strong>버전 관리(Versioning)</strong> 활성화 시 부여</li>
+</ul>
+<blockquote>
+<p><strong>시험 포인트</strong>  </p>
+<ul>
+<li><strong>5GB 초과 → Multi-part Upload 필수</strong>  </li>
+<li><strong>Versioning</strong>: 삭제&#x2F;덮어쓰기 보호, <strong>MFA Delete</strong> 와 함께 보안 강화</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="4-접근-방법-퍼블릭-URL-vs-프리사인드-URL"><a href="#4-접근-방법-퍼블릭-URL-vs-프리사인드-URL" class="headerlink" title="4) 접근 방법: 퍼블릭 URL vs 프리사인드 URL"></a>4) 접근 방법: 퍼블릭 URL vs 프리사인드 URL</h2><ul>
+<li><strong>Public URL</strong>: 객체가 <strong>퍼블릭</strong>이어야 접근 가능(기본은 차단됨).</li>
+<li><strong>Pre-signed URL</strong>: <strong>임시 권한이 서명된 URL</strong>. 비공개 객체도 <strong>서명 만료 시간 동안</strong> 접근 가능. 안전한 1회성 공유에 적합.</li>
+</ul>
+<blockquote>
+<p><strong>시험 포인트</strong>: “객체는 비공개인데 외부와 잠깐 공유하고 싶다” → <strong>Pre-signed URL</strong> 정답.</p>
+</blockquote>
+<hr>
+<h2 id="5-필수-보안-운영-기능-Security-Operations"><a href="#5-필수-보안-운영-기능-Security-Operations" class="headerlink" title="5) 필수 보안&#x2F;운영 기능 (Security &amp; Operations)"></a>5) 필수 보안&#x2F;운영 기능 (Security &amp; Operations)</h2><ul>
+<li><strong>암호화(Encryption)</strong><ul>
+<li><strong>SSE-S3</strong>(Amazon S3 managed keys) — 가장 간단</li>
+<li><strong>SSE-KMS</strong>(AWS KMS keys) — <strong>키 사용 권한&#x2F;감사</strong> 필요 시</li>
+<li><strong>CSE(Client-Side Encryption)</strong> — 클라이언트에서 암호화 후 업로드</li>
+</ul>
+</li>
+<li><strong>버전 관리(Versioning)</strong> + <strong>MFA Delete</strong>: 실수&#x2F;랜섬웨어 대응</li>
+<li><strong>수명주기(Lifecycle) 정책</strong>: <strong>Standard → IA → Glacier</strong> 티어링, 자동 만료&#x2F;아카이브</li>
+<li><strong>복제(Replication)</strong><ul>
+<li><strong>CRR(Cross-Region Replication)</strong>: DR&#x2F;지연단축</li>
+<li><strong>SRR(Same-Region Replication)</strong>: 멀티계정&#x2F;멀티버킷 분리</li>
+</ul>
+</li>
+<li><strong>액세스 제어(Access Control)</strong><ul>
+<li><strong>IAM 정책(IAM Policy)</strong>, <strong>버킷 정책(Bucket Policy)</strong> 중심</li>
+<li><strong>S3 Access Points</strong>&#x2F;**VPC 엔드포인트(Interface&#x2F;Gateway)**로 네트워크 격리</li>
+</ul>
+</li>
+<li><strong>감사&#x2F;로깅(Audit&#x2F;Logging)</strong>: <strong>CloudTrail</strong>, <strong>Server Access Logging</strong>, <strong>S3 Object Ownership</strong></li>
+</ul>
+<blockquote>
+<p><strong>시험 포인트</strong>  </p>
+<ul>
+<li><strong>SSE-KMS</strong> 선택 시 <strong>KMS 키 권한</strong>(Encrypt&#x2F;Decrypt&#x2F;API호출)이 추가로 필요.  </li>
+<li><strong>CRR</strong>은 <strong>버전닝이 양쪽 모두 활성화</strong>되어야 작동. 소유권&#x2F;권한 이슈 자주 출제.</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="6-정적-웹사이트-CDN"><a href="#6-정적-웹사이트-CDN" class="headerlink" title="6) 정적 웹사이트 &amp; CDN"></a>6) 정적 웹사이트 &amp; CDN</h2><ul>
+<li><strong>Static Website Hosting</strong>: S3 정적 웹 사이트 엔드포인트 사용(퍼블릭 접근 필요).  </li>
+<li><strong>CloudFront</strong> 앞단 배치 권장: OAC(Origin Access Control)로 <strong>S3는 비공개</strong>, <strong>CloudFront만 접근</strong> → 성능&#x2F;보안 모두 향상.</li>
+</ul>
+<blockquote>
+<p><strong>시험 포인트</strong>: “S3를 퍼블릭으로 열지 않고 정적 사이트 제공?” → <strong>CloudFront + OAC</strong> 패턴.</p>
+</blockquote>
+<hr>
+<h2 id="7-데이터-레이크-패턴-for-ML-Analytics"><a href="#7-데이터-레이크-패턴-for-ML-Analytics" class="headerlink" title="7) 데이터 레이크 패턴 (for ML&#x2F;Analytics)"></a>7) 데이터 레이크 패턴 (for ML&#x2F;Analytics)</h2><ul>
+<li><strong>원천 저장</strong>: S3에 원본 데이터 적재(스키마 온 리드, <em>Schema-on-Read</em>).</li>
+<li><strong>카탈로그</strong>: <strong>AWS Glue Data Catalog</strong></li>
+<li><strong>쿼리&#x2F;탐색</strong>: <strong>Amazon Athena</strong>(서버리스 SQL), <strong>Redshift Spectrum</strong></li>
+<li><strong>거버넌스</strong>: <strong>Lake Formation</strong>(권한&#x2F;데이터 액세스 제어)</li>
+<li><strong>형식 최적화</strong>: <strong>Parquet&#x2F;ORC</strong> 등 <strong>컬럼나형(Columnar)</strong> 포맷 권장 (스캔&#x2F;비용 절감)</li>
+</ul>
+<blockquote>
+<p><strong>시험 포인트</strong>: “S3 + Athena 비용 최적화?” → <strong>Parquet + 파티셔닝(Partitioning) + 프리픽스 설계</strong>.</p>
+</blockquote>
+<hr>
+<h2 id="8-콘솔에서-자주-하는-작업-요약"><a href="#8-콘솔에서-자주-하는-작업-요약" class="headerlink" title="8) 콘솔에서 자주 하는 작업 요약"></a>8) 콘솔에서 자주 하는 작업 요약</h2><ol>
+<li><strong>버킷 생성(Create Bucket)</strong>: 리전 선택 → 이름 지정(글로벌 유일) → <strong>Block Public Access ON</strong>, <strong>SSE 설정</strong>  </li>
+<li><strong>객체 업로드(Upload)</strong>: 단일&#x2F;멀티파트 선택(5GB 초과 시 멀티파트)  </li>
+<li><strong>폴더처럼 사용하기</strong>: 접두사(prefix)로 논리적 구분(실제 디렉터리는 아님)  </li>
+<li><strong>프리사인드 URL 생성</strong>: 일시적 외부 공유  </li>
+<li><strong>버킷 정책&#x2F;액세스 포인트</strong>: 세밀 권한&#x2F;네트워크 격리 설정</li>
+</ol>
+<hr>
+<h2 id="9-자주-나오는-함정-Exam-Gotchas"><a href="#9-자주-나오는-함정-Exam-Gotchas" class="headerlink" title="9) 자주 나오는 함정(Exam Gotchas)"></a>9) 자주 나오는 함정(Exam Gotchas)</h2><ul>
+<li><strong>디렉터리 개념 없음</strong>: 키 문자열에 <code>/</code>를 써서 <strong>prefix</strong>를 흉내낼 뿐.</li>
+<li><strong>5GB 업로드 제한</strong>: 초과 시 <strong>Multi-part Upload</strong> 필수.</li>
+<li><strong>CRR 조건</strong>: <strong>양쪽 버킷 Versioning ON</strong> + 권한&#x2F;소유권 고려.</li>
+<li><strong>KMS 사용 시 권한 오류</strong>: KMS 키 정책&#x2F;Grant&#x2F;IAM 권한 누락 체크.</li>
+<li><strong>퍼블릭 차단이 기본</strong>: 정적 사이트&#x2F;퍼블릭 파일 배포는 <strong>CloudFront</strong> 경유가 안전.</li>
+</ul>
+<hr>
+<h2 id="10-ML-엔지니어를-위한-S3-빠른-체크리스트"><a href="#10-ML-엔지니어를-위한-S3-빠른-체크리스트" class="headerlink" title="10) ML 엔지니어를 위한 S3 빠른 체크리스트"></a>10) ML 엔지니어를 위한 S3 빠른 체크리스트</h2><ul>
+<li><input disabled="" type="checkbox"> <strong>데이터 저장 포맷</strong>: CSV → <strong>Parquet</strong> 변환 고려(성능&#x2F;비용)  </li>
+<li><input disabled="" type="checkbox"> <strong>접근 제어</strong>: IAM Role 기반 최소 권한(least privilege)  </li>
+<li><input disabled="" type="checkbox"> <strong>암호화</strong>: SSE-KMS 기본, 키 권한 점검(파이프라인&#x2F;노트북&#x2F;배치)  </li>
+<li><input disabled="" type="checkbox"> <strong>수명주기 정책</strong>: 학습 로그&#x2F;중간 산출물 자동 정리  </li>
+<li><input disabled="" type="checkbox"> <strong>경로 규약</strong>: <code>s3://bucket/project/dataset/partition=.../</code> 일관성  </li>
+<li><input disabled="" type="checkbox"> <strong>프리사인드 URL</strong>: 일시적 데이터 공유&#x2F;검수 자동화에 활용</li>
+</ul>
+<hr>
+<h3 id="핵심-용어-요약-KR-EN"><a href="#핵심-용어-요약-KR-EN" class="headerlink" title="핵심 용어 요약 (KR&#x2F;EN)"></a>핵심 용어 요약 (KR&#x2F;EN)</h3><ul>
+<li>버킷 <strong>Bucket</strong> &#x2F; 객체 <strong>Object</strong> &#x2F; 키 <strong>Key</strong> &#x2F; 접두사 <strong>Prefix</strong> &#x2F; 버전 관리 <strong>Versioning</strong>  </li>
+<li>프리사인드 URL <strong>Pre-signed URL</strong> &#x2F; 수명주기 정책 <strong>Lifecycle Policy</strong>  </li>
+<li>서버사이드 암호화 <strong>Server-Side Encryption (SSE-S3 &#x2F; SSE-KMS)</strong>  </li>
+<li>교차 리전 복제 <strong>Cross-Region Replication (CRR)</strong> &#x2F; 동일 리전 복제 <strong>Same-Region Replication (SRR)</strong>  </li>
+<li>데이터 레이크 <strong>Data Lake</strong> &#x2F; 스키마 온 리드 <strong>Schema-on-Read</strong> &#x2F; 컬럼나 <strong>Columnar</strong></li>
+</ul>
+<hr>
+<h2 id="추가-참고-심화"><a href="#추가-참고-심화" class="headerlink" title="추가 참고(심화)"></a>추가 참고(심화)</h2><ul>
+<li><strong>S3 Storage Classes</strong>: Standard &#x2F; Standard-IA &#x2F; One Zone-IA &#x2F; Intelligent-Tiering &#x2F; Glacier Instant&#x2F;Flx&#x2F;Deep Archive  </li>
+<li><strong>네트워크 최적화</strong>: <strong>S3 Transfer Acceleration</strong>, 멀티파트 병렬 업로드, VPC 엔드포인트  </li>
+<li><strong>비용 관리</strong>: S3 Storage Lens, Lifecycle&#x2F;Intelligent-Tiering, 파티셔닝&#x2F;프리픽스 설계</li>
+</ul>
+<hr>
+<p><strong>요약</strong>: S3는 ML&#x2F;분석 워크로드의 “공용 데이터 허브”입니다. <strong>보안 기본값</strong>, <strong>멀티파트 업로드</strong>, <strong>Versioning&#x2F;CRR</strong>, <strong>SSE-KMS</strong>, <strong>Athena+Parquet</strong> 같은 패턴을 확실히 익히면 MLA-C01에서 고득점할 수 있습니다.</p>
+<h1 id="Amazon-S3-암호화-방식-쉽게-설명하기"><a href="#Amazon-S3-암호화-방식-쉽게-설명하기" class="headerlink" title="Amazon S3 암호화 방식 쉽게 설명하기"></a>Amazon S3 암호화 방식 쉽게 설명하기</h1><p>Amazon S3에서 데이터를 저장할 때 보안을 위해 <strong>서버 사이드 암호화(Server-side encryption, SSE)</strong> 를 사용할 수 있습니다.<br>대표적으로 자주 쓰이는 두 가지 방식이 있습니다.</p>
+<hr>
+<h2 id="1-SSE-S3-Server-side-encryption-with-Amazon-S3-managed-keys"><a href="#1-SSE-S3-Server-side-encryption-with-Amazon-S3-managed-keys" class="headerlink" title="1. SSE-S3 (Server-side encryption with Amazon S3 managed keys)"></a>1. SSE-S3 (Server-side encryption with Amazon S3 managed keys)</h2><ul>
+<li><p><strong>설명</strong><br>S3가 직접 암호화 키를 관리해주는 방식입니다.<br>사용자가 따로 키를 만들거나 관리할 필요가 없습니다.<br>데이터를 업로드하면 S3가 자동으로 암호화하고, 다운로드하면 자동으로 복호화해 줍니다.</p>
+</li>
+<li><p><strong>특징</strong></p>
+<ul>
+<li>사용하기 가장 쉽습니다 (추가 설정 거의 필요 없음).</li>
+<li>암호화 키는 <strong>Amazon S3가 전적으로 관리</strong>합니다.</li>
+<li><code>AES-256</code> 암호화 알고리즘을 사용합니다.</li>
+<li>비용은 추가로 발생하지 않습니다.</li>
+</ul>
+</li>
+<li><p><strong>시험 포인트 (AWS Certified ML Engineer Associate)</strong>  </p>
+<ul>
+<li><strong>SSE-S3는 S3가 키를 관리한다</strong>라는 점이 핵심.  </li>
+<li>옵션을 활성화하기만 하면 끝 (운영 편리성 ↑).  </li>
+<li>보안 규제가 강하지 않거나 단순 저장이 목적일 때 적합.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="2-SSE-KMS-Server-side-encryption-with-AWS-Key-Management-Service-keys"><a href="#2-SSE-KMS-Server-side-encryption-with-AWS-Key-Management-Service-keys" class="headerlink" title="2. SSE-KMS (Server-side encryption with AWS Key Management Service keys)"></a>2. SSE-KMS (Server-side encryption with AWS Key Management Service keys)</h2><ul>
+<li><p><strong>설명</strong><br>AWS Key Management Service(KMS)를 통해 암호화 키를 관리하는 방식입니다.<br>즉, 암호화 키를 직접 생성, 관리, 권한 제어할 수 있습니다.<br>더 세밀한 보안 관리가 필요한 경우에 사용됩니다.</p>
+</li>
+<li><p><strong>특징</strong></p>
+<ul>
+<li><strong>고객이 키를 직접 관리 (Customer managed keys)</strong> 가능.  </li>
+<li>키 사용에 대한 <strong>CloudTrail 로그</strong>로 추적 가능 → 누가, 언제, 어떤 키를 사용했는지 알 수 있음.  </li>
+<li>IAM 정책을 통해 세밀하게 접근 제어 가능 (예: 특정 사용자만 복호화 가능).  </li>
+<li>KMS 호출 비용이 발생합니다.</li>
+</ul>
+</li>
+<li><p><strong>시험 포인트</strong></p>
+<ul>
+<li><strong>SSE-KMS는 KMS와 통합되어 있어 세밀한 보안·감사 관리 가능</strong>.  </li>
+<li>규제가 있는 산업(금융, 헬스케어 등)에서는 SSE-KMS가 요구될 수 있음.  </li>
+<li>비용과 성능(추가 API 호출)도 고려해야 함.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="비교-요약"><a href="#비교-요약" class="headerlink" title="비교 요약"></a>비교 요약</h2><table>
+<thead>
+<tr>
+<th>항목</th>
+<th>SSE-S3</th>
+<th>SSE-KMS</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>키 관리</td>
+<td>Amazon S3 자동 관리</td>
+<td>AWS KMS에서 직접 관리 가능</td>
+</tr>
+<tr>
+<td>보안 수준</td>
+<td>기본적 (단순 암호화)</td>
+<td>고급 (세밀한 제어, 로깅)</td>
+</tr>
+<tr>
+<td>비용</td>
+<td>추가 비용 없음</td>
+<td>KMS 사용 비용 발생</td>
+</tr>
+<tr>
+<td>주요 특징</td>
+<td>가장 간단, 자동 처리</td>
+<td>IAM·CloudTrail 통합, 규제 준수에 적합</td>
+</tr>
+</tbody></table>
+<hr>
+<p>✅ <strong>시험 대비 핵심</strong>  </p>
+<ul>
+<li>SSE-S3: <strong>S3가 키 관리</strong>, 간단, 저비용  </li>
+<li>SSE-KMS: <strong>KMS와 통합</strong>, 세밀한 제어, 감사 로그, 비용 발생</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://kish191919.github.io">Danny Ki</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://kish191919.github.io/2025/09/14/KO-AWS-ML-Associate-5/">https://kish191919.github.io/2025/09/14/KO-AWS-ML-Associate-5/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/AWS/">AWS</a><a class="post-meta__tags" href="/tags/KOREAN/">KOREAN</a><a class="post-meta__tags" href="/tags/AWS-ML-ASSOCIATE/">AWS_ML_ASSOCIATE</a></div><div class="post-share"><div class="social-share" data-image="/img/my_pic.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/09/14/KO-AWS-ML-Associate-4/" title="(한국어) AWS ML Associate (4) - ETL 파이프라인과 데이터 포맷 이해"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">(한국어) AWS ML Associate (4) - ETL 파이프라인과 데이터 포맷 이해</div></div><div class="info-2"><div class="info-item-1">ETL 파이프라인과 데이터 포맷 이해1. ETL 파이프라인이란? ETL은 Extract, Transform, Load의 약자입니다.→ 데이터를 추출 → 변환 → 적재하는 일련의 과정. 주로 **데이터 웨어하우스(DWH)**로 데이터를 옮길 때 사용됩니다. 데이터 레이크에서는 ELT(Extract → Load → Transform) 방식이 더 일반적입니다.   2. Extract (추출) 정의: 원천 시스템에서 데이터를 가져오는 단계 데이터 출처: 데이터베이스 (MySQL, PostgreSQL, Oracle 등) CRM (예: Salesforce) 로그 파일 API 스트리밍 데이터 (Kafka, Kinesis 등)   중요 고려사항: 데이터 무결성 보장 (중간에 손실&#x2F;에러 발생 시 재시도 정책 필요) 처리 방식: 실시간, 근실시간(near real-time), 배치(batch)     3. Transform (변환) 정의: 추출한 데이터를 분석&#x2F;저장하기 적합한 ...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/09/14/KO-AWS-ML-Associate-1/" title="(한국어) AWS ML Associate (1) - AWS ML 엔지니어 어소시에이트(MLA-C01) 한눈에 보기"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-09-14</div><div class="info-item-2">(한국어) AWS ML Associate (1) - AWS ML 엔지니어 어소시에이트(MLA-C01) 한눈에 보기</div></div><div class="info-2"><div class="info-item-1">AWS ML 엔지니어 어소시에이트(MLA-C01) 한눈에 보기이 과정에서는 데이터 수집→변환&#x2F;특징공학→모델 학습&#x2F;튜닝&#x2F;평가→생성형 AI→MLOps→보안&#x2F;거버넌스까지 실무 흐름을 따라가며, SageMaker 중심으로 AWS 서비스들을 연결해 이해합니다.  시험 포인트 SageMaker 전반(Processing&#x2F;Training&#x2F;Inference&#x2F;Deployment) Glue, EMR, Kinesis, S3, EFS, EBS 활용 데이터 변환·특징공학 기법 (결측치, 이상치, 불균형 데이터 처리) 기본 ML 알고리즘 (XGBoost, Linear Learner 등 SageMaker 내장 알고리즘) 성능 측정 지표 (Precision, Recall, F1-score, Accuracy 등) 하이퍼파라미터 튜닝 (SageMaker Automatic Model Tuning) Bedrock, Jumpstart, RAG, Guard...</div></div></div></a><a class="pagination-related" href="/2025/09/14/KO-AWS-ML-Associate-2/" title="(한국어) AWS ML Associate (2) - 데이터의 세 가지 유형"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-09-14</div><div class="info-item-2">(한국어) AWS ML Associate (2) - 데이터의 세 가지 유형</div></div><div class="info-2"><div class="info-item-1">데이터 엔지니어링 기초이번 섹션은 AWS 서비스 자체보다는 데이터 엔지니어링의 기초 개념에 초점을 둡니다.시험 가이드에서도 AWS 서비스뿐 아니라 데이터 관련 기본 개념을 알아야 한다고 명시되어 있습니다.    1. 데이터의 세 가지 유형① 구조화 데이터 (Structured Data) 정의: 미리 정의된 스키마(열, 자료형 등)에 맞춰 정리된 데이터   특징: SQL로 쉽게 질의 가능, 행&#x2F;열 구조로 일관성 있음   예시:   관계형 데이터베이스 (MySQL, PostgreSQL, Amazon RDS, Amazon Redshift)   잘 정리된 CSV 파일   전형적인 엑셀 시트    👉 시험 포인트: RDB vs 데이터 레이크 차이를 구분해야 함. Redshift(OLAP)와 S3 기반 데이터 레이크 차이를 물을 수 있음.    ② 비구조화 데이터 (Unstructured Data) 정의: 스키마가 없거나 일정하지 않은 데이터   특징: 바로 질의할 수 없음. ...</div></div></div></a><a class="pagination-related" href="/2025/09/14/KO-AWS-ML-Associate-3/" title="(한국어) AWS ML Associate (3) - 데이터의 세 가지 유형"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-09-14</div><div class="info-item-2">(한국어) AWS ML Associate (3) - 데이터의 세 가지 유형</div></div><div class="info-2"><div class="info-item-1">데이터 웨어하우스, 데이터 레이크, 데이터 레이크하우스, 데이터 메시 정리1. 데이터 웨어하우스 (Data Warehouse)정의데이터 웨어하우스는 여러 소스에서 수집된 데이터를 정제(ETL)하여 구조화된 형태로 저장하는 중앙 저장소입니다. 주로 분석과 BI(Business Intelligence)에 최적화되어 있습니다. 특징  복잡한 쿼리와 분석 작업에 최적화   사전에 스키마(schema)를 정의하고 데이터를 적재 (Schema-on-Write)   주로 Star Schema 또는 Snowflake Schema 사용   읽기(Read) 중심의 워크로드에 강함  예시  AWS: Amazon Redshift   (비교) Google BigQuery, Azure Synapse  시험 포인트  ETL (Extract → Transform → Load) 과정이 중요   데이터 웨어하우스는 구조화된 데이터(Structured Data) 중심이라는 점 기억하기   2. 데이터 레이크 (...</div></div></div></a><a class="pagination-related" href="/2025/09/14/KO-AWS-ML-Associate-4/" title="(한국어) AWS ML Associate (4) - ETL 파이프라인과 데이터 포맷 이해"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-09-14</div><div class="info-item-2">(한국어) AWS ML Associate (4) - ETL 파이프라인과 데이터 포맷 이해</div></div><div class="info-2"><div class="info-item-1">ETL 파이프라인과 데이터 포맷 이해1. ETL 파이프라인이란? ETL은 Extract, Transform, Load의 약자입니다.→ 데이터를 추출 → 변환 → 적재하는 일련의 과정. 주로 **데이터 웨어하우스(DWH)**로 데이터를 옮길 때 사용됩니다. 데이터 레이크에서는 ELT(Extract → Load → Transform) 방식이 더 일반적입니다.   2. Extract (추출) 정의: 원천 시스템에서 데이터를 가져오는 단계 데이터 출처: 데이터베이스 (MySQL, PostgreSQL, Oracle 등) CRM (예: Salesforce) 로그 파일 API 스트리밍 데이터 (Kafka, Kinesis 등)   중요 고려사항: 데이터 무결성 보장 (중간에 손실&#x2F;에러 발생 시 재시도 정책 필요) 처리 방식: 실시간, 근실시간(near real-time), 배치(batch)     3. Transform (변환) 정의: 추출한 데이터를 분석&#x2F;저장하기 적합한 ...</div></div></div></a><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-1/" title="(한국어) AWS Certified AI Practitioner (1) - IT &amp; AWS 기초"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (1) - IT &amp; AWS 기초</div></div><div class="info-2"><div class="info-item-1">📚 IT &amp; AWS 기초 요약1. 기본 IT 용어 네트워크(Network): 케이블, 라우터, 서버 등이 연결되어 데이터가 오가는 길.   라우터(Router): 인터넷에서 데이터를 어디로 보낼지 길잡이 역할을 하는 장치.   스위치(Switch): 네트워크 안에서 데이터가 정확한 서버나 컴퓨터로 가도록 도와주는 장치.         2. 클라우드 컴퓨팅의 5가지 핵심 특징 즉시 자원 사용(On-demand self service) → 필요한 자원을 바로 얻을 수 있음.   넓은 네트워크 접근(Broad network access) → 인터넷만 있으면 여러 기기에서 접근 가능.   자원 공유(Multi-tenancy &amp; Resource pooling) → 여러 사용자가 안전하게 같은 자원 공유.   빠른 확장성(Rapid elasticity &amp; Scalability) → 필요에 따라 서버나 자원을 늘리거나 줄일 수 있음.   사용량 기반 과금(Measur...</div></div></div></a><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-10/" title="(한국어) AWS Certified AI Practitioner (10) - Agents (에이전트)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (10) - Agents (에이전트)</div></div><div class="info-2"><div class="info-item-1">🤖 Amazon Bedrock – Agents (에이전트)📌 에이전트란?Amazon Bedrock의 에이전트(Agents) 는 단순히 질문에 답변하는 모델이 아니라, 여러 단계를 계획하고 실행할 수 있는 고급 기능입니다.즉, 사람이 “생각하고 → 계획하고 → 행동하는” 과정을 흉내 내서 실제 작업까지 자동으로 수행할 수 있습니다.   에이전트는 단순 텍스트 생성 외에도 다음과 같은 일을 할 수 있습니다:  AWS 인프라 생성 (서버, S3, Lambda 등) 애플리케이션 배포 자동화 데이터베이스&#x2F;시스템 작업 수행 외부 API 및 사내 시스템 연동   🔑 Bedrock Agents 주요 특징 멀티스텝 작업 실행: 단순 질의응답이 아니라, 여러 단계를 거쳐 복잡한 업무를 수행   작업 순서 제어: 각 단계가 올바른 순서로 실행되고, 데이터가 단계 간 잘 전달됨   액션 그룹(Action Groups): API, Lambda 함수 등 미리 정의된 작업 단위를 사용   ...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Danny Ki</div><div class="author-info-description">A data engineer's journey in coding, analytics, and building real-world systems.</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">98</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">24</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kish191919"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/kish191919" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Amazon-S3-%ED%95%B5%EC%8B%AC-%EC%A0%95%EB%A6%AC"><span class="toc-number">1.</span> <span class="toc-text">Amazon S3 핵심 정리</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-S3%EA%B0%80-%EC%93%B0%EC%9D%B4%EB%8A%94-%EA%B3%B3-Use-Cases"><span class="toc-number">1.1.</span> <span class="toc-text">1) S3가 쓰이는 곳 (Use Cases)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%EB%B2%84%ED%82%B7-Bucket-%E2%80%94-%EC%B5%9C%EC%83%81%EC%9C%84-%EB%84%A4%EC%9E%84%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A4"><span class="toc-number">1.2.</span> <span class="toc-text">2) 버킷(Bucket) — 최상위 네임스페이스</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%EA%B0%9D%EC%B2%B4-Object-%ED%82%A4-Key"><span class="toc-number">1.3.</span> <span class="toc-text">3) 객체(Object) &amp; 키(Key)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%EC%A0%91%EA%B7%BC-%EB%B0%A9%EB%B2%95-%ED%8D%BC%EB%B8%94%EB%A6%AD-URL-vs-%ED%94%84%EB%A6%AC%EC%82%AC%EC%9D%B8%EB%93%9C-URL"><span class="toc-number">1.4.</span> <span class="toc-text">4) 접근 방법: 퍼블릭 URL vs 프리사인드 URL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%ED%95%84%EC%88%98-%EB%B3%B4%EC%95%88-%EC%9A%B4%EC%98%81-%EA%B8%B0%EB%8A%A5-Security-Operations"><span class="toc-number">1.5.</span> <span class="toc-text">5) 필수 보안&#x2F;운영 기능 (Security &amp; Operations)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%EC%A0%95%EC%A0%81-%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8-CDN"><span class="toc-number">1.6.</span> <span class="toc-text">6) 정적 웹사이트 &amp; CDN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%A0%88%EC%9D%B4%ED%81%AC-%ED%8C%A8%ED%84%B4-for-ML-Analytics"><span class="toc-number">1.7.</span> <span class="toc-text">7) 데이터 레이크 패턴 (for ML&#x2F;Analytics)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%EC%BD%98%EC%86%94%EC%97%90%EC%84%9C-%EC%9E%90%EC%A3%BC-%ED%95%98%EB%8A%94-%EC%9E%91%EC%97%85-%EC%9A%94%EC%95%BD"><span class="toc-number">1.8.</span> <span class="toc-text">8) 콘솔에서 자주 하는 작업 요약</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%EC%9E%90%EC%A3%BC-%EB%82%98%EC%98%A4%EB%8A%94-%ED%95%A8%EC%A0%95-Exam-Gotchas"><span class="toc-number">1.9.</span> <span class="toc-text">9) 자주 나오는 함정(Exam Gotchas)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-ML-%EC%97%94%EC%A7%80%EB%8B%88%EC%96%B4%EB%A5%BC-%EC%9C%84%ED%95%9C-S3-%EB%B9%A0%EB%A5%B8-%EC%B2%B4%ED%81%AC%EB%A6%AC%EC%8A%A4%ED%8A%B8"><span class="toc-number">1.10.</span> <span class="toc-text">10) ML 엔지니어를 위한 S3 빠른 체크리스트</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%95%B5%EC%8B%AC-%EC%9A%A9%EC%96%B4-%EC%9A%94%EC%95%BD-KR-EN"><span class="toc-number">1.10.1.</span> <span class="toc-text">핵심 용어 요약 (KR&#x2F;EN)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%B6%94%EA%B0%80-%EC%B0%B8%EA%B3%A0-%EC%8B%AC%ED%99%94"><span class="toc-number">1.11.</span> <span class="toc-text">추가 참고(심화)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Amazon-S3-%EC%95%94%ED%98%B8%ED%99%94-%EB%B0%A9%EC%8B%9D-%EC%89%BD%EA%B2%8C-%EC%84%A4%EB%AA%85%ED%95%98%EA%B8%B0"><span class="toc-number">2.</span> <span class="toc-text">Amazon S3 암호화 방식 쉽게 설명하기</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-SSE-S3-Server-side-encryption-with-Amazon-S3-managed-keys"><span class="toc-number">2.1.</span> <span class="toc-text">1. SSE-S3 (Server-side encryption with Amazon S3 managed keys)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-SSE-KMS-Server-side-encryption-with-AWS-Key-Management-Service-keys"><span class="toc-number">2.2.</span> <span class="toc-text">2. SSE-KMS (Server-side encryption with AWS Key Management Service keys)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%B9%84%EA%B5%90-%EC%9A%94%EC%95%BD"><span class="toc-number">2.3.</span> <span class="toc-text">비교 요약</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/14/KO-AWS-ML-Associate-5/" title="(한국어) AWS ML Associate (5) - Amazon S3 핵심 정리">(한국어) AWS ML Associate (5) - Amazon S3 핵심 정리</a><time datetime="2025-09-15T02:33:24.000Z" title="Created 2025-09-14 22:33:24">2025-09-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/14/KO-AWS-ML-Associate-4/" title="(한국어) AWS ML Associate (4) - ETL 파이프라인과 데이터 포맷 이해">(한국어) AWS ML Associate (4) - ETL 파이프라인과 데이터 포맷 이해</a><time datetime="2025-09-15T02:06:05.000Z" title="Created 2025-09-14 22:06:05">2025-09-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/14/KO-AWS-ML-Associate-3/" title="(한국어) AWS ML Associate (3) - 데이터의 세 가지 유형">(한국어) AWS ML Associate (3) - 데이터의 세 가지 유형</a><time datetime="2025-09-15T01:55:59.000Z" title="Created 2025-09-14 21:55:59">2025-09-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/14/KO-AWS-ML-Associate-2/" title="(한국어) AWS ML Associate (2) - 데이터의 세 가지 유형">(한국어) AWS ML Associate (2) - 데이터의 세 가지 유형</a><time datetime="2025-09-15T01:41:19.000Z" title="Created 2025-09-14 21:41:19">2025-09-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/14/KO-AWS-ML-Associate-1/" title="(한국어) AWS ML Associate (1) - AWS ML 엔지니어 어소시에이트(MLA-C01) 한눈에 보기">(한국어) AWS ML Associate (1) - AWS ML 엔지니어 어소시에이트(MLA-C01) 한눈에 보기</a><time datetime="2025-09-14T20:54:26.000Z" title="Created 2025-09-14 16:54:26">2025-09-14</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By Danny Ki</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
