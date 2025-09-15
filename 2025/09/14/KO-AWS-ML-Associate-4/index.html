@@ -1,0 +1,291 @@
+<!DOCTYPE html><html lang="[&quot;en&quot;,&quot;ko&quot;,&quot;default&quot;]" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>(한국어) AWS ML Associate (4) - ETL 파이프라인과 데이터 포맷 이해 | Danny's Blog</title><meta name="author" content="Danny Ki"><meta name="copyright" content="Danny Ki"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="ETL 파이프라인과 데이터 포맷 이해1. ETL 파이프라인이란? ETL은 Extract, Transform, Load의 약자입니다.→ 데이터를 추출 → 변환 → 적재하는 일련의 과정. 주로 **데이터 웨어하우스(DWH)**로 데이터를 옮길 때 사용됩니다. 데이터 레이크에서는 ELT(Extract → Load → Transform) 방식이 더 일반적입니다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(한국어) AWS ML Associate (4) - ETL 파이프라인과 데이터 포맷 이해">
+<meta property="og:url" content="https://kish191919.github.io/2025/09/14/KO-AWS-ML-Associate-4/index.html">
+<meta property="og:site_name" content="Danny&#39;s Blog">
+<meta property="og:description" content="ETL 파이프라인과 데이터 포맷 이해1. ETL 파이프라인이란? ETL은 Extract, Transform, Load의 약자입니다.→ 데이터를 추출 → 변환 → 적재하는 일련의 과정. 주로 **데이터 웨어하우스(DWH)**로 데이터를 옮길 때 사용됩니다. 데이터 레이크에서는 ELT(Extract → Load → Transform) 방식이 더 일반적입니다.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kish191919.github.io/img/my_pic.jpeg">
+<meta property="article:published_time" content="2025-09-15T02:06:05.000Z">
+<meta property="article:modified_time" content="2025-09-15T02:32:58.595Z">
+<meta property="article:author" content="Danny Ki">
+<meta property="article:tag" content="AWS">
+<meta property="article:tag" content="KOREAN">
+<meta property="article:tag" content="AWS_ML_ASSOCIATE">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kish191919.github.io/img/my_pic.jpeg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "(한국어) AWS ML Associate (4) - ETL 파이프라인과 데이터 포맷 이해",
+  "url": "https://kish191919.github.io/2025/09/14/KO-AWS-ML-Associate-4/",
+  "image": "https://kish191919.github.io/img/my_pic.jpeg",
+  "datePublished": "2025-09-15T02:06:05.000Z",
+  "dateModified": "2025-09-15T02:32:58.595Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Danny Ki",
+      "url": "https://kish191919.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kish191919.github.io/2025/09/14/KO-AWS-ML-Associate-4/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="UfZT9jGVnwcVj8z_sCj9LyqnWho6ubHg1Q7o_bvXfKs"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=GTM-N66KNRNW"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'GTM-N66KNRNW')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'GTM-N66KNRNW', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '(한국어) AWS ML Associate (4) - ETL 파이프라인과 데이터 포맷 이해',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://kish191919.github.io/",
+  "name": "Danny's Blog",
+  "inLanguage": "en"
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Danny's Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">97</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">24</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Danny's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">(한국어) AWS ML Associate (4) - ETL 파이프라인과 데이터 포맷 이해</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">(한국어) AWS ML Associate (4) - ETL 파이프라인과 데이터 포맷 이해</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-09-15T02:06:05.000Z" title="Created 2025-09-14 22:06:05">2025-09-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-09-15T02:32:58.595Z" title="Updated 2025-09-14 22:32:58">2025-09-14</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CERTIFICATION/">CERTIFICATION</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CERTIFICATION/AWS-ML-ASSOCIATE-KR/">AWS_ML_ASSOCIATE_KR</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="ETL-파이프라인과-데이터-포맷-이해"><a href="#ETL-파이프라인과-데이터-포맷-이해" class="headerlink" title="ETL 파이프라인과 데이터 포맷 이해"></a>ETL 파이프라인과 데이터 포맷 이해</h1><h2 id="1-ETL-파이프라인이란"><a href="#1-ETL-파이프라인이란" class="headerlink" title="1. ETL 파이프라인이란?"></a>1. ETL 파이프라인이란?</h2><ul>
+<li><strong>ETL</strong>은 <strong>Extract, Transform, Load</strong>의 약자입니다.<br>→ 데이터를 <strong>추출 → 변환 → 적재</strong>하는 일련의 과정.</li>
+<li>주로 **데이터 웨어하우스(DWH)**로 데이터를 옮길 때 사용됩니다.</li>
+<li>데이터 레이크에서는 <strong>ELT</strong>(Extract → Load → Transform) 방식이 더 일반적입니다.</li>
+</ul>
+<hr>
+<h2 id="2-Extract-추출"><a href="#2-Extract-추출" class="headerlink" title="2. Extract (추출)"></a>2. Extract (추출)</h2><ul>
+<li><strong>정의</strong>: 원천 시스템에서 <strong>데이터를 가져오는 단계</strong></li>
+<li><strong>데이터 출처</strong>:<ul>
+<li>데이터베이스 (MySQL, PostgreSQL, Oracle 등)</li>
+<li>CRM (예: Salesforce)</li>
+<li>로그 파일</li>
+<li>API</li>
+<li>스트리밍 데이터 (Kafka, Kinesis 등)</li>
+</ul>
+</li>
+<li><strong>중요 고려사항</strong>:<ul>
+<li>데이터 무결성 보장 (중간에 손실&#x2F;에러 발생 시 재시도 정책 필요)</li>
+<li>처리 방식: <strong>실시간, 근실시간(near real-time), 배치(batch)</strong></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="3-Transform-변환"><a href="#3-Transform-변환" class="headerlink" title="3. Transform (변환)"></a>3. Transform (변환)</h2><ul>
+<li><strong>정의</strong>: 추출한 데이터를 <strong>분석&#x2F;저장하기 적합한 형태</strong>로 변환</li>
+<li><strong>주요 작업</strong>:<ul>
+<li>데이터 정제 (중복 제거, 오류 수정)</li>
+<li>데이터 보강 (추가 정보 합치기)</li>
+<li>포맷 변경 (문자열 → 날짜 형식 변환 등)</li>
+<li>집계&#x2F;계산 (합계, 평균 등)</li>
+<li>인코딩&#x2F;디코딩 (압축 해제, 암호 해제, 컬럼 포맷 변환 등)</li>
+<li>결측치 처리 (제거, 평균값 대체, null 값 허용 여부 확인)</li>
+</ul>
+</li>
+</ul>
+<p><strong>시험 포인트</strong>:</p>
+<ul>
+<li><strong>결측치 처리 방식</strong>은 머신러닝 모델 품질과 직결 → <strong>평균&#x2F;중앙값 대체, 삭제, 예측 기반 보간(imputation)</strong> 방법 숙지</li>
+<li>SageMaker <strong>Processing Job, Data Wrangler</strong> 같은 서비스 활용법도 시험에 자주 등장</li>
+</ul>
+<hr>
+<h2 id="4-Load-적재"><a href="#4-Load-적재" class="headerlink" title="4. Load (적재)"></a>4. Load (적재)</h2><ul>
+<li><strong>정의</strong>: 변환된 데이터를 **목적지(데이터 웨어하우스, 데이터 레이크 등)**에 저장</li>
+<li><strong>방법</strong>:<ul>
+<li>배치 적재: 일정 주기로 대량 데이터 적재</li>
+<li>스트리밍 적재: 데이터가 들어오는 즉시 적재</li>
+</ul>
+</li>
+<li><strong>중요 고려사항</strong>:<ul>
+<li>적재 시 데이터 무결성 확인</li>
+<li>적재 실패 시 복구 전략 필요</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="5-ETL-파이프라인-관리"><a href="#5-ETL-파이프라인-관리" class="headerlink" title="5. ETL 파이프라인 관리"></a>5. ETL 파이프라인 관리</h2><p>ETL 과정은 <strong>자동화</strong>와 <strong>오케스트레이션</strong>이 중요합니다.</p>
+<ul>
+<li><strong>AWS Glue</strong> – ETL 작업 자동화 및 스케줄링</li>
+<li><strong>AWS Step Functions</strong> – 워크플로우 관리</li>
+<li><strong>Amazon MWAA (Managed Apache Airflow)</strong> – 복잡한 데이터 파이프라인 관리</li>
+<li><strong>Amazon EventBridge</strong> – 이벤트 기반 트리거</li>
+<li><strong>AWS Lambda</strong> – 서버리스 기반 데이터 처리</li>
+</ul>
+<p><strong>시험 포인트</strong>:</p>
+<ul>
+<li>Glue는 <strong>서버리스 ETL</strong> 서비스, Spark 기반 동작</li>
+<li>Step Functions는 <strong>상태 기반 워크플로우</strong> 관리</li>
+<li>MWAA는 <strong>Apache Airflow 관리형 서비스</strong></li>
+</ul>
+<hr>
+<h2 id="6-주요-데이터-소스-인터페이스"><a href="#6-주요-데이터-소스-인터페이스" class="headerlink" title="6. 주요 데이터 소스 인터페이스"></a>6. 주요 데이터 소스 인터페이스</h2><ul>
+<li><strong>JDBC (Java Database Connectivity)</strong><ul>
+<li>자바 기반, <strong>플랫폼 독립적</strong>, 하지만 <strong>언어(Java) 종속적</strong></li>
+</ul>
+</li>
+<li><strong>ODBC (Open Database Connectivity)</strong><ul>
+<li>드라이버 필요(플랫폼 종속), 하지만 <strong>언어 독립적</strong></li>
+</ul>
+</li>
+<li><strong>API</strong> – 외부 시스템에서 데이터 가져오기</li>
+<li><strong>로그 파일</strong> – 서버 로그, 애플리케이션 로그 등</li>
+<li><strong>스트리밍 데이터</strong> – Kafka, Kinesis 등</li>
+</ul>
+<hr>
+<h2 id="7-데이터-포맷-정리"><a href="#7-데이터-포맷-정리" class="headerlink" title="7. 데이터 포맷 정리"></a>7. 데이터 포맷 정리</h2><h3 id="CSV-Comma-Separated-Values"><a href="#CSV-Comma-Separated-Values" class="headerlink" title="CSV (Comma-Separated Values)"></a>CSV (Comma-Separated Values)</h3><ul>
+<li><strong>특징</strong>: 텍스트 기반, 행 단위 데이터, 구분자는 <code>,</code> 또는 <code>\t</code></li>
+<li><strong>장점</strong>: 사람이 읽기 쉬움, 이식성 높음</li>
+<li><strong>단점</strong>: 대규모 데이터 처리 시 비효율적</li>
+<li><strong>시험 포인트</strong>: Pandas, R, Excel 등에서 손쉽게 처리 가능</li>
+</ul>
+<h3 id="JSON-JavaScript-Object-Notation"><a href="#JSON-JavaScript-Object-Notation" class="headerlink" title="JSON (JavaScript Object Notation)"></a>JSON (JavaScript Object Notation)</h3><ul>
+<li><strong>특징</strong>: 키-값 기반, <strong>반정형(semi-structured) 데이터</strong> 표현 가능</li>
+<li><strong>장점</strong>: 유연한 스키마, 중첩 구조 지원</li>
+<li><strong>활용</strong>: API 응답, 설정 파일, NoSQL DB(MongoDB 등)</li>
+</ul>
+<h3 id="Avro"><a href="#Avro" class="headerlink" title="Avro"></a>Avro</h3><ul>
+<li><strong>특징</strong>: 바이너리 포맷, 데이터와 스키마를 함께 저장</li>
+<li><strong>장점</strong>: 효율적인 직렬화(Serialization), <strong>스키마 진화(schema evolution)</strong> 지원</li>
+<li><strong>활용</strong>: Kafka, Spark, Flink, Hadoop</li>
+</ul>
+<h3 id="Parquet"><a href="#Parquet" class="headerlink" title="Parquet"></a>Parquet</h3><ul>
+<li><strong>특징</strong>: <strong>컬럼 지향(columnar)</strong> 저장 포맷</li>
+<li><strong>장점</strong>: 특정 컬럼만 읽기 가능 → 대규모 분석에 최적화</li>
+<li><strong>활용</strong>: Redshift Spectrum, Spark, Hive, Athena</li>
+<li><strong>시험 포인트</strong>: <strong>분석용 최적화 포맷</strong>으로 자주 언급됨</li>
+</ul>
+<hr>
+<h2 id="8-시험-대비-요약"><a href="#8-시험-대비-요약" class="headerlink" title="8. 시험 대비 요약"></a>8. 시험 대비 요약</h2><ul>
+<li><strong>ETL vs ELT</strong>: DWH는 ETL, Data Lake는 ELT</li>
+<li><strong>데이터 포맷 특징 비교</strong>: CSV(단순), JSON(유연), Avro(스키마 포함), Parquet(분석 최적화)</li>
+<li><strong>AWS Glue, Step Functions, MWAA</strong>: ETL 관리 핵심 서비스</li>
+<li><strong>스키마 온 라이트(schema-on-write)</strong> vs <strong>스키마 온 리드(schema-on-read)</strong>: 시험 단골</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://kish191919.github.io">Danny Ki</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://kish191919.github.io/2025/09/14/KO-AWS-ML-Associate-4/">https://kish191919.github.io/2025/09/14/KO-AWS-ML-Associate-4/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/AWS/">AWS</a><a class="post-meta__tags" href="/tags/KOREAN/">KOREAN</a><a class="post-meta__tags" href="/tags/AWS-ML-ASSOCIATE/">AWS_ML_ASSOCIATE</a></div><div class="post-share"><div class="social-share" data-image="/img/my_pic.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/09/14/KO-AWS-ML-Associate-3/" title="(한국어) AWS ML Associate (3) - 데이터의 세 가지 유형"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">(한국어) AWS ML Associate (3) - 데이터의 세 가지 유형</div></div><div class="info-2"><div class="info-item-1">데이터 웨어하우스, 데이터 레이크, 데이터 레이크하우스, 데이터 메시 정리1. 데이터 웨어하우스 (Data Warehouse)정의데이터 웨어하우스는 여러 소스에서 수집된 데이터를 정제(ETL)하여 구조화된 형태로 저장하는 중앙 저장소입니다. 주로 분석과 BI(Business Intelligence)에 최적화되어 있습니다. 특징  복잡한 쿼리와 분석 작업에 최적화   사전에 스키마(schema)를 정의하고 데이터를 적재 (Schema-on-Write)   주로 Star Schema 또는 Snowflake Schema 사용   읽기(Read) 중심의 워크로드에 강함  예시  AWS: Amazon Redshift   (비교) Google BigQuery, Azure Synapse  시험 포인트  ETL (Extract → Transform → Load) 과정이 중요   데이터 웨어하우스는 구조화된 데이터(Structured Data) 중심이라는 점 기억하기   2. 데이터 레이크 (...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/09/14/KO-AWS-ML-Associate-1/" title="(한국어) AWS ML Associate (1) - AWS ML 엔지니어 어소시에이트(MLA-C01) 한눈에 보기"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-09-14</div><div class="info-item-2">(한국어) AWS ML Associate (1) - AWS ML 엔지니어 어소시에이트(MLA-C01) 한눈에 보기</div></div><div class="info-2"><div class="info-item-1">AWS ML 엔지니어 어소시에이트(MLA-C01) 한눈에 보기이 과정에서는 데이터 수집→변환&#x2F;특징공학→모델 학습&#x2F;튜닝&#x2F;평가→생성형 AI→MLOps→보안&#x2F;거버넌스까지 실무 흐름을 따라가며, SageMaker 중심으로 AWS 서비스들을 연결해 이해합니다.  시험 포인트 SageMaker 전반(Processing&#x2F;Training&#x2F;Inference&#x2F;Deployment) Glue, EMR, Kinesis, S3, EFS, EBS 활용 데이터 변환·특징공학 기법 (결측치, 이상치, 불균형 데이터 처리) 기본 ML 알고리즘 (XGBoost, Linear Learner 등 SageMaker 내장 알고리즘) 성능 측정 지표 (Precision, Recall, F1-score, Accuracy 등) 하이퍼파라미터 튜닝 (SageMaker Automatic Model Tuning) Bedrock, Jumpstart, RAG, Guard...</div></div></div></a><a class="pagination-related" href="/2025/09/14/KO-AWS-ML-Associate-2/" title="(한국어) AWS ML Associate (2) - 데이터의 세 가지 유형"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-09-14</div><div class="info-item-2">(한국어) AWS ML Associate (2) - 데이터의 세 가지 유형</div></div><div class="info-2"><div class="info-item-1">데이터 엔지니어링 기초이번 섹션은 AWS 서비스 자체보다는 데이터 엔지니어링의 기초 개념에 초점을 둡니다.시험 가이드에서도 AWS 서비스뿐 아니라 데이터 관련 기본 개념을 알아야 한다고 명시되어 있습니다.    1. 데이터의 세 가지 유형① 구조화 데이터 (Structured Data) 정의: 미리 정의된 스키마(열, 자료형 등)에 맞춰 정리된 데이터   특징: SQL로 쉽게 질의 가능, 행&#x2F;열 구조로 일관성 있음   예시:   관계형 데이터베이스 (MySQL, PostgreSQL, Amazon RDS, Amazon Redshift)   잘 정리된 CSV 파일   전형적인 엑셀 시트    👉 시험 포인트: RDB vs 데이터 레이크 차이를 구분해야 함. Redshift(OLAP)와 S3 기반 데이터 레이크 차이를 물을 수 있음.    ② 비구조화 데이터 (Unstructured Data) 정의: 스키마가 없거나 일정하지 않은 데이터   특징: 바로 질의할 수 없음. ...</div></div></div></a><a class="pagination-related" href="/2025/09/14/KO-AWS-ML-Associate-3/" title="(한국어) AWS ML Associate (3) - 데이터의 세 가지 유형"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-09-14</div><div class="info-item-2">(한국어) AWS ML Associate (3) - 데이터의 세 가지 유형</div></div><div class="info-2"><div class="info-item-1">데이터 웨어하우스, 데이터 레이크, 데이터 레이크하우스, 데이터 메시 정리1. 데이터 웨어하우스 (Data Warehouse)정의데이터 웨어하우스는 여러 소스에서 수집된 데이터를 정제(ETL)하여 구조화된 형태로 저장하는 중앙 저장소입니다. 주로 분석과 BI(Business Intelligence)에 최적화되어 있습니다. 특징  복잡한 쿼리와 분석 작업에 최적화   사전에 스키마(schema)를 정의하고 데이터를 적재 (Schema-on-Write)   주로 Star Schema 또는 Snowflake Schema 사용   읽기(Read) 중심의 워크로드에 강함  예시  AWS: Amazon Redshift   (비교) Google BigQuery, Azure Synapse  시험 포인트  ETL (Extract → Transform → Load) 과정이 중요   데이터 웨어하우스는 구조화된 데이터(Structured Data) 중심이라는 점 기억하기   2. 데이터 레이크 (...</div></div></div></a><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-1/" title="(한국어) AWS Certified AI Practitioner (1) - IT &amp; AWS 기초"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (1) - IT &amp; AWS 기초</div></div><div class="info-2"><div class="info-item-1">📚 IT &amp; AWS 기초 요약1. 기본 IT 용어 네트워크(Network): 케이블, 라우터, 서버 등이 연결되어 데이터가 오가는 길.   라우터(Router): 인터넷에서 데이터를 어디로 보낼지 길잡이 역할을 하는 장치.   스위치(Switch): 네트워크 안에서 데이터가 정확한 서버나 컴퓨터로 가도록 도와주는 장치.         2. 클라우드 컴퓨팅의 5가지 핵심 특징 즉시 자원 사용(On-demand self service) → 필요한 자원을 바로 얻을 수 있음.   넓은 네트워크 접근(Broad network access) → 인터넷만 있으면 여러 기기에서 접근 가능.   자원 공유(Multi-tenancy &amp; Resource pooling) → 여러 사용자가 안전하게 같은 자원 공유.   빠른 확장성(Rapid elasticity &amp; Scalability) → 필요에 따라 서버나 자원을 늘리거나 줄일 수 있음.   사용량 기반 과금(Measur...</div></div></div></a><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-10/" title="(한국어) AWS Certified AI Practitioner (10) - Agents (에이전트)"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (10) - Agents (에이전트)</div></div><div class="info-2"><div class="info-item-1">🤖 Amazon Bedrock – Agents (에이전트)📌 에이전트란?Amazon Bedrock의 에이전트(Agents) 는 단순히 질문에 답변하는 모델이 아니라, 여러 단계를 계획하고 실행할 수 있는 고급 기능입니다.즉, 사람이 “생각하고 → 계획하고 → 행동하는” 과정을 흉내 내서 실제 작업까지 자동으로 수행할 수 있습니다.   에이전트는 단순 텍스트 생성 외에도 다음과 같은 일을 할 수 있습니다:  AWS 인프라 생성 (서버, S3, Lambda 등) 애플리케이션 배포 자동화 데이터베이스&#x2F;시스템 작업 수행 외부 API 및 사내 시스템 연동   🔑 Bedrock Agents 주요 특징 멀티스텝 작업 실행: 단순 질의응답이 아니라, 여러 단계를 거쳐 복잡한 업무를 수행   작업 순서 제어: 각 단계가 올바른 순서로 실행되고, 데이터가 단계 간 잘 전달됨   액션 그룹(Action Groups): API, Lambda 함수 등 미리 정의된 작업 단위를 사용   ...</div></div></div></a><a class="pagination-related" href="/2025/08/20/KO-AWS-Certified-AI-Practitioner-11/" title="(한국어) AWS Certified AI Practitioner (11) - CloudWatch"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-20</div><div class="info-item-2">(한국어) AWS Certified AI Practitioner (11) - CloudWatch</div></div><div class="info-2"><div class="info-item-1">📊 Amazon Bedrock &amp; CloudWatch📌 CloudWatch란?Amazon CloudWatch는 AWS 리소스와 애플리케이션을 모니터링하는 서비스입니다.CloudWatch는 다음과 같은 기능을 제공합니다:  Logs (로그) → 이벤트나 요청 내역을 기록 (디버깅에 유용)   Metrics (지표) → 시스템 성능을 수치로 모니터링   Alarms (알람) → 특정 기준을 넘었을 때 알림 전송   Dashboards (대시보드) → 모니터링 정보를 시각화  👉 시험에 자주 나오는 포인트:    CloudWatch Logs: 이벤트·로그 기록   CloudWatch Metrics: CPU, 메모리, 지연 시간 같은 성능 수치   CloudWatch Alarms: 기준치 초과 시 알림   CloudWatch Dashboards: 모니터링 결과 시각화   🔑 Bedrock + CloudWatch 연동1. 모델 호출(Invocation) 로깅 Bedrock...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Danny Ki</div><div class="author-info-description">A data engineer's journey in coding, analytics, and building real-world systems.</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">97</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">24</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kish191919"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/kish191919" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ETL-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8%EA%B3%BC-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%8F%AC%EB%A7%B7-%EC%9D%B4%ED%95%B4"><span class="toc-number">1.</span> <span class="toc-text">ETL 파이프라인과 데이터 포맷 이해</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-ETL-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8%EC%9D%B4%EB%9E%80"><span class="toc-number">1.1.</span> <span class="toc-text">1. ETL 파이프라인이란?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Extract-%EC%B6%94%EC%B6%9C"><span class="toc-number">1.2.</span> <span class="toc-text">2. Extract (추출)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Transform-%EB%B3%80%ED%99%98"><span class="toc-number">1.3.</span> <span class="toc-text">3. Transform (변환)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Load-%EC%A0%81%EC%9E%AC"><span class="toc-number">1.4.</span> <span class="toc-text">4. Load (적재)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-ETL-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-%EA%B4%80%EB%A6%AC"><span class="toc-number">1.5.</span> <span class="toc-text">5. ETL 파이프라인 관리</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%EC%A3%BC%EC%9A%94-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%86%8C%EC%8A%A4-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4"><span class="toc-number">1.6.</span> <span class="toc-text">6. 주요 데이터 소스 인터페이스</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%8F%AC%EB%A7%B7-%EC%A0%95%EB%A6%AC"><span class="toc-number">1.7.</span> <span class="toc-text">7. 데이터 포맷 정리</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CSV-Comma-Separated-Values"><span class="toc-number">1.7.1.</span> <span class="toc-text">CSV (Comma-Separated Values)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON-JavaScript-Object-Notation"><span class="toc-number">1.7.2.</span> <span class="toc-text">JSON (JavaScript Object Notation)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Avro"><span class="toc-number">1.7.3.</span> <span class="toc-text">Avro</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Parquet"><span class="toc-number">1.7.4.</span> <span class="toc-text">Parquet</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%EC%8B%9C%ED%97%98-%EB%8C%80%EB%B9%84-%EC%9A%94%EC%95%BD"><span class="toc-number">1.8.</span> <span class="toc-text">8. 시험 대비 요약</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/14/KO-AWS-ML-Associate-4/" title="(한국어) AWS ML Associate (4) - ETL 파이프라인과 데이터 포맷 이해">(한국어) AWS ML Associate (4) - ETL 파이프라인과 데이터 포맷 이해</a><time datetime="2025-09-15T02:06:05.000Z" title="Created 2025-09-14 22:06:05">2025-09-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/14/KO-AWS-ML-Associate-3/" title="(한국어) AWS ML Associate (3) - 데이터의 세 가지 유형">(한국어) AWS ML Associate (3) - 데이터의 세 가지 유형</a><time datetime="2025-09-15T01:55:59.000Z" title="Created 2025-09-14 21:55:59">2025-09-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/14/KO-AWS-ML-Associate-2/" title="(한국어) AWS ML Associate (2) - 데이터의 세 가지 유형">(한국어) AWS ML Associate (2) - 데이터의 세 가지 유형</a><time datetime="2025-09-15T01:41:19.000Z" title="Created 2025-09-14 21:41:19">2025-09-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/14/KO-AWS-ML-Associate-1/" title="(한국어) AWS ML Associate (1) - AWS ML 엔지니어 어소시에이트(MLA-C01) 한눈에 보기">(한국어) AWS ML Associate (1) - AWS ML 엔지니어 어소시에이트(MLA-C01) 한눈에 보기</a><time datetime="2025-09-14T20:54:26.000Z" title="Created 2025-09-14 16:54:26">2025-09-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/02/KO-AWS-Certified-AI-Practitioner-41/" title="(한국어) AWS Certified AI Practitioner (41) - 거버넌스 &amp; 컴플라이언스의 중요성">(한국어) AWS Certified AI Practitioner (41) - 거버넌스 &amp; 컴플라이언스의 중요성</a><time datetime="2025-09-02T19:29:55.000Z" title="Created 2025-09-02 15:29:55">2025-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By Danny Ki</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
