@@ -1,0 +1,193 @@
+<!DOCTYPE html><html lang="[&quot;en&quot;,&quot;ko&quot;,&quot;default&quot;]" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Coding_Quiz_Python_1 | Danny's Blog</title><meta name="author" content="Danny Ki"><meta name="copyright" content="Danny Ki"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Link : https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;two-sum&#x2F;description&#x2F;?difficulty&#x3D;EASY Hash Map (딕셔너리 이용)보조 공간을 이용해 빠르게 차이를 찾는 방식.  시간 복잡도: O(n) 공간 복잡도: O(n)  1234567891011class Solution:    def twoSum(self, nums:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Coding_Quiz_Python_1">
+<meta property="og:url" content="https://kish191919.github.io/2025/09/17/Coding-Quiz-Python-1/index.html">
+<meta property="og:site_name" content="Danny&#39;s Blog">
+<meta property="og:description" content="Link : https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;two-sum&#x2F;description&#x2F;?difficulty&#x3D;EASY Hash Map (딕셔너리 이용)보조 공간을 이용해 빠르게 차이를 찾는 방식.  시간 복잡도: O(n) 공간 복잡도: O(n)  1234567891011class Solution:    def twoSum(self, nums:">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kish191919.github.io/img/my_pic.jpeg">
+<meta property="article:published_time" content="2025-09-17T20:29:17.000Z">
+<meta property="article:modified_time" content="2025-09-17T21:25:02.982Z">
+<meta property="article:author" content="Danny Ki">
+<meta property="article:tag" content="PYTHON">
+<meta property="article:tag" content="LEETCODE">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kish191919.github.io/img/my_pic.jpeg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Coding_Quiz_Python_1",
+  "url": "https://kish191919.github.io/2025/09/17/Coding-Quiz-Python-1/",
+  "image": "https://kish191919.github.io/img/my_pic.jpeg",
+  "datePublished": "2025-09-17T20:29:17.000Z",
+  "dateModified": "2025-09-17T21:25:02.982Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Danny Ki",
+      "url": "https://kish191919.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kish191919.github.io/2025/09/17/Coding-Quiz-Python-1/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="UfZT9jGVnwcVj8z_sCj9LyqnWho6ubHg1Q7o_bvXfKs"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=GTM-N66KNRNW"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'GTM-N66KNRNW')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'GTM-N66KNRNW', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Coding_Quiz_Python_1',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://kish191919.github.io/",
+  "name": "Danny's Blog",
+  "inLanguage": "en"
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Danny's Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">101</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">31</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">8</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Danny's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">Coding_Quiz_Python_1</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Coding_Quiz_Python_1</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-09-17T20:29:17.000Z" title="Created 2025-09-17 16:29:17">2025-09-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-09-17T21:25:02.982Z" title="Updated 2025-09-17 17:25:02">2025-09-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Dev/">Dev</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Dev/CODING-QUIZ-PYTHON/">CODING_QUIZ_PYTHON</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>Link : <a target="_blank" rel="noopener" href="https://leetcode.com/problems/two-sum/description/?difficulty=EASY">https://leetcode.com/problems/two-sum/description/?difficulty=EASY</a></p>
+<h2 id="Hash-Map-딕셔너리-이용"><a href="#Hash-Map-딕셔너리-이용" class="headerlink" title="Hash Map (딕셔너리 이용)"></a>Hash Map (딕셔너리 이용)</h2><p>보조 공간을 이용해 빠르게 차이를 찾는 방식.</p>
+<ul>
+<li>시간 복잡도: <strong>O(n)</strong></li>
+<li>공간 복잡도: <strong>O(n)</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">twoSum</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>], target: <span class="built_in">int</span></span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        num_map = &#123;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> index, num <span class="keyword">in</span> <span class="built_in">enumerate</span>(nums):</span><br><span class="line">            diff = target - num</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> diff <span class="keyword">in</span> num_map:</span><br><span class="line">                <span class="keyword">return</span> [num_map[diff], index]</span><br><span class="line">            </span><br><span class="line">            num_map[num] = index</span><br></pre></td></tr></table></figure>
+<h2 id="Sorting-Two-Pointers-정렬-투-포인터"><a href="#Sorting-Two-Pointers-정렬-투-포인터" class="headerlink" title="Sorting + Two Pointers (정렬 + 투 포인터)"></a>Sorting + Two Pointers (정렬 + 투 포인터)</h2><p>정렬 후 양 끝에서 합을 비교.</p>
+<ul>
+<li>시간 복잡도: <strong>O(n log n)</strong></li>
+<li>공간 복잡도: <strong>O(n)</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">twoSum</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>], target: <span class="built_in">int</span></span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line"></span><br><span class="line">    arr = [(num, i) <span class="keyword">for</span> i, num <span class="keyword">in</span> <span class="built_in">enumerate</span>(nums)]</span><br><span class="line">    arr.sort()</span><br><span class="line"></span><br><span class="line">    left, right = <span class="number">0</span>, <span class="built_in">len</span>(arr) - <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> left &lt; right:</span><br><span class="line">        s = arr[left][<span class="number">0</span>] + arr[right][<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">if</span> s == target:</span><br><span class="line">            <span class="keyword">return</span> [arr[left][<span class="number">1</span>], arr[right][<span class="number">1</span>]]</span><br><span class="line">        <span class="keyword">elif</span> s &lt; target:</span><br><span class="line">            left +=<span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            right -=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+
+<p>Link : <a target="_blank" rel="noopener" href="https://leetcode.com/problems/add-two-numbers/description/?difficulty=EASY">https://leetcode.com/problems/add-two-numbers/description/?difficulty=EASY</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">addTwoNumbers</span>(<span class="params">self, l1: <span class="type">Optional</span>[ListNode], l2: <span class="type">Optional</span>[ListNode], c=<span class="number">0</span></span>) -&gt; <span class="type">Optional</span>[ListNode]:</span><br><span class="line">    sum_ = l1.val + l2.val + c</span><br><span class="line">    remain = sum_ % <span class="number">10</span></span><br><span class="line">    carry = sum_ // <span class="number">10</span></span><br><span class="line"></span><br><span class="line">    new_node = ListNode(remain)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> l1.<span class="built_in">next</span> != <span class="literal">None</span> <span class="keyword">or</span> l2.<span class="built_in">next</span> !=<span class="literal">None</span> <span class="keyword">or</span> carry != <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">if</span> l1.<span class="built_in">next</span> == <span class="literal">None</span>:</span><br><span class="line">            l1.<span class="built_in">next</span> = ListNode(<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">if</span> l2.<span class="built_in">next</span> == <span class="literal">None</span>:</span><br><span class="line">            l2.<span class="built_in">next</span> = ListNode(<span class="number">0</span>)</span><br><span class="line">        new_node.<span class="built_in">next</span> = <span class="variable language_">self</span>.addTwoNumbers(l1.<span class="built_in">next</span>, l2.<span class="built_in">next</span>, carry)</span><br><span class="line">    <span class="keyword">return</span> new_node</span><br></pre></td></tr></table></figure></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://kish191919.github.io">Danny Ki</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://kish191919.github.io/2025/09/17/Coding-Quiz-Python-1/">https://kish191919.github.io/2025/09/17/Coding-Quiz-Python-1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/PYTHON/">PYTHON</a><a class="post-meta__tags" href="/tags/LEETCODE/">LEETCODE</a></div><div class="post-share"><div class="social-share" data-image="/img/my_pic.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/09/15/Databricks-CV-Anomaly-Detection/" title="Databricks CV Anomaly Detection"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">Databricks CV Anomaly Detection</div></div><div class="info-2"><div class="info-item-1">👁️ Databricks + Computer Vision Anomaly Detection &amp; Model DeploymentA complete guide to anomaly detection with Databricks and Apache Spark    “From data ingestion to real-time serving — build and deploy scalable computer vision anomaly detection models.”  📎 Full Project:👉 View Jupyter Notebooks on GitHub        📌 One-Line SummaryThis project provides a full pipeline for computer vision–based anomaly detection, covering data ingestion, preprocessing, model training, deployment, and RES...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Danny Ki</div><div class="author-info-description">A data engineer's journey in coding, analytics, and building real-world systems.</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">101</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">31</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kish191919"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/kish191919" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hash-Map-%EB%94%95%EC%85%94%EB%84%88%EB%A6%AC-%EC%9D%B4%EC%9A%A9"><span class="toc-number">1.</span> <span class="toc-text">Hash Map (딕셔너리 이용)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sorting-Two-Pointers-%EC%A0%95%EB%A0%AC-%ED%88%AC-%ED%8F%AC%EC%9D%B8%ED%84%B0"><span class="toc-number">2.</span> <span class="toc-text">Sorting + Two Pointers (정렬 + 투 포인터)</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/17/Coding-Quiz-Python-1/" title="Coding_Quiz_Python_1">Coding_Quiz_Python_1</a><time datetime="2025-09-17T20:29:17.000Z" title="Created 2025-09-17 16:29:17">2025-09-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/15/Databricks-CV-Anomaly-Detection/" title="Databricks CV Anomaly Detection">Databricks CV Anomaly Detection</a><time datetime="2025-09-15T20:40:23.000Z" title="Created 2025-09-15 16:40:23">2025-09-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/14/KO-AWS-ML-Associate-6/" title="(한국어) AWS ML Associate (6) - Amazon S3 핵심 정리">(한국어) AWS ML Associate (6) - Amazon S3 핵심 정리</a><time datetime="2025-09-15T03:49:25.000Z" title="Created 2025-09-14 23:49:25">2025-09-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/14/KO-AWS-ML-Associate-5/" title="(한국어) AWS ML Associate (5) - Amazon S3 핵심 정리">(한국어) AWS ML Associate (5) - Amazon S3 핵심 정리</a><time datetime="2025-09-15T02:33:24.000Z" title="Created 2025-09-14 22:33:24">2025-09-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/14/KO-AWS-ML-Associate-4/" title="(한국어) AWS ML Associate (4) - ETL 파이프라인과 데이터 포맷 이해">(한국어) AWS ML Associate (4) - ETL 파이프라인과 데이터 포맷 이해</a><time datetime="2025-09-15T02:06:05.000Z" title="Created 2025-09-14 22:06:05">2025-09-14</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By Danny Ki</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

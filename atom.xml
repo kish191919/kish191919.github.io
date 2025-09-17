@@ -6,7 +6,7 @@
   <link href="https://kish191919.github.io/atom.xml" rel="self"/>
   
   <link href="https://kish191919.github.io/"/>
-  <updated>2025-09-16T01:28:50.347Z</updated>
+  <updated>2025-09-17T21:25:02.982Z</updated>
   <id>https://kish191919.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Coding_Quiz_Python_1</title>
+    <link href="https://kish191919.github.io/2025/09/17/Coding-Quiz-Python-1/"/>
+    <id>https://kish191919.github.io/2025/09/17/Coding-Quiz-Python-1/</id>
+    <published>2025-09-17T20:29:17.000Z</published>
+    <updated>2025-09-17T21:25:02.982Z</updated>
+    
+    <content type="html"><![CDATA[<p>Link : <a href="https://leetcode.com/problems/two-sum/description/?difficulty=EASY">https://leetcode.com/problems/two-sum/description/?difficulty=EASY</a></p><h2 id="Hash-Map-딕셔너리-이용"><a href="#Hash-Map-딕셔너리-이용" class="headerlink" title="Hash Map (딕셔너리 이용)"></a>Hash Map (딕셔너리 이용)</h2><p>보조 공간을 이용해 빠르게 차이를 찾는 방식.</p><ul><li>시간 복잡도: <strong>O(n)</strong></li><li>공간 복잡도: <strong>O(n)</strong></li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">twoSum</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>], target: <span class="built_in">int</span></span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        num_map = &#123;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> index, num <span class="keyword">in</span> <span class="built_in">enumerate</span>(nums):</span><br><span class="line">            diff = target - num</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> diff <span class="keyword">in</span> num_map:</span><br><span class="line">                <span class="keyword">return</span> [num_map[diff], index]</span><br><span class="line">            </span><br><span class="line">            num_map[num] = index</span><br></pre></td></tr></table></figure><h2 id="Sorting-Two-Pointers-정렬-투-포인터"><a href="#Sorting-Two-Pointers-정렬-투-포인터" class="headerlink" title="Sorting + Two Pointers (정렬 + 투 포인터)"></a>Sorting + Two Pointers (정렬 + 투 포인터)</h2><p>정렬 후 양 끝에서 합을 비교.</p><ul><li>시간 복잡도: <strong>O(n log n)</strong></li><li>공간 복잡도: <strong>O(n)</strong></li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">twoSum</span>(<span class="params">self, nums: <span class="type">List</span>[<span class="built_in">int</span>], target: <span class="built_in">int</span></span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line"></span><br><span class="line">    arr = [(num, i) <span class="keyword">for</span> i, num <span class="keyword">in</span> <span class="built_in">enumerate</span>(nums)]</span><br><span class="line">    arr.sort()</span><br><span class="line"></span><br><span class="line">    left, right = <span class="number">0</span>, <span class="built_in">len</span>(arr) - <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> left &lt; right:</span><br><span class="line">        s = arr[left][<span class="number">0</span>] + arr[right][<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">if</span> s == target:</span><br><span class="line">            <span class="keyword">return</span> [arr[left][<span class="number">1</span>], arr[right][<span class="number">1</span>]]</span><br><span class="line">        <span class="keyword">elif</span> s &lt; target:</span><br><span class="line">            left +=<span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            right -=<span class="number">1</span></span><br></pre></td></tr></table></figure><p>Link : <a href="https://leetcode.com/problems/add-two-numbers/description/?difficulty=EASY">https://leetcode.com/problems/add-two-numbers/description/?difficulty=EASY</a></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">addTwoNumbers</span>(<span class="params">self, l1: <span class="type">Optional</span>[ListNode], l2: <span class="type">Optional</span>[ListNode], c=<span class="number">0</span></span>) -&gt; <span class="type">Optional</span>[ListNode]:</span><br><span class="line">    sum_ = l1.val + l2.val + c</span><br><span class="line">    remain = sum_ % <span class="number">10</span></span><br><span class="line">    carry = sum_ // <span class="number">10</span></span><br><span class="line"></span><br><span class="line">    new_node = ListNode(remain)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> l1.<span class="built_in">next</span> != <span class="literal">None</span> <span class="keyword">or</span> l2.<span class="built_in">next</span> !=<span class="literal">None</span> <span class="keyword">or</span> carry != <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">if</span> l1.<span class="built_in">next</span> == <span class="literal">None</span>:</span><br><span class="line">            l1.<span class="built_in">next</span> = ListNode(<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">if</span> l2.<span class="built_in">next</span> == <span class="literal">None</span>:</span><br><span class="line">            l2.<span class="built_in">next</span> = ListNode(<span class="number">0</span>)</span><br><span class="line">        new_node.<span class="built_in">next</span> = <span class="variable language_">self</span>.addTwoNumbers(l1.<span class="built_in">next</span>, l2.<span class="built_in">next</span>, carry)</span><br><span class="line">    <span class="keyword">return</span> new_node</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Link : &lt;a href=&quot;https://leetcode.com/problems/two-sum/description/?difficulty=EASY&quot;&gt;https://leetcode.com/problems/two-sum/description/?di</summary>
+      
+    
+    
+    
+    <category term="Dev" scheme="https://kish191919.github.io/categories/Dev/"/>
+    
+    <category term="CODING_QUIZ_PYTHON" scheme="https://kish191919.github.io/categories/Dev/CODING-QUIZ-PYTHON/"/>
+    
+    
+    <category term="PYTHON" scheme="https://kish191919.github.io/tags/PYTHON/"/>
+    
+    <category term="LEETCODE" scheme="https://kish191919.github.io/tags/LEETCODE/"/>
+    
+  </entry>
   
   <entry>
     <title>Databricks CV Anomaly Detection</title>
@@ -561,36 +589,6 @@
       
       
     <summary type="html">&lt;h1 id=&quot;Amazon-SageMaker-AI&quot;&gt;&lt;a href=&quot;#Amazon-SageMaker-AI&quot; class=&quot;headerlink&quot; title=&quot;Amazon SageMaker (AI)&quot;&gt;&lt;/a&gt;Amazon SageMaker (AI)&lt;/h1&gt;&lt;</summary>
-      
-    
-    
-    
-    <category term="CERTIFICATION" scheme="https://kish191919.github.io/categories/CERTIFICATION/"/>
-    
-    <category term="AWS_AI_PRACTITIONER_KR" scheme="https://kish191919.github.io/categories/CERTIFICATION/AWS-AI-PRACTITIONER-KR/"/>
-    
-    
-    <category term="AWS" scheme="https://kish191919.github.io/tags/AWS/"/>
-    
-    <category term="AWS_AI_PRACTITIONER" scheme="https://kish191919.github.io/tags/AWS-AI-PRACTITIONER/"/>
-    
-    <category term="KOREAN" scheme="https://kish191919.github.io/tags/KOREAN/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>(한국어) AWS Certified AI Practitioner (35) - EC2</title>
-    <link href="https://kish191919.github.io/2025/09/02/KO-AWS-Certified-AI-Practitioner-35/"/>
-    <id>https://kish191919.github.io/2025/09/02/KO-AWS-Certified-AI-Practitioner-35/</id>
-    <published>2025-09-02T17:05:35.000Z</published>
-    <updated>2025-09-02T17:13:50.786Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Amazon-EC2-Elastic-Compute-Cloud"><a href="#Amazon-EC2-Elastic-Compute-Cloud" class="headerlink" title="Amazon EC2 (Elastic Compute Cloud)"></a>Amazon EC2 (Elastic Compute Cloud)</h1><h3 id="기본-개념"><a href="#기본-개념" class="headerlink" title="기본 개념"></a>기본 개념</h3><ul><li><strong>EC2 &#x3D; Elastic Compute Cloud</strong> → AWS의 대표적인 <strong>IaaS (Infrastructure as a Service)</strong> 서비스.</li><li>클라우드에서 <strong>가상 서버(인스턴스)를 임대</strong>하는 개념.</li><li>EC2를 이해하는 것은 클라우드 기본 개념을 이해하는 데 핵심.</li></ul><h3 id="주요-기능"><a href="#주요-기능" class="headerlink" title="주요 기능"></a>주요 기능</h3><ul><li><strong>가상 서버 임대 (EC2 Instance)</strong></li><li><strong>스토리지 연결</strong>: EBS(Elastic Block Store), EFS, 또는 인스턴스 스토어(하드웨어 기반).</li><li><strong>로드 밸런싱 (ELB)</strong>: 여러 서버에 트래픽 분산.</li><li><strong>오토 스케일링 (ASG)</strong>: 트래픽 변화에 따라 서버 자동 확장&#x2F;축소.</li></ul><hr><h1 id="EC2-인스턴스-설정-옵션"><a href="#EC2-인스턴스-설정-옵션" class="headerlink" title="EC2 인스턴스 설정 옵션"></a>EC2 인스턴스 설정 옵션</h1><ul><li><strong>운영체제 (OS)</strong>: Linux, Windows, macOS 지원.</li><li><strong>CPU</strong>: 코어 수와 연산 성능 선택 가능.</li><li><strong>메모리 (RAM)</strong>: 애플리케이션 요구사항에 맞게 조정.</li><li><strong>스토리지</strong>:<ul><li><strong>네트워크 연결 스토리지</strong> → EBS, EFS</li><li><strong>하드웨어 스토리지</strong> → EC2 Instance Store</li></ul></li><li><strong>네트워크 설정</strong>: 네트워크 카드 속도, 퍼블릭 IP 할당 여부.</li><li><strong>보안</strong>: Security Group(방화벽 역할).</li><li><strong>부트스트랩 스크립트</strong>: 인스턴스 최초 실행 시 자동 실행되는 <strong>User Data</strong> 스크립트.</li></ul><p>👉 <strong>시험 포인트</strong></p><ul><li>“EC2 User Data &#x3D; 인스턴스 최초 실행 시 자동 설정 스크립트”</li><li>“Security Group &#x3D; 인스턴스 방화벽 규칙”</li></ul><hr><h1 id="Amazon-EC2와-AI-관련-하드웨어"><a href="#Amazon-EC2와-AI-관련-하드웨어" class="headerlink" title="Amazon EC2와 AI 관련 하드웨어"></a>Amazon EC2와 AI 관련 하드웨어</h1><p>AI&#x2F;ML 워크로드에서는 일반 CPU보다 <strong>GPU&#x2F;전용 칩</strong>을 활용해야 효율적입니다.</p><h3 id="GPU-기반-인스턴스"><a href="#GPU-기반-인스턴스" class="headerlink" title="GPU 기반 인스턴스"></a>GPU 기반 인스턴스</h3><ul><li><strong>P 시리즈</strong> (P3, P4, P5): 고성능 머신러닝&#x2F;딥러닝 학습용.</li><li><strong>G 시리즈</strong> (G3~G6): 그래픽 처리, 딥러닝 추론, VDI(가상 데스크톱)용.</li></ul><h3 id="AWS-전용-AI-칩"><a href="#AWS-전용-AI-칩" class="headerlink" title="AWS 전용 AI 칩"></a>AWS 전용 AI 칩</h3><ol><li><strong>AWS Trainium (학습 전용)</strong><ul><li>대규모 딥러닝 모델(1000억+ 파라미터) 학습 최적화.</li><li><strong>Trn1 인스턴스</strong>: Trainium 칩 16개 포함.</li><li>GPU 대비 <strong>최대 50% 비용 절감</strong>.</li></ul></li><li><strong>AWS Inferentia (추론 전용)</strong><ul><li>고성능&#x2F;저비용 <strong>추론(Inference)</strong> 가속기.</li><li><strong>Inf1, Inf2 인스턴스</strong>에서 사용.</li><li>최대 <strong>4배 처리량, 70% 비용 절감</strong>.</li></ul></li></ol><p>👉 <strong>시험 포인트</strong></p><ul><li>“모델 학습 최적화, 비용 절감” → <strong>Trainium (Trn1)</strong></li><li>“추론 최적화, 비용 절감” → <strong>Inferentia (Inf1&#x2F;Inf2)</strong></li><li><strong>Trainium&#x2F;Inferentia &#x3D; AWS 자체 칩, 가장 친환경적(환경 발자국 최소화)</strong></li></ul><p align="center">  <img src="/images/aws_basic_165.png" width="80%"></p> ------------------------------------------------------------------------<h1 id="정리-시험-대비"><a href="#정리-시험-대비" class="headerlink" title="정리 (시험 대비)"></a>정리 (시험 대비)</h1><ul><li><strong>EC2 &#x3D; 클라우드 가상 서버</strong> (IaaS).</li><li><strong>EBS&#x2F;EFS</strong>: 네트워크 스토리지, <strong>Instance Store</strong>: 로컬 하드웨어 스토리지.</li><li><strong>ELB</strong>: 로드밸런싱, <strong>ASG</strong>: 자동 확장&#x2F;축소.</li><li><strong>Security Group</strong>: 방화벽, <strong>User Data</strong>: 초기 설정 스크립트.</li><li><strong>GPU 기반 인스턴스</strong>: P, G 시리즈 (ML 학습&#x2F;추론용).</li><li><strong>Trainium (Trn1)</strong>: 학습 전용 칩, 비용 절감.</li><li><strong>Inferentia (Inf1&#x2F;Inf2)</strong>: 추론 전용 칩, 성능+비용 효율.</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;Amazon-EC2-Elastic-Compute-Cloud&quot;&gt;&lt;a href=&quot;#Amazon-EC2-Elastic-Compute-Cloud&quot; class=&quot;headerlink&quot; title=&quot;Amazon EC2 (Elastic Compute </summary>
       
     
     
