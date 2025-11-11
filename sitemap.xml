@@ -236,7 +236,7 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/2025/09/02/AWS-Certified-AI-Practitioner-35/</loc>
+    <loc>https://kish191919.github.io/2025/09/02/AWS-Certified-AI-Practitioner-34/</loc>
     
     <lastmod>2025-09-02</lastmod>
     
@@ -245,7 +245,7 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/2025/09/02/AWS-Certified-AI-Practitioner-34/</loc>
+    <loc>https://kish191919.github.io/2025/09/02/AWS-Certified-AI-Practitioner-35/</loc>
     
     <lastmod>2025-09-02</lastmod>
     
@@ -677,6 +677,15 @@
   </url>
   
   <url>
+    <loc>https://kish191919.github.io/2025/08/19/AWS-Certified-AI-Practitioner-9/</loc>
+    
+    <lastmod>2025-08-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://kish191919.github.io/2025/08/15/AWS-Certified-AI-Practitioner-8/</loc>
     
     <lastmod>2025-08-21</lastmod>
@@ -686,7 +695,7 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/2025/08/19/AWS-Certified-AI-Practitioner-9/</loc>
+    <loc>https://kish191919.github.io/2025/08/19/AWS-Certified-AI-Practitioner-10/</loc>
     
     <lastmod>2025-08-21</lastmod>
     
@@ -714,15 +723,6 @@
   
   <url>
     <loc>https://kish191919.github.io/2025/08/20/AWS-Certified-AI-Practitioner-13/</loc>
-    
-    <lastmod>2025-08-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://kish191919.github.io/2025/08/19/AWS-Certified-AI-Practitioner-10/</loc>
     
     <lastmod>2025-08-21</lastmod>
     
@@ -1042,13 +1042,6 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/tags/Selection-Sort/</loc>
-    <lastmod>2025-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://kish191919.github.io/tags/PYTHON/</loc>
     <lastmod>2025-11-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -1057,6 +1050,13 @@
   
   <url>
     <loc>https://kish191919.github.io/tags/LEETCODE/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://kish191919.github.io/tags/Selection-Sort/</loc>
     <lastmod>2025-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1105,6 +1105,13 @@
   </url>
   
   <url>
+    <loc>https://kish191919.github.io/tags/KOREAN/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://kish191919.github.io/tags/Machine-Learning/</loc>
     <lastmod>2025-11-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -1113,13 +1120,6 @@
   
   <url>
     <loc>https://kish191919.github.io/tags/Regression/</loc>
-    <lastmod>2025-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://kish191919.github.io/tags/KOREAN/</loc>
     <lastmod>2025-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
