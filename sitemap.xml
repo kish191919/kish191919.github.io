@@ -695,15 +695,6 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/2025/08/19/AWS-Certified-AI-Practitioner-11/</loc>
-    
-    <lastmod>2025-08-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://kish191919.github.io/2025/08/19/AWS-Certified-AI-Practitioner-10/</loc>
     
     <lastmod>2025-08-21</lastmod>
@@ -713,7 +704,7 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/2025/08/20/AWS-Certified-AI-Practitioner-12/</loc>
+    <loc>https://kish191919.github.io/2025/08/20/AWS-Certified-AI-Practitioner-13/</loc>
     
     <lastmod>2025-08-21</lastmod>
     
@@ -722,7 +713,16 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/2025/08/20/AWS-Certified-AI-Practitioner-13/</loc>
+    <loc>https://kish191919.github.io/2025/08/19/AWS-Certified-AI-Practitioner-11/</loc>
+    
+    <lastmod>2025-08-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://kish191919.github.io/2025/08/20/AWS-Certified-AI-Practitioner-12/</loc>
     
     <lastmod>2025-08-21</lastmod>
     
@@ -965,20 +965,6 @@
 
   
   <url>
-    <loc>https://kish191919.github.io/tags/AWS/</loc>
-    <lastmod>2025-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://kish191919.github.io/tags/AWS-AI-PRACTITIONER/</loc>
-    <lastmod>2025-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://kish191919.github.io/tags/OpenAI/</loc>
     <lastmod>2025-11-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -987,6 +973,20 @@
   
   <url>
     <loc>https://kish191919.github.io/tags/Swift/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://kish191919.github.io/tags/AWS/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://kish191919.github.io/tags/AWS-AI-PRACTITIONER/</loc>
     <lastmod>2025-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1049,7 +1049,7 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/tags/PYTHON/</loc>
+    <loc>https://kish191919.github.io/tags/SQL/</loc>
     <lastmod>2025-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1063,7 +1063,7 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/tags/SQL/</loc>
+    <loc>https://kish191919.github.io/tags/PYTHON/</loc>
     <lastmod>2025-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1133,7 +1133,21 @@
   </url>
   
   <url>
+    <loc>https://kish191919.github.io/tags/Apache-Flink/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://kish191919.github.io/tags/Kafka/</loc>
+    <lastmod>2025-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://kish191919.github.io/tags/Elasticsearch/</loc>
     <lastmod>2025-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1148,20 +1162,6 @@
   
   <url>
     <loc>https://kish191919.github.io/tags/Grafana/</loc>
-    <lastmod>2025-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://kish191919.github.io/tags/Apache-Flink/</loc>
-    <lastmod>2025-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://kish191919.github.io/tags/Elasticsearch/</loc>
     <lastmod>2025-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1191,14 +1191,14 @@
 
   
   <url>
-    <loc>https://kish191919.github.io/categories/CERTIFICATION/</loc>
+    <loc>https://kish191919.github.io/categories/Showcase/</loc>
     <lastmod>2025-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/categories/Showcase/</loc>
+    <loc>https://kish191919.github.io/categories/CERTIFICATION/</loc>
     <lastmod>2025-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1226,14 +1226,14 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/categories/Dev/CODING-QUIZ-PYTHON/</loc>
+    <loc>https://kish191919.github.io/categories/Dev/CODING-QUIZ-SQL/</loc>
     <lastmod>2025-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/categories/Dev/CODING-QUIZ-SQL/</loc>
+    <loc>https://kish191919.github.io/categories/Dev/CODING-QUIZ-PYTHON/</loc>
     <lastmod>2025-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
