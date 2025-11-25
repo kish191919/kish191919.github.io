@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://kish191919.github.io/2025/09/02/AWS-Certified-AI-Practitioner-41/</loc>
+    
+    <lastmod>2025-11-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://kish191919.github.io/tech/index.html</loc>
     
     <lastmod>2025-11-20</lastmod>
@@ -75,15 +84,6 @@
   
   <url>
     <loc>https://kish191919.github.io/2025/08/26/AWS-Certified-AI-Practitioner-30/</loc>
-    
-    <lastmod>2025-11-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://kish191919.github.io/2025/11/20/Interview-Question-Answer/</loc>
     
     <lastmod>2025-11-20</lastmod>
     
@@ -185,15 +185,6 @@
     <loc>https://kish191919.github.io/2025/08/23/KO-AWS-Certified-AI-Practitioner-27/</loc>
     
     <lastmod>2025-09-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://kish191919.github.io/2025/09/02/AWS-Certified-AI-Practitioner-41/</loc>
-    
-    <lastmod>2025-09-02</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1081,13 +1072,6 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/tags/SQL/</loc>
-    <lastmod>2025-11-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://kish191919.github.io/tags/Databricks/</loc>
     <lastmod>2025-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -1123,6 +1107,13 @@
   </url>
   
   <url>
+    <loc>https://kish191919.github.io/tags/SQL/</loc>
+    <lastmod>2025-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://kish191919.github.io/tags/Machine-Learning/</loc>
     <lastmod>2025-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -1138,13 +1129,6 @@
   
   <url>
     <loc>https://kish191919.github.io/tags/KOREAN/</loc>
-    <lastmod>2025-11-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://kish191919.github.io/tags/INTERVIEW/</loc>
     <lastmod>2025-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1266,20 +1250,6 @@
   
   <url>
     <loc>https://kish191919.github.io/categories/CERTIFICATION/AWS-AI-PRACTITIONER-KR/</loc>
-    <lastmod>2025-11-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://kish191919.github.io/categories/ETC/</loc>
-    <lastmod>2025-11-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://kish191919.github.io/categories/ETC/INTERVIEW/</loc>
     <lastmod>2025-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
