@@ -749,7 +749,7 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/2025/08/19/AWS-Certified-AI-Practitioner-11/</loc>
+    <loc>https://kish191919.github.io/2025/08/19/AWS-Certified-AI-Practitioner-10/</loc>
     
     <lastmod>2025-08-21</lastmod>
     
@@ -758,7 +758,7 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/2025/08/19/AWS-Certified-AI-Practitioner-10/</loc>
+    <loc>https://kish191919.github.io/2025/08/19/AWS-Certified-AI-Practitioner-11/</loc>
     
     <lastmod>2025-08-21</lastmod>
     
@@ -1051,13 +1051,6 @@
   </url>
   
   <url>
-    <loc>https://kish191919.github.io/tags/Selection-Sort/</loc>
-    <lastmod>2025-12-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://kish191919.github.io/tags/PYTHON/</loc>
     <lastmod>2025-12-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -1066,6 +1059,13 @@
   
   <url>
     <loc>https://kish191919.github.io/tags/LEETCODE/</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://kish191919.github.io/tags/Selection-Sort/</loc>
     <lastmod>2025-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
