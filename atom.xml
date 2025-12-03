@@ -6,7 +6,7 @@
   <link href="https://kish191919.github.io/atom.xml" rel="self"/>
   
   <link href="https://kish191919.github.io/"/>
-  <updated>2025-12-03T16:43:04.692Z</updated>
+  <updated>2025-12-03T17:17:58.173Z</updated>
   <id>https://kish191919.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TERADATA(3)-History View</title>
+    <link href="https://kish191919.github.io/2025/12/03/TERADATA-3-History-View/"/>
+    <id>https://kish191919.github.io/2025/12/03/TERADATA-3-History-View/</id>
+    <published>2025-12-03T17:12:57.000Z</published>
+    <updated>2025-12-03T17:17:58.173Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="📘-Teradata-Studio-–-SQL-History-창-완전-정리"><a href="#📘-Teradata-Studio-–-SQL-History-창-완전-정리" class="headerlink" title="📘 Teradata Studio – SQL History 창 완전 정리"></a>📘 Teradata Studio – SQL History 창 완전 정리</h1><p><em>Teradata SQL History 창 설정, 컬럼 선택, 노트 기능, 복원 방법</em></p><hr><h2 id="📍-1-SQL-History-창-복원하기"><a href="#📍-1-SQL-History-창-복원하기" class="headerlink" title="📍 1. SQL History 창 복원하기"></a>📍 1. SQL History 창 복원하기</h2><p>SQL History 창을 실수로 닫았거나 사라졌다면:</p><p><strong>Window → Reset Perspective</strong></p><p>를 눌러주면 기본 레이아웃으로 복원됩니다.<br>→ History 창, Result Viewer 등 모든 패널이 원래 위치로 돌아옵니다.</p><hr><h2 id="📍-2-SQL-History-창-컬럼-Columns-커스터마이징"><a href="#📍-2-SQL-History-창-컬럼-Columns-커스터마이징" class="headerlink" title="📍 2. SQL History 창 컬럼(Columns) 커스터마이징"></a>📍 2. SQL History 창 컬럼(Columns) 커스터마이징</h2><p>SQL History는 기본적으로 매우 많은 컬럼을 보여줍니다.<br>예: Timestamp, Source, User, Destination, Row Count, Result, SQL Statement 등</p><p>필요 없는 컬럼이 많으면 화면이 복잡해지므로 <strong>원하는 항목만 선택</strong>할 수 있습니다.</p><h3 id="🔧-설정-경로"><a href="#🔧-설정-경로" class="headerlink" title="🔧 설정 경로"></a>🔧 설정 경로</h3><p><strong>Window → Preferences → Teradata Datatools → SQL History</strong></p><p>여기서 다음을 할 수 있습니다:</p><h3 id="🔹-1-표시할-컬럼-선택"><a href="#🔹-1-표시할-컬럼-선택" class="headerlink" title="🔹 1) 표시할 컬럼 선택"></a>🔹 1) 표시할 컬럼 선택</h3><ul><li>Removed Columns → 표시 안 함</li><li>Displayed Columns → 표시됨</li></ul><p>예시: 아래 항목만 선택하여 필요한 정보만 보이게 할 수 있음</p><ul><li>Timestamp</li><li>SQL Statement</li><li>Result (에러 메시지 포함)</li><li>Row Count</li><li>Elapsed Time</li></ul><p>적용 후 History 창에는 선택한 컬럼만 깔끔하게 표시됩니다.</p><hr><h2 id="📍-3-설정-적용-후-결과-확인"><a href="#📍-3-설정-적용-후-결과-확인" class="headerlink" title="📍 3. 설정 적용 후 결과 확인"></a>📍 3. 설정 적용 후 결과 확인</h2><p>예시 쿼리를 실행한 후 History 창에서 다음 정보를 확인할 수 있습니다:</p><ul><li><strong>Row Count</strong>: 조회된 레코드 수</li><li><strong>Result</strong>:<ul><li>성공 시 “Executed as Single Statement”</li><li>2000개 넘으면 “Canceled” (제한 때문에 일부만 조회됨)</li></ul></li><li><strong>Elapsed Time</strong>: 실행 소요 시간</li><li><strong>SQL Statement</strong>: 실행한 SQL 원문</li><li><strong>Timestamp</strong>: 실행한 날짜&#x2F;시간</li></ul><p>👉 불필요한 데이터 없이 핵심 정보만 남아서 훨씬 읽기 쉬워짐</p><hr><h2 id="📍-4-SQL-Notes-기능-사용하기"><a href="#📍-4-SQL-Notes-기능-사용하기" class="headerlink" title="📍 4. SQL Notes 기능 사용하기"></a>📍 4. SQL Notes 기능 사용하기</h2><p>SQL Editor에서 쿼리를 실행할 때 <strong>노트 입력 팝업</strong>이 뜰 수 있습니다.</p><p>예시 팝업 내용:</p><blockquote><p>“Enter a note for this query”</p></blockquote><p>이 기능은 쿼리 실행 시 <strong>개인 메모</strong>를 기록해두는 기능입니다.</p><p>예:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">My first query</span><br></pre></td></tr></table></figure><p>쿼리를 실행하고 History 창에 “Notes” 컬럼을 추가하면 해당 내용이 표시됩니다.</p><hr><h2 id="📍-5-Notes-컬럼-추가하는-방법"><a href="#📍-5-Notes-컬럼-추가하는-방법" class="headerlink" title="📍 5. Notes 컬럼 추가하는 방법"></a>📍 5. Notes 컬럼 추가하는 방법</h2><p>경로:</p><p><strong>Window → Preferences → Teradata Datatools → SQL History</strong></p><ol><li>Available Columns 목록에서 “Notes”를 선택</li><li>Displayed Columns로 이동</li><li>필요하면 <strong>순서 이동(Up&#x2F;Down)</strong> 기능으로 원하는 위치 조정</li><li>Apply and Close</li></ol><p>이제 History 창에 Notes가 표시됩니다:</p><table><thead><tr><th>Timestamp</th><th>SQL Statement</th><th>Result</th><th>Notes</th></tr></thead><tbody><tr><td>2025-02-10</td><td>SELECT * FROM …</td><td>OK</td><td>My first query</td></tr></tbody></table><p>💡 SQL을 많이 작성하는 경우 쿼리 목적이나 특이사항을 기록해두면 유용함.</p><hr><h2 id="📍-6-Notes-기능-비활성화"><a href="#📍-6-Notes-기능-비활성화" class="headerlink" title="📍 6. Notes 기능 비활성화"></a>📍 6. Notes 기능 비활성화</h2><p>Notes 기능을 사용하지 않는다면 다음과 같이 끌 수 있습니다.</p><p>방법 ①</p><ul><li>SQL 실행 후 뜨는 노트 팝업을 “비활성화” 체크</li></ul><p>방법 ②</p><ul><li>Notes 컬럼을 다시 Removed Columns로 이동<br>→ History 창에서 제거됨</li></ul><hr><h2 id="📍-7-History-창-즉시-설정하는-빠른-방법"><a href="#📍-7-History-창-즉시-설정하는-빠른-방법" class="headerlink" title="📍 7. History 창 즉시 설정하는 빠른 방법"></a>📍 7. History 창 즉시 설정하는 빠른 방법</h2><p>History 창 오른쪽 상단의 <strong>🔧 (Wrench) 아이콘</strong>을 클릭하면<br>바로 같은 설정 화면으로 이동할 수 있습니다.</p><p><strong>Window → Preferences</strong> 메뉴를 타고 갈 필요 없음.</p><hr><h2 id="📍-8-언제든-기본값으로-복원-가능"><a href="#📍-8-언제든-기본값으로-복원-가능" class="headerlink" title="📍 8. 언제든 기본값으로 복원 가능"></a>📍 8. 언제든 기본값으로 복원 가능</h2><p>History 설정이 꼬이거나 너무 복잡해졌다면:</p><p><strong>Restore Defaults</strong> 버튼 클릭</p><p>→ Teradata Studio의 기본 설정으로 깔끔하게 되돌아옵니다.</p><hr><h2 id="🎯-최종-요약"><a href="#🎯-최종-요약" class="headerlink" title="🎯 최종 요약"></a>🎯 최종 요약</h2><p>이번 강의에서는 SQL History 창을 다음과 같이 정리했습니다:</p><h3 id="✔-원하는-컬럼만-표시하도록-커스터마이징"><a href="#✔-원하는-컬럼만-표시하도록-커스터마이징" class="headerlink" title="✔ 원하는 컬럼만 표시하도록 커스터마이징"></a>✔ 원하는 컬럼만 표시하도록 커스터마이징</h3><ul><li>Timestamp</li><li>Row Count</li><li>Result</li><li>SQL Statement</li><li>Elapsed Time</li><li>Notes (필요 시)</li></ul><h3 id="✔-Notes-기능"><a href="#✔-Notes-기능" class="headerlink" title="✔ Notes 기능"></a>✔ Notes 기능</h3><ul><li>쿼리에 개인 메모 추가 가능</li><li>History 창에 Notes 컬럼으로 표시됨</li><li>사용하지 않으면 비활성화 가능</li></ul><h3 id="✔-빠른-설정"><a href="#✔-빠른-설정" class="headerlink" title="✔ 빠른 설정"></a>✔ 빠른 설정</h3><ul><li>History창의 🔧 아이콘으로 즉시 이동</li></ul><h3 id="✔-레이아웃-복원"><a href="#✔-레이아웃-복원" class="headerlink" title="✔ 레이아웃 복원"></a>✔ 레이아웃 복원</h3><ul><li>Window → Reset Perspective 로 전체 UI 초기화 가능</li></ul><hr><p>필요하시면 다음 강의도 정리해서 연결된 md 파일로 만들어드릴게요!</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;📘-Teradata-Studio-–-SQL-History-창-완전-정리&quot;&gt;&lt;a href=&quot;#📘-Teradata-Studio-–-SQL-History-창-완전-정리&quot; class=&quot;headerlink&quot; title=&quot;📘 Teradata </summary>
+      
+    
+    
+    
+    <category term="TERADATA" scheme="https://kish191919.github.io/categories/TERADATA/"/>
+    
+    
+    <category term="TERADATA" scheme="https://kish191919.github.io/tags/TERADATA/"/>
+    
+  </entry>
   
   <entry>
     <title>TERADATA(2)-Customizing the Interface and Result Set Viewer</title>
@@ -548,36 +572,6 @@
       
       
     <summary type="html">&lt;h1 id=&quot;SageMaker-–-ML-거버넌스-및-확장-기능&quot;&gt;&lt;a href=&quot;#SageMaker-–-ML-거버넌스-및-확장-기능&quot; class=&quot;headerlink&quot; title=&quot;SageMaker – ML 거버넌스 및 확장 기능&quot;&gt;&lt;/a&gt;SageM</summary>
-      
-    
-    
-    
-    <category term="CERTIFICATION" scheme="https://kish191919.github.io/categories/CERTIFICATION/"/>
-    
-    <category term="AWS_AI_PRACTITIONER_KR" scheme="https://kish191919.github.io/categories/CERTIFICATION/AWS-AI-PRACTITIONER-KR/"/>
-    
-    
-    <category term="AWS" scheme="https://kish191919.github.io/tags/AWS/"/>
-    
-    <category term="AWS_AI_PRACTITIONER" scheme="https://kish191919.github.io/tags/AWS-AI-PRACTITIONER/"/>
-    
-    <category term="KOREAN" scheme="https://kish191919.github.io/tags/KOREAN/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>(한국어) AWS Certified AI Practitioner (37) - SageMaker 데이터 준비 및 모델 신뢰성 도구</title>
-    <link href="https://kish191919.github.io/2025/09/02/KO-AWS-Certified-AI-Practitioner-37/"/>
-    <id>https://kish191919.github.io/2025/09/02/KO-AWS-Certified-AI-Practitioner-37/</id>
-    <published>2025-09-02T18:04:41.000Z</published>
-    <updated>2025-09-02T18:28:14.402Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="SageMaker-–-데이터-준비-및-모델-신뢰성-도구"><a href="#SageMaker-–-데이터-준비-및-모델-신뢰성-도구" class="headerlink" title="SageMaker – 데이터 준비 및 모델 신뢰성 도구"></a>SageMaker – 데이터 준비 및 모델 신뢰성 도구</h1><h2 id="1-SageMaker-Data-Wrangler"><a href="#1-SageMaker-Data-Wrangler" class="headerlink" title="1. SageMaker Data Wrangler"></a>1. SageMaker Data Wrangler</h2><p>머신러닝을 하기 전에 가장 중요한 단계는 <strong>데이터 준비</strong>입니다. SageMaker Data Wrangler는 표 형식 데이터(tabular)와 이미지 데이터를 손쉽게 준비할 수 있는 도구입니다.</p><p>주요 기능: - 데이터 선택, 정제, 탐색, 시각화, 처리까지 <strong>단일 인터페이스</strong>에서 수행</p><ul><li>데이터 변환 및 <strong>피처 엔지니어링(feature engineering)</strong> 지원</li><li>SQL 쿼리 지원 → 데이터 분석 경험이 있는 사람에게 친숙</li><li>데이터 품질(Data Quality) 도구 제공 → 결측치, 잘못된 포맷 탐지</li></ul><p align="center">  <img src="/images/aws_basic_174.png" width="80%"></p> <p>활용 단계: </p><ol><li><strong>데이터 불러오기 (Import)</strong> → S3, Redshift 등 다양한 소스에서 불러오기</li></ol><p align="center">  <img src="/images/aws_basic_175.png" width="80%"></p> <ol start="2"><li><strong>데이터 미리보기 (Preview)</strong> → 열 이름, 타입 확인</li></ol><p align="center">  <img src="/images/aws_basic_176.png" width="80%"></p> <ol start="3"><li><strong>데이터 시각화 (Visualize)</strong> → 분포도, 상관관계 그래프 생성</li></ol><p align="center">  <img src="/images/aws_basic_177.png" width="80%"></p> <ol start="4"><li><strong>데이터 변환 (Transform)</strong> → 불필요한 열 삭제, 새로운 열 추가 등</li></ol><p align="center">  <img src="/images/aws_basic_178.png" width="80%"></p> <ol start="5"><li><strong>빠른 모델 확인 (Quick Model)</strong> → 간단히 학습시켜 성능 미리 점검</li></ol><p align="center">  <img src="/images/aws_basic_179.png" width="80%"></p> <ol start="6"><li><strong>데이터 플로우 내보내기 (Export Flow)</strong> → 파이프라인에 통합 가능</li></ol><p align="center">  <img src="/images/aws_basic_180.png" width="80%"></p> <p>👉 <strong>시험 포인트</strong>: 데이터 전처리 및 피처 엔지니어링 도구로 <strong>SageMaker Data Wrangler</strong>가 주로 언급됨.</p><hr><h2 id="2-ML-Feature란"><a href="#2-ML-Feature란" class="headerlink" title="2. ML Feature란?"></a>2. ML Feature란?</h2><p>**피처(Feature)**는 머신러닝 모델이 학습하거나 추론할 때 사용하는<br><strong>입력값</strong>입니다.<br>예: 음악 추천 데이터셋 → 노래 평점, 청취 시간, 사용자 연령&#x2F;성별 등</p><p>특징: - 원시 데이터를 그대로 쓰기보다는 <strong>가공된 값</strong>이 효과적임.</p><ul><li>예: 생년월일 → <strong>나이(age)</strong> 로 변환하면 숫자형 피처로 활용 가능.</li><li>회사 차원에서 <strong>표준화된 피처 저장소</strong>가 있으면 재사용성이 높아짐.</li></ul><p align="center">  <img src="/images/aws_basic_181.png" width="80%"></p> <hr><h2 id="3-SageMaker-Feature-Store"><a href="#3-SageMaker-Feature-Store" class="headerlink" title="3. SageMaker Feature Store"></a>3. SageMaker Feature Store</h2><p><strong>Feature Store</strong>는 여러 소스에서 수집한 피처를 저장, 관리, 검색할 수<br>있는 중앙 저장소입니다.</p><p>특징: - 다양한 소스에서 피처를 수집(Ingest)</p><ul><li>Data Wrangler에서 만든 피처를 바로 Feature Store로 저장 가능</li><li>SageMaker Studio 내에서 쉽게 검색·활용 가능</li></ul><p>👉 <strong>시험 포인트</strong>: Feature Store &#x3D; <strong>재사용 가능한 피처를 저장·공유하는<br>중앙 저장소</strong></p><p align="center">  <img src="/images/aws_basic_182.png" width="80%"></p> ------------------------------------------------------------------------<h2 id="4-SageMaker-Clarify"><a href="#4-SageMaker-Clarify" class="headerlink" title="4. SageMaker Clarify"></a>4. SageMaker Clarify</h2><p>모델이 공정하고 투명하게 작동하는지 평가하는 도구입니다.</p><h3 id="1-모델-평가"><a href="#1-모델-평가" class="headerlink" title="(1) 모델 평가"></a>(1) 모델 평가</h3><ul><li>파운데이션 모델(예: 모델 A vs 모델 B)의 성능 비교</li><li>인간적인 요소(친근함, 유머 등)도 평가 가능</li><li>AWS 제공 팀, 사내 직원, 또는 직접 준비한 데이터셋 활용</li></ul><p align="center">  <img src="/images/aws_basic_183.png" width="80%"></p> <h3 id="2-모델-설명력-Explainability"><a href="#2-모델-설명력-Explainability" class="headerlink" title="(2) 모델 설명력 (Explainability)"></a>(2) 모델 설명력 (Explainability)</h3><ul><li><strong>모델이 왜 이런 예측을 내렸는지</strong> 설명하는 기능</li><li>모델 배포 전 전체 특성을 이해하거나, 배포 후 예측 결과를 디버깅할 때<br>활용</li><li>예: 대출 거절 예측 → 어떤 입력값(소득, 대출 금액, 신용 등급)이 가장<br>큰 영향을 미쳤는지 분석</li></ul><p>👉 <strong>시험 포인트</strong>: 모델의 신뢰성과 투명성 확보 → <strong>Clarify의<br>Explainability 기능</strong></p><p align="center">  <img src="/images/aws_basic_184.png" width="80%"></p> <h3 id="3-편향-탐지-Bias-Detection"><a href="#3-편향-탐지-Bias-Detection" class="headerlink" title="(3) 편향 탐지 (Bias Detection)"></a>(3) 편향 탐지 (Bias Detection)</h3><ul><li>데이터셋과 모델 내 <strong>편향(bias)</strong> 자동 탐지</li><li>통계적 지표를 활용해 불균형 확인</li></ul><p>주요 편향 유형: - <strong>샘플링 편향(Sampling Bias)</strong>: 데이터셋이 전체 집단을<br>대표하지 못함</p><ul><li><strong>측정 편향(Measurement Bias)</strong>: 데이터 수집 도구가 왜곡</li><li><strong>관찰자 편향(Observer Bias)</strong>: 수집자의 주관적 해석이 반영됨</li><li><strong>확증 편향(Confirmation Bias)</strong>: 기존 믿음을 뒷받침하는 데이터만 강조</li></ul><p>예: 특정 인종 집단만 주로 ‘부적합’으로 분류된다면 심각한 <strong>편향</strong> 발생</p><p>👉 <strong>시험 포인트</strong>: Clarify &#x3D; <strong>Bias 탐지 + Explainability 제공</strong></p><p align="center">  <img src="/images/aws_basic_185.png" width="80%"></p> <hr><h2 id="5-SageMaker-Ground-Truth"><a href="#5-SageMaker-Ground-Truth" class="headerlink" title="5. SageMaker Ground Truth"></a>5. SageMaker Ground Truth</h2><p>Ground Truth는 <strong>데이터 라벨링과 RLHF(Reinforcement Learning from Human<br>Feedback)</strong> 를 위한 서비스입니다.</p><p>주요 기능: - <strong>데이터 라벨링</strong>: 이미지, 텍스트, 오디오 등에 정답(레이블)<br>붙이기</p><ul><li><strong>인간 피드백 기반 강화학습(RLHF)</strong>: 모델의 출력에 대해 사람의<br>피드백을 반영 → 모델이 인간의 선호도와 맞도록 학습</li><li>리뷰어(라벨러):</li><li>Amazon Mechanical Turk 작업자</li><li>사내 직원</li><li>제3자 벤더</li></ul><p>추가 기능:</p><ul><li><strong>Ground Truth Plus</strong> → AWS가 제공하는 관리형 라벨링 서비스</li></ul><p>👉 <strong>시험 포인트</strong>: 시험에서 <strong>RLHF</strong>라는 키워드가 나오면 → <strong>SageMaker<br>Ground Truth</strong></p><p align="center">  <img src="/images/aws_basic_186.png" width="80%"></p> <hr><h1 id="요약"><a href="#요약" class="headerlink" title="요약"></a>요약</h1><ul><li><strong>Data Wrangler</strong>: 데이터 전처리, 피처 엔지니어링 도구</li><li><strong>Feature Store</strong>: 표준화된 피처 저장&#x2F;재사용</li><li><strong>Clarify</strong>: 모델 설명력(Explainability) + 편향 탐지(Bias<br>Detection)</li><li><strong>Ground Truth</strong>: 데이터 라벨링 + RLHF</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;SageMaker-–-데이터-준비-및-모델-신뢰성-도구&quot;&gt;&lt;a href=&quot;#SageMaker-–-데이터-준비-및-모델-신뢰성-도구&quot; class=&quot;headerlink&quot; title=&quot;SageMaker – 데이터 준비 및 모델 신뢰성 도구&quot;&gt;</summary>
       
     
     
