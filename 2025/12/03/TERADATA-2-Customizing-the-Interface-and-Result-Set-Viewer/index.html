@@ -1,0 +1,287 @@
+<!DOCTYPE html><html lang="[&quot;en&quot;,&quot;ko&quot;,&quot;default&quot;]" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>TERADATA(2)-Customizing the Interface and Result Set Viewer | Danny's Blog</title><meta name="author" content="Danny Ki"><meta name="copyright" content="Danny Ki"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="📘 Teradata Studio 환경 설정 및 화면 커스터마이징Teradata Studio 뷰 변경 &#x2F; 폰트 수정 &#x2F; Result Viewer 설정 &#x2F; 행 색상 변경 등  📍 1. 하단 창(History 등) 숨기기 &#x2F; 보이기Teradata Studio에서 하단의 SQL History 또는 기타 창이 공간을 많이 차지">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TERADATA(2)-Customizing the Interface and Result Set Viewer">
+<meta property="og:url" content="https://kish191919.github.io/2025/12/03/TERADATA-2-Customizing-the-Interface-and-Result-Set-Viewer/index.html">
+<meta property="og:site_name" content="Danny&#39;s Blog">
+<meta property="og:description" content="📘 Teradata Studio 환경 설정 및 화면 커스터마이징Teradata Studio 뷰 변경 &#x2F; 폰트 수정 &#x2F; Result Viewer 설정 &#x2F; 행 색상 변경 등  📍 1. 하단 창(History 등) 숨기기 &#x2F; 보이기Teradata Studio에서 하단의 SQL History 또는 기타 창이 공간을 많이 차지">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kish191919.github.io/img/my_pic.jpeg">
+<meta property="article:published_time" content="2025-12-03T16:38:31.000Z">
+<meta property="article:modified_time" content="2025-12-03T16:43:04.692Z">
+<meta property="article:author" content="Danny Ki">
+<meta property="article:tag" content="TERADATA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kish191919.github.io/img/my_pic.jpeg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "TERADATA(2)-Customizing the Interface and Result Set Viewer",
+  "url": "https://kish191919.github.io/2025/12/03/TERADATA-2-Customizing-the-Interface-and-Result-Set-Viewer/",
+  "image": "https://kish191919.github.io/img/my_pic.jpeg",
+  "datePublished": "2025-12-03T16:38:31.000Z",
+  "dateModified": "2025-12-03T16:43:04.692Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Danny Ki",
+      "url": "https://kish191919.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kish191919.github.io/2025/12/03/TERADATA-2-Customizing-the-Interface-and-Result-Set-Viewer/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="UfZT9jGVnwcVj8z_sCj9LyqnWho6ubHg1Q7o_bvXfKs"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=GTM-N66KNRNW"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'GTM-N66KNRNW')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'GTM-N66KNRNW', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'TERADATA(2)-Customizing the Interface and Result Set Viewer',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://kish191919.github.io/",
+  "name": "Danny's Blog",
+  "inLanguage": "en"
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Danny's Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">104</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">10</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/tech/"><i class="fa-fw fas fa-laptop-code"></i><span> Tech</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Danny's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">TERADATA(2)-Customizing the Interface and Result Set Viewer</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/tech/"><i class="fa-fw fas fa-laptop-code"></i><span> Tech</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">TERADATA(2)-Customizing the Interface and Result Set Viewer</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-12-03T16:38:31.000Z" title="Created 2025-12-03 11:38:31">2025-12-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-12-03T16:43:04.692Z" title="Updated 2025-12-03 11:43:04">2025-12-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/TERADATA/">TERADATA</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="📘-Teradata-Studio-환경-설정-및-화면-커스터마이징"><a href="#📘-Teradata-Studio-환경-설정-및-화면-커스터마이징" class="headerlink" title="📘 Teradata Studio 환경 설정 및 화면 커스터마이징"></a>📘 Teradata Studio 환경 설정 및 화면 커스터마이징</h1><p><em>Teradata Studio 뷰 변경 &#x2F; 폰트 수정 &#x2F; Result Viewer 설정 &#x2F; 행 색상 변경 등</em></p>
+<hr>
+<h2 id="📍-1-하단-창-History-등-숨기기-보이기"><a href="#📍-1-하단-창-History-등-숨기기-보이기" class="headerlink" title="📍 1. 하단 창(History 등) 숨기기 &#x2F; 보이기"></a>📍 1. 하단 창(History 등) 숨기기 &#x2F; 보이기</h2><p>Teradata Studio에서 하단의 <strong>SQL History</strong> 또는 기타 창이 공간을 많이 차지할 때:</p>
+<ul>
+<li>창 우측 상단의 <strong>minimize( — )</strong> 버튼 클릭 → 창이 접힘</li>
+<li>다시 보고 싶을 때는 아래 도킹된 탭을 클릭하면 다시 나타남</li>
+</ul>
+<p>✔ 화면을 넓게 쓰고 싶을 때 매우 유용한 기능</p>
+<hr>
+<h2 id="📍-2-폰트-크기-스타일-변경하기"><a href="#📍-2-폰트-크기-스타일-변경하기" class="headerlink" title="📍 2. 폰트 크기 &#x2F; 스타일 변경하기"></a>📍 2. 폰트 크기 &#x2F; 스타일 변경하기</h2><p>경로:<br><strong>Window → Preferences → General → Appearance → Colors and Fonts</strong></p>
+<p>여기서 다양한 UI 요소의 폰트와 색상을 조정할 수 있습니다.</p>
+<h3 id="🔸-폰트-종류-설명"><a href="#🔸-폰트-종류-설명" class="headerlink" title="🔸 폰트 종류 설명"></a>🔸 폰트 종류 설명</h3><ul>
+<li>글자 옆에 <strong>A 아이콘</strong>이 있으면 “폰트 관련”</li>
+<li>A가 없으면 배경색&#x2F;전경색 같은 “색상 관련”</li>
+</ul>
+<h3 id="🔸-Dialog-Font-변경하기"><a href="#🔸-Dialog-Font-변경하기" class="headerlink" title="🔸 Dialog Font 변경하기"></a>🔸 Dialog Font 변경하기</h3><p>경로:<br><code>General → Appearance → Colors and Fonts → Dialog Font</code></p>
+<ol>
+<li>원하는 폰트&#x2F;크기 선택</li>
+<li>Preview에서 확인</li>
+<li>Apply and Close</li>
+</ol>
+<p>📌 “Dialog Font”는 Studio 전반의 팝업창, 버튼, 표(Row) 등의 기본 폰트를 의미함.</p>
+<blockquote>
+<p>일부 변경 사항은 창을 <strong>닫았다 다시 열어야 반영됨</strong></p>
+</blockquote>
+<hr>
+<h2 id="📍-3-폰트-변경-후-마음에-들지-않을-때"><a href="#📍-3-폰트-변경-후-마음에-들지-않을-때" class="headerlink" title="📍 3. 폰트 변경 후 마음에 들지 않을 때"></a>📍 3. 폰트 변경 후 마음에 들지 않을 때</h2><p>언제든지 <strong>Restore Defaults(기본값으로 복원)</strong> → Apply 하면 초기 상태로 돌아갑니다.</p>
+<p>특히 폰트를 과하게 크게&#x2F;작게 설정했을 경우 유용합니다.</p>
+<hr>
+<h2 id="📍-4-SQL-Editor-폰트-변경하기"><a href="#📍-4-SQL-Editor-폰트-변경하기" class="headerlink" title="📍 4. SQL Editor 폰트 변경하기"></a>📍 4. SQL Editor 폰트 변경하기</h2><p>경로:<br><strong>Window → Preferences → General → Appearance → Colors and Fonts → Text Font</strong></p>
+<p>이 폰트는 <strong>SQL Editor(쿼리 작성 창)</strong> 에 적용됩니다.</p>
+<p>예:</p>
+<ul>
+<li>굵게(Bold)</li>
+<li>폰트 변경</li>
+<li>크기 변경</li>
+</ul>
+<p>적용 후 SQL 창 글꼴이 즉시 변경됨.</p>
+<p>복원이 필요하면 <strong>Restore Defaults</strong> 사용.</p>
+<hr>
+<h2 id="📍-5-색상-Custom-Colors-커스터마이징"><a href="#📍-5-색상-Custom-Colors-커스터마이징" class="headerlink" title="📍 5. 색상(Custom Colors) 커스터마이징"></a>📍 5. 색상(Custom Colors) 커스터마이징</h2><p>Colors and Fonts 메뉴에는 수십 가지 색상 옵션이 존재합니다.</p>
+<p>예)</p>
+<ul>
+<li>Error Color (에러 메시지 색)</li>
+<li>View and Editor folders</li>
+<li>Non-Focused Part Color<br>등등</li>
+</ul>
+<p>커스터마이징 시 실시간으로 UI에 반영됨.</p>
+<p>→ 잘못 바꿔도 <strong>Restore Defaults</strong>로 언제든 복구 가능</p>
+<hr>
+<h2 id="📍-6-Result-Set-Viewer-결과-창-설정-변경"><a href="#📍-6-Result-Set-Viewer-결과-창-설정-변경" class="headerlink" title="📍 6. Result Set Viewer(결과 창) 설정 변경"></a>📍 6. Result Set Viewer(결과 창) 설정 변경</h2><p>경로:<br><strong>Window → Preferences → Teradata Datatools → Result Set Viewer</strong></p>
+<p>여기서 결과창의 여러 설정을 조정할 수 있습니다.</p>
+<h3 id="🔸-1-교차-색상-Row-Alternate-Color-켜기"><a href="#🔸-1-교차-색상-Row-Alternate-Color-켜기" class="headerlink" title="🔸 1) 교차 색상(Row Alternate Color) 켜기"></a>🔸 1) 교차 색상(Row Alternate Color) 켜기</h3><ul>
+<li>‘Display alternate result set rows in a different color’ 체크<br>→ 짝수 행&#x2F;홀수 행이 다른 색으로 표시되어 가독성이 좋아짐</li>
+</ul>
+<h3 id="🔸-2-Column-Header-숨기기-표시하기"><a href="#🔸-2-Column-Header-숨기기-표시하기" class="headerlink" title="🔸 2) Column Header 숨기기 &#x2F; 표시하기"></a>🔸 2) Column Header 숨기기 &#x2F; 표시하기</h3><ul>
+<li>Column header 옵션 OFF → 헤더(컬럼명) 숨기기<br>※ 비추천 (컬럼을 알아보기 어려워짐)</li>
+</ul>
+<h3 id="🔸-3-기본으로-불러오는-최대-Row-수-변경"><a href="#🔸-3-기본으로-불러오는-최대-Row-수-변경" class="headerlink" title="🔸 3) 기본으로 불러오는 최대 Row 수 변경"></a>🔸 3) 기본으로 불러오는 최대 Row 수 변경</h3><p>기본값: 2000<br>예: 1000으로 변경 가능</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> DBC.TablesV;</span><br></pre></td></tr></table></figure>
+
+<p>실행 시:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2,000 rows exceed limit. Retrieve first 2,000?</span><br></pre></td></tr></table></figure>
+<p>이 메시지에 나오는 숫자가 해당 설정에 의해 조정됨.</p>
+<hr>
+<h2 id="📍-7-Result-Viewer-옵션에-빠르게-접근하는-법"><a href="#📍-7-Result-Viewer-옵션에-빠르게-접근하는-법" class="headerlink" title="📍 7. Result Viewer 옵션에 빠르게 접근하는 법"></a>📍 7. Result Viewer 옵션에 빠르게 접근하는 법</h2><p>Result Viewer 우측 상단의 <strong>wrench(🔧 아이콘)</strong> 클릭하면<br>바로 Preferences의 동일한 화면으로 이동할 수 있습니다.</p>
+<hr>
+<h2 id="📍-8-세미콜론-사용-습관-들이기"><a href="#📍-8-세미콜론-사용-습관-들이기" class="headerlink" title="📍 8. 세미콜론(;) 사용 습관 들이기"></a>📍 8. 세미콜론(;) 사용 습관 들이기</h2><p>VTEQ나 여러 SQL 에디터에서는 <strong>각 SQL 문장 뒤에 반드시 세미콜론이 필요</strong>합니다.</p>
+<p>예:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> DBC.TablesV;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">CURRENT_DATE</span>;</span><br></pre></td></tr></table></figure>
+
+<p>여러 SQL을 한 번에 실행할 때 오류를 방지하기 위해<br>항상 세미콜론을 붙이는 것이 좋은 습관입니다.</p>
+<hr>
+<h2 id="📍-9-설정-적용-후-테스트-방법"><a href="#📍-9-설정-적용-후-테스트-방법" class="headerlink" title="📍 9. 설정 적용 후 테스트 방법"></a>📍 9. 설정 적용 후 테스트 방법</h2><p>예를 들어 Dialog Font 크기를 조정한 후 결과를 보고 싶다면:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HELP SESSION;</span><br></pre></td></tr></table></figure>
+
+<p>혹은</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> DBC.TablesV;</span><br></pre></td></tr></table></figure>
+
+<p>을 실행하면 Result Viewer의 폰트&#x2F;색상 적용 상태를 쉽게 확인할 수 있습니다.</p>
+<hr>
+<h2 id="🎯-최종-요약"><a href="#🎯-최종-요약" class="headerlink" title="🎯 최종 요약"></a>🎯 <strong>최종 요약</strong></h2><p>이번 강의에서는 다음을 배웠습니다:</p>
+<h3 id="✔-화면-레이아웃-조절"><a href="#✔-화면-레이아웃-조절" class="headerlink" title="✔ 화면 레이아웃 조절"></a>✔ 화면 레이아웃 조절</h3><ul>
+<li>하단 창 숨기기&#x2F;보이기</li>
+<li>Reset Perspective로 초기화 가능</li>
+</ul>
+<h3 id="✔-UI-커스터마이징"><a href="#✔-UI-커스터마이징" class="headerlink" title="✔ UI 커스터마이징"></a>✔ UI 커스터마이징</h3><ul>
+<li>Dialog Font</li>
+<li>Text Font (SQL Editor)</li>
+<li>색상(Color)</li>
+<li>Row Alternate Color</li>
+</ul>
+<h3 id="✔-Result-Set-Viewer-설정"><a href="#✔-Result-Set-Viewer-설정" class="headerlink" title="✔ Result Set Viewer 설정"></a>✔ Result Set Viewer 설정</h3><ul>
+<li>최대 row 수 변경</li>
+<li>헤더 표시&#x2F;숨김</li>
+<li>행 색상 교차 표시</li>
+</ul>
+<h3 id="✔-실용-팁"><a href="#✔-실용-팁" class="headerlink" title="✔ 실용 팁"></a>✔ 실용 팁</h3><ul>
+<li>🔧 아이콘으로 빠르게 환경설정 이동</li>
+<li>세미콜론(;) 습관화</li>
+<li>HELP SESSION으로 적용 결과 확인</li>
+</ul>
+<hr>
+<p>필요하다면:</p>
+<ul>
+<li>다음 강의 내용도 md 파일로 생성</li>
+<li>이미지 포함 버전</li>
+<li>GitHub README 스타일</li>
+<li>PDF 변환</li>
+</ul>
+<p>언제든 요청해주세요!</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://kish191919.github.io">Danny Ki</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://kish191919.github.io/2025/12/03/TERADATA-2-Customizing-the-Interface-and-Result-Set-Viewer/">https://kish191919.github.io/2025/12/03/TERADATA-2-Customizing-the-Interface-and-Result-Set-Viewer/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/TERADATA/">TERADATA</a></div><div class="post-share"><div class="social-share" data-image="/img/my_pic.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/12/03/TERADATA-1-Overview-of-Teradata-Studio-Modules/" title="TERADATA(1)-Overview of Teradata Studio Modules"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">TERADATA(1)-Overview of Teradata Studio Modules</div></div><div class="info-2"><div class="info-item-1">📘 Teradata Studio 기본 화면 이해하기기초 UI 설명 + SQL 실행 방법 + 트랜잭션 모드 개념 📍 1. Teradata Studio 첫 화면 구성Teradata Studio를 실행하면 다음과 같은 주요 영역을 보게 됩니다. 🔹 1) 상단 메뉴(File &#x2F; Edit &#x2F; Window 등)일반적인 파일 관리, 보기 설정, 환경설정 변경 등을 수행합니다. 🔹 2) Studio Toolbar쿼리 실행, 저장, 새 연결 생성 등 자주 사용하는 기능 아이콘들이 위치합니다. 🔹 3) Data Source Explorer (좌측 영역)Teradata에 연결된 데이터베이스 &#x2F; 유저 &#x2F; 테이블 &#x2F; 뷰 등을 탐색할 수 있는 가장 중요한 패널입니다. 🔹 4) Project ExplorerSQL 파일이나 프로젝트를 로컬에 저장하여 관리할 때 사용합니다. 🔹 5) SQL Editor (중앙 상단)SQL을 작성하는 공간입니다.예: 1...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/12/03/TERADATA-1-Overview-of-Teradata-Studio-Modules/" title="TERADATA(1)-Overview of Teradata Studio Modules"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-03</div><div class="info-item-2">TERADATA(1)-Overview of Teradata Studio Modules</div></div><div class="info-2"><div class="info-item-1">📘 Teradata Studio 기본 화면 이해하기기초 UI 설명 + SQL 실행 방법 + 트랜잭션 모드 개념 📍 1. Teradata Studio 첫 화면 구성Teradata Studio를 실행하면 다음과 같은 주요 영역을 보게 됩니다. 🔹 1) 상단 메뉴(File &#x2F; Edit &#x2F; Window 등)일반적인 파일 관리, 보기 설정, 환경설정 변경 등을 수행합니다. 🔹 2) Studio Toolbar쿼리 실행, 저장, 새 연결 생성 등 자주 사용하는 기능 아이콘들이 위치합니다. 🔹 3) Data Source Explorer (좌측 영역)Teradata에 연결된 데이터베이스 &#x2F; 유저 &#x2F; 테이블 &#x2F; 뷰 등을 탐색할 수 있는 가장 중요한 패널입니다. 🔹 4) Project ExplorerSQL 파일이나 프로젝트를 로컬에 저장하여 관리할 때 사용합니다. 🔹 5) SQL Editor (중앙 상단)SQL을 작성하는 공간입니다.예: 1...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Danny Ki</div><div class="author-info-description">A data engineer's journey in coding, analytics, and building real-world systems.</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">104</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kish191919"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/kish191919" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%F0%9F%93%98-Teradata-Studio-%ED%99%98%EA%B2%BD-%EC%84%A4%EC%A0%95-%EB%B0%8F-%ED%99%94%EB%A9%B4-%EC%BB%A4%EC%8A%A4%ED%84%B0%EB%A7%88%EC%9D%B4%EC%A7%95"><span class="toc-number">1.</span> <span class="toc-text">📘 Teradata Studio 환경 설정 및 화면 커스터마이징</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%8D-1-%ED%95%98%EB%8B%A8-%EC%B0%BD-History-%EB%93%B1-%EC%88%A8%EA%B8%B0%EA%B8%B0-%EB%B3%B4%EC%9D%B4%EA%B8%B0"><span class="toc-number">1.1.</span> <span class="toc-text">📍 1. 하단 창(History 등) 숨기기 &#x2F; 보이기</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%8D-2-%ED%8F%B0%ED%8A%B8-%ED%81%AC%EA%B8%B0-%EC%8A%A4%ED%83%80%EC%9D%BC-%EB%B3%80%EA%B2%BD%ED%95%98%EA%B8%B0"><span class="toc-number">1.2.</span> <span class="toc-text">📍 2. 폰트 크기 &#x2F; 스타일 변경하기</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%B8-%ED%8F%B0%ED%8A%B8-%EC%A2%85%EB%A5%98-%EC%84%A4%EB%AA%85"><span class="toc-number">1.2.1.</span> <span class="toc-text">🔸 폰트 종류 설명</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%B8-Dialog-Font-%EB%B3%80%EA%B2%BD%ED%95%98%EA%B8%B0"><span class="toc-number">1.2.2.</span> <span class="toc-text">🔸 Dialog Font 변경하기</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%8D-3-%ED%8F%B0%ED%8A%B8-%EB%B3%80%EA%B2%BD-%ED%9B%84-%EB%A7%88%EC%9D%8C%EC%97%90-%EB%93%A4%EC%A7%80-%EC%95%8A%EC%9D%84-%EB%95%8C"><span class="toc-number">1.3.</span> <span class="toc-text">📍 3. 폰트 변경 후 마음에 들지 않을 때</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%8D-4-SQL-Editor-%ED%8F%B0%ED%8A%B8-%EB%B3%80%EA%B2%BD%ED%95%98%EA%B8%B0"><span class="toc-number">1.4.</span> <span class="toc-text">📍 4. SQL Editor 폰트 변경하기</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%8D-5-%EC%83%89%EC%83%81-Custom-Colors-%EC%BB%A4%EC%8A%A4%ED%84%B0%EB%A7%88%EC%9D%B4%EC%A7%95"><span class="toc-number">1.5.</span> <span class="toc-text">📍 5. 색상(Custom Colors) 커스터마이징</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%8D-6-Result-Set-Viewer-%EA%B2%B0%EA%B3%BC-%EC%B0%BD-%EC%84%A4%EC%A0%95-%EB%B3%80%EA%B2%BD"><span class="toc-number">1.6.</span> <span class="toc-text">📍 6. Result Set Viewer(결과 창) 설정 변경</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%B8-1-%EA%B5%90%EC%B0%A8-%EC%83%89%EC%83%81-Row-Alternate-Color-%EC%BC%9C%EA%B8%B0"><span class="toc-number">1.6.1.</span> <span class="toc-text">🔸 1) 교차 색상(Row Alternate Color) 켜기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%B8-2-Column-Header-%EC%88%A8%EA%B8%B0%EA%B8%B0-%ED%91%9C%EC%8B%9C%ED%95%98%EA%B8%B0"><span class="toc-number">1.6.2.</span> <span class="toc-text">🔸 2) Column Header 숨기기 &#x2F; 표시하기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%B8-3-%EA%B8%B0%EB%B3%B8%EC%9C%BC%EB%A1%9C-%EB%B6%88%EB%9F%AC%EC%98%A4%EB%8A%94-%EC%B5%9C%EB%8C%80-Row-%EC%88%98-%EB%B3%80%EA%B2%BD"><span class="toc-number">1.6.3.</span> <span class="toc-text">🔸 3) 기본으로 불러오는 최대 Row 수 변경</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%8D-7-Result-Viewer-%EC%98%B5%EC%85%98%EC%97%90-%EB%B9%A0%EB%A5%B4%EA%B2%8C-%EC%A0%91%EA%B7%BC%ED%95%98%EB%8A%94-%EB%B2%95"><span class="toc-number">1.7.</span> <span class="toc-text">📍 7. Result Viewer 옵션에 빠르게 접근하는 법</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%8D-8-%EC%84%B8%EB%AF%B8%EC%BD%9C%EB%A1%A0-%EC%82%AC%EC%9A%A9-%EC%8A%B5%EA%B4%80-%EB%93%A4%EC%9D%B4%EA%B8%B0"><span class="toc-number">1.8.</span> <span class="toc-text">📍 8. 세미콜론(;) 사용 습관 들이기</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%8D-9-%EC%84%A4%EC%A0%95-%EC%A0%81%EC%9A%A9-%ED%9B%84-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EB%B0%A9%EB%B2%95"><span class="toc-number">1.9.</span> <span class="toc-text">📍 9. 설정 적용 후 테스트 방법</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8E%AF-%EC%B5%9C%EC%A2%85-%EC%9A%94%EC%95%BD"><span class="toc-number">1.10.</span> <span class="toc-text">🎯 최종 요약</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%94-%ED%99%94%EB%A9%B4-%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83-%EC%A1%B0%EC%A0%88"><span class="toc-number">1.10.1.</span> <span class="toc-text">✔ 화면 레이아웃 조절</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%94-UI-%EC%BB%A4%EC%8A%A4%ED%84%B0%EB%A7%88%EC%9D%B4%EC%A7%95"><span class="toc-number">1.10.2.</span> <span class="toc-text">✔ UI 커스터마이징</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%94-Result-Set-Viewer-%EC%84%A4%EC%A0%95"><span class="toc-number">1.10.3.</span> <span class="toc-text">✔ Result Set Viewer 설정</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%94-%EC%8B%A4%EC%9A%A9-%ED%8C%81"><span class="toc-number">1.10.4.</span> <span class="toc-text">✔ 실용 팁</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/03/TERADATA-2-Customizing-the-Interface-and-Result-Set-Viewer/" title="TERADATA(2)-Customizing the Interface and Result Set Viewer">TERADATA(2)-Customizing the Interface and Result Set Viewer</a><time datetime="2025-12-03T16:38:31.000Z" title="Created 2025-12-03 11:38:31">2025-12-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/03/TERADATA-1-Overview-of-Teradata-Studio-Modules/" title="TERADATA(1)-Overview of Teradata Studio Modules">TERADATA(1)-Overview of Teradata Studio Modules</a><time datetime="2025-12-03T16:27:48.000Z" title="Created 2025-12-03 11:27:48">2025-12-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/17/Coding-Quiz-SQL-1/" title="Coding_Quiz_SQL_1">Coding_Quiz_SQL_1</a><time datetime="2025-09-18T02:07:37.000Z" title="Created 2025-09-17 22:07:37">2025-09-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/17/Coding-Quiz-Python-1/" title="Coding_Quiz_Python_1">Coding_Quiz_Python_1</a><time datetime="2025-09-17T20:29:17.000Z" title="Created 2025-09-17 16:29:17">2025-09-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/15/Databricks-CV-Anomaly-Detection/" title="Databricks CV Anomaly Detection">Databricks CV Anomaly Detection</a><time datetime="2025-09-15T20:40:23.000Z" title="Created 2025-09-15 16:40:23">2025-09-15</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By Danny Ki</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
