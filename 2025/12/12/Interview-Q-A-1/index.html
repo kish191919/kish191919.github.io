@@ -1,0 +1,606 @@
+<!DOCTYPE html><html lang="[&quot;en&quot;,&quot;ko&quot;,&quot;default&quot;]" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Interview_Q&amp;A_1 | Danny's Blog</title><meta name="author" content="Danny Ki"><meta name="copyright" content="Danny Ki"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content=".toc-grid{   display:grid;   grid-template-columns:1fr 1fr; &#x2F;* 화면 반반 *&#x2F;   gap:6px 20px;   align-items:start; } @media (max-width:760px){   .toc-grid{ grid-template-columns:1fr; } } &#x2F;* 섹션 타이틀은 두 칼럼 전">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Interview_Q&amp;A_1">
+<meta property="og:url" content="https://kish191919.github.io/2025/12/12/Interview-Q-A-1/index.html">
+<meta property="og:site_name" content="Danny&#39;s Blog">
+<meta property="og:description" content=".toc-grid{   display:grid;   grid-template-columns:1fr 1fr; &#x2F;* 화면 반반 *&#x2F;   gap:6px 20px;   align-items:start; } @media (max-width:760px){   .toc-grid{ grid-template-columns:1fr; } } &#x2F;* 섹션 타이틀은 두 칼럼 전">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kish191919.github.io/img/my_pic.jpeg">
+<meta property="article:published_time" content="2025-12-12T14:51:06.000Z">
+<meta property="article:modified_time" content="2025-12-12T14:53:32.603Z">
+<meta property="article:author" content="Danny Ki">
+<meta property="article:tag" content="INTERVIEW">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kish191919.github.io/img/my_pic.jpeg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Interview_Q&A_1",
+  "url": "https://kish191919.github.io/2025/12/12/Interview-Q-A-1/",
+  "image": "https://kish191919.github.io/img/my_pic.jpeg",
+  "datePublished": "2025-12-12T14:51:06.000Z",
+  "dateModified": "2025-12-12T14:53:32.603Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Danny Ki",
+      "url": "https://kish191919.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kish191919.github.io/2025/12/12/Interview-Q-A-1/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="UfZT9jGVnwcVj8z_sCj9LyqnWho6ubHg1Q7o_bvXfKs"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=GTM-N66KNRNW"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'GTM-N66KNRNW')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'GTM-N66KNRNW', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Interview_Q&A_1',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://kish191919.github.io/",
+  "name": "Danny's Blog",
+  "inLanguage": "en"
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Danny's Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">107</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">36</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">12</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/tech/"><i class="fa-fw fas fa-laptop-code"></i><span> Tech</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Danny's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">Interview_Q&amp;A_1</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/tech/"><i class="fa-fw fas fa-laptop-code"></i><span> Tech</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Interview_Q&amp;A_1</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-12-12T14:51:06.000Z" title="Created 2025-12-12 09:51:06">2025-12-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-12-12T14:53:32.603Z" title="Updated 2025-12-12 09:53:32">2025-12-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/OTHERS/">OTHERS</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p><a id="top"></a></p>
+<style>
+.toc-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr; /* 화면 반반 */
+  gap:6px 20px;
+  align-items:start;
+}
+@media (max-width:760px){
+  .toc-grid{ grid-template-columns:1fr; }
+}
+/* 섹션 타이틀은 두 칼럼 전체를 차지 */
+.toc-section{
+  grid-column:1 / -1;
+  margin:12px 0 6px;
+  font-size:1.1rem;
+  font-weight:700;
+}
+/* 링크 공통 스타일 */
+.toc-grid a{ display:block; padding:2px 0; word-break:keep-all; }
+</style>
+
+<div class="toc-grid">
+<h3 class="toc-section">내 소개 및 전반적인 질문</h3>
+<a href="#a1">나의 소개</a>
+<a href="#a2">왜 이직하니?</a>
+<a href="#a4">보잉이란 그리고 지원동기?</a>
+<a href="#recent-project">최근 프로젝트</a>
+<a href="#issue-data-volume">이슈 - 데이터 볼륨증가 3~4TB</a>
+<a href="#issue-schema-change">이슈 - 스키마 변경</a>
+<a href="#data-warehouse-tech">데이터 웨어하우스 설계</a>
+<a href="#data-warehouse-problem">데이터 웨어하우스 지연속도 문제 및 해결</a>
+<a href="#dq-multi-point-good">데이터 품질관리 - 여러포인트 검증 &amp; good data</a>
+<a href="#etl-design-ca7-glue">ETL (오케스트레이션) 설계 - CA7와 Glue 이용</a>
+
+<h3 class="toc-section">데이터 품질과 보안</h3>
+<a href="#dq-unit-test">데이터 품질관리 - 유닛테스트</a>
+<a href="#security-compliance">보안과 규정 (e.g. AWS, Azure)</a>
+
+<h3 class="toc-section">기술 내용</h3>
+<a href="#alteryx-usage">Alteryx 사용기간 및 경험</a>
+<a href="#teradata-usage">테라데이터 사용기간 및 경험</a>
+<a href="#teradata-definition">테라데이터 정의 및 사용사례</a>
+<a href="#teradata-performance">테라데이터가 높은 성능을 발휘할수 있는 이유</a>
+<a href="#teradata-pi">테라데이터의 Primary Index (PI) 역할</a>
+<a href="#teradata-skew">테라데이터 데이터 불균형을 어떻게 해결?</a>
+<a href="#teradata-secondary-index">테라데이터의 Secondary Index 이란</a>
+<a href="#teradata-partition">Teradata 파티션</a>
+<a href="#teradata-troubleshooting">테라데이터 문제해결</a>
+<a href="#alteryx-teradata">Alteryx와 Teradata 사용</a>
+<a href="#neo4j">Neo4J 관련해서</a>
+
+<h3 class="toc-section">행동 규정</h3>
+<a href="#manager-absence-decision">매니저가 부재시 결정해야할 경우</a>
+<a href="#team-disagreement-sla">팀원 의견 다름 - SLA 20분 지연 - 품질해결</a>
+<a href="#manager-disagreement-refresh-partition">상사 의견 다름 - refresh only 변경된 파티션만</a>
+<a href="#diffent-personality">다른 성향의 사람과 협동</a>
+<a href="#helped-teammate">팀동료 성공시키기</a>
+<a href="#urgent-vs-important">급한일과 중요한일의 우선순위 - 급한것 먼저</a>
+<a href="#tech-challenge-1-5tb">기술 문제 도전 - 1.5TB 처리</a>
+<a href="#improvement-large-data">개선 사례 - 큰 데이터 처리 (위 동일)</a>
+<a href="#production-connect-stop">생산 문제 - 커넥트 Stop</a>
+<a href="#process-improvement-connect-stop">자발적 프로세스 개선 - 커넥트 Stop</a>
+<a href="#kafka-realtime-connect-check">Kafka 실시간 데이터에서 고려할 부분 - 커넥트 상태확인</a>
+<a href="#quality-issue-currency">품질 문제 - 통화단위 에러</a>
+<a href="#failure-column-validation">실패,실수 - 컬럼검증X, 통화단위 에러</a>
+<a href="#project-delay-schema-change">프로젝트 지연 - 스키마 변경</a>
+<a href="#team-lead-source-missing">팀 리드 &amp; 솔선 - 소스 입력 안됨</a>
+<a href="#team-lead-datatype-mismatch">리더싶 사례 - data type mismatch</a>
+<a href="#above-and-beyond-responsibility">지시받지않은 일 - add load_date / 상사 의견다름 동일</a>
+<a href="#tight-schedule-pressure">타이트한 스케줄 &amp; 압박 - 일 나누고 대화, 트랙</a>
+<a href="#multi-national-collaboration">여러 민족 같이 근무 - sync 미팅, 미팅요약</a>
+<a href="#cross-team-collaboration">다른 팀 협업 - 용어 통일</a>
+<a href="#customer-request">고객이 마지막에 변경요청시 - 스키마변경</a>
+<a href="#customer-request-offen">고객이 자주 변경사항을 요청할때 - 요청을 그룹핑함</a>
+<a href="#non-technical">비개발자에게 기술적인 내용을 쉽게 설명할 수 있나요?</a>
+<a href="#issue-spark-memory">이슈 - Spark memory 문제</a>
+
+
+<h3 class="toc-section">ETL / 오케스트레이션</h3>
+<a href="#data-orchestration">Data Orchestration - (CA7, Glue, Airflow)</a>
+<a href="#etl-pipeline-optimization">ETL pipeline 최적화 - SLA 6시</a>
+<a href="#aws-glue-experience">AWS Glue 사용경험 - ETL services</a>
+<a href="#no-current-glue">현재 glue를 사용하지는 않는다</a>
+
+<h3 class="toc-section">데이터 웨어하우스</h3>
+<a href="#redshift-intro">Redshift 란?</a>
+<a href="#redshift-columnar">Redshift Columnar Storage</a>
+<a href="#snowflake-advantages">Snowflake 장점 (zero-copy, time travel)</a>
+<a href="#databricks-experience">Databricks 사용경험 - Anomaly detection</a>
+<a href="#partition-strategy">파티션 전략</a>
+<a href="#oracle-range-partitioning">데이터 모델링 & Architecture - 오라클 range partitioning<</a>
+<a href="#data-normalization">정규화 vs 비정규화</a>
+<a href="#star-snowflake-schema">Star &amp; Snowflake 스키마</a>
+
+<h3 class="toc-section">파이썬/스파크/하둡</h3>
+<a href="#python-sql-spark">Python, SQL, Spark, PySpark</a>
+<a href="#spark-hadoop-ingestion">경험 - 스파크/하둡 ingestion</a>
+<a href="#aws-experience">경험 - AWS 많이 사용했니?</a>
+<a href="#strengths-weaknesses">장점과 단점</a>
+<a href="#stress">스트레스를 어떻게 풉니까?</a>
+<a href="#motto">삶의 모토는?</a>
+<a href="#powertech">파워텍에서 머신러닝 모델 사용</a>
+<a href="#final-remarks">마지막으로 하고 싶은 말</a>
+<a href="#python-typ">파이썬 타입비교</a>
+
+</div>
+
+
+<h3 id="a1">나의 소개</h3>
+Thank you for having me for an interview and my name is Sunghwan ki but you can go by Danny
+I work as Data Engineer with 6 years experience in building ETL process, especially in the financial industry.
+Currently I lead the projects that use the Kafka, Oracle, and Spark where I focus on near real-time data processing and optimization.
+I primarily use Python to build data pipelines, and recently, I completed on a project where I built a data warehouse using AWS Glue and Redshift.
+Before joining PNC, I spent roughly seven years working in data analytics, where I primarily used Tableau and MySql to analyze the data
+
+<p>To better performance, I completed the Master’s degree in Data Science last year and also I hold the AWS certifications and continue to pursue additional cloud-related credentials to further strengthen my expertise</p>
+<p><a href="#top">맨 위로</a></p>
+<h3 id="a2">왜 이직하니?</h3>
+I’ve truly enjoyed my time at PNC and  I’ve spent over six years working on meaningful projects and improved my technical skills.  Now I feel I ready for a new challenge that allows me to expand further.  
+Technology is evolving faster than ever, and I want to keep learning and developing new skills.
+for me It’s not about leaving something behind — it’s about taking the next step toward work I’m truly passionate about.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="a4">보잉이란 그리고 지원동기</h3>
+Boeing is one of the world’s largest aerospace and defense companies. It designs and builds commercial airplanes like the 737 and 777.
+Also, Boeing’s work connects people, supports global transportation, and contributes to national security and space exploration.
+That's why I applied to this company to builds products with real-world impact.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="recent-project">Recent project (최근 프로젝트)</h3>
+Currently, I am working on building a near real time pipeline that ingests kafka topic data into Oracle Exadata and then into Hadoop platform.
+In the past, stakeholders had to rely on the previous day’s data to make decisions. But now with this new pipeline, data from Kafka is ingested into Hadoop in every 10 minutes and then visualized through Tableau dashboards.
+This project significantly reduced data latency and helped business team to make faster decision.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="issue-data-volume">이슈 - 데이터 볼륨증가 3~4TB </h3>
+One of the biggest challenges I faced recently was with a Kafka-to-Hadoop data pipeline, where Oracle Exadata was used as a staging area.
+
+<p>Initially, the volume of data coming from Kafka was about 1 TB per day, but it suddenly increased to 3 or 4 TB per day. Even though the data was automatically deleted after being loaded into Hadoop, new data was coming in faster than it could be deleted, so Exadata started running out of space. To handle this, I increased the number of Spark jobs to speed up data movement into Hadoop. But this caused to slow down the Exadata and it created a bottleneck issue. Then I suddenly thought about compressing the data at exadata base, and luckly, I discovered that EXADATA has a built-in compression feature — and the best part is that the data doesn’t need to be decompressed when it’s moved to Hadoop. Using this compression method, I was able to reduce the data size by almost 70% in Exadata.  After that, I reduced the number of Spark jobs, which helped Exadata run better and stabilized the pipeline.</p>
+<p><a href="#top">맨 위로</a></p>
+<h3 id="issue-schema-change">이슈 - 스키마 변경</h3>
+I remember there was a project that we were integrating data from multiple sources into a central data warehouse.
+
+<p>The challenge was that one of the upstream systems frequently changed its schema without notice. And it caused our ETL jobs to fail and delayed reporting for business users. My responsibility was to make the pipeline more resilient so that these schema changes would not break the entire data flow. I implemented a schema validation and auto-adjustment process. I updated the code to compare the incoming data schemas against our expected schema. If a non-critical column changed such as a new column being added, the pipeline could adapt automatically without failing. But For critical mismatches, the system flagged the issue, generated incident, and provided fallback logic to continue processing the data. This reduced ETL job failures by more than 90% and ensured that the business team continued to receive the data even when upstream systems changed its schema unexpectedly.</p>
+<p>Valid records are loaded into the main HDFS path, and Invalid records are redirected to a separate reject HDFS path.</p>
+<ul>
+<li>When a string value like “ABC” appears in a numeric column ,</li>
+<li>When a NULL value is provided for a NOT NULL column ,</li>
+<li>When a date column receives a value in a completely different or invalid format ,</li>
+<li>When the data type is correct but the length exceeds the limit (e.g., a 50-character string for a VARCHAR2(10) column)</li>
+</ul>
+<p>오라클에 데이터가 저장될때 : A CLOB (Character Large Object) is a data type used to store very large text data.</p>
+<p><a href="#top">맨 위로</a></p>
+<h3 id="data-warehouse-tech">데이터 웨어하우스 설계 (e.g. Amazon Redshift, Snowflake 사용경험)</h3>
+I have experience using Redshift to build the cloud data warehousing. In one of my project, I built an analytics pipeline to process and analyze mobile user login data.
+To achieve this, I set up a pipeline where the log data was first stored in Amazon S3. From there, AWS Glue processed and loaded data into Redshift. Once the data was in Redshift, I used Amazon QuickSight to build interactive dashboards. And it visualized key user activity such as session duration, clickstream patterns, and device usage. This solution provided business stakeholders with actionable insights.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="data-warehouse-problem">데이터 웨어하우스 지연속도 문제 및 해결 </h3>
+
+<p>One of the challenges I ran into was that loading JSON files from S3 into Redshift was much slower than I expected.<br>Because the data was in JSON, Redshift had to parse every row, and the file sizes were all different.<br>This caused performance issues and even led to uneven data distribution across Redshift nodes.</p>
+<p>To fix this, I redesigned the ingestion process in AWS Glue.<br>I converted the JSON data into Parquet and saved the files in S3 with same sizes—around 128 MB.<br>Since in Parquet the data is already fully parsed, Redshift didn’t have to do extra parsing during the load, which significantly sped up the loading process.<br>I also updated the DISTKEY and SORTKEY based on how the data was being queried. And it helped prevent data skew and allowed Redshift to process data more evenly across all nodes.</p>
+<ul>
+<li>왜 128MB 사이즈로 데이터를 만드는지?<br>I stored the Parquet files in 128 MB chunks because Redshift performs best when it reads multiple files of similar size in parallel. Consistent file sizes help avoid data skew, reduce S3 overhead, and allow Redshift to distribute the workload evenly across all nodes, which results in much faster COPY performance.</li>
+</ul>
+<p><a href="#top">맨 위로</a></p>
+<h3 id="data-normalization">데이터 정규화와 비정규화의 차이점</h3>
+Normalized data is typically used in OLTP systems. It separates data into multiple related tables to reduce redundancy and maintain data integrity. This helps ensure consistency during insert, update, and delete operations, but often requires multiple joins to retrieve data.
+Denormalized data is more common in OLAP systems. It intentionally duplicates data by combining related fields into fewer tables, which improves read performance and speeds up complex analytical queries.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="star-snowflake-schema">Star & Snowflake 스키마 (데이터 웨어하우스에서 스타 스키마 사용)</h3>
+In most data warehouses, the Star Schema is used because it provides high query performance, especially for analytical workloads, and has a simple structure consisting of a central fact table connected to denormalized dimension tables. This simplicity also makes it well suited for BI tools like Tableau or Power BI.
+But the Snowflake Schema is also used—especially when storage efficiency or data normalization is a higher priority. It tends to introduce more joins, which can affect query performance. Therefore, Star Schema is generally preferred in data warehouse environments.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="dq-multi-point-good">데이터 품질관리 - 여러포인트 검증 &amp; good data</h3>
+When it comes to data quality, I apply validation at multiple points of the pipeline.
+During ingestion, I perform schema validation and basic checks such as null values, data types, and duplicates. As the data moves through transformations, I apply additional business-rule validations to ensure the results make sense before loading them into data warehouse.
+In addition, I worked closely with business team to define what “good data” means for their use cases.  And I ensured that the dashboards in Tableau reflected the reliable information for decision-making.
+
+<p>In one project, I worked with the fraud prevention team, where my role was to deliver data they could fully trust. For them, “good data” meant accurate, up-to-date, and reliable information without duplication or errors. Because the quality of data directly impacted their fraud detection models, I focused not only on data delivery but also on maintaining high quality through the validation and monitoring.</p>
+<p><a href="#top">맨 위로</a></p>
+<h3 id="etl-design-ca7-glue">ETL (오케스트레이션) 설계 - CA7와 Glue 이용</h3>
+I’ve designed and implemented both batch and near real-time ETL pipelines. For near real-time workloads, I built pipelines that ingest Kafka streaming data into Oracle Exadata and Hadoop every ten minutes. I used PySpark for transformations and I used the CA7, a mainframe-based scheduler, to orchestrate the dependencies across these jobs. CA7 ensured that each PySpark workflow ran in the correct sequence and at the right time and it was critical for the batch operations.
+I also have experience building cloud-native ETL solutions. In one project, I used AWS Glue studio to design the ETL workflows. Glue’s built-in transformations, and job orchestration features made it easier to manage the logic.
+
+<p><a href="#top">맨 위로</a></p>
+<h2 id="기술-내용"><a href="#기술-내용" class="headerlink" title="기술 내용"></a>기술 내용</h2><h3 id="alteryx-usage">Alteryx 사용기간 및 경험</h3>
+I used Alteryx for about a year in the past, mainly for data preparation and automation tasks such as joining datasets, performing aggregations, and creating analytical outputs. However, I didn’t use it as the primary tool in any large-scale enterprise projects. These days, I mainly work with AWS Glue Studio. When dealing with larger datasets, I noticed that Alteryx tends to slow down since it’s not optimized for big-data workloads. But AWS Glue Studio runs on Apache Spark, which provides much better performance and scalability for heavy ETL processing.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="teradata-usage">테라데이터 사용기간 및 경험</h3>
+I have around two years of experience with Teradata, mainly using it with Hadoop system. In our setup, Hadoop stored the customer's account data, and Teradata accessed that data through QueryGrid, which allowed us to easily combine and query Hadoop datasets. We also connected Tableau to Teradata and set up hourly refreshes so the dashboards always reflected the latest customer's account data insights.
+
+<ul>
+<li>사용할때 문제 : Network latency 이슈<br>Network latency was the biggest issue we faced. Because Teradata had to retrieve large volumes of detailed data from Hadoop over QueryGrid, there were many cases where the query didn’t return on time or failed altogether. To address this, we changed the approach so that heavy processing happened in Hadoop first. We aggregated and filtered the data using Spark, and then used QueryGrid only to bring back a much smaller dataset. This significantly reduced the amount of data being transferred, which helped avoid latency issues and made the overall query performance much more stable.</li>
+</ul>
+<p><a href="#top">맨 위로</a></p>
+<h3 id="teradata-troubleshooting">테라데이터 문제해결</h3>
+One of the most common issues I faced with Teradata was slow query performance when working with large tables, especially when the table wasn’t partitioned. In those cases, Teradata had to scan the entire table, which made daily jobs take much longer than expected.
+To fix this, I added date-based partitions so Teradata only scanned the specific partition needed for each query. This small change made a big difference. the queries became much faster and more stable. It also helped reduce the load on the system and improved overall performance.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="teradata-performance">테라데이터가 높은 성능을 발휘할수 있는 이유</h3>
+Teradata leverages an MPP architecture where data is distributed across multiple AMPs (Access Module Processors). Each AMP works independently to store and process its portion of data and it enables parallel execution. Because of this distribution mechanism, Teradata can handle large volumes of data with high performance.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="teradata-pi">테라데이터의 Primary Index (PI) 역할</h3>
+A Primary Index determines how data is distributed across AMPs. Choosing the right PI is crucial because it ensures even data distribution. A well-chosen PI improves join performance and overall query efficiency. (Teradata 내부에서는 데이터를 저장할 때 Primary Index 컬럼에 해시 함수를 적용해서 Hash Value를 만들고, 그 값을 기반으로 어떤 AMP에 저장할지를 결정합니다.)
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> customer (</span><br><span class="line">    customer_id <span class="type">INTEGER</span>,</span><br><span class="line">    name <span class="type">VARCHAR</span>(<span class="number">100</span>)</span><br><span class="line">)</span><br><span class="line"><span class="keyword">PRIMARY</span> INDEX (customer_id);</span><br></pre></td></tr></table></figure>
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="teradata-skew">테라데이터 데이터 불균형을 어떻게 해결?</h3>
+Data skew occurs when data is unevenly distributed across AMPs, causing some AMPs to process significantly more data than others. This leads to slower query performance. To handle this Data skew , I typically review PI selection and check for unique columns. Sometimes, creating a multicolumn PI can help balance the distribution.
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> customer_new</span><br><span class="line"><span class="keyword">PRIMARY</span> INDEX (new_column)</span><br><span class="line"><span class="keyword">AS</span> customer</span><br><span class="line"><span class="keyword">WITH</span> <span class="keyword">NO</span> DATA;</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT INTO</span> customer_new</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> customer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> customer;</span><br><span class="line"></span><br><span class="line">RENAME <span class="keyword">TABLE</span> customer_new <span class="keyword">TO</span> customer;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># orders_stage : 스테이징 테이블</span><br><span class="line"># orders_nopi : NoPI 테이블 (<span class="keyword">Primary</span> Index 없음)</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT INTO</span> orders_nopi</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> orders_stage</span><br><span class="line">HASH <span class="keyword">BY</span> customer_id;</span><br></pre></td></tr></table></figure>
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="teradata-secondary-index">테라데이터의 Secondary Index 이란</h3>
+A Secondary Index is useful when frequently queried columns are not part of the Primary Index. It accelerates data access without re-distributing data. However, because Secondary Indexes require additional maintenance, I usually add them only when a business-critical query pattern consistently needs optimization.
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># SI 추가하기</span><br><span class="line"><span class="keyword">ALTER TABLE</span> your_table_name</span><br><span class="line"><span class="keyword">ADD</span> INDEX (column_name);</span><br></pre></td></tr></table></figure>
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="teradata-partition">Teradata 파티션</h3>
+Partitioning allows tables to be divided into manageable segments, usually based on date. This improves query performance because Teradata only scans relevant partitions instead of the whole table. I commonly used date-based partitioning.
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> sales_daily (</span><br><span class="line">    order_id     <span class="type">INTEGER</span>,</span><br><span class="line">    order_date   <span class="type">DATE</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">PARTITION</span> <span class="keyword">BY</span> RANGE_N(order_date <span class="operator">&gt;=</span> <span class="type">DATE</span> <span class="string">&#x27;2023-01-01&#x27;</span></span><br><span class="line">                     <span class="keyword">EACH</span> <span class="type">INTERVAL</span> <span class="string">&#x27;1&#x27;</span> <span class="keyword">DAY</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> sales</span><br><span class="line"><span class="keyword">WHERE</span> order_date <span class="operator">&gt;=</span> <span class="type">DATE</span> <span class="string">&#x27;2023-05-01&#x27;</span></span><br><span class="line">  <span class="keyword">AND</span> order_date <span class="operator">&lt;</span>  <span class="type">DATE</span> <span class="string">&#x27;2023-06-01&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="alteryx-teradata">Alteryx와 Teradata 사용</h3>
+I think ETL pipelines between Alteryx and Teradata are built using Alteryx’s In-DB tools. Alteryx generates SQL and pushes all heavy transformations to the Teradata MPP engine, which handles large-scale joins and aggregations efficiently. Alteryx simply orchestrates the workflow, while Teradata performs the actual processing. This approach combines the ease of use of Alteryx with the scalability of Teradata.
+
+<h3 id="neo4j">Neo4J 관련해서</h3>
+Although I haven’t used Neo4j in production, But I’m interested in graph databases. I would like to have the opportunity to learn and apply Neo4j in future projects.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="multi-national-collaboration">여러 민족 같이 근무 - sync 미팅, 미팅요약</h3>
+Currently, I work on a data integration project with team members from the U.S., India, and Europe. At first, coordination was difficult because of time zone differences and different communication styles. To improve collaboration, I organized short daily sync meetings that overlapped our working hours and encouraged open discussions so everyone could share progress or blockers. I also started sending clear written summaries after each meeting so teammates in different time zones could stay updated. As a result, we reduced misunderstandings and improved task handoffs between regions.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="cross-team-collaboration">다른 팀 협업 - 용어 통일</h3>
+In one of my projects, I worked closely with software engineers and business analysts to improve how we tracked and analyzed user behavior. The engineers were responsible for sending user activity data into our database, and my role was to clean and transform that data so it could be used for reporting and analysis. I noticed that each team had slightly different definitions for key metrics, like “active users” or “sessions,” which caused confusion in reports. So, I organized a short meeting to align on clear definitions and updated our data dictionary to make sure everyone used the same terms. After that, the reports became much more consistent, and the business team was able to make decisions faster and with more confidence. It was a great experience showing how clear communication and teamwork can really improve data quality and trust.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="tight-schedule-pressure">타이트한 스케줄 & 압박 - 일 나누고 대화, 트랙</h3>
+When I face tight deadlines or high-pressure situations, I stay calm and break the work into smaller parts. For example, in one project, our team had to build a new ETL workflow in less than two weeks because of a last-minute client request. Instead of stressing out, I focused on what was most important, assigned tasks clearly, and set up short daily check-ins to track progress. I also kept open communication with both the team and stakeholders, making sure everyone understood what we could realistically deliver. By staying organized and working together, we completed the project on time with great results. This experience taught me that under pressure, clear priorities, steady communication, and teamwork are the keys to success.
+
+<p><a href="#top">맨 위로</a></p>
+<h2 id="품질과-보안-내용"><a href="#품질과-보안-내용" class="headerlink" title="품질과 보안 내용"></a>품질과 보안 내용</h2><h3 id="dq-unit-test">데이터 품질관리 - 유닛테스트</h3>
+I usually use Pytest for unit testing in Python. It’s simpler and more readable than the built-in unittest module, and it allows to write tests quickly without creating test classes. In Pytest, test functions simply start with test_, and I use the assert statement to verify the results.
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pytest</span><br><span class="line"><span class="keyword">from</span> calculator <span class="keyword">import</span> add, divide  <span class="comment"># calculator.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test_add</span>():</span><br><span class="line">    <span class="keyword">assert</span> add(<span class="number">2</span>, <span class="number">3</span>) == <span class="number">5</span></span><br><span class="line">    <span class="keyword">assert</span> add(-<span class="number">1</span>, <span class="number">1</span>) == <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="quality-issue-currency">품질 문제 - 통화단위 에러</h3>
+During a new ETL release, one of our reports was showing incorrect revenue numbers. After investigating, I found that the issue came from an incorrect currency conversion in the transformation logic. I quickly fixed the script, reprocessed the data, and added the automated checks to compare daily results with historical trends. After that, the data became much more accurate, and the same issue never happened again.
+This experience reminded me how important it is to validate data thoroughly before going to production.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="security-compliance">보안과 규정 (AWS, Azure)</h3>
+In my current role, we have a dedicated security and compliance team that handles overall data governance. So if I need access to certain sensitive databases or tables, I first have to get approval from that team. This helps only the right people can have an access to the data. On the data engineering side, I am responsible for protecting sensitive data during our ETL processes. That means identifying PII data and masking them, so even if someone sees this data, it’s not readable. Actually, We strictly follow the principle of least privilege. We assign only the minimum required permissions.
+
+<p><a href="#top">맨 위로</a></p>
+<h2 id="행동-면접-질문"><a href="#행동-면접-질문" class="headerlink" title="행동 면접 질문"></a>행동 면접 질문</h2><h3 id="manager-absence-decision">매니저가 부재시 결정해야할 경우</h3>
+A few months ago, there is a configuration issue during a production release. And it caused to delay the data. At that time, my manager was not available, but the fix required his approval. I quickly analyzed the impact, documented the issue and solution, and escalated it to the department lead for temporary approval. I clearly communicated the risk and rollback plan, implemented the fix, and monitored results until the system was stable. When my manager returned, I shared a full summary and documentation for review. This taught me how to act responsibly under pressure. And I also learned to make quick but careful decisions and keep communication clear with others.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="team-disagreement-sla">팀원 의견 다름 - SLA 20분 지연 - 품질해결</h3>
+Yes, I’ve experienced disagreements within the team. One example was during a near real-time data pipeline project. We were loading Kafka data into Hadoop, and the pipeline often missed our 10-minute SLA — sometimes it took over 20 minutes. some of the team members wanted to focus on improving Spark performance, while others, including me, thought the main issue was data quality because of inconsistent records and schema mismatches. To find the real cause, I checked the logs and monitoring reports and found that about 70% of the delays were due to data validation errors, not Spark processing speed. Based on that insight, I proposed a short proof-of-concept to implement stronger schema validation and fallback rules in QA environment and it worked. After implementing it in production, the number of failures dropped significantly and we regained our SLA. Once the team saw the data and results, everyone agreed to proceed with quality improvements first, then revisit performance tuning. This experience taught me that using measurable data, clear communication, and structured tests is much more effective than letting opinions dominate technical decisions.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="manager-disagreement-refresh-partition">상사 의견 다름 - refresh only 변경된 파티션만</h3>
+If I don’t agree with my manager’s opinion, I first make sure I fully understand their reasoning and goals. Then I share my perspective, supported by data or examples, rather than emotion. For instance, in one project, my manager suggested running a full data reload every day to ensure data completeness. I understood his concern but also knew it would be inefficient, since most of the customer master data rarely changed. So I analyzed the update patterns and designed a process to refresh only the partitions containing changed customer records, instead of reloading the entire dataset. After testing it together in staging, we confirmed that this approach maintained accuracy while reducing runtime from over 3 hours to about 40 minutes. That experience taught me that presenting clear evidence and focusing on the common goal — not on who’s right or wrong. It helps turn disagreements into productive discussions.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="diffent-personality">다른 성향의 사람과 협동</h3>
+In one of my previous projects, I worked closely with a senior engineer whose personality was quite different from mine. I’m generally organized and prefer to plan tasks carefully before execution, but he preferred to take a more spontaneous (스팬테니어스), “just try it and fix later” approach. At first, this difference caused some tension because I wanted to review the design and test cases before deployment, while he wanted to move fast to meet deadlines. Instead of arguing, I suggested we combine both styles — I would document the structure and validation rules, and he could focus on rapid prototyping. By dividing responsibilities that way, we were able to deliver the pipeline faster and maintain quality. Over time, I also learned to be more flexible and open to trying quick experiments. And he started to appreciate the value of planning and testing as well. That experience taught me that personality differences can actually strengthen a team when you focus on complementary strengths rather than conflicts.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="helped-teammate">팀동료 성공시키기</h3>
+In one project, I worked with a junior data engineer who was new to our Spark-based ETL environment. She was struggling to understand how our partitioning and scheduling logic worked, and her job often failed in production. Instead of just fixing it for her, I scheduled a short session to walk her through how the Spark job read data from Oracle, wrote it into Hadoop platform. I also helped her debug one of her failing jobs step by step and showed her how to check logs and handle schema mismatches. Within a few weeks, she became confident enough to manage her own pipelines and even automated some validation scripts. Seeing her grow and succeed made me realize that helping others not only strengthens the team but also improves overall project quality.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="urgent-vs-important">급한일과 중요한일의 우선순위 - 급한것 먼저</h3>
+I usually start by understanding the impact of each task. If something is urgent and affects business operations or other teams, I handle it first. But I also make sure not to ignore important long-term work. For example, once our production ETL job failed right before a reporting deadline. I paused my ongoing optimization task, fixed the ETL issue immediately, and restored the pipeline so the business could get their reports on time. After that, I resumed my optimization work. I believe good prioritization means balancing immediate needs with long-term improvements.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="tech-challenge-1-5tb">기술 문제 도전 - 1.5TB 처리</h3>
+One of the most challenging technical problems I faced was optimizing a large Spark ETL job that processed about 1.5 TB everyday. The job was taking more than 5 hours to complete, which caused delays in our downstream dashboards and reports. I started by analyzing the Spark UI and noticed heavy shuffling and many small output files. To fix it, I adjusted the partition strategy, used broadcast joins for smaller tables, and combined small files before writing to Hadoop. I also added data filtering early in the pipeline to reduce unnecessary computation. After these changes, the runtime dropped from 5 hours to under 3 hours, and the cluster cost was reduced by almost 30%. That experience taught me how small technical optimizations can have a big business impact when working with large-scale data.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="improvement-large-data">개선 사례 - 큰 데이터 처리 (위 동일)</h3>
+I remember that one of our daily ETL jobs was taking more than 5 hours to finish. It processed a large amount of log data from multiple sources, and sometimes it even failed because of memory issues. I reviewed the Spark job and found that it was using too many small files and unnecessary joins. I optimized the job by adjusting the partition size, adding proper filters early in the transformation, and combining small files before loading. After the changes, the job ran in less than 3 hours and became much more stable. This improvement not only saved computing costs but also made our data available earlier for reporting every morning.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="production-connect-stop">생산 문제 - 커넥트 Stop</h3>
+When a production issue happens, I stay calm and focus on finding the root cause quickly. For example, one night our Kafka-to-Hadoop pipeline failed, and the business dashboards in Tableau were missing data the next morning. I immediately checked the Kafka Connect logs and found that the sink connector had stopped due to a network issue. I manually restarted the connector and confirmed that the data started flowing again. Afterward, I created a monitoring script using curl commands that checks the connector status every 10 minutes. If it fails, the script automatically creates an incident and sends an alert to our team. This experience taught me the importance of not only fixing issues quickly but also building automation to prevent the same problem from happening again.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="process-improvement-connect-stop">자발적 프로세스 개선 - 커넥트 Stop</h3>
+In one project, I noticed that one of our data pipelines sometimes failed overnight, but the team would only find out the next morning. This caused delays in daily reports and frustration for analysts waiting for updated data. Even though it wasn’t part of my assigned tasks, I decided to create an automatic alert system. I built a small Python script that checked job completion logs and create INC if a failure occurred. After testing it for a week, I presented it to the team, and we integrated it into our pipeline. Since then, we’ve been able to respond to failures immediately, reducing downtime and improving data reliability. That experience taught me the value of being proactive — small improvements can make a big difference to the whole team.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="kafka-realtime-connect-check">Kafka 실시간 데이터에서 고려할 부분 - 커넥트 상태확인</h3>
+When designing Kafka pipelines, I focus on a few key areas to ensure performance and reliability. First, I choose the right topic partitioning strategy based on data size. And then I make sure that Kafka connectors are properly configured with retry mechanisms in case of failures. For monitoring, I built a script that uses a curl command to check the status of the all Kafka sink connectors every 10 minutes. If the one of the connectors is down or there’s an issue with the Kafka broker, the script automatically generates an incident, triggering an alert to my team. This setup helped us catch issues and significantly reduced downtime.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="failure-column-validation">실패,실수 - 컬럼검증X, 통화단위 에러</h3>
+Yes, I made a mistake during a data validation process. I was in charge of checking the output of a new ETL job before it went live. I verified the total record count but forgot to double-check the column-level transformations. After deployment, we found that one column had an incorrect currency conversion rate, and it caused wrong numbers to show up in a few business reports. As soon as I realized the issue, I corrected the transformation logic, reprocessed the data, and updated the reports. After that, I added column-level validation rules and a simple Python script that automatically compares key fields between the source and target tables before deployment. That experience taught me how even a small mistake can affect business reports, so now I always check both the data structure and actual values carefully before sign-off.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="project-delay-schema-change">프로젝트 지연 - 스키마 변경</h3>
+Yes, I’ve experienced that before.
+In one project, our data ingestion pipeline was delayed because the upstream system changed its schema without notice. This caused our ETL jobs to fail and delayed daily reports for the client. As soon as the client raised concerns, I explained the issue clearly, shared the revised delivery plan, and sent daily updates so they could see our progress. Meanwhile, I worked with my team to add automatic schema validation and fallback logic in the pipeline, so future schema changes wouldn’t break the process again. After we implemented the fix, the pipeline became more stable, and the client appreciated our quick communication and the long-term solution we put in place.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="team-lead-source-missing">팀 리드 & 솔선 - 소스 입력 안됨</h3>
+In one project, we had a very tight deadline to deliver a new ETL workflow for daily reporting. However, a few tasks were delayed because some external data sources were not delivered on schedule, and that caused downstream jobs in Spark to fail during testing. To get things back on track, I took the initiative to organize short daily stand-up meetings and created a shared progress tracker in Confluence so everyone — including the data and QA teams — could see real-time task status. This helped us identify blockers early, communicate clearly, and reassign tasks based on team availability. Within a week, we recovered the lost time and successfully completed the workflow before the deadline. The reporting system went live as planned, and we avoided last-minute production issues. That experience taught me that strong coordination and clear communication are just as important as technical skills when leading a project under tight timelines.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="team-lead-datatype-mismatch">리더싶 사례 - data type mismatch</h3>
+During a data migration project, we faced a serious issue when one of the ETL jobs started failing right before a major release. Everyone was under pressure, and the team was unsure how to proceed. Even though I wasn’t the official lead, I took the initiative to organize an emergency meeting with the data, QA, and infrastructure teams. I divided the investigation into parts — one team checked data source changes, another team looked at schema issues, and I focused on debugging the Spark job logic. After identifying that a data type mismatch in one column was causing the failure, we quickly fixed it and ran validation tests together. The release went smoothly, and my manager later recognized my leadership for coordinating the teams under tight deadlines. That experience taught me that real leadership often means stepping up and guiding the team toward a solution — even without having a formal title.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="above-and-beyond-responsibility">지시받지않은 일 - add load_date / 상사와 의견이 맞지 안음사례와 동일</h3>
+A few months ago, I noticed that one of our nightly ETL jobs in production was running slower and occasionally failing, even though it wasn’t part of the pipelines I was directly responsible for. Instead of ignoring it, I decided to investigate on my own time because it was delaying downstream reports for the business team. After checking the logs, I found that the job was performing a full table scan on a very large dataset every night. To fix the issue, I first added a new LOAD_DATE column to the target table to track daily data loads. Then, I rewrote the logic to process only new and updated records based on this column and created partitions on LOAD_DATE to improve query performance and data management efficiency. After validating the logic, I worked with the scheduler team to test and deploy the fix safely. The result was dramatic — runtime dropped from over 3 hour to under forty minutes, and the business team could access their dashboards much earlier every morning. Even though it wasn’t my assigned task, I took ownership because I knew the issue was affecting overall business operations. That experience taught me that going above and beyond means proactively solving problems that impact the team — not just completing my own tickets.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="customer-request">고객이 마지막에 변경요청시 - 스키마변경</h3>
+When a customer requests changes right before the final release, I believe it’s important to balance flexibility with stability. First, I listen carefully to understand why the change is needed — whether it’s a business-critical fix or just a nice-to-have improvement. Then I assess the impact on scope, timeline, and quality. If the change is minor and doesn’t risk the release, I coordinate quickly with the team to implement and test it. However, if the change is major or could affect stability, I clearly communicate the risks and propose alternatives — such as including it in the next patch or minor release. The most important thing is to be honest about the situation, and focus on finding solutions. This way, the customer knows you’re listening, and the project stays on track.
+For example, in one project, a client requested a schema change right before deployment. I analyzed the dependency, explained that it would delay the release by two days, and suggested deploying the current version first and adding the change in the next release. The client agreed, and we delivered on time without compromising quality.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="customer-request-offen">고객이 자주 변경사항을 요청할때 - 요청을 그룹핑함</h3>
+When customers often ask for changes, I try to handle it in a clear way. First, I listen carefully to understand why they want the change — maybe their business needs have changed or something wasn’t clear before. Then I explain what the change means for the project — like how it might affect the schedule or workload — so they can decide what’s most important. If there are many small requests, I suggest grouping them together or saving them for the next update.
+In one project, the customer kept asking for new data checks. I made a simple list to track all the requests and talked with them once a week to decide which ones to do first. That way, they felt listened to, and our team could work in an organized way without confusion.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="non-technical">비개발자에게 기술적인 내용을 쉽게 설명할 수 있나요?</h3>
+Yes, I always try to explain technical topics in a simple and clear way, especially when talking to non-technical people. I focus on using everyday language instead of technical terms, and I give real examples that relate to their work or daily life. For example, when explaining data pipelines, I might say it’s like a factory line — data comes in as raw material, goes through cleaning and transformation, and comes out as a finished product ready for analysis. I believe being able to translate complex ideas into simple concepts is an important skill for teamwork and communication.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="issue-spark-memory">이슈 - Spark memory 문제</h3>
+One of the most common issues I encounter is out-of-memory (OOM) errors. To address this, First, I review the PySpark code to identify any operational command like collect() or toPandas() that might be pulling too much data into the driver. If I find them, I either remove or replace them. I also use broadcast joins when dealing with small tables to minimize shuffle operations, it can reduce memory usage. Another important step is avoiding Python UDFs if it is possible to use native Spark SQL functions. Additionally, when I need to reuse the intermediate results, I use caching it and also I use MEMORY_AND_DISK storage option to avoid overwhelming the memory. Finally, I adjust partition sizes using coalesce() or repartition() to optimize resource usage during shuffle operations. By applying these techniques, I’ve been able to effectively prevent and troubleshoot memory-related issues in Spark jobs.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="etl-pipeline-optimization">ETL pipeline 최적화 - SLA 6시로 맞추기</h3>
+I had a situation where our SLA required the data to be fully available by 6 AM, But one day, the amount of source data suddenly increased — almost three times more than usual. Because of that, our Spark job didn’t finish until 8 AM. So I increased the number of partitions to allow more parallel processing. I also checked our resource settings and made sure the job had enough memory and CPU by adjusting the scheduler pool and YARN resorce manager.
+After these changes, the job completed before 6 AM the next day, and we were able to meet the SLA again. This experience helped me understand how important it is to tune the Spark jobs and monitor them carefully, especially when data volume suddenly increase.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="aws-glue-experience">AWS Glue 사용경험 - ETL services</h3>
+I have experience building ETL workflows using AWS Glue. In one of my project, I built an analytics pipeline to process and analyze mobile user log data. I’ve used Glue to extract data from S3 and then transform and load into Redshift every 10 minutes Also, I’ve utilized Glue Crawlers to automatically detect schema changes and keep the data catalog updated for querying in Athena as well.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="no-current-glue">현재 glue를 사용하지는 않는다.</h3>
+We are currently using CA7 mainframe along with PySpark scripts for our ETL processes mainly. CA7 is a mainframe-based job scheduling and workflow automation tool. It's used to manage and schedule batch jobs, ensuring the tasks run in the right order and at the right time. We have not changed this Orchestration tool Because Our data workflows have been integrated into a mainframe-based CA7 scheduling system for a long time and switching would introduce additional operational costs. Lastly Our team continues to manage and monitor all ETL workflows within the CA7 environment.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="redshift-intro">Redshift 란?</h3>
+Redshift is designed for high-speed querying using massively parallel processing (MPP). This makes it great for analyzing large datasets quickly. we can start small and scale up by increasing the node size or number of nodes as the data grows. Data is stored in columnar format, which speeds up analytical queries and reduces I/O.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="redshift-columnar">Redshift Columnar Storage</h3>
+When we execute queries like SUM(), AVG(), or filtering on specific columns, the database only needs to read the relevant columns, not entire rows. This speeds up reading performance in data warehousing and analytics. Since each column typically contains similar types of data, it compresses more efficiently than row-based data. Also, it only reads the selected columns, the amount of data scanned is reduced.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="snowflake-advantages">스노우플레이크 장점 (zero-copy cloning and time travel)</h3>
+I can instantly clone entire databases or tables without duplicating data and it saves cost and time. Also, there is a Time Travel function and it lets us query or restore data from a previous point in time. It is useful for recovering the data.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="databricks-experience">Databricks 사용경험 - Anomaly detection</h3>
+On the Databricks side, I primarily work with the Azure-hosted version of Databricks. Recently, I developed an end-to-end scalable pipeline for computer vision anomaly detection. As you can see my portfolio website. You can see its notebook and model. I use the PyTorch and Hugging Face to train and build the model.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="partition-strategy">파티션 전략 (Spark, Redshift, Snowflake)</h3>
+Partitioning strategy depends on query patterns and data volume. Regarding the Oracle Exadata, I Used range partitioning by date column to support daily ingestion and quickly delete old data by simply dropping partition.
+In Spark, I used dynamic partition overwrite with partitionBy("date") when writing Parquet files, and adjusted the number of partitions with coalesce or repartition commands to avoid creating too many small files.
+In Redshift, I defined DISTKEY and SORTKEY based on the columns that were most frequently used in joins and filters, which helped improve query performance and reduce data movement across nodes.
+In Snowflake, I rely on its automatic micro-partitioning feature, which breaks data into 16MB blocks and optimizes storage and query performance without any manual intervention. However, for very large tables where queries frequently filter on specific columns—such as date, I define a cluster key to further improve performance and these approach improved query speed as well.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="oracle-range-partitioning">데이터 모델링 & Architecture - 오라클 range partitioning</h3>
+I have strong experience in data modeling and architecture, especially in designing data pipelines at PNC. In Oracle Exadata, I designed the tables using range partitioning by day, so that Kafka data was automatically separated into daily partitions. This made it much easier to manage large volumes of data, speed up queries, and improve overall performance. For example, instead of using a traditional delete command, we could simply drop an entire partition when the data was no longer needed.  And This is not only optimized storage space but also kept query performance fast and efficient, since queries only scanned the relevant partitions rather than the entire table.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="python-sql-spark">Python, SQL, Spark, and PySpark</h3>
+I am working with Python, SQL, Spark, and PySpark throughout my career as a data engineer. Python has been my primary programming language for building ETL pipelines. I've used it in both production and QA environments, including developing data ingestion frameworks.
+SQL is a core part of my daily workflow. I’ve written complex analytical queries and optimized SQL for performance on databases like Oracle Exadata.
+With Spark, I’ve built scalable data processing pipelines for both batch and near real-time use cases. I’ve used Spark in distributed environments, primarily through PySpark, to perform transformations, aggregations, and joins on large datasets.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="spark-hadoop-ingestion">경험 - 스파크/하둡 데이터 ingestion</h3>
+On the Hadoop and Spark side, I designed frameworks to handle large-scale data ingestion and transformation. For example, data coming from Oracle first needed to be cleaned before it could be used for reporting. I built PySpark jobs that automatically parse the data and removed duplicate records, handled missing values, and converted the data into optimized formats like Parquet and stored it at hadoop platform. At the same time, I added metadata and validation rules so that we could easily track the data and confirm its accuracy.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="aws-experience">경험 - AWS 많이 사용했니?</h3>
+If you take a look at my portfolio website, you’ll see that most of my projects are built using AWS. I actively use AWS to quickly build and experiment with different data architectures. Since data tools are evolving so fast, I use EMR service to easily install and try out big data tools like Spark, Hadoop, and Kafka. For storing data, I normally use RDS or S3. Overall, AWS has been a great platform for me to learn, experiment, and build end-to-end data pipelines.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="strengths-weaknesses">장점과 단점</h3>
+My biggest strengths are my flexibility and adaptability. Wherever I work, work environments change daily and throughout the day. And there are certain projects that require individual attention and others that involve a teamwork approach. My flexibility and adaptability have allowed me to meet the expectations and even go beyond them. Also, I get along with people around me. This kind of personality makes the work environment more comfortable and easier
+As far as my weaknesses, I sometimes put in too much time on what I like to do. With my mentor’s help, I started using a daily checklist to plan and prioritize my work. Now I make sure I pace myself better and focus on finishing the most important tasks first. It’s helped me become more balanced and efficient.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="stress">스트레스를 어떻게 풉니까?</h3>
+When I feel stressed, I try to handle it in a healthy and productive way. First, I take a short break to clear my mind — even a short walk or a few minutes of quiet time helps me refocus. I also like to organize my tasks and set priorities. Once I have a clear plan, the stress usually goes down because I can see what needs to be done first. Outside of work, I relieve stress by exercising and spending time with my family or friends. These activities help me recharge and come back to work with more energy and focus.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="motto">삶의 모토는?</h3>
+My life motto is “Stay curious, stay humble, and keep growing.” I believe learning never stops, no matter how much experience you have. Staying curious helps me discover new ideas, staying humble keeps me open to feedback, and continuous growth gives me purpose in both my career and personal life.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="powertech">파워텍에서 머신러닝 모델 사용</h3>
+When I worked at Hyundai Powertech, we produced car transmissions. Each transmission needed a small gasket to fill the gap between parts, but the gap size was different for each transmission — sometimes 1 mm, 1.5 mm, or 2 mm. Because of this, the company had to keep all gasket sizes in stock, which wasted storage space and money. I collected the production log from the machines on the floor and analyze them and trained machine learning models to predict which gasket size would be needed for each transmission. Among several models, XGBoost performed the best. By using this prediction model, we reduced inventory levels and saved costs by ordering only the needed gasket sizes.
+- XGBoost is an efficient and high-performance boosting algorithm that combines many small decision trees to make strong and accurate predictions.
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="final-remarks">마지막으로 하고 싶은 말</h3>
+May I ask which technologies your team works with most often, and what types of projects are currently the main focus?
+May I ask what qualities you think are most important to succeed in this position?
+May I ask which projects are currently the highest priority?
+
+<p><a href="#top">맨 위로</a></p>
+<h3 id="python-type">파이썬 타입비교</h3>
+Strings are  immutable but maintain order and allow duplicate characters.
+Lists are mutable, ordered, and allow duplicates.
+Tuples are similar to lists but immutable.
+Dictionaries are mutable and ordered (as of Python 3.7+), but their keys must be unique.
+Sets are mutable but unordered and do not allow duplicate elements.</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://kish191919.github.io">Danny Ki</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://kish191919.github.io/2025/12/12/Interview-Q-A-1/">https://kish191919.github.io/2025/12/12/Interview-Q-A-1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/INTERVIEW/">INTERVIEW</a></div><div class="post-share"><div class="social-share" data-image="/img/my_pic.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/12/12/DATABRICKS-Fundamentals-1/" title="DATABRICKS-Fundamentals-1"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">Previous</div><div class="info-item-2">DATABRICKS-Fundamentals-1</div></div><div class="info-2"><div class="info-item-1">1. Apache Spark란?Apache Spark는👉 분산 클러스터 환경에서 대규모 데이터를 빠르게 처리하기 위한 데이터 처리 엔진(Engine) 입니다. Spark는 다음 작업을 하나의 통합된 프레임워크에서 처리할 수 있습니다.  배치 데이터 처리 (Batch Processing) 스트리밍 데이터 처리 (Stream Processing) 머신러닝 (Machine Learning) 그래프 처리 (Graph Processing) SQL 기반 데이터 분석  📌 시험 포인트  Spark는 데이터베이스가 아니다 Spark는 스토리지 시스템이 아니다 Spark는 데이터 처리 엔진(Processing Engine) 이다   2. Spark가 제공하는 주요 API (Unified Framework)Spark는 하나의 엔진 위에서 여러 API를 제공합니다. (1) Spark SQL &amp; DataFrame API SQL 기반 데이터 처리 ANSI SQL 호환 가장 많이 사용됨 ⭐⭐...</div></div></div></a><a class="pagination-related" href="/2025/12/03/TERADATA-3-History-View/" title="TERADATA(3)-History View"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">TERADATA(3)-History View</div></div><div class="info-2"><div class="info-item-1">📘 Teradata Studio – SQL History 창 완전 정리Teradata SQL History 창 설정, 컬럼 선택, 노트 기능, 복원 방법  📍 1. SQL History 창 복원하기SQL History 창을 실수로 닫았거나 사라졌다면: Window → Reset Perspective 를 눌러주면 기본 레이아웃으로 복원됩니다.→ History 창, Result Viewer 등 모든 패널이 원래 위치로 돌아옵니다.  📍 2. SQL History 창 컬럼(Columns) 커스터마이징SQL History는 기본적으로 매우 많은 컬럼을 보여줍니다.예: Timestamp, Source, User, Destination, Row Count, Result, SQL Statement 등 필요 없는 컬럼이 많으면 화면이 복잡해지므로 원하는 항목만 선택할 수 있습니다. 🔧 설정 경로Window → Preferences → Teradata Datatools → SQL His...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Danny Ki</div><div class="author-info-description">A data engineer's journey in coding, analytics, and building real-world systems.</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">107</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">36</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">12</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kish191919"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/kish191919" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">내 소개 및 전반적인 질문</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">데이터 품질과 보안</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">기술 내용</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">행동 규정</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">ETL &#x2F; 오케스트레이션</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">데이터 웨어하우스</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">파이썬&#x2F;스파크&#x2F;하둡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#a1"><span class="toc-number">8.</span> <span class="toc-text">나의 소개</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#a2"><span class="toc-number">9.</span> <span class="toc-text">왜 이직하니?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#a4"><span class="toc-number">10.</span> <span class="toc-text">보잉이란 그리고 지원동기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#recent-project"><span class="toc-number">11.</span> <span class="toc-text">Recent project (최근 프로젝트)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#issue-data-volume"><span class="toc-number">12.</span> <span class="toc-text">이슈 - 데이터 볼륨증가 3~4TB </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#issue-schema-change"><span class="toc-number">13.</span> <span class="toc-text">이슈 - 스키마 변경</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data-warehouse-tech"><span class="toc-number">14.</span> <span class="toc-text">데이터 웨어하우스 설계 (e.g. Amazon Redshift, Snowflake 사용경험)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data-warehouse-problem"><span class="toc-number">15.</span> <span class="toc-text">데이터 웨어하우스 지연속도 문제 및 해결 </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data-normalization"><span class="toc-number">16.</span> <span class="toc-text">데이터 정규화와 비정규화의 차이점</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#star-snowflake-schema"><span class="toc-number">17.</span> <span class="toc-text">Star &amp; Snowflake 스키마 (데이터 웨어하우스에서 스타 스키마 사용)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dq-multi-point-good"><span class="toc-number">18.</span> <span class="toc-text">데이터 품질관리 - 여러포인트 검증 &amp; good data</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#etl-design-ca7-glue"><span class="toc-number">19.</span> <span class="toc-text">ETL (오케스트레이션) 설계 - CA7와 Glue 이용</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B8%B0%EC%88%A0-%EB%82%B4%EC%9A%A9"><span class="toc-number"></span> <span class="toc-text">기술 내용</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#alteryx-usage"><span class="toc-number">1.</span> <span class="toc-text">Alteryx 사용기간 및 경험</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#teradata-usage"><span class="toc-number">2.</span> <span class="toc-text">테라데이터 사용기간 및 경험</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#teradata-troubleshooting"><span class="toc-number">3.</span> <span class="toc-text">테라데이터 문제해결</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#teradata-performance"><span class="toc-number">4.</span> <span class="toc-text">테라데이터가 높은 성능을 발휘할수 있는 이유</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#teradata-pi"><span class="toc-number">5.</span> <span class="toc-text">테라데이터의 Primary Index (PI) 역할</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#teradata-skew"><span class="toc-number">6.</span> <span class="toc-text">테라데이터 데이터 불균형을 어떻게 해결?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#teradata-secondary-index"><span class="toc-number">7.</span> <span class="toc-text">테라데이터의 Secondary Index 이란</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#teradata-partition"><span class="toc-number">8.</span> <span class="toc-text">Teradata 파티션</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#alteryx-teradata"><span class="toc-number">9.</span> <span class="toc-text">Alteryx와 Teradata 사용</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#neo4j"><span class="toc-number">10.</span> <span class="toc-text">Neo4J 관련해서</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#multi-national-collaboration"><span class="toc-number">11.</span> <span class="toc-text">여러 민족 같이 근무 - sync 미팅, 미팅요약</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cross-team-collaboration"><span class="toc-number">12.</span> <span class="toc-text">다른 팀 협업 - 용어 통일</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tight-schedule-pressure"><span class="toc-number">13.</span> <span class="toc-text">타이트한 스케줄 &amp; 압박 - 일 나누고 대화, 트랙</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%92%88%EC%A7%88%EA%B3%BC-%EB%B3%B4%EC%95%88-%EB%82%B4%EC%9A%A9"><span class="toc-number"></span> <span class="toc-text">품질과 보안 내용</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dq-unit-test"><span class="toc-number">1.</span> <span class="toc-text">데이터 품질관리 - 유닛테스트</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#quality-issue-currency"><span class="toc-number">2.</span> <span class="toc-text">품질 문제 - 통화단위 에러</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#security-compliance"><span class="toc-number">3.</span> <span class="toc-text">보안과 규정 (AWS, Azure)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%96%89%EB%8F%99-%EB%A9%B4%EC%A0%91-%EC%A7%88%EB%AC%B8"><span class="toc-number"></span> <span class="toc-text">행동 면접 질문</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#manager-absence-decision"><span class="toc-number">1.</span> <span class="toc-text">매니저가 부재시 결정해야할 경우</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#team-disagreement-sla"><span class="toc-number">2.</span> <span class="toc-text">팀원 의견 다름 - SLA 20분 지연 - 품질해결</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#manager-disagreement-refresh-partition"><span class="toc-number">3.</span> <span class="toc-text">상사 의견 다름 - refresh only 변경된 파티션만</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#diffent-personality"><span class="toc-number">4.</span> <span class="toc-text">다른 성향의 사람과 협동</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#helped-teammate"><span class="toc-number">5.</span> <span class="toc-text">팀동료 성공시키기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#urgent-vs-important"><span class="toc-number">6.</span> <span class="toc-text">급한일과 중요한일의 우선순위 - 급한것 먼저</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tech-challenge-1-5tb"><span class="toc-number">7.</span> <span class="toc-text">기술 문제 도전 - 1.5TB 처리</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#improvement-large-data"><span class="toc-number">8.</span> <span class="toc-text">개선 사례 - 큰 데이터 처리 (위 동일)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#production-connect-stop"><span class="toc-number">9.</span> <span class="toc-text">생산 문제 - 커넥트 Stop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#process-improvement-connect-stop"><span class="toc-number">10.</span> <span class="toc-text">자발적 프로세스 개선 - 커넥트 Stop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#kafka-realtime-connect-check"><span class="toc-number">11.</span> <span class="toc-text">Kafka 실시간 데이터에서 고려할 부분 - 커넥트 상태확인</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#failure-column-validation"><span class="toc-number">12.</span> <span class="toc-text">실패,실수 - 컬럼검증X, 통화단위 에러</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#project-delay-schema-change"><span class="toc-number">13.</span> <span class="toc-text">프로젝트 지연 - 스키마 변경</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#team-lead-source-missing"><span class="toc-number">14.</span> <span class="toc-text">팀 리드 &amp; 솔선 - 소스 입력 안됨</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#team-lead-datatype-mismatch"><span class="toc-number">15.</span> <span class="toc-text">리더싶 사례 - data type mismatch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#above-and-beyond-responsibility"><span class="toc-number">16.</span> <span class="toc-text">지시받지않은 일 - add load_date &#x2F; 상사와 의견이 맞지 안음사례와 동일</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#customer-request"><span class="toc-number">17.</span> <span class="toc-text">고객이 마지막에 변경요청시 - 스키마변경</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#customer-request-offen"><span class="toc-number">18.</span> <span class="toc-text">고객이 자주 변경사항을 요청할때 - 요청을 그룹핑함</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#non-technical"><span class="toc-number">19.</span> <span class="toc-text">비개발자에게 기술적인 내용을 쉽게 설명할 수 있나요?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#issue-spark-memory"><span class="toc-number">20.</span> <span class="toc-text">이슈 - Spark memory 문제</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#etl-pipeline-optimization"><span class="toc-number">21.</span> <span class="toc-text">ETL pipeline 최적화 - SLA 6시로 맞추기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#aws-glue-experience"><span class="toc-number">22.</span> <span class="toc-text">AWS Glue 사용경험 - ETL services</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#no-current-glue"><span class="toc-number">23.</span> <span class="toc-text">현재 glue를 사용하지는 않는다.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#redshift-intro"><span class="toc-number">24.</span> <span class="toc-text">Redshift 란?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#redshift-columnar"><span class="toc-number">25.</span> <span class="toc-text">Redshift Columnar Storage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#snowflake-advantages"><span class="toc-number">26.</span> <span class="toc-text">스노우플레이크 장점 (zero-copy cloning and time travel)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#databricks-experience"><span class="toc-number">27.</span> <span class="toc-text">Databricks 사용경험 - Anomaly detection</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#partition-strategy"><span class="toc-number">28.</span> <span class="toc-text">파티션 전략 (Spark, Redshift, Snowflake)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#oracle-range-partitioning"><span class="toc-number">29.</span> <span class="toc-text">데이터 모델링 &amp; Architecture - 오라클 range partitioning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#python-sql-spark"><span class="toc-number">30.</span> <span class="toc-text">Python, SQL, Spark, and PySpark</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spark-hadoop-ingestion"><span class="toc-number">31.</span> <span class="toc-text">경험 - 스파크&#x2F;하둡 데이터 ingestion</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#aws-experience"><span class="toc-number">32.</span> <span class="toc-text">경험 - AWS 많이 사용했니?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strengths-weaknesses"><span class="toc-number">33.</span> <span class="toc-text">장점과 단점</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stress"><span class="toc-number">34.</span> <span class="toc-text">스트레스를 어떻게 풉니까?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#motto"><span class="toc-number">35.</span> <span class="toc-text">삶의 모토는?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#powertech"><span class="toc-number">36.</span> <span class="toc-text">파워텍에서 머신러닝 모델 사용</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#final-remarks"><span class="toc-number">37.</span> <span class="toc-text">마지막으로 하고 싶은 말</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#python-type"><span class="toc-number">38.</span> <span class="toc-text">파이썬 타입비교</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/12/DATABRICKS-Fundamentals-1/" title="DATABRICKS-Fundamentals-1">DATABRICKS-Fundamentals-1</a><time datetime="2025-12-12T14:54:44.000Z" title="Created 2025-12-12 09:54:44">2025-12-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/12/Interview-Q-A-1/" title="Interview_Q&amp;A_1">Interview_Q&amp;A_1</a><time datetime="2025-12-12T14:51:06.000Z" title="Created 2025-12-12 09:51:06">2025-12-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/03/TERADATA-3-History-View/" title="TERADATA(3)-History View">TERADATA(3)-History View</a><time datetime="2025-12-03T17:12:57.000Z" title="Created 2025-12-03 12:12:57">2025-12-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/03/TERADATA-2-Customizing-the-Interface-and-Result-Set-Viewer/" title="TERADATA(2)-Customizing the Interface and Result Set Viewer">TERADATA(2)-Customizing the Interface and Result Set Viewer</a><time datetime="2025-12-03T16:38:31.000Z" title="Created 2025-12-03 11:38:31">2025-12-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/03/TERADATA-1-Overview-of-Teradata-Studio-Modules/" title="TERADATA(1)-Overview of Teradata Studio Modules">TERADATA(1)-Overview of Teradata Studio Modules</a><time datetime="2025-12-03T16:27:48.000Z" title="Created 2025-12-03 11:27:48">2025-12-03</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By Danny Ki</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
