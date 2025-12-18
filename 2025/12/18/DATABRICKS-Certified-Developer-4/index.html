@@ -1,0 +1,315 @@
+<!DOCTYPE html><html lang="[&quot;en&quot;,&quot;ko&quot;,&quot;default&quot;]" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>DATABRICKS-Certified-Developer-4 | Danny's Blog</title><meta name="author" content="Danny Ki"><meta name="copyright" content="Danny Ki"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="실습 데이터셋 및 Databricks 노트북 설치하기1. 이 강의에서 할 일이 강의에서는 앞으로의 모든 실습을 위해 필요한:  📁 데이터셋(Data files) 📓 Databricks 노트북(Notebooks)  을 Databricks 환경에 설치합니다. 이 과정이 제대로 되지 않으면👉 이후 강의에서 제공하는 소스 코드가 정상적으로 실행되지 않기 때문">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DATABRICKS-Certified-Developer-4">
+<meta property="og:url" content="https://kish191919.github.io/2025/12/18/DATABRICKS-Certified-Developer-4/index.html">
+<meta property="og:site_name" content="Danny&#39;s Blog">
+<meta property="og:description" content="실습 데이터셋 및 Databricks 노트북 설치하기1. 이 강의에서 할 일이 강의에서는 앞으로의 모든 실습을 위해 필요한:  📁 데이터셋(Data files) 📓 Databricks 노트북(Notebooks)  을 Databricks 환경에 설치합니다. 이 과정이 제대로 되지 않으면👉 이후 강의에서 제공하는 소스 코드가 정상적으로 실행되지 않기 때문">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kish191919.github.io/img/my_pic.jpeg">
+<meta property="article:published_time" content="2025-12-18T15:32:28.000Z">
+<meta property="article:modified_time" content="2025-12-18T15:34:54.217Z">
+<meta property="article:author" content="Danny Ki">
+<meta property="article:tag" content="DATABRICKS">
+<meta property="article:tag" content="DATABRICKS_CERTIFIED_DEVELOPER">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kish191919.github.io/img/my_pic.jpeg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "DATABRICKS-Certified-Developer-4",
+  "url": "https://kish191919.github.io/2025/12/18/DATABRICKS-Certified-Developer-4/",
+  "image": "https://kish191919.github.io/img/my_pic.jpeg",
+  "datePublished": "2025-12-18T15:32:28.000Z",
+  "dateModified": "2025-12-18T15:34:54.217Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Danny Ki",
+      "url": "https://kish191919.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kish191919.github.io/2025/12/18/DATABRICKS-Certified-Developer-4/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="UfZT9jGVnwcVj8z_sCj9LyqnWho6ubHg1Q7o_bvXfKs"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=GTM-N66KNRNW"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'GTM-N66KNRNW')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'GTM-N66KNRNW', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'DATABRICKS-Certified-Developer-4',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://kish191919.github.io/",
+  "name": "Danny's Blog",
+  "inLanguage": "en"
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Danny's Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">117</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">13</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/tech/"><i class="fa-fw fas fa-laptop-code"></i><span> Tech</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Danny's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">DATABRICKS-Certified-Developer-4</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/tech/"><i class="fa-fw fas fa-laptop-code"></i><span> Tech</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">DATABRICKS-Certified-Developer-4</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-12-18T15:32:28.000Z" title="Created 2025-12-18 10:32:28">2025-12-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-12-18T15:34:54.217Z" title="Updated 2025-12-18 10:34:54">2025-12-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CERTIFICATION/">CERTIFICATION</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CERTIFICATION/DATABRICKS-CERTIFIED-DEVELOPER/">DATABRICKS_CERTIFIED_DEVELOPER</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="실습-데이터셋-및-Databricks-노트북-설치하기"><a href="#실습-데이터셋-및-Databricks-노트북-설치하기" class="headerlink" title="실습 데이터셋 및 Databricks 노트북 설치하기"></a>실습 데이터셋 및 Databricks 노트북 설치하기</h1><h2 id="1-이-강의에서-할-일"><a href="#1-이-강의에서-할-일" class="headerlink" title="1. 이 강의에서 할 일"></a>1. 이 강의에서 할 일</h2><p>이 강의에서는 앞으로의 모든 실습을 위해 필요한:</p>
+<ul>
+<li>📁 <strong>데이터셋(Data files)</strong></li>
+<li>📓 <strong>Databricks 노트북(Notebooks)</strong></li>
+</ul>
+<p>을 Databricks 환경에 설치합니다.</p>
+<p>이 과정이 제대로 되지 않으면<br>👉 이후 강의에서 제공하는 <strong>소스 코드가 정상적으로 실행되지 않기 때문에</strong><br>반드시 차근차근 따라와 주세요.</p>
+<hr>
+<h2 id="2-강의-자료-다운로드-Zip-파일"><a href="#2-강의-자료-다운로드-Zip-파일" class="headerlink" title="2. 강의 자료 다운로드 (Zip 파일)"></a>2. 강의 자료 다운로드 (Zip 파일)</h2><p>먼저 이 강의의 <strong>Resources(자료)</strong> 섹션으로 이동합니다.</p>
+<p>여기에서 <strong>두 개의 zip 파일</strong>을 다운로드합니다.</p>
+<ol>
+<li>📓 <strong>Notebooks zip 파일</strong><ul>
+<li>강의에서 사용할 Databricks 노트북들</li>
+</ul>
+</li>
+<li>📁 <strong>Dataset zip 파일</strong><ul>
+<li>실습에 사용할 데이터 파일들 (JSON, CSV 등)</li>
+</ul>
+</li>
+</ol>
+<p>두 파일 모두 <strong>로컬 PC에 다운로드 후 압축을 해제</strong>해 주세요.</p>
+<hr>
+<h2 id="3-Databricks에-데이터셋-업로드하기"><a href="#3-Databricks에-데이터셋-업로드하기" class="headerlink" title="3. Databricks에 데이터셋 업로드하기"></a>3. Databricks에 데이터셋 업로드하기</h2><p>이제 Databricks 환경으로 돌아가서<br>먼저 <strong>데이터 파일</strong>을 업로드하겠습니다.</p>
+<h3 id="3-1-Data-메뉴로-이동"><a href="#3-1-Data-메뉴로-이동" class="headerlink" title="3-1. Data 메뉴로 이동"></a>3-1. Data 메뉴로 이동</h3><p>Databricks 화면의 왼쪽 메뉴에서:</p>
+<ul>
+<li><strong>Data</strong> 클릭</li>
+<li><strong>Add Data</strong> 클릭</li>
+</ul>
+<hr>
+<h3 id="3-2-업로드-폴더-생성-중요"><a href="#3-2-업로드-폴더-생성-중요" class="headerlink" title="3-2. 업로드 폴더 생성 (중요)"></a>3-2. 업로드 폴더 생성 (중요)</h3><p>파일을 업로드하기 전에<br>👉 <strong>반드시 새로운 폴더를 하나 생성</strong>해야 합니다.</p>
+<p>이유:</p>
+<ul>
+<li>강의에서 제공하는 모든 노트북 코드는</li>
+<li>특정 경로를 기준으로 데이터를 읽도록 작성되어 있기 때문입니다</li>
+</ul>
+<p>예시 폴더 이름:</p>
+<ul>
+<li><code>datasets</code></li>
+<li><code>spark-data</code></li>
+<li><code>course-data</code></li>
+</ul>
+<p>📌 이 폴더 이름은 <strong>절대 변경하지 않는 것을 추천</strong>합니다.</p>
+<hr>
+<h3 id="3-3-데이터-파일-업로드"><a href="#3-3-데이터-파일-업로드" class="headerlink" title="3-3. 데이터 파일 업로드"></a>3-3. 데이터 파일 업로드</h3><p>이제:</p>
+<ul>
+<li>앞에서 압축 해제한 <strong>데이터 파일 폴더</strong>로 이동</li>
+<li>모든 파일을 선택</li>
+<li>Databricks 업로드 화면으로 <strong>드래그 앤 드롭</strong></li>
+</ul>
+<p>⚠️ 주의 사항:</p>
+<ul>
+<li>파일 업로드가 완료되기 전에 <strong>페이지를 닫지 마세요</strong></li>
+<li>파일 크기에 따라 시간이 조금 걸릴 수 있습니다</li>
+</ul>
+<p>업로드가 완료되면:</p>
+<ul>
+<li>각 파일 옆에 <strong>초록색 체크(✔)</strong> 표시가 나타납니다</li>
+<li>하단에 업로드 성공 메시지가 표시됩니다</li>
+</ul>
+<p>이제 데이터 업로드는 완료되었습니다.</p>
+<hr>
+<h2 id="4-Databricks-노트북-업로드하기"><a href="#4-Databricks-노트북-업로드하기" class="headerlink" title="4. Databricks 노트북 업로드하기"></a>4. Databricks 노트북 업로드하기</h2><p>다음으로 <strong>Databricks 노트북</strong>을 업로드하겠습니다.</p>
+<h3 id="4-1-Workspace-메뉴로-이동"><a href="#4-1-Workspace-메뉴로-이동" class="headerlink" title="4-1. Workspace 메뉴로 이동"></a>4-1. Workspace 메뉴로 이동</h3><p>왼쪽 메뉴에서:</p>
+<ul>
+<li><strong>Workspace</strong> 클릭</li>
+</ul>
+<hr>
+<h3 id="4-2-노트북-Import"><a href="#4-2-노트북-Import" class="headerlink" title="4-2. 노트북 Import"></a>4-2. 노트북 Import</h3><p>Workspace 화면에서:</p>
+<ul>
+<li>Workspace 옆의 <strong>화살표(▶)</strong> 클릭</li>
+<li><strong>Import</strong> 클릭</li>
+</ul>
+<hr>
+<h3 id="4-3-노트북-파일-업로드"><a href="#4-3-노트북-파일-업로드" class="headerlink" title="4-3. 노트북 파일 업로드"></a>4-3. 노트북 파일 업로드</h3><p>이제:</p>
+<ul>
+<li>압축 해제한 <strong>Notebooks 폴더</strong>에서</li>
+<li>노트북 파일을 선택</li>
+<li>Databricks 화면으로 <strong>드래그 앤 드롭</strong></li>
+<li><strong>Import</strong> 클릭</li>
+</ul>
+<p>이 작업을 하면:</p>
+<ul>
+<li>Workspace 안에 <strong>새 폴더가 생성</strong></li>
+<li>이 폴더 안에 강의에서 사용할 모든 노트북이 저장됩니다</li>
+</ul>
+<hr>
+<h2 id="5-첫-번째-노트북-실행-및-확인"><a href="#5-첫-번째-노트북-실행-및-확인" class="headerlink" title="5. 첫 번째 노트북 실행 및 확인"></a>5. 첫 번째 노트북 실행 및 확인</h2><p>이제 모든 것이 제대로 설치되었는지 확인해 보겠습니다.</p>
+<h3 id="5-1-DataFrame-Basic-노트북-열기"><a href="#5-1-DataFrame-Basic-노트북-열기" class="headerlink" title="5-1. DataFrame Basic 노트북 열기"></a>5-1. DataFrame Basic 노트북 열기</h3><p>업로드된 노트북 중:</p>
+<ul>
+<li><strong>DataFrame Basic</strong> 노트북을 엽니다</li>
+</ul>
+<p>이 노트북은:</p>
+<ul>
+<li>이후 강의에서 사용할 데이터의 기본 구조를 확인하는 용도입니다</li>
+</ul>
+<hr>
+<h3 id="5-2-클러스터-연결"><a href="#5-2-클러스터-연결" class="headerlink" title="5-2. 클러스터 연결"></a>5-2. 클러스터 연결</h3><p>노트북 상단에서:</p>
+<ul>
+<li><strong>Attach to Cluster</strong></li>
+<li>앞에서 생성한 클러스터 선택</li>
+</ul>
+<hr>
+<h3 id="5-3-코드-실행-테스트"><a href="#5-3-코드-실행-테스트" class="headerlink" title="5-3. 코드 실행 테스트"></a>5-3. 코드 실행 테스트</h3><p>이제 노트북의 첫 번째 셀을 실행합니다.</p>
+<p>이 코드는:</p>
+<ul>
+<li>앞에서 업로드한 <strong>customer.json 파일</strong>을 읽어서</li>
+<li>Spark DataFrame을 생성합니다</li>
+</ul>
+<p>만약:</p>
+<ul>
+<li>DataFrame이 정상적으로 생성되고</li>
+<li>데이터가 출력된다면</li>
+</ul>
+<p>👉 데이터와 노트북이 <strong>정상적으로 설치된 것</strong>입니다 🎉</p>
+<hr>
+<h2 id="6-매우-중요한-주의-사항-꼭-확인"><a href="#6-매우-중요한-주의-사항-꼭-확인" class="headerlink" title="6. 매우 중요한 주의 사항 (꼭 확인)"></a>6. 매우 중요한 주의 사항 (꼭 확인)</h2><p>📌 <strong>데이터 경로는 반드시 동일해야 합니다</strong></p>
+<ul>
+<li>데이터 파일을 다른 폴더에 업로드하면</li>
+<li>노트북에 작성된 경로와 달라져서</li>
+<li>코드가 실행되지 않습니다</li>
+</ul>
+<p>따라서:</p>
+<ul>
+<li>강의에서 안내한 <strong>폴더 위치</strong></li>
+<li><strong>폴더 이름</strong></li>
+<li><strong>경로 구조</strong></li>
+</ul>
+<p>를 그대로 유지해 주세요.</p>
+<hr>
+<h2 id="7-마무리"><a href="#7-마무리" class="headerlink" title="7. 마무리"></a>7. 마무리</h2><p>이제 다음이 모두 완료되었습니다.</p>
+<p>✅ 데이터셋 업로드<br>✅ Databricks 노트북 업로드<br>✅ Spark DataFrame 정상 생성 확인</p>
+<p>이제 실습을 위한 모든 준비가 끝났습니다.</p>
+<p>다음 강의에서는:</p>
+<ul>
+<li>Spark DataFrame을 이용한</li>
+<li>실제 데이터 처리와 변환 작업을 시작하겠습니다.</li>
+</ul>
+<p>다음 강의에서 뵙겠습니다 😊</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://kish191919.github.io">Danny Ki</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://kish191919.github.io/2025/12/18/DATABRICKS-Certified-Developer-4/">https://kish191919.github.io/2025/12/18/DATABRICKS-Certified-Developer-4/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/DATABRICKS/">DATABRICKS</a><a class="post-meta__tags" href="/tags/DATABRICKS-CERTIFIED-DEVELOPER/">DATABRICKS_CERTIFIED_DEVELOPER</a></div><div class="post-share"><div class="social-share" data-image="/img/my_pic.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/12/18/DATABRICKS-Certified-Developer-5/" title="DATABRICKS-Certified-Developer-5"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">Previous</div><div class="info-item-2">DATABRICKS-Certified-Developer-5</div></div><div class="info-2"><div class="info-item-1">Spark DataFrame 기초 실습 시작하기1. 실습 시작 전 확인 사항 (매우 중요)본격적으로 실습을 시작하기 전에, 두 가지를 반드시 확인해야 합니다. ✅ 1) 데이터셋이 정상적으로 설치되었는지 확인Databricks 환경의 왼쪽 메뉴에서 다음 순서로 이동합니다.  Data 클릭 Add Data DBFS (Databricks File System) FileStore Tables 이전 강의에서 생성한 데이터 폴더  이 경로에서:  이전 강의에서 업로드한 모든 데이터 파일이 보인다면👉 데이터셋은 정상적으로 설치된 것입니다.   ✅ 2) 클러스터가 실행 중인지 확인Apache Spark는 클러스터 없이는 아무 작업도 할 수 없습니다. Community Edition에서는:  동시에 하나의 클러스터만 실행 가능합니다.  클러스터가 없다면:  Create Cluster 클릭 클러스터 이름 입력 Create Cluster 클릭  자세한 클러스터 생성 방법은👉 이전 강의 영상을 ...</div></div></div></a><a class="pagination-related" href="/2025/12/18/DATABRICKS-Certified-Developer-3/" title="DATABRICKS-Certified-Developer-3"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">DATABRICKS-Certified-Developer-3</div></div><div class="info-2"><div class="info-item-1">Databricks Community Edition 계정 생성 및 클러스터 만들기1. 이 강의에서 필요한 준비 사항이 강의에 포함된 모든 예제를 따라 하기 위해서는Databricks Community Edition 계정이 필요합니다. Databricks Community Edition은:  무료로 제공되는 Databricks 계정이며 Apache Spark를 학습하기에 충분한 환경을 제공합니다  실무에서 사용하는 대규모 클러스터는 아니지만,Spark의 핵심 개념과 동작 방식을 이해하기에는 충분합니다.  2. Databricks Community Edition 회원 가입먼저 웹 브라우저를 열고 다음 사이트로 이동합니다. 👉 https://databricks.com 메인 페이지에서:  Try Databricks 버튼을 클릭합니다  그러면 회원 가입(Sign Up) 페이지가 나타납니다.  회원 가입 정보 입력다음과 같은 기본 정보를 입력합니다.  Company Name (회사명) ...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/12/18/DATABRICKS-Certified-Developer-1/" title="DATABRICKS-Certified-Developer-1"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-18</div><div class="info-item-2">DATABRICKS-Certified-Developer-1</div></div><div class="info-2"><div class="info-item-1">Apache Spark Cluster Architecture – Easy Explanation1. Computing on a Single Computer먼저, 하나의 컴퓨터에서 컴퓨팅이 어떻게 이루어지는지 살펴보겠습니다. 하나의 컴퓨터에는 다음과 같은 컴퓨팅 자원이 있습니다.  CPU: 연산을 수행 Memory (RAM): 실행 중인 데이터 저장 GPU: 대규모 병렬 연산 (필요한 경우)  이 모든 자원은 운영체제(OS) 가 관리합니다. Operating System의 역할운영체제는 여러 애플리케이션이 동시에 실행될 때:  CPU와 메모리를 어떻게 나눠 쓸지 결정하고 각 애플리케이션의 자원 사용을 스케줄링합니다  덕분에 여러 프로그램이 동시에 실행되어도 시스템이 안정적으로 동작합니다.  2. Why Single Computer Is Not Enough for Big Data빅데이터를 처리하려면 다음과 같은 문제가 발생합니다.  데이터 크기가 너무 큼 연산량이 많음 처리 시간이 ...</div></div></div></a><a class="pagination-related" href="/2025/12/18/DATABRICKS-Certified-Developer-2/" title="DATABRICKS-Certified-Developer-2"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-18</div><div class="info-item-2">DATABRICKS-Certified-Developer-2</div></div><div class="info-2"><div class="info-item-1">Azure Databricks에서 Apache Spark 클러스터 생성하기1. 이 강의에서 배울 내용이 영상에서는 Apache Spark를 실행하기 위한 Databricks 클러스터를 생성하는 방법을 살펴보겠습니다.구체적으로는 다음 내용을 다룹니다.  Azure Databricks 워크스페이스 생성 Databricks 환경 실행 Spark 클러스터 생성 클러스터 주요 설정 옵션 이해 클러스터 상태 및 Spark UI 확인  Spark는 클러스터 없이 실행될 수 없기 때문에,이 단계는 이후 모든 실습의 기초가 되는 매우 중요한 과정입니다.  2. Azure Databricks 워크스페이스 생성먼저 Azure Portal에서 시작합니다. 이미 Azure 계정이 있다면:  Azure Portal에 로그인 상단 검색창에서 Databricks 검색 Azure Databricks 선택  만약 바로 보이지 않으면 검색창에Databricks 라고 입력하면 쉽게 찾을 수 있습니다. Azure ...</div></div></div></a><a class="pagination-related" href="/2025/12/18/DATABRICKS-Certified-Developer-3/" title="DATABRICKS-Certified-Developer-3"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-18</div><div class="info-item-2">DATABRICKS-Certified-Developer-3</div></div><div class="info-2"><div class="info-item-1">Databricks Community Edition 계정 생성 및 클러스터 만들기1. 이 강의에서 필요한 준비 사항이 강의에 포함된 모든 예제를 따라 하기 위해서는Databricks Community Edition 계정이 필요합니다. Databricks Community Edition은:  무료로 제공되는 Databricks 계정이며 Apache Spark를 학습하기에 충분한 환경을 제공합니다  실무에서 사용하는 대규모 클러스터는 아니지만,Spark의 핵심 개념과 동작 방식을 이해하기에는 충분합니다.  2. Databricks Community Edition 회원 가입먼저 웹 브라우저를 열고 다음 사이트로 이동합니다. 👉 https://databricks.com 메인 페이지에서:  Try Databricks 버튼을 클릭합니다  그러면 회원 가입(Sign Up) 페이지가 나타납니다.  회원 가입 정보 입력다음과 같은 기본 정보를 입력합니다.  Company Name (회사명) ...</div></div></div></a><a class="pagination-related" href="/2025/12/18/DATABRICKS-Certified-Developer-5/" title="DATABRICKS-Certified-Developer-5"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-18</div><div class="info-item-2">DATABRICKS-Certified-Developer-5</div></div><div class="info-2"><div class="info-item-1">Spark DataFrame 기초 실습 시작하기1. 실습 시작 전 확인 사항 (매우 중요)본격적으로 실습을 시작하기 전에, 두 가지를 반드시 확인해야 합니다. ✅ 1) 데이터셋이 정상적으로 설치되었는지 확인Databricks 환경의 왼쪽 메뉴에서 다음 순서로 이동합니다.  Data 클릭 Add Data DBFS (Databricks File System) FileStore Tables 이전 강의에서 생성한 데이터 폴더  이 경로에서:  이전 강의에서 업로드한 모든 데이터 파일이 보인다면👉 데이터셋은 정상적으로 설치된 것입니다.   ✅ 2) 클러스터가 실행 중인지 확인Apache Spark는 클러스터 없이는 아무 작업도 할 수 없습니다. Community Edition에서는:  동시에 하나의 클러스터만 실행 가능합니다.  클러스터가 없다면:  Create Cluster 클릭 클러스터 이름 입력 Create Cluster 클릭  자세한 클러스터 생성 방법은👉 이전 강의 영상을 ...</div></div></div></a><a class="pagination-related" href="/2025/12/18/DATABRICKS-Certified-Developer-6/" title="DATABRICKS-Certified-Developer-6"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-18</div><div class="info-item-2">DATABRICKS-Certified-Developer-6</div></div><div class="info-2"><div class="info-item-1">DataFrame Schema 정의 방법 이해하기DataFrame은 각 컬럼의 이름(Name) 과 데이터 타입(Data Type) 을 정의하는Schema를 가지고 있습니다. DataFrame의 Schema를 확인하려면 printSchema 메서드를 사용합니다. 1customerDF.printSchema()  이 명령을 실행하면 DataFrame의 Schema가사람이 읽기 쉬운 형태로 출력됩니다.  1. 왜 Schema를 직접 정의해야 할까?예를 들어, 데이터 파일을 보면 address_id 컬럼의 값은 크지 않습니다.하지만 Spark는 자동으로 이를 Long 타입으로 인식할 수 있습니다. 이 경우:  Long 타입은 불필요하게 큰 타입이고 Integer 타입으로 충분한 상황입니다  따라서 Schema를 직접 정의하여 데이터 타입을 정확히 지정하는 것이 좋습니다.  2. Schema를 정의하는 첫 번째 방법: DDL 문자열 방식DataFrame Schema를 정의하는 첫 번째 방...</div></div></div></a><a class="pagination-related" href="/2025/12/12/DATABRICKS-Fundamentals-1/" title="DATABRICKS-Fundamentals-1"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-12</div><div class="info-item-2">DATABRICKS-Fundamentals-1</div></div><div class="info-2"><div class="info-item-1">1. Apache Spark란?Apache Spark는👉 분산 클러스터 환경에서 대규모 데이터를 빠르게 처리하기 위한 데이터 처리 엔진(Engine) 입니다. Spark는 다음 작업을 하나의 통합된 프레임워크에서 처리할 수 있습니다.  배치 데이터 처리 (Batch Processing) 스트리밍 데이터 처리 (Stream Processing) 머신러닝 (Machine Learning) 그래프 처리 (Graph Processing) SQL 기반 데이터 분석  📌 시험 포인트  Spark는 데이터베이스가 아니다 Spark는 스토리지 시스템이 아니다 Spark는 데이터 처리 엔진(Processing Engine) 이다   2. Spark가 제공하는 주요 API (Unified Framework)Spark는 하나의 엔진 위에서 여러 API를 제공합니다. (1) Spark SQL &amp; DataFrame API SQL 기반 데이터 처리 ANSI SQL 호환 가장 많이 사용됨 ⭐⭐...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Danny Ki</div><div class="author-info-description">A data engineer's journey in coding, analytics, and building real-world systems.</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">117</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">13</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kish191919"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/kish191919" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%EC%8B%A4%EC%8A%B5-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%85%8B-%EB%B0%8F-Databricks-%EB%85%B8%ED%8A%B8%EB%B6%81-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0"><span class="toc-number">1.</span> <span class="toc-text">실습 데이터셋 및 Databricks 노트북 설치하기</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%EC%9D%B4-%EA%B0%95%EC%9D%98%EC%97%90%EC%84%9C-%ED%95%A0-%EC%9D%BC"><span class="toc-number">1.1.</span> <span class="toc-text">1. 이 강의에서 할 일</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%EA%B0%95%EC%9D%98-%EC%9E%90%EB%A3%8C-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C-Zip-%ED%8C%8C%EC%9D%BC"><span class="toc-number">1.2.</span> <span class="toc-text">2. 강의 자료 다운로드 (Zip 파일)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Databricks%EC%97%90-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%85%8B-%EC%97%85%EB%A1%9C%EB%93%9C%ED%95%98%EA%B8%B0"><span class="toc-number">1.3.</span> <span class="toc-text">3. Databricks에 데이터셋 업로드하기</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-Data-%EB%A9%94%EB%89%B4%EB%A1%9C-%EC%9D%B4%EB%8F%99"><span class="toc-number">1.3.1.</span> <span class="toc-text">3-1. Data 메뉴로 이동</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%EC%97%85%EB%A1%9C%EB%93%9C-%ED%8F%B4%EB%8D%94-%EC%83%9D%EC%84%B1-%EC%A4%91%EC%9A%94"><span class="toc-number">1.3.2.</span> <span class="toc-text">3-2. 업로드 폴더 생성 (중요)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%8C%8C%EC%9D%BC-%EC%97%85%EB%A1%9C%EB%93%9C"><span class="toc-number">1.3.3.</span> <span class="toc-text">3-3. 데이터 파일 업로드</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Databricks-%EB%85%B8%ED%8A%B8%EB%B6%81-%EC%97%85%EB%A1%9C%EB%93%9C%ED%95%98%EA%B8%B0"><span class="toc-number">1.4.</span> <span class="toc-text">4. Databricks 노트북 업로드하기</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-Workspace-%EB%A9%94%EB%89%B4%EB%A1%9C-%EC%9D%B4%EB%8F%99"><span class="toc-number">1.4.1.</span> <span class="toc-text">4-1. Workspace 메뉴로 이동</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%EB%85%B8%ED%8A%B8%EB%B6%81-Import"><span class="toc-number">1.4.2.</span> <span class="toc-text">4-2. 노트북 Import</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%EB%85%B8%ED%8A%B8%EB%B6%81-%ED%8C%8C%EC%9D%BC-%EC%97%85%EB%A1%9C%EB%93%9C"><span class="toc-number">1.4.3.</span> <span class="toc-text">4-3. 노트북 파일 업로드</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%EC%B2%AB-%EB%B2%88%EC%A7%B8-%EB%85%B8%ED%8A%B8%EB%B6%81-%EC%8B%A4%ED%96%89-%EB%B0%8F-%ED%99%95%EC%9D%B8"><span class="toc-number">1.5.</span> <span class="toc-text">5. 첫 번째 노트북 실행 및 확인</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-DataFrame-Basic-%EB%85%B8%ED%8A%B8%EB%B6%81-%EC%97%B4%EA%B8%B0"><span class="toc-number">1.5.1.</span> <span class="toc-text">5-1. DataFrame Basic 노트북 열기</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%ED%81%B4%EB%9F%AC%EC%8A%A4%ED%84%B0-%EC%97%B0%EA%B2%B0"><span class="toc-number">1.5.2.</span> <span class="toc-text">5-2. 클러스터 연결</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%EC%BD%94%EB%93%9C-%EC%8B%A4%ED%96%89-%ED%85%8C%EC%8A%A4%ED%8A%B8"><span class="toc-number">1.5.3.</span> <span class="toc-text">5-3. 코드 실행 테스트</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%EB%A7%A4%EC%9A%B0-%EC%A4%91%EC%9A%94%ED%95%9C-%EC%A3%BC%EC%9D%98-%EC%82%AC%ED%95%AD-%EA%BC%AD-%ED%99%95%EC%9D%B8"><span class="toc-number">1.6.</span> <span class="toc-text">6. 매우 중요한 주의 사항 (꼭 확인)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%EB%A7%88%EB%AC%B4%EB%A6%AC"><span class="toc-number">1.7.</span> <span class="toc-text">7. 마무리</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/18/DATABRICKS-Certified-Developer-6/" title="DATABRICKS-Certified-Developer-6">DATABRICKS-Certified-Developer-6</a><time datetime="2025-12-18T15:48:12.000Z" title="Created 2025-12-18 10:48:12">2025-12-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/18/DATABRICKS-Certified-Developer-5/" title="DATABRICKS-Certified-Developer-5">DATABRICKS-Certified-Developer-5</a><time datetime="2025-12-18T15:38:46.000Z" title="Created 2025-12-18 10:38:46">2025-12-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/18/DATABRICKS-Certified-Developer-4/" title="DATABRICKS-Certified-Developer-4">DATABRICKS-Certified-Developer-4</a><time datetime="2025-12-18T15:32:28.000Z" title="Created 2025-12-18 10:32:28">2025-12-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/18/DATABRICKS-Certified-Developer-3/" title="DATABRICKS-Certified-Developer-3">DATABRICKS-Certified-Developer-3</a><time datetime="2025-12-18T15:27:05.000Z" title="Created 2025-12-18 10:27:05">2025-12-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/18/DATABRICKS-Certified-Developer-2/" title="DATABRICKS-Certified-Developer-2">DATABRICKS-Certified-Developer-2</a><time datetime="2025-12-18T15:13:19.000Z" title="Created 2025-12-18 10:13:19">2025-12-18</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By Danny Ki</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

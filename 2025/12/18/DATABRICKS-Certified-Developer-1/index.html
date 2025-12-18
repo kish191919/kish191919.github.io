@@ -1,0 +1,334 @@
+<!DOCTYPE html><html lang="[&quot;en&quot;,&quot;ko&quot;,&quot;default&quot;]" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>DATABRICKS-Certified-Developer-1 | Danny's Blog</title><meta name="author" content="Danny Ki"><meta name="copyright" content="Danny Ki"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Apache Spark Cluster Architecture – Easy Explanation1. Computing on a Single Computer먼저, 하나의 컴퓨터에서 컴퓨팅이 어떻게 이루어지는지 살펴보겠습니다. 하나의 컴퓨터에는 다음과 같은 컴퓨팅 자원이 있습니다.  CPU: 연산을 수행 Memory (RAM): 실행 중인 데이터 저장 GPU:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DATABRICKS-Certified-Developer-1">
+<meta property="og:url" content="https://kish191919.github.io/2025/12/18/DATABRICKS-Certified-Developer-1/index.html">
+<meta property="og:site_name" content="Danny&#39;s Blog">
+<meta property="og:description" content="Apache Spark Cluster Architecture – Easy Explanation1. Computing on a Single Computer먼저, 하나의 컴퓨터에서 컴퓨팅이 어떻게 이루어지는지 살펴보겠습니다. 하나의 컴퓨터에는 다음과 같은 컴퓨팅 자원이 있습니다.  CPU: 연산을 수행 Memory (RAM): 실행 중인 데이터 저장 GPU:">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kish191919.github.io/img/my_pic.jpeg">
+<meta property="article:published_time" content="2025-12-18T15:10:28.000Z">
+<meta property="article:modified_time" content="2025-12-18T15:12:54.951Z">
+<meta property="article:author" content="Danny Ki">
+<meta property="article:tag" content="DATABRICKS">
+<meta property="article:tag" content="DATABRICKS_CERTIFIED_DEVELOPER">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kish191919.github.io/img/my_pic.jpeg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "DATABRICKS-Certified-Developer-1",
+  "url": "https://kish191919.github.io/2025/12/18/DATABRICKS-Certified-Developer-1/",
+  "image": "https://kish191919.github.io/img/my_pic.jpeg",
+  "datePublished": "2025-12-18T15:10:28.000Z",
+  "dateModified": "2025-12-18T15:12:54.951Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Danny Ki",
+      "url": "https://kish191919.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://kish191919.github.io/2025/12/18/DATABRICKS-Certified-Developer-1/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="UfZT9jGVnwcVj8z_sCj9LyqnWho6ubHg1Q7o_bvXfKs"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=GTM-N66KNRNW"></script><script>window.dataLayer = window.dataLayer || []
+function gtag(){dataLayer.push(arguments)}
+gtag('js', new Date())
+gtag('config', 'GTM-N66KNRNW')
+btf.addGlobalFn('pjaxComplete', () => {
+  gtag('config', 'GTM-N66KNRNW', {'page_path': window.location.pathname})
+}, 'google_analytics')
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'DATABRICKS-Certified-Developer-1',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://kish191919.github.io/",
+  "name": "Danny's Blog",
+  "inLanguage": "en"
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Danny's Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">117</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">13</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/tech/"><i class="fa-fw fas fa-laptop-code"></i><span> Tech</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Danny's Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">DATABRICKS-Certified-Developer-1</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/tech/"><i class="fa-fw fas fa-laptop-code"></i><span> Tech</span></a></div><div class="menus_item"><a class="site-page" href="/showcase/"><i class="fa-fw fas fa-star"></i><span> Showcase</span></a></div><div class="menus_item"><a class="site-page" href="/resume/"><i class="fa-fw fas fa-id-card"></i><span> Resume</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">DATABRICKS-Certified-Developer-1</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-12-18T15:10:28.000Z" title="Created 2025-12-18 10:10:28">2025-12-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-12-18T15:12:54.951Z" title="Updated 2025-12-18 10:12:54">2025-12-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CERTIFICATION/">CERTIFICATION</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/CERTIFICATION/DATABRICKS-CERTIFIED-DEVELOPER/">DATABRICKS_CERTIFIED_DEVELOPER</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="Apache-Spark-Cluster-Architecture-–-Easy-Explanation"><a href="#Apache-Spark-Cluster-Architecture-–-Easy-Explanation" class="headerlink" title="Apache Spark Cluster Architecture – Easy Explanation"></a>Apache Spark Cluster Architecture – Easy Explanation</h1><h2 id="1-Computing-on-a-Single-Computer"><a href="#1-Computing-on-a-Single-Computer" class="headerlink" title="1. Computing on a Single Computer"></a>1. Computing on a Single Computer</h2><p>먼저, 하나의 컴퓨터에서 컴퓨팅이 어떻게 이루어지는지 살펴보겠습니다.</p>
+<p>하나의 컴퓨터에는 다음과 같은 컴퓨팅 자원이 있습니다.</p>
+<ul>
+<li><strong>CPU</strong>: 연산을 수행</li>
+<li><strong>Memory (RAM)</strong>: 실행 중인 데이터 저장</li>
+<li><strong>GPU</strong>: 대규모 병렬 연산 (필요한 경우)</li>
+</ul>
+<p>이 모든 자원은 <strong>운영체제(OS)</strong> 가 관리합니다.</p>
+<h3 id="Operating-System의-역할"><a href="#Operating-System의-역할" class="headerlink" title="Operating System의 역할"></a>Operating System의 역할</h3><p>운영체제는 여러 애플리케이션이 동시에 실행될 때:</p>
+<ul>
+<li>CPU와 메모리를 어떻게 나눠 쓸지 결정하고</li>
+<li>각 애플리케이션의 자원 사용을 스케줄링합니다</li>
+</ul>
+<p>덕분에 여러 프로그램이 동시에 실행되어도 시스템이 안정적으로 동작합니다.</p>
+<hr>
+<h2 id="2-Why-Single-Computer-Is-Not-Enough-for-Big-Data"><a href="#2-Why-Single-Computer-Is-Not-Enough-for-Big-Data" class="headerlink" title="2. Why Single Computer Is Not Enough for Big Data"></a>2. Why Single Computer Is Not Enough for Big Data</h2><p>빅데이터를 처리하려면 다음과 같은 문제가 발생합니다.</p>
+<ul>
+<li>데이터 크기가 너무 큼</li>
+<li>연산량이 많음</li>
+<li>처리 시간이 오래 걸림</li>
+</ul>
+<p>그래서 하나의 컴퓨터가 아닌 <strong>여러 대의 컴퓨터를 함께 사용하는 방식</strong>이 필요합니다.</p>
+<p>이것이 바로 <strong>Computer Cluster</strong>입니다.</p>
+<hr>
+<h2 id="3-What-Is-a-Computer-Cluster"><a href="#3-What-Is-a-Computer-Cluster" class="headerlink" title="3. What Is a Computer Cluster?"></a>3. What Is a Computer Cluster?</h2><p><strong>컴퓨터 클러스터</strong>란 여러 대의 컴퓨터를 네트워크로 연결하여<br>마치 하나의 거대한 컴퓨터처럼 사용하는 구조입니다.</p>
+<ul>
+<li>각 컴퓨터를 <strong>Node</strong>라고 부름</li>
+<li>노드들은 고속 네트워크로 연결됨</li>
+<li>각 노드에는 독립적인 운영체제가 실행됨</li>
+</ul>
+<p>하지만 여기서 새로운 문제가 생깁니다.</p>
+<blockquote>
+<p>누가 이 많은 컴퓨터의 자원을 관리할까?</p>
+</blockquote>
+<hr>
+<h2 id="4-Cluster-Manager-Node-Manager"><a href="#4-Cluster-Manager-Node-Manager" class="headerlink" title="4. Cluster Manager &amp; Node Manager"></a>4. Cluster Manager &amp; Node Manager</h2><p>Single Computer에서는 OS가 자원을 관리했습니다.<br>Cluster 환경에서는 이를 대신하는 <strong>전용 자원 관리자</strong>가 필요합니다.</p>
+<h3 id="Cluster-Manager"><a href="#Cluster-Manager" class="headerlink" title="Cluster Manager"></a>Cluster Manager</h3><p>Cluster Manager는 클러스터 전체를 관리합니다.</p>
+<p>주요 역할:</p>
+<ul>
+<li>전체 자원(CPU, Memory) 관리</li>
+<li>여러 애플리케이션 간 자원 할당</li>
+<li>각 노드의 상태 및 헬스 체크</li>
+</ul>
+<p>👉 클러스터에서 애플리케이션을 실행하려면 반드시 Cluster Manager를 거쳐야 합니다.</p>
+<h3 id="Node-Manager"><a href="#Node-Manager" class="headerlink" title="Node Manager"></a>Node Manager</h3><p>각 노드에는 <strong>Node Manager</strong>가 실행됩니다.</p>
+<p>역할:</p>
+<ul>
+<li>해당 노드의 자원 상태 모니터링</li>
+<li>실행 중인 프로세스 관리</li>
+<li>서버 장애 및 애플리케이션 실패 감지</li>
+<li>모든 정보를 Cluster Manager에게 보고</li>
+</ul>
+<p>📌<br><strong>Cluster Manager + Node Manager &#x3D; 클러스터의 운영체제</strong></p>
+<hr>
+<h2 id="5-Apache-Spark-Application-Components"><a href="#5-Apache-Spark-Application-Components" class="headerlink" title="5. Apache Spark Application Components"></a>5. Apache Spark Application Components</h2><p>Apache Spark 애플리케이션은 항상 두 가지 구성 요소를 가집니다.</p>
+<h3 id="Spark-Driver"><a href="#Spark-Driver" class="headerlink" title="Spark Driver"></a>Spark Driver</h3><ul>
+<li>애플리케이션의 두뇌</li>
+<li>전체 작업 계획 및 제어</li>
+<li>자원 요청 및 Executor 관리</li>
+<li>작업(Task) 분배</li>
+</ul>
+<h3 id="Spark-Executors"><a href="#Spark-Executors" class="headerlink" title="Spark Executors"></a>Spark Executors</h3><ul>
+<li>실제 연산 수행</li>
+<li>Driver로부터 Task를 받아 실행</li>
+<li>결과를 Driver에게 반환</li>
+</ul>
+<hr>
+<h2 id="6-Spark-Application-Execution-Flow"><a href="#6-Spark-Application-Execution-Flow" class="headerlink" title="6. Spark Application Execution Flow"></a>6. Spark Application Execution Flow</h2><p>Spark 애플리케이션이 실행되는 과정을 단계별로 살펴보겠습니다.</p>
+<h3 id="Step-1-spark-submit"><a href="#Step-1-spark-submit" class="headerlink" title="Step 1: spark-submit"></a>Step 1: spark-submit</h3><p>사용자는 <code>spark-submit</code> 명령으로 애플리케이션을 제출합니다.</p>
+<p>이때 다음 설정을 전달합니다.</p>
+<ul>
+<li>Driver memory (예: 20GB)</li>
+<li>Executor memory (예: 20GB)</li>
+<li>CPU cores (예: 4)</li>
+<li>Number of executors (예: 3)</li>
+</ul>
+<hr>
+<h3 id="Step-2-Driver-Creation"><a href="#Step-2-Driver-Creation" class="headerlink" title="Step 2: Driver Creation"></a>Step 2: Driver Creation</h3><ul>
+<li>Cluster Manager가 Node Manager에게 요청</li>
+<li>자원이 충분한 노드에서 Driver 프로세스 생성</li>
+</ul>
+<hr>
+<h3 id="Step-3-Executor-Request"><a href="#Step-3-Executor-Request" class="headerlink" title="Step 3: Executor Request"></a>Step 3: Executor Request</h3><ul>
+<li>Driver가 Cluster Manager에게 Executor 요청</li>
+<li>설정된 개수와 자원 정보 전달</li>
+</ul>
+<hr>
+<h3 id="Step-4-Executor-Creation"><a href="#Step-4-Executor-Creation" class="headerlink" title="Step 4: Executor Creation"></a>Step 4: Executor Creation</h3><ul>
+<li>Cluster Manager → Node Manager</li>
+<li>자원이 충분한 노드에서 Executor 생성</li>
+<li>Executor 위치 정보를 Cluster Manager에게 보고</li>
+</ul>
+<hr>
+<h3 id="Step-5-Driver–Executor-Connection"><a href="#Step-5-Driver–Executor-Connection" class="headerlink" title="Step 5: Driver–Executor Connection"></a>Step 5: Driver–Executor Connection</h3><ul>
+<li>Cluster Manager가 Executor 위치를 Driver에게 전달</li>
+<li>Spark 애플리케이션 실행 완료</li>
+</ul>
+<hr>
+<h2 id="7-Parallel-Processing-in-Spark"><a href="#7-Parallel-Processing-in-Spark" class="headerlink" title="7. Parallel Processing in Spark"></a>7. Parallel Processing in Spark</h2><p>Driver는 작업을 여러 <strong>Task</strong>로 나누어 Executors에 전달합니다.</p>
+<p>예를 들어 큰 파일을 읽을 때:</p>
+<ul>
+<li>파일을 여러 조각으로 분할</li>
+<li>여러 Executor가 동시에 처리</li>
+</ul>
+<p>👉 이것이 Spark가 빠른 이유이며, 높은 병렬성을 제공합니다.</p>
+<hr>
+<h2 id="8-Spark-Deployment-Modes"><a href="#8-Spark-Deployment-Modes" class="headerlink" title="8. Spark Deployment Modes"></a>8. Spark Deployment Modes</h2><p>Spark Driver가 어디에서 실행되느냐에 따라 Deployment Mode가 결정됩니다.</p>
+<h3 id="Cluster-Mode"><a href="#Cluster-Mode" class="headerlink" title="Cluster Mode"></a>Cluster Mode</h3><ul>
+<li>Driver와 Executor 모두 클러스터 내부</li>
+<li>Cluster Manager가 전체 관리</li>
+<li><strong>Production 환경에 적합</strong></li>
+</ul>
+<hr>
+<h3 id="Client-Mode"><a href="#Client-Mode" class="headerlink" title="Client Mode"></a>Client Mode</h3><ul>
+<li>Driver는 클러스터 외부 (사용자 머신)</li>
+<li>Executor는 클러스터 내부</li>
+<li>Driver가 종료되면 애플리케이션도 종료됨</li>
+</ul>
+<p>👉 개발 및 테스트에 주로 사용</p>
+<hr>
+<h3 id="Local-Mode"><a href="#Local-Mode" class="headerlink" title="Local Mode"></a>Local Mode</h3><ul>
+<li>Driver와 Executor가 한 대의 머신에서 실행</li>
+<li>로컬 테스트 및 학습용</li>
+</ul>
+<hr>
+<h2 id="9-Responsibilities-Summary"><a href="#9-Responsibilities-Summary" class="headerlink" title="9. Responsibilities Summary"></a>9. Responsibilities Summary</h2><h3 id="Spark-Driver-1"><a href="#Spark-Driver-1" class="headerlink" title="Spark Driver"></a>Spark Driver</h3><ul>
+<li>자원 요청 및 관리</li>
+<li>작업 스케줄링</li>
+<li>Executor 상태 모니터링</li>
+<li>장애 발생 시 재요청</li>
+<li>사용자 입력 처리</li>
+</ul>
+<h3 id="Spark-Executor"><a href="#Spark-Executor" class="headerlink" title="Spark Executor"></a>Spark Executor</h3><ul>
+<li>Task 실행</li>
+<li>결과 반환</li>
+<li>단순하고 명확한 역할</li>
+</ul>
+<hr>
+<h2 id="10-Databricks-and-Spark"><a href="#10-Databricks-and-Spark" class="headerlink" title="10. Databricks and Spark"></a>10. Databricks and Spark</h2><p>Databricks는 Spark를 쉽게 사용할 수 있는 플랫폼입니다.</p>
+<h3 id="Databricks-Editions"><a href="#Databricks-Editions" class="headerlink" title="Databricks Editions"></a>Databricks Editions</h3><ul>
+<li><strong>Community Edition (무료)</strong><ul>
+<li>Single-node cluster</li>
+<li>학습용으로 충분</li>
+</ul>
+</li>
+<li><strong>Paid Edition (AWS &#x2F; Azure)</strong><ul>
+<li>Multi-node cluster</li>
+<li>실제 분산 처리 구조 학습 가능</li>
+</ul>
+</li>
+</ul>
+<p>이 강의에서는:</p>
+<ul>
+<li>Community Edition으로 기본 개념 학습</li>
+<li>Azure Databricks로 실제 분산 구조 시연</li>
+</ul>
+<hr>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://kish191919.github.io">Danny Ki</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://kish191919.github.io/2025/12/18/DATABRICKS-Certified-Developer-1/">https://kish191919.github.io/2025/12/18/DATABRICKS-Certified-Developer-1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/DATABRICKS/">DATABRICKS</a><a class="post-meta__tags" href="/tags/DATABRICKS-CERTIFIED-DEVELOPER/">DATABRICKS_CERTIFIED_DEVELOPER</a></div><div class="post-share"><div class="social-share" data-image="/img/my_pic.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/12/18/DATABRICKS-Certified-Developer-2/" title="DATABRICKS-Certified-Developer-2"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">Previous</div><div class="info-item-2">DATABRICKS-Certified-Developer-2</div></div><div class="info-2"><div class="info-item-1">Azure Databricks에서 Apache Spark 클러스터 생성하기1. 이 강의에서 배울 내용이 영상에서는 Apache Spark를 실행하기 위한 Databricks 클러스터를 생성하는 방법을 살펴보겠습니다.구체적으로는 다음 내용을 다룹니다.  Azure Databricks 워크스페이스 생성 Databricks 환경 실행 Spark 클러스터 생성 클러스터 주요 설정 옵션 이해 클러스터 상태 및 Spark UI 확인  Spark는 클러스터 없이 실행될 수 없기 때문에,이 단계는 이후 모든 실습의 기초가 되는 매우 중요한 과정입니다.  2. Azure Databricks 워크스페이스 생성먼저 Azure Portal에서 시작합니다. 이미 Azure 계정이 있다면:  Azure Portal에 로그인 상단 검색창에서 Databricks 검색 Azure Databricks 선택  만약 바로 보이지 않으면 검색창에Databricks 라고 입력하면 쉽게 찾을 수 있습니다. Azure ...</div></div></div></a><a class="pagination-related" href="/2025/12/12/DATABRICKS-Fundamentals-5/" title="DATABRICKS-Fundamentals-5"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">DATABRICKS-Fundamentals-5</div></div><div class="info-2"><div class="info-item-1">1. 오늘 강의에서 다룰 질문 3가지여러분, Databricks 워크스페이스를 만들면 “웹에서 접속하는 화면”은 바로 보이죠.그런데 수업을 하거나 실무에서 설명할 때는 아래 3가지 질문을 꼭 답할 수 있어야 합니다.  Databricks는 Azure 어디에 설치되나요? 노트북&#x2F;잡&#x2F;클러스터&#x2F;데이터는 각각 어디에 있나요? 왜 굳이 Control Plane &#x2F; Data Plane으로 나누나요?  이 3가지를 이해하면, Databricks가 “그냥 웹앱”이 아니라 클라우드 네이티브 데이터 플랫폼이라는 게 보입니다.  2. 큰 그림: Control Plane vs Data Plane2.1 한 문장 요약 Control Plane(컨트롤 플레인): Databricks가 제공하는 “관리&#x2F;제어” 영역 (UI, 노트북&#x2F;잡&#x2F;클러스터 설정 등) Data Plane(데이터 플레인): 고객(Azure 구독) 안에서 실제로 돈이 나가는 “실행...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/12/18/DATABRICKS-Certified-Developer-2/" title="DATABRICKS-Certified-Developer-2"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-18</div><div class="info-item-2">DATABRICKS-Certified-Developer-2</div></div><div class="info-2"><div class="info-item-1">Azure Databricks에서 Apache Spark 클러스터 생성하기1. 이 강의에서 배울 내용이 영상에서는 Apache Spark를 실행하기 위한 Databricks 클러스터를 생성하는 방법을 살펴보겠습니다.구체적으로는 다음 내용을 다룹니다.  Azure Databricks 워크스페이스 생성 Databricks 환경 실행 Spark 클러스터 생성 클러스터 주요 설정 옵션 이해 클러스터 상태 및 Spark UI 확인  Spark는 클러스터 없이 실행될 수 없기 때문에,이 단계는 이후 모든 실습의 기초가 되는 매우 중요한 과정입니다.  2. Azure Databricks 워크스페이스 생성먼저 Azure Portal에서 시작합니다. 이미 Azure 계정이 있다면:  Azure Portal에 로그인 상단 검색창에서 Databricks 검색 Azure Databricks 선택  만약 바로 보이지 않으면 검색창에Databricks 라고 입력하면 쉽게 찾을 수 있습니다. Azure ...</div></div></div></a><a class="pagination-related" href="/2025/12/18/DATABRICKS-Certified-Developer-3/" title="DATABRICKS-Certified-Developer-3"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-18</div><div class="info-item-2">DATABRICKS-Certified-Developer-3</div></div><div class="info-2"><div class="info-item-1">Databricks Community Edition 계정 생성 및 클러스터 만들기1. 이 강의에서 필요한 준비 사항이 강의에 포함된 모든 예제를 따라 하기 위해서는Databricks Community Edition 계정이 필요합니다. Databricks Community Edition은:  무료로 제공되는 Databricks 계정이며 Apache Spark를 학습하기에 충분한 환경을 제공합니다  실무에서 사용하는 대규모 클러스터는 아니지만,Spark의 핵심 개념과 동작 방식을 이해하기에는 충분합니다.  2. Databricks Community Edition 회원 가입먼저 웹 브라우저를 열고 다음 사이트로 이동합니다. 👉 https://databricks.com 메인 페이지에서:  Try Databricks 버튼을 클릭합니다  그러면 회원 가입(Sign Up) 페이지가 나타납니다.  회원 가입 정보 입력다음과 같은 기본 정보를 입력합니다.  Company Name (회사명) ...</div></div></div></a><a class="pagination-related" href="/2025/12/18/DATABRICKS-Certified-Developer-4/" title="DATABRICKS-Certified-Developer-4"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-18</div><div class="info-item-2">DATABRICKS-Certified-Developer-4</div></div><div class="info-2"><div class="info-item-1">실습 데이터셋 및 Databricks 노트북 설치하기1. 이 강의에서 할 일이 강의에서는 앞으로의 모든 실습을 위해 필요한:  📁 데이터셋(Data files) 📓 Databricks 노트북(Notebooks)  을 Databricks 환경에 설치합니다. 이 과정이 제대로 되지 않으면👉 이후 강의에서 제공하는 소스 코드가 정상적으로 실행되지 않기 때문에반드시 차근차근 따라와 주세요.  2. 강의 자료 다운로드 (Zip 파일)먼저 이 강의의 Resources(자료) 섹션으로 이동합니다. 여기에서 두 개의 zip 파일을 다운로드합니다.  📓 Notebooks zip 파일 강의에서 사용할 Databricks 노트북들   📁 Dataset zip 파일 실습에 사용할 데이터 파일들 (JSON, CSV 등)    두 파일 모두 로컬 PC에 다운로드 후 압축을 해제해 주세요.  3. Databricks에 데이터셋 업로드하기이제 Databricks 환경으로 돌아가서먼저 데이터 파일을...</div></div></div></a><a class="pagination-related" href="/2025/12/18/DATABRICKS-Certified-Developer-5/" title="DATABRICKS-Certified-Developer-5"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-18</div><div class="info-item-2">DATABRICKS-Certified-Developer-5</div></div><div class="info-2"><div class="info-item-1">Spark DataFrame 기초 실습 시작하기1. 실습 시작 전 확인 사항 (매우 중요)본격적으로 실습을 시작하기 전에, 두 가지를 반드시 확인해야 합니다. ✅ 1) 데이터셋이 정상적으로 설치되었는지 확인Databricks 환경의 왼쪽 메뉴에서 다음 순서로 이동합니다.  Data 클릭 Add Data DBFS (Databricks File System) FileStore Tables 이전 강의에서 생성한 데이터 폴더  이 경로에서:  이전 강의에서 업로드한 모든 데이터 파일이 보인다면👉 데이터셋은 정상적으로 설치된 것입니다.   ✅ 2) 클러스터가 실행 중인지 확인Apache Spark는 클러스터 없이는 아무 작업도 할 수 없습니다. Community Edition에서는:  동시에 하나의 클러스터만 실행 가능합니다.  클러스터가 없다면:  Create Cluster 클릭 클러스터 이름 입력 Create Cluster 클릭  자세한 클러스터 생성 방법은👉 이전 강의 영상을 ...</div></div></div></a><a class="pagination-related" href="/2025/12/18/DATABRICKS-Certified-Developer-6/" title="DATABRICKS-Certified-Developer-6"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-18</div><div class="info-item-2">DATABRICKS-Certified-Developer-6</div></div><div class="info-2"><div class="info-item-1">DataFrame Schema 정의 방법 이해하기DataFrame은 각 컬럼의 이름(Name) 과 데이터 타입(Data Type) 을 정의하는Schema를 가지고 있습니다. DataFrame의 Schema를 확인하려면 printSchema 메서드를 사용합니다. 1customerDF.printSchema()  이 명령을 실행하면 DataFrame의 Schema가사람이 읽기 쉬운 형태로 출력됩니다.  1. 왜 Schema를 직접 정의해야 할까?예를 들어, 데이터 파일을 보면 address_id 컬럼의 값은 크지 않습니다.하지만 Spark는 자동으로 이를 Long 타입으로 인식할 수 있습니다. 이 경우:  Long 타입은 불필요하게 큰 타입이고 Integer 타입으로 충분한 상황입니다  따라서 Schema를 직접 정의하여 데이터 타입을 정확히 지정하는 것이 좋습니다.  2. Schema를 정의하는 첫 번째 방법: DDL 문자열 방식DataFrame Schema를 정의하는 첫 번째 방...</div></div></div></a><a class="pagination-related" href="/2025/12/12/DATABRICKS-Fundamentals-1/" title="DATABRICKS-Fundamentals-1"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-12-12</div><div class="info-item-2">DATABRICKS-Fundamentals-1</div></div><div class="info-2"><div class="info-item-1">1. Apache Spark란?Apache Spark는👉 분산 클러스터 환경에서 대규모 데이터를 빠르게 처리하기 위한 데이터 처리 엔진(Engine) 입니다. Spark는 다음 작업을 하나의 통합된 프레임워크에서 처리할 수 있습니다.  배치 데이터 처리 (Batch Processing) 스트리밍 데이터 처리 (Stream Processing) 머신러닝 (Machine Learning) 그래프 처리 (Graph Processing) SQL 기반 데이터 분석  📌 시험 포인트  Spark는 데이터베이스가 아니다 Spark는 스토리지 시스템이 아니다 Spark는 데이터 처리 엔진(Processing Engine) 이다   2. Spark가 제공하는 주요 API (Unified Framework)Spark는 하나의 엔진 위에서 여러 API를 제공합니다. (1) Spark SQL &amp; DataFrame API SQL 기반 데이터 처리 ANSI SQL 호환 가장 많이 사용됨 ⭐⭐...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/my_pic.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Danny Ki</div><div class="author-info-description">A data engineer's journey in coding, analytics, and building real-world systems.</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">117</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">13</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/kish191919"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/kish191919" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Apache-Spark-Cluster-Architecture-%E2%80%93-Easy-Explanation"><span class="toc-number">1.</span> <span class="toc-text">Apache Spark Cluster Architecture – Easy Explanation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Computing-on-a-Single-Computer"><span class="toc-number">1.1.</span> <span class="toc-text">1. Computing on a Single Computer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Operating-System%EC%9D%98-%EC%97%AD%ED%95%A0"><span class="toc-number">1.1.1.</span> <span class="toc-text">Operating System의 역할</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Why-Single-Computer-Is-Not-Enough-for-Big-Data"><span class="toc-number">1.2.</span> <span class="toc-text">2. Why Single Computer Is Not Enough for Big Data</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-What-Is-a-Computer-Cluster"><span class="toc-number">1.3.</span> <span class="toc-text">3. What Is a Computer Cluster?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Cluster-Manager-Node-Manager"><span class="toc-number">1.4.</span> <span class="toc-text">4. Cluster Manager &amp; Node Manager</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cluster-Manager"><span class="toc-number">1.4.1.</span> <span class="toc-text">Cluster Manager</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Node-Manager"><span class="toc-number">1.4.2.</span> <span class="toc-text">Node Manager</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Apache-Spark-Application-Components"><span class="toc-number">1.5.</span> <span class="toc-text">5. Apache Spark Application Components</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Spark-Driver"><span class="toc-number">1.5.1.</span> <span class="toc-text">Spark Driver</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spark-Executors"><span class="toc-number">1.5.2.</span> <span class="toc-text">Spark Executors</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Spark-Application-Execution-Flow"><span class="toc-number">1.6.</span> <span class="toc-text">6. Spark Application Execution Flow</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1-spark-submit"><span class="toc-number">1.6.1.</span> <span class="toc-text">Step 1: spark-submit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2-Driver-Creation"><span class="toc-number">1.6.2.</span> <span class="toc-text">Step 2: Driver Creation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3-Executor-Request"><span class="toc-number">1.6.3.</span> <span class="toc-text">Step 3: Executor Request</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-4-Executor-Creation"><span class="toc-number">1.6.4.</span> <span class="toc-text">Step 4: Executor Creation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-5-Driver%E2%80%93Executor-Connection"><span class="toc-number">1.6.5.</span> <span class="toc-text">Step 5: Driver–Executor Connection</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Parallel-Processing-in-Spark"><span class="toc-number">1.7.</span> <span class="toc-text">7. Parallel Processing in Spark</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-Spark-Deployment-Modes"><span class="toc-number">1.8.</span> <span class="toc-text">8. Spark Deployment Modes</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cluster-Mode"><span class="toc-number">1.8.1.</span> <span class="toc-text">Cluster Mode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Client-Mode"><span class="toc-number">1.8.2.</span> <span class="toc-text">Client Mode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Local-Mode"><span class="toc-number">1.8.3.</span> <span class="toc-text">Local Mode</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-Responsibilities-Summary"><span class="toc-number">1.9.</span> <span class="toc-text">9. Responsibilities Summary</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Spark-Driver-1"><span class="toc-number">1.9.1.</span> <span class="toc-text">Spark Driver</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spark-Executor"><span class="toc-number">1.9.2.</span> <span class="toc-text">Spark Executor</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-Databricks-and-Spark"><span class="toc-number">1.10.</span> <span class="toc-text">10. Databricks and Spark</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Databricks-Editions"><span class="toc-number">1.10.1.</span> <span class="toc-text">Databricks Editions</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/18/DATABRICKS-Certified-Developer-6/" title="DATABRICKS-Certified-Developer-6">DATABRICKS-Certified-Developer-6</a><time datetime="2025-12-18T15:48:12.000Z" title="Created 2025-12-18 10:48:12">2025-12-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/18/DATABRICKS-Certified-Developer-5/" title="DATABRICKS-Certified-Developer-5">DATABRICKS-Certified-Developer-5</a><time datetime="2025-12-18T15:38:46.000Z" title="Created 2025-12-18 10:38:46">2025-12-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/18/DATABRICKS-Certified-Developer-4/" title="DATABRICKS-Certified-Developer-4">DATABRICKS-Certified-Developer-4</a><time datetime="2025-12-18T15:32:28.000Z" title="Created 2025-12-18 10:32:28">2025-12-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/18/DATABRICKS-Certified-Developer-3/" title="DATABRICKS-Certified-Developer-3">DATABRICKS-Certified-Developer-3</a><time datetime="2025-12-18T15:27:05.000Z" title="Created 2025-12-18 10:27:05">2025-12-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/12/18/DATABRICKS-Certified-Developer-2/" title="DATABRICKS-Certified-Developer-2">DATABRICKS-Certified-Developer-2</a><time datetime="2025-12-18T15:13:19.000Z" title="Created 2025-12-18 10:13:19">2025-12-18</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By Danny Ki</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.3</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
